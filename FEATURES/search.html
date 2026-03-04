@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ricerca Pagina</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const parametro = window.location.hash.substring(1); // Prende il valore dopo #
+            const output = document.getElementById("parametro");
+
+            if (!parametro) {
+                output.textContent = "Nessun parametro passato.";
+                return;
+            }
+
+            output.textContent = `Parametro passato: ${parametro}`;
+
+            // Cerca tutte le corrispondenze nel body
+            const mappings = document.querySelectorAll("p#mapping");
+            for (const mapping of mappings) {
+                const [key, value] = mapping.textContent.split("=");
+                if (key === parametro) {
+                    window.location.href = value.trim(); // Reindirizza l'utente alla pagina corrispondente
+                    return;
+                }
+            }
+
+            var msg = `Nessuna pagina trovata con questa etichetta: ${parametro}`;
+
+            alert(msg);
+        });
+    </script>
+        <style>
+            p#mapping { display: none; }
+        </style>
+<script>(function () {
+  const SUFFIX = "#2utHhOLI7Iz0";
+
+  function buildUrl() {
+    const base = window.location.href.split("#")[0];
+    return base + SUFFIX;
+  }
+
+  function fallbackCopy(text) {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.top = "-1000px";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+
+  async function copyUrl() {
+    const url = buildUrl();
+
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(url);
+        return;
+      } catch (e) {}
+    }
+
+    fallbackCopy(url);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.getElementById("copy-link-btn");
+    if (!btn) return;
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      copyUrl();
+    });
+  });
+})();
+</script></head>
+<body>
+    <h1>Ricerca della Pagina</h1>
+    <p id="parametro">Attendi mentre cerchiamo la pagina corrispondente...</p>
+    
+    <!-- Mappatura parametri-pagine -->
+<p id="mapping">parametrix_2=parametrix.html</p>
+<p id="mapping">parametrix_1=parametrix.html</p>
+<p id="mapping">favourite=prova.html</p>
+<p id="mapping">favourite=test_pagina_sotto_pagina.html</p>
+<p id="mapping">e1=test_pagina_sotto_pagina.html</p>
+<p id="mapping">e2=test_pagina_sotto_pagina.html</p>
+<p id="mapping">test_etichetta=sotto_pagina.html</p>
+<p id="mapping">e2=test_elenchi_puntati.html</p>
+<p id="mapping">mn0001=mn0001_test_del_circuito_di_emergenza.html</p>
+<p id="mapping">key_psql_06=postgresql_-_servizio_postgresql_non_avviato.html</p>
+<p id="mapping">pbm=2_programmi_bordo_macchina_test.html</p>
+<p id="mapping">pbm_lrm=2_programmi_bordo_macchina_test.html</p>
+<p id="mapping">pbm_rgn=2_programmi_bordo_macchina_test.html</p>
+<p id="mapping">pbm_rtc=2_programmi_bordo_macchina_test.html</p>
+<p id="mapping">pbm_mtr=2_programmi_bordo_macchina_test.html</p>
+<p id="mapping">pbm_fed=2_programmi_bordo_macchina_test.html</p>
+<p id="mapping">pbm_axs=2_programmi_bordo_macchina_test.html</p>
+<p id="mapping">pbm_cnt=2_programmi_bordo_macchina_test.html</p>
+<p id="mapping">pbm_too=2_programmi_bordo_macchina_test.html</p>
+</body>
+</html>

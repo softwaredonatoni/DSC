@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+<head>
+    <!-- Book generated using mdBook -->
+    <meta charset="UTF-8">
+    <title>ROADMAP - FEATURES</title>
+
+    <!-- Custom HTML head -->
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="icon" href="favicon.svg">
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/chrome.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Fonts -->
+    <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+    <link rel="stylesheet" href="fonts/fonts.css">
+
+    <!-- Highlight.js Stylesheets -->
+    <link rel="stylesheet" id="highlight-css" href="highlight.css">
+    <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+    <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+    <!-- Custom theme stylesheets -->
+    <link rel="stylesheet" href="./mdbook-admonish.css">
+    <link rel="stylesheet" href="theme/custom.css">
+    <link rel="stylesheet" href="search.html">
+    <link rel="stylesheet" href="login.html">
+    <link rel="stylesheet" href="searchlogin.html">
+    <link rel="stylesheet" href="searchloginmenu.html">
+
+    <!-- Provide site root and default themes to javascript -->
+    <script>
+      const path_to_root = "";
+      const default_light_theme = "light";
+      const default_dark_theme = "navy";
+    </script>
+    <!-- Start loading toc.js asap -->
+    <script src="toc.js"></script>
+<script>(function () {
+  const SUFFIX = "#2utHhOLI7Iz0";
+
+  function buildUrl() {
+    const base = window.location.href.split("#")[0];
+    return base + SUFFIX;
+  }
+
+  function fallbackCopy(text) {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.top = "-1000px";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+
+  async function copyUrl() {
+    const url = buildUrl();
+
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(url);
+        return;
+      } catch (e) {}
+    }
+
+    fallbackCopy(url);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.getElementById("copy-link-btn");
+    if (!btn) return;
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      copyUrl();
+    });
+  });
+})();
+</script></head>
+<body>
+    <header class="header-main">
+        <div class="header-flex">
+            <div class="donatoni-flex">
+                <label class="btn hamburger-menu" id="sidebar-toggle" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                    <i id="sidebar-toggle-icon" class="fa-solid fa-bars"></i>
+                </label>
+
+                <img src="images/donatoni-logo-white.svg" alt="Donatoni Macchine">
+            </div>
+
+            <div class="donatoni-flex action-header-buttons">
+                <div id="search-wrapper" class="search-wrapper hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults"></ul>
+                    </div>
+                </div>
+                <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+
+                <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
+                    <i class="fa-solid fa-print"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div id="body-container">
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem("mdbook-theme");
+                let sidebar = localStorage.getItem("mdbook-sidebar");
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-theme",
+                        theme.slice(1, theme.length - 1)
+                    );
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-sidebar",
+                        sidebar.slice(1, sidebar.length - 1)
+                    );
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
+                .matches
+                ? default_dark_theme
+                : default_light_theme;
+            let theme;
+            try {
+                theme = localStorage.getItem("mdbook-theme");
+            } catch (e) { }
+            if (theme === null || theme === undefined) {
+                theme = default_theme;
+            }
+            const html = document.documentElement;
+            html.classList.remove("light");
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try {
+                    sidebar = localStorage.getItem('mdbook-sidebar');
+                } catch (e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document
+                        .getElementById("sidebar-toggle")
+                        .setAttribute("aria-expanded", sidebar === "visible");
+                    document
+                        .getElementById("sidebar")
+                        .setAttribute("aria-hidden", sidebar !== "visible");
+                    Array.from(document.querySelectorAll("#sidebar a")).forEach(
+                        function (link) {
+                            link.setAttribute("tabIndex", sidebar === "visible" ? 0 : -1);
+                        }
+                    );
+                </script>
+
+                <div id="content" class="content">
+
+                    <div>
+
+                        <img src="images/donatoni_111.jpg">
+
+                        <main style="margin-left: 20px;">
+                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="roadmap" style="margin:0;"><a class="header" href="#roadmap">ROADMAP</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="ROADMAP"--><h1 local-id="881026a7-aaa1-4af6-afcd-791ce990a2fa"><strong>Roadmap di Revamping Applicativo </strong></h1><p local-id="3a0a0fa0-cd1c-449e-8214-7d526dfdd6f9"><strong>Migrazione da .NET Framework 4.7.2 (WinForms _ VB) a .NET 9 (WPF _ C#)</strong></p><h2 local-id="07c2ae3e-0310-46ef-b283-ced8b9603e75"><strong>1. Obiettivi del Revamping</strong></h2><h3 local-id="62460de0-d2c9-4bf0-ac72-a7d125bcad44">1.1 Obiettivi Tecnici</h3><ul local-id="0ed8afb3-8fd3-42a8-b1ea-5652f60aee8f"><li local-id="d48b3391-effa-4b76-9975-3b3fe0ad163f"><p local-id="ad0c03f0-67f0-4fe1-8329-bc3d5387ec01">Migrazione tecnologica verso <strong>.NET 9</strong> (LTS moderno, performance, sicurezza)</p></li><li local-id="a908c10d-14a6-472c-98f7-e6b3e71e8647"><p local-id="ecf2336b-c02b-4db0-a4c1-33e291368dfb">Abbandono di <strong>vb</strong> a favore di <strong>C#</strong></p></li><li local-id="d6988ccc-25e0-47cf-b4d6-b7b4f3e7aa30"><p local-id="277b1cec-17d3-46e3-8cad-352c692308d4">Passaggio da <strong>WinForms a WPF (MVVM)</strong></p></li><li local-id="242aaa10-5551-482c-b47d-6cab241bf2a0"><p local-id="ce359f08-c55e-4ec0-806e-de188f8f3d60">Architettura modulare, testabile e manutenibile</p></li><li local-id="54027af2-8c48-4f17-865f-28240cad0385"><p local-id="8f4784e2-043d-47e5-8b5f-c5a7ed78aacf">Separazione netta tra:</p><ul local-id="29686641-3204-4d5d-8948-e8841bb1248a"><li local-id="5365f2f3-2576-4f68-bb40-1ae84754a05d"><p local-id="2959e456-75d5-4dec-9539-819f79fd11ae">Logica CAD</p></li><li local-id="37bd8286-5e0a-4ea7-9b66-ad13a410dc6a"><p local-id="a607ae49-54fe-4d44-89ce-a7beeaba6c2e">Logica CAM</p></li><li local-id="bc31aea8-23b8-491d-b1b5-fc4f3c4e6018"><p local-id="81737a53-9cfb-435d-a3de-15c94f1035b1">Logica macchina CNC</p></li><li local-id="fa2a35d4-3f3b-4cf3-aad6-1d5dc086b818"><p local-id="855b30cb-d042-4ba4-95d2-fedf65102b46">Interfaccia utente</p></li></ul></li></ul><h3 local-id="8eac1e70-8074-4213-addc-a430460cf03c">1.2 Obiettivi Funzionali</h3><ul local-id="e8ae2fea-4a5e-4abe-b241-b2244d38f4c7"><li local-id="68c150a0-ddc1-408c-940e-7cb83bb3a6be"><p local-id="f5ce889e-37ad-48b4-8cfe-0be28504c5d2">Conservare <strong>compatibilità funzionale</strong> con il software legacy</p></li><li local-id="64684895-0da4-442f-9764-1e0f0fcbf23f"><p local-id="86a5a411-3e33-4501-9352-01ec67395586">Migliorare:</p><ul local-id="6e1a2609-d81d-454a-a86e-a31647b85678"><li local-id="fab7316c-81f5-4a5d-a585-69223d2c7754"><p local-id="3fd82a77-691f-46a2-b647-bec44ff5c6f9">Usabilità operatore</p></li><li local-id="b3959fee-9b76-49c1-a392-0c8c8f1b3453"><p local-id="59d0a3e9-60de-4cbd-bfb8-e3832d2353bf">Visualizzazione grafica (CAD / anteprime)</p></li><li local-id="3572d580-a2b8-45de-9287-42b91354b255"><p local-id="d7e33e2d-ec03-4947-bcd6-442537b7ca24">Gestione allarmi e diagnostica</p></li></ul></li><li local-id="3d426ecf-686e-4939-a043-e4131b9730f3"><p local-id="8191d1ed-22b7-4e5d-a5db-c6f4e16445fc">Preparare il sistema per:</p><ul local-id="bd6ca126-8ec1-43b5-a9d1-e307789feae3"><li local-id="866e39f0-fcdc-4917-97ff-9591831ad9b3"><p local-id="6a139b35-e916-4953-98f1-00411cf75c32">Nuove macchine</p></li><li local-id="f3b4ca24-5d1f-4e9c-aa98-33cc9b309153"><p local-id="7ac565f8-991c-45ba-9f6b-ffd79a2d0506">Nuove lavorazioni</p></li><li local-id="be7e019d-5365-4325-b541-ff66cadbbb37"><p local-id="66679267-7f88-4263-ade5-147e38693ed8">Automazioni future</p></li><li local-id="3aa3cb27-d6a5-43e6-ab79-cc299f263458"><p local-id="003adabc-e4c2-4f25-9410-7232c52b45e9"><strong>2. Stato Attuale (AS-IS)</strong></p></li></ul></li></ul><h3 local-id="08e297e3-8d6e-462a-a188-64b5769817e0">2.1 Tecnologie</h3><ul local-id="95e86cee-9323-4f0b-9a5f-08b243326c04"><li local-id="9de68640-c0ea-4572-995f-cefb2b0e7d27"><p local-id="67e21998-a569-4bad-90f3-3bdff9abcc48"><strong>.NET Framework 4.7.2</strong></p></li><li local-id="260623f7-f5d1-47ed-9aa3-3f38d3f50e89"><p local-id="bbbcb219-1565-4fd2-901e-c5b5d40f8460"><strong>WinForms</strong></p></li><li local-id="88d9ff00-c75d-4eb1-b4d9-385f6fd1cf0f"><p local-id="2256a1bf-4779-4b36-a095-e9159b791eda"><a href="http://VB.NET" local-id="ed4716fc-eb28-4fca-ad9c-9b4fea9bc6c9" data-card-appearance="inline">http://VB.NET</a> </p></li><li local-id="61379237-08a5-45cd-8d35-61cf512df6f1"><p local-id="3bc04efe-a568-4b6e-96eb-621048050eb9">Codice monolitico</p></li><li local-id="cd1e4de8-f8ae-4274-ac55-e9b311ed3753"><p local-id="3f862711-43b7-4833-9815-6d5d9da48c02">Logica UI fortemente accoppiata alla logica di business</p></li><li local-id="4e188b65-c182-4c9e-9bb2-94af06db79ea"><p local-id="6b9e6d9f-f81e-411d-a297-7ad3c06a9774">Rendering CAD custom / GDI_ / OpenGL legacy (se presente)</p></li></ul><h3 local-id="83e5b277-2dc2-42bc-b2ed-2a0327a74562">2.2 Criticità Principali</h3><ul local-id="368709e9-d220-43b4-93b6-16ab83b15aff"><li local-id="d66bcb04-d7bc-474d-9d89-32dd953e54ee"><p local-id="3b425906-10f5-4571-a4d9-d54ec79d6aef">Difficoltà di manutenzione</p></li><li local-id="425c1db7-aefd-48a7-9fc2-b830c00fe9b0"><p local-id="3de23978-b19f-4841-967c-3862906a9ce1">Scarsa testabilità</p></li><li local-id="4f24fe1f-2563-46bb-a84b-15925520172d"><p local-id="08c67794-d762-4a38-bb96-9128c2461891">Evoluzione lenta</p></li><li local-id="26d8b69b-6b23-470b-8eae-dbcae262a463"><p local-id="fcf9b18f-e8d0-4f90-9c45-7ae4fc29c661">UX non allineata agli standard moderni</p></li><li local-id="1d9ccc1a-83ac-4d9b-bd38-e64843973bc0"><p local-id="095fe717-671d-4f66-ae2c-1eb486edf143">Vincoli tecnologici (Framework obsoleto)</p></li></ul>
+                        </main>
+
+                    </div>
+
+                    <img src="images/donatoni_222.jpg">
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="postgresql_-_servizio_postgresql_non_avviato.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="2_programmi_bordo_macchina_test.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+
+
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                <a rel="prev" href="postgresql_-_servizio_postgresql_non_avviato.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="2_programmi_bordo_macchina_test.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="mermaid.min.js"></script>
+        <script src="mermaid-init.js"></script>
+        <script src="hidemenu.js"></script>
+        <script src="imagemodal.js"></script>
+        <script src="login.js"></script>
+    </div>
+
+    <!-- Modale -->
+    <div id="modal" onclick="closeModal()">
+        <img id="modal-img" src="">
+    </div>;
+
+
+</body>
+</html>
