@@ -29,7 +29,49 @@
         <link rel="stylesheet" href="theme/custom.css">
         <link rel="stylesheet" href="search.html">
         <link rel="stylesheet" href="login.html">
-    </head>
+    <script>(function () {
+  const SUFFIX = "#2utHhOLI7Iz0";
+
+  function buildUrl() {
+    const base = window.location.href.split("#")[0];
+    return base + SUFFIX;
+  }
+
+  function fallbackCopy(text) {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.top = "-1000px";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+
+  async function copyUrl() {
+    const url = buildUrl();
+
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(url);
+        return;
+      } catch (e) {}
+    }
+
+    fallbackCopy(url);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.getElementById("copy-link-btn");
+    if (!btn) return;
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      copyUrl();
+    });
+  });
+})();
+</script></head>
     <body class="sidebar-iframe-inner">
         <ol class="chapter"><li class="chapter-item "><a href="parametrix_solutions.html" target="_parent"><strong aria-hidden="true">1.</strong> PARAMETRIX SOLUTIONS</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="abyat_parametrix_programming_office_-_2_machines.html" target="_parent"><strong aria-hidden="true">1.1.</strong> ABYAT PARAMETRIX PROGRAMMING OFFICE - 2 MACHINES</a></li></ol></li></ol>
     </body>

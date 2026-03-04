@@ -1,4 +1,4 @@
-﻿(() => {
+(() => {
     const darkThemes = ["ayu", "navy", "coal"];
     const lightThemes = ["light", "rust"];
 
