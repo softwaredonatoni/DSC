@@ -2,40 +2,39 @@
 <html lang="en" class="light sidebar-visible" dir="ltr">
 <head>
     <!-- Book generated using mdBook -->
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8">
     <title>2 PROGRAMMI BORDO MACCHINA test - FEATURES</title>
 
     <!-- Custom HTML head -->
 
-    <meta name="description" content="" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#ffffff" />
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
 
-    <link rel="icon" href="favicon.svg" />
-    <link rel="shortcut icon" href="favicon.png" />
-    <link rel="stylesheet" href="css/variables.css" />
-    <link rel="stylesheet" href="css/general.css" />
-    <link rel="stylesheet" href="css/chrome.css" />
-    <link rel="stylesheet" href="css/print.css" media="print" />
-    <link rel="stylesheet" href="css/custom.css" />
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="icon" href="favicon.svg">
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/chrome.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <!-- Fonts -->
-    <link rel="stylesheet" href="FontAwesome/css/font-awesome.css" />
-    <link rel="stylesheet" href="fonts/fonts.css" />
+    <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+    <link rel="stylesheet" href="fonts/fonts.css">
 
     <!-- Highlight.js Stylesheets -->
-    <link rel="stylesheet" id="highlight-css" href="highlight.css" />
-    <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css" />
-    <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css" />
+    <link rel="stylesheet" id="highlight-css" href="highlight.css">
+    <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+    <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
 
     <!-- Custom theme stylesheets -->
-    <link rel="stylesheet" href="./mdbook-admonish.css" />
-    <link rel="stylesheet" href="theme/custom.css" />
-    <link rel="stylesheet" href="search.html" />
-    <link rel="stylesheet" href="login.html" />
-    <link rel="stylesheet" href="searchlogin.html" />
-    <link rel="stylesheet" href="searchloginmenu.html" />
+    <link rel="stylesheet" href="./mdbook-admonish.css">
+    <link rel="stylesheet" href="theme/custom.css">
+    <link rel="stylesheet" href="search.html">
+    <link rel="stylesheet" href="login.html">
+    <link rel="stylesheet" href="searchlogin.html">
+    <link rel="stylesheet" href="searchloginmenu.html">
 
     <!-- Provide site root and default themes to javascript -->
     <script>
@@ -45,60 +44,82 @@
     </script>
     <!-- Start loading toc.js asap -->
     <script src="toc.js"></script>
-</head>
+<script>(function () {
+  const SUFFIX = "#2utHhOLI7Iz0";
+
+  function buildUrl() {
+    const base = window.location.href.split("#")[0];
+    return base + SUFFIX;
+  }
+
+  function fallbackCopy(text) {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.top = "-1000px";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+
+  async function copyUrl() {
+    const url = buildUrl();
+
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(url);
+        return;
+      } catch (e) {}
+    }
+
+    fallbackCopy(url);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.getElementById("copy-link-btn");
+    if (!btn) return;
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      copyUrl();
+    });
+  });
+})();
+</script></head>
 <body>
     <header class="header-main">
         <div class="header-flex">
             <div class="donatoni-flex">
-                <label class="btn hamburger-menu"
-                       id="sidebar-toggle"
-                       for="sidebar-toggle-anchor"
-                       title="Toggle Table of Contents"
-                       aria-label="Toggle Table of Contents"
-                       aria-controls="sidebar">
+                <label class="btn hamburger-menu" id="sidebar-toggle" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
                     <i id="sidebar-toggle-icon" class="fa-solid fa-bars"></i>
                 </label>
 
-                <img src="images/donatoni-logo-white.svg" alt="Donatoni Macchine" />
+                <img src="images/donatoni-logo-white.svg" alt="Donatoni Macchine">
             </div>
 
             <div class="donatoni-flex action-header-buttons">
                 <div id="search-wrapper" class="search-wrapper hidden">
                     <form id="searchbar-outer" class="searchbar-outer">
-                        <input type="search"
-                               id="searchbar"
-                               name="searchbar"
-                               placeholder="Search this book ..."
-                               aria-controls="searchresults-outer"
-                               aria-describedby="searchresults-header" />
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
                     </form>
                     <div id="searchresults-outer" class="searchresults-outer hidden">
                         <div id="searchresults-header" class="searchresults-header"></div>
                         <ul id="searchresults"></ul>
                     </div>
                 </div>
-                <button class="btn btn-sm"
-                        id="search-toggle"
-                        type="button"
-                        title="Search. (Shortkey: s)"
-                        aria-label="Toggle Searchbar"
-                        aria-expanded="false"
-                        aria-keyshortcuts="S"
-                        aria-controls="searchbar">
+                <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </button>
 
-                <button class="btn btn-sm me-2"
-                        onclick="window.location.href='print.html'"
-                        title="Print this book"
-                        aria-label="Print this book">
+                <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
                     <i class="fa-solid fa-print"></i>
                 </button>
             </div>
         </div>
     </header>
     <div id="body-container">
-        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden" />
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
         <script>
             try {
@@ -191,68 +212,72 @@
 
                     <div>
 
-                        <img src="images/donatoni_111.jpg" />
+                        <img src="images/donatoni_111.jpg">
 
                         <main style="margin-left: 20px;">
-                            <h1 id="2-programmi-bordo-macchina-test"><a class="header" href="#2-programmi-bordo-macchina-test">2 PROGRAMMI BORDO MACCHINA test</a></h1><!--Page="2 PROGRAMMI BORDO MACCHINA test"--><p local-id="88389cd2-3531-42cc-b124-f4a2c04a7b7e"></p><p local-id="5b86f32e-37cd-454e-b25f-82ffdd83c1d6">All’avvio dell’applicativo, se l’azzeramento degli assi è già stato eseguito, verrà visualizzata la seguente schermata iniziale:</p><div class="TextAlignCenter"><img src="attachments/2_PROGRAMMI_BORDO_MACCHINA_test/pagina_iniziale-20250314-102352.png" alt="pagina_iniziale-20250314-102352.png" width="800" onclick="showModal(this.src)"></div><p local-id="04d67ef8-4c3a-4b8d-b3ff-f90f5819f166"></p><p>
+                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="2-programmi-bordo-macchina-test" style="margin:0;"><a class="header" href="#2-programmi-bordo-macchina-test">2 PROGRAMMI BORDO MACCHINA test</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="2 PROGRAMMI BORDO MACCHINA test"--><p local-id="88389cd2-3531-42cc-b124-f4a2c04a7b7e"></p><p local-id="5b86f32e-37cd-454e-b25f-82ffdd83c1d6">All’avvio dell’applicativo, se l’azzeramento degli assi è già stato eseguito, verrà visualizzata la seguente schermata iniziale:</p><div class="TextAlignCenter"><img src="attachments/2_PROGRAMMI_BORDO_MACCHINA_test/pagina_iniziale-20250314-102352.png" alt="pagina_iniziale-20250314-102352.png" width="800" onclick="showModal(this.src)"></div><p local-id="04d67ef8-4c3a-4b8d-b3ff-f90f5819f166"></p><p>
 </p><p local-id="c2ba0cb4-411c-46b9-9e98-bfeacb36ba22"></p><h1 local-id="2389c1de-1f31-4d8e-96ed-8719dd80c3e6">Barra superiore</h1><div class="TextAlignCenter"><img src="attachments/2_PROGRAMMI_BORDO_MACCHINA_test/1_0_BarraSup_b-20250919-135858.png" alt="1_0_BarraSup_b-20250919-135858.png" width="800" onclick="showModal(this.src)"></div><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="fb7be448-ebb4-41fe-97ae-182bb9f3d0fb" data-table-display-mode="default"><colgroup><col style="width: 272.0px;"><col style="width: 1528.0px;"></colgroup><tbody><tr ac:local-id="1386d612-aa0d-4f9e-aace-062176449641"><td ac:local-id="aa05c5f4-cea5-4f11-ac08-456560abeadc"><div class="TextAlignCenter"><img src="attachments/2_PROGRAMMI_BORDO_MACCHINA_test/1_ParametriUtente_B-20250320-094536.png" alt="1_ParametriUtente_B-20250320-094536.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="fd0022c9-4e3d-4637-aafe-0cd98d10b213"><p local-id="58194d32-d0d1-4011-9934-b02e81c2e234"><strong>Parametri</strong><br>Permette di accedere ai parametri programma di Parametrix.</p></td></tr><tr ac:local-id="6bbe2941-be7d-4dc6-aa4c-768556e2875e"><td ac:local-id="89c89373-1432-4aea-979f-ee40a6c08d34"><div class="TextAlignCenter"><img src="attachments/2_PROGRAMMI_BORDO_MACCHINA_test/1_ToolPanel_B.png" alt="1_ToolPanel_B.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="811e19f0-3347-4c10-915d-68508712dd3b"><p local-id="5fdc47bf-b87d-40e6-9f39-0697f2511309"><strong>Parametri Utensile</strong><br>Premendo il pulsante, si accede nella pagina dei parametri dell’utensile. Si rimanda al capitolo “Configurazione Utensile” per una descrizione dettagliata della pagina parametri.</p></td></tr><tr ac:local-id="4d92504b-ac60-4651-a2e3-2069eb494391"><td ac:local-id="17f5bd71-de42-4b8f-8fb3-3e35454af86a"><div class="TextAlignCenter"><img src="attachments/2_PROGRAMMI_BORDO_MACCHINA_test/1_RotazAutom_0-90__B.png" alt="1_RotazAutom_0-90__B.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="f1010d03-9146-46f7-935d-0d86be20b76f"><p local-id="f5df38b5-3b41-44f0-b31f-0032808e099c"><strong>Rotazione automatica 0/ 90 gradi</strong><br>L’asse “C" viene spostata automaticamente a 0 oppure 90 gradi nell’istante in cui viene premuto il pulsante.</p></td></tr><tr ac:local-id="90ae23e5-a8ab-483e-80dc-10ed4fbb777d"><td ac:local-id="a20ed41c-1e8f-467e-b5a7-bbb9e21ab1f6"><div class="TextAlignCenter"><img src="attachments/2_PROGRAMMI_BORDO_MACCHINA_test/1_Park_B.png" alt="1_Park_B.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="ac15d9c1-1766-4754-a9f4-7fcc11183301"><p local-id="580ad9ff-a4a9-4dcb-8bae-79404b183969"><strong>Parcheggio automatico</strong><br>Quando viene premuto la macchina effettua uno spostamento in automatico degli assi “X”, “Y”, “Z”, “C” in posizione di zero.<br>Gli spostamenti vengono effettuati dalla macchina rispettando l’ordine seguente:<br>(A) - Asse “Z” in posizione di zero assoluto;<br>(B) - Asse “C” in posizione di 0 assoluto;<br>(C) - Assi “X” e “Y” contemporaneamente in posizione di Zero assoluto;</p><div class="TextAlignCenter"><img src="attachments/2_PROGRAMMI_BORDO_MACCHINA_test/1_parcheggio_B.png" alt="1_parcheggio_B.png" width="261" onclick="showModal(this.src)"></div>
-<div id="admonition-attenzioneper-effettuare-il-parcheggio-automatico-devono-essere-rispettate-alcune-condizioni-di-sicurezza" class="admonition admonish-warning" role="note" aria-labelledby="admonition-attenzioneper-effettuare-il-parcheggio-automatico-devono-essere-rispettate-alcune-condizioni-di-sicurezza-title">
+<div id="admonition-attenzione" class="admonition admonish-warning" role="note" aria-labelledby="admonition-attenzione-title">
 <div class="admonition-title">
-<div id="admonition-attenzioneper-effettuare-il-parcheggio-automatico-devono-essere-rispettate-alcune-condizioni-di-sicurezza-title">
-<p>ATTENZIONE!Per effettuare il parcheggio automatico devono essere rispettate alcune condizioni di sicurezza:</p>
+<div id="admonition-attenzione-title">
+<p>ATTENZIONE!</p>
 </div>
-<a class="admonition-anchor-link" href="#admonition-attenzioneper-effettuare-il-parcheggio-automatico-devono-essere-rispettate-alcune-condizioni-di-sicurezza"></a>
+<a class="admonition-anchor-link" href="#admonition-attenzione"></a>
 </div>
 <div>
-<p>La posizione dell’Asse “A” deve essere a 0_.Accertarsi che la zona di movimento interessata al posizionamento (Vedi figura accanto) sia libera.</p>
+<p>Per effettuare il parcheggio automatico devono essere rispettate alcune condizioni di sicurezza:
+<br>
+La posizione dell’Asse “A” deve essere a 0_.
+<br>
+Accertarsi che la zona di movimento interessata al posizionamento (Vedi figura accanto) sia libera.</p>
 </div>
 </div>
 </td></tr><tr ac:local-id="a13f93a9-6722-48ad-9957-9525d5f49a8c"><td ac:local-id="97afdb81-ffb1-44ca-8ef5-b9fa28ccf4d2"><div class="TextAlignCenter"><img src="attachments/2_PROGRAMMI_BORDO_MACCHINA_test/1_Zero_D-20250320-121702.png" alt="1_Zero_D-20250320-121702.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="be1a137a-3bf0-4b98-a769-f5cf3a993806"><p local-id="03e8d1e7-e7c3-479a-9b6e-4a33b4a9dfde"><strong>Zero</strong><br>Effettua l’azzeramento degli assi (Questa operazione è necessaria quando viene avviata la macchina o quando gli indicatori rettangolari sono rossi).<br>Quando il ciclo di azzeramento è concluso gli indicatori saranno di colore grigio.<br>La fase di azzeramento prevede la movimentazione sequenziale degli assi:</p><ol start="1" local-id="99a524c3-0b62-403d-8cd3-b7100c172f64" type="1"><li local-id="386ca7d7-dfbe-451d-94e1-a91d913ee8eb"><p local-id="04ce017a-7c3e-42a3-a0ed-5b11f2c94684">Asse Z</p></li><li local-id="13794fb7-2014-4729-9f29-5f8f0ead8a88"><p local-id="468e52ed-ee1d-4486-8726-219d111a31af">Asse A</p></li><li local-id="9f32fc0d-3249-415c-9de0-00d7461c903b"><p local-id="2480a5f9-cdf9-4918-aba2-90126fac67c5">Asse C</p></li><li local-id="3eefeda2-f991-475d-8e03-7000212d3699"><p local-id="62e28036-2351-46c8-8da4-24ea5d8634b1">Contemporaneamente gli Assi X e Y</p></li><li local-id="b684934c-eb80-4934-96ef-1b15f8e976e2"><p local-id="314596e0-c910-4d5d-b1f5-b8ee77773288">Asse B (Optional: Tornio controllato)</p></li></ol>
-<div id="admonition-info" class="admonition admonish-info" role="note" aria-labelledby="admonition-info-title">
+<div id="admonition-nota" class="admonition admonish-info" role="note" aria-labelledby="admonition-nota-title">
 <div class="admonition-title">
-<div id="admonition-info-title">
-<p>Info</p>
+<div id="admonition-nota-title">
+<p>NOTA</p>
 </div>
-<a class="admonition-anchor-link" href="#admonition-info"></a>
+<a class="admonition-anchor-link" href="#admonition-nota"></a>
 </div>
 <div>
-<p>NOTAL’azzeramento è consentito solamente quando la chiave codificata è inserita nella postazione adeguata, individuabile sulla console operatore.</p>
+<p>L’azzeramento è consentito solamente quando la chiave codificata è inserita nella postazione adeguata, individuabile sulla console operatore.</p>
 </div>
 </div>
 </td></tr><tr ac:local-id="c909fe4e-1cbd-482e-9a33-e6c57d85e79d"><td ac:local-id="c7cfdc6a-b258-435c-9f32-c7e46330e177"><div class="TextAlignCenter"><img src="attachments/2_PROGRAMMI_BORDO_MACCHINA_test/1_H2OIntern.png" alt="1_H2OIntern.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="7198d835-73cb-4ee9-9721-f3fc25a4b843"><p local-id="196d3e45-50db-4d6b-b5f9-2bdfdabd37da"><strong>Accensione / Spegnimento acqua interna</strong><br>Premendo questo pulsante viene attivata l’acqua dall’interno dell’utensile.<br>La segnalazione sopra il pulsante cambia il colore: Verde = Accesa; Rossa = Spenta.</p></td></tr><tr ac:local-id="06e6afa2-bcda-45e1-8902-bae5fad2ea1a"><td ac:local-id="71b04fd6-fc72-4df7-a873-5a69dd321a89"><div class="TextAlignCenter"><img src="attachments/2_PROGRAMMI_BORDO_MACCHINA_test/1_H2O_Est-20250320-092600.png" alt="1_H2O_Est-20250320-092600.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="cbf0b1a5-1907-4905-b28a-f1b3dc4596f3"><p local-id="18856c47-e696-49ec-9cda-cf097b0e6201"><strong>Accensione / Spegnimento acqua esterna</strong><br>Premendo questo pulsante viene attivata l’acqua del condotto principale.<br>La segnalazione sopra il pulsante cambia il colore: Verde = Accesa; Rossa = Spenta.</p></td></tr><tr ac:local-id="d407680c-96ec-464d-9d47-b876e0548280"><td ac:local-id="56657a05-daf5-40ec-ad15-5cd0a8cf3533"><div class="TextAlignCenter"><img src="attachments/2_PROGRAMMI_BORDO_MACCHINA_test/1_CambiaTool_B-20250320-093047.png" alt="1_CambiaTool_B-20250320-093047.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="e6296273-6980-4a2b-b4c6-ba20cda69b40"><p local-id="3f646e3d-947e-4f4b-914e-07a62b58e9e3"><strong>Cambia Utensile Manuale</strong><br>Premendo il pulsante, si avvia la procedura di cambio utensile.</p></td></tr><tr ac:local-id="cca49971-a6f8-41cf-bbc0-7fb0babdd66e"><td ac:local-id="b96da88a-2f7f-4c25-97e7-17764d52a7c6"><div class="TextAlignCenter"><img src="attachments/2_PROGRAMMI_BORDO_MACCHINA_test/1_Manutenzioni_B.png" alt="1_Manutenzioni_B.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="5efe8806-3477-4bfd-8634-ce3cb7980f65"><p local-id="5acb0e4a-3b7d-4900-8f93-464edd558e11"><strong>Manutenzioni</strong><br>Premendo questo pulsante verrà visualizzata una finestra contenente tutte le manutenzioni della macchina.<br>Verranno visualizzate sia le manutenzioni da effettuare, sia quelle nella norma.<br>Se almeno una manutenzione richiede.</p></td></tr><tr ac:local-id="0774eb15-52d0-487c-9186-44db88e6af94"><td ac:local-id="31458a80-5d07-46eb-b386-0043dee340da"><div class="TextAlignCenter"><img src="attachments/2_PROGRAMMI_BORDO_MACCHINA_test/1_help_B.png" alt="1_help_B.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="b24a2343-95bb-4f87-af13-3f34c36dc0ba"><p local-id="21171c0e-fd41-45c3-9499-13f7d7fa6fe1"><strong>Aiuto</strong><br>Premendo questo pulsante verrà modificata leggermente la grafica di tutti i bottoni attualmente visibili e il loro comportamento. È ora possibile premere qualunque bottone con un piccolo punto di domanda nell’angolo alto sinistro per poter apprendere la funzione offerta dal bottone tramite un piccolo messaggio.  Per poter uscire da questa modalità di assistenza è semplicemente necessario premere nuovamente il pulsante “Aiuto“.</p></td></tr></tbody></table><p local-id="509866ef-f201-44d1-a0cf-e613e2ff6aae"></p><p local-id="ffd95f29-f5f1-4785-8f44-cdcba760f37b"></p><h1 local-id="39102f2c-0eb7-4181-beb9-f10749371e5e">Elementi interfaccia comune</h1><p local-id="3cadf2d6-02ba-4314-a5b6-ba6e07de082a">Gli elementi dell’interfaccia grafica in comune per le funzionalità sono:</p><p local-id="19d61e82-127c-4590-abdc-d3e477cae5a3"></p><h2 local-id="a1c46627-8367-46d8-b578-fec0b52163d7">Assi</h2><p local-id="c0174c82-da97-44ed-af60-d3b6d9236b8b">In questa interfaccia vengono riportati i valori degli assi della macchina.</p><p local-id="ab0f0dd1-0e44-4803-adb2-ec082bce58fc">Esempio di elemento dell’interfaccia “Assi“ con origine 0 e azzeramento degli assi già eseguito:</p><div class="TextAlignCenter"><img src="attachments/2_PROGRAMMI_BORDO_MACCHINA_test/Assi_Azzerato_B.png" alt="Assi_Azzerato_B.png" width="600" onclick="showModal(this.src)"></div><p local-id="e05a23eb-807f-4c9b-ab7e-702700a5aebb">Esempio di elemento dell’interfaccia “Assi“ con origine 0 e azzeramento degli assi ancora da eseguire:</p><div class="TextAlignCenter"><img src="attachments/2_PROGRAMMI_BORDO_MACCHINA_test/Assi_DaAzzerare_B.png" alt="Assi_DaAzzerare_B.png" width="600" onclick="showModal(this.src)"></div><p local-id="0809445a-412b-4e5d-b242-d4cfe327e0ee">Di seguito si trova la spiegazione degli elementi che compongono questa sezione dell’interfaccia comune, vengono presi come riferimenti gli elementi nel caso assi già azzerati.</p><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="ada2e4e9-da09-4c33-abee-f3cc36949e35" data-table-display-mode="default"><colgroup><col style="width: 676.0px;"><col style="width: 1122.0px;"></colgroup><tbody><tr ac:local-id="2ac3cbe0-ffb6-49e7-bc60-7ddec13274b8"><td ac:local-id="f73c1df3-acee-4a3a-8ebb-537768e0b944"><div class="TextAlignCenter"><img src="attachments/2_PROGRAMMI_BORDO_MACCHINA_test/asseX_b-20250714-074727.png" alt="asseX_b-20250714-074727.png" width="425" onclick="showModal(this.src)"></div><p local-id="7ebdfd1b-a767-4de6-9ddc-2d809044e154"></p></td><td ac:local-id="a7fde708-b454-4c86-9cb9-5dfcd6506cc0"><p local-id="a5100d4e-36b3-4128-9e47-4ea0594a03a2"><strong>Quota reale: </strong>indica la posizione dell’asse rispetto all’origine attiva.<br><strong>Quota obiettivo: </strong>indica la quota da impostare per effettuare il movimento dell’asse attraverso la pressione del pulsante MDI o RTCP.<br><strong>F:  </strong>Feed, velocità di movimento espressa in mm/minuto.<br><strong>DTG:  </strong>Distance To Go, distanza dall’obiettivo. <br><strong>A:  </strong>Ampere.</p></td></tr><tr ac:local-id="4d165568-6898-477f-810e-5dd10b4725e8"><td ac:local-id="540a1bea-aca3-4ac3-886a-0bbc877ed09c"><div class="TextAlignCenter"><img src="attachments/2_PROGRAMMI_BORDO_MACCHINA_test/ResetAsse_B.png" alt="ResetAsse_B.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="da69683e-4912-40ee-947e-0ab2a5a4ae67"><p local-id="96fd0eeb-7db5-4411-8925-f4c579b00153"><strong>Reset Asse</strong><br>Premendo questo pulsante si imposta lo zero dell’origine attiva nel punto in cui si trova il relativo asse (X, Y o Z).<br>L’operazione di reset asse può essere eseguita solo su origini diverse dalla 0 (zero).<br>Per utilizzare l’origine in coordinate utensile (TCP) è necessario aver impostato le misure corrette dell’utensile montato prima di premere il pulsante Reset Asse.</p></td></tr><tr ac:local-id="714e9913-6db4-4d15-8789-2f4d4625392d"><td ac:local-id="3a3d8ee8-bcf3-4a78-87d4-03860c9fa454"><div class="TextAlignCenter"><img src="attachments/2_PROGRAMMI_BORDO_MACCHINA_test/RotazAutom__-90_B.png" alt="RotazAutom__-90_B.png" width="138" onclick="showModal(this.src)"></div></td><td ac:local-id="ddeea6a9-7809-4fca-a0cc-29933483f68f"><p local-id="bc026671-7f84-42e5-bdf5-b24f83f36c86"><strong>Rotazione automatica _90 gradi</strong><br>La posizione dell’asse “C” viene incrementata di 90 gradi in senso orario.<br>Esempio: la macchina si trova a 12 gradi, premendo il pulsante “Rotazione automatica _90 gradi” la macchina si porta a 102 gradi: 12 _ 90.</p><p local-id="68779c22-3731-46f6-a7d9-1da973380016"><strong>Rotazione automatica -90 gradi</strong><br>La posizione dell’asse “C” viene decrementata di 90 gradi in senso anti-orario.<br>Esempio: la macchina si trova a 102 gradi, premendo il pulsante “Rotazione automatica -90 gradi” la macchina si porta a 12 gradi: 102 - 90.</p></td></tr></tbody></table><p local-id="9abfdd25-751a-4021-962b-932011fe3263"></p><h2 local-id="4163e670-787d-4444-84b9-4fdc79a5c7bc">Controlli</h2><p local-id="c5bd5d0b-d87c-4c19-89bd-97f98a165eeb">In questo pannello sono proposti alcuni pulsanti il cui comportamento viene spiegato di seguito:</p><div class="TextAlignCenter"><img src="attachments/2_PROGRAMMI_BORDO_MACCHINA_test/Controlli_B-20250321-072300.png" alt="Controlli_B-20250321-072300.png" width="250" onclick="showModal(this.src)"></div><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="0940b3e0-8d5b-404a-8d44-f59471e46925" data-table-display-mode="default"><colgroup><col style="width: 318.0px;"><col style="width: 1481.0px;"></colgroup><tbody><tr ac:local-id="d014d54d-ebf1-4b33-a6a4-211d36ceacc3"><td ac:local-id="04aaed68-69d1-48e9-9225-3b03b77c189c"><div class="TextAlignCenter"><img src="attachments/2_PROGRAMMI_BORDO_MACCHINA_test/ModeInterpolaz_D-20250320-122418.png" alt="ModeInterpolaz_D-20250320-122418.png" width="148" onclick="showModal(this.src)"></div></td><td ac:local-id="d10001b0-6ede-4353-95a2-ca1241ec1685"><p local-id="11a55b87-707c-4410-9f79-d147b4280c84"><strong>Modalità interpolazione</strong><br>Quando il pulsante è attivo (figura di destra) i movimenti manuali Z, C e A vengono eseguiti considerando la rotazione e l’inclinazione.<br>Movimento asse Z interpolato: azionando il JOG dell’asse Z la macchina si muoverà allineata all’utensile montato.</p>
-<div id="admonition-info-1" class="admonition admonish-info" role="note" aria-labelledby="admonition-info-1-title">
+<div id="admonition-nota-1" class="admonition admonish-info" role="note" aria-labelledby="admonition-nota-1-title">
 <div class="admonition-title">
-<div id="admonition-info-1-title">
-<p>Info</p>
+<div id="admonition-nota-1-title">
+<p>NOTA</p>
 </div>
-<a class="admonition-anchor-link" href="#admonition-info-1"></a>
+<a class="admonition-anchor-link" href="#admonition-nota-1"></a>
 </div>
 <div>
-<p>NOTAIl tipo di utensile selezionato ha effetto sulla direzione di movimento.</p>
+<p>Il tipo di utensile selezionato ha effetto sulla direzione di movimento.</p>
 </div>
 </div>
 <p local-id="45fb6bc0-d068-4350-b170-3b64cfaea5d7">Movimento asse C interpolato: azionando il comando dell’asse C, oltre alla rotazione verranno mossi anche gli assi X e Y, in modo che il filo interno della lama (o la punta dell’utensile) rimanga ferma.<br>Movimento asse A interpolato: azionando il comando dell’asse A, oltre all’inclinazione verranno mossi anche gli assi X, Y e Z in modo che il filo interno della lama (o la punta dell’utensile) rimanga ferma nella posizione in cui si trova.<br>Non sono consentite movimentazioni simultanee degli assi Z, C e A con la modalità interpolata attiva.</p>
-<div id="admonition-warning" class="admonition admonish-warning" role="note" aria-labelledby="admonition-warning-title">
+<div id="admonition-attenzione-1" class="admonition admonish-warning" role="note" aria-labelledby="admonition-attenzione-1-title">
 <div class="admonition-title">
-<div id="admonition-warning-title">
-<p>Warning</p>
+<div id="admonition-attenzione-1-title">
+<p>ATTENZIONE!</p>
 </div>
-<a class="admonition-anchor-link" href="#admonition-warning"></a>
+<a class="admonition-anchor-link" href="#admonition-attenzione-1"></a>
 </div>
 <div>
-<p>ATTENZIONE!Prestare molta attenzione allo stato del pulsante in quanto i movimenti della macchina potrebbero risultare differenti da ciò che ci si attende.</p>
+<p>Prestare molta attenzione allo stato del pulsante in quanto i movimenti della macchina potrebbero risultare differenti da ciò che ci si attende.</p>
 </div>
 </div>
 </td></tr><tr ac:local-id="60a97100-c558-4cc4-adac-cabcc49455f5"><td ac:local-id="40d0c206-5919-44a2-97a7-0ef0ca57063f"><div class="TextAlignCenter"><img src="attachments/2_PROGRAMMI_BORDO_MACCHINA_test/RTCP_B.png" alt="RTCP_B.png" width="119" onclick="showModal(this.src)"></div></td><td ac:local-id="afc6b552-0d23-4faf-ba2c-24f7dfc2ef37"><p local-id="ed99d7da-6e9e-42e9-9f17-533d402e26c2"><strong>Interpolazione RTCP</strong><br>Effettua un posizionamento impostato in quota “Obiettivo” alla quota A o della quota C mantenendo fermo il filo interno della lama (o la punta dell’utensile).<br>Per ulteriori specifiche vedere il paragrafo: “Funzionalità semi-Automatico RTCP Rotation Tool Center Point”</p></td></tr><tr ac:local-id="5eb166e0-f799-4ab7-8612-d1bfb9126ab2"><td ac:local-id="48d4eee9-643e-4450-8505-fdbac7196e28"><div class="TextAlignCenter"><img src="attachments/2_PROGRAMMI_BORDO_MACCHINA_test/Untitled-20250718-135707.png" alt="Untitled-20250718-135707.png" width="182" onclick="showModal(this.src)"></div></td><td ac:local-id="6a241b38-2bdd-4cd5-a223-08732917cd87"><p local-id="4419032f-8385-46b7-ad27-337ce8995f1b"><strong>MDI</strong><br>Quando viene premuto, la macchina effettua il movimento fino al raggiungimento delle quote impostate nelle quote obiettivo (Vedi sopra).<br>La velocità degli assi X e Y è comandata dai rispettivi potenziometri, mentre gli altri assi vengono comandati dal potenziometro interpolato.</p></td></tr></tbody></table><p local-id="0449b65e-2eb8-4eb1-8653-385a00e1da31"></p><h2 local-id="e7f62590-fb11-4a3b-bc16-aaa23d0e6df0">Utensile</h2><p local-id="15a01fa2-67b3-4edf-883d-5d1e828f0d4f">In questo elemento dell’interfaccia vengono riportate le principali informazioni riguardanti l’utensile montato in macchina.</p><p local-id="756744f2-ffd1-4a3c-be03-46b23f27d2cb">Esempio di utensile montato in macchina: Disco</p><div class="TextAlignCenter"><img src="attachments/2_PROGRAMMI_BORDO_MACCHINA_test/0_disco_B-20250321-072455.png" alt="0_disco_B-20250321-072455.png" width="400" onclick="showModal(this.src)"></div><p local-id="58a36155-1933-4513-926d-fab397f1c844">Esempio di utensile montato in macchina: Foretto</p><div class="TextAlignCenter"><img src="attachments/2_PROGRAMMI_BORDO_MACCHINA_test/0_FresaForetto_B.png" alt="0_FresaForetto_B.png" width="400" onclick="showModal(this.src)"></div><p local-id="b29f264f-fc0c-4324-b082-a80104ea50c2"></p><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="f448fd80-fa18-473c-b33f-c40d3f717b17" data-table-display-mode="default"><colgroup><col style="width: 259.0px;"><col style="width: 1538.0px;"></colgroup><tbody><tr ac:local-id="ba0564eb-b436-4500-b4a6-326d0de785b4"><td data-highlight-colour="#ffffff" ac:local-id="e9cc337c-73a2-41f0-bcb0-0a2edfa4e63e"><div class="TextAlignCenter"><img src="attachments/2_PROGRAMMI_BORDO_MACCHINA_test/UtensileAttivo_B.png" alt="UtensileAttivo_B.png" width="60" onclick="showModal(this.src)"></div></td><td data-highlight-colour="#ffffff" ac:local-id="46309553-caca-4dd4-a688-f726d15d2909"><p local-id="cf214eaa-8fed-407c-a690-95a6b752fa93"><strong>Utensile attivo</strong><br>Cliccando questo pulsante viene visualizzato un pop-up di conferma che permette all’operatore di modificare il tipo di utensile montato in macchina. </p><p local-id="d39ab658-aa2c-46f7-ae8f-502029cdd2a1">La scelta è limitata tra:</p><ol start="1" local-id="d1f4154b-fc21-40d4-ad62-86580d82e6ad" type="1"><li local-id="1f92313d-a7ad-4d00-a1e6-27ce15e60931"><p local-id="1d232633-a108-47bb-9d4a-28caf788552d">Disco</p></li><li local-id="1e57ea49-0209-4b8f-9543-9b1ca1bd9091"><p local-id="3e2df220-b4d8-40b9-8748-000fe078a196">Fresa / Foretto</p></li></ol></td></tr></tbody></table><p local-id="60aeb3e8-dfa0-4f8d-83d0-d3fe31bb992b"></p><h2 local-id="57d1b680-0fe5-4b68-8529-603e011450d4">Origine</h2><p local-id="81732060-90d9-4329-8273-8c7094af516b">Cliccando sul campo “Origine” verrà visualizzato un piccolo tastierino numerico su schermo che permetterà all’operatore di selezionare un'origine diversa con cui lavorare. <br>I valori Origine possono variare da 0 a 19 compresi.</p><p local-id="b18b5482-8f1a-4d7a-96e8-4970f2e47787">Esempio con origine 0:</p><div class="TextAlignCenter"><img src="attachments/2_PROGRAMMI_BORDO_MACCHINA_test/OrigineZero_B.png" alt="OrigineZero_B.png" width="400" onclick="showModal(this.src)"></div><p local-id="c9183c87-834b-471b-85c6-8da0b6301989">Esempio con origine 10:</p><div class="TextAlignCenter"><img src="attachments/2_PROGRAMMI_BORDO_MACCHINA_test/OrigineDieci_B.png" alt="OrigineDieci_B.png" width="400" onclick="showModal(this.src)"></div><h3 local-id="efb9e477-ffbd-40a4-ae99-55dfaa616754">RTCP - Rotation Tool Center Point</h3><p local-id="32564418-dccc-48d6-a82e-f965c7d96a33">La funzione RTCP consente all’operatore di effettuare un posizionamento per un taglio inclinato mantenendo l’altezza dell’utensile invariata, nonostante l’inclinazione venga variata durante il posizionamento. Il filo interno del disco rimarrà nella stessa posizione in cui si trova all’inizio della movimentazione.</p><p local-id="e820faef-9ffe-421b-82dd-335446efa08d"></p><h4 local-id="6b025587-5a08-46a9-b0ce-c7861ba49614">Procedura di funzionamento</h4><ul local-id="315a87eb-9cf7-495d-9464-1803f36668ce"><li local-id="e2da2e4b-6bf9-44cb-83c7-a7afb1e6b502"><p local-id="7ab98012-9cef-49bb-884a-78a29d9c6079">Impostare la quota obiettivo nell’area dedicata all’asse “A” (inclinazione) o “C”</p></li><li local-id="a75e507a-33a1-46d1-8820-98262c6afe05"><p local-id="21eb4214-97b2-4f01-8721-11b33c510b17">Premendo il pulsante RTCP parte la funzione di inclinazione o rotazione mantenendo il punto più basso dell’utensile fisso.</p></li></ul>
-<div id="admonition-info-2" class="admonition admonish-info" role="note" aria-labelledby="admonition-info-2-title">
+<div id="admonition-nota-2" class="admonition admonish-info" role="note" aria-labelledby="admonition-nota-2-title">
 <div class="admonition-title">
-<div id="admonition-info-2-title">
-<p>Info</p>
+<div id="admonition-nota-2-title">
+<p>NOTA</p>
 </div>
-<a class="admonition-anchor-link" href="#admonition-info-2"></a>
+<a class="admonition-anchor-link" href="#admonition-nota-2"></a>
 </div>
 <div>
-<p>NOTALa movimentazione tramite comando RTCP è consentita solamente quando la chiave codificata è inserita nella postazione adeguata, individuabile sulla console operatore.</p>
+<p>La movimentazione tramite comando RTCP è consentita solamente quando la chiave codificata è inserita nella postazione adeguata, individuabile sulla console operatore.</p>
 </div>
 </div>
 <ul local-id="5dfeeba9-7d4a-4398-9e9a-97e5208d9ffc"><li local-id="92e7df53-94e2-414f-abd8-71395443b37a"><p local-id="619f5b3d-0da6-4d7e-9097-46ab64209b37">Attendere il posizionamento della macchina alla quota impostata.</p></li></ul><p local-id="cbb0e15b-948f-47fd-b50f-d097ad0258d5"></p><h2 local-id="cce69997-e96a-4793-9569-ab733754003a">Motore</h2><p local-id="6aa9cdea-95a7-4101-a180-5c555a5c838e">In questa sezione sono riportate alcune statistiche riguardanti il motore della macchina:</p><div class="TextAlignCenter"><img src="attachments/2_PROGRAMMI_BORDO_MACCHINA_test/Motore_B-20250321-072750.png" alt="Motore_B-20250321-072750.png" width="400" onclick="showModal(this.src)"></div><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="c2ccdefe-f2f6-43ab-9db4-83d7fffadbd7" data-table-display-mode="default"><colgroup><col style="width: 596.0px;"><col style="width: 1201.0px;"></colgroup><tbody><tr ac:local-id="6bb5b67c-d975-4345-8abd-528717086312"><td data-highlight-colour="#ffffff" ac:local-id="37e780cd-5261-4da0-87bd-4c28c4e78aa8"><div class="TextAlignCenter"><img src="attachments/2_PROGRAMMI_BORDO_MACCHINA_test/S_B.png" alt="S_B.png" width="391" onclick="showModal(this.src)"></div></td><td data-highlight-colour="#ffffff" ac:local-id="257a3d7a-f3c2-4f2d-a23c-aeaab668af59"><p local-id="5c7feea3-8267-4667-9020-1899153291d8"><strong>Giri per minuto (RPM)</strong><br>Indica i giri del motore mandrino al minuto. Se il verso di rotazione è orario il valore risulta positivo, al contrario se il verso è antiorario, il segno è negativo.</p></td></tr><tr ac:local-id="198bfcac-6c9e-414e-9bb0-b079013c4456"><td ac:local-id="0d663235-cb3f-4304-8401-7a7d65bbfbbc"><div class="TextAlignCenter"><img src="attachments/2_PROGRAMMI_BORDO_MACCHINA_test/A_B.png" alt="A_B.png" width="391" onclick="showModal(this.src)"></div></td><td ac:local-id="dfe9d91b-2050-4ccc-bd74-b6b5e83639f9"><p local-id="d0e6db78-f8ca-4298-97d1-7cc471a809c1"><strong>Consumo (A)</strong><br>Indica la corrente assorbita dal motore mandrino.</p></td></tr><tr ac:local-id="7c88d799-e078-46ac-a2c4-18afe9a03c6d"><td ac:local-id="c7bfe96e-897f-4239-80b5-818408c52c75"><div class="TextAlignCenter"><img src="attachments/2_PROGRAMMI_BORDO_MACCHINA_test/TH_B-20250321-082900.png" alt="TH_B-20250321-082900.png" width="400" onclick="showModal(this.src)"></div></td><td ac:local-id="1273ebb1-ee0e-491a-9242-e47af55bb607"><p local-id="3c1679bc-c255-4e2a-b775-df263a9803f2"><strong>Soglia allarme (A)</strong><br>Indica la soglia oltre la quale viene attivato l’allarme e bloccata la rotazione del mandrino.</p></td></tr></tbody></table><p local-id="7aba493e-3e63-4d33-80f7-a53697e760b2"></p><h2 local-id="d8ea5311-0d55-447c-b208-bef347bfcc07">Feed</h2><p local-id="58737e01-6d06-44aa-baac-f8d3c51b9f9c">Il valore Feed rappresenta lo spostamento interpolato della macchina.</p><div class="TextAlignCenter"><img src="attachments/2_PROGRAMMI_BORDO_MACCHINA_test/Feed_B-20250321-072835.png" alt="Feed_B-20250321-072835.png" width="400" onclick="showModal(this.src)"></div><p local-id="2b256f8d-43ae-48c2-ba03-9e0cfa47a1c6"></p><p local-id="37af85df-8627-40d9-a09b-7eb2d4f37f7a"></p><h1 local-id="d7c7085d-144f-47cf-9145-fb5201c235e8">Barra laterale destra</h1><p local-id="04947b06-0ef7-4fb6-b9ac-02fdc0cda25a">All’avvio dell’applicativo la funzionalità preselezionata è MANUALE.<br>Questa barra laterale contiene i seguenti comandi e programmi/funzioni disponibili:</p><div class="TextAlignCenter"><img src="attachments/2_PROGRAMMI_BORDO_MACCHINA_test/2_0_BarraLateraleDestra_B.png" alt="2_0_BarraLateraleDestra_B.png" width="400" onclick="showModal(this.src)"></div><p local-id="8d34da40-818d-4c4c-bc2f-4bb0eef85f95"></p><p local-id="5a94c8d7-56bf-4bd7-99f1-09b734956a2c"></p><h1 local-id="185f99fa-9bdc-4116-99a6-8eac3b52e887">Barra inferiore</h1><p local-id="ad83cd2e-b482-4263-8094-6b55174279a1">La barra inferiore visualizza messaggi informativi e di errore e alcuni pulsanti per determinate funzionalità.<br>Vengono di seguito proposti tre esempi di barra inferiore:</p><ul local-id="82d224af-bdad-47b1-ac50-e42e193a5aea"><li local-id="97a20dbb-5e50-4b4f-9e45-7beab9aa7fe2"><p local-id="010a1bb9-dadf-40e9-8a85-44450acf8736">Senza allarmi attivi.</p></li></ul><div class="TextAlignCenter"><img src="attachments/2_PROGRAMMI_BORDO_MACCHINA_test/3_0_BarraInferioreSenzaAllarmi_b-20250919-140500.png" alt="3_0_BarraInferioreSenzaAllarmi_b-20250919-140500.png" width="800" onclick="showModal(this.src)"></div><ul local-id="f01a0e9f-60e6-4e47-9c05-cf231465a97c"><li local-id="b6723af1-cfdb-48de-a63a-e4ea191c464a"><p local-id="0ac3c6b0-114e-4e48-90cd-08f2fc1d727d">Con un’emergenza generale abilitata, riportata con un’icona, un codice di errore (in questo caso PE0000), la relativa descrizione e il pulsante degli allarmi a destra lampeggiante.</p></li></ul><div class="TextAlignCenter"><img src="attachments/2_PROGRAMMI_BORDO_MACCHINA_test/3_0_BarraInferioreConAllarmi_b-20250919-143046.png" alt="3_0_BarraInferioreConAllarmi_b-20250919-143046.png" width="800" onclick="showModal(this.src)"></div><ul local-id="675b2a30-97a3-4d14-b6d7-caca174ba6a1"><li local-id="03c6b2b5-82c6-43ce-b723-7c69fec20062"><p local-id="a3aab38a-de19-49ee-8a62-3456a928e65c">Con un messaggio riportato, nell’esempio JOG diretto attivo.</p></li></ul><div class="TextAlignCenter"><img src="attachments/2_PROGRAMMI_BORDO_MACCHINA_test/3_0_BarraInferioreConMessaggio_b-20250919-140923.png" alt="3_0_BarraInferioreConMessaggio_b-20250919-140923.png" width="800" onclick="showModal(this.src)"></div><p local-id="6ff51086-50fe-4fe0-ab66-1d5ee7ee136c"> </p><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="e02c1e28-cc40-40ed-9b63-4f2c36277abd" data-table-display-mode="default"><colgroup><col style="width: 275.0px;"><col style="width: 1525.0px;"></colgroup><tbody><tr ac:local-id="bb3b4797-e115-4da5-aaa8-6a0c61decd82"><td data-highlight-colour="var(--ds-surface, #FFFFFF)" ac:local-id="d13fe82f-8210-43db-a8f9-845def02aba0"><div class="TextAlignCenter"><img src="attachments/2_PROGRAMMI_BORDO_MACCHINA_test/3_allarmi_B.png" alt="3_allarmi_B.png" width="60" onclick="showModal(this.src)"></div></td><td data-highlight-colour="var(--ds-surface, #FFFFFF)" ac:local-id="d478c9ca-0f3b-4c7b-b4c6-7d1b812988c1"><p local-id="c948a1d5-467c-411b-8f67-b2b6e131974f"><strong>Allarmi</strong><br>Permette all’operatore di accedere alla finestra degli allarmi.</p></td></tr><tr ac:local-id="75302df0-fd16-4b24-ba22-2dc34c0a8912"><td data-highlight-colour="var(--ds-surface, #FFFFFF)" ac:local-id="712f6213-add9-4a45-af3e-b8873651c9f1"><div class="TextAlignCenter"><img src="attachments/2_PROGRAMMI_BORDO_MACCHINA_test/3_Minimizzazione_B.png" alt="3_Minimizzazione_B.png" width="60" onclick="showModal(this.src)"></div></td><td data-highlight-colour="var(--ds-surface, #FFFFFF)" ac:local-id="a1a00795-5a33-4763-a8b3-ba0e0bcf6f04"><p local-id="04dacb7d-d161-49b8-9b9f-cc70ef572c2d"><strong>Minimizzazione del software</strong><br>Permette all’operatore di uscire dalla pagina del software.</p></td></tr><tr ac:local-id="caaeef50-18f7-442e-8201-c1ef611ee129"><td data-highlight-colour="var(--ds-surface, #FFFFFF)" ac:local-id="c55e4361-991f-471c-a737-b75b38244c36"><div class="TextAlignCenter"><img src="attachments/2_PROGRAMMI_BORDO_MACCHINA_test/3_TurnOffMachine_B.png" alt="3_TurnOffMachine_B.png" width="60" onclick="showModal(this.src)"></div></td><td data-highlight-colour="var(--ds-surface, #FFFFFF)" ac:local-id="d23fafcb-4518-4c30-b175-bd008d93b06d"><p local-id="53a250a3-037e-4fc3-bf0e-e784d21620f8"><strong>Spegnimento della macchina</strong><br>Permette all’operatore di spegnere definitivamente la macchina.</p></td></tr></tbody></table><p local-id="fe9b9e12-2d33-4f5a-b819-f1112f0b0eb4"></p><h2 local-id="d47ccb30-bb4a-4df9-8ab5-4b03f37e19d7">Allarmi</h2><p local-id="9329634e-9300-4f22-be87-cd157c2dd1c4">La pagina allarmi indica gli Allarmi/Messaggi attivi del sistema.<br>Se la macchina non ha allarmi attivi la pagina risulta vuota, altrimenti sarà presente una riga per ogni errore presente. <br>Nella seguente pagina di esempio relativa alla gestione e visualizzazione degli allarmi è visualizzato un allarme attivo nel sistema:</p><div class="TextAlignCenter"><img src="attachments/2_PROGRAMMI_BORDO_MACCHINA_test/3_0_Allarmi_Form_C-20250722-113201.png" alt="3_0_Allarmi_Form_C-20250722-113201.png" width="800" onclick="showModal(this.src)"></div><p local-id="601f72ba-22ac-4ab9-918b-046c91175c3c"></p><h3 local-id="fe14b39b-c5d9-41a1-bea3-d42a02c92ca7">Pulsanti allarmi</h3><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="2786906e-58e4-4f16-883d-5080c02e820d"><colgroup><col style="width: 334.0px;"><col style="width: 1465.0px;"></colgroup><tbody><tr ac:local-id="4a34e708-6266-4332-86b4-838138998b9d"><td ac:local-id="c881bd5e-436d-4f7b-9ac9-817b76385b66"><div class="TextAlignCenter"><img src="attachments/2_PROGRAMMI_BORDO_MACCHINA_test/3.1.1-20250722-111950.png" alt="3.1.1-20250722-111950.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="02675606-1d3f-4c9c-ba8f-5c084e9a8e86"><p local-id="b68846c1-22c1-46bc-82e9-a6d61b47138b"><strong>Aggiorna</strong><br>Serve ad aggiornare lo stato degli allarmi della macchina.</p></td></tr><tr ac:local-id="6fb370a9-711a-4a6f-8e39-ecbf98334e03"><td ac:local-id="042b3dd9-f7fa-4c51-9620-caf3a18f5da7"><div class="TextAlignCenter"><img src="attachments/2_PROGRAMMI_BORDO_MACCHINA_test/image-20250722-112105.png" alt="image-20250722-112105.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="c7959944-06e7-4df0-99b5-99a9c0892242"><p local-id="3fd898f9-4ddd-415b-a3b6-205275514c9a"><strong>Storico allarmi</strong><br>Permette di visualizzare lo storico giornaliero degli allarmi.</p></td></tr><tr ac:local-id="7b3f64fb-f3a6-4b96-a243-10b50d33f758"><td ac:local-id="197d72cb-e62e-4962-8cc6-ccba2cbba338"><div class="TextAlignCenter"><img src="attachments/2_PROGRAMMI_BORDO_MACCHINA_test/image-20250722-112140.png" alt="image-20250722-112140.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="2e8053d6-abb8-4291-9b59-200b008660a3"><p local-id="6eeb09f7-1d79-48e8-8b00-993b3ba09e8e"><strong>Messaggi / Allarmi</strong><br>Permette di scegliere se visualizzare gli allarmi o i messaggi.</p></td></tr><tr ac:local-id="a9123ae8-2336-4640-b62c-4ee9ff203f44"><td ac:local-id="6465e9db-c793-43de-bcc6-870da824dadb"><div class="TextAlignCenter"><img src="attachments/2_PROGRAMMI_BORDO_MACCHINA_test/image-20250722-112148.png" alt="image-20250722-112148.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="e19fe49e-3647-4404-90b6-2095dc8024b3"><p local-id="db9748b2-abcd-4ebc-9ea4-98b0e2075b38"><strong>Gruppi di allarmi</strong><br>Mostra informazioni complete degli allarmi attualmente presenti in macchina.</p></td></tr></tbody></table><p local-id="950e1b0c-2fc1-4de0-a34a-9d1f543ab6bd"></p><h4 local-id="ebfce8d4-b647-4833-9c25-f5ff7183d728">Visualizzazione degli allarmi - Standard</h4><p local-id="7cc40b99-23dd-4c3a-b1dd-9c7674b4c953">La visualizzazione standard di uno degli allarmi visualizzati è composto da: </p><div class="TextAlignCenter"><img src="attachments/2_PROGRAMMI_BORDO_MACCHINA_test/3.1-20250722-113312.png" alt="3.1-20250722-113312.png" width="366" onclick="showModal(this.src)"></div><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="13fba903-ec25-4736-94b7-dda5444f6972"><colgroup><col style="width: 515.0px;"><col style="width: 1279.0px;"></colgroup><tbody><tr ac:local-id="30c104a6-56eb-4795-a3fc-b72f5d133a8e"><td ac:local-id="bd94a185-bcd0-49aa-aef2-8216346ba7a3"><div class="TextAlignCenter"><img src="attachments/2_PROGRAMMI_BORDO_MACCHINA_test/3.0-20250722-125105.png" alt="3.0-20250722-125105.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="612a95dd-c976-491e-aad3-778dc011ec37"><p local-id="0fa684b5-494d-41c2-ae38-51fb494eb04d"><strong>Collegamento online</strong><br>Un pulsante con link per la relativa guida online.</p></td></tr><tr ac:local-id="21bef083-0941-4fa7-ace4-8835462f2503"><td ac:local-id="1643a652-2bc7-43f1-a20f-91a631304f5c"><div class="TextAlignCenter"><img src="attachments/2_PROGRAMMI_BORDO_MACCHINA_test/image-20250722-130053.png" alt="image-20250722-130053.png" width="94" onclick="showModal(this.src)"></div></td><td ac:local-id="4cb66254-1e04-4d78-9ac9-482c2ef2bdfb"><p local-id="5040e26c-0652-4ee2-930e-9423d39ecf92"><strong>Codice allarme</strong><br>Codice identificativo del problema che ha causato l’allarme.</p></td></tr><tr ac:local-id="2db70eae-ca68-40f0-84c3-6a4724d9eefe"><td ac:local-id="1da3adfe-b3d4-4ed4-b8e3-eb196ac750d1"><div class="TextAlignCenter"><img src="attachments/2_PROGRAMMI_BORDO_MACCHINA_test/4.3-20250722-130309.png" alt="4.3-20250722-130309.png" width="220" onclick="showModal(this.src)"></div></td><td ac:local-id="64d96eab-f3d4-4b66-8fa7-4eff27e24a6e"><p local-id="da5afa65-35f6-4ffc-8e27-f41477105116"><strong>Descrizione</strong><br>Una breve descrizione dell’errore riscontrato.</p></td></tr></tbody></table><p local-id="b962ca06-e4cf-47e1-b4b3-7cbdc45dd929"></p><p local-id="6b21df2a-6722-4300-9f24-9c297f7ab6a1"></p><h4 local-id="64dcd6cc-a657-415d-82f5-152c89ab3e78">Visualizzazione degli allarmi - Storico</h4><p local-id="abde8eaa-107f-489a-8c65-ceb2334c4ead">Lo storico giornaliero degli allarmi include, oltre agli elementi già descritti, anche i seguenti dati:</p><div class="TextAlignCenter"><img src="attachments/2_PROGRAMMI_BORDO_MACCHINA_test/3.2-20250722-115737.png" alt="3.2-20250722-115737.png" width="661" onclick="showModal(this.src)"></div><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="5864afff-aff9-4d2c-a7c1-5648c67d0287"><colgroup><col style="width: 422.0px;"><col style="width: 1376.0px;"></colgroup><tbody><tr ac:local-id="d6160273-b079-4719-9e93-8c48c561665c"><td ac:local-id="2b40f1c4-81fc-427f-86f7-c90e59ca8d6f"><div class="TextAlignCenter"><img src="attachments/2_PROGRAMMI_BORDO_MACCHINA_test/5.1-20250722-130446.png" alt="5.1-20250722-130446.png" width="216" onclick="showModal(this.src)"></div></td><td ac:local-id="8a30edab-f345-422e-b002-d20cc1cabc58"><p local-id="9d4dca13-bf7e-418c-bc1a-7f16bf414e91"><strong>Momento cambio stato </strong><br>Data e ora di cambio stato dell’allarme.</p></td></tr><tr ac:local-id="bbc14ef6-746e-46e4-85cb-04ed5f9b256c"><td ac:local-id="0fb6ef4f-1785-401b-9bf0-055bda7bd061"><div class="TextAlignCenter"><img src="attachments/2_PROGRAMMI_BORDO_MACCHINA_test/5.2-20250722-130505.png" alt="5.2-20250722-130505.png" width="49" onclick="showModal(this.src)"></div></td><td ac:local-id="cb27c772-8749-4f16-a7a5-2a3dbb021b75"><p local-id="47b8ccbd-47b3-4f28-8f36-ad1ca106ac4a"><strong>Stato allarme</strong><br>Stato raggiunto dall’allarme (ON / OFF).</p></td></tr></tbody></table><p local-id="58469a38-79ee-4529-b760-7a4e9fa7a9f3"></p><p local-id="357b7b77-5635-4b8e-bd2c-4586b81dd720"></p><h4 local-id="96c5dc89-0668-468c-aea1-1bf11ef601b8">Visualizzazione degli allarmi - Gruppi</h4><p local-id="7977a486-1058-4b2c-b2e0-e16fc38a0a39">Il sistema di raggruppamento visualizza un'unica voce per ciascun allarme, evitando duplicazioni.</p><div class="TextAlignCenter"><img src="attachments/2_PROGRAMMI_BORDO_MACCHINA_test/3.3-20250722-120218.png" alt="3.3-20250722-120218.png" width="800" onclick="showModal(this.src)"></div><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="f2a11484-cc58-49a5-9f54-2d24701ba1ff"><colgroup><col style="width: 422.0px;"><col style="width: 1374.0px;"></colgroup><tbody><tr ac:local-id="063a3832-5588-4e40-a144-6a6855e71224"><td data-highlight-colour="#ffffff" ac:local-id="cce51c37-a4bb-4228-b787-2518215c0e95"><div class="TextAlignCenter"><img src="attachments/2_PROGRAMMI_BORDO_MACCHINA_test/6.1-20250722-133531.png" alt="6.1-20250722-133531.png" width="30" onclick="showModal(this.src)"></div></td><td data-highlight-colour="#ffffff" ac:local-id="6c816580-bd6b-4533-8a07-ef4b0d8e44d3"><p local-id="fcb505ed-f955-4072-90b0-f76cfa98f84a"><strong>Numero Occorrenze</strong><br>Il numero di occorrenze di attivazione dell’allarme.</p></td></tr><tr ac:local-id="ce196752-b954-40b0-9d52-1bf262aa619e"><td ac:local-id="b51ea434-2985-4446-ab40-423b4918a623"><div class="TextAlignCenter"><img src="attachments/2_PROGRAMMI_BORDO_MACCHINA_test/6.2-20250722-133731.png" alt="6.2-20250722-133731.png" width="220" onclick="showModal(this.src)"></div></td><td ac:local-id="6fe29714-bc4a-4a54-9ae9-558c520dd86e"><p local-id="060149a6-0044-4f4d-96a6-fac2b1c210ef"><strong>Momento prima attivazione</strong><br>Data e ora della prima attivazione dell’allarme.</p></td></tr><tr ac:local-id="d93be774-5773-4385-9489-85f9b25d2655"><td ac:local-id="79c504aa-52b3-457c-91e3-2f49042f8eaf"><div class="TextAlignCenter"><img src="attachments/2_PROGRAMMI_BORDO_MACCHINA_test/6.3-20250722-133814.png" alt="6.3-20250722-133814.png" width="220" onclick="showModal(this.src)"></div></td><td ac:local-id="9c445e0f-2b5b-4adb-b8af-75b21e0a51eb"><p local-id="d2dcab2d-181f-4a87-a0e7-ec33ce42b4af"><strong>Momento ultima attivazione</strong><br>Data e ora dell’ultima attivazione dell’allarme.</p></td></tr></tbody></table><p local-id="5130f6b8-59e9-4fbb-a1ac-ba88e6830c7b"></p><!--Label="pbm"--><!--Label="pbm_lrm"--><!--Label="pbm_rgn"--><!--Label="pbm_rtc"--><!--Label="pbm_mtr"--><!--Label="pbm_fed"--><!--Label="pbm_axs"--><!--Label="pbm_cnt"--><!--Label="pbm_too"-->
@@ -260,7 +285,7 @@
 
                     </div>
 
-                    <img src="images/donatoni_222.jpg" />
+                    <img src="images/donatoni_222.jpg">
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
