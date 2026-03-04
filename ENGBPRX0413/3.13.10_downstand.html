@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+<head>
+    <!-- Book generated using mdBook -->
+    <meta charset="UTF-8">
+    <title>3.13.10 DOWNSTAND - EN-GB PARAMETRIX 4.13</title>
+
+    <!-- Custom HTML head -->
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="icon" href="favicon.svg">
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/chrome.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Fonts -->
+    <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+    <link rel="stylesheet" href="fonts/fonts.css">
+
+    <!-- Highlight.js Stylesheets -->
+    <link rel="stylesheet" id="highlight-css" href="highlight.css">
+    <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+    <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+    <!-- Custom theme stylesheets -->
+    <link rel="stylesheet" href="./mdbook-admonish.css">
+    <link rel="stylesheet" href="theme/custom.css">
+    <link rel="stylesheet" href="search.html">
+    <link rel="stylesheet" href="login.html">
+    <link rel="stylesheet" href="searchlogin.html">
+    <link rel="stylesheet" href="searchloginmenu.html">
+
+    <!-- Provide site root and default themes to javascript -->
+    <script>
+      const path_to_root = "";
+      const default_light_theme = "light";
+      const default_dark_theme = "navy";
+    </script>
+    <!-- Start loading toc.js asap -->
+    <script src="toc.js"></script>
+<script>(function () {
+  const SUFFIX = "#2utHhOLI7Iz0";
+
+  function buildUrl() {
+    const base = window.location.href.split("#")[0];
+    return base + SUFFIX;
+  }
+
+  function fallbackCopy(text) {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.top = "-1000px";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+
+  async function copyUrl() {
+    const url = buildUrl();
+
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(url);
+        return;
+      } catch (e) {}
+    }
+
+    fallbackCopy(url);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.getElementById("copy-link-btn");
+    if (!btn) return;
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      copyUrl();
+    });
+  });
+})();
+</script></head>
+<body>
+    <header class="header-main">
+        <div class="header-flex">
+            <div class="donatoni-flex">
+                <label class="btn hamburger-menu" id="sidebar-toggle" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                    <i id="sidebar-toggle-icon" class="fa-solid fa-bars"></i>
+                </label>
+
+                <img src="images/donatoni-logo-white.svg" alt="Donatoni Macchine">
+            </div>
+
+            <div class="donatoni-flex action-header-buttons">
+                <div id="search-wrapper" class="search-wrapper hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults"></ul>
+                    </div>
+                </div>
+                <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+
+                <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
+                    <i class="fa-solid fa-print"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div id="body-container">
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem("mdbook-theme");
+                let sidebar = localStorage.getItem("mdbook-sidebar");
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-theme",
+                        theme.slice(1, theme.length - 1)
+                    );
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-sidebar",
+                        sidebar.slice(1, sidebar.length - 1)
+                    );
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
+                .matches
+                ? default_dark_theme
+                : default_light_theme;
+            let theme;
+            try {
+                theme = localStorage.getItem("mdbook-theme");
+            } catch (e) { }
+            if (theme === null || theme === undefined) {
+                theme = default_theme;
+            }
+            const html = document.documentElement;
+            html.classList.remove("light");
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try {
+                    sidebar = localStorage.getItem('mdbook-sidebar');
+                } catch (e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document
+                        .getElementById("sidebar-toggle")
+                        .setAttribute("aria-expanded", sidebar === "visible");
+                    document
+                        .getElementById("sidebar")
+                        .setAttribute("aria-hidden", sidebar !== "visible");
+                    Array.from(document.querySelectorAll("#sidebar a")).forEach(
+                        function (link) {
+                            link.setAttribute("tabIndex", sidebar === "visible" ? 0 : -1);
+                        }
+                    );
+                </script>
+
+                <div id="content" class="content">
+
+                    <div>
+
+                        <img src="images/donatoni_111.jpg">
+
+                        <main style="margin-left: 20px;">
+                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="31310-downstand" style="margin:0;"><a class="header" href="#31310-downstand">3.13.10 DOWNSTAND</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="3.13.10 DOWNSTAND"--><p>This function allows to create a rectangular piece starting from the side of an object, in order to obtain a rise.</p>
+<div id="admonition-info" class="admonition admonish-info" role="note" aria-labelledby="admonition-info-title">
+<div class="admonition-title">
+<div id="admonition-info-title">
+<p>Info</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-info"></a>
+</div>
+<div>
+<p>NOTEThis working is available only on straight type cut.</p>
+</div>
+</div>
+<div class="TextAlignCenter"><img src="attachments/3.13.10_DOWNSTAND/1.1.png" alt="1.1.png" width="800" onclick="showModal(this.src)"></div><p></p><p>
+</p><p></p><h1 id="working-types"><a class="header" href="#working-types">Working types</a></h1><p>To use this working, it is necessary to choose one of the two available modes, selecting the corresponding button:</p><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="e7d39e1c-0595-435f-8306-f6854371a9d8"><colgroup><col style="width: 286.0px;"><col style="width: 1513.0px;"></colgroup><tbody><tr><td data-highlight-colour="#ffffff"><div class="TextAlignCenter"><img src="attachments/3.13.10_DOWNSTAND/2_OnOff-20250617-095337.png" alt="2_OnOff-20250617-095337.png" width="120" onclick="showModal(this.src)"></div></td><td data-highlight-colour="#ffffff"><p><strong>Backsplash Mode</strong><br>Allows to create rectangular pieces with all straight sides.</p></td></tr><tr><td data-highlight-colour="#ffffff"><div class="TextAlignCenter"><img src="attachments/3.13.10_DOWNSTAND/3_OnOff-20250617-110233.png" alt="3_OnOff-20250617-110233.png" width="120" onclick="showModal(this.src)"></div></td><td data-highlight-colour="#ffffff"><p><strong>Upstand</strong><br>In this mode, the two sides that will be attached together, will be inclined of the same angle. </p></td></tr></tbody></table><h1 id="parameters"><a class="header" href="#parameters">Parameters</a></h1><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="3525926a-cef6-4cc5-b17d-4901c39a9aa6"><colgroup><col style="width: 286.0px;"><col style="width: 1513.0px;"></colgroup><tbody><tr><td><p><strong>Height</strong></p></td><td><p>Height of the spoiler that will be inserted during the execution of the working.<br>The width is determined a priori by the selected cut.</p></td></tr><tr><td><p><strong>Miter sides piece</strong></p></td><td><p>If enabled it inserts automatically miter cut in case of cuts that would collide.</p></td></tr></tbody></table><p></p><h2 id="additional-parameter-downstand"><a class="header" href="#additional-parameter-downstand">Additional parameter downstand</a></h2><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="0608f7b5-6781-4748-aadb-10021d711f17"><colgroup><col style="width: 286.0px;"><col style="width: 1513.0px;"></colgroup><tbody><tr><td><p><strong>Degrees</strong></p></td><td><p>This parameter is active only when the Cladding mode is selected.<br>Allows to specify the gradient with which the working will be applied.</p></td></tr></tbody></table><p></p><p></p><h1 id="execution-of-working"><a class="header" href="#execution-of-working">Execution of working</a></h1>
+<div id="admonition-info-1" class="admonition admonish-info" role="note" aria-labelledby="admonition-info-1-title">
+<div class="admonition-title">
+<div id="admonition-info-1-title">
+<p>Info</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-info-1"></a>
+</div>
+<div>
+<p>NOTEIt is possible to apply the working by pressing the button on the left of the appropriate cut in the polygon list.An icon red with a 'X' indicates that the process can not be applied to the desired cut.</p>
+</div>
+</div>
+<p>By clicking directly on the cut in the preview, or on the icon on the left of the cut in the related list on the left side when possible, the selected working will be executed.<br>At each rise or fitting applied successfully in the material corresponds the updating of the preview and of the cut list on the left.</p><p>Each piece created with this functionality will be added in the pieces list of Parametrix.<br>The new pieces introduced, they will be added in a list placed just above the preview in the 'Edit Piece' panel; </p><div class="TextAlignCenter"><img src="attachments/3.13.10_DOWNSTAND/barraPezzi-20250620-061148.png" alt="barraPezzi-20250620-061148.png" width="440" onclick="showModal(this.src)"></div><p>From this list it is possible to select the piece of the block desired to visualize its preview and the related cuts in the cuts list.</p><p></p><h2 id="backsplash-execution"><a class="header" href="#backsplash-execution">Backsplash Execution</a></h2><p>It is now shown the application of two coatings in the case in which the parameter 'Inclina sides piece' is enabled or disabled. <br>A coating of height 1000 mm is applied first on the lower side of the rectangle and then a second coating on the right side of the same.</p><p></p><h3 id="miter-sides-piece-disabled"><a class="header" href="#miter-sides-piece-disabled">Miter sides piece disabled</a></h3><p>Miter cuts do not appear in the obtained result and the cuts of the original piece are not modified in the cuts list:</p><div class="TextAlignCenter"><img src="attachments/3.13.10_DOWNSTAND/3.2.png" alt="3.2.png" width="800" onclick="showModal(this.src)"></div><p></p><h3 id="miter-sides-piece-enabled"><a class="header" href="#miter-sides-piece-enabled">Miter sides piece enabled</a></h3><p>In case of alignment vertices of the new pieces or Piece_1 and Piece_2, the sides with common vertex not adjacent to the original piece will be replaced and replaced with angled cuts:</p><div class="TextAlignCenter"><img src="attachments/3.13.10_DOWNSTAND/3.1.png" alt="3.1.png" width="800" onclick="showModal(this.src)"></div><p></p><h2 id="execution-of-upstand"><a class="header" href="#execution-of-upstand">Execution of Upstand</a></h2><p>Now it's shown the application of two lifts in the case in which the 'Inclina lati pezzo' parameter is enabled or disabled. <br>First a downstand of height 50 mm is applied on the bottom side of the rectangle and subsequently a second downstand on the right side of the same.<br>In this mode, the original piece (Piece) and each eventual piece generated (Piece_1 and Piece_2) will automatically have <strong>miter cut</strong> applied on all sides that result <strong>adjacent</strong> to each other.<br>The inclination angle is determined by the <strong>degrees</strong>.</p><p></p><h3 id="miter-sides-piece-disabled-1"><a class="header" href="#miter-sides-piece-disabled-1">Miter sides piece disabled</a></h3><p>In this case the adjacent sides between the original piece and the new pieces created are automatically replaced by miter cut.<br>The inclination of the cut depends on the <strong>Degrees</strong> parameter set.</p><div class="TextAlignCenter"><img src="attachments/3.13.10_DOWNSTAND/4.1.png" alt="4.1.png" width="800" onclick="showModal(this.src)"></div><p></p><h3 id="miter-sides-piece-enabled-1"><a class="header" href="#miter-sides-piece-enabled-1">Miter sides piece enabled</a></h3><p>As in the previous case, miter cuts are inserted in the cuts adjacent to the various pieces and the inclination depends on the value of the parameter <strong>Gradi</strong>.<br>Furthermore, by enabling the <strong>'Tilt piece sides'</strong> parameter, as in the case of cladding, if the new pieces present a <strong>alignment of vertices</strong>, the <strong>sides with a vertex in common, not adjacent to the original piece</strong>, are automatically <strong>replaced with miter cuts</strong>.</p><div class="TextAlignCenter"><img src="attachments/3.13.10_DOWNSTAND/5.1.png" alt="5.1.png" width="800" onclick="showModal(this.src)"></div><p></p><p></p><h1 id="division-of-pieces"><a class="header" href="#division-of-pieces">Division of pieces</a></h1><p>When the piece selected is associated with one or more pieces through workings of <strong>Lift</strong> or <strong>Coating</strong>, it appears in the upper part of the <strong>Modify Piece</strong> panel a <strong>specific button</strong> for the management of the associated pieces.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="fb9a6cca-1001-48da-b768-943421d8b4cb"><colgroup><col style="width: 230.0px;"><col style="width: 1568.0px;"></colgroup><tbody><tr><th data-highlight-colour="#ffffff"><div class="TextAlignCenter"><img src="attachments/3.13.10_DOWNSTAND/lock_b-20250618-063201.png" alt="lock_b-20250618-063201.png" width="60" onclick="showModal(this.src)"></div></th><td data-highlight-colour="#ffffff"><p><strong>Split pieces</strong><br>Button that allows separating the wall panels and the backsplashes from the original piece.</p></td></tr></tbody></table><p></p><p>Before the split, the associated pieces are managed in a unified way inside the work area. In this state, a block composed of multiple elements is created that will undergo the same operations, without yet being divided.</p><p>For example, when the original piece or a riser or a coating is added to the working area from the piece list, also all the other associated elements are automatically inserted.</p><div class="TextAlignCenter"><img src="attachments/3.13.10_DOWNSTAND/z1.1.png" alt="z1.1.png" width="800" onclick="showModal(this.src)"></div><p>At the pressure of the button <strong>Divide Pieces, </strong>each piece generated through <strong>raise </strong>or <strong>coating </strong>will be dissociated from the original piece and treated as an independent element.</p><p>Subsequently, both the piece list associated, previously visible above the preview in the <strong>Edit piece</strong> panel, and the <strong>button for splitting pieces</strong> will disappear from the interface.</p>
+<div id="admonition-info-2" class="admonition admonish-info" role="note" aria-labelledby="admonition-info-2-title">
+<div class="admonition-title">
+<div id="admonition-info-2-title">
+<p>Info</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-info-2"></a>
+</div>
+<div>
+<p>NOTEAt the time of division, each piece maintains the miter cuts obtained during the generation through lift or coating, in addition to all the customizations and modifications made while it was still associated with the original piece.</p>
+</div>
+</div>
+<p></p><p>In the following image, it is possible to observe the diversified management of the single pieces previously belonging to the same block.<br>In particular are inserted in the work area only two of the three pieces (the original piece and the first piece generated from the application of the first rise), and the second piece is relocated and rotated without triggering any interference to the original piece:</p><div class="TextAlignCenter"><img src="attachments/3.13.10_DOWNSTAND/z2.2.png" alt="z2.2.png" width="800" onclick="showModal(this.src)"></div>
+<div id="admonition-warning" class="admonition admonish-warning" role="note" aria-labelledby="admonition-warning-title">
+<div class="admonition-title">
+<div id="admonition-warning-title">
+<p>Warning</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-warning"></a>
+</div>
+<div>
+<p>WARNING!The operation of splitting the pieces is not cancellable once performed.</p>
+</div>
+</div>
+<!--Label="mdr_dwn"--><!--Label="mdr_dwn_riv"--><!--Label="mdr_dwn_alz"-->
+                        </main>
+
+                    </div>
+
+                    <img src="images/donatoni_222.jpg">
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="3.13.9_lower_cut_(optional).html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="3.13.11_curbs.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+
+
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                <a rel="prev" href="3.13.9_lower_cut_(optional).html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="3.13.11_curbs.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="mermaid.min.js"></script>
+        <script src="mermaid-init.js"></script>
+        <script src="hidemenu.js"></script>
+        <script src="imagemodal.js"></script>
+        <script src="login.js"></script>
+    </div>
+
+    <!-- Modale -->
+    <div id="modal" onclick="closeModal()">
+        <img id="modal-img" src="">
+    </div>;
+
+
+</body>
+</html>

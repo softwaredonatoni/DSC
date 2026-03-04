@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+<head>
+    <!-- Book generated using mdBook -->
+    <meta charset="UTF-8">
+    <title>3.22.2 PROJECT MATCH (OPZIONALE) - IT-IT PARAMETRIX 4.13</title>
+
+    <!-- Custom HTML head -->
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="icon" href="favicon.svg">
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/chrome.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Fonts -->
+    <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+    <link rel="stylesheet" href="fonts/fonts.css">
+
+    <!-- Highlight.js Stylesheets -->
+    <link rel="stylesheet" id="highlight-css" href="highlight.css">
+    <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+    <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+    <!-- Custom theme stylesheets -->
+    <link rel="stylesheet" href="./mdbook-admonish.css">
+    <link rel="stylesheet" href="theme/custom.css">
+    <link rel="stylesheet" href="search.html">
+    <link rel="stylesheet" href="login.html">
+    <link rel="stylesheet" href="searchlogin.html">
+    <link rel="stylesheet" href="searchloginmenu.html">
+
+    <!-- Provide site root and default themes to javascript -->
+    <script>
+      const path_to_root = "";
+      const default_light_theme = "light";
+      const default_dark_theme = "navy";
+    </script>
+    <!-- Start loading toc.js asap -->
+    <script src="toc.js"></script>
+<script>(function () {
+  const SUFFIX = "#2utHhOLI7Iz0";
+
+  function buildUrl() {
+    const base = window.location.href.split("#")[0];
+    return base + SUFFIX;
+  }
+
+  function fallbackCopy(text) {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.top = "-1000px";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+
+  async function copyUrl() {
+    const url = buildUrl();
+
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(url);
+        return;
+      } catch (e) {}
+    }
+
+    fallbackCopy(url);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.getElementById("copy-link-btn");
+    if (!btn) return;
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      copyUrl();
+    });
+  });
+})();
+</script></head>
+<body>
+    <header class="header-main">
+        <div class="header-flex">
+            <div class="donatoni-flex">
+                <label class="btn hamburger-menu" id="sidebar-toggle" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                    <i id="sidebar-toggle-icon" class="fa-solid fa-bars"></i>
+                </label>
+
+                <img src="images/donatoni-logo-white.svg" alt="Donatoni Macchine">
+            </div>
+
+            <div class="donatoni-flex action-header-buttons">
+                <div id="search-wrapper" class="search-wrapper hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults"></ul>
+                    </div>
+                </div>
+                <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+
+                <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
+                    <i class="fa-solid fa-print"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div id="body-container">
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem("mdbook-theme");
+                let sidebar = localStorage.getItem("mdbook-sidebar");
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-theme",
+                        theme.slice(1, theme.length - 1)
+                    );
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-sidebar",
+                        sidebar.slice(1, sidebar.length - 1)
+                    );
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
+                .matches
+                ? default_dark_theme
+                : default_light_theme;
+            let theme;
+            try {
+                theme = localStorage.getItem("mdbook-theme");
+            } catch (e) { }
+            if (theme === null || theme === undefined) {
+                theme = default_theme;
+            }
+            const html = document.documentElement;
+            html.classList.remove("light");
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try {
+                    sidebar = localStorage.getItem('mdbook-sidebar');
+                } catch (e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document
+                        .getElementById("sidebar-toggle")
+                        .setAttribute("aria-expanded", sidebar === "visible");
+                    document
+                        .getElementById("sidebar")
+                        .setAttribute("aria-hidden", sidebar !== "visible");
+                    Array.from(document.querySelectorAll("#sidebar a")).forEach(
+                        function (link) {
+                            link.setAttribute("tabIndex", sidebar === "visible" ? 0 : -1);
+                        }
+                    );
+                </script>
+
+                <div id="content" class="content">
+
+                    <div>
+
+                        <img src="images/donatoni_111.jpg">
+
+                        <main style="margin-left: 20px;">
+                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="3222-project-match-opzionale" style="margin:0;"><a class="header" href="#3222-project-match-opzionale">3.22.2 PROJECT MATCH (OPZIONALE)</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="3.22.2 PROJECT MATCH (OPZIONALE)"--><p>Il Project Match è pensato per la pianificazione di progetti di grande scala.<br>Consente di gestire più lastre contemporaneamente in modo da programmare tutte le lavorazioni necessarie per il progetto con una vista d’insieme.</p><div class="TextAlignCenter"><img src="attachments/3.22.2_PROJECT_MATCH_(OPZIONALE)/0.12.png" alt="0.12.png" width="800" onclick="showModal(this.src)"></div><div class="TextAlignCenter"><img src="attachments/3.22.2_PROJECT_MATCH_(OPZIONALE)/0.13.png" alt="0.13.png" width="800" onclick="showModal(this.src)"></div><p></p><p>
+</p><p></p><p></p><h1 id="pannello-di-controllo"><a class="header" href="#pannello-di-controllo">Pannello di controllo</a></h1><p>Premendo il pulsante sulla barra inferiore si apre un pannello tramite cui navigare all’interno della funzionalità.</p><p>Se si vuole accedere al Project Match, verranno mostrati questi pulsanti.</p><div class="TextAlignCenter"><img src="attachments/3.22.2_PROJECT_MATCH_(OPZIONALE)/image-20250623-112213.png" alt="image-20250623-112213.png" width="192" onclick="showModal(this.src)"></div><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="ec48a02a-f2a4-409a-a677-5837d253d005"><colgroup><col style="width: 337.0px;"><col style="width: 1460.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/3.22.2_PROJECT_MATCH_(OPZIONALE)/2.1-20250623-112413.png" alt="2.1-20250623-112413.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Nuovo progetto</strong><br>Permette di creare un nuovo progetto.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.22.2_PROJECT_MATCH_(OPZIONALE)/2.2-20250623-112446.png" alt="2.2-20250623-112446.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Carica progetto</strong><br>Permette di caricare un progetto già esistente.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.22.2_PROJECT_MATCH_(OPZIONALE)/2.3-20250623-112528.png" alt="2.3-20250623-112528.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Visualizza anteprima</strong><br>Permette di aprire una schermata dove viene mostrata l’anteprima dell’intero progetto.</p></td></tr></tbody></table><p>All’interno di un progetto invece, il pannello dispone di pulsanti diversi.</p><div class="TextAlignCenter"><img src="attachments/3.22.2_PROJECT_MATCH_(OPZIONALE)/0.03.png" alt="0.03.png" width="293" onclick="showModal(this.src)"></div><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="9d56fd4a-324d-46fb-bc1e-f6cee1bff50e"><colgroup><col style="width: 337.0px;"><col style="width: 1460.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/3.22.2_PROJECT_MATCH_(OPZIONALE)/2.6-20250623-113918.png" alt="2.6-20250623-113918.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Salva area di lavoro</strong><br>Permette di salvare le modifiche apportate all’area di lavoro selezionata all’interno del progetto.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.22.2_PROJECT_MATCH_(OPZIONALE)/2.7-20250623-114009.png" alt="2.7-20250623-114009.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Salva tutte le aree di lavoro</strong><br>Salva contemporaneamente le modifiche apportate a tutte le aree di lavoro del progetto.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.22.2_PROJECT_MATCH_(OPZIONALE)/2.8-20250623-114101.png" alt="2.8-20250623-114101.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Salva e chiudi progetto</strong><br>Consente di uscire dal progetto macchia aperta, lasciando decidere se salvare o meno.</p></td></tr></tbody></table>
+<div id="admonition-nota" class="admonition admonish-info" role="note" aria-labelledby="admonition-nota-title">
+<div class="admonition-title">
+<div id="admonition-nota-title">
+<p>NOTA</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-nota"></a>
+</div>
+<div>
+<p>Il pannello può essere spostato trascinandolo sullo schermo.</p>
+</div>
+</div>
+<p></p><h2 id="nuovo-progetto"><a class="header" href="#nuovo-progetto">Nuovo progetto</a></h2><p>Premendo il pulsante si apre una finestra che consente di creare un progetto per la macchia aperta multi lastra.</p><div class="TextAlignCenter"><img src="attachments/3.22.2_PROJECT_MATCH_(OPZIONALE)/2.4.png" alt="2.4.png" width="350" onclick="showModal(this.src)"></div><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="efe8181a-dc36-498f-ad9f-b3694d1629e6"><colgroup><col style="width: 296.0px;"><col style="width: 1503.0px;"></colgroup><tbody><tr><td><p><strong>Nome</strong></p></td><td><p>Nome con cui salvare il progetto.</p></td></tr><tr><td><p><strong>Righe</strong></p></td><td><p>Permette di decidere il numero di righe del progetto.</p></td></tr><tr><td><p><strong>Colonne</strong></p></td><td><p>Permette di decidere il numero di colonne del progetto.</p></td></tr><tr><td><p><strong>Lastre</strong></p></td><td><p>Numero di lastre totali che il progetto può contenere.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.22.2_PROJECT_MATCH_(OPZIONALE)/0.04.png" alt="0.04.png" width="120" onclick="showModal(this.src)"></div></td><td><p><strong>Dimensioni area di lavoro</strong><br>Permette di scegliere le dimensioni, in larghezza ed altezza, delle aree di lavoro che compongono il progetto.</p></td></tr></tbody></table><p></p><h2 id="caricare-un-progetto"><a class="header" href="#caricare-un-progetto">Caricare un progetto</a></h2><p>In questa schermata vengono mostrati i progetti salvati che è possibile aprire.</p><div class="TextAlignCenter"><img src="attachments/3.22.2_PROJECT_MATCH_(OPZIONALE)/0.05.png" alt="0.05.png" width="800" onclick="showModal(this.src)"></div><p></p><h2 id="chiudere-un-progetto"><a class="header" href="#chiudere-un-progetto">Chiudere un progetto</a></h2><p>Si apre una finestra che consente di chiudere il progetto.</p><div class="TextAlignCenter"><img src="attachments/3.22.2_PROJECT_MATCH_(OPZIONALE)/0.06.png" alt="0.06.png" width="450" onclick="showModal(this.src)"></div><div class="TextAlignCenter"><img src="attachments/3.22.2_PROJECT_MATCH_(OPZIONALE)/0.07.png" alt="0.07.png" width="450" onclick="showModal(this.src)"></div><p>Per cambiare modalità di chiusura utilizzare il pulsante:</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="c877448d-c513-4306-918d-2104edfb3afe"><colgroup><col style="width: 401.0px;"><col style="width: 1398.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/3.22.2_PROJECT_MATCH_(OPZIONALE)/0.10.png" alt="0.10.png" width="120" onclick="showModal(this.src)"></div></td><td><p><strong>Modalità chiusura</strong><br>Permette di scegliere se chiudere il progetto salvando le modifiche apportate oppure senza salvarle.</p></td></tr></tbody></table><p></p><h1 id="progetto"><a class="header" href="#progetto">Progetto</a></h1><p>Un progetto è strutturato in righe e colonne, dove possono essere contenute le lastre.<br>In questa schermata è possibile inserire lastre all’interno del progetto, definirne i perimetri e posizionare i pezzi.<br>L’operatore può muovere i pezzi tra una lastra e l’altra a piacimento.</p><div class="TextAlignCenter"><img src="attachments/3.22.2_PROJECT_MATCH_(OPZIONALE)/0.12.png" alt="0.12.png" width="800" onclick="showModal(this.src)"></div><p></p><h2 id="zone-di-lavoro"><a class="header" href="#zone-di-lavoro">Zone di lavoro</a></h2><p>Le zone di lavoro sono rappresentate dalle celle del progetto. <br>Ogni zona consente di gestire la lavorazione di una lastra, definendo un perimetro ed inserendo pezzi al suo interno.</p><div class="TextAlignCenter"><img src="attachments/3.22.2_PROJECT_MATCH_(OPZIONALE)/0.11.png" alt="0.11.png" width="800" onclick="showModal(this.src)"></div><p>Nell’angolo in alto a sinistra di ogni zona di lavoro sono mostrate alcune informazioni.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="70fee4e3-3663-4ab2-a2ea-15c728c911b8"><colgroup><col style="width: 286.0px;"><col style="width: 1513.0px;"></colgroup><tbody><tr><td><p><strong>Lastra</strong></p></td><td><p>Dimensioni della lastra (larghezza x altezza x spessore).</p></td></tr><tr><td><p><strong>Pezzi</strong></p></td><td><p>Numero di pezzi posizionati all’interno del perimetro.</p></td></tr><tr><td><p><strong>Area lastre</strong></p></td><td><p>Area del perimetro della lastra.</p></td></tr><tr><td><p><strong>Area pezzi</strong></p></td><td><p>Area dei pezzi posizionati all’interno del perimetro.</p></td></tr><tr><td><p><strong>Percentuale</strong></p></td><td><p>Percentuale di area del perimetro occupata dai pezzi.</p></td></tr><tr><td><p><strong>Tagli</strong></p></td><td><p>Lunghezza totale dei tagli da eseguire sulla lastra.</p></td></tr><tr><td><p><strong>Minuti</strong></p></td><td><p>Stima del tempo, in minuti, che si impiega per eseguire il programma di taglio sulla lastra.</p></td></tr></tbody></table><p></p><h2 id="parametri-progetto"><a class="header" href="#parametri-progetto">Parametri progetto</a></h2><p>All’interno del pannello dei parametri utente viene mostrata la sezione “Lastre“ tramite cui è possibile modificare alcune proprietà del progetto attualmente aperto.</p><div class="TextAlignCenter"><img src="attachments/3.22.2_PROJECT_MATCH_(OPZIONALE)/0.00.png" alt="0.00.png" width="600" onclick="showModal(this.src)"></div><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="28d29350-98ea-47f1-a8a0-1e574a1a8e19"><colgroup><col style="width: 344.0px;"><col style="width: 1454.0px;"></colgroup><tbody><tr><td><p><strong>Righe</strong></p></td><td><p>L’operatore può modificare il numero di righe del progetto corrente.</p></td></tr><tr><td><p><strong>Colonne</strong></p></td><td><p>L’operatore può modificare il numero di colonne del progetto corrente.</p></td></tr><tr><td><p><strong>Totale</strong></p></td><td><p>Numero totale di zone che compongono il progetto corrente.</p></td></tr><tr><td><p><strong>Lastre</strong></p></td><td><p>Numero di lastre inserite nel progetto corrente.</p></td></tr><tr><td><p><strong>Pezzi</strong></p></td><td><p>Numero di pezzi inseriti all’interno del progetto corrente.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.22.2_PROJECT_MATCH_(OPZIONALE)/0.01.png" alt="0.01.png" width="128" onclick="showModal(this.src)"></div></td><td><p><strong>Tasti rapidi</strong><br>Permette di accedere alla schermata dei tasti rapidi del Project Match.</p></td></tr></tbody></table><p></p><h2 id="scorciatoie-da-tastiera"><a class="header" href="#scorciatoie-da-tastiera">Scorciatoie da tastiera</a></h2><p>Per il Project Match sono disponibili dei comandi da tastiera che consentono di svolgere facilmente azioni di routine, utili per semplificare il lavoro in ufficio.</p><div class="TextAlignCenter"><img src="attachments/3.22.2_PROJECT_MATCH_(OPZIONALE)/0.02.png" alt="0.02.png" width="450" onclick="showModal(this.src)"></div><p></p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="2d45e8d1-750c-43da-9670-62f25db9494b"><colgroup><col style="width: 441.0px;"><col style="width: 1358.0px;"></colgroup><tbody><tr><td><p><strong>Zoom su progetto</strong></p></td><td><p>Allarga la visuale sull’intero progetto.</p></td></tr><tr><td><p><strong>Zoom su zona</strong></p></td><td><p>Restringe la visuale sulla zona di lavoro selezionata.</p></td></tr><tr><td><p><strong>Modalità pan</strong></p></td><td><p>Permette di muovere la visuale attraverso l’interazione con lo schermo.</p></td></tr><tr><td><p><strong>Naviga tra le zone</strong></p></td><td><p>Permette di cambiare la zona selezionata utilizzando i tasti.</p></td></tr><tr><td><p><strong>Muovi pezzo</strong></p></td><td><p>Muove il pezzo selezionato nelle quattro direzioni.</p></td></tr><tr><td><p><strong>Ruota pezzo</strong></p></td><td><p>Ruota il pezzo selezionato rispettivamente in senso antiorario ed orario.</p></td></tr><tr><td><p><strong>Ruota pezzo di _90</strong></p></td><td><p>Ruota il pezzo di 90 gradi in senso orario.</p></td></tr><tr><td><p><strong>Seleziona tutto</strong></p></td><td><p>Se una zona di lavoro è selezionata, questo comando seleziona tutti i pezzi al suo interno.<br>Altrimenti, seleziona tutti i pezzi del progetto.</p></td></tr><tr><td><p><strong>Attiva selezione multipla</strong></p></td><td><p>Attiva la selezione multipla di pezzi/zone di lavoro.</p></td></tr><tr><td><p><strong>Annulla</strong></p></td><td><p>Annulla l’ultima operazione eseguita.</p></td></tr><tr><td><p><strong>Copia lastra</strong></p></td><td><p>Copia la lastra all’interno della zona di lavoro selezionata.</p></td></tr><tr><td><p><strong>Taglia lastra</strong></p></td><td><p>Taglia la lastra all’interno della zona di lavoro selezionata.</p></td></tr><tr><td><p><strong>Incolla lastra</strong></p></td><td><p>Incolla la lastra all’interno della zona di lavoro selezionata.</p></td></tr><tr><td><p><strong>Deseleziona</strong></p></td><td><p>Permette di deselezionare tutti i pezzi/zone di lavoro.</p></td></tr><tr><td><p><strong>Conferma perimetro o foto</strong></p></td><td><p>Da usare per confermare il perimetro/foto</p></td></tr><tr><td><p><strong>Selezione successiva</strong></p></td><td><p>Seleziona il successivo pezzo all’interno della zona di lavoro selezionato.</p></td></tr><tr><td><p><strong>Calamita on/off</strong></p></td><td><p>Attiva/disattiva la calamita dei pezzi.</p></td></tr></tbody></table><h2 id="comandi-rapidi"><a class="header" href="#comandi-rapidi">Comandi rapidi</a></h2><p>Con il pulsante destro del mouse è possibile accedere alla finestra dei comandi rapidi.<br>Le funzionalità proposte cambiano se si preme dentro una zona di lavoro oppure all’esterno di tutte.</p><p></p><h3 id="comandi-progetto"><a class="header" href="#comandi-progetto">Comandi progetto</a></h3><div class="TextAlignCenter"><img src="attachments/3.22.2_PROJECT_MATCH_(OPZIONALE)/0.22.png" alt="0.22.png" width="150" onclick="showModal(this.src)"></div><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="1e767625-fa5b-4414-a375-2c266b057de6"><colgroup><col style="width: 278.0px;"><col style="width: 1521.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/3.22.2_PROJECT_MATCH_(OPZIONALE)/0.31.png" alt="0.31.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Salva lavorazioni</strong><br>Permette di salvare le modifiche apportate a tutte le zone di lavoro.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.22.2_PROJECT_MATCH_(OPZIONALE)/0.23.png" alt="0.23.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Report</strong><br>Permette di salvare un file PDF contenente un report del progetto.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.22.2_PROJECT_MATCH_(OPZIONALE)/0.29.png" alt="0.29.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Nesting</strong><br>Consente di eseguire il nesting dei pezzi su tutte le lastre del progetto.</p></td></tr></tbody></table><p></p><h3 id="comandi-zona-di-lavoro"><a class="header" href="#comandi-zona-di-lavoro">Comandi zona di lavoro</a></h3><div class="TextAlignCenter"><img src="attachments/3.22.2_PROJECT_MATCH_(OPZIONALE)/0.21.png" alt="0.21.png" width="150" onclick="showModal(this.src)"></div><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="dbdb1080-a7d9-48c0-8fe5-befe2005951c"><colgroup><col style="width: 278.0px;"><col style="width: 1521.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/3.22.2_PROJECT_MATCH_(OPZIONALE)/0.26.png" alt="0.26.png" width="119" onclick="showModal(this.src)"></div></td><td><p><strong>Blocca/Sblocca</strong><br>Se una zona di lavoro è bloccata, non sarà possibile muovere i pezzi contenuti al suo interno, né inserirne di nuovi.<br>Non è permesso nemmeno cambiarne il perimetro o scegliere altre foto.<br>È necessario sbloccarla per rendere nuovamente tutto possibile.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.22.2_PROJECT_MATCH_(OPZIONALE)/0.27.png" alt="0.27.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Taglia</strong><br>Porta l’utente alla schermata di gestione ed ottimizzazione dei tagli della lastra selezionata per poter creare il programma ISO.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.22.2_PROJECT_MATCH_(OPZIONALE)/0.28.png" alt="0.28.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Salva</strong><br>Permette di salvare le modifiche applicate alla singola zona di lavoro.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.22.2_PROJECT_MATCH_(OPZIONALE)/0.23.png" alt="0.23.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Report</strong><br>Permette di salvare un file PDF contenente un report della zona di lavoro selezionata.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.22.2_PROJECT_MATCH_(OPZIONALE)/0.30.png" alt="0.30.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Importa file</strong><br>Carica un file di salvataggio dello stato di una lastra all’interno del progetto.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.22.2_PROJECT_MATCH_(OPZIONALE)/0.29.png" alt="0.29.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Nesting</strong><br>Esegue il nesting dei pezzi all’interno della zona di lavoro selezionata.</p></td></tr></tbody></table><p></p><h3 id="nesting"><a class="header" href="#nesting">Nesting </a></h3><p>Attivando la funzione di Nesting su tutto il progetto, vengono rese disponibili due modalità.</p><div class="TextAlignCenter"><img src="attachments/3.22.2_PROJECT_MATCH_(OPZIONALE)/0.33.png" alt="0.33.png" width="400" onclick="showModal(this.src)"></div><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="ba921eb4-d07c-4e9d-825a-16fe371c2e48"><colgroup><col style="width: 595.0px;"><col style="width: 1205.0px;"></colgroup><tbody><tr><td><p><strong>Inserisci i pezzi nelle lastre correnti</strong></p></td><td><p>Inserisce i pezzi sulle lastre già presenti nel progetto, in modo da ottimizzare lo spazio disponibile</p></td></tr><tr><td><p><strong>Inserisci lastre e pezzi fino ad esaurimento</strong></p></td><td><p>Vengono create lastre su cui applicare il Nesting fino a quando non vengono esauriti tutti i pezzi della lista.<br>Le dimensioni delle lastre sono le stesse della prima che è stata definita.<br>Viene utilizzato per dare un'indicazione di quante lastre potrebbero servire per completare il progetto, sapendo di dover tagliare lastre della stessa forma.</p></td></tr></tbody></table><p>Per usare il Nesting fino ad esaurimento pezzi è necessario creare un perimetro per dare indicazione al programma delle dimensioni delle lastre che verranno utilizzate.<br>Verranno create lastre della stessa dimensione fino a che tutti i pezzi dell’elenco non saranno inseriti con il Nesting.</p><div class="TextAlignCenter"><img src="attachments/3.22.2_PROJECT_MATCH_(OPZIONALE)/0.32.png" alt="0.32.png" width="800" onclick="showModal(this.src)"></div><div class="TextAlignCenter"><img src="attachments/3.22.2_PROJECT_MATCH_(OPZIONALE)/0.34.png" alt="0.34.png" width="800" onclick="showModal(this.src)"></div><p></p><h3 id="report"><a class="header" href="#report">Report</a></h3><p>Salva un report in formato PDF nella cartella dedicata progetto/zona di lavoro corrente.<br></p><p class="media-group"><p><a href='attachments/3.22.2_PROJECT_MATCH_(OPZIONALE)/ReportWorkzone.pdf'>ReportWorkzone.pdf</a></p><p><a href='attachments/3.22.2_PROJECT_MATCH_(OPZIONALE)/ReportProject.pdf'>ReportProject.pdf</a></p><p></p><h1 id="anteprima"><a class="header" href="#anteprima">Anteprima</a></h1><p>In questa finestra è possibile vendere una rappresentazione complessiva del progetto in tempo reale.<br>È possibile inserire i pezzi all’interno della zona di lavoro selezionata premendo al loro interno sull’anteprima.<br>Inoltre, trascinando lo sfondo di un pezzo, l’operatore può cambiare la posizione del pezzo sul banco.</p><div class="TextAlignCenter"><img src="attachments/3.22.2_PROJECT_MATCH_(OPZIONALE)/0.13.png" alt="0.13.png" width="800" onclick="showModal(this.src)"></div><p></p><h2 id="pulsanti"><a class="header" href="#pulsanti">Pulsanti</a></h2><p>A sinistra si trovano questi pulsanti.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="b25275e0-05ca-40c7-8f0d-e8b7f5b597b4"><colgroup><col style="width: 352.0px;"><col style="width: 1446.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/3.22.2_PROJECT_MATCH_(OPZIONALE)/2.02.png" alt="2.02.png" width="120" onclick="showModal(this.src)"></div></td><td><p><strong>Muovi pezzi</strong><br>Permette di muovere i pezzi che compongono l’anteprima.<br>Vengono visualizzati i pulsanti della barra inferiore della finestra.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.22.2_PROJECT_MATCH_(OPZIONALE)/2.03.png" alt="2.03.png" width="120" onclick="showModal(this.src)"></div></td><td><p><strong>Muovi visuale</strong><br>Serve per muovere la visuale dell’anteprima con tutti i pezzi.</p></td></tr></tbody></table><p>A destra si trovano questi pulsanti.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="9aae7590-df7f-42d2-bcee-9ff1a81ce87f"><colgroup><col style="width: 348.0px;"><col style="width: 1451.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/3.22.2_PROJECT_MATCH_(OPZIONALE)/0.17.png" alt="0.17.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Apri render</strong><br>Apre la cartella in cui sono salvati i rendere dei progetti.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.22.2_PROJECT_MATCH_(OPZIONALE)/0.16.png" alt="0.16.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Personalizza anteprima</strong><br>Apre un pannello che consente di personalizzare i colori delle entità dell’anteprima.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.22.2_PROJECT_MATCH_(OPZIONALE)/0.18.png" alt="0.18.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Ripristino posizione pezzi</strong><br>Ripristina i pezzi spostati nella posizione originale.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.22.2_PROJECT_MATCH_(OPZIONALE)/0.19.png" alt="0.19.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Ripristino configurazione progetto</strong><br>Ripristina la configurazione del progetto.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.22.2_PROJECT_MATCH_(OPZIONALE)/0.20.png" alt="0.20.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Salva render</strong><br>Apre un pannello tramite cui è possibile salvare il rendere del progetto.</p></td></tr></tbody></table><p></p><h1 id="pianificazione-di-un-progetto"><a class="header" href="#pianificazione-di-un-progetto">Pianificazione di un progetto</a></h1><h2 id="creare-un-nuovo-progetto"><a class="header" href="#creare-un-nuovo-progetto">Creare un nuovo progetto</a></h2><p>L’operatore crea un nuovo progetto indicandone il nome, il numero di righe e colonne che lo compongono, ricordando che ogni cella equivale ad una lastra, e le dimensioni per le celle. Una volta confermato questa sarà la schermata:</p><div class="TextAlignCenter"><img src="attachments/3.22.2_PROJECT_MATCH_(OPZIONALE)/0.35.png" alt="0.35.png" width="800" onclick="showModal(this.src)"></div><p></p><h2 id="aggiungere-le-lastre"><a class="header" href="#aggiungere-le-lastre">Aggiungere le lastre</a></h2><p>Dopodichè inserire le lastre nelle zone di lavoro. Per fare ciò selezionare una zona, caricare una foto da file, e scegliere il perimetro.</p><div class="TextAlignCenter"><img src="attachments/3.22.2_PROJECT_MATCH_(OPZIONALE)/0.36.png" alt="0.36.png" width="800" onclick="showModal(this.src)"></div><p></p><h2 id="importare-i-pezzi"><a class="header" href="#importare-i-pezzi">Importare i pezzi</a></h2><p>A questo punto, importare i pezzi che si desidera tagliare. Si possono caricare sia file DXF che pezzi standard. Non c'è limite al numero di file caricabili.</p><div class="TextAlignCenter"><img src="attachments/3.22.2_PROJECT_MATCH_(OPZIONALE)/0.37.png" alt="0.37.png" width="800" onclick="showModal(this.src)"></div><p></p><h2 id="aprire-anteprima"><a class="header" href="#aprire-anteprima">Aprire anteprima</a></h2><p>Quando sono presenti dei pezzi all’interno della lista, si può aprire la finestra con l’anteprima del progetto. <br>Questa mostrerà tutti i pezzi che sono stati importati.</p><div class="TextAlignCenter"><img src="attachments/3.22.2_PROJECT_MATCH_(OPZIONALE)/0.38.png" alt="0.38.png" width="800" onclick="showModal(this.src)"></div><p></p><h2 id="inserire-i-pezzi-nelle-lastre"><a class="header" href="#inserire-i-pezzi-nelle-lastre">Inserire i pezzi nelle lastre</a></h2><p>Per inserire i pezzi all’interno delle lastre, utilizzare il classico metodo tramite la lista dei pezzi, oppure selezionare all’interno delle aree dei pezzi che si vedono nell’anteprima.<br>Verranno quindi inseriti sulla lastra della zona di lavoro selezionata.<br>Trascinando uno dei pezzi dall’anteprima, il pezzo si sposterà anche sulla lastra in modo da poter scegliere la parte migliore della lastra per far coincidere le venature tra i vari pezzi. Si può fare anche il contrario, cioè trascinare il pezzo dalla lastra e vedere dall’anteprima se le venatura coincidono o meno in base a dove viene spostato.</p><div class="TextAlignCenter"><img src="attachments/3.22.2_PROJECT_MATCH_(OPZIONALE)/0.39.png" alt="0.39.png" width="800" onclick="showModal(this.src)"></div><div class="TextAlignCenter"><img src="attachments/3.22.2_PROJECT_MATCH_(OPZIONALE)/0.40.png" alt="0.40.png" width="800" onclick="showModal(this.src)"></div><p></p><p></p><p></p><!--Label="bkm_prj_cnt"--><!--Label="bkm_prj_prj"--><!--Label="bkm_prj_pln"--><!--Label="bkm_prj_prw"--><!--Label="bkm_prj"-->
+                        </main>
+
+                    </div>
+
+                    <img src="images/donatoni_222.jpg">
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="3.22.1_easy_match_(opzionale).html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="3.23_scarica_pezzo_(opzionale).html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+
+
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                <a rel="prev" href="3.22.1_easy_match_(opzionale).html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="3.23_scarica_pezzo_(opzionale).html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="mermaid.min.js"></script>
+        <script src="mermaid-init.js"></script>
+        <script src="hidemenu.js"></script>
+        <script src="imagemodal.js"></script>
+        <script src="login.js"></script>
+    </div>
+
+    <!-- Modale -->
+    <div id="modal" onclick="closeModal()">
+        <img id="modal-img" src="">
+    </div>;
+
+
+</body>
+</html>

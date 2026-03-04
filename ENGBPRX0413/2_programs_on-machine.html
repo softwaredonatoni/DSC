@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+<head>
+    <!-- Book generated using mdBook -->
+    <meta charset="UTF-8">
+    <title>2 PROGRAMS ON-MACHINE - EN-GB PARAMETRIX 4.13</title>
+
+    <!-- Custom HTML head -->
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="icon" href="favicon.svg">
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/chrome.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Fonts -->
+    <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+    <link rel="stylesheet" href="fonts/fonts.css">
+
+    <!-- Highlight.js Stylesheets -->
+    <link rel="stylesheet" id="highlight-css" href="highlight.css">
+    <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+    <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+    <!-- Custom theme stylesheets -->
+    <link rel="stylesheet" href="./mdbook-admonish.css">
+    <link rel="stylesheet" href="theme/custom.css">
+    <link rel="stylesheet" href="search.html">
+    <link rel="stylesheet" href="login.html">
+    <link rel="stylesheet" href="searchlogin.html">
+    <link rel="stylesheet" href="searchloginmenu.html">
+
+    <!-- Provide site root and default themes to javascript -->
+    <script>
+      const path_to_root = "";
+      const default_light_theme = "light";
+      const default_dark_theme = "navy";
+    </script>
+    <!-- Start loading toc.js asap -->
+    <script src="toc.js"></script>
+<script>(function () {
+  const SUFFIX = "#2utHhOLI7Iz0";
+
+  function buildUrl() {
+    const base = window.location.href.split("#")[0];
+    return base + SUFFIX;
+  }
+
+  function fallbackCopy(text) {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.top = "-1000px";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+
+  async function copyUrl() {
+    const url = buildUrl();
+
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(url);
+        return;
+      } catch (e) {}
+    }
+
+    fallbackCopy(url);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.getElementById("copy-link-btn");
+    if (!btn) return;
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      copyUrl();
+    });
+  });
+})();
+</script></head>
+<body>
+    <header class="header-main">
+        <div class="header-flex">
+            <div class="donatoni-flex">
+                <label class="btn hamburger-menu" id="sidebar-toggle" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                    <i id="sidebar-toggle-icon" class="fa-solid fa-bars"></i>
+                </label>
+
+                <img src="images/donatoni-logo-white.svg" alt="Donatoni Macchine">
+            </div>
+
+            <div class="donatoni-flex action-header-buttons">
+                <div id="search-wrapper" class="search-wrapper hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults"></ul>
+                    </div>
+                </div>
+                <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+
+                <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
+                    <i class="fa-solid fa-print"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div id="body-container">
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem("mdbook-theme");
+                let sidebar = localStorage.getItem("mdbook-sidebar");
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-theme",
+                        theme.slice(1, theme.length - 1)
+                    );
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-sidebar",
+                        sidebar.slice(1, sidebar.length - 1)
+                    );
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
+                .matches
+                ? default_dark_theme
+                : default_light_theme;
+            let theme;
+            try {
+                theme = localStorage.getItem("mdbook-theme");
+            } catch (e) { }
+            if (theme === null || theme === undefined) {
+                theme = default_theme;
+            }
+            const html = document.documentElement;
+            html.classList.remove("light");
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try {
+                    sidebar = localStorage.getItem('mdbook-sidebar');
+                } catch (e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document
+                        .getElementById("sidebar-toggle")
+                        .setAttribute("aria-expanded", sidebar === "visible");
+                    document
+                        .getElementById("sidebar")
+                        .setAttribute("aria-hidden", sidebar !== "visible");
+                    Array.from(document.querySelectorAll("#sidebar a")).forEach(
+                        function (link) {
+                            link.setAttribute("tabIndex", sidebar === "visible" ? 0 : -1);
+                        }
+                    );
+                </script>
+
+                <div id="content" class="content">
+
+                    <div>
+
+                        <img src="images/donatoni_111.jpg">
+
+                        <main style="margin-left: 20px;">
+                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="2-programs-on-machine" style="margin:0;"><a class="header" href="#2-programs-on-machine">2 PROGRAMS ON-MACHINE</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="2 PROGRAMS ON-MACHINE"--><p>At the application start, if the axes zeroing has already been executed, the following initial screen will be visible:</p><div class="TextAlignCenter"><img src="attachments/2_PROGRAMS_ON-MACHINE/pagina_iniziale-20250314-102352.png" alt="pagina_iniziale-20250314-102352.png" width="800" onclick="showModal(this.src)"></div><p></p><p>
+</p><p></p><h1 id="top-bar"><a class="header" href="#top-bar">Top bar</a></h1><div class="TextAlignCenter"><img src="attachments/2_PROGRAMS_ON-MACHINE/1_0_BarraSup_b-20250919-135858.png" alt="1_0_BarraSup_b-20250919-135858.png" width="800" onclick="showModal(this.src)"></div><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="fb7be448-ebb4-41fe-97ae-182bb9f3d0fb" data-table-display-mode="default"><colgroup><col style="width: 272.0px;"><col style="width: 1528.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/2_PROGRAMS_ON-MACHINE/1_ParametriUtente_B-20250320-094536.png" alt="1_ParametriUtente_B-20250320-094536.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Parameters</strong><br>Allows to access the program parameters of Parametrix.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2_PROGRAMS_ON-MACHINE/1_ToolPanel_B.png" alt="1_ToolPanel_B.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Parameters tool</strong><br>By pressing the button, you can access the page of the tool parameters. We refer to chapter 'Tool Configuration' for a detailed description of the parameters page.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2_PROGRAMS_ON-MACHINE/1_RotazAutom_0-90__B.png" alt="1_RotazAutom_0-90__B.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Automatic rotation 0/90 degrees</strong><br>The 'C' axis is moved automatically to 0 or 90 degrees the instant the button is pressed.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2_PROGRAMS_ON-MACHINE/1_Park_B.png" alt="1_Park_B.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Automatic Parking</strong><br>When pressed, the machine performs an automatic move of the 'X', 'Y', 'Z', 'C' axes to zero position.<br>The movements are executed by the machine respecting the following order:<br>(A) - Axis 'Z' in absolute zero position;<br>(B) - Axis 'C' in position of absolute 0;<br>(C) - Axes 'X' and 'Y' simultaneously in absolute Zero position;</p><div class="TextAlignCenter"><img src="attachments/2_PROGRAMS_ON-MACHINE/1_parcheggio_B.png" alt="1_parcheggio_B.png" width="261" onclick="showModal(this.src)"></div>
+<div id="admonition-warningto-perform-automatic-parking-some-safety-conditions-must-be-respected" class="admonition admonish-warning" role="note" aria-labelledby="admonition-warningto-perform-automatic-parking-some-safety-conditions-must-be-respected-title">
+<div class="admonition-title">
+<div id="admonition-warningto-perform-automatic-parking-some-safety-conditions-must-be-respected-title">
+<p>WARNING!To perform automatic parking, some safety conditions must be respected:</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-warningto-perform-automatic-parking-some-safety-conditions-must-be-respected"></a>
+</div>
+<div>
+<p>The position of the Axis 'A' must be to 0_.Make sure the movement zone interested in the Location (See figure next) is free.</p>
+</div>
+</div>
+</td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2_PROGRAMS_ON-MACHINE/1_Zero_D-20250320-121702.png" alt="1_Zero_D-20250320-121702.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Zero</strong><br>Perform the axes zeroing (This operation is necessary when the machine is started or when the rectangular indicators are red).<br>When the zeroing cycle is finished, the indicators will be grey.<br>The phase of zeroing provides the sequential handling of the axes:</p><ol start="1" type="1"><li><p>Axis Z</p></li><li><p>Axis A</p></li><li><p>Axis C</p></li><li><p>Simultaneously the X and Y axes</p></li><li><p>Axis B (Optional: Controlled lathe )</p></li></ol>
+<div id="admonition-info" class="admonition admonish-info" role="note" aria-labelledby="admonition-info-title">
+<div class="admonition-title">
+<div id="admonition-info-title">
+<p>Info</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-info"></a>
+</div>
+<div>
+<p>NOTEThe zeroing is permitted only when the encoded key is inserted in the adequate station, identifiable on the operator console.</p>
+</div>
+</div>
+</td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2_PROGRAMS_ON-MACHINE/1_H2OIntern.png" alt="1_H2OIntern.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Turning on / Turning off internal water</strong><br>Pressing this button, water is activated from inside the tool.<br>The signal above the button changes color: Green = On; Red = Off.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2_PROGRAMS_ON-MACHINE/1_H2O_Est-20250320-092600.png" alt="1_H2O_Est-20250320-092600.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Turning on / Turning off external water</strong><br>Pressing this button activates water of the main conduit.<br>The signal above the button changes color: Green = On; Red = Off.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2_PROGRAMS_ON-MACHINE/1_CambiaTool_B-20250320-093047.png" alt="1_CambiaTool_B-20250320-093047.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Change Tool Manual</strong><br>Pressing the button, the tool change procedure is started.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2_PROGRAMS_ON-MACHINE/1_Manutenzioni_B.png" alt="1_Manutenzioni_B.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Maintenances</strong><br>Pressing this button a window will be visible containing all the maintenance of the machine.<br>There will be viewed both the maintenances to do, and those within the norm.<br>If one maintenance is needed.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2_PROGRAMS_ON-MACHINE/1_help_B.png" alt="1_help_B.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Help</strong><br>Pressing this button will slightly modify the graphics of all the currently visible buttons and their behavior. It is now possible to press any button with a small question mark in the top left corner to learn the function offered by the button through a small message. To exit this assistance mode, it is simply necessary to press the 'Help' button again.</p></td></tr></tbody></table><p></p><p></p><h1 id="interface-elements-common"><a class="header" href="#interface-elements-common">Interface elements common</a></h1><p>The graphical interface elements in common for the functionalities are:</p><p></p><h2 id="axes"><a class="header" href="#axes">Axes</a></h2><p>In this interface are reported the values of the machine axes.</p><p>Example of interface item 'Axes' with origin 0 and axes zeroing already executed:</p><div class="TextAlignCenter"><img src="attachments/2_PROGRAMS_ON-MACHINE/Assi_Azzerato_B.png" alt="Assi_Azzerato_B.png" width="600" onclick="showModal(this.src)"></div><p>Example of interface element 'Axes' with origin 0 and axis zeroing still to be performed:</p><div class="TextAlignCenter"><img src="attachments/2_PROGRAMS_ON-MACHINE/Assi_DaAzzerare_B.png" alt="Assi_DaAzzerare_B.png" width="600" onclick="showModal(this.src)"></div><p>Below is found the explanation of the elements that compose this section of the common interface, the elements are taken as reference in the case axes already zeroed.</p><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="ada2e4e9-da09-4c33-abee-f3cc36949e35" data-table-display-mode="default"><colgroup><col style="width: 676.0px;"><col style="width: 1122.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/2_PROGRAMS_ON-MACHINE/asseX_b-20250714-074727.png" alt="asseX_b-20250714-074727.png" width="425" onclick="showModal(this.src)"></div><p></p></td><td><p><strong>Real quote: </strong>indicates the position of the axis with respect to the active origin.<br><strong>Objective quotas: </strong>indicates the quote to set to perform the movement of the axis through the pressure of the MDI or RTCP button.<br><strong>F: </strong>Feed, movement speed expressed in mm/minute.<br><strong>DTG:  </strong>Distance To Go, distance from the target. <br><strong>A:  </strong>Ampere.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2_PROGRAMS_ON-MACHINE/ResetAsse_B.png" alt="ResetAsse_B.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Reset Axis</strong><br>Pressing this button sets the zero of the active origin at the point where the relative axis (X, Y or Z) is located.<br>The operation of resetting the axis can be performed only on origins different from the 0 (zero).<br>To use the origin in tool coordinate (TCP) it is necessary to have set the correct measures of the tool mounted before pressing the Reset Axis button.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2_PROGRAMS_ON-MACHINE/RotazAutom__-90_B.png" alt="RotazAutom__-90_B.png" width="138" onclick="showModal(this.src)"></div></td><td><p><strong>Automatic rotation _90 degree</strong><br>The position of the 'C' axis is increased by 90 degrees clockwise.<br>Example: the machine is at 12 degrees, pressing the 'Automatic rotation _90 degrees' button the machine goes to 102 degrees: 12 _ 90.</p><p><strong>Automatic rotation -90 degree</strong><br>The position of axis 'C' is decremented by 90 degrees in counter-clockwise.<br>Example: the machine is at 102 degree, pressing the 'Automatic rotation -90 degree' button the machine is moved to 12 degree: 102 - 90.</p></td></tr></tbody></table><p></p><h2 id="controls"><a class="header" href="#controls">Controls</a></h2><p>In this panel are proposed some buttons whose behavior is explained below:</p><div class="TextAlignCenter"><img src="attachments/2_PROGRAMS_ON-MACHINE/Controlli_B-20250321-072300.png" alt="Controlli_B-20250321-072300.png" width="250" onclick="showModal(this.src)"></div><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="0940b3e0-8d5b-404a-8d44-f59471e46925" data-table-display-mode="default"><colgroup><col style="width: 318.0px;"><col style="width: 1481.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/2_PROGRAMS_ON-MACHINE/ModeInterpolaz_D-20250320-122418.png" alt="ModeInterpolaz_D-20250320-122418.png" width="148" onclick="showModal(this.src)"></div></td><td><p><strong>Interpolation mode</strong><br>When the button is active (right figure) the manual movements Z, C and A are executed considering the rotation and the inclination.<br>Z axis movement interpolated: by activating the Z axis JOG the machine will move aligned with the tool mounted.</p>
+<div id="admonition-info-1" class="admonition admonish-info" role="note" aria-labelledby="admonition-info-1-title">
+<div class="admonition-title">
+<div id="admonition-info-1-title">
+<p>Info</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-info-1"></a>
+</div>
+<div>
+<p>NOTEThe tool type selected has effect on the movement direction.</p>
+</div>
+</div>
+<p>Axis C movement interpolated: by running the command of axis C, in addition to the rotation, the axes X and Y will also be moved, so that the inner edge of the blade (or the tip of the tool) remains still.<br>Axis A interpolated movement: by activating the A axes command, in addition to the inclination, the X, Y and Z axes will also be moved so that the inner edge of the blade (or the tool’s point) remains stationary in the position in which it is.<br>Movements simultaneous of the axes Z, C and A are not allowed with the interpolated mode active.</p>
+<div id="admonition-warning" class="admonition admonish-warning" role="note" aria-labelledby="admonition-warning-title">
+<div class="admonition-title">
+<div id="admonition-warning-title">
+<p>Warning</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-warning"></a>
+</div>
+<div>
+<p>WARNING!Pay very attention to the state of the button because the machine's movements may be different from what is expected.</p>
+</div>
+</div>
+</td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2_PROGRAMS_ON-MACHINE/RTCP_B.png" alt="RTCP_B.png" width="119" onclick="showModal(this.src)"></div></td><td><p><strong>RTCP interpolation</strong><br>Perform a positioning set to 'Objective' quote at A quote or at C quote keeping still the inner blade wire (or the tool tip).<br>For further specifications see the paragraph: 'Semi-Automatic RTCP Rotation Tool Center Point functionality'</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2_PROGRAMS_ON-MACHINE/Untitled-20250718-135707.png" alt="Untitled-20250718-135707.png" width="182" onclick="showModal(this.src)"></div></td><td><p><strong>MDI</strong><br>When pressed, the machine executes the movement until the achievement of the quotes set in the objective quotes (See above).<br>The speed of the axes X and Y is controlled by the respective potentiometers, while the other axes are controlled by the interpolated potentiometer.</p></td></tr></tbody></table><p></p><h2 id="tool"><a class="header" href="#tool">Tool</a></h2><p>In this element of the interface are shown the main informations regarding the tool mounted on the machine.</p><p>Example of tool mounted in machine: Disk</p><div class="TextAlignCenter"><img src="attachments/2_PROGRAMS_ON-MACHINE/0_disco_B-20250321-072455.png" alt="0_disco_B-20250321-072455.png" width="400" onclick="showModal(this.src)"></div><p>Example of tool mounted in machine: Foretto</p><div class="TextAlignCenter"><img src="attachments/2_PROGRAMS_ON-MACHINE/0_FresaForetto_B.png" alt="0_FresaForetto_B.png" width="400" onclick="showModal(this.src)"></div><p></p><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="f448fd80-fa18-473c-b33f-c40d3f717b17" data-table-display-mode="default"><colgroup><col style="width: 259.0px;"><col style="width: 1538.0px;"></colgroup><tbody><tr><td data-highlight-colour="#ffffff"><div class="TextAlignCenter"><img src="attachments/2_PROGRAMS_ON-MACHINE/UtensileAttivo_B.png" alt="UtensileAttivo_B.png" width="60" onclick="showModal(this.src)"></div></td><td data-highlight-colour="#ffffff"><p><strong>Tool active</strong><br>Clicking this button displays a confirmation popup that allows the operator to change the tool type mounted on the machine. </p><p>The choice is limited between:</p><ol start="1" type="1"><li><p>Disk</p></li><li><p>Milling / Coredrill</p></li></ol></td></tr></tbody></table><p></p><h2 id="origin"><a class="header" href="#origin">Origin</a></h2><p>Clicking on the 'Origin' field a small numeric keypad will be displayed on screen that will allow the operator to select a different origin to work with. <br>The origin values can vary from 0 to 19 included.</p><p>Example with origin 0:</p><div class="TextAlignCenter"><img src="attachments/2_PROGRAMS_ON-MACHINE/OrigineZero_B.png" alt="OrigineZero_B.png" width="400" onclick="showModal(this.src)"></div><p>Example with origin 10:</p><div class="TextAlignCenter"><img src="attachments/2_PROGRAMS_ON-MACHINE/OrigineDieci_B.png" alt="OrigineDieci_B.png" width="400" onclick="showModal(this.src)"></div><h3 id="rtcp---rotation-tool-center-point"><a class="header" href="#rtcp---rotation-tool-center-point">RTCP - Rotation Tool Center Point</a></h3><p>The RTCP function allows the operator to make a positioning for a miter cut maintaining the tool height unchanged, despite the inclination is varied during the positioning. The internal wire of the disk will remain in the same position in which it is at the beginning of the handling.</p><p></p><h4 id="operating-procedure"><a class="header" href="#operating-procedure">Operating procedure</a></h4><ul><li><p>Set the objective quota in the area dedicated to the axis 'A' (tilt) or 'C'</p></li><li><p>Pressing the RTCP button starts the tilt or rotation function keeping the lowest point of the tool fixed.</p></li></ul>
+<div id="admonition-info-2" class="admonition admonish-info" role="note" aria-labelledby="admonition-info-2-title">
+<div class="admonition-title">
+<div id="admonition-info-2-title">
+<p>Info</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-info-2"></a>
+</div>
+<div>
+<p>NOTEThe handling by RTCP command is allowed only when the encoded key is inserted in the adequate workstation, identifiable on the operator console.</p>
+</div>
+</div>
+<ul><li><p>Wait for the machine to position at the set quote.</p></li></ul><p></p><h2 id="motor"><a class="header" href="#motor">Motor</a></h2><p>In this section are reported some statistics regarding the motor of the machine:</p><div class="TextAlignCenter"><img src="attachments/2_PROGRAMS_ON-MACHINE/Motore_B-20250321-072750.png" alt="Motore_B-20250321-072750.png" width="400" onclick="showModal(this.src)"></div><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="c2ccdefe-f2f6-43ab-9db4-83d7fffadbd7" data-table-display-mode="default"><colgroup><col style="width: 596.0px;"><col style="width: 1201.0px;"></colgroup><tbody><tr><td data-highlight-colour="#ffffff"><div class="TextAlignCenter"><img src="attachments/2_PROGRAMS_ON-MACHINE/S_B.png" alt="S_B.png" width="391" onclick="showModal(this.src)"></div></td><td data-highlight-colour="#ffffff"><p><strong>Revolutions per minute (RPM)</strong><br>Indicates the rotations of the motor spindle per minute. If the direction of rotation is clockwise the value is positive, otherwise if the direction is anticlockwise, the sign is negative.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2_PROGRAMS_ON-MACHINE/A_B.png" alt="A_B.png" width="391" onclick="showModal(this.src)"></div></td><td><p><strong>Intake (A)</strong><br>Indicate the current absorbed by the spindle motor.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2_PROGRAMS_ON-MACHINE/TH_B-20250321-082900.png" alt="TH_B-20250321-082900.png" width="400" onclick="showModal(this.src)"></div></td><td><p><strong>Ampere threshold</strong><br>Indicates the threshold beyond which the alarm is activated and the spindle rotation is blocked.</p></td></tr></tbody></table><p></p><h2 id="feed"><a class="header" href="#feed">Feed</a></h2><p>The value Feed represents the interpolated move of the machine.</p><div class="TextAlignCenter"><img src="attachments/2_PROGRAMS_ON-MACHINE/Feed_B-20250321-072835.png" alt="Feed_B-20250321-072835.png" width="400" onclick="showModal(this.src)"></div><p></p><p></p><h1 id="right-side-bar"><a class="header" href="#right-side-bar">Right side bar</a></h1><p>At the start of the application the preset functionality is MANUAL.<br>This sidebar contains the following controls and programs/functions available:</p><div class="TextAlignCenter"><img src="attachments/2_PROGRAMS_ON-MACHINE/2_0_BarraLateraleDestra_B.png" alt="2_0_BarraLateraleDestra_B.png" width="400" onclick="showModal(this.src)"></div><p></p><p></p><h1 id="lower-bar"><a class="header" href="#lower-bar">Lower bar</a></h1><p>The lower bar displays information and error messages and some buttons for certain functionalities.<br>The following three examples of lower bar are proposed.</p><ul><li><p>Without active alarms.</p></li></ul><div class="TextAlignCenter"><img src="attachments/2_PROGRAMS_ON-MACHINE/3_0_BarraInferioreSenzaAllarmi_b-20250919-140500.png" alt="3_0_BarraInferioreSenzaAllarmi_b-20250919-140500.png" width="800" onclick="showModal(this.src)"></div><ul><li><p>With a general emergency enabled, reported with an icon, an error code (in this case PE0000), the relative description and the alarms button on the right flashing.</p></li></ul><div class="TextAlignCenter"><img src="attachments/2_PROGRAMS_ON-MACHINE/3_0_BarraInferioreConAllarmi_b-20250919-143046.png" alt="3_0_BarraInferioreConAllarmi_b-20250919-143046.png" width="800" onclick="showModal(this.src)"></div><ul><li><p>With a message reported, in the example JOG direct active.</p></li></ul><div class="TextAlignCenter"><img src="attachments/2_PROGRAMS_ON-MACHINE/3_0_BarraInferioreConMessaggio_b-20250919-140923.png" alt="3_0_BarraInferioreConMessaggio_b-20250919-140923.png" width="800" onclick="showModal(this.src)"></div><p> </p><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="e02c1e28-cc40-40ed-9b63-4f2c36277abd" data-table-display-mode="default"><colgroup><col style="width: 275.0px;"><col style="width: 1525.0px;"></colgroup><tbody><tr><td data-highlight-colour="var(--ds-surface, #FFFFFF)"><div class="TextAlignCenter"><img src="attachments/2_PROGRAMS_ON-MACHINE/3_allarmi_B.png" alt="3_allarmi_B.png" width="60" onclick="showModal(this.src)"></div></td><td data-highlight-colour="var(--ds-surface, #FFFFFF)"><p><strong>Alarms</strong><br>Allows the operator to access the alarms window.</p></td></tr><tr><td data-highlight-colour="var(--ds-surface, #FFFFFF)"><div class="TextAlignCenter"><img src="attachments/2_PROGRAMS_ON-MACHINE/3_Minimizzazione_B.png" alt="3_Minimizzazione_B.png" width="60" onclick="showModal(this.src)"></div></td><td data-highlight-colour="var(--ds-surface, #FFFFFF)"><p><strong>Software minimization</strong><br>It allows the operator to exit the software page.</p></td></tr><tr><td data-highlight-colour="var(--ds-surface, #FFFFFF)"><div class="TextAlignCenter"><img src="attachments/2_PROGRAMS_ON-MACHINE/3_TurnOffMachine_B.png" alt="3_TurnOffMachine_B.png" width="60" onclick="showModal(this.src)"></div></td><td data-highlight-colour="var(--ds-surface, #FFFFFF)"><p><strong>Machine shutdown</strong><br>Allows the operator to definitively shut down the machine.</p></td></tr></tbody></table><p></p><h2 id="alarms"><a class="header" href="#alarms">Alarms</a></h2><p>The alarms page indicates the active Alarms/Messages of the system.<br>If the machine doesn’t have active alarms the page is empty, otherwise there will be a line for each error present. <br>In the following example page relating to management and viewing of alarms, an active alarm is visible in the system.</p><div class="TextAlignCenter"><img src="attachments/2_PROGRAMS_ON-MACHINE/3_0_Allarmi_Form_C-20250722-113201.png" alt="3_0_Allarmi_Form_C-20250722-113201.png" width="800" onclick="showModal(this.src)"></div><p></p><h3 id="alarm-buttons"><a class="header" href="#alarm-buttons">Alarm buttons</a></h3><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="2786906e-58e4-4f16-883d-5080c02e820d"><colgroup><col style="width: 334.0px;"><col style="width: 1465.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/2_PROGRAMS_ON-MACHINE/3.1.1-20250722-111950.png" alt="3.1.1-20250722-111950.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Updates</strong><br>It serves to update the status of the machine alarms.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2_PROGRAMS_ON-MACHINE/image-20250722-112105.png" alt="image-20250722-112105.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Historical alarms</strong><br>Allows to view the daily history of alarms.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2_PROGRAMS_ON-MACHINE/image-20250722-112140.png" alt="image-20250722-112140.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Messages / Alarms</strong><br>Allows to choose if to display alarms or messages.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2_PROGRAMS_ON-MACHINE/image-20250722-112148.png" alt="image-20250722-112148.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Alarm groups</strong><br>Show complete information of alarms currently present in machine.</p></td></tr></tbody></table><p></p><h4 id="viewing-of-alarms---standard"><a class="header" href="#viewing-of-alarms---standard">Viewing of alarms - Standard</a></h4><p>The standard viewing of one of the displayed alarms is composed of: </p><div class="TextAlignCenter"><img src="attachments/2_PROGRAMS_ON-MACHINE/3.1-20250722-113312.png" alt="3.1-20250722-113312.png" width="366" onclick="showModal(this.src)"></div><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="13fba903-ec25-4736-94b7-dda5444f6972"><colgroup><col style="width: 515.0px;"><col style="width: 1279.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/2_PROGRAMS_ON-MACHINE/3.0-20250722-125105.png" alt="3.0-20250722-125105.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Online link</strong><br>A button with links for the relative online guide.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2_PROGRAMS_ON-MACHINE/image-20250722-130053.png" alt="image-20250722-130053.png" width="94" onclick="showModal(this.src)"></div></td><td><p><strong>Alarm code</strong><br>Identification code of the problem that caused the alarm.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2_PROGRAMS_ON-MACHINE/4.3-20250722-130309.png" alt="4.3-20250722-130309.png" width="220" onclick="showModal(this.src)"></div></td><td><p><strong>Description</strong><br>A brief description of the error encountered.</p></td></tr></tbody></table><p></p><p></p><h4 id="viewing-of-alarms---historical"><a class="header" href="#viewing-of-alarms---historical">Viewing of alarms - Historical</a></h4><p>The daily history of alarms includes, in addition to the elements already described, also the following data:</p><div class="TextAlignCenter"><img src="attachments/2_PROGRAMS_ON-MACHINE/3.2-20250722-115737.png" alt="3.2-20250722-115737.png" width="661" onclick="showModal(this.src)"></div><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="5864afff-aff9-4d2c-a7c1-5648c67d0287"><colgroup><col style="width: 422.0px;"><col style="width: 1376.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/2_PROGRAMS_ON-MACHINE/5.1-20250722-130446.png" alt="5.1-20250722-130446.png" width="216" onclick="showModal(this.src)"></div></td><td><p><strong>Moment of state change</strong><br>Date and time of alarm state change.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2_PROGRAMS_ON-MACHINE/5.2-20250722-130505.png" alt="5.2-20250722-130505.png" width="49" onclick="showModal(this.src)"></div></td><td><p><strong>State alarm</strong><br>State reached by alarm (ON / OFF).</p></td></tr></tbody></table><p></p><p></p><h4 id="viewing-of-alarms---groups"><a class="header" href="#viewing-of-alarms---groups">Viewing of alarms - Groups</a></h4><p>The grouping system displays a single entry for each alarm, avoiding duplications.</p><div class="TextAlignCenter"><img src="attachments/2_PROGRAMS_ON-MACHINE/3.3-20250722-120218.png" alt="3.3-20250722-120218.png" width="800" onclick="showModal(this.src)"></div><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="f2a11484-cc58-49a5-9f54-2d24701ba1ff"><colgroup><col style="width: 422.0px;"><col style="width: 1374.0px;"></colgroup><tbody><tr><td data-highlight-colour="#ffffff"><div class="TextAlignCenter"><img src="attachments/2_PROGRAMS_ON-MACHINE/6.1-20250722-133531.png" alt="6.1-20250722-133531.png" width="30" onclick="showModal(this.src)"></div></td><td data-highlight-colour="#ffffff"><p><strong>Occurrences Number</strong><br>The number of occurrences of alarm activation.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2_PROGRAMS_ON-MACHINE/6.2-20250722-133731.png" alt="6.2-20250722-133731.png" width="220" onclick="showModal(this.src)"></div></td><td><p><strong>Moment before activation</strong><br>Date and time of the first alarm activation.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2_PROGRAMS_ON-MACHINE/6.3-20250722-133814.png" alt="6.3-20250722-133814.png" width="220" onclick="showModal(this.src)"></div></td><td><p><strong>Moment of last activation</strong><br>Date and time of the last alarm activation.</p></td></tr></tbody></table><p></p><!--Label="pbm"--><!--Label="pbm_lrm"--><!--Label="pbm_rgn"--><!--Label="pbm_rtc"--><!--Label="pbm_mtr"--><!--Label="pbm_fed"--><!--Label="pbm_axs"--><!--Label="pbm_cnt"--><!--Label="pbm_too"-->
+                        </main>
+
+                    </div>
+
+                    <img src="images/donatoni_222.jpg">
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="1_premisses.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="2.1_manual_(vacuum).html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+
+
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                <a rel="prev" href="1_premisses.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="2.1_manual_(vacuum).html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="mermaid.min.js"></script>
+        <script src="mermaid-init.js"></script>
+        <script src="hidemenu.js"></script>
+        <script src="imagemodal.js"></script>
+        <script src="login.js"></script>
+    </div>
+
+    <!-- Modale -->
+    <div id="modal" onclick="closeModal()">
+        <img id="modal-img" src="">
+    </div>;
+
+
+</body>
+</html>

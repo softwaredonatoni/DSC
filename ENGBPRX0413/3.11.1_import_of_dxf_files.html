@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+<head>
+    <!-- Book generated using mdBook -->
+    <meta charset="UTF-8">
+    <title>3.11.1 IMPORT OF DXF FILES - EN-GB PARAMETRIX 4.13</title>
+
+    <!-- Custom HTML head -->
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="icon" href="favicon.svg">
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/chrome.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Fonts -->
+    <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+    <link rel="stylesheet" href="fonts/fonts.css">
+
+    <!-- Highlight.js Stylesheets -->
+    <link rel="stylesheet" id="highlight-css" href="highlight.css">
+    <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+    <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+    <!-- Custom theme stylesheets -->
+    <link rel="stylesheet" href="./mdbook-admonish.css">
+    <link rel="stylesheet" href="theme/custom.css">
+    <link rel="stylesheet" href="search.html">
+    <link rel="stylesheet" href="login.html">
+    <link rel="stylesheet" href="searchlogin.html">
+    <link rel="stylesheet" href="searchloginmenu.html">
+
+    <!-- Provide site root and default themes to javascript -->
+    <script>
+      const path_to_root = "";
+      const default_light_theme = "light";
+      const default_dark_theme = "navy";
+    </script>
+    <!-- Start loading toc.js asap -->
+    <script src="toc.js"></script>
+<script>(function () {
+  const SUFFIX = "#2utHhOLI7Iz0";
+
+  function buildUrl() {
+    const base = window.location.href.split("#")[0];
+    return base + SUFFIX;
+  }
+
+  function fallbackCopy(text) {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.top = "-1000px";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+
+  async function copyUrl() {
+    const url = buildUrl();
+
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(url);
+        return;
+      } catch (e) {}
+    }
+
+    fallbackCopy(url);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.getElementById("copy-link-btn");
+    if (!btn) return;
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      copyUrl();
+    });
+  });
+})();
+</script></head>
+<body>
+    <header class="header-main">
+        <div class="header-flex">
+            <div class="donatoni-flex">
+                <label class="btn hamburger-menu" id="sidebar-toggle" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                    <i id="sidebar-toggle-icon" class="fa-solid fa-bars"></i>
+                </label>
+
+                <img src="images/donatoni-logo-white.svg" alt="Donatoni Macchine">
+            </div>
+
+            <div class="donatoni-flex action-header-buttons">
+                <div id="search-wrapper" class="search-wrapper hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults"></ul>
+                    </div>
+                </div>
+                <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+
+                <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
+                    <i class="fa-solid fa-print"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div id="body-container">
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem("mdbook-theme");
+                let sidebar = localStorage.getItem("mdbook-sidebar");
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-theme",
+                        theme.slice(1, theme.length - 1)
+                    );
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-sidebar",
+                        sidebar.slice(1, sidebar.length - 1)
+                    );
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
+                .matches
+                ? default_dark_theme
+                : default_light_theme;
+            let theme;
+            try {
+                theme = localStorage.getItem("mdbook-theme");
+            } catch (e) { }
+            if (theme === null || theme === undefined) {
+                theme = default_theme;
+            }
+            const html = document.documentElement;
+            html.classList.remove("light");
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try {
+                    sidebar = localStorage.getItem('mdbook-sidebar');
+                } catch (e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document
+                        .getElementById("sidebar-toggle")
+                        .setAttribute("aria-expanded", sidebar === "visible");
+                    document
+                        .getElementById("sidebar")
+                        .setAttribute("aria-hidden", sidebar !== "visible");
+                    Array.from(document.querySelectorAll("#sidebar a")).forEach(
+                        function (link) {
+                            link.setAttribute("tabIndex", sidebar === "visible" ? 0 : -1);
+                        }
+                    );
+                </script>
+
+                <div id="content" class="content">
+
+                    <div>
+
+                        <img src="images/donatoni_111.jpg">
+
+                        <main style="margin-left: 20px;">
+                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="3111-import-of-dxf-files" style="margin:0;"><a class="header" href="#3111-import-of-dxf-files">3.11.1 IMPORT OF DXF FILES</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="3.11.1 IMPORT OF DXF FILES"--><p>In this section, it is possible to create pieces through the import of DXF files.</p><div class="TextAlignCenter"><img src="attachments/3.11.1_IMPORT_OF_DXF_FILES/0_0_Eng.png" alt="0_0_Eng.png" width="800" onclick="showModal(this.src)"></div><p></p><p>
+</p><p></p><h1 id="list-of-files"><a class="header" href="#list-of-files">List of files</a></h1><p>In the left part of the window, there is a list that shows all the folders and DXF files contained in the currently selected path.</p><div class="TextAlignCenter"><img src="attachments/3.11.1_IMPORT_OF_DXF_FILES/sezione_lista_pulita_eng_B.png" alt="sezione_lista_pulita_eng_B.png" width="350" onclick="showModal(this.src)"></div><p>The element at the top of the list,</p><div class="TextAlignCenter"><img src="attachments/3.11.1_IMPORT_OF_DXF_FILES/cartella_superiore_B.png" alt="cartella_superiore_B.png" width="120" onclick="showModal(this.src)"></div><p>allows to return to the folder above the one in which one is currently.</p><p>Initially, the list of DXF files present in the PC's working folder is shown. It is possible to change the folder using the special buttons that are located on the right of the list of files.</p><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="f18cd007-6a4a-4655-b22d-4794954125b7"><colgroup><col style="width: 235.0px;"><col style="width: 1564.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/3.11.1_IMPORT_OF_DXF_FILES/pulsante_usb-20250320-153436.png" alt="pulsante_usb-20250320-153436.png" width="120" onclick="showModal(this.src)"></div></td><td><p><strong>USB memory</strong><br>Allows to access the USB memory inserted on the PC, navigate its folders, and view its files.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.11.1_IMPORT_OF_DXF_FILES/PathInstallazione-20250320-153210.png" alt="PathInstallazione-20250320-153210.png" width="120" onclick="showModal(this.src)"></div></td><td><p><strong>Working folder</strong><br>Quick access to PC working folder.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.11.1_IMPORT_OF_DXF_FILES/CercaPath-20250320-153333.png" alt="CercaPath-20250320-153333.png" width="120" onclick="showModal(this.src)"></div></td><td><p><strong>Explore folders</strong><br>Through this button, it is possible to explore all folders of the PC. </p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.11.1_IMPORT_OF_DXF_FILES/EliminaFile-20250320-153530.png" alt="EliminaFile-20250320-153530.png" width="120" onclick="showModal(this.src)"></div></td><td><p><strong>Delete file</strong><br>Allows to switch to 'Delete file' mode. In this mode, the icon of a gum will appear on the left of each file’s name contained in the list. <br>Select a file, in this case, delete it definitively.</p></td></tr></tbody></table><p></p><p></p><h1 id="order-and-filter-the-displayed-files"><a class="header" href="#order-and-filter-the-displayed-files">Order and filter the displayed files</a></h1><p>The items that are below manage the application of filters and the sorting of the files that are visible.</p><div class="TextAlignCenter"><img src="attachments/3.11.1_IMPORT_OF_DXF_FILES/3_0_FilterAndSort.png" alt="3_0_FilterAndSort.png" width="400" onclick="showModal(this.src)"></div><p>At the top of the image is located a search bar, through which it is possible to filter the files by name, showing only those that contain the text inserted.</p><p>In this section of the screen, you can also find the following buttons:</p><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="eb73d6a8-8be7-49a7-b67d-0c76ddb2d981"><colgroup><col style="width: 236.0px;"><col style="width: 1563.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/3.11.1_IMPORT_OF_DXF_FILES/3_2_PulisciFiltro.png" alt="3_2_PulisciFiltro.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Clean filter</strong><br>Delete the text entered in the search bar, eliminating the file display filter.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.11.1_IMPORT_OF_DXF_FILES/3_3_OrdinamentoData-20250320-153737.png" alt="3_3_OrdinamentoData-20250320-153737.png" width="120" onclick="showModal(this.src)"></div></td><td><p><strong>Sort by date</strong><br>Order the files present in the list based on the creation date. By default they are ordered from the most recent to the oldest. Pressing the button again, the files will be ordered from the oldest to the most recent. You can repeat the operation several times, changing the order.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.11.1_IMPORT_OF_DXF_FILES/3_4_OrdinamentoAlfab-20250320-153823.png" alt="3_4_OrdinamentoAlfab-20250320-153823.png" width="120" onclick="showModal(this.src)"></div></td><td><p><strong>Sort by name</strong><br>Order the files present in the list based on the name. By pressing the button you choose if the files must be ordered in an increasing or decreasing way.</p></td></tr></tbody></table>
+<div id="admonition-info" class="admonition admonish-info" role="note" aria-labelledby="admonition-info-title">
+<div class="admonition-title">
+<div id="admonition-info-title">
+<p>Info</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-info"></a>
+</div>
+<div>
+<p>NOTEThe search by name applies exclusively to the files contained in the folder, and not to eventual subfolders present.On the contrary, the order by name and by date, is applied to each item of the list, while always showing the folders before the files.</p>
+</div>
+</div>
+<p></p><p></p><h1 id="preview"><a class="header" href="#preview">Preview</a></h1><p>Upon selection of a file, in the panel in the center of the screen, a preview of the drawing is displayed, so as to make immediate identification of its content.</p><div class="TextAlignCenter"><img src="attachments/3.11.1_IMPORT_OF_DXF_FILES/0_1_eng-20250321-085731.png" alt="0_1_eng-20250321-085731.png" width="800" onclick="showModal(this.src)"></div><p>It is possible to interact with the preview by dragging its content, or by using the buttons placed on its right.</p><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="d5f023d5-b253-4fe7-b95e-a4109c985dd1"><colgroup><col style="width: 198.0px;"><col style="width: 1598.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/3.11.1_IMPORT_OF_DXF_FILES/2_1_Zoom_.png" alt="2_1_Zoom_.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Increase zoom</strong><br>Increase the zoom on the preview.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.11.1_IMPORT_OF_DXF_FILES/2_2_Zoom-.png" alt="2_2_Zoom-.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Decrease zoom</strong><br>Decreases the zoom on the preview.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.11.1_IMPORT_OF_DXF_FILES/2_3_ZoomOriginale.png" alt="2_3_ZoomOriginale.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Restore Viewing</strong><br>Restore the preview display to the starting situation, in which the whole drawing is visible.</p></td></tr></tbody></table><p></p><p></p><h1 id="additional-buttons"><a class="header" href="#additional-buttons">Additional buttons</a></h1><p>The following buttons also allow to carry out additional actions.</p><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="ec815152-e5cc-48b2-a7dc-3807f44bc0df"><colgroup><col style="width: 155.0px;"><col style="width: 1643.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/3.11.1_IMPORT_OF_DXF_FILES/pulsante_importazione_singola.png" alt="pulsante_importazione_singola.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Single import</strong><br>If this button is enabled, it makes possible the creation of more distinct pieces in single quantity instead of a single piece with more copies.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.11.1_IMPORT_OF_DXF_FILES/2_4_PannelloDettagli.png" alt="2_4_PannelloDettagli.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Panel details</strong><br>Opens the panel to view the details of the selected DXF file.</p></td></tr></tbody></table><p></p><h1 id="panel-details"><a class="header" href="#panel-details">Panel details</a></h1><p>If a file has been selected, you can access the 'Details Panel' to visualize the properties of the DXF. This is possible through the following button located on the right of the preview:</p><p>Once opened, it will show the following panel, in addition to the list of pieces that make up the selected DXF:</p><div class="TextAlignCenter"><img src="attachments/3.11.1_IMPORT_OF_DXF_FILES/0_0_schermata_cucina-20250321-144459.png" alt="0_0_schermata_cucina-20250321-144459.png" width="800" onclick="showModal(this.src)"></div><p></p><h2 id="visibility-management-layout"><a class="header" href="#visibility-management-layout">Visibility management layout</a></h2><p>On the top of this panel are reported the layouts in form of checkbox activatable or disactivatable at will.</p><div class="TextAlignCenter"><img src="attachments/3.11.1_IMPORT_OF_DXF_FILES/1_0_componenti_B-20250321-144837.png" alt="1_0_componenti_B-20250321-144837.png" width="484" onclick="showModal(this.src)"></div><p>The first item of this list of layouts allows to enable or disable the visualization of all layouts.</p><p></p><p></p><h2 id="side-panel"><a class="header" href="#side-panel">Side panel</a></h2><h3 id="buttons-related-to-visibility-and-padding"><a class="header" href="#buttons-related-to-visibility-and-padding">Buttons related to visibility and padding</a></h3><p>Besides the buttons already shown previously relating to the modification that zoom level and to the restoring of this, there are two new buttons:</p><div class="TextAlignCenter"><img src="attachments/3.11.1_IMPORT_OF_DXF_FILES/2_0_PulsantiTopDx-20250321-144938.png" alt="2_0_PulsantiTopDx-20250321-144938.png" width="332" onclick="showModal(this.src)"></div><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="dd6f58ed-9f67-4b9e-886c-2dc4bf2968bd"><colgroup><col style="width: 288.0px;"><col style="width: 1506.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/3.11.1_IMPORT_OF_DXF_FILES/2_4-20250321-145600.png" alt="2_4-20250321-145600.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Highlight selected piece</strong><br>Increase the zoom on the selected piece from the polyline list.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.11.1_IMPORT_OF_DXF_FILES/2_5_OnOff-20250610-135535.png" alt="2_5_OnOff-20250610-135535.png" width="120" onclick="showModal(this.src)"></div></td><td><p><strong>Move view</strong><br>Allows to move the preview through the interaction with the screen.</p></td></tr></tbody></table><p></p><p></p><h3 id="list-of-polylines"><a class="header" href="#list-of-polylines">List of polylines</a></h3><p>On the central right side of the panel are reported the pieces that compose the chosen .dxf, in the form of polylines.<br>Selecting one of the values present in the list, the related visible piece will be highlighted with the yellow color in the preview. </p><div class="TextAlignCenter"><img src="attachments/3.11.1_IMPORT_OF_DXF_FILES/3_0_ListaPolilinee-20250321-145035.png" alt="3_0_ListaPolilinee-20250321-145035.png" width="321" onclick="showModal(this.src)"></div><p>When the button next to each piece is pressed, the list of polylines that constitute the piece will be made visible.<br>It will be also possible to highlight a single polyline of the DXF simply selecting the respective line from the list:</p><div class="TextAlignCenter"><img src="attachments/3.11.1_IMPORT_OF_DXF_FILES/3_2_ElementoDiPolilineaSelezionato-20250321-151326.png" alt="3_2_ElementoDiPolilineaSelezionato-20250321-151326.png" width="800" onclick="showModal(this.src)"></div><p></p><p></p><p></p><h3 id="lower-buttons"><a class="header" href="#lower-buttons">Lower buttons</a></h3><p>These buttons are placed in the lower part of the side bar.</p><div class="TextAlignCenter"><img src="attachments/3.11.1_IMPORT_OF_DXF_FILES/4_0_PulsantiBottomDx-20250321-145201.png" alt="4_0_PulsantiBottomDx-20250321-145201.png" width="331" onclick="showModal(this.src)"></div><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="5f2ae644-3519-4514-a157-0f87e931b16e"><colgroup><col style="width: 288.0px;"><col style="width: 1506.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/3.11.1_IMPORT_OF_DXF_FILES/4_1-20250321-145257.png" alt="4_1-20250321-145257.png" width="58" onclick="showModal(this.src)"></div></td><td><p><strong>Find previous open polyline</strong><br>Scrolls the open polyline list of the selected DXF towards the beginning of the list.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.11.1_IMPORT_OF_DXF_FILES/4_2-20250321-145335.png" alt="4_2-20250321-145335.png" width="58" onclick="showModal(this.src)"></div></td><td><p><strong>Find previous open polyline</strong><br>Scrolls the list of open polylines of the selected DXF towards the end of the list.</p></td></tr></tbody></table><p></p><p>In the following example, Panel Details has been opened for a .dxf that presents some pieces constituted by open polylines, reported in red in the list:</p><div class="TextAlignCenter"><img src="attachments/3.11.1_IMPORT_OF_DXF_FILES/image-20250610-142536.png" alt="image-20250610-142536.png" width="800" onclick="showModal(this.src)"></div><p></p><p></p><!--Label="crt_dxf"--><!--Label="crt_dxf_dtl"-->
+                        </main>
+
+                    </div>
+
+                    <img src="images/donatoni_222.jpg">
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="3.11_creation_of_the_pieces.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="3.11.2_creation_of_rectangles.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+
+
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                <a rel="prev" href="3.11_creation_of_the_pieces.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="3.11.2_creation_of_rectangles.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="mermaid.min.js"></script>
+        <script src="mermaid-init.js"></script>
+        <script src="hidemenu.js"></script>
+        <script src="imagemodal.js"></script>
+        <script src="login.js"></script>
+    </div>
+
+    <!-- Modale -->
+    <div id="modal" onclick="closeModal()">
+        <img id="modal-img" src="">
+    </div>;
+
+
+</body>
+</html>

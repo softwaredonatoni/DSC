@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ricerca Pagina</title>
+
+    <!-- Custom HTML head -->
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="icon" href="favicon.svg">
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/chrome.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
+
+    <!-- Fonts -->
+    <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+    <link rel="stylesheet" href="fonts/fonts.css">
+
+    <!-- Highlight.js Stylesheets -->
+    <link rel="stylesheet" href="highlight.css">
+    <link rel="stylesheet" href="tomorrow-night.css">
+    <link rel="stylesheet" href="ayu-highlight.css">
+
+    <!-- Custom theme stylesheets -->
+    <link rel="stylesheet" href="./mdbook-admonish.css">
+    <link rel="stylesheet" href="theme/custom.css">
+    <link rel="stylesheet" href="search.html">
+    <link rel="stylesheet" href="login.html">
+    <link rel="stylesheet" href="searchlogin.html">
+    <link rel="stylesheet" href="searchloginmenu.html">
+
+    <script>
+
+
+        async function fetchToken(parametro1) {
+            try {
+                const response = await fetch(`http://192.168.6.14:8081/api/evaluate?token=${encodeURIComponent(parametro1)}`);
+                if (!response.ok) throw new Error("Errore nella risposta HTTP");
+
+                const text = await response.json(); // supponiamo risponda con "True" o "False"
+                if (text == "True") {
+                    console.info("login ok");
+                    sessionStorage.setItem("isLoggedIn", "true");
+                    return true;
+                } else {
+                    console.info("login KO");
+                    return false;
+                }
+            } catch (error) {
+                console.error("Errore durante la fetch:", error);
+                return false;
+            }
+        }
+
+
+
+        document.addEventListener("DOMContentLoaded", async () => {
+            const fragment = window.location.hash.substring(1); // Prende il valore dopo #
+            const [parametro1, parametro2, parametro3] = fragment.split("|"); // Divide i valori
+            const output = document.getElementById("parametro");
+            const HIDEMENU = "H";
+
+            if (!parametro1) {
+                output.textContent = "No token found";
+                return;
+            }
+
+            const loginOk = await fetchToken(parametro1); // aspetta la fetch
+
+            if (!loginOk) {
+                output.textContent = "Invalid token";
+                return;
+            }
+
+            if (!parametro2) {
+                output.textContent = "No label found";
+                return;
+            }
+
+            if (parametro3 == HIDEMENU) {
+                sessionStorage.setItem("hideMenu", "true");
+            }
+            else {
+                sessionStorage.setItem("hideMenu", "false");
+            }
+
+
+            output.textContent = `Parametro passato: ${parametro2}`;
+
+            // Cerca tutte le corrispondenze nel body
+            const mappings = document.querySelectorAll("p#mapping");
+            for (const mapping of mappings) {
+                const [key, value] = mapping.textContent.split("=");
+                if (key === parametro2) {
+                    window.location.href = value.trim(); // Reindirizza l'utente alla pagina corrispondente
+                    return;
+                }
+            }
+
+            var msg = `Page not found: ${parametro2}`;
+
+            alert(msg);
+        });
+    </script>
+    <style>
+        p#mapping {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="pagina-1"><a class="header" href="#pagina-1">Searching...</a></h1>
+    <p id="parametro">Waiting...</p>
+
+    <!-- Mappatura parametri-pagine -->
+</body>
+</html>

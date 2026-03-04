@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ricerca Pagina</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const parametro = window.location.hash.substring(1); // Prende il valore dopo #
+            const output = document.getElementById("parametro");
+
+            if (!parametro) {
+                output.textContent = "Nessun parametro passato.";
+                return;
+            }
+
+            output.textContent = `Parametro passato: ${parametro}`;
+
+            // Cerca tutte le corrispondenze nel body
+            const mappings = document.querySelectorAll("p#mapping");
+            for (const mapping of mappings) {
+                const [key, value] = mapping.textContent.split("=");
+                if (key === parametro) {
+                    window.location.href = value.trim(); // Reindirizza l'utente alla pagina corrispondente
+                    return;
+                }
+            }
+
+            var msg = `Nessuna pagina trovata con questa etichetta: ${parametro}`;
+
+            alert(msg);
+        });
+    </script>
+        <style>
+            p#mapping { display: none; }
+        </style>
+<script>(function () {
+  const SUFFIX = "#2utHhOLI7Iz0";
+
+  function buildUrl() {
+    const base = window.location.href.split("#")[0];
+    return base + SUFFIX;
+  }
+
+  function fallbackCopy(text) {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.top = "-1000px";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+
+  async function copyUrl() {
+    const url = buildUrl();
+
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(url);
+        return;
+      } catch (e) {}
+    }
+
+    fallbackCopy(url);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.getElementById("copy-link-btn");
+    if (!btn) return;
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      copyUrl();
+    });
+  });
+})();
+</script></head>
+<body>
+    <h1>Ricerca della Pagina</h1>
+    <p id="parametro">Attendi mentre cerchiamo la pagina corrispondente...</p>
+    
+    <!-- Mappatura parametri-pagine -->
+<p id="mapping">pre=1_premisses.html</p>
+<p id="mapping">pbm=2_programs_on-machine.html</p>
+<p id="mapping">pbm_lrm=2_programs_on-machine.html</p>
+<p id="mapping">pbm_rgn=2_programs_on-machine.html</p>
+<p id="mapping">pbm_rtc=2_programs_on-machine.html</p>
+<p id="mapping">pbm_mtr=2_programs_on-machine.html</p>
+<p id="mapping">pbm_fed=2_programs_on-machine.html</p>
+<p id="mapping">pbm_axs=2_programs_on-machine.html</p>
+<p id="mapping">pbm_cnt=2_programs_on-machine.html</p>
+<p id="mapping">pbm_too=2_programs_on-machine.html</p>
+<p id="mapping">pbm_sct=2.1_manual_(vacuum).html</p>
+<p id="mapping">pbm_sng=2.2_single.html</p>
+<p id="mapping">pbm_iso=2.3_iso_program.html</p>
+<p id="mapping">pbm_iso_lst=2.3_iso_program.html</p>
+<p id="mapping">pbm_iso_exe=2.3_iso_program.html</p>
+<p id="mapping">pbm_iso_prw=2.3_iso_program.html</p>
+<p id="mapping">pbm_iso_cod=2.3_iso_program.html</p>
+<p id="mapping">pbm_lvl=2.4_leveling.html</p>
+<p id="mapping">pbm_pck=2.5_excavation.html</p>
+<p id="mapping">pbm_pck_pez=2.5_excavation.html</p>
+<p id="mapping">pbm_pck_ban=2.5_excavation.html</p>
+<p id="mapping">pbm_cut=2.6_cuts.html</p>
+<p id="mapping">pbm_cut_bal=2.6_cuts.html</p>
+<p id="mapping">pbm_cut_eop=2.6_cuts.html</p>
+<p id="mapping">pbm_cut_bca=2.6_cuts.html</p>
+<p id="mapping">pbm_cut_bac=2.6_cuts.html</p>
+<p id="mapping">pbm_cut_bse=2.6_cuts.html</p>
+<p id="mapping">pbm_cut_bpa=2.6_cuts.html</p>
+<p id="mapping">pbm_cut_bth=2.6_cuts.html</p>
+<p id="mapping">pbm_cut_efi=2.6_cuts.html</p>
+<p id="mapping">pbm_cut_ese=2.6_cuts.html</p>
+<p id="mapping">pbm_scm_two=2.7_isocam.html</p>
+<p id="mapping">pbm_scm_one=2.7_isocam.html</p>
+<p id="mapping">pbm_scm_fou=2.7_isocam.html</p>
+<p id="mapping">pbm_scm=2.7_isocam.html</p>
+<p id="mapping">pbm_scm_thr=2.7_isocam.html</p>
+<p id="mapping">pbm_scm_crt=2.7_isocam.html</p>
+<p id="mapping">pbm_pls=2.8_polish_(optional).html</p>
+<p id="mapping">pbm_pls_fre=2.8_polish_(optional).html</p>
+<p id="mapping">pbm_pls_rct=2.8_polish_(optional).html</p>
+<p id="mapping">pbm_ipl=2.9_program_list.html</p>
+<p id="mapping">pbm_ipl_elm=2.9_program_list.html</p>
+<p id="mapping">pbm_ipl_abv=2.9_program_list.html</p>
+<p id="mapping">pbm_ipl_men=2.9_program_list.html</p>
+<p id="mapping">pbm_ipl_pan=2.9_program_list.html</p>
+<p id="mapping">pbm_ipl_mon=2.9_program_list.html</p>
+<p id="mapping">pbm_ipl_exe=2.9_program_list.html</p>
+<p id="mapping">prx=3_parametrix.html</p>
+<p id="mapping">prx_wkz_lst=3_parametrix.html</p>
+<p id="mapping">prx_abv=3_parametrix.html</p>
+<p id="mapping">prx_wkz=3_parametrix.html</p>
+<p id="mapping">prx_blw=3_parametrix.html</p>
+<p id="mapping">prx_wkz_pos=3_parametrix.html</p>
+<p id="mapping">prx_lat=3_parametrix.html</p>
+<p id="mapping">srp=3.1_user_parameters.html</p>
+<p id="mapping">srp_sst=3.1_user_parameters.html</p>
+<p id="mapping">srp_pht=3.1_user_parameters.html</p>
+<p id="mapping">srp_srv=3.1.1_user_values.html</p>
+<p id="mapping">srp_srv_rst=3.1.1_user_values.html</p>
+<p id="mapping">srp_srv_bnl=3.1.1_user_values.html</p>
+<p id="mapping">srp_srv_ttr=3.1.1_user_values.html</p>
+<p id="mapping">srp_srv_bhg=3.1.1_user_values.html</p>
+<p id="mapping">srp_stt=3.1.2_statistics.html</p>
+<p id="mapping">srp_stt_ffc=3.1.2_statistics.html</p>
+<p id="mapping">srp_stt_vdo=3.1.2_statistics.html</p>
+<p id="mapping">srp_stt_oil=3.1.2_statistics.html</p>
+<p id="mapping">srp_stt_tmr=3.1.2_statistics.html</p>
+<p id="mapping">dxf=3.1.3_layers_name.html</p>
+<p id="mapping">dxf_rcn=3.1.3.1_making_cuts_from_dxf_drawings.html</p>
+<p id="mapping">dxf_rcn_bcc=3.1.3.1_making_cuts_from_dxf_drawings.html</p>
+<p id="mapping">dxf_rcn_ntr=3.1.3.1_making_cuts_from_dxf_drawings.html</p>
+<p id="mapping">dxf_rcn_lwr=3.1.3.1_making_cuts_from_dxf_drawings.html</p>
+<p id="mapping">dxf_rcn_mtr=3.1.3.1_making_cuts_from_dxf_drawings.html</p>
+<p id="mapping">dxf_rcn_dwn=3.1.3.1_making_cuts_from_dxf_drawings.html</p>
+<p id="mapping">dxf_rcn_mll=3.1.3.1_making_cuts_from_dxf_drawings.html</p>
+<p id="mapping">dxf_rcn_anc=3.1.3.1_making_cuts_from_dxf_drawings.html</p>
+<p id="mapping">dxf_rcn_rmv=3.1.3.1_making_cuts_from_dxf_drawings.html</p>
+<p id="mapping">dxf_rcn_hol=3.1.3.1_making_cuts_from_dxf_drawings.html</p>
+<p id="mapping">dxf_rcn_ffs=3.1.3.1_making_cuts_from_dxf_drawings.html</p>
+<p id="mapping">dxf_rcn_dct=3.1.3.1_making_cuts_from_dxf_drawings.html</p>
+<p id="mapping">dxf_rcn_drp=3.1.3.1_making_cuts_from_dxf_drawings.html</p>
+<p id="mapping">dxf_rcn_rim=3.1.3.1_making_cuts_from_dxf_drawings.html</p>
+<p id="mapping">dxf_rcn_sms=3.1.3.1_making_cuts_from_dxf_drawings.html</p>
+<p id="mapping">dxf_rcn_frt=3.1.3.1_making_cuts_from_dxf_drawings.html</p>
+<p id="mapping">dxf_rcn_add=3.1.3.1_making_cuts_from_dxf_drawings.html</p>
+<p id="mapping">dxf_pnt=3.1.3.2_color_layers.html</p>
+<p id="mapping">dxf_dnm=3.1.3.3_dynamic_tags.html</p>
+<p id="mapping">srp_sct=3.1.4_suction_cups.html</p>
+<p id="mapping">nww=3.2_new_working.html</p>
+<p id="mapping">tlp_cng=3.3_tool_panel.html</p>
+<p id="mapping">tlp_crt=3.3_tool_panel.html</p>
+<p id="mapping">tlp_rmv=3.3_tool_panel.html</p>
+<p id="mapping">tlp=3.3_tool_panel.html</p>
+<p id="mapping">tlp_dpl=3.3_tool_panel.html</p>
+<p id="mapping">tlp_prb=3.3_tool_panel.html</p>
+<p id="mapping">tlp_pls_rtt=3.3.1_tool_plus_(optional).html</p>
+<p id="mapping">tlp_pls=3.3.1_tool_plus_(optional).html</p>
+<p id="mapping">tlp_pls_wtr=3.3.1_tool_plus_(optional).html</p>
+<p id="mapping">tlp_pls_lft=3.3.1_tool_plus_(optional).html</p>
+<p id="mapping">tlp_pls_dcr=3.3.1_tool_plus_(optional).html</p>
+<p id="mapping">tlp_atc=3.3.2_machine_automatic_tool_change.html</p>
+<p id="mapping">tlp_atc_crc=3.3.2_machine_automatic_tool_change.html</p>
+<p id="mapping">tlp_ddm=3.3.3_double_disk_machine.html</p>
+<p id="mapping">swp=3.4_machining_parameters_of_the_slab.html</p>
+<p id="mapping">swp_mng=3.4_machining_parameters_of_the_slab.html</p>
+<p id="mapping">swp_tpl_mtr=3.4_machining_parameters_of_the_slab.html</p>
+<p id="mapping">swp_tpl_lnc=3.4_machining_parameters_of_the_slab.html</p>
+<p id="mapping">swp_blw=3.4_machining_parameters_of_the_slab.html</p>
+<p id="mapping">swp_mng_add=3.4_machining_parameters_of_the_slab.html</p>
+<p id="mapping">swp_tpl_lnr=3.4_machining_parameters_of_the_slab.html</p>
+<p id="mapping">swp_tpl_mil=3.4_machining_parameters_of_the_slab.html</p>
+<p id="mapping">swp_tpl_hol=3.4_machining_parameters_of_the_slab.html</p>
+<p id="mapping">swp_tpp=3.4_machining_parameters_of_the_slab.html</p>
+<p id="mapping">swp_tpl=3.4_machining_parameters_of_the_slab.html</p>
+<p id="mapping">swp_chp=3.4_machining_parameters_of_the_slab.html</p>
+<p id="mapping">swp_mng_opn=3.4_machining_parameters_of_the_slab.html</p>
+<p id="mapping">swp_stp=3.4_machining_parameters_of_the_slab.html</p>
+<p id="mapping">mnl=3.5_access_to_manual_command.html</p>
+<p id="mapping">mnl_prb=3.5_access_to_manual_command.html</p>
+<p id="mapping">mnl_crf=3.5_access_to_manual_command.html</p>
+<p id="mapping">lsr=3.6_laser_management.html</p>
+<p id="mapping">lsr_lin=3.6_laser_management.html</p>
+<p id="mapping">lsr_cro=3.6_laser_management.html</p>
+<p id="mapping">sht=3.7_add_photo_to_work_area.html</p>
+<p id="mapping">sht_cho=3.7_add_photo_to_work_area.html</p>
+<p id="mapping">sht_sho=3.7_add_photo_to_work_area.html</p>
+<p id="mapping">sht_per=3.7_add_photo_to_work_area.html</p>
+<p id="mapping">prm=3.8_slab_perimeter.html</p>
+<p id="mapping">prm_rct=3.8_slab_perimeter.html</p>
+<p id="mapping">prm_ctr=3.8_slab_perimeter.html</p>
+<p id="mapping">prm_ctr_avo=3.8_slab_perimeter.html</p>
+<p id="mapping">prm_pts=3.8_slab_perimeter.html</p>
+<p id="mapping">prm_blw=3.8_slab_perimeter.html</p>
+<p id="mapping">prm_nts=3.8.1_heading_of_the_slab.html</p>
+<p id="mapping">prm_aut=3.8.2_automatic_perimeter_(optional).html</p>
+<p id="mapping">prm_cii=3.8.3_external_software_integration.html</p>
+<p id="mapping">prm_cii_mul=3.8.3_external_software_integration.html</p>
+<p id="mapping">prm_cii_exe=3.8.3_external_software_integration.html</p>
+<p id="mapping">vsb=3.9_management_of_the_bench_viewing.html</p>
+<p id="mapping">nty=3.10_viewing_of_working_entities.html</p>
+<p id="mapping">crt=3.11_creation_of_the_pieces.html</p>
+<p id="mapping">crt_mdl=3.11_creation_of_the_pieces.html</p>
+<p id="mapping">crt_lst=3.11_creation_of_the_pieces.html</p>
+<p id="mapping">crt_dxf=3.11.1_import_of_dxf_files.html</p>
+<p id="mapping">crt_dxf_dtl=3.11.1_import_of_dxf_files.html</p>
+<p id="mapping">crt_rct=3.11.2_creation_of_rectangles.html</p>
+<p id="mapping">crt_prm=3.11.3_creation_of_parametric_figures.html</p>
+<p id="mapping">crt_csv=3.11.4_import_excel_file_(csv).html</p>
+<p id="mapping">crt_crn=3.11.5_history_of_imported_pieces.html</p>
+<p id="mapping">crt_fvr=3.11.6_favorites.html</p>
+<p id="mapping">crt_pcc=3.11.7_commercial_piece_creation.html</p>
+<p id="mapping">lst=3.12_pieces_list.html</p>
+<p id="mapping">lst_fao_flt=3.12.1_filter_and_order_the_pieces_of_the_list.html</p>
+<p id="mapping">lst_fao=3.12.1_filter_and_order_the_pieces_of_the_list.html</p>
+<p id="mapping">lst_fao_ord=3.12.1_filter_and_order_the_pieces_of_the_list.html</p>
+<p id="mapping">lst_fao_mor=3.12.1_filter_and_order_the_pieces_of_the_list.html</p>
+<p id="mapping">lst_pro=3.12.2_additional_pieces_properties.html</p>
+<p id="mapping">mdf=3.13_modify_piece.html</p>
+<p id="mapping">mdf_blw=3.13_modify_piece.html</p>
+<p id="mapping">mdf_lst=3.13_modify_piece.html</p>
+<p id="mapping">mdf_prw=3.13_modify_piece.html</p>
+<p id="mapping">mdf_mtr_neg=3.13.1_miter.html</p>
+<p id="mapping">mdf_mtr=3.13.1_miter.html</p>
+<p id="mapping">mdf_mtr_pos=3.13.1_miter.html</p>
+<p id="mapping">mdf_drp=3.13.2_drip_system.html</p>
+<p id="mapping">mdf_add=3.13.3_add.html</p>
+<p id="mapping">mdf_cnl=3.13.4_delete.html</p>
+<p id="mapping">mdf_ffs=3.13.5_offset.html</p>
+<p id="mapping">mdf_hol=3.13.6_hole.html</p>
+<p id="mapping">mdf_hol_him=3.13.6_hole.html</p>
+<p id="mapping">mdf_hol_sco=3.13.6_hole.html</p>
+<p id="mapping">mdf_mll=3.13.7_milling.html</p>
+<p id="mapping">mdf_mll_sid=3.13.7_milling.html</p>
+<p id="mapping">mdf_mll_ver=3.13.7_milling.html</p>
+<p id="mapping">mdf_mll_per=3.13.7_milling.html</p>
+<p id="mapping">mdf_rim=3.13.8_rim.html</p>
+<p id="mapping">mdf_lwr=3.13.9_lower_cut_(optional).html</p>
+<p id="mapping">mdr_dwn=3.13.10_downstand.html</p>
+<p id="mapping">mdr_dwn_riv=3.13.10_downstand.html</p>
+<p id="mapping">mdr_dwn_alz=3.13.10_downstand.html</p>
+<p id="mapping">mdr_crb=3.13.11_curbs.html</p>
+<p id="mapping">mdr_crb_sms=3.13.11_curbs.html</p>
+<p id="mapping">mdr_crb_bcc=3.13.11_curbs.html</p>
+<p id="mapping">mdr_spr=3.13.12_surface_workings_(optional).html</p>
+<p id="mapping">mdr_spr_ert=3.13.12_surface_workings_(optional).html</p>
+<p id="mapping">mdr_spr_ezz=3.13.12_surface_workings_(optional).html</p>
+<p id="mapping">mdr_spr_prt=3.13.12_surface_workings_(optional).html</p>
+<p id="mapping">mdr_spr_pzz=3.13.12_surface_workings_(optional).html</p>
+<p id="mapping">mdr_lvl=3.13.13_leveling_(optional).html</p>
+<p id="mapping">mdr_lvl_exe=3.13.13_leveling_(optional).html</p>
+<p id="mapping">mdr_lvl_par=3.13.13_leveling_(optional).html</p>
+<p id="mapping">mdr_chn=3.13.14_channels_(optional).html</p>
+<p id="mapping">mdr_chn_eaa=3.13.14_channels_(optional).html</p>
+<p id="mapping">mdr_chn_eff=3.13.14_channels_(optional).html</p>
+<p id="mapping">mdr_chn_enf=3.13.14_channels_(optional).html</p>
+<p id="mapping">mdr_chn_psi=3.13.14_channels_(optional).html</p>
+<p id="mapping">mdr_chn_enn=3.13.14_channels_(optional).html</p>
+<p id="mapping">mdr_chn_efn=3.13.14_channels_(optional).html</p>
+<p id="mapping">mdr_chn_pst=3.13.14_channels_(optional).html</p>
+<p id="mapping">mdr_fll=3.13.15_fillet.html</p>
+<p id="mapping">mdr_fll_sid=3.13.15_fillet.html</p>
+<p id="mapping">mdr_fll_psd=3.13.15_fillet.html</p>
+<p id="mapping">mdr_fll_vrt=3.13.15_fillet.html</p>
+<p id="mapping">mdr_fll_vps=3.13.15_fillet.html</p>
+<p id="mapping">mdr_fll_pvv=3.13.15_fillet.html</p>
+<p id="mapping">mdr_crp=3.13.16_crop.html</p>
+<p id="mapping">mdr_crp_pdp=3.13.16_crop.html</p>
+<p id="mapping">mdr_crp_eor=3.13.16_crop.html</p>
+<p id="mapping">mdr_crp_ppo=3.13.16_crop.html</p>
+<p id="mapping">mdr_crp_epa=3.13.16_crop.html</p>
+<p id="mapping">mdr_crp_edp=3.13.16_crop.html</p>
+<p id="mapping">mdr_crp_dvs=3.13.16_crop.html</p>
+<p id="mapping">mdr_int=3.13.17_internal_break.html</p>
+<p id="mapping">mdr_int_ecr=3.13.17_internal_break.html</p>
+<p id="mapping">mdr_int_pcr=3.13.17_internal_break.html</p>
+<p id="mapping">mdr_int_ert=3.13.17_internal_break.html</p>
+<p id="mapping">mdr_int_prt=3.13.17_internal_break.html</p>
+<p id="mapping">mdr_int_pll=3.13.17_internal_break.html</p>
+<p id="mapping">mdr_int_ell=3.13.17_internal_break.html</p>
+<p id="mapping">mdr_flt=3.13.18_flutes.html</p>
+<p id="mapping">mdr_flt_rad=3.13.18_flutes.html</p>
+<p id="mapping">mdr_flt_tan=3.13.18_flutes.html</p>
+<p id="mapping">mdr_flt_exe=3.13.18_flutes.html</p>
+<p id="mapping">mdr_fit_arc=3.13.18_flutes.html</p>
+<p id="mapping">mdr_max=3.13.19_maxbound_(optional).html</p>
+<p id="mapping">mdr_mrr=3.13.20_mirror.html</p>
+<p id="mapping">nst=3.14_nesting.html</p>
+<p id="mapping">nst_aut=3.14.1_nesting_automatic_(optional).html</p>
+<p id="mapping">wrk=3.15_interaction_with_pieces_on_the_working_area.html</p>
+<p id="mapping">wrk_rtt=3.15_interaction_with_pieces_on_the_working_area.html</p>
+<p id="mapping">wrk_cnl=3.15_interaction_with_pieces_on_the_working_area.html</p>
+<p id="mapping">wrk_slc=3.15_interaction_with_pieces_on_the_working_area.html</p>
+<p id="mapping">wrk_rmv=3.15_interaction_with_pieces_on_the_working_area.html</p>
+<p id="mapping">wrk_mve=3.15_interaction_with_pieces_on_the_working_area.html</p>
+<p id="mapping">mag=3.15.1_magnetize_the_pieces.html</p>
+<p id="mapping">mag_lgn_det=3.15.1_magnetize_the_pieces.html</p>
+<p id="mapping">mag_drg=3.15.1_magnetize_the_pieces.html</p>
+<p id="mapping">mag_lgn=3.15.1_magnetize_the_pieces.html</p>
+<p id="mapping">mag_lgn_lrf=3.15.1_magnetize_the_pieces.html</p>
+<p id="mapping">mtr=3.15.2_miter_cut.html</p>
+<p id="mapping">mtr_exe=3.15.2_miter_cut.html</p>
+<p id="mapping">mtr_exe_fst=3.15.2_miter_cut.html</p>
+<p id="mapping">pcc=3.15.3_modify_commercial_piece.html</p>
+<p id="mapping">pcc_exe_rsz=3.15.3_modify_commercial_piece.html</p>
+<p id="mapping">pcc_exe=3.15.3_modify_commercial_piece.html</p>
+<p id="mapping">pcc_exe_tch=3.15.3_modify_commercial_piece.html</p>
+<p id="mapping">pcc_exe_str=3.15.3_modify_commercial_piece.html</p>
+<p id="mapping">sav=3.16_save_working.html</p>
+<p id="mapping">sav_how=3.16_save_working.html</p>
+<p id="mapping">sav_dxf=3.16_save_working.html</p>
+<p id="mapping">lod=3.17_load_work.html</p>
+<p id="mapping">lod_lst=3.17_load_work.html</p>
+<p id="mapping">lod_dxf=3.17_load_work.html</p>
+<p id="mapping">lod_oth=3.17_load_work.html</p>
+<p id="mapping">lod_prw=3.17_load_work.html</p>
+<p id="mapping">lod_how=3.17_load_work.html</p>
+<p id="mapping">lod_slb=3.17.1_slab_matching.html</p>
+<p id="mapping">nfo=3.18_information.html</p>
+<p id="mapping">moc=3.19_machine_on_cut.html</p>
+<p id="mapping">moc_adv=3.19_machine_on_cut.html</p>
+<p id="mapping">moc_adv_dsk=3.19_machine_on_cut.html</p>
+<p id="mapping">moc_adv_cro=3.19_machine_on_cut.html</p>
+<p id="mapping">moc_adv_mll=3.19_machine_on_cut.html</p>
+<p id="mapping">moc_adv_tlp=3.19_machine_on_cut.html</p>
+<p id="mapping">moc_exe=3.19_machine_on_cut.html</p>
+<p id="mapping">ord=3.20_piece_cut_order_management.html</p>
+<p id="mapping">ord_arr=3.20_piece_cut_order_management.html</p>
+<p id="mapping">ord_pos=3.20_piece_cut_order_management.html</p>
+<p id="mapping">ord_pau=3.20_piece_cut_order_management.html</p>
+<p id="mapping">ord_wrk=3.20_piece_cut_order_management.html</p>
+<p id="mapping">cut=3.21_optimization_and_management_of_the_cuts.html</p>
+<p id="mapping">cut_lst=3.21.1_list_of_cuts.html</p>
+<p id="mapping">cut_lst_fnc=3.21.1_list_of_cuts.html</p>
+<p id="mapping">cut_mdf=3.21.1.1_modify_cut.html</p>
+<p id="mapping">cut_lst=3.21.1.1_modify_cut.html</p>
+<p id="mapping">cut_mdf_dsk=3.21.1.1_modify_cut.html</p>
+<p id="mapping">cmd_mdf_hol=3.21.1.1_modify_cut.html</p>
+<p id="mapping">cut_mdf_rib=3.21.1.1_modify_cut.html</p>
+<p id="mapping">cut_prb=3.21.2_slab_probing.html</p>
+<p id="mapping">cut_slc=3.21.3_multiple_selection.html</p>
+<p id="mapping">cut_mov=3.21.4_handling_of_the_material_with_vacuums.html</p>
+<p id="mapping">cut_mov_man=3.21.4_handling_of_the_material_with_vacuums.html</p>
+<p id="mapping">cut_mov_pos=3.21.4_handling_of_the_material_with_vacuums.html</p>
+<p id="mapping">cut_mov_aut=3.21.4_handling_of_the_material_with_vacuums.html</p>
+<p id="mapping">cut_sng=3.21.5_single_cut.html</p>
+<p id="mapping">cut_cln=3.21.6_washing_cycle.html</p>
+<p id="mapping">cut_cln_man=3.21.6_washing_cycle.html</p>
+<p id="mapping">cut_cln_lwc=3.21.6_washing_cycle.html</p>
+<p id="mapping">cut_cln_lpz=3.21.6_washing_cycle.html</p>
+<p id="mapping">cut_opr=3.21.7_operations.html</p>
+<p id="mapping">cut_opr_hea=3.21.7_operations.html</p>
+<p id="mapping">cut_opr_tai=3.21.7_operations.html</p>
+<p id="mapping">cut_opr_mcr=3.21.7_operations.html</p>
+<p id="mapping">cut_opr_ops=3.21.7_operations.html</p>
+<p id="mapping">cut_opr_srt=3.21.7_operations.html</p>
+<p id="mapping">cut_opr_cut=3.21.7_operations.html</p>
+<p id="mapping">cut_mcr_mod=3.21.7.1_macro.html</p>
+<p id="mapping">cut_mcr_mng=3.21.7.1_macro.html</p>
+<p id="mapping">cut_mcr_cal=3.21.7.1_macro.html</p>
+<p id="mapping">cut_mcr=3.21.7.1_macro.html</p>
+<p id="mapping">cut_mcr_act=3.21.7.1_macro.html</p>
+<p id="mapping">cut_mcr_add=3.21.7.1_macro.html</p>
+<p id="mapping">cut_mcr_rev=3.21.7.1_macro.html</p>
+<p id="mapping">cut_iso=3.21.8_iso_control_page.html</p>
+<p id="mapping">cut_iso_eng=3.21.8_iso_control_page.html</p>
+<p id="mapping">cut_iso_prw=3.21.8_iso_control_page.html</p>
+<p id="mapping">cut_iso_axi=3.21.8_iso_control_page.html</p>
+<p id="mapping">cut_iso_man=3.21.8_iso_control_page.html</p>
+<p id="mapping">bkm=3.22_book_match_(optional).html</p>
+<p id="mapping">bkm_esy_wkb=3.22.1_easy_match_(optional).html</p>
+<p id="mapping">bkm_esy=3.22.1_easy_match_(optional).html</p>
+<p id="mapping">bkm_esy_prw=3.22.1_easy_match_(optional).html</p>
+<p id="mapping">bkm_prj_cnt=3.22.2_project_match_(optional).html</p>
+<p id="mapping">bkm_prj_prj=3.22.2_project_match_(optional).html</p>
+<p id="mapping">bkm_prj_pln=3.22.2_project_match_(optional).html</p>
+<p id="mapping">bkm_prj_prw=3.22.2_project_match_(optional).html</p>
+<p id="mapping">bkm_prj=3.22.2_project_match_(optional).html</p>
+<p id="mapping">nld_all=3.23_unload_piece_(optional).html</p>
+<p id="mapping">nld=3.23_unload_piece_(optional).html</p>
+<p id="mapping">nld_sng=3.23_unload_piece_(optional).html</p>
+<p id="mapping">rdr_man=3.24_tool_redressing_cycle_(optional).html</p>
+<p id="mapping">rdr=3.24_tool_redressing_cycle_(optional).html</p>
+<p id="mapping">rdr_cut=3.24_tool_redressing_cycle_(optional).html</p>
+<p id="mapping">rdr_prm=3.24_tool_redressing_cycle_(optional).html</p>
+<p id="mapping">lbl=3.25_labeling_(optional).html</p>
+<p id="mapping">lbl_mad=3.25_labeling_(optional).html</p>
+<p id="mapping">lbl_mba=3.25_labeling_(optional).html</p>
+<p id="mapping">psx=4_parametrix_sx.html</p>
+<p id="mapping">psx_man=4.1_manual_commands_page.html</p>
+<p id="mapping">psx_man_rgh=4.1_manual_commands_page.html</p>
+<p id="mapping">psx_man_cnt=4.1_manual_commands_page.html</p>
+<p id="mapping">psx_man_abv=4.1_manual_commands_page.html</p>
+<p id="mapping">psx_man_blw=4.1_manual_commands_page.html</p>
+<p id="mapping">psx_ipl=4.1.1_iso_program_list.html</p>
+<p id="mapping">psx_tlp=4.2_tool_panel.html</p>
+<p id="mapping">psx_cmp=4.2.1_compensation.html</p>
+<p id="mapping">psx_ptm=4.3_optimization_and_cut_management.html</p>
+<p id="mapping">psx_cut=4.3.1_optimization_of_cuts.html</p>
+<p id="mapping">psx_cmb=4.4_combination_of_the_cuts.html</p>
+<p id="mapping">psx_cmb_nld=4.4.1_unloader.html</p>
+</body>
+</html>

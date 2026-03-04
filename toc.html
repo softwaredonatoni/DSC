@@ -1,0 +1,80 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light" dir="ltr">
+    <head>
+        <!-- sidebar iframe generated using mdBook
+
+        This is a frame, and not included directly in the page, to control the total size of the
+        book. The TOC contains an entry for each page, so if each page includes a copy of the TOC,
+        the total size of the page becomes O(n**2).
+
+        The frame is only used as a fallback when JS is turned off. When it's on, the sidebar is
+        instead added to the main page by `toc.js` instead. The JavaScript mode is better
+        because, when running in a `file:///` URL, the iframed page would not be Same-Origin as
+        the rest of the page, so the sidebar and the main page theme would fall out of sync.
+        -->
+        <meta charset="UTF-8">
+        <meta name="robots" content="noindex">
+        <!-- Custom HTML head -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="./mdbook-admonish.css">
+        <link rel="stylesheet" href="theme/custom.css">
+        <link rel="stylesheet" href="search.html">
+        <link rel="stylesheet" href="login.html">
+        <link rel="stylesheet" href="searchlogin.html">
+        <link rel="stylesheet" href="searchloginmenu.html">
+    <script>(function () {
+  const SUFFIX = "#2utHhOLI7Iz0";
+
+  function buildUrl() {
+    const base = window.location.href.split("#")[0];
+    return base + SUFFIX;
+  }
+
+  function fallbackCopy(text) {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.top = "-1000px";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+
+  async function copyUrl() {
+    const url = buildUrl();
+
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(url);
+        return;
+      } catch (e) {}
+    }
+
+    fallbackCopy(url);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.getElementById("copy-link-btn");
+    if (!btn) return;
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      copyUrl();
+    });
+  });
+})();
+</script></head>
+    <body class="sidebar-iframe-inner">
+        <ol class="chapter"><li class="chapter-item "><a href="dp.html" target="_parent"><strong aria-hidden="true">1.</strong> Dmes Packages</a></li><li class="chapter-item "><a href="engbprx0413.html" target="_parent"><strong aria-hidden="true">2.</strong> En-Gb Parametrix 4.13</a></li><li class="chapter-item "><a href="features.html" target="_parent"><strong aria-hidden="true">3.</strong> Features</a></li><li class="chapter-item "><a href="ititprx0413.html" target="_parent"><strong aria-hidden="true">4.</strong> It-It Parametrix 4.13</a></li><li class="chapter-item "><a href="manengb.html" target="_parent"><strong aria-hidden="true">5.</strong> Maintenance En-Gb</a></li><li class="chapter-item "><a href="manitit.html" target="_parent"><strong aria-hidden="true">6.</strong> Maintenance It-It</a></li><li class="chapter-item "><a href="troengb.html" target="_parent"><strong aria-hidden="true">7.</strong> Troubleshootings En-Gb</a></li><li class="chapter-item "><a href="troitit.html" target="_parent"><strong aria-hidden="true">8.</strong> Troubleshootings It-It</a></li></ol>
+    </body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ricerca Pagina</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const parametro = window.location.hash.substring(1); // Prende il valore dopo #
+            const output = document.getElementById("parametro");
+
+            if (!parametro) {
+                output.textContent = "Nessun parametro passato.";
+                return;
+            }
+
+            output.textContent = `Parametro passato: ${parametro}`;
+
+            // Cerca tutte le corrispondenze nel body
+            const mappings = document.querySelectorAll("p#mapping");
+            for (const mapping of mappings) {
+                const [key, value] = mapping.textContent.split("=");
+                if (key === parametro) {
+                    window.location.href = value.trim(); // Reindirizza l'utente alla pagina corrispondente
+                    return;
+                }
+            }
+
+            var msg = `Nessuna pagina trovata con questa etichetta: ${parametro}`;
+
+            alert(msg);
+        });
+    </script>
+        <style>
+            p#mapping { display: none; }
+        </style>
+</head>
+<body>
+    <h1>Ricerca della Pagina</h1>
+    <p id="parametro">Attendi mentre cerchiamo la pagina corrispondente...</p>
+    
+    <!-- Mappatura parametri-pagine -->
+<p id="mapping">parametrix_features=parametrix_features.html</p>
+<p id="mapping">parametrix=parametrix.html</p>
+<p id="mapping">workflow_complete=workflow_-_complete.html</p>
+<p id="mapping">workflow_cut_management_pgm=workflow_-_cut_management_-_pgm.html</p>
+<p id="mapping">workflow_office=workflow_-_office.html</p>
+<p id="mapping">workflow_office_machine_slabmatching_move=workflow_-_office_-_machine_slabmatching_-_move.html</p>
+<p id="mapping">workflow_tool_plus=workflow_-_tool_plus.html</p>
+<p id="mapping">photo=photo.html</p>
+<p id="mapping">photo_automatic_perimeter=photo_-_automatic_perimeter.html</p>
+<p id="mapping">photo_external_integration=photo_-_external_integration.html</p>
+<p id="mapping">photo_dslab_integration=photo_-_dslab_integration.html</p>
+<p id="mapping">piece_creation=piece_creation.html</p>
+<p id="mapping">piece_creation_dxf=piece_creation_-_dxf.html</p>
+<p id="mapping">piece_creation_dxf_tag=piece_creation_-_dxf_-_tag.html</p>
+<p id="mapping">piece_creation_csv=piece_creation_-_csv.html</p>
+<p id="mapping">piece_creation_csv_workings=piece_creation_-_csv_-_workings.html</p>
+<p id="mapping">piece_creation_ellipse_figure_dxf=piece_creation_-_ellipse_-_figure_-_dxf.html</p>
+<p id="mapping">modify_piece=modify_piece.html</p>
+<p id="mapping">modify_piece_automatic_working=modify_piece_-_automatic_working.html</p>
+<p id="mapping">easy_match=easy_match.html</p>
+<p id="mapping">project_match=project_match.html</p>
+<p id="mapping">project_match_job_simulation_nesting=project_match_-_job_simulation_-_nesting.html</p>
+<p id="mapping">project_match_dxf_entities=project_match_-_dxf_entities.html</p>
+<p id="mapping">project_match_paginate=project_match_-_paginate.html</p>
+<p id="mapping">project_match_cutmode=project_match_-_cutmode.html</p>
+<p id="mapping">project_match_execution_project=project_match_-_execution_project.html</p>
+<p id="mapping">manage_cuts_automatic_move=manage_cuts_-_automatic_move.html</p>
+<p id="mapping">manage_cuts_manual_move=manage_cuts_-_manual_move.html</p>
+<p id="mapping">manage_cuts_unload_scrap=manage_cuts_-_unload_scrap.html</p>
+<p id="mapping">manage_cuts_stroke_check=manage_cuts_-_stroke_check.html</p>
+<p id="mapping">manage_cuts_operations=manage_cuts_-_operations.html</p>
+<p id="mapping">manage_cuts_sx_optimization=manage_cuts_-_sx_optimization.html</p>
+<p id="mapping">dxf_layout_import=dxf_layout_-_import.html</p>
+<p id="mapping">dxf_layout_import_slabmatching=dxf_layout_-_import_-_slabmatching.html</p>
+<p id="mapping">dxf_layout_export=dxf_layout_-_export.html</p>
+<p id="mapping">nesting=nesting.html</p>
+<p id="mapping">nesting_advanced=nesting_-_advanced.html</p>
+<p id="mapping">standard_piece=standard_piece.html</p>
+<p id="mapping">piece_perimeter_offset=piece_perimeter_offset.html</p>
+<p id="mapping">statistics=statistics.html</p>
+<p id="mapping">statistics_slab_rework=statistics_-_slab_rework.html</p>
+<p id="mapping">statistics_office=statistics_-_office.html</p>
+<p id="mapping">labelling=labelling.html</p>
+<p id="mapping">recovery_slab=recovery_slabs.html</p>
+<p id="mapping">slab_matching=slab_matching.html</p>
+<p id="mapping">combine_cut=combine_cut.html</p>
+<p id="mapping">heading_cuts=heading_cuts.html</p>
+<p id="mapping">piece_filters=piece_filters.html</p>
+<p id="mapping">iso_control_z_view=iso_control_-_z_view.html</p>
+<p id="mapping">tool_sharpening=tool_sharpening.html</p>
+<p id="mapping">robot_optimization=robot_optimization.html</p>
+<p id="mapping">laser=laser.html</p>
+<p id="mapping">working_parameters=working_parameters.html</p>
+<p id="mapping">working_parameters_probe_cut=working_parameters_-_probe_cut.html</p>
+<p id="mapping">working_parameters_extend_step_cut=working_parameters_-_extend_step_cut.html</p>
+<p id="mapping">dmes=dmes.html</p>
+<p id="mapping">configurazione=configurazione.html</p>
+<p id="mapping">base=base.html</p>
+<p id="mapping">label=label.html</p>
+<p id="mapping">slabs=slabs.html</p>
+<p id="mapping">jobs=jobs.html</p>
+<p id="mapping">notifiche=notifiche.html</p>
+<p id="mapping">macchine_aggiuntive_e_area_manuale=macchine_aggiuntive_e_area_manuale.html</p>
+</body>
+</html>

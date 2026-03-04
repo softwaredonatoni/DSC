@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+<head>
+    <!-- Book generated using mdBook -->
+    <meta charset="UTF-8">
+    <title>3.8 PERIMETRO DELLA LASTRA - IT-IT PARAMETRIX 4.13</title>
+
+    <!-- Custom HTML head -->
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="icon" href="favicon.svg">
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/chrome.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Fonts -->
+    <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+    <link rel="stylesheet" href="fonts/fonts.css">
+
+    <!-- Highlight.js Stylesheets -->
+    <link rel="stylesheet" id="highlight-css" href="highlight.css">
+    <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+    <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+    <!-- Custom theme stylesheets -->
+    <link rel="stylesheet" href="./mdbook-admonish.css">
+    <link rel="stylesheet" href="theme/custom.css">
+    <link rel="stylesheet" href="search.html">
+    <link rel="stylesheet" href="login.html">
+    <link rel="stylesheet" href="searchlogin.html">
+    <link rel="stylesheet" href="searchloginmenu.html">
+
+    <!-- Provide site root and default themes to javascript -->
+    <script>
+      const path_to_root = "";
+      const default_light_theme = "light";
+      const default_dark_theme = "navy";
+    </script>
+    <!-- Start loading toc.js asap -->
+    <script src="toc.js"></script>
+<script>(function () {
+  const SUFFIX = "#2utHhOLI7Iz0";
+
+  function buildUrl() {
+    const base = window.location.href.split("#")[0];
+    return base + SUFFIX;
+  }
+
+  function fallbackCopy(text) {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.top = "-1000px";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+
+  async function copyUrl() {
+    const url = buildUrl();
+
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(url);
+        return;
+      } catch (e) {}
+    }
+
+    fallbackCopy(url);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.getElementById("copy-link-btn");
+    if (!btn) return;
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      copyUrl();
+    });
+  });
+})();
+</script></head>
+<body>
+    <header class="header-main">
+        <div class="header-flex">
+            <div class="donatoni-flex">
+                <label class="btn hamburger-menu" id="sidebar-toggle" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                    <i id="sidebar-toggle-icon" class="fa-solid fa-bars"></i>
+                </label>
+
+                <img src="images/donatoni-logo-white.svg" alt="Donatoni Macchine">
+            </div>
+
+            <div class="donatoni-flex action-header-buttons">
+                <div id="search-wrapper" class="search-wrapper hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults"></ul>
+                    </div>
+                </div>
+                <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+
+                <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
+                    <i class="fa-solid fa-print"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div id="body-container">
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem("mdbook-theme");
+                let sidebar = localStorage.getItem("mdbook-sidebar");
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-theme",
+                        theme.slice(1, theme.length - 1)
+                    );
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-sidebar",
+                        sidebar.slice(1, sidebar.length - 1)
+                    );
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
+                .matches
+                ? default_dark_theme
+                : default_light_theme;
+            let theme;
+            try {
+                theme = localStorage.getItem("mdbook-theme");
+            } catch (e) { }
+            if (theme === null || theme === undefined) {
+                theme = default_theme;
+            }
+            const html = document.documentElement;
+            html.classList.remove("light");
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try {
+                    sidebar = localStorage.getItem('mdbook-sidebar');
+                } catch (e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document
+                        .getElementById("sidebar-toggle")
+                        .setAttribute("aria-expanded", sidebar === "visible");
+                    document
+                        .getElementById("sidebar")
+                        .setAttribute("aria-hidden", sidebar !== "visible");
+                    Array.from(document.querySelectorAll("#sidebar a")).forEach(
+                        function (link) {
+                            link.setAttribute("tabIndex", sidebar === "visible" ? 0 : -1);
+                        }
+                    );
+                </script>
+
+                <div id="content" class="content">
+
+                    <div>
+
+                        <img src="images/donatoni_111.jpg">
+
+                        <main style="margin-left: 20px;">
+                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="38-perimetro-della-lastra" style="margin:0;"><a class="header" href="#38-perimetro-della-lastra">3.8 PERIMETRO DELLA LASTRA</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="3.8 PERIMETRO DELLA LASTRA"--><p>Per poter funzionare, il programma deve conoscere il bordo della lastra su cui lavorare. Questa funzione permette di tracciare il perimetro.</p><div class="TextAlignCenter"><img src="attachments/3.8_PERIMETRO_DELLA_LASTRA/2.00.png" alt="2.00.png" width="800" onclick="showModal(this.src)"></div><p></p><p>
+</p><p></p><h1 id="modalità-di-creazione-del-perimetro"><a class="header" href="#modalità-di-creazione-del-perimetro">Modalità di creazione del perimetro</a></h1><p>Il programma permette all’operatore di disegnare il perimetro utilizzando una delle seguenti modalità:</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="8c8431ee-d2bb-4d5a-83a9-b77903014214"><colgroup><col style="width: 322.0px;"><col style="width: 1477.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/3.8_PERIMETRO_DELLA_LASTRA/2.12.png" alt="2.12.png" width="120" onclick="showModal(this.src)"></div></td><td><p><strong>Modalità rettangolo</strong><br>Permette di creare perimetri dalla forma rettangolare.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.8_PERIMETRO_DELLA_LASTRA/2.09.png" alt="2.09.png" width="120" onclick="showModal(this.src)"></div></td><td><p><strong>Modalità per punti</strong><br>Permette di creare poligoni dalla forma poligonale arbitraria.</p></td></tr></tbody></table>
+<div id="admonition-nota" class="admonition admonish-info" role="note" aria-labelledby="admonition-nota-title">
+<div class="admonition-title">
+<div id="admonition-nota-title">
+<p>NOTA</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-nota"></a>
+</div>
+<div>
+<p>In ogni momento della creazione del perimetro, è possibile passare da una modalità all’altra.
+<br>
+Passando dalla modalità “per punti“ alla modalità “rettangolo“, il perimetro verrà convertito in rettangolo, e si perderanno tutti i vertici del poligono.
+<br>
+Verrà chiesta conferma per poter procedere in questa operazione.</p>
+</div>
+</div>
+<p></p><h2 id="rettangolo"><a class="header" href="#rettangolo">Rettangolo</a></h2><p>Questa modalità permette di creare perimetri dalla forma rettangolare.</p><div class="TextAlignCenter"><img src="attachments/3.8_PERIMETRO_DELLA_LASTRA/2.00.png" alt="2.00.png" width="800" onclick="showModal(this.src)"></div><p>Per cambiare la dimensione e la posizione del rettangolo è possibile trascinare i cerchi gialli sull’area di lavoro, oppure modificando i valori indicati nella barra sottostante.</p><div class="TextAlignCenter"><img src="attachments/3.8_PERIMETRO_DELLA_LASTRA/2.06.png" alt="2.06.png" width="553" onclick="showModal(this.src)"></div><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="eba108d6-e989-49d3-bc41-4479ea3ac200"><colgroup><col style="width: 323.0px;"><col style="width: 1475.0px;"></colgroup><tbody><tr><td><p><strong>Misure</strong></p></td><td><p>Dimensioni sull’asse X e sull’asse Y del perimetro.</p></td></tr><tr><td><p><strong>Posizione</strong></p></td><td><p>Coordinate del vertice in basso a sinistra del rettangolo rispetto al vertice in basso a sinistra del banco.</p></td></tr></tbody></table><p></p><h2 id="per-punti"><a class="header" href="#per-punti">Per punti</a></h2><p>Questa modalità permette di creare poligoni dalla forma poligonale arbitraria.<br>Per fare ciò, l’operatore può disporre i punti che formano il perimetro nelle posizioni desiderate come mostrato nella figura sottostante.</p><div class="TextAlignCenter"><img src="attachments/3.8_PERIMETRO_DELLA_LASTRA/2.03.png" alt="2.03.png" width="800" onclick="showModal(this.src)"></div><p>In questa modalità, è possibile interagire con il perimetro utilizzando i seguenti pulsanti:</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="ffcba39b-7d47-4c1b-8d17-3496033984f1"><colgroup><col style="width: 345.0px;"><col style="width: 1454.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/3.8_PERIMETRO_DELLA_LASTRA/8bb1cf51-228e-4987-90be-a3588d49aedf.png" alt="8bb1cf51-228e-4987-90be-a3588d49aedf.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Chiusura perimetro</strong><br>Una volta presi tutti i punti necessari, premendo questo pulsante verrà chiuso il perimetro.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.8_PERIMETRO_DELLA_LASTRA/2.21.png" alt="2.21.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Rimozione ultimo punto</strong><br>Se è necessaria la modifica di un perimetro chiuso, basta schiacciare questo pulsante per aprire il perimetro.<br>Continuando a premere il pulsante vengono eliminati a ritroso i punti creati precedentemente.</p></td></tr></tbody></table><p>Una volta chiuso, il perimetro diventerà di colore blu, e i suoi vertici indicati da cerchi gialli.<br>Sia durante la fase di creazione che in presenza di un perimetro chiuso, sarà sempre possibile spostare i vertici sull’area di lavoro per migliorare la precisione.</p><p></p><p></p><h1 id="barra-inferiore"><a class="header" href="#barra-inferiore">Barra inferiore</a></h1><p>L’operatore può interagire con un perimetro presente sull’area di lavoro utilizzando i pulsanti situati nella sezione inferiore della schermata.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="1f10996d-825a-49f7-b4c1-10bb0e316181"><colgroup><col style="width: 329.0px;"><col style="width: 1470.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/3.8_PERIMETRO_DELLA_LASTRA/2.17.png" alt="2.17.png" width="120" onclick="showModal(this.src)"></div></td><td><p><strong>Calamita su laser a croce</strong><br>Permette all’operatore di spostare i vertici del perimetro nella posizione di eventuali croci del laser presenti sull’area di lavoro.<br>Trascinando un vertice nelle vicinanze di una croce del laser, questo verrà calamitato in quella posizione.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.8_PERIMETRO_DELLA_LASTRA/2.20.png" alt="2.20.png" width="120" onclick="showModal(this.src)"></div></td><td><p><strong>Spostamento del perimetro</strong><br>Permette di spostare il perimetro selezionato in una nuova posizione interagendoci sull’area di lavoro.</p></td></tr></tbody></table><p></p><p></p><h1 id="creare-un-nuovo-perimetro"><a class="header" href="#creare-un-nuovo-perimetro">Creare un nuovo perimetro</a></h1><p>Il programma consente di creare più di un perimetro su cui disporre i pezzi per la lavorazione. <br>Inoltre, è possibile definire delle zone della lastra su cui non è possibile inserire alcun pezzo.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="f8e41481-9cab-4f15-ba34-2c545ac9717e"><colgroup><col style="width: 320.0px;"><col style="width: 1479.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/3.8_PERIMETRO_DELLA_LASTRA/2.23.png" alt="2.23.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Perimetro</strong><br>Permette di creare un perimetro all’interno di cui è possibile inserire pezzi.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.8_PERIMETRO_DELLA_LASTRA/2.24.png" alt="2.24.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Area da evitare</strong><br>Permette di definire il perimetro di un’area da evitare su cui non è possibile disporre pezzi.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.8_PERIMETRO_DELLA_LASTRA/2.15.png" alt="2.15.png" width="120" onclick="showModal(this.src)"></div></td><td><p><strong>Cancella perimetro</strong><br>Verrà attivata la modalità di eliminazione singola, che permetterà all’operatore di cancellare uno o più perimetri creati cliccandoci sopra.</p></td></tr></tbody></table><p>I perimetri creati sono visibili nell’elenco in alto a destra. Per modificare un perimetro basta selezionarlo sull’area di lavoro oppure la voce corrispondente all’interno  dell’elenco. <br>Il perimetro attualmente selezionato presenta i contorni blu e i vertici in giallo, mentre i rimanenti possono essere distinti anche in base al colore: verde per i perimetri delle lastre, arancione per le aree da evitare.</p>
+<div id="admonition-nota-1" class="admonition admonish-info" role="note" aria-labelledby="admonition-nota-1-title">
+<div class="admonition-title">
+<div id="admonition-nota-1-title">
+<p>NOTA</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-nota-1"></a>
+</div>
+<div>
+<p>Non è possibile sovrapporre due o più perimetri della lastra.</p>
+</div>
+</div>
+<div class="TextAlignCenter"><img src="attachments/3.8_PERIMETRO_DELLA_LASTRA/2.04.png" alt="2.04.png" width="800" onclick="showModal(this.src)"></div><p>Da questa schermata è possibile aggiungere dei tagli di detensionamento alla lastra.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="be5c45e5-8829-4e29-a529-e84553ed0fb2"><colgroup><col style="width: 330.0px;"><col style="width: 1469.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/3.8_PERIMETRO_DELLA_LASTRA/2.18.png" alt="2.18.png" width="86" onclick="showModal(this.src)"></div></td><td><p><strong>Intestazione della lastra</strong><br>Permette di aggiungere dei tagli di detensionamento al perimetro della lastra.</p></td></tr></tbody></table>
+<div id="admonition-nota-2" class="admonition admonish-info" role="note" aria-labelledby="admonition-nota-2-title">
+<div class="admonition-title">
+<div id="admonition-nota-2-title">
+<p>NOTA</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-nota-2"></a>
+</div>
+<div>
+<p>Ogni perimetro creato può essere intestato in modo diverso.</p>
+</div>
+</div>
+<p>Per completare la creazione del perimetro, viene richiesto all’operatore di inserire alcune informazioni riguardanti la lavorazione che deve essere effettuata.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="f8c419df-e66f-41bd-81c6-2978d641d795"><colgroup><col style="width: 329.0px;"><col style="width: 1470.0px;"></colgroup><tbody><tr><td><p><strong>Spessore</strong></p></td><td><p>L’operatore deve indicare lo spessore della lastra presente sul banco di lavoro.</p></td></tr><tr><td><p><strong>Nome</strong></p></td><td><p>Nome da assegnare alla lavorazione della lastra.</p></td></tr><tr><td><p><strong>Cliente</strong></p></td><td><p>Viene indicato il nome del cliente per cui si svolge la commessa. È un campo facoltativo.</p></td></tr><tr><td><p><strong>Commessa</strong></p></td><td><p>Viene indicato un identificativo per la commessa. È un campo facoltativo.</p></td></tr></tbody></table>
+<div id="admonition-nota-3" class="admonition admonish-info" role="note" aria-labelledby="admonition-nota-3-title">
+<div class="admonition-title">
+<div id="admonition-nota-3-title">
+<p>NOTA</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-nota-3"></a>
+</div>
+<div>
+<p>Spessore della lastra e nome della lavorazione sono campi obbligatori da inserire prima di confermare il perimetro.
+<br>
+Al contrario, non è necessario compilare le informazioni relative alle proprietà aggiuntive sottostanti.</p>
+</div>
+</div>
+<p></p><h2 id="aree-da-evitare"><a class="header" href="#aree-da-evitare">Aree da evitare</a></h2><p>Le aree da evitare sono zone della lastra che l’operatore desidera non rendere disponibili per il posizionamento dei pezzi sulla lastra.<br>Le ragioni per questo possono essere la presenza di rotture sul materiale, di vene poco estetiche o la necessità di preservare alcune parti della lastra.<br>Vengono rappresentate come zone di colore blu all’interno dell’area di lavoro.</p><div class="TextAlignCenter"><img src="attachments/3.8_PERIMETRO_DELLA_LASTRA/2.26.png" alt="2.26.png" width="800" onclick="showModal(this.src)"></div><p>Quando si utilizza la funzionalità di Nesting, i pezzi vengono disposti in modo da non occupare nessuna di queste aree.</p><!--Label="prm"--><!--Label="prm_rct"--><!--Label="prm_ctr"--><!--Label="prm_ctr_avo"--><!--Label="prm_pts"--><!--Label="prm_blw"-->
+                        </main>
+
+                    </div>
+
+                    <img src="images/donatoni_222.jpg">
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="3.7_aggiungere_una_foto_allarea_di_lavoro.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="3.8.1_intestazione_della_lastra.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+
+
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                <a rel="prev" href="3.7_aggiungere_una_foto_allarea_di_lavoro.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="3.8.1_intestazione_della_lastra.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="mermaid.min.js"></script>
+        <script src="mermaid-init.js"></script>
+        <script src="hidemenu.js"></script>
+        <script src="imagemodal.js"></script>
+        <script src="login.js"></script>
+    </div>
+
+    <!-- Modale -->
+    <div id="modal" onclick="closeModal()">
+        <img id="modal-img" src="">
+    </div>;
+
+
+</body>
+</html>

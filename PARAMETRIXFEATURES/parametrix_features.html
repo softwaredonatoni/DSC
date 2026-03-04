@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+<head>
+    <!-- Book generated using mdBook -->
+    <meta charset="UTF-8" />
+    <title>PARAMETRIX FEATURES - PARAMETRIX FEATURES</title>
+
+    <!-- Custom HTML head -->
+
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#ffffff" />
+
+    <link rel="icon" href="favicon.svg" />
+    <link rel="shortcut icon" href="favicon.png" />
+    <link rel="stylesheet" href="css/variables.css" />
+    <link rel="stylesheet" href="css/general.css" />
+    <link rel="stylesheet" href="css/chrome.css" />
+    <link rel="stylesheet" href="css/print.css" media="print" />
+    <link rel="stylesheet" href="css/custom.css" />
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <!-- Fonts -->
+    <link rel="stylesheet" href="FontAwesome/css/font-awesome.css" />
+    <link rel="stylesheet" href="fonts/fonts.css" />
+
+    <!-- Highlight.js Stylesheets -->
+    <link rel="stylesheet" id="highlight-css" href="highlight.css" />
+    <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css" />
+    <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css" />
+
+    <!-- Custom theme stylesheets -->
+    <link rel="stylesheet" href="./mdbook-admonish.css" />
+    <link rel="stylesheet" href="theme/custom.css" />
+    <link rel="stylesheet" href="search.html" />
+    <link rel="stylesheet" href="login.html" />
+    <link rel="stylesheet" href="searchlogin.html" />
+    <link rel="stylesheet" href="searchloginmenu.html" />
+
+    <!-- Provide site root and default themes to javascript -->
+    <script>
+      const path_to_root = "";
+      const default_light_theme = "light";
+      const default_dark_theme = "navy";
+    </script>
+    <!-- Start loading toc.js asap -->
+    <script src="toc.js"></script>
+</head>
+<body>
+    <header class="header-main">
+        <div class="header-flex">
+            <div class="donatoni-flex">
+                <label class="btn hamburger-menu"
+                       id="sidebar-toggle"
+                       for="sidebar-toggle-anchor"
+                       title="Toggle Table of Contents"
+                       aria-label="Toggle Table of Contents"
+                       aria-controls="sidebar">
+                    <i id="sidebar-toggle-icon" class="fa-solid fa-bars"></i>
+                </label>
+
+                <img src="images/donatoni-logo-white.svg" alt="Donatoni Macchine" />
+            </div>
+
+            <div class="donatoni-flex action-header-buttons">
+                <div id="search-wrapper" class="search-wrapper hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search"
+                               id="searchbar"
+                               name="searchbar"
+                               placeholder="Search this book ..."
+                               aria-controls="searchresults-outer"
+                               aria-describedby="searchresults-header" />
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults"></ul>
+                    </div>
+                </div>
+                <button class="btn btn-sm"
+                        id="search-toggle"
+                        type="button"
+                        title="Search. (Shortkey: s)"
+                        aria-label="Toggle Searchbar"
+                        aria-expanded="false"
+                        aria-keyshortcuts="S"
+                        aria-controls="searchbar">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+
+                <button class="btn btn-sm me-2"
+                        onclick="window.location.href='print.html'"
+                        title="Print this book"
+                        aria-label="Print this book">
+                    <i class="fa-solid fa-print"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div id="body-container">
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden" />
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem("mdbook-theme");
+                let sidebar = localStorage.getItem("mdbook-sidebar");
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-theme",
+                        theme.slice(1, theme.length - 1)
+                    );
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-sidebar",
+                        sidebar.slice(1, sidebar.length - 1)
+                    );
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
+                .matches
+                ? default_dark_theme
+                : default_light_theme;
+            let theme;
+            try {
+                theme = localStorage.getItem("mdbook-theme");
+            } catch (e) { }
+            if (theme === null || theme === undefined) {
+                theme = default_theme;
+            }
+            const html = document.documentElement;
+            html.classList.remove("light");
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try {
+                    sidebar = localStorage.getItem('mdbook-sidebar');
+                } catch (e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document
+                        .getElementById("sidebar-toggle")
+                        .setAttribute("aria-expanded", sidebar === "visible");
+                    document
+                        .getElementById("sidebar")
+                        .setAttribute("aria-hidden", sidebar !== "visible");
+                    Array.from(document.querySelectorAll("#sidebar a")).forEach(
+                        function (link) {
+                            link.setAttribute("tabIndex", sidebar === "visible" ? 0 : -1);
+                        }
+                    );
+                </script>
+
+                <div id="content" class="content">
+
+                    <div>
+
+                        <img src="images/donatoni_111.jpg" />
+
+                        <main style="margin-left: 20px;">
+                            <h1 id="parametrix-features"><a class="header" href="#parametrix-features">PARAMETRIX FEATURES</a></h1><!--Page="PARAMETRIX FEATURES"-->
+<ul>
+<li><a href="./parametrix.html">PARAMETRIX</a>
+<ul>
+<li><a href="./workflow_-_complete.html">WORKFLOW - COMPLETE</a></li>
+<li><a href="./workflow_-_cut_management_-_pgm.html">WORKFLOW - CUT MANAGEMENT - PGM</a></li>
+<li><a href="./workflow_-_office.html">WORKFLOW - OFFICE</a></li>
+<li><a href="./workflow_-_office_-_machine_slabmatching_-_move.html">WORKFLOW - OFFICE - MACHINE SLABMATCHING - MOVE</a></li>
+<li><a href="./workflow_-_tool_plus.html">WORKFLOW - TOOL PLUS</a></li>
+<li><a href="./workflow_-_double_disk.html">WORKFLOW - DOUBLE DISK</a></li>
+<li><a href="./photo.html">PHOTO</a></li>
+<li><a href="./photo_-_automatic_perimeter.html">PHOTO - AUTOMATIC PERIMETER</a></li>
+<li><a href="./photo_-_external_integration.html">PHOTO - EXTERNAL INTEGRATION</a></li>
+<li><a href="./photo_-_dslab_integration.html">PHOTO - DSLAB INTEGRATION</a></li>
+<li><a href="./piece_creation.html">PIECE CREATION</a></li>
+<li><a href="./piece_creation_-_dxf.html">PIECE CREATION - DXF</a></li>
+<li><a href="./piece_creation_-_dxf_-_tag.html">PIECE CREATION - DXF - TAG</a></li>
+<li><a href="./piece_creation_-_csv.html">PIECE CREATION - CSV</a></li>
+<li><a href="./piece_creation_-_csv_-_workings.html">PIECE CREATION - CSV - WORKINGS</a></li>
+<li><a href="./piece_creation_-_ellipse_-_figure_-_dxf.html">PIECE CREATION - ELLIPSE - FIGURE - DXF</a></li>
+<li><a href="./modify_piece.html">MODIFY PIECE</a></li>
+<li><a href="./modify_piece_-_automatic_working.html">MODIFY PIECE - AUTOMATIC WORKING</a></li>
+<li><a href="./easy_match.html">EASY MATCH</a></li>
+<li><a href="./project_match.html">PROJECT MATCH</a></li>
+<li><a href="./project_match_-_job_simulation_-_nesting.html">PROJECT MATCH - JOB SIMULATION - NESTING</a></li>
+<li><a href="./project_match_-_dxf_entities.html">PROJECT MATCH - DXF ENTITIES</a></li>
+<li><a href="./project_match_-_paginate.html">PROJECT MATCH - PAGINATE</a></li>
+<li><a href="./project_match_-_cutmode.html">PROJECT MATCH - CUTMODE</a></li>
+<li><a href="./project_match_-_execution_project.html">PROJECT MATCH - EXECUTION PROJECT</a></li>
+<li><a href="./manage_cuts_-_automatic_move.html">MANAGE CUTS - AUTOMATIC MOVE</a></li>
+<li><a href="./manage_cuts_-_manual_move.html">MANAGE CUTS - MANUAL MOVE</a></li>
+<li><a href="./manage_cuts_-_unload_scrap.html">MANAGE CUTS - UNLOAD SCRAP</a></li>
+<li><a href="./manage_cuts_-_stroke_check.html">MANAGE CUTS - STROKE CHECK</a></li>
+<li><a href="./manage_cuts_-_operations.html">MANAGE CUTS - OPERATIONS</a></li>
+<li><a href="./manage_cuts_-_sx_optimization.html">MANAGE CUTS - SX OPTIMIZATION</a></li>
+<li><a href="./dxf_layout_-_import.html">DXF LAYOUT - IMPORT</a></li>
+<li><a href="./dxf_layout_-_import_-_slabmatching.html">DXF LAYOUT - IMPORT - SLABMATCHING</a></li>
+<li><a href="./dxf_layout_-_export.html">DXF LAYOUT - EXPORT</a></li>
+<li><a href="./nesting.html">NESTING</a></li>
+<li><a href="./nesting_-_advanced.html">NESTING - ADVANCED</a></li>
+<li><a href="./standard_piece.html">STANDARD PIECE</a></li>
+<li><a href="./piece_perimeter_offset.html">PIECE PERIMETER OFFSET</a></li>
+<li><a href="./statistics.html">STATISTICS</a></li>
+<li><a href="./statistics_-_slab_rework.html">STATISTICS - SLAB REWORK</a></li>
+<li><a href="./statistics_-_office.html">STATISTICS - OFFICE</a></li>
+<li><a href="./labelling.html">LABELLING</a></li>
+<li><a href="./recovery_slabs.html">RECOVERY SLABS</a></li>
+<li><a href="./slab_matching.html">SLAB MATCHING</a></li>
+<li><a href="./combine_cut.html">COMBINE CUT</a></li>
+<li><a href="./heading_cuts.html">HEADING CUTS</a></li>
+<li><a href="./piece_filters.html">PIECE FILTERS</a></li>
+<li><a href="./iso_control_-_z_view.html">ISO CONTROL - Z VIEW</a></li>
+<li><a href="./tool_sharpening.html">TOOL SHARPENING</a></li>
+<li><a href="./robot_optimization.html">ROBOT OPTIMIZATION</a></li>
+<li><a href="./laser.html">LASER</a></li>
+<li><a href="./working_parameters.html">WORKING PARAMETERS</a></li>
+<li><a href="./working_parameters_-_probe_cut.html">WORKING PARAMETERS - PROBE CUT</a></li>
+<li><a href="./working_parameters_-_extend_step_cut.html">WORKING PARAMETERS - EXTEND STEP CUT</a></li>
+<li><a href="./references.html">REFERENCES</a></li>
+</ul>
+</li>
+<li><a href="./dmes.html">DMES</a>
+<ul>
+<li><a href="./configurazione.html">CONFIGURAZIONE</a></li>
+<li><a href="./base.html">BASE</a></li>
+<li><a href="./label.html">LABEL</a></li>
+<li><a href="./slabs.html">SLABS</a></li>
+<li><a href="./jobs.html">JOBS</a></li>
+<li><a href="./notifiche.html">NOTIFICHE</a></li>
+<li><a href="./macchine_aggiuntive_e_area_manuale.html">MACCHINE AGGIUNTIVE E AREA MANUALE</a></li>
+</ul>
+</li>
+</ul>
+<p local-id="69f678f3-545d-47d1-b36f-776388c8ef2f"></p><p local-id="e76c723f-1a79-4b0e-b21c-6f06150b76af"></p><!--Label="parametrix_features"-->
+                        </main>
+
+                    </div>
+
+                    <img src="images/donatoni_222.jpg" />
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+
+                            <a rel="next prefetch" href="parametrix.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+
+
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                <a rel="next prefetch" href="parametrix.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="mermaid.min.js"></script>
+        <script src="mermaid-init.js"></script>
+        <script src="hidemenu.js"></script>
+        <script src="imagemodal.js"></script>
+        <script src="login.js"></script>
+    </div>
+
+    <!-- Modale -->
+    <div id="modal" onclick="closeModal()">
+        <img id="modal-img" src="">
+    </div>;
+
+
+</body>
+</html>

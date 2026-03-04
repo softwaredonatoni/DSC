@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+<head>
+    <!-- Book generated using mdBook -->
+    <meta charset="UTF-8" />
+    <title>DSCPAGEERROR - DSCPAGEERROR</title>
+
+    <!-- Custom HTML head -->
+
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#ffffff" />
+
+    <link rel="icon" href="favicon.svg" />
+    <link rel="shortcut icon" href="favicon.png" />
+    <link rel="stylesheet" href="css/variables.css" />
+    <link rel="stylesheet" href="css/general.css" />
+    <link rel="stylesheet" href="css/chrome.css" />
+    <link rel="stylesheet" href="css/print.css" media="print" />
+    <link rel="stylesheet" href="css/custom.css" />
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <!-- Fonts -->
+    <link rel="stylesheet" href="FontAwesome/css/font-awesome.css" />
+    <link rel="stylesheet" href="fonts/fonts.css" />
+
+    <!-- Highlight.js Stylesheets -->
+    <link rel="stylesheet" id="highlight-css" href="highlight.css" />
+    <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css" />
+    <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css" />
+
+    <!-- Custom theme stylesheets -->
+    <link rel="stylesheet" href="./mdbook-admonish.css" />
+    <link rel="stylesheet" href="theme/custom.css" />
+    <link rel="stylesheet" href="search.html" />
+    <link rel="stylesheet" href="login.html" />
+    <link rel="stylesheet" href="searchlogin.html" />
+    <link rel="stylesheet" href="searchloginmenu.html" />
+
+
+
+    <!-- Provide site root and default themes to javascript -->
+    <script>
+        const path_to_root = "";
+        const default_light_theme = "light";
+        const default_dark_theme = "navy";
+    </script>
+    <!-- Start loading toc.js asap -->
+    <script src="toc.js"></script>
+
+
+    <script>
+
+
+        async function fetchToken(parametro1) {
+            try {
+                const response = await fetch(`http://192.168.6.14:8081/api/evaluate?token=${encodeURIComponent(parametro1)}`);
+                if (!response.ok) throw new Error("Errore nella risposta HTTP");
+
+                const text = await response.json(); // supponiamo risponda con "True" o "False"
+                if (text == "True") {
+                    console.info("login ok");
+                    sessionStorage.setItem("isLoggedIn", "true");
+                    return true;
+                } else {
+                    console.info("login KO");
+                    return false;
+                }
+            } catch (error) {
+                console.error("Errore durante la fetch:", error);
+                return false;
+            }
+        }
+
+
+
+        document.addEventListener("DOMContentLoaded", async () => {
+            const fragment = window.location.hash.substring(1); // Prende il valore dopo #
+            const [parametro1, parametro2, parametro3] = fragment.split("|"); // Divide i valori
+            const output = document.getElementById("parametro");
+            const outputh = document.getElementById("erroreerror");
+            const HIDEMENU = "H";
+
+            if (!parametro1) {
+                output.textContent = "No token found";
+                outputh.textContent = "Errore/Error";
+                return;
+            }
+
+            const loginOk = await fetchToken(parametro1); // aspetta la fetch
+
+            if (!loginOk) {
+                output.textContent = "Invalid token";
+                outputh.textContent = "Errore/Error";
+                return;
+            }
+
+            if (!parametro2) {
+                output.textContent = "No label found";
+                outputh.textContent = "Errore/Error";
+                return;
+            }
+
+            if (parametro3 == HIDEMENU) {
+                localStorage.setItem("mdbook-sidebar", "hidden");
+                sessionStorage.setItem("hideMenu", "true");
+            }
+            else {
+                sessionStorage.setItem("hideMenu", "false");
+            }
+
+
+            output.textContent = `Parametro passato: ${parametro2}`;
+            
+            // Cerca tutte le corrispondenze nel body
+            const mappings = document.querySelectorAll("p#mapping");
+            for (const mapping of mappings) {
+                const [key, value] = mapping.textContent.split("=");
+                if (key === parametro2) {
+                    window.location.href = value.trim(); // Reindirizza l'utente alla pagina corrispondente
+                    return;
+                }
+            }
+
+            outputh.textContent = "Errore/Error";
+
+            var msg = `Page not found: ${parametro2}`;
+
+            alert(msg);
+        });
+    </script>
+    <style>
+        p#mapping {
+            display: none;
+        }
+    </style>
+
+</head>
+<body>
+    <header class="header-main">
+        <div class="header-flex">
+            <div class="donatoni-flex">
+                <label class="btn hamburger-menu"
+                       id="sidebar-toggle"
+                       for="sidebar-toggle-anchor"
+                       title="Toggle Table of Contents"
+                       aria-label="Toggle Table of Contents"
+                       aria-controls="sidebar">
+                    <i id="sidebar-toggle-icon" class="fa-solid fa-bars"></i>
+                </label>
+
+                <img src="images/donatoni-logo-white.svg" alt="Donatoni Macchine" />
+            </div>
+
+            <div class="donatoni-flex action-header-buttons">
+                <div id="search-wrapper" class="search-wrapper hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search"
+                               id="searchbar"
+                               name="searchbar"
+                               placeholder="Search this book ..."
+                               aria-controls="searchresults-outer"
+                               aria-describedby="searchresults-header" />
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults"></ul>
+                    </div>
+                </div>
+                <button class="btn btn-sm"
+                        id="search-toggle"
+                        type="button"
+                        title="Search. (Shortkey: s)"
+                        aria-label="Toggle Searchbar"
+                        aria-expanded="false"
+                        aria-keyshortcuts="S"
+                        aria-controls="searchbar">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+
+                <button class="btn btn-sm me-2"
+                        onclick="window.location.href='print.html'"
+                        title="Print this book"
+                        aria-label="Print this book">
+                    <i class="fa-solid fa-print"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div id="body-container">
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden" />
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem("mdbook-theme");
+                let sidebar = localStorage.getItem("mdbook-sidebar");
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-theme",
+                        theme.slice(1, theme.length - 1)
+                    );
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-sidebar",
+                        sidebar.slice(1, sidebar.length - 1)
+                    );
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
+                .matches
+                ? default_dark_theme
+                : default_light_theme;
+            let theme;
+            try {
+                theme = localStorage.getItem("mdbook-theme");
+            } catch (e) { }
+            if (theme === null || theme === undefined) {
+                theme = default_theme;
+            }
+            const html = document.documentElement;
+            html.classList.remove("light");
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try {
+                    sidebar = localStorage.getItem('mdbook-sidebar');
+                } catch (e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document
+                        .getElementById("sidebar-toggle")
+                        .setAttribute("aria-expanded", sidebar === "visible");
+                    document
+                        .getElementById("sidebar")
+                        .setAttribute("aria-hidden", sidebar !== "visible");
+                    Array.from(document.querySelectorAll("#sidebar a")).forEach(
+                        function (link) {
+                            link.setAttribute("tabIndex", sidebar === "visible" ? 0 : -1);
+                        }
+                    );
+                </script>
+
+                <div id="content" class="content">
+
+                    <div>
+
+                        <img src="images/donatoni_111.jpg" />
+
+                        <main style="margin-left: 20px;">
+                            <!--Page="DSCPAGEERROR"-->
+                            <h1 id="erroreerror"><a class="header" href="#erroreerror">Ricerca/Searching</a></h1>
+                            <p id="parametro" local-id="de8a2015-0e72-4492-8a47-d1e63884564f">In corso/In progress...</p><p local-id="bd630fdd-1437-4c41-8104-d17d1e11790a"></p><p local-id="53a45ae5-bc6e-4883-99b0-9696e1ffafff">Per assistenza contattare/For assistance contact:</p>
+                            <h4 id="donatoni-service"><a class="header" href="#donatoni-service">Donatoni Service</a></h4>
+                            <p local-id="18169aeb-8c9a-49f4-ada8-a3a64974210a"><a href="#">+39 045 6862 899</a></p><p local-id="18169aeb-8c9a-49f4-ada8-a3a64974210a"><a href="mailto:service@donatonimacchine.eu">service@donatonimacchine.eu</a></p><p local-id="cfed6649-f0bc-4556-9971-612260788bc8">WhatsApp: +39 045 7740052</p>
+
+
+
+
+                            <!-- Mappatura parametri-pagine -->
+<p id="mapping">mn0001=mn0001_emergency_circuit_test.html</p>
+<p id="mapping">mn0002=mn0002_monthly_maintenance_vacuum_pump.html</p>
+<p id="mapping">mn0003=mn0003_test_operation_light_signal.html</p>
+<p id="mapping">mn0004=mn0004_linear_guides_grassing_move_system.html</p>
+<p id="mapping">mn0005=mn0005_greasing_bearing_spiral_axe_z.html</p>
+<p id="mapping">mn0006=mn0006_greasing_bearings_transmission_shaft_bridge_axis_y.html</p>
+<p id="mapping">mn0007=mn0007_check_greasing_system_of_automatic_greasing.html</p>
+<p id="mapping">mn0008=mn0008_grasing_of_the_tilting_bench_pivots.html</p>
+<p id="mapping">mn0009=mn0009_grassing_of_swivel_arm_console.html</p>
+<p id="mapping">mn0010=mn0010_check_pipes_and_fittings_hydraulic_system.html</p>
+<p id="mapping">mn0011=mn0011_oil_change_hydraulic_control_unit.html</p>
+<p id="mapping">mn0012=mn0012_clean_filters_electrical_cabinet.html</p>
+<p id="mapping">mn0013=mn0013_maintenance_compressed_air_intake_group.html</p>
+<p id="mapping">mn0014=mn0014_spindle_bearings.html</p>
+<p id="mapping">mn0041=mn0041_greasing_linear_guides_spindle_lateral_tool_plus.html</p>
+<p id="mapping">mn0042=mn0042_pneumatic_system_filter_cleaning.html</p>
+<p id="mapping">mn0043=mn0043_verify_seal_rotating.html</p>
+<p id="mapping">mn0015=mn0015_check_pipes_and_fittings_of_high-pressure_system.html</p>
+<p id="mapping">mn0016=mn0016_check_of_the_bath_cleaning_status.html</p>
+<p id="mapping">mn0017=mn0017_repair_the_check_valves_and_the_gates_for_the_low_pressure.html</p>
+<p id="mapping">mn0018=mn0018_repair_the_high_pressure_cylinder.html</p>
+<p id="mapping">mn0019=mn0019_replace_the_cartridge_of_the_high_pressure_seal_element.html</p>
+<p id="mapping">mn0020=mn0020_replace_the_shutter_group_for_high_pressure.html</p>
+<p id="mapping">mn0021=mn0021_replace_the_damper_for_low_pressure.html</p>
+<p id="mapping">mn0022=mn0022_invert_the_high-pressure_cylinder.html</p>
+<p id="mapping">mn0023=mn0023_replace_the_high_pressure_cylinder.html</p>
+<p id="mapping">mn0024=mn0024_replace_the_check_valve_group.html</p>
+<p id="mapping">mn0025=mn0025_replace_the_seal_element_housing_group.html</p>
+<p id="mapping">mn0026=mn0026_replace_the_output_adapter.html</p>
+<p id="mapping">mn0027=mn0027.html</p>
+<p id="mapping">mn0028=mn0028_repair_of_central_hydraulic_section.html</p>
+<p id="mapping">mn0029=mn0029_repair_the_purge_valve.html</p>
+<p id="mapping">mn0030=mn0030_lubrication_check_automatic_greasing_system.html</p>
+<p id="mapping">mn0031=mn0031_replace_the_valve_body.html</p>
+<p id="mapping">mn0032=mn0032_clean_the_air_cooler.html</p>
+<p id="mapping">mn0033=mn0033.html</p>
+<p id="mapping">mn0034=mn0034_replace_water_filter.html</p>
+<p id="mapping">mn0035=mn0035_check_the_water_quality.html</p>
+<p id="mapping">mn0036=mn0036_replace_the_hydraulic_filter_element.html</p>
+<p id="mapping">mn0037=mn0037_replace_the_hydraulic_fluid.html</p>
+<p id="mapping">mn0038=mn0038_lubricate_the_bearings_of_the_main_motor.html</p>
+<p id="mapping">mn0039=mn0039_cleaning_filters_air_intakes_electrical_cabinet.html</p>
+<p id="mapping">mn0040=mn0040_maintenance_air_compressor_infeed_group.html</p>
+<p id="mapping">hyp_otturatore=group_shutter_for_high_pressure.html</p>
+
+
+                        </main>
+
+                    </div>
+
+                    <img src="images/donatoni_222.jpg" />
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+
+
+                        <div style="clear: both"></div>
+                    </nav>
+
+
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+
+            </nav>
+
+        </div>
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="mermaid.min.js"></script>
+        <script src="mermaid-init.js"></script>
+        <script src="hidemenu.js"></script>
+        <script src="imagemodal.js"></script>
+
+    </div>
+
+    <!-- Modale -->
+    <div id="modal" onclick="closeModal()">
+        <img id="modal-img" src="">
+    </div>;
+
+
+</body>
+</html>

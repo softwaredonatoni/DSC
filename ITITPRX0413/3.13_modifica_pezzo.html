@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+<head>
+    <!-- Book generated using mdBook -->
+    <meta charset="UTF-8">
+    <title>3.13 MODIFICA PEZZO - IT-IT PARAMETRIX 4.13</title>
+
+    <!-- Custom HTML head -->
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="icon" href="favicon.svg">
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/chrome.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Fonts -->
+    <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+    <link rel="stylesheet" href="fonts/fonts.css">
+
+    <!-- Highlight.js Stylesheets -->
+    <link rel="stylesheet" id="highlight-css" href="highlight.css">
+    <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+    <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+    <!-- Custom theme stylesheets -->
+    <link rel="stylesheet" href="./mdbook-admonish.css">
+    <link rel="stylesheet" href="theme/custom.css">
+    <link rel="stylesheet" href="search.html">
+    <link rel="stylesheet" href="login.html">
+    <link rel="stylesheet" href="searchlogin.html">
+    <link rel="stylesheet" href="searchloginmenu.html">
+
+    <!-- Provide site root and default themes to javascript -->
+    <script>
+      const path_to_root = "";
+      const default_light_theme = "light";
+      const default_dark_theme = "navy";
+    </script>
+    <!-- Start loading toc.js asap -->
+    <script src="toc.js"></script>
+<script>(function () {
+  const SUFFIX = "#2utHhOLI7Iz0";
+
+  function buildUrl() {
+    const base = window.location.href.split("#")[0];
+    return base + SUFFIX;
+  }
+
+  function fallbackCopy(text) {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.top = "-1000px";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+
+  async function copyUrl() {
+    const url = buildUrl();
+
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(url);
+        return;
+      } catch (e) {}
+    }
+
+    fallbackCopy(url);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.getElementById("copy-link-btn");
+    if (!btn) return;
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      copyUrl();
+    });
+  });
+})();
+</script></head>
+<body>
+    <header class="header-main">
+        <div class="header-flex">
+            <div class="donatoni-flex">
+                <label class="btn hamburger-menu" id="sidebar-toggle" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                    <i id="sidebar-toggle-icon" class="fa-solid fa-bars"></i>
+                </label>
+
+                <img src="images/donatoni-logo-white.svg" alt="Donatoni Macchine">
+            </div>
+
+            <div class="donatoni-flex action-header-buttons">
+                <div id="search-wrapper" class="search-wrapper hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults"></ul>
+                    </div>
+                </div>
+                <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+
+                <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
+                    <i class="fa-solid fa-print"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div id="body-container">
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem("mdbook-theme");
+                let sidebar = localStorage.getItem("mdbook-sidebar");
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-theme",
+                        theme.slice(1, theme.length - 1)
+                    );
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-sidebar",
+                        sidebar.slice(1, sidebar.length - 1)
+                    );
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
+                .matches
+                ? default_dark_theme
+                : default_light_theme;
+            let theme;
+            try {
+                theme = localStorage.getItem("mdbook-theme");
+            } catch (e) { }
+            if (theme === null || theme === undefined) {
+                theme = default_theme;
+            }
+            const html = document.documentElement;
+            html.classList.remove("light");
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try {
+                    sidebar = localStorage.getItem('mdbook-sidebar');
+                } catch (e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document
+                        .getElementById("sidebar-toggle")
+                        .setAttribute("aria-expanded", sidebar === "visible");
+                    document
+                        .getElementById("sidebar")
+                        .setAttribute("aria-hidden", sidebar !== "visible");
+                    Array.from(document.querySelectorAll("#sidebar a")).forEach(
+                        function (link) {
+                            link.setAttribute("tabIndex", sidebar === "visible" ? 0 : -1);
+                        }
+                    );
+                </script>
+
+                <div id="content" class="content">
+
+                    <div>
+
+                        <img src="images/donatoni_111.jpg">
+
+                        <main style="margin-left: 20px;">
+                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="313-modifica-pezzo" style="margin:0;"><a class="header" href="#313-modifica-pezzo">3.13 MODIFICA PEZZO</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="3.13 MODIFICA PEZZO"--><p>Questo pannello permette all’operatore di applicare diverse tipologie di lavorazione a un pezzo designato.<br>Alla sua apertura, viene visualizzata la seguente schermata:</p><div class="TextAlignCenter"><img src="attachments/3.13_MODIFICA_PEZZO/7.0.png" alt="7.0.png" width="800" onclick="showModal(this.src)"></div><p></p><p>
+</p><p></p>
+<div id="admonition-attenzione" class="admonition admonish-warning" role="note" aria-labelledby="admonition-attenzione-title">
+<div class="admonition-title">
+<div id="admonition-attenzione-title">
+<p>ATTENZIONE!</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-attenzione"></a>
+</div>
+<div>
+<p>Alcune delle funzioni che verranno descritte in questa sezione sono presenti anche sulla pagina principale di Parametrix, ma con una differenza.
+<br>
+Se un pezzo, o un taglio, viene modificato attraverso il pannello ‘Modifica Pezzo’, tutti i pezzi della riga selezionata verranno modificati di conseguenza con le stesse lavorazioni.
+<br>
+Al contrario, se la lavorazione viene impostata dall’area di lavoro, verrà modificato solo il pezzo selezionato.</p>
+</div>
+</div>
+<p></p><h1 id="tipologie-di-lavorazione"><a class="header" href="#tipologie-di-lavorazione">Tipologie di lavorazione</a></h1><p>Tramite il pannello “Modifica Pezzo“ è possibile applicare una o più tra le seguenti lavorazioni, che verranno singolarmente illustrate in seguito. In particolare, Parametrix permette di:</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="c97cd953-0645-4e4f-9b78-a41537740d9c"><colgroup><col style="width: 167.0px;"><col style="width: 721.0px;"><col style="width: 159.0px;"><col style="width: 747.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/3.13_MODIFICA_PEZZO/0_b-20250611-085820.png" alt="0_b-20250611-085820.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Inclina</strong><br>Modificare l’inclinazione dei tagli, sia sotto squadra che sopra squadra.</p></td><td><div class="TextAlignCenter"><img src="attachments/3.13_MODIFICA_PEZZO/0_b-20250611-090132.png" alt="0_b-20250611-090132.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Gocciolatoio</strong><br>Aggiungere un gocciolatoio al fianco di un taglio.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.13_MODIFICA_PEZZO/0_b-20250611-090404.png" alt="0_b-20250611-090404.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Aggiungi</strong><br>Aggiungere un taglio parallelo ad un lato del pezzo.</p></td><td><div class="TextAlignCenter"><img src="attachments/3.13_MODIFICA_PEZZO/0_b-20250611-090725.png" alt="0_b-20250611-090725.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Cancella</strong><br>Eliminare i tagli del pezzo.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.13_MODIFICA_PEZZO/0_b-20250611-091914.png" alt="0_b-20250611-091914.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Offset</strong><br>Modificare le dimensioni del pezzo applicando offset ai suoi lati.</p></td><td><div class="TextAlignCenter"><img src="attachments/3.13_MODIFICA_PEZZO/0_b-20250611-092003.png" alt="0_b-20250611-092003.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Foro</strong><br>Aggiungere fori nel materiale, anche per rimuovere ciò che il disco non è riuscito a tagliare.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.13_MODIFICA_PEZZO/0_b-20250611-092106.png" alt="0_b-20250611-092106.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Fresatura</strong><br>Sostituire lavorazioni con disco con tagli di fresatura.</p></td><td><div class="TextAlignCenter"><img src="attachments/3.13_MODIFICA_PEZZO/0_b-20250611-092147.png" alt="0_b-20250611-092147.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Ribasso</strong><br>Applicare ribassi con fresatura. Si utilizza, ad esempio, per creare incassi per lavandini di piani cucina.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.13_MODIFICA_PEZZO/1-20250616-092820.png" alt="1-20250616-092820.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Taglio Sotto - (Opzionale)</strong><br>Eseguire un taglio sulla superficie inferiore del pezzo utilizzando un apposito optional meccanico.</p></td><td><div class="TextAlignCenter"><img src="attachments/3.13_MODIFICA_PEZZO/0_b-20250611-092343.png" alt="0_b-20250611-092343.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Alzata</strong><br>Aggiungere alzatine o pannelli ribassati per i lati del pezzo.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.13_MODIFICA_PEZZO/0_b-20250611-093644.png" alt="0_b-20250611-093644.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Cordolo</strong><br>Aggiungere un taglio smussato ad un lato del pezzo.</p></td><td><div class="TextAlignCenter"><img src="attachments/3.13_MODIFICA_PEZZO/1.1.png" alt="1.1.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Superficie - (Opzionale)</strong><br>Applicare passate superficiali con tagli verticali e disco orizzontale.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.13_MODIFICA_PEZZO/1.1.png" alt="1.1.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Spianatura - (Opzionale)</strong><br>Applicare un ciclo di spianatura con tagli verticali e disco orizzontale.</p></td><td><div class="TextAlignCenter"><img src="attachments/3.13_MODIFICA_PEZZO/1-20250616-092944.png" alt="1-20250616-092944.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Canaletta - (Opzionale)</strong><br>Aggiungere una canaletta di scolo sul pezzo utilizzando il disco.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.13_MODIFICA_PEZZO/0_b-20250611-093855.png" alt="0_b-20250611-093855.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Raccordo</strong><br>Arrotondare un vertice oppure un lato del pezzo tramite l’applicazione di un raccordo.</p></td><td><div class="TextAlignCenter"><img src="attachments/3.13_MODIFICA_PEZZO/0_b-20250611-094004.png" alt="0_b-20250611-094004.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Dividi</strong><br>Tagliare il pezzo usando come riferimento un lato, o una linea personalizzata.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.13_MODIFICA_PEZZO/0_b-20250611-094317.png" alt="0_b-20250611-094317.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Scasso interno</strong><br>Aggiungere uno scasso interno al pezzo, di forma rettangolare, circolare o ellittica.</p></td><td><div class="TextAlignCenter"><img src="attachments/3.13_MODIFICA_PEZZO/0_b-20250611-094500.png" alt="0_b-20250611-094500.png" width="61" onclick="showModal(this.src)"></div></td><td><p><strong>Flutes</strong><br>Creare scanalature tramite fresatura.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.13_MODIFICA_PEZZO/1.png" alt="1.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Ingombro Massimo - (Opzionale)</strong><br>Ricavare l’ingombro massimo del pezzo.</p></td><td><div class="TextAlignCenter"><img src="attachments/3.13_MODIFICA_PEZZO/1-20250616-093104.png" alt="1-20250616-093104.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Specchio</strong><br>Ricavare la versione speculare del pezzo.</p></td></tr></tbody></table>
+<div id="admonition-nota" class="admonition admonish-info" role="note" aria-labelledby="admonition-nota-title">
+<div class="admonition-title">
+<div id="admonition-nota-title">
+<p>NOTA</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-nota"></a>
+</div>
+<div>
+<p>A seconda della combinazione di optional, alcuni di questi pulsanti possono non essere presenti.</p>
+</div>
+</div>
+<h1 id="lista-dei-tagli"><a class="header" href="#lista-dei-tagli">Lista dei tagli</a></h1><p>I tagli del pezzo verranno visualizzati nella sezione inferiore a sinistra di questo pannello. </p><p>Tramite apposita suddivisione, viene indicato se un taglio appartiene al perimetro esterno oppure ad uno dei perimetri interni. Grazie a questa classificazione, è possibile mostrare/nascondere la lista dei i tagli appartenenti ad un poligono premendo sull’icona della sezione corrispondente.</p><div class="TextAlignCenter"><img src="attachments/3.13_MODIFICA_PEZZO/0.1.png" alt="0.1.png" width="500" onclick="showModal(this.src)"></div><p>Come si può vedere dall’immagine, in ogni riga vengono mostrate alcune informazioni riguardo al taglio che rappresentano. In particolare:</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="918a1b7c-bdc1-41b0-b510-a1ff9c6ebae5"><colgroup><col style="width: 536.0px;"><col style="width: 1260.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/3.13_MODIFICA_PEZZO/2.3.png" alt="2.3.png" width="120" onclick="showModal(this.src)"></div></td><td><p><strong>Gestisci lavorazione</strong><br>Pulsante con cui è possibile interagire con il taglio e applicare la lavorazione corrente.<br>Nella pagina principale permette di attivare/disattivare il taglio.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.13_MODIFICA_PEZZO/0.2.png" alt="0.2.png" width="288" onclick="showModal(this.src)"></div><p></p></td><td><p><strong>Informazioni del taglio</strong></p><ul><li><p><strong>T</strong> - indica la tipologia del taglio (“Retta”, “Curva“, “Fresatura“, ecc…).</p></li><li><p><strong>D</strong> - indica la lunghezza del taglio.</p></li><li><p><strong>I</strong> - indica l’inclinazione del taglio.</p></li><li><p><strong>P</strong> - indica la penetrazione del taglio.</p></li></ul></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.13_MODIFICA_PEZZO/0.3.png" alt="0.3.png" width="175" onclick="showModal(this.src)"></div></td><td><p><strong>Informazioni della lavorazione</strong></p><ul><li><p>Tipo di lavorazione (“Lineare”, “Arco“, “Inclinato“, ecc…).</p></li><li><p>Modalità di passate (Passata piena oppure Passata a step).</p></li><li><p>Velocità di avanzamento del taglio.</p></li><li><p>Diametro dell’utensile utilizzato per la lavorazione (Disco, Fresa, ecc…).</p></li></ul></td></tr></tbody></table>
+<div id="admonition-nota-1" class="admonition admonish-info" role="note" aria-labelledby="admonition-nota-1-title">
+<div class="admonition-title">
+<div id="admonition-nota-1-title">
+<p>NOTA</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-nota-1"></a>
+</div>
+<div>
+<p>Queste informazioni cambiano in base alla tipologia del taglio che descrivono. Non sempre vengono mostrate tutte le informazioni.
+<br>
+Ad esempio, per i fori è possibile visualizzare esclusivamente la la penetrazione nel materiale.</p>
+</div>
+</div>
+<div id="admonition-nota-2" class="admonition admonish-info" role="note" aria-labelledby="admonition-nota-2-title">
+<div class="admonition-title">
+<div id="admonition-nota-2-title">
+<p>NOTA</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-nota-2"></a>
+</div>
+<div>
+<p>Se su una parte del pezzo non è presente nessun taglio, viene indicato con la dicitura “Nessuno“.</p>
+</div>
+</div>
+<p></p><p></p><h1 id="anteprima"><a class="header" href="#anteprima">Anteprima</a></h1><p>La parte principale della funzionalità "Modifica Pezzo" mette a disposizione dell'operatore un'anteprima completa del pezzo selezionato, mostrando tutte le lavorazioni attualmente applicate.</p><div class="TextAlignCenter"><img src="attachments/3.13_MODIFICA_PEZZO/0.4.png" alt="0.4.png" width="600" onclick="showModal(this.src)"></div><p>È possibile interagire con il pezzo visualizzato semplicemente muovendo l’anteprima, oppure utilizzando i pulsanti per modificare lo zoom che si trovano alla sua destra.</p><p>Inoltre, in questa sezione sono presenti altre funzionalità che di seguito andremo a descrivere.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="b0991553-aff6-4e6a-8227-8742d06608e1"><colgroup><col style="width: 576.0px;"><col style="width: 1214.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/3.13_MODIFICA_PEZZO/0.5.png" alt="0.5.png" width="360" onclick="showModal(this.src)"></div></td><td><p><strong>Marca</strong><br>Viene fornita la possibilità di modificare la marca del pezzo selezionato.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.13_MODIFICA_PEZZO/0_4_2-20250611-095441.png" alt="0_4_2-20250611-095441.png" width="255" onclick="showModal(this.src)"></div></td><td><p><strong>Numero dei pezzi</strong><br>Viene fornita la possibilità di modificare il numero di pezzi lavorati e il numero totale dei pezzi.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.13_MODIFICA_PEZZO/0_4_3-20250611-110520.png" alt="0_4_3-20250611-110520.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Aggiungi preferito</strong><br>Il pezzo visualizzato nell’anteprima verrà inserito nella lista dei pezzi preferiti, insieme a tutte le modifiche applicate al momento dell’inserimento nei preferiti.</p></td></tr></tbody></table><p></p><h2 id="selezione-dei-tagli"><a class="header" href="#selezione-dei-tagli">Selezione dei tagli</a></h2><p>È possibile selezionare un taglio direttamente dall'anteprima, osservando il cambiamento del suo colore in giallo a conferma della selezione, oppure selezionare la corrispondente riga all'interno dell'elenco dei tagli disponibile nel menù in basso a sinistra.</p><p>Cliccando sul bollino verde presente a sinistra di ogni elemento della lista, sarà possibile disabilitare il relativo taglio.<br>In questo caso il bollino diventerà rosso e l’anteprima del pezzo verrà aggiornata con il colore del taglio disattivato che muterà in grigio.<br>Nel seguente esempio sono stati disabilitati i primi due tagli del poligono esterno del pezzo:</p><div class="TextAlignCenter"><img src="attachments/3.13_MODIFICA_PEZZO/0.6.png" alt="0.6.png" width="800" onclick="showModal(this.src)"></div><p></p><h1 id="barra-inferiore"><a class="header" href="#barra-inferiore">Barra inferiore</a></h1><p>In questa barra sono messe a disposizione alcune funzionalità che semplificano la fruizione delle lavorazioni di Modifica Pezzo:</p><div class="TextAlignCenter"><img src="attachments/3.13_MODIFICA_PEZZO/0_3-20250611-074753.png" alt="0_3-20250611-074753.png" width="417" onclick="showModal(this.src)"></div><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="95c781d8-9fec-4cb2-b85e-5d2ba95a545f"><colgroup><col style="width: 236.0px;"><col style="width: 1564.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/3.13_MODIFICA_PEZZO/3_1-20250611-120434.png" alt="3_1-20250611-120434.png" width="58" onclick="showModal(this.src)"></div></td><td><p><strong>Tagli</strong><br>Visualizza la lista di tagli del pezzo. <br>È la visuale default di questo pannello.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.13_MODIFICA_PEZZO/3_2-20250611-120533.png" alt="3_2-20250611-120533.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Lati</strong><br>Questo pulsante permette di visualizzare la lunghezza dei lati del Pezzo all’interno della lista, invece che la lunghezza del taglio. La selezione direttamente sull’immagine o sulla lista, colorerà di giallo il lato del pezzo selezionato.</p>
+<div id="admonition-nota-3" class="admonition admonish-info" role="note" aria-labelledby="admonition-nota-3-title">
+<div class="admonition-title">
+<div id="admonition-nota-3-title">
+<p>NOTA</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-nota-3"></a>
+</div>
+<div>
+<p>In questa modalità non è possibile aggiungere lavorazioni da applicare sul pezzo.</p>
+</div>
+</div>
+</td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.13_MODIFICA_PEZZO/3_3-20250611-120611.png" alt="3_3-20250611-120611.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Cronologia</strong><br>Visualizza la storia delle operazioni applicate al pezzo.<br>Permette inoltre di reimpostare il pezzo all’operazione desiderata.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.13_MODIFICA_PEZZO/3_4-20250611-120701.png" alt="3_4-20250611-120701.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Annulla</strong><br>Permette di annullare le modifiche eseguite sul pezzo.<br>Pressioni multiple di questo pulsante consentono di tornare alle condizioni iniziali del pezzo.</p>
+<div id="admonition-attenzione-1" class="admonition admonish-warning" role="note" aria-labelledby="admonition-attenzione-1-title">
+<div class="admonition-title">
+<div id="admonition-attenzione-1-title">
+<p>ATTENZIONE!</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-attenzione-1"></a>
+</div>
+<div>
+<p>Il pulsante funziona finche il pannello “Modifica Pezzo” rimane aperto sul pezzo in esame.
+<br>
+Se il pannello viene chiuso si perde la possibilità di annullare le modifiche sul pezzo in questione, anche se il pannello venisse aperto nuovamente.</p>
+</div>
+</div>
+</td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.13_MODIFICA_PEZZO/3_5_OffOn-20250611-120944.png" alt="3_5_OffOn-20250611-120944.png" width="120" onclick="showModal(this.src)"></div></td><td><p><strong>Modifica visuale</strong><br>Abilita o disabilita certe entità del pezzo per facilitare la visibilità e la modifica del pezzo.</p></td></tr></tbody></table><p></p><h2 id="cronologia"><a class="header" href="#cronologia">Cronologia</a></h2><p>Permette di visualizzare tutte le modifiche applicate al pezzo corrente e, se necessario, consente di ripristinare il pezzo corrente ad uno stato precedente.<br>Se sono state applicate modifiche al pezzo corrente, queste verranno visualizzate nell'elenco a sinistra:</p><div class="TextAlignCenter"><img src="attachments/3.13_MODIFICA_PEZZO/0.7.png" alt="0.7.png" width="800" onclick="showModal(this.src)"></div><p>Nel menù a sinistra vengono visualizzati gli stati della lavorazione del pezzo. </p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="0038e49f-e858-4d59-9d5f-694ab3f6e951"><colgroup><col style="width: 485.0px;"><col style="width: 1314.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/3.13_MODIFICA_PEZZO/0.8.png" alt="0.8.png" width="186" onclick="showModal(this.src)"></div></td><td><p><strong>Stato della lavorazione</strong><br>Identifica un momento preciso della lavorazione del pezzo. Permette di visualizzare:</p><ul><li><p>Nome del pezzo corrente;</p></li><li><p>Data dell’applicazione della lavorazione;</p></li><li><p>Nome della lavorazione applicata;</p></li><li><p>Icona che identifica la lavorazione eseguita.</p></li></ul></td></tr></tbody></table><p>Lo stato del pezzo corrente senza modifiche è chiamato "Default". <br>Selezionando una voce dal menu a sinistra, viene mostrata l’anteprima corrispondente al momento di applicazione della lavorazione.</p><div class="TextAlignCenter"><img src="attachments/3.13_MODIFICA_PEZZO/0.9.png" alt="0.9.png" width="800" onclick="showModal(this.src)"></div><p>Premere il tasto di conferma, farà si che il pezzo venga ripristinato allo stato selezionato. In questo modo, le modifiche successive a quella selezionata vengono rimosse.</p><p></p><p>Nella parte inferiore del pannello sono visualizzati tre pulsanti di utilità per la visualizzazione del pezzo nell’anteprima:</p><table class="my-table2" data-table-width="1444" data-layout="center" ac:local-id="28a47b0b-a784-4369-ac91-a884b47d952d"><colgroup><col style="width: 152.0px;"><col style="width: 1292.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/3.13_MODIFICA_PEZZO/3_5_1_on-20250611-075706.png" alt="3_5_1_on-20250611-075706.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Visualizza tagli</strong><br>Mostra i tagli sulla figura.<br>È la visuale attiva di default.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.13_MODIFICA_PEZZO/0_5_1-20250611-115240.png" alt="0_5_1-20250611-115240.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Visualizza misure</strong><br>Mostra le misure di ogni lato della figura.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.13_MODIFICA_PEZZO/1.11-20250611-114215.png" alt="1.11-20250611-114215.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Visualizza angolo</strong> <br>Mostra un angolo della figura con le rispettive misure.</p></td></tr></tbody></table><p></p><h2 id="modifica-visuale"><a class="header" href="#modifica-visuale">Modifica Visuale</a></h2><p>Questa modalità mette a disposizione dell’operatore alcuni pulsanti visibili solo nel momento in cui la “modifica visuale“ è abilitata.</p><div class="TextAlignCenter"><img src="attachments/3.13_MODIFICA_PEZZO/3_5_0_On-20250611-075442.png" alt="3_5_0_On-20250611-075442.png" width="444" onclick="showModal(this.src)"></div><p>Ognuno dei seguenti pulsanti abilita o disabilita uno dei seguenti elementi del pezzo:</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="99a2f5d8-4c48-41b5-9929-441eac360773"><colgroup><col style="width: 235.0px;"><col style="width: 1564.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/3.13_MODIFICA_PEZZO/3_5_1_OnOff-20250611-122515.png" alt="3_5_1_OnOff-20250611-122515.png" width="120" onclick="showModal(this.src)"></div></td><td><p><strong>Tagli</strong><br>Mostra/nasconde la visualizzazione dei tagli con disco sull’anteprima.<br></p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.13_MODIFICA_PEZZO/3_5_2_OnOff-20250611-122541.png" alt="3_5_2_OnOff-20250611-122541.png" width="120" onclick="showModal(this.src)"></div></td><td><p><strong>Fori</strong><br>Mostra/nasconde la visualizzazione dei fori.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.13_MODIFICA_PEZZO/3_5_3_OnOff-20250611-122604.png" alt="3_5_3_OnOff-20250611-122604.png" width="120" onclick="showModal(this.src)"></div></td><td><p><strong>Fresature</strong><br>Mostra/nasconde la visualizzazione delle fresature.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.13_MODIFICA_PEZZO/3_5_4_OnOff-20250611-122630.png" alt="3_5_4_OnOff-20250611-122630.png" width="120" onclick="showModal(this.src)"></div></td><td><p><strong>Ribassi</strong><br>Mostra/nasconde la visualizzazione dei ribassi.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.13_MODIFICA_PEZZO/3_5_5_OnOff-20250611-122657.png" alt="3_5_5_OnOff-20250611-122657.png" width="120" onclick="showModal(this.src)"></div></td><td><p><strong>Frecce sui tagli</strong><br>Mostra/nasconde la visualizzazione delle frecce che indicano la direzione dei tagli con disco.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.13_MODIFICA_PEZZO/3_5_6_OnOff-20250611-122718.png" alt="3_5_6_OnOff-20250611-122718.png" width="120" onclick="showModal(this.src)"></div></td><td><p><strong>Nome del pezzo</strong><br>Mostra/nasconde il nome del pezzo.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.13_MODIFICA_PEZZO/3_5_7_OnOff-20250611-122745.png" alt="3_5_7_OnOff-20250611-122745.png" width="120" onclick="showModal(this.src)"></div></td><td><p><strong>Dynamic Tags</strong><br>Mostra/nasconde i dynamic tags del pezzo.</p></td></tr></tbody></table><!--Label="mdf"--><!--Label="mdf_blw"--><!--Label="mdf_lst"--><!--Label="mdf_prw"-->
+                        </main>
+
+                    </div>
+
+                    <img src="images/donatoni_222.jpg">
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="3.12.2_proprietá_aggiuntive_dei_pezzi.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="3.13.1_inclina.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+
+
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                <a rel="prev" href="3.12.2_proprietá_aggiuntive_dei_pezzi.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="3.13.1_inclina.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="mermaid.min.js"></script>
+        <script src="mermaid-init.js"></script>
+        <script src="hidemenu.js"></script>
+        <script src="imagemodal.js"></script>
+        <script src="login.js"></script>
+    </div>
+
+    <!-- Modale -->
+    <div id="modal" onclick="closeModal()">
+        <img id="modal-img" src="">
+    </div>;
+
+
+</body>
+</html>

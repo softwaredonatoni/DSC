@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ricerca Pagina</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const parametro = window.location.hash.substring(1); // Prende il valore dopo #
+            const output = document.getElementById("parametro");
+
+            if (!parametro) {
+                output.textContent = "Nessun parametro passato.";
+                return;
+            }
+
+            output.textContent = `Parametro passato: ${parametro}`;
+
+            // Cerca tutte le corrispondenze nel body
+            const mappings = document.querySelectorAll("p#mapping");
+            for (const mapping of mappings) {
+                const [key, value] = mapping.textContent.split("=");
+                if (key === parametro) {
+                    window.location.href = value.trim(); // Reindirizza l'utente alla pagina corrispondente
+                    return;
+                }
+            }
+
+            var msg = `Nessuna pagina trovata con questa etichetta: ${parametro}`;
+
+            alert(msg);
+        });
+    </script>
+        <style>
+            p#mapping { display: none; }
+        </style>
+</head>
+<body>
+    <h1>Ricerca della Pagina</h1>
+    <p id="parametro">Attendi mentre cerchiamo la pagina corrispondente...</p>
+    
+    <!-- Mappatura parametri-pagine -->
+<p id="mapping">mn0001=mn0001_emergency_circuit_test.html</p>
+<p id="mapping">mn0002=mn0002_monthly_maintenance_vacuum_pump.html</p>
+<p id="mapping">mn0003=mn0003_test_operation_light_signal.html</p>
+<p id="mapping">mn0004=mn0004_linear_guides_grassing_move_system.html</p>
+<p id="mapping">mn0005=mn0005_greasing_bearing_spiral_axe_z.html</p>
+<p id="mapping">mn0006=mn0006_greasing_bearings_transmission_shaft_bridge_axis_y.html</p>
+<p id="mapping">mn0007=mn0007_check_greasing_system_of_automatic_greasing.html</p>
+<p id="mapping">mn0008=mn0008_grasing_of_the_tilting_bench_pivots.html</p>
+<p id="mapping">mn0009=mn0009_grassing_of_swivel_arm_console.html</p>
+<p id="mapping">mn0010=mn0010_check_pipes_and_fittings_hydraulic_system.html</p>
+<p id="mapping">mn0011=mn0011_oil_change_hydraulic_control_unit.html</p>
+<p id="mapping">mn0012=mn0012_clean_filters_electrical_cabinet.html</p>
+<p id="mapping">mn0013=mn0013_maintenance_compressed_air_intake_group.html</p>
+<p id="mapping">mn0014=mn0014_spindle_bearings.html</p>
+<p id="mapping">mn0041=mn0041_greasing_linear_guides_spindle_lateral_tool_plus.html</p>
+<p id="mapping">mn0042=mn0042_pneumatic_system_filter_cleaning.html</p>
+<p id="mapping">mn0043=mn0043_verify_seal_rotating.html</p>
+<p id="mapping">mn0015=mn0015_check_pipes_and_fittings_of_high-pressure_system.html</p>
+<p id="mapping">mn0016=mn0016_check_of_the_bath_cleaning_status.html</p>
+<p id="mapping">mn0017=mn0017_repair_the_check_valves_and_the_gates_for_the_low_pressure.html</p>
+<p id="mapping">mn0018=mn0018_repair_the_high_pressure_cylinder.html</p>
+<p id="mapping">mn0019=mn0019_replace_the_cartridge_of_the_high_pressure_seal_element.html</p>
+<p id="mapping">mn0020=mn0020_replace_the_shutter_group_for_high_pressure.html</p>
+<p id="mapping">mn0021=mn0021_replace_the_damper_for_low_pressure.html</p>
+<p id="mapping">mn0022=mn0022_invert_the_high-pressure_cylinder.html</p>
+<p id="mapping">mn0023=mn0023_replace_the_high_pressure_cylinder.html</p>
+<p id="mapping">mn0024=mn0024_replace_the_check_valve_group.html</p>
+<p id="mapping">mn0025=mn0025_replace_the_seal_element_housing_group.html</p>
+<p id="mapping">mn0026=mn0026_replace_the_output_adapter.html</p>
+<p id="mapping">mn0027=mn0027.html</p>
+<p id="mapping">mn0028=mn0028_repair_of_central_hydraulic_section.html</p>
+<p id="mapping">mn0029=mn0029_repair_the_purge_valve.html</p>
+<p id="mapping">mn0030=mn0030_lubrication_check_automatic_greasing_system.html</p>
+<p id="mapping">mn0031=mn0031_replace_the_valve_body.html</p>
+<p id="mapping">mn0032=mn0032_clean_the_air_cooler.html</p>
+<p id="mapping">mn0033=mn0033.html</p>
+<p id="mapping">mn0034=mn0034_replace_water_filter.html</p>
+<p id="mapping">mn0035=mn0035_check_the_water_quality.html</p>
+<p id="mapping">mn0036=mn0036_replace_the_hydraulic_filter_element.html</p>
+<p id="mapping">mn0037=mn0037_replace_the_hydraulic_fluid.html</p>
+<p id="mapping">mn0038=mn0038_lubricate_the_bearings_of_the_main_motor.html</p>
+<p id="mapping">mn0039=mn0039_cleaning_filters_air_intakes_electrical_cabinet.html</p>
+<p id="mapping">mn0040=mn0040_maintenance_air_compressor_infeed_group.html</p>
+<p id="mapping">hyp_otturatore=group_shutter_for_high_pressure.html</p>
+</body>
+</html>

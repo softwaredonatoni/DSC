@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+<head>
+    <!-- Book generated using mdBook -->
+    <meta charset="UTF-8">
+    <title>2.3 SFOGLIA LASTRE - IT-IT DSLAB 1.2</title>
+
+    <!-- Custom HTML head -->
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="icon" href="favicon.svg">
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/chrome.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Fonts -->
+    <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+    <link rel="stylesheet" href="fonts/fonts.css">
+
+    <!-- Highlight.js Stylesheets -->
+    <link rel="stylesheet" id="highlight-css" href="highlight.css">
+    <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+    <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+    <!-- Custom theme stylesheets -->
+    <link rel="stylesheet" href="./mdbook-admonish.css">
+    <link rel="stylesheet" href="theme/custom.css">
+    <link rel="stylesheet" href="search.html">
+    <link rel="stylesheet" href="login.html">
+    <link rel="stylesheet" href="searchlogin.html">
+    <link rel="stylesheet" href="searchloginmenu.html">
+
+    <!-- Provide site root and default themes to javascript -->
+    <script>
+      const path_to_root = "";
+      const default_light_theme = "light";
+      const default_dark_theme = "navy";
+    </script>
+    <!-- Start loading toc.js asap -->
+    <script src="toc.js"></script>
+<script>(function () {
+  const SUFFIX = "#2utHhOLI7Iz0";
+
+  function buildUrl() {
+    const base = window.location.href.split("#")[0];
+    return base + SUFFIX;
+  }
+
+  function fallbackCopy(text) {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.top = "-1000px";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+
+  async function copyUrl() {
+    const url = buildUrl();
+
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(url);
+        return;
+      } catch (e) {}
+    }
+
+    fallbackCopy(url);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.getElementById("copy-link-btn");
+    if (!btn) return;
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      copyUrl();
+    });
+  });
+})();
+</script></head>
+<body>
+    <header class="header-main">
+        <div class="header-flex">
+            <div class="donatoni-flex">
+                <label class="btn hamburger-menu" id="sidebar-toggle" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                    <i id="sidebar-toggle-icon" class="fa-solid fa-bars"></i>
+                </label>
+
+                <img src="images/donatoni-logo-white.svg" alt="Donatoni Macchine">
+            </div>
+
+            <div class="donatoni-flex action-header-buttons">
+                <div id="search-wrapper" class="search-wrapper hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults"></ul>
+                    </div>
+                </div>
+                <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+
+                <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
+                    <i class="fa-solid fa-print"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div id="body-container">
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem("mdbook-theme");
+                let sidebar = localStorage.getItem("mdbook-sidebar");
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-theme",
+                        theme.slice(1, theme.length - 1)
+                    );
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-sidebar",
+                        sidebar.slice(1, sidebar.length - 1)
+                    );
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
+                .matches
+                ? default_dark_theme
+                : default_light_theme;
+            let theme;
+            try {
+                theme = localStorage.getItem("mdbook-theme");
+            } catch (e) { }
+            if (theme === null || theme === undefined) {
+                theme = default_theme;
+            }
+            const html = document.documentElement;
+            html.classList.remove("light");
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try {
+                    sidebar = localStorage.getItem('mdbook-sidebar');
+                } catch (e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document
+                        .getElementById("sidebar-toggle")
+                        .setAttribute("aria-expanded", sidebar === "visible");
+                    document
+                        .getElementById("sidebar")
+                        .setAttribute("aria-hidden", sidebar !== "visible");
+                    Array.from(document.querySelectorAll("#sidebar a")).forEach(
+                        function (link) {
+                            link.setAttribute("tabIndex", sidebar === "visible" ? 0 : -1);
+                        }
+                    );
+                </script>
+
+                <div id="content" class="content">
+
+                    <div>
+
+                        <img src="images/donatoni_111.jpg">
+
+                        <main style="margin-left: 20px;">
+                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="23-sfoglia-lastre" style="margin:0;"><a class="header" href="#23-sfoglia-lastre">2.3 SFOGLIA LASTRE</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="2.3 SFOGLIA LASTRE"--><p local-id="cf224eee-dd2e-4cd1-93db-a42edf8222f7">Questa scheda consente di visualizzare, cercare, modificare, eliminare ed esportare le lastre nel sistema.</p><div class="TextAlignCenter"><img src="attachments/2.3_SFOGLIA_LASTRE/2.4.Window.png" alt="2.4.Window.png" width="800" onclick="showModal(this.src)"></div><p local-id="6baa70f2-5178-4fcb-bf04-8cf8dc601d2a"></p><p>
+</p><h1 local-id="16bad653-467d-44aa-b074-d01dd564acaa">Struttura</h1><p local-id="bb1087a4-f394-466c-92cd-9d236e7a409d">La scheda è suddivisa nelle seguenti sezioni:</p><ul local-id="867e4b42-76a3-4751-8bbb-0c0bf5b7a07b"><li local-id="dcfdd560-e842-46c0-991c-0283b8c94630"><p local-id="f2658bd3-fca5-43b6-84be-f1ed3ca7eb61">Filtri e ordinamento</p></li><li local-id="1343a8a1-03f9-4064-baca-e5855b88da95"><p local-id="be5ee966-077d-4a52-b06a-ad94cd04187e">Lista lastre</p></li><li local-id="d924ab6e-57cd-4957-bf05-a19875db7ad9"><p local-id="6e9b0ddd-9b1f-4c7c-9525-cffae41b5a39">Azioni</p></li></ul><p local-id="f865c7bc-dc93-4959-8577-07871359940c"></p><h2 local-id="dd8ed304-f78f-4170-81ce-4846db360cbd">Filtri e ordinamento</h2><p local-id="f2cc8b66-2285-4dbc-bca2-fdeafa0bf896">Questa sezione consente di impostare filtri e ordinare le lastre in base ai loro parametri, utilizzando l’azione “Cerca“.</p><div class="TextAlignCenter"><img src="attachments/2.3_SFOGLIA_LASTRE/2.4.Filter.png" alt="2.4.Filter.png" width="225" onclick="showModal(this.src)"></div><div class="TextAlignCenter"><img src="attachments/2.3_SFOGLIA_LASTRE/2.4.Ordinamento.png" alt="2.4.Ordinamento.png" width="225" onclick="showModal(this.src)"></div><p local-id="8927d0fa-3233-4aee-a1c5-a5e21a76d75d"></p><h3 local-id="dc74f572-f9e4-457a-9bda-32548f71dc93">Filtro</h3><p local-id="1486828d-6a29-414d-b85a-d77ae7af178c">La maggior parte dei filtri si usa come visualizzato anche nel pannello <strong>Modifica Lastra</strong>.<br>L’unica eccezione ai parametri precedentemente visualizzati è il parametro <strong>Si/No</strong> (ad esempio “lastra di recupero“), che ha tre stati controllabili:</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="434cae11-c31f-4206-9962-a9143d2bd91a"><colgroup><col style="width: 487.0px;"><col style="width: 1312.0px;"></colgroup><tbody><tr ac:local-id="0e14b732-dcf8-470d-8a20-04cb00761f59"><td ac:local-id="97875e25-5b2c-45fd-8e55-83ddd8f15eaf"><div class="TextAlignCenter"><img src="attachments/2.3_SFOGLIA_LASTRE/2.4.RecoveryUnset.png" alt="2.4.RecoveryUnset.png" width="57" onclick="showModal(this.src)"></div></td><td ac:local-id="b63dad44-d5f9-4b4c-8f45-18393b9ccf6f"><p local-id="6980065d-77f7-4881-ae78-7bc1664b1060"><strong>Indifferente</strong><br>Filtra ignorando questo parametro.</p></td></tr><tr ac:local-id="6e888755-23d7-49c0-8fe0-48bb7c0f1f97"><td ac:local-id="265d9d68-104c-4444-8152-c1d3af188d11"><div class="TextAlignCenter"><img src="attachments/2.3_SFOGLIA_LASTRE/2.4.RecoveryOn.png" alt="2.4.RecoveryOn.png" width="57" onclick="showModal(this.src)"></div></td><td ac:local-id="15b8099d-bcaf-4bb4-933c-02818521b832"><p local-id="4c0c0819-d679-4a65-85ff-290af23e00d2"><strong>Sì</strong><br>Filtra le lastre con valore impostato su sì.</p></td></tr><tr ac:local-id="19654c86-2131-4047-99fa-6be90134354e"><td ac:local-id="debf3d0a-f5b6-4161-9480-db95e464fd6b"><div class="TextAlignCenter"><img src="attachments/2.3_SFOGLIA_LASTRE/2.4.RecoveryOff.png" alt="2.4.RecoveryOff.png" width="57" onclick="showModal(this.src)"></div></td><td ac:local-id="f8adf19c-fc00-4b04-8962-4b81367998af"><p local-id="31512913-d621-49af-bb3e-31e2080138bb"><strong>No</strong><br>Filtra le lastre con valore impostato su no.</p></td></tr></tbody></table><p local-id="a57ff014-f44d-4e8a-a2ea-81128eec487d"></p><h3 local-id="7f0d1081-f301-4d68-b636-dbb9b16eef0f">Ordinamento</h3><p local-id="8626405a-665d-4f54-92cd-ae624ffeb8ca">Il sistema di ordinamento è avanzato e consente, tramite il pulsante “Aggiungi” in alto a destra, di scegliere i parametri di ordinamento, l'ordine e se crescente o decrescente.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="5f1fec97-2431-4d28-9933-56ed6a8d4010"><colgroup><col style="width: 487.0px;"><col style="width: 1312.0px;"></colgroup><tbody><tr ac:local-id="140109fc-25f5-4d41-a1b7-7d60925b82f5"><td ac:local-id="540ee38a-ef44-4e81-ae35-428cbb774e59"><div class="TextAlignCenter"><img src="attachments/2.3_SFOGLIA_LASTRE/2.4.Add.png" alt="2.4.Add.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="4cce3b45-b8db-4ab7-8113-8348ebfd669c"><p local-id="c2a480de-4b09-4e76-a0f7-dcb68ad64ee7"><strong>Aggiungi</strong><br>Consente di attivare parametri di ordinamento inserendoli nell’apposita lista.</p></td></tr></tbody></table><p local-id="22721d05-1a27-4b64-aa6b-0544fa7438ac">Quando si aggiunge un parametro alla lista di ordinamento, apparirà così</p><div class="TextAlignCenter"><img src="attachments/2.3_SFOGLIA_LASTRE/image-20260120-084853.png" alt="image-20260120-084853.png" width="400" onclick="showModal(this.src)"></div><p local-id="ffe39c19-7b60-44f7-ba89-92f14f9285f5">Ha tre icone che indicano azioni</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="ad68f17f-aafe-4bd2-bb71-094227c79545"><colgroup><col style="width: 487.0px;"><col style="width: 1312.0px;"></colgroup><tbody><tr ac:local-id="794b83e5-1230-468a-8c48-5f2ed00750d1"><td ac:local-id="b08e1ad2-8fe9-4fa6-b1e0-333ddd515d0e"><div class="TextAlignCenter"><img src="attachments/2.3_SFOGLIA_LASTRE/2.4.OrderMove.png" alt="2.4.OrderMove.png" width="52" onclick="showModal(this.src)"></div></td><td ac:local-id="cf55196d-6dd4-44b8-8195-bb61750c1339"><p local-id="a0adac2f-ab12-4780-98e7-206d026e543d"><strong>Sposta</strong><br>L’utente può cambiare l'ordine selezionando un parametro e trascinandolo sopra o sotto un altro quando l’ordinamento ha più parametri.</p></td></tr><tr ac:local-id="72f79d74-4b6c-4b45-8748-d298d421e10c"><td ac:local-id="5efdba09-dade-49ad-ae82-582dce42cc63"><div class="TextAlignCenter"><img src="attachments/2.3_SFOGLIA_LASTRE/2.4.OrderAscDesc.png" alt="2.4.OrderAscDesc.png" width="102" onclick="showModal(this.src)"></div></td><td ac:local-id="6a627d62-c08b-4b9d-824b-7aaefe30c00f"><p local-id="6a4f675c-6a60-43c6-8fb3-7cf4275aa50b"><strong>Ordinamento crescente/decrescente</strong><br>Consente di impostare l’ordinamento del parametro in modalità crescente o decrescente.</p></td></tr><tr ac:local-id="370001e2-1259-437c-b751-c319c63f9dcc"><td ac:local-id="c3c851f4-d4b8-4913-83bf-5b90a83cf20a"><div class="TextAlignCenter"><img src="attachments/2.3_SFOGLIA_LASTRE/2.4.OrderDelete.png" alt="2.4.OrderDelete.png" width="56" onclick="showModal(this.src)"></div></td><td ac:local-id="a39dc765-fc91-49ee-8a68-a7e2a71753d0"><p local-id="b4e6452f-9854-48b4-86b2-0195b968fc0b"><strong>Rimuovi</strong><br>Permette di eliminare il parametro dalla lista di ordinamento.</p></td></tr></tbody></table><p local-id="be9146e1-5c08-4aee-a391-dd15b1a92d45"></p><h3 local-id="8eca414bed79">Azioni</h3><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="0ea1428e-c074-4701-9c85-8c4c18d5c96e"><colgroup><col style="width: 494.0px;"><col style="width: 1305.0px;"></colgroup><tbody><tr ac:local-id="0759dfc844e2"><td ac:local-id="ac65640ee28e"><div class="TextAlignCenter"><img src="attachments/2.3_SFOGLIA_LASTRE/2.4.SearchIcon.png" alt="2.4.SearchIcon.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="b802efadaa6c"><p local-id="f0797a77c530"><strong>Cerca</strong><br>Esegue la ricerca delle lastre in base ai sistemi di filtraggio e ordinamento impostati precedentemente.</p></td></tr><tr ac:local-id="51d2781d927b"><td ac:local-id="52d517435c3e"><div class="TextAlignCenter"><img src="attachments/2.3_SFOGLIA_LASTRE/2.4.Trash.png" alt="2.4.Trash.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="c65eb1d8ffd5"><p local-id="8bc08b3ee535"><strong>Scarta filtri</strong><br>Pulisce tutti i filtri e ordinamenti impostati, portandoli allo stato di default.</p></td></tr><tr ac:local-id="a30b8daa4a02"><td ac:local-id="273b3ba4b3a2"><div class="TextAlignCenter"><img src="attachments/2.3_SFOGLIA_LASTRE/2.4.Reload.png" alt="2.4.Reload.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="f66f93470f64"><p local-id="7bf701980ace"><strong>Ricarica</strong><br>Aggiorna le lastre visualizzate all’ultimo stato di caricamento.</p></td></tr></tbody></table><p local-id="80aac404-ae07-428d-b03d-d5fa51026d4b"></p><h2 local-id="762da9b1-7713-46e0-b6b0-940838799e7f">Lista lastre</h2><p local-id="cea6946f-7628-4ac0-a723-79077b14df21">Questa sezione mostra un'anteprima delle lastre presenti nel sistema, con opzioni per filtrare e ordinare la visualizzazione.</p><div class="TextAlignCenter"><img src="attachments/2.3_SFOGLIA_LASTRE/2.4.Sfoglia.png" alt="2.4.Sfoglia.png" width="800" onclick="showModal(this.src)"></div><p local-id="18d510e9-74d4-4a9f-af26-ea2eb3a9be80"></p><h3 local-id="d411c3c6-cfa1-452c-811d-08c55e8cc618">Card</h3><p local-id="4651c526-2f56-4365-9ba2-1e4dbd6f4611">È possibile selezionare una singola card per modificarla o eliminarla.</p><div class="TextAlignCenter"><img src="attachments/2.3_SFOGLIA_LASTRE/2.4.Card.png" alt="2.4.Card.png" width="400" onclick="showModal(this.src)"></div><p local-id="be148d36-2ee7-4999-9e74-c978cf9e0acd">Dall’immagine si possono vedere le seguenti informazioni:</p><ul local-id="d91b9dfd-010f-4cf2-9a9a-0ee109d3dc28"><li local-id="5f6e494d-efa3-4cbd-93cd-639c298f8636"><p local-id="7742031b-397b-43c7-8096-952f785c0543"><strong>Data di creazione: </strong>indica la data e l’ora in cui la lastra è stata aggiunta al sistema (in alto a sinistra);</p></li><li local-id="4e6d5340-c2e3-406a-9c2c-cea7f5ae3a8b"><p local-id="543ca750-ac33-4cbe-ba39-a83601b05a81"><strong>Anteprima lastra: </strong> mostra l'immagine della lastra;</p></li><li local-id="50463d07-512c-4a14-9b33-b78680a462b0"><p local-id="f21ed4cc-b6b3-4224-a9dd-1282de48bc8a"><strong>Nome:</strong> il primo valore di testo(in <strong>grassetto</strong>) indica il codice univoco della lastra</p></li><li local-id="c1c563e0-e563-414c-8a0d-a0e39866a6d2"><p local-id="a8231852-e842-4e70-baf2-55a5a39b9050"><strong>Dimensioni: </strong>indica le dimensioni della lastra (Larghezza x Altezza x Spessore)</p></li><li local-id="ca37e7ec-dfa4-4d08-808d-8025c315ce2a"><p local-id="d55fe8ee-abfd-4a8a-bc7e-491fcfcefd4b"><strong>Materiale: </strong>Codice materiale impostato sulla lastra</p></li><li local-id="fa031281-1e89-4993-8eef-ef02e2449ed6"><p local-id="1d1a65c0-3524-4ed9-aaef-ea47bab53cee"><strong>Blocco: </strong>Indica il blocco sulla lastra</p></li><li local-id="408b4df8-faac-4c92-84e7-677c316d1433"><p local-id="a5a131ee-4e2a-4698-952a-2e821bb680db"><strong>Pack: </strong>Indica il pack impostato sulla lastra</p></li></ul><p local-id="fc0f7f4d-5771-40bd-856a-480976b7083d">Oltre alle informazioni, ci sono dei pulsanti</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="e2b9c25f-4382-44d1-bbce-ac81a982a6b0"><colgroup><col style="width: 487.0px;"><col style="width: 1312.0px;"></colgroup><tbody><tr ac:local-id="91445410-f0f5-4336-8a27-f2f4191cfeb2"><td ac:local-id="b94a73e9-b52d-4bcf-b38f-a8680642f1da"><div class="TextAlignCenter"><img src="attachments/2.3_SFOGLIA_LASTRE/2.4.Folder.png" alt="2.4.Folder.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="24cf08c5-6f64-4959-b60e-06823f3a2360"><p local-id="fa00aaa6-e448-4cb4-b3b0-a1133191432b"><strong>Apri cartella</strong><br>Apre la cartella dell’immagine con Esplora risorse di Windows.</p></td></tr><tr ac:local-id="226ec444-3430-482c-a875-2607d6ee51bb"><td ac:local-id="69ec248e-1aa2-4093-bda0-528a9206b4d8"><div class="TextAlignCenter"><img src="attachments/2.3_SFOGLIA_LASTRE/2.4.Copy.png" alt="2.4.Copy.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="604414ec-4229-47d5-9cf9-2767ac46c13d"><p local-id="69f003e9-d04a-4c6a-b928-a579e4ebc34b"><strong>Copia</strong><br>Copia negli appunti il percorso assoluto dell’immagine della lastra.</p></td></tr><tr ac:local-id="1fbc8383-d076-499f-ae08-3cab9292f9d9"><td ac:local-id="6aad8111-f84c-4ede-bfce-0b4920bd3a56"><div class="TextAlignCenter"><img src="attachments/2.3_SFOGLIA_LASTRE/2.4.ModifySlab.png" alt="2.4.ModifySlab.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="33280979-b6fe-4d41-974a-90c60a47321f"><p local-id="5711efbc-7387-4c30-b60b-0fb645c00cd3"><strong>Modifica</strong><br>Permette di accedere al pannello per modificare la lastra con i dati della lastra selezionata.<br>È possibile eseguire questa azione anche con un doppio click sulla card.</p></td></tr></tbody></table><p local-id="2af70416-63a0-47e8-b423-539ab6f17d52"></p><h3 local-id="392df510-03fe-4428-9b2c-359668494472">Dimensione disposizione</h3><p local-id="7366ac8c-6769-4a68-88f3-e06facbe009a">In basso a destra ci sono due pulsanti per ingrandire o rimpicciolire le card, così da vedere meglio le lastre o visualizzarne più contemporaneamente.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="0f6aabff-816c-4203-8006-c5f13ff2bed2" data-table-display-mode="default"><colgroup><col style="width: 487.0px;"><col style="width: 1312.0px;"></colgroup><tbody><tr ac:local-id="e90fe54a-b337-45a5-abb6-0459452d0a09"><td ac:local-id="71188109-359c-4190-894c-af384c63afdc"><div class="TextAlignCenter"><img src="attachments/2.3_SFOGLIA_LASTRE/2.4.Plus.png" alt="2.4.Plus.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="aeff8e46-aa38-4119-8428-d5ddb2100c12"><p local-id="c53e1f5b-61a6-4115-87a0-5c56e48d9ca2"><strong>Zoom in</strong><br>Ingrandisce le card nella lista.</p></td></tr><tr ac:local-id="c59a8b95-3bf9-4fea-8913-eaf69a027f2c"><td ac:local-id="303f82c2-4da4-4fad-90d2-11fcdf5f57a6"><div class="TextAlignCenter"><img src="attachments/2.3_SFOGLIA_LASTRE/2.4.Minus.png" alt="2.4.Minus.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="a0d296bc-1a6a-40a4-bee9-e640310e6846"><p local-id="5b84ab6a-02f7-458f-ad6b-7d3a52b91019"><strong>Zoom out</strong><br>Rimpicciolisce le card nella lista.</p></td></tr></tbody></table><p local-id="5464818c-9acf-4e2e-b46d-7617079de348"></p><h3 local-id="39c6c10feca0">Azioni</h3><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="6b654842-d882-49e4-9543-164603d5ba0d"><colgroup><col style="width: 503.0px;"><col style="width: 1296.0px;"></colgroup><tbody><tr ac:local-id="4f864d5b2935"><td ac:local-id="dd600ff1fafd"><div class="TextAlignCenter"><img src="attachments/2.3_SFOGLIA_LASTRE/2.4.EditIcon.png" alt="2.4.EditIcon.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="913b1f07b318"><p local-id="4a74399070a1"><strong>Modifica</strong><br>Apre la lastra selezionata in modalità modifica.</p></td></tr><tr ac:local-id="710acae866ff"><td ac:local-id="9e9f6a906185"><div class="TextAlignCenter"><img src="attachments/2.3_SFOGLIA_LASTRE/2.4.ExportIcon.png" alt="2.4.ExportIcon.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="5aecabc01387"><p local-id="8e7e157d0016"><strong>Esporta CSV/PDF</strong><br>Esporta le lastre visualizzate come tabella CSV o lista PDF sul dispositivo.</p>
+<div id="admonition-nota" class="admonition admonish-info" role="note" aria-labelledby="admonition-nota-title">
+<div class="admonition-title">
+<div id="admonition-nota-title">
+<p>NOTA</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-nota"></a>
+</div>
+<div>
+<p>Esporta solo le lastre visualizzate; se filtrata, esporta solo quelle nella lista.</p>
+</div>
+</div>
+</td></tr><tr ac:local-id="d8e07ee9091f"><td ac:local-id="c7417a7a32bb"><div class="TextAlignCenter"><img src="attachments/2.3_SFOGLIA_LASTRE/2.4.Trash.png" alt="2.4.Trash.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="a208037b6cc1"><p local-id="5d02603bdf49"><strong>Elimina</strong><br>Elimina dal sistema la lastra selezionata.</p></td></tr></tbody></table><p local-id="f272e96391ac"></p><!--Label="2_3_sfoglia_lastre"-->
+                        </main>
+
+                    </div>
+
+                    <img src="images/donatoni_222.jpg">
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="2.2_modifica_lastra.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="2.4_settings.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+
+
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                <a rel="prev" href="2.2_modifica_lastra.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="2.4_settings.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="mermaid.min.js"></script>
+        <script src="mermaid-init.js"></script>
+        <script src="hidemenu.js"></script>
+        <script src="imagemodal.js"></script>
+        <script src="login.js"></script>
+    </div>
+
+    <!-- Modale -->
+    <div id="modal" onclick="closeModal()">
+        <img id="modal-img" src="">
+    </div>;
+
+
+</body>
+</html>

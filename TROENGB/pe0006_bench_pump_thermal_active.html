@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+<head>
+    <!-- Book generated using mdBook -->
+    <meta charset="UTF-8" />
+    <title>PE0006 BENCH PUMP THERMAL ACTIVE - Troubleshootings EN-GB</title>
+
+    <!-- Custom HTML head -->
+
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#ffffff" />
+
+    <link rel="icon" href="favicon.svg" />
+    <link rel="shortcut icon" href="favicon.png" />
+    <link rel="stylesheet" href="css/variables.css" />
+    <link rel="stylesheet" href="css/general.css" />
+    <link rel="stylesheet" href="css/chrome.css" />
+    <link rel="stylesheet" href="css/print.css" media="print" />
+    <link rel="stylesheet" href="css/custom.css" />
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <!-- Fonts -->
+    <link rel="stylesheet" href="FontAwesome/css/font-awesome.css" />
+    <link rel="stylesheet" href="fonts/fonts.css" />
+
+    <!-- Highlight.js Stylesheets -->
+    <link rel="stylesheet" id="highlight-css" href="highlight.css" />
+    <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css" />
+    <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css" />
+
+    <!-- Custom theme stylesheets -->
+    <link rel="stylesheet" href="./mdbook-admonish.css" />
+    <link rel="stylesheet" href="theme/custom.css" />
+    <link rel="stylesheet" href="search.html" />
+    <link rel="stylesheet" href="login.html" />
+    <link rel="stylesheet" href="searchlogin.html" />
+    <link rel="stylesheet" href="searchloginmenu.html" />
+
+    <!-- Provide site root and default themes to javascript -->
+    <script>
+      const path_to_root = "";
+      const default_light_theme = "light";
+      const default_dark_theme = "navy";
+    </script>
+    <!-- Start loading toc.js asap -->
+    <script src="toc.js"></script>
+</head>
+<body>
+    <header class="header-main">
+        <div class="header-flex">
+            <div class="donatoni-flex">
+                <label class="btn hamburger-menu"
+                       id="sidebar-toggle"
+                       for="sidebar-toggle-anchor"
+                       title="Toggle Table of Contents"
+                       aria-label="Toggle Table of Contents"
+                       aria-controls="sidebar">
+                    <i id="sidebar-toggle-icon" class="fa-solid fa-bars"></i>
+                </label>
+
+                <img src="images/donatoni-logo-white.svg" alt="Donatoni Macchine" />
+            </div>
+
+            <div class="donatoni-flex action-header-buttons">
+                <div id="search-wrapper" class="search-wrapper hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search"
+                               id="searchbar"
+                               name="searchbar"
+                               placeholder="Search this book ..."
+                               aria-controls="searchresults-outer"
+                               aria-describedby="searchresults-header" />
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults"></ul>
+                    </div>
+                </div>
+                <button class="btn btn-sm"
+                        id="search-toggle"
+                        type="button"
+                        title="Search. (Shortkey: s)"
+                        aria-label="Toggle Searchbar"
+                        aria-expanded="false"
+                        aria-keyshortcuts="S"
+                        aria-controls="searchbar">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+
+                <button class="btn btn-sm me-2"
+                        onclick="window.location.href='print.html'"
+                        title="Print this book"
+                        aria-label="Print this book">
+                    <i class="fa-solid fa-print"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div id="body-container">
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden" />
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem("mdbook-theme");
+                let sidebar = localStorage.getItem("mdbook-sidebar");
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-theme",
+                        theme.slice(1, theme.length - 1)
+                    );
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-sidebar",
+                        sidebar.slice(1, sidebar.length - 1)
+                    );
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
+                .matches
+                ? default_dark_theme
+                : default_light_theme;
+            let theme;
+            try {
+                theme = localStorage.getItem("mdbook-theme");
+            } catch (e) { }
+            if (theme === null || theme === undefined) {
+                theme = default_theme;
+            }
+            const html = document.documentElement;
+            html.classList.remove("light");
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try {
+                    sidebar = localStorage.getItem('mdbook-sidebar');
+                } catch (e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document
+                        .getElementById("sidebar-toggle")
+                        .setAttribute("aria-expanded", sidebar === "visible");
+                    document
+                        .getElementById("sidebar")
+                        .setAttribute("aria-hidden", sidebar !== "visible");
+                    Array.from(document.querySelectorAll("#sidebar a")).forEach(
+                        function (link) {
+                            link.setAttribute("tabIndex", sidebar === "visible" ? 0 : -1);
+                        }
+                    );
+                </script>
+
+                <div id="content" class="content">
+
+                    <div>
+
+                        <img src="images/donatoni_111.jpg" />
+
+                        <main style="margin-left: 20px;">
+                            <h1 id="pe0006-bench-pump-thermal-active"><a class="header" href="#pe0006-bench-pump-thermal-active">PE0006 BENCH PUMP THERMAL ACTIVE</a></h1>
+<ul>
+<li><a href="#explanation-of-the-error">Explanation of the error</a></li>
+<li><a href="#possible-causes">Possible causes</a></li>
+<li><a href="#possible-solutions">Possible solutions</a></li>
+<li><a href="#related-articles">Related articles</a></li>
+</ul>
+<!--Page="PE0006 BENCH PUMP THERMAL ACTIVE"-->
+<h2 id="explanation-of-the-error"><a class="header" href="#explanation-of-the-error">Explanation of the error</a></h2>
+<p>Anomaly on the bench lifting system, it offers protection on the system against both short circuits and overloads.<br>To reset the switch, move the selector to 0 and then to 1.</p><div class="TextAlignCenter"><img src="attachments/PE0006_BENCH_PUMP_THERMAL_ACTIVE/IMG_7651_-_Copia.JPG" alt="IMG_7651_-_Copia.JPG" width="374" onclick="showModal(this.src)"></div><hr><p><br></p><div class="TextAlignLeft"><img src="attachments/PE0006_BENCH_PUMP_THERMAL_ACTIVE/IMG_7653.JPG" alt="IMG_7653.JPG" width="217" onclick="showModal(this.src)"></div><hr><p><br></p>
+<h2 id="possible-causes"><a class="header" href="#possible-causes">Possible causes</a></h2>
+<p>The causes can be divided into Mechanical or Electrical problems</p><div class='panelContent' style='background-color: #fff; border: 1px solid #D3D3D3; padding: 5px;'><p>Mechanical problems:<br></p><ol start="1" type="1"><li><p>Oil pump motor blocked. <br>You can try to start the bench pump and see if it actually turns. <br>In case of complete blockage, change the oil pump;</p></li><li><p>The oil inside the tank is insufficient;</p></li><li><p>The oil inside the tank is very dirty or the filter is dirty;</p></li><li><p>Folding bench blocked</p></li></ol></div><p><br></p><div class='panelContent' style='background-color: #fff; border: 1px solid #D3D3D3; padding: 5px;'><p>Electrical problems:<br></p><ol start="1" type="1"><li><p>Short circuit between motor phases;</p></li><li><p>Missing a phase;</p></li><li><p>Motor windings short circuit;</p></li><li><p>Faulty switch</p></li></ol></div>
+<h2 id="possible-solutions"><a class="header" href="#possible-solutions">Possible solutions</a></h2>
+<p>The following photos show the pump with the relevant points of interest marked;<br><div><img src="attachments/PE0006_BENCH_PUMP_THERMAL_ACTIVE/IMG_7655.JPG" alt="IMG_7655.JPG" onclick="showModal(this.src)"></div><hr><div class="TextAlignCenter"><img src="attachments/PE0006_BENCH_PUMP_THERMAL_ACTIVE/IMG_7656.JPG" alt="IMG_7656.JPG" width="374" onclick="showModal(this.src)"></div><div class='panelContent' style='background-color: #fff; border: 1px solid #D3D3D3; padding: 5px;'><p>MECHANICAL<br></p><ol start="1" type="1"><li><p>First check that the engine cooling fan turns freely, for exemple try with a screwdriver to move the fan.<br>Iif the fan is blocked, the pump must be changed.</p></li><li><p>Check the oil level with a clean stick, and check for deposits at the bottom:</p><ol start="1" type="a"><li><p>If the level is low, top up with 32 density oil and check periodically if the system empties again as there could be leaks;</p></li><li><p>If there is a lot of dirt, empty the tank (there is a cap in the tank) and clean it with diesel and then fill it;</p></li></ol></li><li><p>Check whether the piston joints and the bench joints are not blocked and then grease the relevant points.<br><br></p><div class="TextAlignCenter"><img src="attachments/PE0006_BENCH_PUMP_THERMAL_ACTIVE/banco.JPG" alt="banco.JPG" width="292" onclick="showModal(this.src)"></div></li></ol></div><p><br></p><div class='panelContent' style='background-color: #fff; border: 1px solid #D3D3D3; padding: 5px;'><p>ELECTRICAL → The help of a Donatoni electrician or technician present on site is recommended<br></p><ol start="1" type="1"><li><p>Check that there is no continuity between the various phases; disconnect the cable from the pump's electrical box, isolate the terminals and reset the switch activate the oil pump if it trips the problem could be the cable;</p></li><li><p>Measure the input voltage with a multimeter and check the presence of all the phases; for example, if a phase is missing, check that all the terminals are tight;</p></li><li><p>If carrying out the test in point 1 the switch does not trip, connect the cable to the pump. <br>If the switch trips when starting the pump, the problem is the pump and therefore it will need to be replaced;</p></li></ol></div>
+<h2 id="related-articles"><a class="header" href="#related-articles">Related articles</a></h2>
+<p><!-- <placeholder>Related articles appear here based on the labels you select. Click to edit the macro and add or change labels.</placeholder> --></p><div class='panelContent' style='background-color: #fff; border: 1px solid #D3D3D3; padding: 5px;'><p><br></p></div><p><br></p><!--Label="elettrico"--><!--Label="quadro"--><!--Label="pe0006"-->
+                        </main>
+
+                    </div>
+
+                    <img src="images/donatoni_222.jpg" />
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="pe0005_lack_of_command_enablement.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="pe0007_disk_thermal_alarm_triggered.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+
+
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                <a rel="prev" href="pe0005_lack_of_command_enablement.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="pe0007_disk_thermal_alarm_triggered.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="mermaid.min.js"></script>
+        <script src="mermaid-init.js"></script>
+        <script src="hidemenu.js"></script>
+        <script src="imagemodal.js"></script>
+        <script src="login.js"></script>
+    </div>
+
+    <!-- Modale -->
+    <div id="modal" onclick="closeModal()">
+        <img id="modal-img" src="">
+    </div>;
+
+
+</body>
+</html>

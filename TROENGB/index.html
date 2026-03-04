@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+<head>
+    <!-- Book generated using mdBook -->
+    <meta charset="UTF-8" />
+    <title>Troubleshootings EN-GB Home - Troubleshootings EN-GB</title>
+
+    <!-- Custom HTML head -->
+
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#ffffff" />
+
+    <link rel="icon" href="favicon.svg" />
+    <link rel="shortcut icon" href="favicon.png" />
+    <link rel="stylesheet" href="css/variables.css" />
+    <link rel="stylesheet" href="css/general.css" />
+    <link rel="stylesheet" href="css/chrome.css" />
+    <link rel="stylesheet" href="css/print.css" media="print" />
+    <link rel="stylesheet" href="css/custom.css" />
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <!-- Fonts -->
+    <link rel="stylesheet" href="FontAwesome/css/font-awesome.css" />
+    <link rel="stylesheet" href="fonts/fonts.css" />
+
+    <!-- Highlight.js Stylesheets -->
+    <link rel="stylesheet" id="highlight-css" href="highlight.css" />
+    <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css" />
+    <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css" />
+
+    <!-- Custom theme stylesheets -->
+    <link rel="stylesheet" href="./mdbook-admonish.css" />
+    <link rel="stylesheet" href="theme/custom.css" />
+    <link rel="stylesheet" href="search.html" />
+    <link rel="stylesheet" href="login.html" />
+    <link rel="stylesheet" href="searchlogin.html" />
+    <link rel="stylesheet" href="searchloginmenu.html" />
+
+    <!-- Provide site root and default themes to javascript -->
+    <script>
+      const path_to_root = "";
+      const default_light_theme = "light";
+      const default_dark_theme = "navy";
+    </script>
+    <!-- Start loading toc.js asap -->
+    <script src="toc.js"></script>
+</head>
+<body>
+    <header class="header-main">
+        <div class="header-flex">
+            <div class="donatoni-flex">
+                <label class="btn hamburger-menu"
+                       id="sidebar-toggle"
+                       for="sidebar-toggle-anchor"
+                       title="Toggle Table of Contents"
+                       aria-label="Toggle Table of Contents"
+                       aria-controls="sidebar">
+                    <i id="sidebar-toggle-icon" class="fa-solid fa-bars"></i>
+                </label>
+
+                <img src="images/donatoni-logo-white.svg" alt="Donatoni Macchine" />
+            </div>
+
+            <div class="donatoni-flex action-header-buttons">
+                <div id="search-wrapper" class="search-wrapper hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search"
+                               id="searchbar"
+                               name="searchbar"
+                               placeholder="Search this book ..."
+                               aria-controls="searchresults-outer"
+                               aria-describedby="searchresults-header" />
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults"></ul>
+                    </div>
+                </div>
+                <button class="btn btn-sm"
+                        id="search-toggle"
+                        type="button"
+                        title="Search. (Shortkey: s)"
+                        aria-label="Toggle Searchbar"
+                        aria-expanded="false"
+                        aria-keyshortcuts="S"
+                        aria-controls="searchbar">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+
+                <button class="btn btn-sm me-2"
+                        onclick="window.location.href='print.html'"
+                        title="Print this book"
+                        aria-label="Print this book">
+                    <i class="fa-solid fa-print"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div id="body-container">
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden" />
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem("mdbook-theme");
+                let sidebar = localStorage.getItem("mdbook-sidebar");
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-theme",
+                        theme.slice(1, theme.length - 1)
+                    );
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-sidebar",
+                        sidebar.slice(1, sidebar.length - 1)
+                    );
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
+                .matches
+                ? default_dark_theme
+                : default_light_theme;
+            let theme;
+            try {
+                theme = localStorage.getItem("mdbook-theme");
+            } catch (e) { }
+            if (theme === null || theme === undefined) {
+                theme = default_theme;
+            }
+            const html = document.documentElement;
+            html.classList.remove("light");
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try {
+                    sidebar = localStorage.getItem('mdbook-sidebar');
+                } catch (e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document
+                        .getElementById("sidebar-toggle")
+                        .setAttribute("aria-expanded", sidebar === "visible");
+                    document
+                        .getElementById("sidebar")
+                        .setAttribute("aria-hidden", sidebar !== "visible");
+                    Array.from(document.querySelectorAll("#sidebar a")).forEach(
+                        function (link) {
+                            link.setAttribute("tabIndex", sidebar === "visible" ? 0 : -1);
+                        }
+                    );
+                </script>
+
+                <div id="content" class="content">
+
+                    <div>
+
+                        <img src="images/donatoni_111.jpg" />
+
+                        <main style="margin-left: 20px;">
+                            <h1 id="troubleshootings-en-gb-home"><a class="header" href="#troubleshootings-en-gb-home">Troubleshootings EN-GB Home</a></h1>
+<!--Page="Troubleshootings EN-GB Home"--><p local-id="99134572-7e45-4d80-b08a-e6960b4ee0e6">This document describes troubleshooting procedures for identifying and resolving the most common issues with Donatoni machines and installed software.<br>The goal is to reduce machine downtime and guide the operator through the initial diagnosis, indicating when technical support is required.</p>
+<ul>
+<li><a href="./troubleshooting_articles.html">Troubleshooting articles</a>
+<ul>
+<li><a href="./wrong_pieces_measures.html">WRONG PIECES MEASURES</a></li>
+<li><a href="./pe0000_general_emergency.html">PE0000 GENERAL EMERGENCY</a></li>
+<li><a href="./pe0003_lack_of_mains_voltage.html">PE0003 LACK OF MAINS VOLTAGE</a></li>
+<li><a href="./pe0005_lack_of_command_enablement.html">PE0005 LACK OF COMMAND ENABLEMENT</a></li>
+<li><a href="./pe0006_bench_pump_thermal_active.html">PE0006 BENCH PUMP THERMAL ACTIVE</a></li>
+<li><a href="./pe0007_disk_thermal_alarm_triggered.html">PE0007 DISK THERMAL ALARM TRIGGERED</a></li>
+<li><a href="./pe0008_collision_limit_switch_sensor_active.html">PE0008 COLLISION LIMIT SWITCH SENSOR ACTIVE</a></li>
+<li><a href="./pe0009_collision_quota_requestered.html">PE0009 COLLISION QUOTA REQUESTERED</a></li>
+<li><a href="./pe0010_x_axis_extra_current.html">PE0010 X AXIS EXTRA CURRENT</a></li>
+<li><a href="./pe0011_y_axis_extra_current.html">PE0011 Y AXIS EXTRA CURRENT</a></li>
+<li><a href="./pe0012_z_axis_extra_current.html">PE0012 Z AXIS EXTRA CURRENT</a></li>
+<li><a href="./pe0013_a_axis_extra_current.html">PE0013 A AXIS EXTRA CURRENT</a></li>
+<li><a href="./pe0014_c_axis_extra_current.html">PE0014 C AXIS EXTRA CURRENT</a></li>
+<li><a href="./pe0015_spindle_overcurrent.html">PE0015 SPINDLE OVERCURRENT</a></li>
+<li><a href="./pe0016_lack_of_water.html">PE0016 LACK OF WATER</a></li>
+<li><a href="./pe0018_nulla_feed_set_0.html">PE0018 NULLA FEED SET 0</a></li>
+<li><a href="./pe0019_error_during_starting_operation.html">PE0019 ERROR DURING STARTING OPERATION</a></li>
+<li><a href="./pe0021_folding_bench_not_in_position.html">PE0021 FOLDING BENCH NOT IN POSITION</a></li>
+<li><a href="./pe0023_active_muting_alarm.html">PE0023 ACTIVE MUTING ALARM</a></li>
+<li><a href="./pe0027_internal_water_missing.html">PE0027 INTERNAL WATER MISSING</a></li>
+<li><a href="./pe0028_a_axis_not_in_correct_position.html">PE0028 A AXIS NOT IN CORRECT POSITION</a></li>
+<li><a href="./pe0029_faulty_lubrication_system.html">PE0029 FAULTY LUBRICATION SYSTEM</a></li>
+<li><a href="./pe0031_panel_overtemperature.html">PE0031 PANEL OVERTEMPERATURE</a></li>
+<li><a href="./pe0041_ch_0_program_without_m2-m30.html">PE0041 CH 0 PROGRAM WITHOUT M2-M30</a></li>
+<li><a href="./pe0065_vacuum_pump_thermal_switch_active.html">PE0065 VACUUM PUMP THERMAL SWITCH ACTIVE</a></li>
+<li><a href="./pe0066_lack_of_air.html">PE0066 LACK OF AIR</a></li>
+<li><a href="./pe0067_void_not_generated.html">PE0067 VOID NOT GENERATED</a></li>
+<li><a href="./pe0069_suction_cups_not_in_parking.html">PE0069 SUCTION CUPS NOT IN PARKING</a></li>
+<li><a href="./pe0070_suction_cups_already_in_contact.html">PE0070 SUCTION CUPS ALREADY IN CONTACT</a></li>
+<li><a href="./pe0095_inverter_alarm.html">PE0095 INVERTER ALARM</a></li>
+<li><a href="./pm0011_feeler_piston_out_of_position.html">PM0011 FEELER PISTON OUT OF POSITION</a></li>
+<li><a href="./troubleshooting_dtwain_and_camera.html">TROUBLESHOOTING DTWAIN AND CAMERA</a>
+<ul>
+<li><a href="./dtwain_doesnt_launch.html">DTWAIN DOESNT LAUNCH</a></li>
+<li><a href="./old_dtwain_from_parametrix_shows_name_request.html">OLD DTWAIN FROM PARAMETRIX SHOWS NAME REQUEST</a></li>
+<li><a href="./block_during_calibration_-_rectangle_selection_phase.html">BLOCK DURING CALIBRATION - RECTANGLE SELECTION PHASE</a></li>
+<li><a href="./photo_not_taken.html">PHOTO NOT TAKEN</a></li>
+<li><a href="./crash_during_automanual_calibration_due_to_dllnotfoundexception.html">CRASH DURING AUTOMANUAL CALIBRATION DUE TO DLLNOTFOUNDEXCEPTION</a></li>
+<li><a href="./troubleshooting_matrix_vision_cameras.html">TROUBLESHOOTING MATRIX VISION CAMERAS</a></li>
+</ul>
+</li>
+<li><a href="./mechanics_troubleshooting.html">MECHANICS TROUBLESHOOTING</a>
+<ul>
+<li><a href="./disk_parallelism_as_a_varies.html">DISK PARALLELISM AS A VARIES</a></li>
+<li><a href="./parking_position_tool_.html">PARKING POSITION TOOL_</a></li>
+</ul>
+</li>
+<li><a href="./troubleshooting_parametrix.html">TROUBLESHOOTING PARAMETRIX</a>
+<ul>
+<li><a href="./non-repetitive_startup_crash.html">NON-REPETITIVE STARTUP CRASH</a></li>
+<li><a href="./repetitive_startup_crash.html">REPETITIVE STARTUP CRASH</a></li>
+<li><a href="./database_and_psql_service_errors.html">DATABASE AND PSQL SERVICE ERRORS</a></li>
+<li><a href="./twin_sending_images_to_exhaust_monitor_(different_alphabet).html">TWIN SENDING IMAGES TO EXHAUST MONITOR (DIFFERENT ALPHABET)</a></li>
+<li><a href="./parametrix_is_closed_by_the_operation_system.html">PARAMETRIX IS CLOSED BY THE OPERATION SYSTEM</a></li>
+<li><a href="./visualization_issues_in_case_of_non-standard_screen_settings_setted.html">VISUALIZATION ISSUES IN CASE OF NON-STANDARD SCREEN SETTINGS SETTED</a></li>
+<li><a href="./dxf_issues.html">DXF ISSUES</a></li>
+<li><a href="./parametrix_is_not_launched_and_there_arent_any_issues_reported.html">PARAMETRIX IS NOT LAUNCHED AND THERE ARENT ANY ISSUES REPORTED</a></li>
+<li><a href="./confirm_photo_button_doesnt_work.html">CONFIRM PHOTO BUTTON DOESNT WORK</a></li>
+<li><a href="./visualization_issues_piece_previews_or_black_photo.html">VISUALIZATION ISSUES PIECE PREVIEWS OR BLACK PHOTO</a></li>
+<li><a href="./parametrix_doesnt_launch,_there_is_not_enough_space_on_windows.html">PARAMETRIX DOESNT LAUNCH, THERE IS NOT ENOUGH SPACE ON WINDOWS</a></li>
+</ul>
+</li>
+<li><a href="./troubleshooting_old_machine.html">TROUBLESHOOTING OLD MACHINE</a>
+<ul>
+<li><a href="./pm0033_pressure_restoration.html">PM0033 PRESSURE RESTORATION</a></li>
+</ul>
+</li>
+<li><a href="./troubleshooting_net.html">TROUBLESHOOTING NET</a>
+<ul>
+<li><a href="./teamviewer_not_functioning.html">TEAMVIEWER NOT FUNCTIONING</a></li>
+<li><a href="./viewing_shared_folders.html">VIEWING SHARED FOLDERS</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p local-id="c30126f7-9f6d-47aa-b65e-4a8f3269e714"></p>
+                        </main>
+
+                    </div>
+
+                    <img src="images/donatoni_222.jpg" />
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+
+                            <a rel="next prefetch" href="troubleshooting_articles.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+
+
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                <a rel="next prefetch" href="troubleshooting_articles.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="mermaid.min.js"></script>
+        <script src="mermaid-init.js"></script>
+        <script src="hidemenu.js"></script>
+        <script src="imagemodal.js"></script>
+        <script src="login.js"></script>
+    </div>
+
+    <!-- Modale -->
+    <div id="modal" onclick="closeModal()">
+        <img id="modal-img" src="">
+    </div>;
+
+
+</body>
+</html>

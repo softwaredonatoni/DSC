@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+<head>
+    <!-- Book generated using mdBook -->
+    <meta charset="UTF-8">
+    <title>3.1.3.1 MAKING CUTS FROM DXF DRAWINGS - EN-GB PARAMETRIX 4.13</title>
+
+    <!-- Custom HTML head -->
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="icon" href="favicon.svg">
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/chrome.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Fonts -->
+    <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+    <link rel="stylesheet" href="fonts/fonts.css">
+
+    <!-- Highlight.js Stylesheets -->
+    <link rel="stylesheet" id="highlight-css" href="highlight.css">
+    <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+    <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+    <!-- Custom theme stylesheets -->
+    <link rel="stylesheet" href="./mdbook-admonish.css">
+    <link rel="stylesheet" href="theme/custom.css">
+    <link rel="stylesheet" href="search.html">
+    <link rel="stylesheet" href="login.html">
+    <link rel="stylesheet" href="searchlogin.html">
+    <link rel="stylesheet" href="searchloginmenu.html">
+
+    <!-- Provide site root and default themes to javascript -->
+    <script>
+      const path_to_root = "";
+      const default_light_theme = "light";
+      const default_dark_theme = "navy";
+    </script>
+    <!-- Start loading toc.js asap -->
+    <script src="toc.js"></script>
+<script>(function () {
+  const SUFFIX = "#2utHhOLI7Iz0";
+
+  function buildUrl() {
+    const base = window.location.href.split("#")[0];
+    return base + SUFFIX;
+  }
+
+  function fallbackCopy(text) {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.top = "-1000px";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+
+  async function copyUrl() {
+    const url = buildUrl();
+
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(url);
+        return;
+      } catch (e) {}
+    }
+
+    fallbackCopy(url);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.getElementById("copy-link-btn");
+    if (!btn) return;
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      copyUrl();
+    });
+  });
+})();
+</script></head>
+<body>
+    <header class="header-main">
+        <div class="header-flex">
+            <div class="donatoni-flex">
+                <label class="btn hamburger-menu" id="sidebar-toggle" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                    <i id="sidebar-toggle-icon" class="fa-solid fa-bars"></i>
+                </label>
+
+                <img src="images/donatoni-logo-white.svg" alt="Donatoni Macchine">
+            </div>
+
+            <div class="donatoni-flex action-header-buttons">
+                <div id="search-wrapper" class="search-wrapper hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults"></ul>
+                    </div>
+                </div>
+                <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+
+                <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
+                    <i class="fa-solid fa-print"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div id="body-container">
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem("mdbook-theme");
+                let sidebar = localStorage.getItem("mdbook-sidebar");
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-theme",
+                        theme.slice(1, theme.length - 1)
+                    );
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-sidebar",
+                        sidebar.slice(1, sidebar.length - 1)
+                    );
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
+                .matches
+                ? default_dark_theme
+                : default_light_theme;
+            let theme;
+            try {
+                theme = localStorage.getItem("mdbook-theme");
+            } catch (e) { }
+            if (theme === null || theme === undefined) {
+                theme = default_theme;
+            }
+            const html = document.documentElement;
+            html.classList.remove("light");
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try {
+                    sidebar = localStorage.getItem('mdbook-sidebar');
+                } catch (e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document
+                        .getElementById("sidebar-toggle")
+                        .setAttribute("aria-expanded", sidebar === "visible");
+                    document
+                        .getElementById("sidebar")
+                        .setAttribute("aria-hidden", sidebar !== "visible");
+                    Array.from(document.querySelectorAll("#sidebar a")).forEach(
+                        function (link) {
+                            link.setAttribute("tabIndex", sidebar === "visible" ? 0 : -1);
+                        }
+                    );
+                </script>
+
+                <div id="content" class="content">
+
+                    <div>
+
+                        <img src="images/donatoni_111.jpg">
+
+                        <main style="margin-left: 20px;">
+                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="3131-making-cuts-from-dxf-drawings" style="margin:0;"><a class="header" href="#3131-making-cuts-from-dxf-drawings">3.1.3.1 MAKING CUTS FROM DXF DRAWINGS</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="3.1.3.1 MAKING CUTS FROM DXF DRAWINGS"--><p>The machine can execute cuts, millings and holes through designs created with CAD software and saved in '.dxf' format with the automatic recognition of some workings useful to simplify and make faster the work to the machine operator.</p>
+<div id="admonition-noteto-make-parametrix-able-to-interpret-these-informations-some-conventions-must-be-respected-in-design-realization-phase" class="admonition admonish-info" role="note" aria-labelledby="admonition-noteto-make-parametrix-able-to-interpret-these-informations-some-conventions-must-be-respected-in-design-realization-phase-title">
+<div class="admonition-title">
+<div id="admonition-noteto-make-parametrix-able-to-interpret-these-informations-some-conventions-must-be-respected-in-design-realization-phase-title">
+<p>NOTETo make Parametrix able to interpret these informations, some conventions must be respected in design realization phase.</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-noteto-make-parametrix-able-to-interpret-these-informations-some-conventions-must-be-respected-in-design-realization-phase"></a>
+</div>
+<div>
+<p>All pieces drawn must be closed and converted into polylines forming a polygon.Should you wish to insert the brand of the piece for identification, it must be inserted within the polygon.</p>
+</div>
+</div>
+<div class="TextAlignCenter"><img src="attachments/3.1.3.1_MAKING_CUTS_FROM_DXF_DRAWINGS/0.0.png" alt="0.0.png" width="600" onclick="showModal(this.src)"></div><p></p><p>
+</p><h1 id="parametrix-settings-for-the-recognition-of-imported-layers"><a class="header" href="#parametrix-settings-for-the-recognition-of-imported-layers">Parametrix settings for the recognition of imported layers</a></h1><p>To access the window dedicated to the customization settings related to the import of DXF files, press the User Parameters button located on the top bar of Parametrix.<br>From here, move to the section dedicated to managing the names of the Layers.</p><p>For each type of function listed, the user can assign a name (corresponding to the name of the Layer set in the CAD software used) and assign some parameters related to the default values for some workings.</p><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="e4ea2044-658d-4187-bdac-59c197e7ac76"><tbody><tr><td data-highlight-colour="#ffffff"><p style="text-align: center;"><strong>Funzione</strong></p></td><td data-highlight-colour="#ffffff"><p style="text-align: center;"><strong>Nome Layer</strong></p></td></tr><tr><td data-highlight-colour="#ffffff"><p>Miter cut</p></td><td data-highlight-colour="#ffffff"><p>Miter cut</p></td></tr><tr><td data-highlight-colour="#ffffff"><p>Downstand</p></td><td data-highlight-colour="#ffffff"><p>Downstand</p></td></tr><tr><td data-highlight-colour="#ffffff"><p>Backsplash</p></td><td data-highlight-colour="#ffffff"><p>Backsplash</p></td></tr><tr><td data-highlight-colour="#ffffff"><p>Offset</p></td><td data-highlight-colour="#ffffff"><p>Offset</p></td></tr><tr><td data-highlight-colour="#ffffff"><p>Cuts under the material</p></td><td data-highlight-colour="#ffffff"><p>Below</p></td></tr><tr><td data-highlight-colour="#ffffff"><p>Drip system</p></td><td data-highlight-colour="#ffffff"><p>Drip</p></td></tr><tr><td data-highlight-colour="#ffffff"><p>Milling</p></td><td data-highlight-colour="#ffffff"><p>Milling</p></td></tr><tr><td data-highlight-colour="#ffffff"><p>Rim</p></td><td data-highlight-colour="#ffffff"><p>Rim</p></td></tr><tr><td data-highlight-colour="#ffffff"><p>Drilling</p></td><td data-highlight-colour="#ffffff"><p>Drilling</p></td></tr><tr><td data-highlight-colour="#ffffff"><p>Cut added</p></td><td data-highlight-colour="#ffffff"><p>Added</p></td></tr><tr><td data-highlight-colour="#ffffff"><p>Anchoring hole</p></td><td data-highlight-colour="#ffffff"><p>Keil</p></td></tr><tr><td data-highlight-colour="#ffffff"><p>Chamfer</p></td><td data-highlight-colour="#ffffff"><p>Chamfer</p></td></tr><tr><td data-highlight-colour="#ffffff"><p>Lower Chamfer</p></td><td data-highlight-colour="#ffffff"><p>Lower Chamfer</p></td></tr><tr><td data-highlight-colour="#ffffff"><p>Deactivate</p></td><td data-highlight-colour="#ffffff"><p>Deactivate</p></td></tr><tr><td data-highlight-colour="#ffffff"><p>Remove</p></td><td data-highlight-colour="#ffffff"><p>Remove</p></td></tr></tbody></table><p></p><h1 id="buttons"><a class="header" href="#buttons">Buttons</a></h1><p>The buttons on the left of each working allow to:</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="9c5ac8e5-ae22-44e8-9a43-2570c039f23a" data-table-display-mode="default"><colgroup><col style="width: 193.0px;"><col style="width: 1606.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/3.1.3.1_MAKING_CUTS_FROM_DXF_DRAWINGS/0.1.png" alt="0.1.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Information window</strong><br>Show a graphic representation of the information required to create a Layer associated with the working.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.1.3.1_MAKING_CUTS_FROM_DXF_DRAWINGS/0.2.png" alt="0.2.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Download example</strong><br>Allows to download a dxf file containing a example of Layer associated to the working.</p></td></tr></tbody></table><p></p><p></p><h1 id="miter-cut-mode"><a class="header" href="#miter-cut-mode">Miter Cut mode</a></h1><p>To be able to insert automatic an inclined edge is necessary observe some conventions:</p><ul><li><p>The miter cuts can be inserted only on the sides of the pieces; if the miter cut is not valid for the entire section, it can be divided into more parts.</p></li><li><p>It can be applied the miter cut on external arcs (Eg: circular table, or on curved covers only as far as the external cut is concerned).</p></li><li><p>Regarding internal arcs (e.g. curved covers) the cut is made in passes; the cut will be made inclining the disk automatically, avoiding collision problems with the material.</p></li></ul><p>The procedure for those who use CAD systems, provides for the creation of a Layer that has the following properties:</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="21f548b7-1105-4b01-9b59-5a113f8e7d77"><colgroup><col style="width: 385.0px;"><col style="width: 1413.0px;"></colgroup><tbody><tr><td><p><strong>Layer Name</strong></p></td><td><p>Inclined _ (followed by the number that identifies the desired inclination degrees).</p>
+<div id="admonition-info" class="admonition admonish-info" role="note" aria-labelledby="admonition-info-title">
+<div class="admonition-title">
+<div id="admonition-info-title">
+<p>Info</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-info"></a>
+</div>
+<div>
+<p>NOTEThe inclination is expressed in sexagesimal degrees.</p>
+</div>
+</div>
+</td></tr><tr><td><p><strong>Example</strong></p></td><td><p>Mitered 45 or Mitered-45</p></td></tr></tbody></table><p>When a negative value is entered the inclination is referred to a diverging cut while if the value is positive the cut will be convergent towards the polygon’s inside.</p><p></p><p></p><h1 id="upstand"><a class="header" href="#upstand">Upstand</a></h1><p>The function lift is a processing that allows to obtain a rectangular piece of equal length to the line set as a reference side.</p><p>For the automatic insertion of cuts wanting to create a downstand it will be necessary to create a Layer with the name '<strong>Downstand</strong>' and then insert the measure of the height.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="33e1914f-c126-41e2-8837-90c67ac04205"><colgroup><col style="width: 385.0px;"><col style="width: 1413.0px;"></colgroup><tbody><tr><td><p><strong>Layer Name</strong></p></td><td><p>Downstand _ (followed by the height measure of the downstand).</p>
+<div id="admonition-info-1" class="admonition admonish-info" role="note" aria-labelledby="admonition-info-1-title">
+<div class="admonition-title">
+<div id="admonition-info-1-title">
+<p>Info</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-info-1"></a>
+</div>
+<div>
+<p>NOTEThe measure is expressed in millimeters.</p>
+</div>
+</div>
+</td></tr><tr><td><p><strong>Example</strong></p></td><td><p>Downstand100</p></td></tr></tbody></table><p>This automation inside Parametrix creates a new piece of width equal to the length of the line that identifies the side of the risalita desired with the two sides that will be glued together cut with the same inclination, ready for a finish with cartabuono.<br>The inclination associated to these sides is adjustable from the parameter next.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="9886c091-0578-44d1-91c9-e97c9d8a9e07"><colgroup><col style="width: 390.0px;"><col style="width: 1409.0px;"></colgroup><tbody><tr><td><p><strong>Degrees</strong></p></td><td><p>Allows to set the inclination with which the inclined sides of the working are imported.</p></td></tr></tbody></table><p></p><p></p><h1 id="backsplash-mode"><a class="header" href="#backsplash-mode">Backsplash Mode</a></h1><p>The backsplash / lift function is a working that allows to obtain a rectangular piece of the same length to the straight line set as reference side.</p><p>In the same way, for the automatic insertion of cuts wanting to create a backsplash it will be necessary to create a Layer with the name '<strong>Backsplash</strong>' and then insert the height measurement.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="8dd0b814-c37e-445e-a0f7-7b1e6883c9d8"><colgroup><col style="width: 385.0px;"><col style="width: 1413.0px;"></colgroup><tbody><tr><td><p><strong>Layer Name</strong></p></td><td><p>Backsplash _ (followed by the height measurement of the backsplash).</p>
+<div id="admonition-info-2" class="admonition admonish-info" role="note" aria-labelledby="admonition-info-2-title">
+<div class="admonition-title">
+<div id="admonition-info-2-title">
+<p>Info</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-info-2"></a>
+</div>
+<div>
+<p>NOTEThe measure is expressed in millimeters.</p>
+</div>
+</div>
+</td></tr><tr><td><p><strong>Example</strong></p></td><td><p>Backsplash150</p></td></tr></tbody></table><p>This automaton inside Parametrix creates a new piece of width equal to the length of the line that identifies the side of the desired coating without miter cut but rather ready for a straight angle finishing with rib grip.</p><p></p><p></p><h1 id="offset-mode"><a class="header" href="#offset-mode">Offset Mode</a></h1><p>The offset function is very useful when you want to leave more material than the dimensions of the finished piece; through the drawing of lines on the desired sides, the functions associated with the indicated sides will be automatically moved in the correct direction.</p><p>In order to insert automatically the desired over material, it will be necessary to create a Layer with the name '<strong>Offset</strong>' and insert all the straight lines relative to the sides where you want to have the automatic effect of the setting.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="193ae8cf-8821-4276-9c34-21012d107805"><colgroup><col style="width: 385.0px;"><col style="width: 1413.0px;"></colgroup><tbody><tr><td><p><strong>Layer Name</strong></p></td><td><p>Offset _ (followed by the number that identifies the offset measure).</p>
+<div id="admonition-info-3" class="admonition admonish-info" role="note" aria-labelledby="admonition-info-3-title">
+<div class="admonition-title">
+<div id="admonition-info-3-title">
+<p>Info</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-info-3"></a>
+</div>
+<div>
+<p>NOTEThe measurement is expressed in millimeters.</p>
+</div>
+</div>
+</td></tr><tr><td><p><strong>Example</strong></p></td><td><p>Offset3</p></td></tr></tbody></table><p></p><p></p><h1 id="lower-cut-mode"><a class="header" href="#lower-cut-mode">Lower Cut mode</a></h1><p>The lower cut function is valid only for those who have installed the mechanical optional that allows to make a lower cut under the visible surface of the slab.</p><p>To be able to insert a lower cut automatically, it will be necessary to create a Layer with the name '<strong>Sotto</strong>' and insert a line that will represent the cut.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="3ae54069-44a9-45b2-8d02-1e942c891bad"><colgroup><col style="width: 385.0px;"><col style="width: 1413.0px;"></colgroup><tbody><tr><td><p><strong>Layer Name</strong></p></td><td><p>Below</p></td></tr><tr><td><p><strong>Example</strong></p></td><td><p>Below</p></td></tr></tbody></table>
+<div id="admonition-info-4" class="admonition admonish-info" role="note" aria-labelledby="admonition-info-4-title">
+<div class="admonition-title">
+<div id="admonition-info-4-title">
+<p>Info</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-info-4"></a>
+</div>
+<div>
+<p>NOTEThe length of the cut results also from the diameter of the disk and the material thickness set on Parametrix.</p>
+</div>
+</div>
+<p></p><p></p><h1 id="drip-system-mode"><a class="header" href="#drip-system-mode">Drip System mode</a></h1><p>The drip system function allows to insert a cut of width greater than the diameter of the disk and depth lower than the thickness material.</p><p>To be able to insert a drip system automatically it will be necessary to create a Layer with the name '<strong>Gocciola</strong>' and insert a line or arch that represents the center of the width.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="6c4610d8-4f9a-4e88-8412-9ec2f12ffb04"><colgroup><col style="width: 385.0px;"><col style="width: 1413.0px;"></colgroup><tbody><tr><td><p><strong>Layer Name</strong></p></td><td><p>Drip _ (followed by the number that identifies the drip system width).</p>
+<div id="admonition-info-5" class="admonition admonish-info" role="note" aria-labelledby="admonition-info-5-title">
+<div class="admonition-title">
+<div id="admonition-info-5-title">
+<p>Info</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-info-5"></a>
+</div>
+<div>
+<p>NOTEThe width is expressed in millimeters.</p>
+</div>
+</div>
+</td></tr><tr><td><p><strong>Example</strong></p></td><td><p>Gocciola10</p></td></tr></tbody></table><p>In this way the drip system's depth is established by the dedicated parameter.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="caede460-852a-4354-a649-5229715bb290"><colgroup><col style="width: 381.0px;"><col style="width: 1418.0px;"></colgroup><tbody><tr><td><p><strong>Pocket</strong></p></td><td><p>Depth of the cut associated with the drip system. This value is not considered if the user set a value on the DXF.</p></td></tr></tbody></table><p>The cut depth can be managed automatically by taking the value of the dedicated parameter in Parametrix or letting the user set a value by inserting the character '<strong>&</strong>' followed by the desired thickness.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="58e21c7f-7fdd-487a-9c65-1b6262db1443"><colgroup><col style="width: 385.0px;"><col style="width: 1413.0px;"></colgroup><tbody><tr><td><p><strong>Layer Name</strong></p></td><td><p>Drip _ (drip system’s width) _ & _ (drip system’s depth).</p>
+<div id="admonition-info-6" class="admonition admonish-info" role="note" aria-labelledby="admonition-info-6-title">
+<div class="admonition-title">
+<div id="admonition-info-6-title">
+<p>Info</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-info-6"></a>
+</div>
+<div>
+<p>NOTEThe depth is expressed in millimeters.</p>
+</div>
+</div>
+</td></tr><tr><td><p><strong>Example</strong></p></td><td><p>Drip10&5</p></td></tr></tbody></table>
+<div id="admonition-info-7" class="admonition admonish-info" role="note" aria-labelledby="admonition-info-7-title">
+<div class="admonition-title">
+<div id="admonition-info-7-title">
+<p>Info</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-info-7"></a>
+</div>
+<div>
+<p>NOTEThe length of the cut results also from the diameter of the disk and the material thickness set on Parametrix.</p>
+</div>
+</div>
+<div id="admonition-info-8" class="admonition admonish-info" role="note" aria-labelledby="admonition-info-8-title">
+<div class="admonition-title">
+<div id="admonition-info-8-title">
+<p>Info</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-info-8"></a>
+</div>
+<div>
+<p>NOTEFor drip system in curve is made a single cut with the external disk to the same arch. The eventual parameters indicated in the name of the Layer are not considered.</p>
+</div>
+</div>
+<p></p><p></p><h1 id="milling-mode"><a class="header" href="#milling-mode">Milling mode</a></h1><p>To be able to insert an automatic milling it is necessary to observe some conventions.</p><p>If a milling geometry is created that concerns one or more sides of the outer polygon, the milling cutter will perform the external machining outside the drawn perimeter; this also applies to a single side of the perimeter; if the machining involves cutting the entire perimeter with the milling cutter, any cuts with the disk are removed.</p><p>The depth of the cut can be defined through the creation of a dedicated Layer.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="13f7a894-6d2f-4555-8087-f4e3d68c7a76"><colgroup><col style="width: 385.0px;"><col style="width: 1413.0px;"></colgroup><tbody><tr><td><p><strong>Layer Name</strong></p></td><td><p>Milling _ (followed by the number that identifies the milling thickness).</p>
+<div id="admonition-info-9" class="admonition admonish-info" role="note" aria-labelledby="admonition-info-9-title">
+<div class="admonition-title">
+<div id="admonition-info-9-title">
+<p>Info</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-info-9"></a>
+</div>
+<div>
+<p>NOTEThe measurement is expressed in millimeters.</p>
+</div>
+</div>
+</td></tr><tr><td><p><strong>Example</strong></p></td><td><p>Milling10</p></td></tr></tbody></table><p>If no depth value is indicated at the Layer '<strong>Milling</strong>' name, the thickness of the current working is considered.</p><p>An additional feature made possible is the insertion of a polyline (open/closed, for example circle or single path composed by a linear polyline) to go to mill a shape inside the bigger perimeter.</p><p></p><p></p><h1 id="rim-mode--top-edge"><a class="header" href="#rim-mode--top-edge">Rim mode / Top edge</a></h1><p>The function Rim / top edge is a working that allows to lower a perimeter, usually to carry out the recessing of household appliances or sinks.</p><p>To be able to insert the desired rim automatically it will be necessary to create a Layer with the name '<strong>Ribasso</strong>'.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="51b85066-6056-4b28-8fee-172da9288914"><colgroup><col style="width: 385.0px;"><col style="width: 1413.0px;"></colgroup><tbody><tr><td><p><strong>Layer Name</strong></p></td><td><p>Rim _ (followed by the number that identifies the width of the Rim).</p>
+<div id="admonition-info-10" class="admonition admonish-info" role="note" aria-labelledby="admonition-info-10-title">
+<div class="admonition-title">
+<div id="admonition-info-10-title">
+<p>Info</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-info-10"></a>
+</div>
+<div>
+<p>NOTEThe width is expressed in millimeters.</p>
+</div>
+</div>
+</td></tr><tr><td><p><strong>Example</strong></p></td><td><p>Rim20</p></td></tr></tbody></table><p>In this way the depth of the rim is established by the dedicated parameter.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="e7044dd0-4290-44ce-b937-6ca80e5dc902"><colgroup><col style="width: 381.0px;"><col style="width: 1418.0px;"></colgroup><tbody><tr><td><p><strong>Pocket</strong></p></td><td><p>Depth of the Rim. This value is not considered if the user sets a value on the DXF.</p></td></tr></tbody></table><p>The depth of the rim can be managed automatically taking as value the dedicated parameter in Parametrix or set a value by the user inserting the character '<strong>&</strong>' followed by the desired thickness.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="c4edab7e-04f2-40d8-a363-a1db6e72e18b"><colgroup><col style="width: 385.0px;"><col style="width: 1413.0px;"></colgroup><tbody><tr><td><p><strong>Layer Name</strong></p></td><td><p>Rim _ (width of rim) _ & _ (thickness of rim).</p>
+<div id="admonition-info-11" class="admonition admonish-info" role="note" aria-labelledby="admonition-info-11-title">
+<div class="admonition-title">
+<div id="admonition-info-11-title">
+<p>Info</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-info-11"></a>
+</div>
+<div>
+<p>NOTEThe thickness is expressed in millimeters.</p>
+</div>
+</div>
+</td></tr><tr><td><p><strong>Example</strong></p></td><td><p>Rim20&3</p></td></tr></tbody></table>
+<div id="admonition-info-12" class="admonition admonish-info" role="note" aria-labelledby="admonition-info-12-title">
+<div class="admonition-title">
+<div id="admonition-info-12-title">
+<p>Info</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-info-12"></a>
+</div>
+<div>
+<p>NOTEThe rounding radius between the sides of the perimeter can not be changed by the user but the cutter radius will determine it.</p>
+</div>
+</div>
+<p>The undercut can be carried out on a closed path not overlapped to the piece's sides, in this case a milling will be carried out inside the drawn perimeter.</p><p></p><p></p><h1 id="drilling-mode"><a class="header" href="#drilling-mode">Drilling mode</a></h1><p>The drilling function allows the Parametrix software to add drilling workings on the pieces.</p><p>To be able to insert automatically a drilling working, it is necessary to create a Layer with the name '<strong>Foratura</strong>' and to draw a circle where it is wanted to realize the hole.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="be98b3cf-4169-4935-9952-05ffa58ae5d0"><colgroup><col style="width: 385.0px;"><col style="width: 1413.0px;"></colgroup><tbody><tr><td><p><strong>Layer Name</strong></p></td><td><p>Drilling _ (followed by the number that identifies the depth of the hole).</p>
+<div id="admonition-info-13" class="admonition admonish-info" role="note" aria-labelledby="admonition-info-13-title">
+<div class="admonition-title">
+<div id="admonition-info-13-title">
+<p>Info</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-info-13"></a>
+</div>
+<div>
+<p>NOTEThe measurement is expressed in millimeters.</p>
+</div>
+</div>
+</td></tr><tr><td><p><strong>Example</strong></p></td><td><p>Drilling5</p></td></tr></tbody></table><p>If the depth is not specified the hole will be applied with the thickness of the material currently used by Parametrix.</p><p>In base mode the radius of the circle corresponds to the radius of the tool currently set on Parametrix.</p><p></p><p></p><h1 id="add-cut-mode"><a class="header" href="#add-cut-mode">Add Cut Mode</a></h1><p>The cutting addition function allows the Parametrix software to add a cut.</p><p>To be able to insert an added cut automatically, it is necessary to create a Layer with the name '<strong>Added</strong>' and draw over the line that represents the side of which you want to create an added cut, a new line.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="f531d35f-6cb7-4acb-b6a6-7376b001a86a"><colgroup><col style="width: 385.0px;"><col style="width: 1413.0px;"></colgroup><tbody><tr><td><p><strong>Layer Name</strong></p></td><td><p>Added _ (followed by the number that identifies the distance at which the cut will be added).</p>
+<div id="admonition-info-14" class="admonition admonish-info" role="note" aria-labelledby="admonition-info-14-title">
+<div class="admonition-title">
+<div id="admonition-info-14-title">
+<p>Info</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-info-14"></a>
+</div>
+<div>
+<p>NOTEThe measure is expressed in millimeters.</p>
+</div>
+</div>
+</td></tr><tr><td><p><strong>Example</strong></p></td><td><p>Added50</p></td></tr></tbody></table><p>The cut will be added inside (where there is material) or outside (where there isn’t material) of the piece, based on sign distance:</p><ul><li><p>If the distance sign is positive, the cut will be added externally to the piece.</p></li><li><p>In the opposite case when the distance sign is negative, the internal cut will be added to the piece.</p></li></ul><p>Applying an added cut on internal cuts, for example of a rebate, the cut will be added internally to the piece, where there is no material.</p><p></p><p></p><h1 id="anchorage-hole-mode"><a class="header" href="#anchorage-hole-mode">Anchorage Hole Mode</a></h1><p>The anchoring hole function allows the Parametrix software to add anchoring hole workings on the pieces.</p><p>To be able to insert automatically a hole working of anchoring, it is necessary to create a Layer with the name '<strong>Keil</strong>' and to draw a circle where it is wanted to realize the hole of anchoring.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="b6ba90f1-4182-412c-9819-5ffbfc4820d2"><colgroup><col style="width: 385.0px;"><col style="width: 1413.0px;"></colgroup><tbody><tr><td><p><strong>Layer Name</strong></p></td><td><p>Keil _ (followed by the number that identifies the depth of the anchoring hole).</p>
+<div id="admonition-info-15" class="admonition admonish-info" role="note" aria-labelledby="admonition-info-15-title">
+<div class="admonition-title">
+<div id="admonition-info-15-title">
+<p>Info</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-info-15"></a>
+</div>
+<div>
+<p>NOTEThe measure is expressed in millimeters.</p>
+</div>
+</div>
+</td></tr><tr><td><p><strong>Example</strong></p></td><td><p>Keil5</p></td></tr></tbody></table><p>In base mode the radius of the circle corresponds to the radius of the tool currently set on Parametrix.</p><p></p><p></p><h1 id="chamfer-mode"><a class="header" href="#chamfer-mode">Chamfer Mode</a></h1><p>The bevel function allows the Parametrix software to add bevel workings on the pieces.</p><p>To be able to insert an angled working automatically is necessary to create a Layer with the name '<strong>Smusso</strong>' and draw over the line that represents the side of which you want to create an added cut a new line.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="b37602b2-9759-4df5-bfd8-52784c549708"><colgroup><col style="width: 385.0px;"><col style="width: 1413.0px;"></colgroup><tbody><tr><td><p><strong>Layer Name</strong></p></td><td><p>Chamfer _ (distance along X axis) _ & _ (distance along Y axis) _ & _ (inclination angle).</p>
+<div id="admonition-notethe-measures-are-expressed-in" class="admonition admonish-info" role="note" aria-labelledby="admonition-notethe-measures-are-expressed-in-title">
+<div class="admonition-title">
+<div id="admonition-notethe-measures-are-expressed-in-title">
+<p>NOTEThe measures are expressed in:</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-notethe-measures-are-expressed-in"></a>
+</div>
+<div>
+<p>X: millimetersY: millimetersdecimal degrees</p>
+</div>
+</div>
+</td></tr><tr><td><p><strong>Example</strong></p></td><td><p>Chamfer10&10&45</p></td></tr></tbody></table><p>If the three values are not geometrically compatible with each other, the processing will not be applied.</p><p></p><p></p><h1 id="lower-chamfer-mode"><a class="header" href="#lower-chamfer-mode">Lower Chamfer Mode</a></h1><p>The beak function allows to the Parametrix software to add bevel workings on the pieces.</p><p>To be able to insert automatically a beak working it is necessary to create a Layer with the name '<strong>Becco</strong>' and to draw over the line that represents the side of which one wants to create a cut added a new line.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="e814d72a-a7d1-4dec-83c2-8fd7d8e6dc28"><colgroup><col style="width: 385.0px;"><col style="width: 1413.0px;"></colgroup><tbody><tr><td><p><strong>Layer Name</strong></p></td><td><p>Becco _ (distance along X axis) _ & _ (distance along Y axis) _ & _ (inclination angle).</p>
+<div id="admonition-notethe-measures-are-expressed-in-1" class="admonition admonish-info" role="note" aria-labelledby="admonition-notethe-measures-are-expressed-in-1-title">
+<div class="admonition-title">
+<div id="admonition-notethe-measures-are-expressed-in-1-title">
+<p>NOTEThe measures are expressed in:</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-notethe-measures-are-expressed-in-1"></a>
+</div>
+<div>
+<p>X: millimetersY: millimetersdegrees sexagesimal</p>
+</div>
+</div>
+</td></tr><tr><td><p><strong>Example</strong></p></td><td><p>Lower Chamfer10&10&45</p></td></tr></tbody></table><p>If the three values are not geometrically compatible with each other, the processing will not be applied.</p><p></p><p></p><h1 id="deactivate-mode"><a class="header" href="#deactivate-mode">Deactivate mode</a></h1><p>The function deactivate allows to the Parametrix software to deactivate cuts on the pieces.</p><p>To be able to insert automatically a deactivate function, it is necessary to create a Layer with the name '<strong>Disattiva</strong>' and draw a new line above the one that represents the side that you want to deactivate.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="f6c568d2-e4cd-47f4-8ff1-4d14ae6befe7"><colgroup><col style="width: 385.0px;"><col style="width: 1413.0px;"></colgroup><tbody><tr><td><p><strong>Layer Name</strong></p></td><td><p>Deactivate</p></td></tr><tr><td><p><strong>Example</strong></p></td><td><p>Deactivate</p></td></tr></tbody></table><p></p><p></p><h1 id="remove-mode"><a class="header" href="#remove-mode">Remove mode</a></h1><p>The function remove allows to the software Parametrix to remove cuts on the pieces.</p><p>To be able to automatically insert a working, it is necessary: create a Layer with the name '<strong>Rimuovi</strong>' and draw a new line above the one that represents the side to be removed.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="009be8f3-0065-43d9-9f9a-9df0b29b7b1d"><colgroup><col style="width: 385.0px;"><col style="width: 1413.0px;"></colgroup><tbody><tr><td><p><strong>Layer Name</strong></p></td><td><p>Remove</p></td></tr><tr><td><p><strong>Example</strong></p></td><td><p>Remove</p></td></tr></tbody></table><p></p><p></p><h1 id="hole-mode"><a class="header" href="#hole-mode">Hole Mode</a></h1><p>The drilling function allows the Parametrix software to recognize each circle having a radius lower than the 'Maximum drill radius' parameter present within the piece area.</p><p>The holes can be inserted freely in all Layers (that are not identified as neutral).</p><p>An additional option referred to the use of the drill allows to remove a material island that remains attached after having made the cuts with the disk; this option to be considered by the Parametrix software must draw one or more circles that intersect the sides of the island cut with the disk and through the parameter 'Automatic Holes Distance' a series of holes calculated automatically based on the material remaining to be cut after cutting the disk.</p><p></p><p></p><h1 id="neutral-layers-management"><a class="header" href="#neutral-layers-management">Neutral Layers Management</a></h1><p>Wanting to maintain in the DXF file some parts of drawing that are not to be considered as cuts or other functionalities to manage with Parametrix software it is possible to assign them to some Layers that are recognized as neutral.</p><p>Create the Layers with names assigned in the neutral Layer fields (1,2,3) in the 'Layers name' page of the Parametrix user parameters keeping in mind that the '*' character will make all Layers imported with the same name before and after the symbol '*' not be considered in the import.</p><p></p><p></p><h1 id="examples"><a class="header" href="#examples">Examples</a></h1><p class="media-group"><p><a href='attachments/3.1.3.1_MAKING_CUTS_FROM_DXF_DRAWINGS/WorkingDetails.dxf'>WorkingDetails.dxf</a></p><p><a href='attachments/3.1.3.1_MAKING_CUTS_FROM_DXF_DRAWINGS/VeinDirections.dxf'>VeinDirections.dxf</a></p><p><a href='attachments/3.1.3.1_MAKING_CUTS_FROM_DXF_DRAWINGS/Top.dxf'>Top.dxf</a></p><p><a href='attachments/3.1.3.1_MAKING_CUTS_FROM_DXF_DRAWINGS/Kitchen_WithLayout.dxf'>Kitchen_WithLayout.dxf</a></p><p><a href='attachments/3.1.3.1_MAKING_CUTS_FROM_DXF_DRAWINGS/Kitchen_Curve.dxf'>Kitchen_Curve.dxf</a></p><p><a href='attachments/3.1.3.1_MAKING_CUTS_FROM_DXF_DRAWINGS/BookMatch_Wall.dxf'>BookMatch_Wall.dxf</a></p><p><a href='attachments/3.1.3.1_MAKING_CUTS_FROM_DXF_DRAWINGS/BookMatch_Floor.dxf'>BookMatch_Floor.dxf</a></p><p><a href='attachments/3.1.3.1_MAKING_CUTS_FROM_DXF_DRAWINGS/Bathroom.dxf'>Bathroom.dxf</a></p><p></p><!--Label="dxf_rcn"--><!--Label="dxf_rcn_bcc"--><!--Label="dxf_rcn_ntr"--><!--Label="dxf_rcn_lwr"--><!--Label="dxf_rcn_mtr"--><!--Label="dxf_rcn_dwn"--><!--Label="dxf_rcn_mll"--><!--Label="dxf_rcn_anc"--><!--Label="dxf_rcn_rmv"--><!--Label="dxf_rcn_hol"--><!--Label="dxf_rcn_ffs"--><!--Label="dxf_rcn_dct"--><!--Label="dxf_rcn_drp"--><!--Label="dxf_rcn_rim"--><!--Label="dxf_rcn_sms"--><!--Label="dxf_rcn_frt"--><!--Label="dxf_rcn_add"-->
+                        </main>
+
+                    </div>
+
+                    <img src="images/donatoni_222.jpg">
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="3.1.3_layers_name.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="3.1.3.2_color_layers.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+
+
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                <a rel="prev" href="3.1.3_layers_name.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="3.1.3.2_color_layers.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="mermaid.min.js"></script>
+        <script src="mermaid-init.js"></script>
+        <script src="hidemenu.js"></script>
+        <script src="imagemodal.js"></script>
+        <script src="login.js"></script>
+    </div>
+
+    <!-- Modale -->
+    <div id="modal" onclick="closeModal()">
+        <img id="modal-img" src="">
+    </div>;
+
+
+</body>
+</html>

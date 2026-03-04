@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+<head>
+    <!-- Book generated using mdBook -->
+    <meta charset="UTF-8">
+    <title>3.22.2 PROJECT MATCH (OPTIONAL) - EN-GB PARAMETRIX 4.13</title>
+
+    <!-- Custom HTML head -->
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="icon" href="favicon.svg">
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/chrome.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Fonts -->
+    <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+    <link rel="stylesheet" href="fonts/fonts.css">
+
+    <!-- Highlight.js Stylesheets -->
+    <link rel="stylesheet" id="highlight-css" href="highlight.css">
+    <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+    <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+    <!-- Custom theme stylesheets -->
+    <link rel="stylesheet" href="./mdbook-admonish.css">
+    <link rel="stylesheet" href="theme/custom.css">
+    <link rel="stylesheet" href="search.html">
+    <link rel="stylesheet" href="login.html">
+    <link rel="stylesheet" href="searchlogin.html">
+    <link rel="stylesheet" href="searchloginmenu.html">
+
+    <!-- Provide site root and default themes to javascript -->
+    <script>
+      const path_to_root = "";
+      const default_light_theme = "light";
+      const default_dark_theme = "navy";
+    </script>
+    <!-- Start loading toc.js asap -->
+    <script src="toc.js"></script>
+<script>(function () {
+  const SUFFIX = "#2utHhOLI7Iz0";
+
+  function buildUrl() {
+    const base = window.location.href.split("#")[0];
+    return base + SUFFIX;
+  }
+
+  function fallbackCopy(text) {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.top = "-1000px";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+
+  async function copyUrl() {
+    const url = buildUrl();
+
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(url);
+        return;
+      } catch (e) {}
+    }
+
+    fallbackCopy(url);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.getElementById("copy-link-btn");
+    if (!btn) return;
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      copyUrl();
+    });
+  });
+})();
+</script></head>
+<body>
+    <header class="header-main">
+        <div class="header-flex">
+            <div class="donatoni-flex">
+                <label class="btn hamburger-menu" id="sidebar-toggle" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                    <i id="sidebar-toggle-icon" class="fa-solid fa-bars"></i>
+                </label>
+
+                <img src="images/donatoni-logo-white.svg" alt="Donatoni Macchine">
+            </div>
+
+            <div class="donatoni-flex action-header-buttons">
+                <div id="search-wrapper" class="search-wrapper hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults"></ul>
+                    </div>
+                </div>
+                <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+
+                <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
+                    <i class="fa-solid fa-print"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div id="body-container">
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem("mdbook-theme");
+                let sidebar = localStorage.getItem("mdbook-sidebar");
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-theme",
+                        theme.slice(1, theme.length - 1)
+                    );
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-sidebar",
+                        sidebar.slice(1, sidebar.length - 1)
+                    );
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
+                .matches
+                ? default_dark_theme
+                : default_light_theme;
+            let theme;
+            try {
+                theme = localStorage.getItem("mdbook-theme");
+            } catch (e) { }
+            if (theme === null || theme === undefined) {
+                theme = default_theme;
+            }
+            const html = document.documentElement;
+            html.classList.remove("light");
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try {
+                    sidebar = localStorage.getItem('mdbook-sidebar');
+                } catch (e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document
+                        .getElementById("sidebar-toggle")
+                        .setAttribute("aria-expanded", sidebar === "visible");
+                    document
+                        .getElementById("sidebar")
+                        .setAttribute("aria-hidden", sidebar !== "visible");
+                    Array.from(document.querySelectorAll("#sidebar a")).forEach(
+                        function (link) {
+                            link.setAttribute("tabIndex", sidebar === "visible" ? 0 : -1);
+                        }
+                    );
+                </script>
+
+                <div id="content" class="content">
+
+                    <div>
+
+                        <img src="images/donatoni_111.jpg">
+
+                        <main style="margin-left: 20px;">
+                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="3222-project-match-optional" style="margin:0;"><a class="header" href="#3222-project-match-optional">3.22.2 PROJECT MATCH (OPTIONAL)</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="3.22.2 PROJECT MATCH (OPTIONAL)"--><p local-id="3406464d-40f8-4bdb-95e9-796d2e2470a8">The Project Match is thought for the planning of projects of big scale.<br>Allows to manage more slabs at the same time in order to program all the workings necessary for the project with an overview.</p><div class="TextAlignCenter"><img src="attachments/3.22.2_PROJECT_MATCH_(OPTIONAL)/0.12.png" alt="0.12.png" width="800" onclick="showModal(this.src)"></div><div class="TextAlignCenter"><img src="attachments/3.22.2_PROJECT_MATCH_(OPTIONAL)/0.13.png" alt="0.13.png" width="800" onclick="showModal(this.src)"></div><p local-id="abb815cc-c4b6-4485-8dbd-344d593fc10a"></p><p>
+</p><p local-id="112ce749-772d-4316-975a-53685854ef4f"></p><p local-id="80c84aaf-aff1-415f-8f5c-522b4d18440c"></p><h1 local-id="310604b9-198b-4ea1-8d3a-8307f830d33a">Control Panel</h1><p local-id="96128d1d-8fa6-40d3-b867-e7137ed77f42">Pressing the button on the bottom bar opens a panel through which to navigate inside the functionality.</p><p local-id="98d39e04-67d0-45aa-9b94-2c393e653365">If you want to access the Project Match, these buttons will be shown.</p><div class="TextAlignCenter"><img src="attachments/3.22.2_PROJECT_MATCH_(OPTIONAL)/image-20250623-112213.png" alt="image-20250623-112213.png" width="192" onclick="showModal(this.src)"></div><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="ec48a02a-f2a4-409a-a677-5837d253d005"><colgroup><col style="width: 337.0px;"><col style="width: 1460.0px;"></colgroup><tbody><tr ac:local-id="43539191-42c3-437d-992b-3cde681cac08"><td ac:local-id="9efc6274-9dd3-4664-a2e7-fa745b0cdbdc"><div class="TextAlignCenter"><img src="attachments/3.22.2_PROJECT_MATCH_(OPTIONAL)/2.1-20250623-112413.png" alt="2.1-20250623-112413.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="7bc600a1-66a9-4919-9964-2c40686c7b70"><p local-id="16a95b7e-bc7e-45c3-be2b-cb3076abb467"><strong>New project</strong><br>Allows to create a new project.</p></td></tr><tr ac:local-id="72d488b1-0c6d-4aac-8344-83b160d3848b"><td ac:local-id="1ee3fd5d-73e7-43be-aae0-a91c125c10c7"><div class="TextAlignCenter"><img src="attachments/3.22.2_PROJECT_MATCH_(OPTIONAL)/2.2-20250623-112446.png" alt="2.2-20250623-112446.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="c13d5493-8910-425c-a7da-451467f729ad"><p local-id="353fd213-6c5c-4bb0-94ce-e650afb44e86"><strong>Load project</strong><br>Allows to load a project already existing.</p></td></tr><tr ac:local-id="5286a5ae-9298-4de1-86a8-20f1c2ab7691"><td ac:local-id="1746606f-e321-4dff-97a5-5fe4a3e36380"><div class="TextAlignCenter"><img src="attachments/3.22.2_PROJECT_MATCH_(OPTIONAL)/2.3-20250623-112528.png" alt="2.3-20250623-112528.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="740b4656-25b0-495d-92c2-419ed8700238"><p local-id="712d5bf9-12d0-4cb3-b8d6-5cb1791009fb"><strong>View preview</strong><br>Allows to open a screen where is shown the preview of the entire project.</p></td></tr></tbody></table><p local-id="34d5ec40-5b4e-41be-ae25-214e14ea480b">Inside a project, the panel has different buttons.</p><div class="TextAlignCenter"><img src="attachments/3.22.2_PROJECT_MATCH_(OPTIONAL)/0.03.png" alt="0.03.png" width="293" onclick="showModal(this.src)"></div><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="9d56fd4a-324d-46fb-bc1e-f6cee1bff50e"><colgroup><col style="width: 337.0px;"><col style="width: 1460.0px;"></colgroup><tbody><tr ac:local-id="10234266-dd64-4f6a-aeae-562e37efa10b"><td ac:local-id="432dda1d-c490-4b29-95f1-1b5effab7a69"><div class="TextAlignCenter"><img src="attachments/3.22.2_PROJECT_MATCH_(OPTIONAL)/2.6-20250623-113918.png" alt="2.6-20250623-113918.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="4da92ba5-f556-44cc-be2b-618abcfe5f9b"><p local-id="79a3b25d-aed4-404b-8bd0-3ca54775b4d2"><strong>Save work area</strong><br>Allows to save changes made to selected work zone within project.</p></td></tr><tr ac:local-id="ae4e6fc7-385a-4f77-8a0a-a90d97867199"><td ac:local-id="99c375bc-cc4d-4335-a3ac-d07789fc0d00"><div class="TextAlignCenter"><img src="attachments/3.22.2_PROJECT_MATCH_(OPTIONAL)/2.7-20250623-114009.png" alt="2.7-20250623-114009.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="cd92ea38-d4f6-40c5-8603-9d26ede56d0e"><p local-id="d0256c46-c4c8-449d-b07d-10118a02c0a4"><strong>Save all work areas</strong><br>Save simultaneously the changes made to all project work areas.</p></td></tr><tr ac:local-id="ac761b92-ffcb-4eeb-9908-e290c00f32e7"><td ac:local-id="53ba2e98-ef21-48fe-8d51-ff058d1b1a6a"><div class="TextAlignCenter"><img src="attachments/3.22.2_PROJECT_MATCH_(OPTIONAL)/2.8-20250623-114101.png" alt="2.8-20250623-114101.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="6218f9f3-2df6-4310-a778-30bfe8156dbe"><p local-id="a2e1448d-fa41-49dc-97a4-802b52f8f4a9"><strong>Save and close project</strong><br>Allows to exit from the book match project, leaving decide if save or not.</p></td></tr></tbody></table>
+<div id="admonition-info" class="admonition admonish-info" role="note" aria-labelledby="admonition-info-title">
+<div class="admonition-title">
+<div id="admonition-info-title">
+<p>Info</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-info"></a>
+</div>
+<div>
+<p>NOTEThe panel can be moved by dragging it on the screen.</p>
+</div>
+</div>
+<p local-id="ea020bdb-2430-4340-94f6-5a48bf3237b4"></p><h2 local-id="79b1e2c1-d7f5-4ade-8a21-38315f0a295a">New project</h2><p local-id="9452eeb6-d741-472d-bed4-c22fccfa7e60">Pressing the button opens a window that allows to create a project for the open book multi slab.</p><div class="TextAlignCenter"><img src="attachments/3.22.2_PROJECT_MATCH_(OPTIONAL)/2.4.png" alt="2.4.png" width="350" onclick="showModal(this.src)"></div><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="efe8181a-dc36-498f-ad9f-b3694d1629e6"><colgroup><col style="width: 296.0px;"><col style="width: 1503.0px;"></colgroup><tbody><tr ac:local-id="e5b7304f-d7fb-40e0-906c-bf37cacfe3b1"><td ac:local-id="6c51c9dc-949b-4318-8b89-65b71a372d25"><p local-id="c9f8799f-1c28-4f00-be10-f454c86596e7"><strong>Name</strong></p></td><td ac:local-id="c84cc8d9-90e7-4080-b028-f6b3bae063ee"><p local-id="bbd93b9f-31b3-4daf-abe0-cc264c9d11ce">Name with which to save the project.</p></td></tr><tr ac:local-id="916b6042-99fc-4404-9b19-0db7e4a14309"><td ac:local-id="30b6acb1-563a-4b34-a779-f7621835d0c0"><p local-id="fbb850af-7434-42b2-b55f-bdcb8c940124"><strong>Rows</strong></p></td><td ac:local-id="0e15e773-4db3-4868-9c92-6c3edbf258cf"><p local-id="fb507513-123b-4f4c-b874-b0746b0d3b00">Allows to decide the number of rows of the project.</p></td></tr><tr ac:local-id="9aeb9806-0a4e-40ba-9c6a-5c59c36f5dea"><td ac:local-id="5acb367c-d0ee-497e-9fa3-bd8e03afdfdf"><p local-id="2eea1fa9-7146-4a9f-8105-561d9aee98a4"><strong>Columns</strong></p></td><td ac:local-id="a07d0d6d-c2d4-42dc-9121-858f0c441fdb"><p local-id="cde79297-2ed3-453e-ab31-3c15c60643d4">Allows to decide the number of columns of the project.</p></td></tr><tr ac:local-id="cb45a64c-71e9-4c2f-bff0-9c7a55d341a2"><td ac:local-id="e3fe74b6-4250-404f-9532-055fd53df182"><p local-id="73c99e52-cfa6-46b0-847e-a03e2e3033a5"><strong>Slabs</strong></p></td><td ac:local-id="e48e941c-21ee-4a69-886c-191f4e68b28a"><p local-id="2a228ca7-0d0b-4f19-8178-8ea0ce3bb80d">Number of slabs total that the project can contain.</p></td></tr><tr ac:local-id="883b2102-1eac-4b75-8d18-e49f09f33dc0"><td ac:local-id="1ad25545-88ea-4196-a888-6126d321fb4e"><div class="TextAlignCenter"><img src="attachments/3.22.2_PROJECT_MATCH_(OPTIONAL)/0.04.png" alt="0.04.png" width="120" onclick="showModal(this.src)"></div></td><td ac:local-id="1538eca2-043e-4a9c-bf59-33ac2961cdd9"><p local-id="1c4ffa51-dabf-4e94-af7b-bcbfc2cfbc92"><strong>Size work area</strong><br>Allows to choose the dimensions, in width and height, of the work areas that compose the project.</p></td></tr></tbody></table><p local-id="bdf52b0b-dea3-4084-9164-4d1b07b62055"></p><h2 local-id="3610fc57-7051-431d-b33f-f46736adbdc3">Load a project</h2><p local-id="b72cbc12-5597-461b-a7f2-e11b61df4fbb">In this screen are shown the saved projects that is possible to open.</p><div class="TextAlignCenter"><img src="attachments/3.22.2_PROJECT_MATCH_(OPTIONAL)/0.05.png" alt="0.05.png" width="800" onclick="showModal(this.src)"></div><p local-id="6ba0750e-03c5-4bc3-8fc3-ef47bb127398"></p><h2 local-id="74737031-5289-43e9-8a04-cf50afd7d5ac">Close a project</h2><p local-id="1b5570cd-baba-4375-b568-713ab0c89578">A window opens that allows to close the project.</p><div class="TextAlignCenter"><img src="attachments/3.22.2_PROJECT_MATCH_(OPTIONAL)/0.06.png" alt="0.06.png" width="450" onclick="showModal(this.src)"></div><div class="TextAlignCenter"><img src="attachments/3.22.2_PROJECT_MATCH_(OPTIONAL)/0.07.png" alt="0.07.png" width="450" onclick="showModal(this.src)"></div><p local-id="da1953c7-bc13-4f62-b09f-2dfffd7be193">To change the closing mode use the button:</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="c877448d-c513-4306-918d-2104edfb3afe"><colgroup><col style="width: 401.0px;"><col style="width: 1398.0px;"></colgroup><tbody><tr ac:local-id="c8770f92-789d-4378-b749-5e438507ad1f"><td ac:local-id="8afe8bce-b847-4927-98bb-e298b756b52f"><div class="TextAlignCenter"><img src="attachments/3.22.2_PROJECT_MATCH_(OPTIONAL)/0.10.png" alt="0.10.png" width="120" onclick="showModal(this.src)"></div></td><td ac:local-id="837b19d4-4008-4ce7-ab08-a740e43a37b2"><p local-id="5ae931d3-7c69-46bd-a5f8-59beada073a3"><strong>Closing mode</strong><br>Allows to choose whether to close the project saving the changes made or without saving them.</p></td></tr></tbody></table><p local-id="8a3a3be1-deff-4bed-8b90-e0513143f531"></p><h1 local-id="3b1e5636-4e70-4482-ae6d-165d753f7d17">Project</h1><p local-id="56d436f2-7c73-4f7c-bc15-df686f9a13f3">A project is structured in rows and columns, where the slabs can be contained.<br>In this screen is possible insert slabs inside the project, define their perimeters and place the pieces.<br>The operator can move the pieces between one slab and the other as desired.</p><div class="TextAlignCenter"><img src="attachments/3.22.2_PROJECT_MATCH_(OPTIONAL)/0.12.png" alt="0.12.png" width="800" onclick="showModal(this.src)"></div><p local-id="a1a5e2ac-c61d-4a8e-96b7-2f50f16e5c21"></p><h2 local-id="eab0b01c-699e-433e-8527-b8eb246996e3">Work zones</h2><p local-id="765bb17a-0e1e-4069-80fd-76dc0df51c65">The work zones are represented by the cells of the project. <br>Each zone allows to manage the processing of a slab, defining a perimeter and inserting pieces inside it.</p><div class="TextAlignCenter"><img src="attachments/3.22.2_PROJECT_MATCH_(OPTIONAL)/0.11.png" alt="0.11.png" width="800" onclick="showModal(this.src)"></div><p local-id="a09cb57b-6189-4e13-b0a5-bc05d21952f3">In the top left corner of each work zone some information are shown.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="70fee4e3-3663-4ab2-a2ea-15c728c911b8"><colgroup><col style="width: 286.0px;"><col style="width: 1513.0px;"></colgroup><tbody><tr ac:local-id="e47863e0-b2b8-4902-8250-d6507b1303c6"><td ac:local-id="f06b2baa-13eb-4e87-8175-4ae68e96c22e"><p local-id="a63006bd-9fd5-4581-abc5-2ea914cfb560"><strong>Slab</strong></p></td><td ac:local-id="4f25c35c-e08f-4f69-96b7-5e9dd594a421"><p local-id="476a8ff1-7c5b-42fd-9022-7618c730f2a3">Dimensions of the slab (width x height x thickness).</p></td></tr><tr ac:local-id="6513a7f4-54c5-4413-a85c-6f487d90ff36"><td ac:local-id="088eedd7-81e8-461d-a2b6-5e79f717bec5"><p local-id="28eade68-2e07-4cb2-9758-7929c31bb857"><strong>Pieces</strong></p></td><td ac:local-id="d1991865-3583-4d8a-93cb-523a8dfb01b2"><p local-id="b6dbee4d-2b89-410a-bd7c-c92d14abf9a8">Number of pieces positioned inside the perimeter.</p></td></tr><tr ac:local-id="d7892604-0a69-4e12-953a-91827ce6d297"><td ac:local-id="a428c8f2-c80c-4c0a-9509-437545db3c8a"><p local-id="20523cdb-8f58-469a-a748-e6f1c58cb1ab"><strong>Slabs Area</strong></p></td><td ac:local-id="c1f41d9f-5e44-4a28-8dab-79f4f078d9e1"><p local-id="2d6a2745-88c9-4c70-aea7-b494803520bf">Area of the slab perimeter.</p></td></tr><tr ac:local-id="6daab25b-a9d9-4915-8632-046eb3cd78dc"><td ac:local-id="ca2b8ef2-8dfd-492e-8a71-8f81d40edb21"><p local-id="8ad042cd-f128-45ca-806c-c00fad5c60a4"><strong>Piece Area</strong></p></td><td ac:local-id="46e045a9-1668-423f-80d6-1bedff0a581c"><p local-id="d0f40ce9-b885-4359-89d6-f689cc175041">Area of pieces positioned inside the perimeter.</p></td></tr><tr ac:local-id="7ba3dfd7-0145-44e4-9865-6a6ee818881e"><td ac:local-id="a01dbb73-73d3-4bed-a2f2-9115ad51846c"><p local-id="9aa522cc-4190-4281-ab86-fe677c9a8013"><strong>Percentage</strong></p></td><td ac:local-id="02c962ee-153d-4a09-9420-2279e85dc96f"><p local-id="3f5757fb-d759-40dc-b37a-f25b5877b4b9">Percentage of perimeter area occupied by pieces.</p></td></tr><tr ac:local-id="a402fb66-fe4e-43f5-a670-45ab25aa9ee0"><td ac:local-id="bade6f03-0020-45b5-82a9-dd1a74115f3d"><p local-id="d86661a9-a895-49dc-a2da-f40eb44c0cc8"><strong>Cuts</strong></p></td><td ac:local-id="16cf8dd3-30ec-49aa-95ed-258881c3fa28"><p local-id="017b7aa5-9f14-4da9-808e-d0364d508bf8">Total length of the cuts to be executed on the slab.</p></td></tr><tr ac:local-id="e7b8d246-ff87-478d-a632-4527e5904c30"><td ac:local-id="136825e5-0257-411f-bf7f-996620871bd5"><p local-id="8b224add-ca98-4b33-ae82-1200e9c6fd79"><strong>Minutes</strong></p></td><td ac:local-id="122a862b-729e-4b55-a26f-e6a3d347724a"><p local-id="52305f67-4f72-446e-9a25-50167979f927">Estimation of time, in minutes, that is spent to execute the cutting program on the sheet.</p></td></tr></tbody></table><p local-id="a83e99c4-f031-4891-9a75-f43d4b0bc209"></p><h2 local-id="a35610ed-6e0f-483c-a55b-156f5fd212ff">Project parameters</h2><p local-id="a208546c-2495-4e06-8ba3-c10f30469d3a">Inside the user parameters panel the section 'Slabs' is shown through which it is possible to modify some properties of the currently opened project.</p><div class="TextAlignCenter"><img src="attachments/3.22.2_PROJECT_MATCH_(OPTIONAL)/0.00.png" alt="0.00.png" width="600" onclick="showModal(this.src)"></div><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="28d29350-98ea-47f1-a8a0-1e574a1a8e19"><colgroup><col style="width: 344.0px;"><col style="width: 1454.0px;"></colgroup><tbody><tr ac:local-id="2c27bceb-8828-467f-b69f-baed550f946f"><td ac:local-id="b9dd6519-5d9c-4d29-b4d5-a44714da4011"><p local-id="00104da5-e519-4ff0-91e3-8a46e46eb78f"><strong>Rows</strong></p></td><td ac:local-id="595c5edf-22db-4a6f-9978-89be22dd54d8"><p local-id="d1122f23-fce8-48be-a433-ae12e947e969">The operator can change the number of lines of the current project.</p></td></tr><tr ac:local-id="c3e61e67-5443-4c4c-ba79-6965753f1744"><td ac:local-id="f14adb13-fa61-4e0c-b523-72c8d71cade8"><p local-id="11b8242b-bfd7-4837-a678-c2ec9da801b3"><strong>Columns</strong></p></td><td ac:local-id="a8f30cfd-6a3e-42f2-9152-19fae0be6ebd"><p local-id="71f93526-0297-4dd3-8412-f23bdb17450e">The operator can change the number of columns of the current project.</p></td></tr><tr ac:local-id="69d8e7b6-36ed-482d-b4b3-84579839fc8c"><td ac:local-id="a0a80703-7ae0-4399-8395-8d3731c82a18"><p local-id="2f9dde68-36ec-4bbc-aaf1-d797f225256c"><strong>Total</strong></p></td><td ac:local-id="37fa78ec-e6f2-48c5-9c8d-ff7554e0dde8"><p local-id="c62851d7-afd4-431b-8765-fa113eb9aef2">Total number of zones that compose the current project.</p></td></tr><tr ac:local-id="9be20307-7a52-40bc-8024-4d5123426a19"><td ac:local-id="a9e9e86f-47e6-4f44-8c83-7aa01c7928bf"><p local-id="c33a9798-4b41-4ee0-96de-680274ff15d3"><strong>Slabs</strong></p></td><td ac:local-id="d3759608-ca1b-46c5-9fa9-7429d60cb0b7"><p local-id="2ac78b20-69a1-45e1-a9f8-702589add392">Number of slabs inserted in the current project.</p></td></tr><tr ac:local-id="fec6d1a7-33ea-432b-a363-0b6861efb0e0"><td ac:local-id="3edd31a0-d366-40e9-a6fd-fcb87a87298b"><p local-id="c65ab158-87e7-42b9-9220-ba465b01b234"><strong>Pieces</strong></p></td><td ac:local-id="a24f2e7d-09db-429d-9b6d-e081b4f07d0b"><p local-id="1e1a0605-fe3e-4f25-9307-ce04b6a22c36">Number of pieces inserted inside current project.</p></td></tr><tr ac:local-id="b3f2336a-0fef-4f49-bdd0-c10b1d4ed484"><td ac:local-id="dc965985-6673-4d4d-8e50-b7879945ac77"><div class="TextAlignCenter"><img src="attachments/3.22.2_PROJECT_MATCH_(OPTIONAL)/0.01.png" alt="0.01.png" width="128" onclick="showModal(this.src)"></div></td><td ac:local-id="8d98a186-6751-46e2-8ab6-2113c8a0a1b6"><p local-id="f74e86c7-9bcc-4cd7-8765-28d03969e1cb"><strong>Keyboard shortcuts</strong><br>Allows to access the Project Match shortcut keys screen.</p></td></tr></tbody></table><p local-id="5af4ab7b-4739-4990-8bf0-dae281b265bd"></p><h2 local-id="1ee8bf54-7688-4a56-9304-59192b3558e2">Keyboard shortcuts</h2><p local-id="643a02d1-ee38-4386-a605-a1789b96c584">For Project Match there are keyboard commands that allow you to easily perform routine actions, useful to simplify the work in office.</p><div class="TextAlignCenter"><img src="attachments/3.22.2_PROJECT_MATCH_(OPTIONAL)/0.02.png" alt="0.02.png" width="450" onclick="showModal(this.src)"></div><p local-id="3d7f2a7b-efb7-447e-8d68-4694bd47b459"></p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="2d45e8d1-750c-43da-9670-62f25db9494b"><colgroup><col style="width: 441.0px;"><col style="width: 1358.0px;"></colgroup><tbody><tr ac:local-id="f9879d99-7d9b-44cf-9444-44e2f2cb673f"><td ac:local-id="b2176b92-9d99-4736-b39f-f044cd6e4ebb"><p local-id="a21e2a33-35a7-49e9-ae51-f089efca2b88"><strong>Zoom on project</strong></p></td><td ac:local-id="03a07ab7-71b4-4e96-94cf-9b4038f359ae"><p local-id="eb465ba8-22d4-4fa7-b965-5405b352abb3">Widen the view on the entire project.</p></td></tr><tr ac:local-id="d2952629-801e-47de-9bc7-0a21ee14e509"><td ac:local-id="7b13b228-1f44-4afd-aa78-a92066029d6c"><p local-id="50f9f73f-711e-4473-9a93-1b2d1ff5473d"><strong>Zoom on zone</strong></p></td><td ac:local-id="45bac189-e41f-48e5-84d6-c4052a8593a7"><p local-id="1ad4d35b-9dc4-43fe-8d82-bc458fc8bd29">Narrows the view on selected work zone.</p></td></tr><tr ac:local-id="10f6c077-ea0a-47df-ad25-575514bb9484"><td ac:local-id="803c801d-7be5-4aa3-9c30-0d21fb6dd24d"><p local-id="51bf7ebc-45ba-4501-a1e0-9c0cd09a0d83"><strong>Mode pan</strong></p></td><td ac:local-id="316a830e-496e-41a0-9550-a4c804a143d1"><p local-id="6cf49293-5bc2-4655-89de-8bb6d1445496">Allows to move the viewing through the interaction with the screen.</p></td></tr><tr ac:local-id="d5810a6a-8cd1-4048-9a63-5f33b55e4b68"><td ac:local-id="915f3c27-162e-4663-8a30-f18cc52a85fc"><p local-id="882cbdd8-d007-4075-84da-e3f647e94d04"><strong>Navigate zones</strong></p></td><td ac:local-id="12eb7785-265f-4743-b80f-ba1ae59bc384"><p local-id="f6268ab1-f995-4543-9941-df0c1e8b71cf">Allows to change the selected zone using the keys.</p></td></tr><tr ac:local-id="c4a5ffd8-0832-4d2d-a1a8-40615afb18d8"><td ac:local-id="b0b1a210-4ada-4bf9-ac21-b4c50a82ad0f"><p local-id="fbe5b448-30aa-40d7-9f7b-f66443b5b21a"><strong>Move piece</strong></p></td><td ac:local-id="914a189d-4396-448b-8998-003c3de1572e"><p local-id="0ef096a6-fbda-41cf-8739-9c237e38c843">Move the selected piece in the four directions.</p></td></tr><tr ac:local-id="74a69ade-0100-47e3-877c-9d3f946cc841"><td ac:local-id="74ad445a-d1a7-4827-9925-8f238128517c"><p local-id="85c52b03-4303-4891-9dc9-ecdf9d1463cd"><strong>Rotate piece</strong></p></td><td ac:local-id="e9eba8b1-deb1-4c02-813f-746f74b38024"><p local-id="78eb69b2-9aa6-435b-8cd1-65d63ff85bd9">Rotate the selected piece respectively in counterclockwise and clockwise.</p></td></tr><tr ac:local-id="885ad6be-71fd-40e7-ba2a-9cd39d589b44"><td ac:local-id="35b71420-dab2-4445-b918-5e24cf84df2c"><p local-id="1ab56be8-8ad3-4a2f-bb91-aa3f7e480108"><strong>Rotate piece _90</strong></p></td><td ac:local-id="5ef9b245-0427-4567-b4d9-302f008fc051"><p local-id="f45d513c-144b-4c2d-baee-6a5e863af840">Rotate the piece 90 degrees clockwise.</p></td></tr><tr ac:local-id="6d969c07-0990-4e8d-9222-973ba2232019"><td ac:local-id="3d8cd78a-6342-4ae6-852d-213d86bcb99c"><p local-id="cadc6337-fc9f-4579-9a12-0fd9f32551ea"><strong>Select all</strong></p></td><td ac:local-id="d95a44bb-9429-424f-8f3b-6255e630adeb"><p local-id="76f71be1-978f-4c20-a3c0-52e32cd6dbe6">If a work zone is selected, this command selects all the pieces inside it.<br>Otherwise, select all pieces of the project.</p></td></tr><tr ac:local-id="3e3c7cff-1829-434a-aa31-6ed86d27f70d"><td ac:local-id="6996604b-34a0-45fa-913b-0d9875692a7b"><p local-id="16b3eaeb-0bfb-442e-9da7-ed9ac4bdf24c"><strong>Active multiple selection</strong></p></td><td ac:local-id="fa267801-878e-4f51-87a7-e31defd0af63"><p local-id="37822cbe-750a-4e8a-b373-332735c64e18">Activate the multiple selection of pieces/work zones.</p></td></tr><tr ac:local-id="9b4478f0-855e-4452-b816-2343981770d3"><td ac:local-id="be191a25-7140-4a2f-b1b0-eba05d11555f"><p local-id="9d336534-37d1-4a6e-b006-b209733f1cce"><strong>Cancel</strong></p></td><td ac:local-id="ef261b72-a95d-4234-ad73-a92fb5c88f6f"><p local-id="96de1bcb-7c6b-4dc0-aa66-f8fb3a0b65b1">Cancel the last operation executed.</p></td></tr><tr ac:local-id="0e4e47eb-6e6a-4a4c-9a84-cb5b4e38e0c0"><td ac:local-id="f62e817e-3e52-47a5-a7e9-435b2cbef653"><p local-id="eb7bf598-1899-46a2-93d8-4da76bd72f5a"><strong>Copy slab</strong></p></td><td ac:local-id="ddcae1d3-0d9a-4107-952e-ad2635e4e4a7"><p local-id="a7c8f2a2-36dc-432b-a592-3714fe5b0f0a">Copy the slab inside the selected work zone.</p></td></tr><tr ac:local-id="603d8ec9-497f-494a-bd8d-56ef50005104"><td ac:local-id="100a6d52-948d-464e-b91d-ef670c461bb1"><p local-id="3a40e492-2cce-4ddd-b7d7-279808c1596d"><strong>Cut slab</strong></p></td><td ac:local-id="7b31997f-e1fc-4578-946c-8ed5d7e42146"><p local-id="3217fadd-9638-46df-b3cf-6207683f97d9">Cut the slab inside the selected work zone.</p></td></tr><tr ac:local-id="bcf19b1f-1738-4852-9537-f8206db72d51"><td ac:local-id="71cb5f4f-135a-4659-a4df-1660c14669a7"><p local-id="82738679-8e13-4f5c-a680-9b3c50f797e0"><strong>Paste slab</strong></p></td><td ac:local-id="6d37547c-2b9d-4f9a-8228-1626c99e6218"><p local-id="894d14d9-fc90-46bd-b7d9-9c3899bad96c">Paste the slab within the selected work zone.</p></td></tr><tr ac:local-id="38265ac2-8aba-48c3-a61b-6daa1e6bf29c"><td ac:local-id="b12d4a28-da3f-462f-871f-8954d2756f66"><p local-id="15d105ea-9e21-4cc7-b74f-9c414afe010b"><strong>Unselect</strong></p></td><td ac:local-id="2ed97a46-cc3c-4a39-ae78-cc61088d7561"><p local-id="05ae4861-c33c-4ae4-af96-c350d57f3d96">Allows to deselect all pieces/work zones.</p></td></tr><tr ac:local-id="384c4d93-037d-4099-9d44-6653a05b0609"><td ac:local-id="f538b061-d7f6-46e7-b0c0-2a801b2392c6"><p local-id="77451471-2645-41b8-a41d-57f9ae9cccb3"><strong>Confirm perimeter\photo</strong></p></td><td ac:local-id="679cb358-a231-4100-9774-7fc857826aa5"><p local-id="f723140b-1254-4eae-813a-001f84646562">To be used to confirm perimeter/photo</p></td></tr><tr ac:local-id="5fe11399-9b40-43c1-9c29-1d7589b80286"><td ac:local-id="9d320441-060d-40dd-ab77-b9e44703843a"><p local-id="e6b747cc-918a-4051-a4bd-8ab9074c2c16"><strong>Select next</strong></p></td><td ac:local-id="e02f2af2-a526-4db7-9077-c0b6dcfbe092"><p local-id="8665aff1-4bc7-4dea-90bc-d0dfd1bee31b">Select the next piece within selected work zone.</p></td></tr><tr ac:local-id="97b577c0-397f-4335-89c4-0d0955f34f32"><td ac:local-id="b92e2992-1962-42a4-a6c4-b049fc92408a"><p local-id="a3ee9126-0916-4f8b-a803-a5aaf8b3e3a5"><strong>Magnet on/off</strong></p></td><td ac:local-id="ddbaedfb-2527-4aa3-9a4f-b5dc3c8a2e0f"><p local-id="88ac2d42-15aa-420a-8d5a-57417afda525">Activate/deactivate the pieces magnet.</p></td></tr></tbody></table><h2 local-id="98ac1f7a-692e-4977-8854-62ecfd81c5ee">Quick controls</h2><p local-id="488a0c25-7a75-4c39-9761-6656fabc59d1">With the right mouse button, you can access the quick commands window.<br>The proposed functionalities change if you press inside a work zone or outside of all.</p><p local-id="e8a72e8c-965a-49d3-a71e-7f51ff2e59b3"></p><h3 local-id="646133b8-c5b3-4b27-bdb5-b55274849b92">Project commands</h3><div class="TextAlignCenter"><img src="attachments/3.22.2_PROJECT_MATCH_(OPTIONAL)/0.22.png" alt="0.22.png" width="150" onclick="showModal(this.src)"></div><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="1e767625-fa5b-4414-a375-2c266b057de6"><colgroup><col style="width: 278.0px;"><col style="width: 1521.0px;"></colgroup><tbody><tr ac:local-id="e9c53f47-8a88-4435-a420-292a0bf7b5b3"><td ac:local-id="18d50fb0-e600-4d0d-aa5c-31476834f953"><div class="TextAlignCenter"><img src="attachments/3.22.2_PROJECT_MATCH_(OPTIONAL)/0.31.png" alt="0.31.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="db85a7de-0c39-4e8a-9c21-fd94d051141f"><p local-id="17167efb-c046-4778-8c7c-d9bbacca4a58"><strong>Save workings</strong><br>Allows to save the changes made to all work zones.</p></td></tr><tr ac:local-id="893dd01f-3dbe-4a0b-996f-5a42dea85067"><td ac:local-id="53622e78-7e13-4273-871d-5607be3660b0"><div class="TextAlignCenter"><img src="attachments/3.22.2_PROJECT_MATCH_(OPTIONAL)/0.23.png" alt="0.23.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="181932a8-33e6-48a1-840d-547cd5a33cf1"><p local-id="0d85f1fc-69b1-42b0-8cdb-655a4862cc3c"><strong>Report</strong><br>Allows to save a PDF file containing a project report.</p></td></tr><tr ac:local-id="1b66f6d8-0c47-4253-9fd2-682846f98551"><td ac:local-id="62c32a28-e51f-4c44-b7e4-d5fc626bfe0c"><div class="TextAlignCenter"><img src="attachments/3.22.2_PROJECT_MATCH_(OPTIONAL)/0.29.png" alt="0.29.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="49e4c045-42e2-4974-aa5a-32e6e6052d43"><p local-id="7450abe3-2f78-4abf-a980-e3708aa95c91"><strong>Nesting</strong><br>Allows to execute nesting of pieces on all slabs of the project.</p></td></tr></tbody></table><p local-id="7ae01a91-03bd-41c0-8e1c-dc86857d73b8"></p><h3 local-id="1919dcc0-9d48-43f1-80c7-4a158bbc3581">Work zone commands</h3><div class="TextAlignCenter"><img src="attachments/3.22.2_PROJECT_MATCH_(OPTIONAL)/0.21.png" alt="0.21.png" width="150" onclick="showModal(this.src)"></div><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="dbdb1080-a7d9-48c0-8fe5-befe2005951c"><colgroup><col style="width: 278.0px;"><col style="width: 1521.0px;"></colgroup><tbody><tr ac:local-id="df37ce2e-2e23-4f8e-89b6-a8181d0688e5"><td ac:local-id="4a4c151d-bda5-46ca-96dd-8fbd30ec0098"><div class="TextAlignCenter"><img src="attachments/3.22.2_PROJECT_MATCH_(OPTIONAL)/0.26.png" alt="0.26.png" width="119" onclick="showModal(this.src)"></div></td><td ac:local-id="267b65ba-91ba-4470-804c-87bee7dc5501"><p local-id="dd2c5522-0d45-4bc2-978d-762d8bee6037"><strong>Lock/Unlock</strong><br>If a work zone is blocked, it will not be possible to move the pieces contained inside it, nor insert new ones.<br>It is not allowed to change perimeter or choose other photos.<br>It is necessary to unlock it to make everything possible again.</p></td></tr><tr ac:local-id="8b60ac14-706e-48b1-a2cb-499eb3928fdd"><td ac:local-id="d6a63c45-1216-4fb3-ac47-b059af919f5f"><div class="TextAlignCenter"><img src="attachments/3.22.2_PROJECT_MATCH_(OPTIONAL)/0.27.png" alt="0.27.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="c3d5ae75-55e1-46fc-b6a4-524ec227fdaa"><p local-id="88257ef5-2053-46e1-b473-9a071a908f3e"><strong>Cut it</strong><br>Brings the user to the screen to manage and optimize the cuts of the selected slab to be able to create the ISO program.</p></td></tr><tr ac:local-id="82a7d330-d70f-464d-9ee0-9d06ea93fa95"><td ac:local-id="3482654a-81e7-4b8b-9dab-d4aa7f772c01"><div class="TextAlignCenter"><img src="attachments/3.22.2_PROJECT_MATCH_(OPTIONAL)/0.28.png" alt="0.28.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="42dc2955-0ca5-437f-922b-8bdf4ecd9009"><p local-id="7bbc7128-309a-4ec7-b739-a91ea9863db3"><strong>Save</strong><br>Allows to save modifications applied to single work zone.</p></td></tr><tr ac:local-id="df67dc28-c3f5-4676-a0f2-a64d706db5e4"><td ac:local-id="994ba762-7a4f-499d-a59e-038b7ba538a9"><div class="TextAlignCenter"><img src="attachments/3.22.2_PROJECT_MATCH_(OPTIONAL)/0.23.png" alt="0.23.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="0534805a-5945-457c-b483-1acb8c957f22"><p local-id="761be98b-4ad4-4266-a604-8c606a5772c6"><strong>Report</strong><br>Allows to save a PDF file containing a report of the selected work zone.</p></td></tr><tr ac:local-id="02569faf-1fe2-4e24-bf0a-3220c8cd1a8c"><td ac:local-id="9855f2af-20bb-4771-a113-a1a33461ac05"><div class="TextAlignCenter"><img src="attachments/3.22.2_PROJECT_MATCH_(OPTIONAL)/0.30.png" alt="0.30.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="f0a9d722-c371-4c24-89e7-e2aa6cd2bd08"><p local-id="3122762c-23c8-4f61-85a1-eee97c34b094"><strong>Import file</strong><br>Load a file of saving the state of a slab inside the project.</p></td></tr><tr ac:local-id="a1ca34df-4240-4290-8e20-26ab8c051565"><td ac:local-id="636adee7-920a-45a6-8ffa-c1d834ed74fa"><div class="TextAlignCenter"><img src="attachments/3.22.2_PROJECT_MATCH_(OPTIONAL)/0.29.png" alt="0.29.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="c41d8082-1711-462a-b123-c687e251b5c5"><p local-id="e5679e8a-011d-4089-82b9-d0fba4e2d8b5"><strong>Nesting</strong><br>Executes the nesting of pieces inside selected work zone.</p></td></tr></tbody></table><p local-id="3ae31051-1cda-4892-865e-49ac089f1b40"></p><h3 local-id="71415466-880b-4279-9f9f-f421be17e5b2">Nesting </h3><p local-id="32bbd5ec-ef8b-4385-8bb2-7c1cd38f355a">Activating the Nesting function on the entire project, two modes are available.</p><div class="TextAlignCenter"><img src="attachments/3.22.2_PROJECT_MATCH_(OPTIONAL)/0.33.png" alt="0.33.png" width="400" onclick="showModal(this.src)"></div><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="ba921eb4-d07c-4e9d-825a-16fe371c2e48"><colgroup><col style="width: 595.0px;"><col style="width: 1205.0px;"></colgroup><tbody><tr ac:local-id="5947a619-8142-4f16-b93d-48a63d9e287f"><td ac:local-id="2eb34e5c-9955-4132-951e-04e4196d257f"><p local-id="3e394eac-3127-437b-bc31-f8f6af56bd5c"><strong>Insert the pieces into current slabs</strong></p></td><td ac:local-id="24f6e64e-dbe0-42fa-bb02-eb717a3d71f4"><p local-id="d039125a-1273-42a1-967e-df4a9b0f1c04">Inserts the pieces on the slabs already present in the project, in order to optimize available space.</p></td></tr><tr ac:local-id="39ab4336-4ebc-4048-b7c3-01e4d91cff17"><td ac:local-id="8cb50c99-0cf3-48ed-baa4-dd9216c03080"><p local-id="876b0126-1ad4-4355-895d-5c7bd5728f77"><strong>Insert slabs and pieces until exhaustion</strong></p></td><td ac:local-id="c6f560c8-d38a-48bc-ac4b-83c9bd429b99"><p local-id="901561d9-c470-49c0-a5c7-c1452888eee3">Are created slabs on which to apply the Nesting until all pieces of the list are exhausted.<br>The dimensions of the slabs are the same of the first that has been defined.<br>It is used to give an indication of how many slabs may be needed to complete the project, knowing that slabs of the same shape must be cut.</p></td></tr></tbody></table><p local-id="e63f70b7-0e5e-48ab-8930-e4c366d4aa87">To use the Nesting until exhaustion of pieces it is necessary to create a perimeter to give indication to the program of the dimensions of the slabs that will be used.<br>Will be created slabs of the same size until all pieces of the list are inserted with the Nesting.</p><div class="TextAlignCenter"><img src="attachments/3.22.2_PROJECT_MATCH_(OPTIONAL)/0.32.png" alt="0.32.png" width="800" onclick="showModal(this.src)"></div><div class="TextAlignCenter"><img src="attachments/3.22.2_PROJECT_MATCH_(OPTIONAL)/0.34.png" alt="0.34.png" width="800" onclick="showModal(this.src)"></div><p local-id="04f70922-6532-4035-b93a-edfb19cac5cd"></p><h3 local-id="77efd12d-c595-4d74-b672-fa3b19be9dd3">Report</h3><p local-id="48a6273c-8a0f-4e22-8828-b40d1f98a639">Save a report in PDF format in the dedicated folder project/current work zone.<br></p><p class="media-group"><p><a href='attachments/3.22.2_PROJECT_MATCH_(OPTIONAL)/ReportWorkzone.pdf'>ReportWorkzone.pdf</a></p><p><a href='attachments/3.22.2_PROJECT_MATCH_(OPTIONAL)/ReportProject.pdf'>ReportProject.pdf</a></p><p local-id="63f9f42e-3c76-4bcc-aec0-ec8d536d7dd1"></p><h1 local-id="aa60e10f-78fc-4289-947e-aacba28e89a0">Preview</h1><p local-id="329ad773-e0f9-4edd-a6b6-3fef6e7ef8b9">In this window is possible to see a complex representation of the project in real time.<br>It is possible to insert pieces inside the selected work zone pressing inside on the preview.<br>Furthermore, by dragging the background of a piece, the operator can change the position of the piece on the bench.</p><div class="TextAlignCenter"><img src="attachments/3.22.2_PROJECT_MATCH_(OPTIONAL)/0.13.png" alt="0.13.png" width="800" onclick="showModal(this.src)"></div><p local-id="97ac2479-889b-4c14-93b3-f9d90a3ad415"></p><h2 local-id="5e085f88-e72a-4085-9511-73d802757440">Buttons</h2><p local-id="5d5fefd5-3fd4-44c0-bdd1-f15d696a4ed7">To the left there are these buttons.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="b25275e0-05ca-40c7-8f0d-e8b7f5b597b4"><colgroup><col style="width: 352.0px;"><col style="width: 1446.0px;"></colgroup><tbody><tr ac:local-id="e7a9e764-5321-4063-9a64-61217bfe7c53"><td ac:local-id="ec8941cc-99c6-42ac-be2d-24b161dcd56a"><div class="TextAlignCenter"><img src="attachments/3.22.2_PROJECT_MATCH_(OPTIONAL)/2.02.png" alt="2.02.png" width="120" onclick="showModal(this.src)"></div></td><td ac:local-id="4f2f1c8b-2564-4ada-a561-fbea7e001e53"><p local-id="06c4d4ea-df80-4ca0-bce4-8465a059aa48"><strong>Move pieces</strong><br>Allows to move the pieces that compose the preview.<br>The buttons of the bottom bar of the window are visible.</p></td></tr><tr ac:local-id="1be24802-4333-4960-9f9d-64e10e31dbb1"><td ac:local-id="11dea285-6955-4aee-91f2-db66b6c9f29a"><div class="TextAlignCenter"><img src="attachments/3.22.2_PROJECT_MATCH_(OPTIONAL)/2.03.png" alt="2.03.png" width="120" onclick="showModal(this.src)"></div></td><td ac:local-id="a6169ecd-57d4-42f1-ab47-3a55ba2fa63f"><p local-id="83deda16-bb26-4126-870f-5682bf1a2ae3"><strong>Move view</strong><br>It is for moving the preview view with all the pieces.</p></td></tr></tbody></table><p local-id="064b4d76-21a7-4ad4-8fed-4d242efc2c70">To the right there are these buttons.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="9aae7590-df7f-42d2-bcee-9ff1a81ce87f"><colgroup><col style="width: 348.0px;"><col style="width: 1451.0px;"></colgroup><tbody><tr ac:local-id="e66751cc-e885-4aa2-953d-84c8904e57c6"><td ac:local-id="8ee6fcb4-052f-4319-b9d9-63e64a1374d5"><div class="TextAlignCenter"><img src="attachments/3.22.2_PROJECT_MATCH_(OPTIONAL)/0.17.png" alt="0.17.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="3cf0470e-1ba7-40b7-be66-9eeae1e72632"><p local-id="484cc7fc-ed63-4341-8458-0bb381846599"><strong>Load render</strong><br>Opens the folder where the renders of the projects are saved.</p></td></tr><tr ac:local-id="4425f571-08ff-4cf5-aa28-7866598b93c5"><td ac:local-id="5c84378a-97cf-444f-adc9-1755ef5f92bc"><div class="TextAlignCenter"><img src="attachments/3.22.2_PROJECT_MATCH_(OPTIONAL)/0.16.png" alt="0.16.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="96b51ebf-562a-4924-873d-78f42f040a67"><p local-id="646039a2-ab49-4116-bc07-64a32d4baa47"><strong>Customize preview</strong><br>Opens a panel that allows to customize the colors of the preview entities.</p></td></tr><tr ac:local-id="c117cf35-37f0-4c95-9b27-9e7e03258c26"><td ac:local-id="0c3a3d19-f31b-4fcf-9d9b-5c5a5d3883dd"><div class="TextAlignCenter"><img src="attachments/3.22.2_PROJECT_MATCH_(OPTIONAL)/0.18.png" alt="0.18.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="cbce6a79-fe32-4b5b-9b58-ea48a0de7a8e"><p local-id="681da309-bf44-446f-8f80-33aee7c58b09"><strong>Reset pieces' position</strong><br>Restore the pieces moved in the original position.</p></td></tr><tr ac:local-id="15fe9f47-c80f-49b3-a1d5-d6b21ce363b3"><td ac:local-id="506c6dc9-ce18-4d0d-9b66-58cbb7e57268"><div class="TextAlignCenter"><img src="attachments/3.22.2_PROJECT_MATCH_(OPTIONAL)/0.19.png" alt="0.19.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="72324003-d86d-4b1d-a760-0498673a0f8b"><p local-id="bc4ae578-0025-4159-b7db-ba481f5617d4"><strong>Project configuration reset</strong><br>Restore the book match project configuration.</p></td></tr><tr ac:local-id="fff9dc7d-60a3-4d3e-ab50-6cb6d6c29d68"><td ac:local-id="6e6f420a-6990-4c4b-85a5-ac3ef9230af0"><div class="TextAlignCenter"><img src="attachments/3.22.2_PROJECT_MATCH_(OPTIONAL)/0.20.png" alt="0.20.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="c0307305-0b68-41d1-aa1e-d9b5b4814b80"><p local-id="5eedbc0a-0d4c-44c8-a90c-d11bec7b6ddc"><strong>Save render</strong><br>Opens a panel through which it is possible to save the render of the project.</p></td></tr></tbody></table><p local-id="83f49b29-25b8-419c-b448-50059caff0d8"></p><h1 local-id="e8dd5dfc-2eff-4cca-a0b0-28d8bf6cfb3c">Planning of a project</h1><h2 local-id="7759e30f-7190-473f-a6f1-ff95334f3b71">Create a new project</h2><p local-id="cdddfce3-ec3e-452e-aef9-aa3f18d9529b">The operator creates a new project indicating its name, the number of rows and columns that compose it, remembering that each cell equals a slab, and the dimensions for the cells. Once confirmed this will be the screen:</p><div class="TextAlignCenter"><img src="attachments/3.22.2_PROJECT_MATCH_(OPTIONAL)/0.35.png" alt="0.35.png" width="800" onclick="showModal(this.src)"></div><p local-id="7d077dd7-821b-42f7-a10e-269f865dfb61"></p><h2 local-id="88e68ab9-5904-4f51-ae5b-d73f9b518083">Add slabs</h2><p local-id="f2e7189e-358e-477f-b51a-b2c942c38ccd">Afterwards insert the slabs into the work zones. To do this select a zone, load a photo from file, and choose the perimeter.</p><div class="TextAlignCenter"><img src="attachments/3.22.2_PROJECT_MATCH_(OPTIONAL)/0.36.png" alt="0.36.png" width="800" onclick="showModal(this.src)"></div><p local-id="7f25bed3-25fb-4688-88e0-0a6fc6a1d3d2"></p><h2 local-id="36ae0132-b4b7-411a-8e0e-d0ded0f0e896">Import pieces</h2><p local-id="7e9b1b4c-ce5c-44ee-98ce-fd321c86b99f">At this point, import the pieces that you want to cut. You can load both DXF files and standard pieces. There is no limit to the number of files that can be loaded.</p><div class="TextAlignCenter"><img src="attachments/3.22.2_PROJECT_MATCH_(OPTIONAL)/0.37.png" alt="0.37.png" width="800" onclick="showModal(this.src)"></div><p local-id="b93be31f-8da5-47ac-bd8f-ce69dd7970b9"></p><h2 local-id="bb9d7ff8-0321-4b61-b870-b241891de25a">Open preview</h2><p local-id="f1184b64-f27f-4db0-b286-34450008e518">When there are pieces inside the list, you can open the window with the preview of the project. <br>This will show all pieces that have been imported.</p><div class="TextAlignCenter"><img src="attachments/3.22.2_PROJECT_MATCH_(OPTIONAL)/0.38.png" alt="0.38.png" width="800" onclick="showModal(this.src)"></div><p local-id="b70c5bdb-df6c-4c30-a415-a11cf1c92a3e"></p><h2 local-id="f6a3a2aa-5156-460d-afdb-37deba008ef4">Insert pieces in slabs</h2><p local-id="34413638-d0d0-4631-a026-0a36432d8dc3">To insert the pieces inside the slabs, use the classic method through the piece list, or select within the areas of the pieces that you see in the preview.<br>They will therefore be inserted on the slab of the selected work zone.<br>By dragging one of the pieces from the preview, the piece will also move on the slab so as to choose the best part of the slab to make the grain match between the various pieces. You can also do the reverse, that is, drag the piece from the slab and see from the preview whether the grain matches or not based on where it is moved.</p><div class="TextAlignCenter"><img src="attachments/3.22.2_PROJECT_MATCH_(OPTIONAL)/0.39.png" alt="0.39.png" width="800" onclick="showModal(this.src)"></div><div class="TextAlignCenter"><img src="attachments/3.22.2_PROJECT_MATCH_(OPTIONAL)/0.40.png" alt="0.40.png" width="800" onclick="showModal(this.src)"></div><p local-id="7c0b08ef-0e82-48d3-b209-30a13549a66c"></p><p local-id="1d7d0084-2d0f-4c04-886a-8dc3ee61a797"></p><p local-id="1d4819a3-162a-41ce-ae65-b7ea36931bb8"></p><!--Label="bkm_prj_cnt"--><!--Label="bkm_prj_prj"--><!--Label="bkm_prj_pln"--><!--Label="bkm_prj_prw"--><!--Label="bkm_prj"-->
+                        </main>
+
+                    </div>
+
+                    <img src="images/donatoni_222.jpg">
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="3.22.1_easy_match_(optional).html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="3.23_unload_piece_(optional).html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+
+
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                <a rel="prev" href="3.22.1_easy_match_(optional).html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="3.23_unload_piece_(optional).html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="mermaid.min.js"></script>
+        <script src="mermaid-init.js"></script>
+        <script src="hidemenu.js"></script>
+        <script src="imagemodal.js"></script>
+        <script src="login.js"></script>
+    </div>
+
+    <!-- Modale -->
+    <div id="modal" onclick="closeModal()">
+        <img id="modal-img" src="">
+    </div>;
+
+
+</body>
+</html>

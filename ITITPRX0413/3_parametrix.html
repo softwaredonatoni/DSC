@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+<head>
+    <!-- Book generated using mdBook -->
+    <meta charset="UTF-8">
+    <title>3 PARAMETRIX - IT-IT PARAMETRIX 4.13</title>
+
+    <!-- Custom HTML head -->
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="icon" href="favicon.svg">
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/chrome.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Fonts -->
+    <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+    <link rel="stylesheet" href="fonts/fonts.css">
+
+    <!-- Highlight.js Stylesheets -->
+    <link rel="stylesheet" id="highlight-css" href="highlight.css">
+    <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+    <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+    <!-- Custom theme stylesheets -->
+    <link rel="stylesheet" href="./mdbook-admonish.css">
+    <link rel="stylesheet" href="theme/custom.css">
+    <link rel="stylesheet" href="search.html">
+    <link rel="stylesheet" href="login.html">
+    <link rel="stylesheet" href="searchlogin.html">
+    <link rel="stylesheet" href="searchloginmenu.html">
+
+    <!-- Provide site root and default themes to javascript -->
+    <script>
+      const path_to_root = "";
+      const default_light_theme = "light";
+      const default_dark_theme = "navy";
+    </script>
+    <!-- Start loading toc.js asap -->
+    <script src="toc.js"></script>
+<script>(function () {
+  const SUFFIX = "#2utHhOLI7Iz0";
+
+  function buildUrl() {
+    const base = window.location.href.split("#")[0];
+    return base + SUFFIX;
+  }
+
+  function fallbackCopy(text) {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.top = "-1000px";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+
+  async function copyUrl() {
+    const url = buildUrl();
+
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(url);
+        return;
+      } catch (e) {}
+    }
+
+    fallbackCopy(url);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.getElementById("copy-link-btn");
+    if (!btn) return;
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      copyUrl();
+    });
+  });
+})();
+</script></head>
+<body>
+    <header class="header-main">
+        <div class="header-flex">
+            <div class="donatoni-flex">
+                <label class="btn hamburger-menu" id="sidebar-toggle" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                    <i id="sidebar-toggle-icon" class="fa-solid fa-bars"></i>
+                </label>
+
+                <img src="images/donatoni-logo-white.svg" alt="Donatoni Macchine">
+            </div>
+
+            <div class="donatoni-flex action-header-buttons">
+                <div id="search-wrapper" class="search-wrapper hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults"></ul>
+                    </div>
+                </div>
+                <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+
+                <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
+                    <i class="fa-solid fa-print"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div id="body-container">
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem("mdbook-theme");
+                let sidebar = localStorage.getItem("mdbook-sidebar");
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-theme",
+                        theme.slice(1, theme.length - 1)
+                    );
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-sidebar",
+                        sidebar.slice(1, sidebar.length - 1)
+                    );
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
+                .matches
+                ? default_dark_theme
+                : default_light_theme;
+            let theme;
+            try {
+                theme = localStorage.getItem("mdbook-theme");
+            } catch (e) { }
+            if (theme === null || theme === undefined) {
+                theme = default_theme;
+            }
+            const html = document.documentElement;
+            html.classList.remove("light");
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try {
+                    sidebar = localStorage.getItem('mdbook-sidebar');
+                } catch (e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document
+                        .getElementById("sidebar-toggle")
+                        .setAttribute("aria-expanded", sidebar === "visible");
+                    document
+                        .getElementById("sidebar")
+                        .setAttribute("aria-hidden", sidebar !== "visible");
+                    Array.from(document.querySelectorAll("#sidebar a")).forEach(
+                        function (link) {
+                            link.setAttribute("tabIndex", sidebar === "visible" ? 0 : -1);
+                        }
+                    );
+                </script>
+
+                <div id="content" class="content">
+
+                    <div>
+
+                        <img src="images/donatoni_111.jpg">
+
+                        <main style="margin-left: 20px;">
+                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="3-parametrix" style="margin:0;"><a class="header" href="#3-parametrix">3 PARAMETRIX</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="3 PARAMETRIX"--><p local-id="b9c83ec4-7249-4fc7-8667-abaed2901b17">Il sistema è stato progettato per facilitare l’operatore nella programmazione dei tagli automatici. Attraverso il software è possibile:</p><ul local-id="ee710b93-ed23-4e86-9cda-0826bb8871ce"><li local-id="5a3afba7-f41e-4015-a04d-e4cc9f5494af"><p local-id="c3969c33-ce42-4d0f-84d2-c5d67fb995ac">Stabilire la posizione della lastra nell’area di lavoro della macchina e creare il perimetro del materiale per la lavorazione</p></li><li local-id="1e6c4b02-40b4-4a19-a41c-d5065557fae2"><p local-id="460c0c39-425a-4016-89db-33bafc073aee">Creare pezzi attraverso figure parametriche</p></li><li local-id="b6f6a602-80e0-4905-96d5-e41069aacbbd"><p local-id="a8833c59-17a2-4609-b471-8d39b4f8f025">Importare figure realizzate con altri CAD</p></li><li local-id="47a3c968-2f89-4ff2-9dc5-99851afa4d67"><p local-id="dd6e2541-bcb8-404b-9868-9b21400a2af2">Generare una lista di pezzi da lavorare</p></li><li local-id="5eeece98-b69b-4641-95fb-03a5b4ad40f7"><p local-id="9ae08db1-b533-4034-b668-93d627450f9f">Ricercare la miglior posizione dei pezzi sulla lastra</p></li><li local-id="af7f635a-8277-4f55-ac8d-e3986f1956d5"><p local-id="a5e597b1-e133-4da0-af58-62f9906329bb">Impostare funzioni speciali di taglio</p></li><li local-id="b6f6111a-cca4-42a6-9097-ee3e72d9c133"><p local-id="9cca1ca5-85c4-4928-8918-6ed81050abdc">Programmare l’ordine di taglio e creare la movimentazione macchina</p></li><li local-id="d4472885-be44-43f4-b830-2cdf199600ad"><p local-id="f000171f-26b4-4fc7-a05d-7547b08fd0a1">Monitorare a video l’esecuzione dei tagli</p></li></ul><div class="TextAlignCenter"><img src="attachments/3_PARAMETRIX/0_Parametrix.png" alt="0_Parametrix.png" width="800" onclick="showModal(this.src)"></div><p local-id="29b8d84c-ce3f-40ac-8288-ba7722bbaceb"></p><p>
+</p><p local-id="c1c06ad1-2167-4e77-bca2-cf774424eb57"></p><h1 local-id="bf31c962-c9de-4dc6-8590-67e782c75f78">Area di lavoro e lista dei pezzi</h1><p local-id="2fc21dc1-5018-49d3-994b-3a78edaf6965">Di seguito è riportata una rappresentazione tipica dell’area di lavoro di Parametrix con la lista dei pezzi importati già popolata e una immagine della lastra acquisita.</p><div class="TextAlignCenter"><img src="attachments/3_PARAMETRIX/image-20250619-062742.png" alt="image-20250619-062742.png" width="800" onclick="showModal(this.src)"></div><p local-id="644a8b15-7b32-4f13-aafa-7b64719066c9"></p><h2 local-id="35cf2597-80ff-40a5-82bf-b2b76bcfe7b7">Lista pezzi inseriti</h2><p local-id="a613af9e-899e-49f0-a822-cd049dbf8c97">Quando viene creato un pezzo il programma lo aggiunge sulla lista pezzi; dalla lista è possibile inserirli sull’area di lavoro oppure fare alcune modifiche al pezzo e controllare il numero di pezzi mancanti alla lavorazione.</p><div class="TextAlignCenter"><img src="attachments/3_PARAMETRIX/image-20250619-065629.png" alt="image-20250619-065629.png" width="300" onclick="showModal(this.src)"></div><p local-id="1ce4dca2-d97d-485e-9623-3b2376742a18"></p><h2 local-id="36b0f7d6-3b75-4c35-90ac-9f66f98f6e48">Posizionamento pezzi</h2><p local-id="e47e219b-dbf3-4816-bd1d-651f50fae509">Parametrix permette di posizionare pezzi dentro l’area di lavoro della macchina per creare il file di taglio. <br>Una volta acquisita la lastra, creato il perimetro e creati i pezzi della lavorazione, bisogna importare i pezzi all’interno della lastra, con il pulsante sulla tabella di pezzi viene messo il pezzo all’interno dell’area di lavoro. È possibile lavorare con 1 o più pezzi contemporaneamente.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="ffbdeb7d-0399-4a09-954a-97bfeaf80771"><colgroup><col style="width: 318.0px;"><col style="width: 1481.0px;"></colgroup><tbody><tr ac:local-id="f771aeb6-a727-47f6-bac5-b43e279691e8"><th data-highlight-colour="#ffffff" ac:local-id="2b282882-981f-4496-87c9-b99b169d6578"><div class="TextAlignCenter"><img src="attachments/3_PARAMETRIX/image-20250619-064138.png" alt="image-20250619-064138.png" width="60" onclick="showModal(this.src)"></div></th><td data-highlight-colour="#ffffff" ac:local-id="7e144d91-1398-4e28-83a3-632a0b4d5908"><p local-id="ef7066e1-93ec-4e3a-8664-cd3d44daf532">Nel caso in cui i pezzi non siano perfettamente all’interno della lastra comparirà un segnale di attenzione\pericolo nell’angolo in alto a sinistra.<br>La comparsa di questo segnale indica che potrebbero nascere dei problemi in fase di gestione dei tagli, tuttavia non sarà bloccata nessuna funzione del programma.</p></td></tr></tbody></table><p local-id="97466e98-1b67-44b2-8921-4ffefd16c2cd"></p><h1 local-id="48ec4e80-b4b4-4109-89d1-80a6cfe715dd">Barra superiore</h1><p local-id="534651de-22d5-4b4b-89c3-82ffee8a75d6">Nella parte superiore della schermata, al centro e sulla sinistra sono visibili i seguenti pulsanti, preceduti dal logo e l’ora segnata: </p><p local-id="74096823-7c01-4a49-8f9a-77fb81825fe7"></p><div class="TextAlignCenter"><img src="attachments/3_PARAMETRIX/BarraSuperiore_B.png" alt="BarraSuperiore_B.png" width="672" onclick="showModal(this.src)"></div><p local-id="5896b168-beef-4a2f-bd9d-f3850b692c17"></p><p local-id="b2785927-51ed-4375-82fd-6971c8702f99">La barra superiore dei comandi viene integrata con alcuni pulsanti che verranno illustrati in seguito:</p><p local-id="363ba6d4-4199-439c-b764-f0025301e3d3"></p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="a583da81-32fc-44bb-ae4c-2f78abd7641a"><colgroup><col style="width: 215.0px;"><col style="width: 1584.0px;"></colgroup><tbody><tr ac:local-id="520a8737-81d7-4439-b47d-6d93ab04ecf6"><td ac:local-id="b1e0fe83-7414-4d1a-892e-ddadc747310a"><div class="TextAlignCenter"><img src="attachments/3_PARAMETRIX/1.png" alt="1.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="ef7d2cee-fb59-4c32-9cb6-c67b491602b9"><p local-id="9d04f053-a3a2-4e89-b7f3-67a35530cddf"><strong>Parametri utente</strong><br>Apre la pagina dei parametri tecnici. Destinato all’uso di un tecnico.</p></td></tr><tr ac:local-id="c26887b6-00ae-47b4-b0a9-0799444c25d8"><td ac:local-id="e10e5c46-c898-4bbe-9184-ab032de48654"><div class="TextAlignCenter"><img src="attachments/3_PARAMETRIX/2-20250319-065237.png" alt="2-20250319-065237.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="7f6baa31-6117-4713-acc0-1a35a00f30a0"><p local-id="091fa29e-a395-4dfa-bd3e-74952aad399e"><strong>Nuova lavorazione</strong><br>La pressione del pulsante assegnato per concludere una lavorazione e iniziare quella successiva richiama un pop-up di conferma.</p></td></tr><tr ac:local-id="82c0ec1c-129d-4bef-a4e2-a67bbc244a81"><td ac:local-id="a314b135-acb1-4849-9d35-92d91a3cade3"><div class="TextAlignCenter"><img src="attachments/3_PARAMETRIX/PulsanteAperturaPannelloUtensili3-20250613-060338.png" alt="PulsanteAperturaPannelloUtensili3-20250613-060338.png" width="120" onclick="showModal(this.src)"></div></td><td ac:local-id="2b420cc7-d320-48dc-8fbe-b5109e769d89"><p local-id="9c54f34a-2277-48e9-9132-2f45403de0ca"><strong>Parametri utensile</strong><br>Consente all’operatore di gestire gli utensili.</p></td></tr><tr ac:local-id="90896220-0c0b-477f-81d3-44125ae6a637"><td ac:local-id="ffde375e-f286-440c-bed5-10e529e619a9"><div class="TextAlignCenter"><img src="attachments/3_PARAMETRIX/PulsanteAperturaParametriLastraRedone-20250612-072330.png" alt="PulsanteAperturaParametriLastraRedone-20250612-072330.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="e733ad95-a3ab-437a-9fb0-fd387fb419f6"><p local-id="b17f78ef-db05-4e9c-8854-38c83520b185"><strong>Pannello parametri di lavorazione della lastra</strong><br>La pressione di questo pulsante permette il passaggio dal “Pannello Utensile“ al pannello “Parametri Lastra“.</p></td></tr><tr ac:local-id="6abd2d9d-eaca-443c-b77f-e5fe9e404e2a"><td ac:local-id="68e6d8f6-986a-4e36-8a04-17be41d3ba9a"><div class="TextAlignCenter"><img src="attachments/3_PARAMETRIX/5_OffOn-20250714-112343.png" alt="5_OffOn-20250714-112343.png" width="120" onclick="showModal(this.src)"></div></td><td ac:local-id="a5890e1e-354b-4d49-a62a-1ec66f9f89c0"><p local-id="3c27ba45-5646-415e-bd97-fdaa78a3c92c"><strong>Accesso al comando manuale</strong><br>Si può accedere ad un pannellino con dei comandi manuali come far ruotare l’asse e parcheggiare la macchina.</p></td></tr><tr ac:local-id="9f82b5fa-f622-4533-9a2c-c2ba8f663c04"><td ac:local-id="1f6165b6-b445-4219-bdd9-6a78adfdbc75"><div class="TextAlignCenter"><img src="attachments/3_PARAMETRIX/6_OffOn-20250714-112420.png" alt="6_OffOn-20250714-112420.png" width="120" onclick="showModal(this.src)"></div></td><td ac:local-id="f0dd3ecb-f6e0-46cd-af12-02f4addfcd09"><p local-id="8bcb9b41-aa61-4162-84a7-a48b33d75bca"><strong>Gestione del laser</strong><br>Questa funzione attiva il menù di acquisizione lastre.</p></td></tr><tr ac:local-id="de3b85ef-0cf8-42e7-97c6-8ea6ae6c623f"><td ac:local-id="0cd56567-e6a2-49d0-8da1-2d9c99af83e3"><div class="TextAlignCenter"><img src="attachments/3_PARAMETRIX/7_OffOn-20250714-112437.png" alt="7_OffOn-20250714-112437.png" width="120" onclick="showModal(this.src)"></div></td><td ac:local-id="99bf64a4-260d-473f-9f96-f437f607dd49"><p local-id="2f9e2feb-354b-49d5-8ecc-88054d3c0ff6"><strong>Aggiungi foto al banco</strong><br>Con questa funzione si può scattare una foto di una lastra o sceglierla dai file per posizionarla sull’area di lavoro.</p></td></tr><tr ac:local-id="c253eedb-a054-41e7-b9dc-1291b6c65e6e"><td ac:local-id="540d97e0-1ba2-4241-8c89-dedd74394141"><div class="TextAlignCenter"><img src="attachments/3_PARAMETRIX/8_OffOn-20250714-112504.png" alt="8_OffOn-20250714-112504.png" width="120" onclick="showModal(this.src)"></div></td><td ac:local-id="2b8eaab7-1aef-4906-8621-fbfd6e489129"><p local-id="e678fd9a-cf84-4439-944e-9d98662a5c94"><strong>Perimetro della lastra</strong><br>Questa funzione permette di tracciare il perimetro.</p></td></tr><tr ac:local-id="2e7e0dc9-c776-43ac-b7c4-e5dd960afe9c"><td ac:local-id="28d13224-8198-48ff-b293-c62c92a8c3bc"><div class="TextAlignCenter"><img src="attachments/3_PARAMETRIX/9_OffOn-20250714-112528.png" alt="9_OffOn-20250714-112528.png" width="120" onclick="showModal(this.src)"></div></td><td ac:local-id="baedd2d6-f5b4-43c9-98e7-d084a86bad57"><p local-id="5453662e-6c4d-4016-a9c6-66e238eb353c"><strong>Gestione della visualizzazione del banco</strong><br>Questa funzione apre un pannellino con degli strumenti per ridimensionare l’area di lavoro.</p></td></tr><tr ac:local-id="444c45c8-c6a3-42f0-ac7a-78122f6a5f12"><td ac:local-id="0693c854-efa6-445e-b01f-090da9d11b82"><div class="TextAlignCenter"><img src="attachments/3_PARAMETRIX/10_OffOn-20250714-112547.png" alt="10_OffOn-20250714-112547.png" width="120" onclick="showModal(this.src)"></div></td><td ac:local-id="0b1071e5-9fa7-4ca6-b5e3-10db97e64f26"><p local-id="2ffd393c-dc91-491e-867e-f2c9b248273f"><strong>Visualizzazione delle entità di lavoro</strong><br>Questa funzione apre un pannellino con degli strumenti di visualizzazione.</p></td></tr></tbody></table><p local-id="b70e3bc4-5683-4e35-b46c-b33a7c8a78d2"></p><h1 local-id="057e440f-ea76-45f6-b549-79a48ce77c49"><br>Sezione laterale</h1><p local-id="c21d1004-208a-4cbf-a3d5-827a161668bd">I pulsanti situati in alto a destra permettono all’operatore di cambiare la schermata di Parametrix.</p><div class="TextAlignCenter"><img src="attachments/3_PARAMETRIX/1.0.png" alt="1.0.png" width="172" onclick="showModal(this.src)"></div><p local-id="03dae0c3-f610-44d0-80f8-bf818e1489f7">Ogni schermata è responsabile di un particolare aspetto della lavorazione di una lastra.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="b2015994-75ef-4eb4-8589-405447eb3134"><colgroup><col style="width: 360.0px;"><col style="width: 1439.0px;"></colgroup><tbody><tr ac:local-id="54f11be9-c0aa-4fd8-a7c9-9bbd083b1f3a"><td ac:local-id="e912fca0-f43e-4ec4-a386-15476164a70c"><div class="TextAlignCenter"><img src="attachments/3_PARAMETRIX/1.2.png" alt="1.2.png" width="120" onclick="showModal(this.src)"></div></td><td ac:local-id="46f725fd-12d8-408b-a19d-f291b7d2ab38"><p local-id="5b85d0d9-b663-4dcf-825a-b3cff958a238"><strong>Posizionamento dei pezzi</strong><br>Schermata principale di Parametrix.<br>Vengono svolte operazioni di:</p><ul local-id="52877cb5-3ffa-42bf-b807-69e7521cf282"><li local-id="2cf024c3-e1d1-4c94-b59a-d52d23017b4b"><p local-id="7736f694-d5cf-4a50-8459-cc7ce3dc95f5">creazione e modifica dei pezzi;</p></li><li local-id="e1d522ec-c157-4aed-8b36-090c64d2a876"><p local-id="74f91fda-c61b-4964-8797-aab3b24cf27f">acquisizione della foto della lastra sul banco e del suo perimetro;</p></li><li local-id="1fba1d30-9cd5-424c-ab73-23c0d8d5992b"><p local-id="0ad1873a-582d-4c98-b12e-df7837da3a73">posizionamento dei pezzi sull’area di lavoro;</p></li></ul></td></tr><tr ac:local-id="8e846244-e588-490a-a10c-1180a01c28d7"><td ac:local-id="e5c8358c-4246-4f42-b05c-7aa8d99103aa"><div class="TextAlignCenter"><img src="attachments/3_PARAMETRIX/1.4.png" alt="1.4.png" width="120" onclick="showModal(this.src)"></div></td><td ac:local-id="0325e085-36cb-4beb-b321-b19d454be9eb"><p local-id="33c1d916-1129-4c78-9958-c17631e6f537"><strong>Gestione dell’ordine di taglio dei pezzi</strong><br>Schermata per la gestione dell’ordine di taglio dei pezzi.</p></td></tr><tr ac:local-id="2abd4b73-471c-4887-96c1-e9324bbef8e5"><td ac:local-id="eddad8ca-96e7-484d-bc54-60cc65d7feac"><div class="TextAlignCenter"><img src="attachments/3_PARAMETRIX/1.5.png" alt="1.5.png" width="120" onclick="showModal(this.src)"></div></td><td ac:local-id="6b07bedb-f8cb-4ee6-b201-1845458a6ea5"><p local-id="8b5a084f-ec2e-4423-8466-18d00877dfc2"><strong>Ottimizzazione e gestione dei tagli</strong><br>Schermata per l’ottimizzazione e la gestione dei tagli.<br>Vengono gestite operazioni di:</p><ul local-id="557f4299-9b49-4964-8155-099263f22552"><li local-id="db66043e-712b-4011-999d-610991bc7175"><p local-id="786d48a8-27f6-4bb7-a484-dcf8d4605cc0">ordinamento e modifica dei tagli;</p></li><li local-id="b2ebdbe4-c797-46a3-a21f-92bbc10ddcb6"><p local-id="768f9be5-e4b3-4a30-b509-aaa4debb38dd">movimentazione del materiale con ventose;</p></li><li local-id="8ce52ae0-62f9-4716-b145-77379ab8c33a"><p local-id="da9e6511-8a1b-4fd1-b942-0f62578e3ea7">lavaggio del banco;</p></li><li local-id="86bb6248-00d9-4d69-966a-5c4b6194d67a"><p local-id="592fe1ab-a66b-4b62-9d6a-648039a0a33c">avviamento del programma di taglio della macchina;</p></li></ul></td></tr></tbody></table><p local-id="89e2487c-30e5-4591-945b-c5ad6edb685b">Sulla destra in basso si trovano i seguenti pulsanti le cui funzionalità verranno viste in seguito.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="183dde8c-f942-42f5-8933-15bafd6cbca9"><colgroup><col style="width: 223.0px;"><col style="width: 1577.0px;"></colgroup><tbody><tr ac:local-id="e56a6a02-94c3-4ed3-b493-1721fea6325a"><td ac:local-id="cd1e6999-8bc0-4797-9acc-b13690bbeddd"><div class="TextAlignCenter"><img src="attachments/3_PARAMETRIX/8.3-20250716-114007.png" alt="8.3-20250716-114007.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="8600f239-0449-487e-b545-67dac9ca0b06"><p local-id="a2a0fb8a-acac-461e-9763-72ff40bf5bef"><strong>Modifica pezzo</strong><br>Pannello tramite cui è possibile applicare lavorazioni aggiuntive ai pezzi.</p></td></tr><tr ac:local-id="142bacc0-f541-44b1-a316-e77e04e7860d"><td ac:local-id="5afa96af-f62a-4469-b92e-6c261a64ad84"><div class="TextAlignCenter"><img src="attachments/3_PARAMETRIX/8.4-20250716-114502.png" alt="8.4-20250716-114502.png" width="120" onclick="showModal(this.src)"></div></td><td ac:local-id="3a625e2e-8a85-4825-8f26-9ebb323f2db0"><p local-id="c5242ac9-f8bb-4e05-8e9a-4f628c045d75"><strong>Attiva/disattiva pezzi standard</strong><br>Permette di nascondere o visualizzare le righe dell’elenco associate a pezzi commerciali.</p></td></tr><tr ac:local-id="3bbbd160-4096-4d14-b785-faf92a79d42e"><td ac:local-id="0980087c-32c5-487d-b2e3-47af0ab3b98a"><div class="TextAlignCenter"><img src="attachments/3_PARAMETRIX/8.5-20250716-120007.png" alt="8.5-20250716-120007.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="299c1943-ae88-4d80-8c98-a7f8d571bbba"><p local-id="53ef73da-1185-41f1-9c3f-6f5e29550fa6"><strong>Creazione pezzo</strong><br>Pannello che gestisce la creazione e l'importazione dei pezzi su Parametrix.</p></td></tr><tr ac:local-id="29a59cef-79b2-4441-b3d2-5c7320e7d596"><td ac:local-id="df476774-5dcd-4420-8501-af509a3201d2"><div class="TextAlignCenter"><img src="attachments/3_PARAMETRIX/filterPiecesOff_On-20251209-084244.png" alt="filterPiecesOff_On-20251209-084244.png" width="120" onclick="showModal(this.src)"></div></td><td ac:local-id="1d25bcdd-6cf3-41b3-95f9-1da93df5ef2f"><p local-id="f0961330-2ca0-450e-aed1-e2c9bd1b1c43"><strong>Ordina o filtra pezzi</strong><br>Funzione che permette all’operatore di applicare un filtro e/o ordinare i pezzi della lista.</p></td></tr><tr ac:local-id="abfdfff0-aa1f-4588-ab03-3f95f2ede551"><td ac:local-id="16abbf5c-bb4b-4718-bd8e-054e375a5d75"><div class="TextAlignCenter"><img src="attachments/3_PARAMETRIX/8.7-20250716-121839.png" alt="8.7-20250716-121839.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="d96d23b1-2e30-4e10-9690-24ed8d5ebc8a"><p local-id="311ab9d0-d9b4-4042-9b6e-4e7a56b184d1"><strong>Cancella lista di pezzi</strong><br>Permette di eliminare tutto il contenuto della lista dei pezzi.</p></td></tr><tr ac:local-id="97f1a7a2-a081-4dce-a066-6fb40a0e27e1"><td ac:local-id="27aa1f1b-0abe-460b-b80f-4fbd6bf5f4da"><div class="TextAlignCenter"><img src="attachments/3_PARAMETRIX/8.2-20250716-113807.png" alt="8.2-20250716-113807.png" width="120" onclick="showModal(this.src)"></div></td><td ac:local-id="2693313b-6a71-43c9-ba76-c5154dfa80dc"><p local-id="ffc1bbe8-817f-4c5d-8968-35c0e8c77cd0"><strong>Cancella pezzo</strong><br>Permette di eliminare i pezzi dalla lista pezzi.</p></td></tr><tr ac:local-id="5f4e0575-4c59-4f0b-971f-24740604408d"><td ac:local-id="7f8da47f-04fa-444d-aa42-ef35595eb55e"><div class="TextAlignCenter"><img src="attachments/3_PARAMETRIX/8.8-20250716-122048.png" alt="8.8-20250716-122048.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="6057a83e-b142-42ab-9ebb-dc9bd81ee7b3"><p local-id="e7ca64f4-88aa-46d2-8965-c2ac31d5e5bb"><strong>Modifica proprietà aggiuntive pezzo</strong><br>L’operatore può assegnare e modificare le proprietà aggiuntive del pezzo selezionato.</p></td></tr></tbody></table><p local-id="aa5f6397-fb01-4fe8-9dc7-62d2d63c45f0"></p><p local-id="9c13b700-2b1b-4af5-ba66-36b527b86b45"></p><h1 local-id="31c31130-4637-435e-8e4b-ad68613ed521">Barra inferiore</h1><p local-id="64832007-5c34-4a9d-8e54-0b4377c8db97">All’apertura della funzionalità “Parametrix” la barra inferiore subirà alcune modifiche come mostrato di seguito:</p><div class="TextAlignCenter"><img src="attachments/3_PARAMETRIX/0.1.png" alt="0.1.png" width="800" onclick="showModal(this.src)"></div><p local-id="f5435801-2316-4a85-85a6-8012f3375f4c">Questa barra viene integrata con questi pulsanti:</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="22c2309f-0956-4e2e-83a0-4e601fd2eeaf"><colgroup><col style="width: 213.0px;"><col style="width: 1585.0px;"></colgroup><tbody><tr ac:local-id="ef02a889-99a3-4348-9707-658f5ca7d4cc"><td ac:local-id="1eff8161-69f7-46f4-9186-c9b22af21b35"><div class="TextAlignCenter"><img src="attachments/3_PARAMETRIX/1_OffOn-20250714-112054.png" alt="1_OffOn-20250714-112054.png" width="120" onclick="showModal(this.src)"></div></td><td ac:local-id="5f73c4dd-89c7-4ff0-8c51-e9e873eccc81"><p local-id="2f62d1cc-8dc0-45b5-afbf-f90e13533a86"><strong>Selezione multipla</strong><br>Con questa funzione si possono selezionare o deselezionare più pezzi alla volta.</p></td></tr><tr ac:local-id="8ec74d67-a703-4969-b216-b7ca1db33951"><td ac:local-id="cd020a0f-bc8e-400c-9d2c-09809aea256f"><div class="TextAlignCenter"><img src="attachments/3_PARAMETRIX/2-20250714-112035.png" alt="2-20250714-112035.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="4a646747-e4d4-4e18-8af4-1cffe8e1a0da"><p local-id="72a25010-2397-43b5-a27c-5e8bcac4a092"><strong>Seleziona tutto</strong><br>Con questa funzione si può selezionare o deselezionare tutti i pezzi presenti sull’area di lavoro.</p></td></tr><tr ac:local-id="7a546973-cc26-42b2-8f07-482a5a1a3b69"><td ac:local-id="79d9205f-45ee-4aca-8288-4fd0d8bd4362"><div class="TextAlignCenter"><img src="attachments/3_PARAMETRIX/1.0c-20250613-070833.png" alt="1.0c-20250613-070833.png" width="120" onclick="showModal(this.src)"></div></td><td ac:local-id="b96b52ac-3407-454e-a126-c89cb91858c1"><p local-id="f2404d96-1999-4360-a482-6e219ce6f2d3"><strong>Rimuovi pezzo</strong><br>Permette di rimuovere i pezzi dall’area di lavorazione.</p></td></tr><tr ac:local-id="ae399502-75c5-47cd-9ccf-16b57c96e626"><td ac:local-id="264cb8a1-cbb2-4989-9bde-715aa70a40e7"><div class="TextAlignCenter"><img src="attachments/3_PARAMETRIX/4_OffOn-20250714-111851.png" alt="4_OffOn-20250714-111851.png" width="120" onclick="showModal(this.src)"></div></td><td ac:local-id="00fc52e7-c3ce-469a-b87e-b62412227f49"><p local-id="e5e9b514-dc77-4e9a-a7b4-d6abfb2a667d"><strong>Salvataggio</strong><br>Permette di salvare lo stato di ciò su cui si sta lavorando.</p></td></tr><tr ac:local-id="75dda978-6194-4e74-906e-f5506edfd84b"><td ac:local-id="8aecbca2-1352-4014-98ac-3a34805ffc5f"><div class="TextAlignCenter"><img src="attachments/3_PARAMETRIX/5_OffOn-20250714-111837.png" alt="5_OffOn-20250714-111837.png" width="120" onclick="showModal(this.src)"></div></td><td ac:local-id="e41dba1c-220d-45a9-95c1-35e11d40c4f9"><p local-id="939be6f2-9cc1-4bab-b925-876ea407658d"><strong>Carica</strong><br>Permette di caricare un progetto o una lavorazione.</p></td></tr><tr ac:local-id="80f4035d-a8c7-44d0-8448-aaac7499a088"><td ac:local-id="351d676f-101a-4a99-a947-3814dbb0bd36"><div class="TextAlignCenter"><img src="attachments/3_PARAMETRIX/6_OffOn.png" alt="6_OffOn.png" width="121" onclick="showModal(this.src)"></div></td><td ac:local-id="ce798ba3-ee1e-4751-ab46-4af87421004d"><p local-id="daa0b7ef-db82-45d9-9112-577c16a91a23"><strong>Pannello informazioni</strong><br>Si apre un pannellino con varie informazioni.</p></td></tr><tr ac:local-id="f308257d-a5fd-4eca-b6cf-b054c1324816"><td ac:local-id="9308c712-118f-4727-932b-b16f4406958a"><div class="TextAlignCenter"><img src="attachments/3_PARAMETRIX/7-20250714-111535.png" alt="7-20250714-111535.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="c33c0096-d9d3-46ca-9f86-c11019507e97"><p local-id="7f478cce-010b-4f5b-b914-67c64805506d"><strong>Ripristina modifica</strong><br>Annulla l’ultima operazione effettuata.</p></td></tr><tr ac:local-id="c6be8e78-70f5-4aca-b305-624f26735912"><td ac:local-id="47676913-2a57-4020-b510-7b4e3cdd3b8d"><div class="TextAlignCenter"><img src="attachments/3_PARAMETRIX/8_OffOn-20250714-112937.png" alt="8_OffOn-20250714-112937.png" width="120" onclick="showModal(this.src)"></div></td><td ac:local-id="f354edce-d64e-4d9c-876e-489583ed8ab3"><p local-id="5daa0d4b-d6f8-416d-82e1-feab0b653bec"><strong>Macchina su taglio</strong><br>Permette di controllare la posizione del pezzo nell’area di lavoro rispetto alla posizione in macchina.</p></td></tr><tr ac:local-id="d902a01e-9b47-402e-9551-777f0e019e3d"><td ac:local-id="3dda4ec2-dd17-4b58-8f1a-df88eaee79f5"><div class="TextAlignCenter"><img src="attachments/3_PARAMETRIX/9_OffOn-20250613-115241.png" alt="9_OffOn-20250613-115241.png" width="120" onclick="showModal(this.src)"></div></td><td ac:local-id="c2746b6f-7795-49c4-a6b9-b1702251112f"><p local-id="0c9ace99-4ab5-4d16-8d88-ee34f80c3d7b"><strong>Rotazione pezzo</strong><br>Pannellino con cui è possibile girare il pezzo o i pezzi selezionati di 90 gradi oppure di tot gradi per volta in senso orario o antiorario.</p></td></tr><tr ac:local-id="2ec8bbc8-655b-4bb4-a1a4-3dc8e784df61"><td ac:local-id="b487cb29-079f-488f-adf0-93083ecad18a"><div class="TextAlignCenter"><img src="attachments/3_PARAMETRIX/10_OffOn-20250613-115308.png" alt="10_OffOn-20250613-115308.png" width="120" onclick="showModal(this.src)"></div></td><td ac:local-id="9b9ed8d9-a151-4e92-83d5-e6c715d6bfaa"><p local-id="d2ac6817-cfc2-49d8-810c-f05d8446d892"><strong>Muovi pezzi</strong><br>Pannellino con cui è possibile spostare nelle varie direzioni il pezzo.</p></td></tr><tr ac:local-id="97356701-9e7b-42f1-bf41-6730dd94a12c"><td ac:local-id="730530f9-e774-46d3-944d-3172ac788ac0"><div class="TextAlignCenter"><img src="attachments/3_PARAMETRIX/11_OffOn-20250613-115337.png" alt="11_OffOn-20250613-115337.png" width="120" onclick="showModal(this.src)"></div></td><td ac:local-id="d0512abb-78af-4084-ba40-747d75884cbd"><p local-id="8966cae1-aca3-4ae2-921d-dcb8bd64e930"><strong>Magnetizzare pezzi</strong><br>Funzionalità che permette di attaccare due tagli tra loro.</p></td></tr><tr ac:local-id="1f8299c4-24f9-4850-bbb1-cf0b1744930a"><td ac:local-id="e60900ac-e90e-4e5e-a606-a2f4c2616f06"><div class="TextAlignCenter"><img src="attachments/3_PARAMETRIX/12_OffOn-20250613-115403.png" alt="12_OffOn-20250613-115403.png" width="120" onclick="showModal(this.src)"></div></td><td ac:local-id="3e45be31-1eeb-4694-9c39-3028d9c9213b"><p local-id="ca329323-64a2-42c6-8851-49e10cc272e7"><strong>Taglio inclinato</strong><br>Pannellino che permette di fare un taglio inclinato su un pezzo nell’area di lavoro.</p></td></tr><tr ac:local-id="2e449c16-a56f-4683-aaad-e0bfa3049c72"><td ac:local-id="901d4ce8-3f5d-4641-b28b-b13324ee316f"><div class="TextAlignCenter"><img src="attachments/3_PARAMETRIX/13_OffOn-20250714-113208.png" alt="13_OffOn-20250714-113208.png" width="120" onclick="showModal(this.src)"></div></td><td ac:local-id="9db99fa5-8518-435f-be2e-94555224a4e4"><p local-id="d639a9d5-670c-42e8-8d3b-cd8265cd1259"><strong>Modifica pezzo standard</strong><br>Pannellino con il quale si possono cambiare le dimensioni di un pezzo commerciale.</p></td></tr></tbody></table><p local-id="95802dbb-f2da-4cc0-b80c-b0709fe76771"></p><!--Label="prx"--><!--Label="prx_wkz_lst"--><!--Label="prx_abv"--><!--Label="prx_wkz"--><!--Label="prx_blw"--><!--Label="prx_wkz_pos"--><!--Label="prx_lat"-->
+                        </main>
+
+                    </div>
+
+                    <img src="images/donatoni_222.jpg">
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="2.9_lista_programmi.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="3.1_parametri_utente.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+
+
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                <a rel="prev" href="2.9_lista_programmi.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="3.1_parametri_utente.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="mermaid.min.js"></script>
+        <script src="mermaid-init.js"></script>
+        <script src="hidemenu.js"></script>
+        <script src="imagemodal.js"></script>
+        <script src="login.js"></script>
+    </div>
+
+    <!-- Modale -->
+    <div id="modal" onclick="closeModal()">
+        <img id="modal-img" src="">
+    </div>;
+
+
+</body>
+</html>

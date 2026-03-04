@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+<head>
+    <!-- Book generated using mdBook -->
+    <meta charset="UTF-8">
+    <title>3.21.4 HANDLING OF THE MATERIAL WITH VACUUMS - EN-GB PARAMETRIX 4.13</title>
+
+    <!-- Custom HTML head -->
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="icon" href="favicon.svg">
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/chrome.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Fonts -->
+    <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+    <link rel="stylesheet" href="fonts/fonts.css">
+
+    <!-- Highlight.js Stylesheets -->
+    <link rel="stylesheet" id="highlight-css" href="highlight.css">
+    <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+    <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+    <!-- Custom theme stylesheets -->
+    <link rel="stylesheet" href="./mdbook-admonish.css">
+    <link rel="stylesheet" href="theme/custom.css">
+    <link rel="stylesheet" href="search.html">
+    <link rel="stylesheet" href="login.html">
+    <link rel="stylesheet" href="searchlogin.html">
+    <link rel="stylesheet" href="searchloginmenu.html">
+
+    <!-- Provide site root and default themes to javascript -->
+    <script>
+      const path_to_root = "";
+      const default_light_theme = "light";
+      const default_dark_theme = "navy";
+    </script>
+    <!-- Start loading toc.js asap -->
+    <script src="toc.js"></script>
+<script>(function () {
+  const SUFFIX = "#2utHhOLI7Iz0";
+
+  function buildUrl() {
+    const base = window.location.href.split("#")[0];
+    return base + SUFFIX;
+  }
+
+  function fallbackCopy(text) {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.top = "-1000px";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+
+  async function copyUrl() {
+    const url = buildUrl();
+
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(url);
+        return;
+      } catch (e) {}
+    }
+
+    fallbackCopy(url);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.getElementById("copy-link-btn");
+    if (!btn) return;
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      copyUrl();
+    });
+  });
+})();
+</script></head>
+<body>
+    <header class="header-main">
+        <div class="header-flex">
+            <div class="donatoni-flex">
+                <label class="btn hamburger-menu" id="sidebar-toggle" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                    <i id="sidebar-toggle-icon" class="fa-solid fa-bars"></i>
+                </label>
+
+                <img src="images/donatoni-logo-white.svg" alt="Donatoni Macchine">
+            </div>
+
+            <div class="donatoni-flex action-header-buttons">
+                <div id="search-wrapper" class="search-wrapper hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults"></ul>
+                    </div>
+                </div>
+                <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+
+                <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
+                    <i class="fa-solid fa-print"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div id="body-container">
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem("mdbook-theme");
+                let sidebar = localStorage.getItem("mdbook-sidebar");
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-theme",
+                        theme.slice(1, theme.length - 1)
+                    );
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-sidebar",
+                        sidebar.slice(1, sidebar.length - 1)
+                    );
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
+                .matches
+                ? default_dark_theme
+                : default_light_theme;
+            let theme;
+            try {
+                theme = localStorage.getItem("mdbook-theme");
+            } catch (e) { }
+            if (theme === null || theme === undefined) {
+                theme = default_theme;
+            }
+            const html = document.documentElement;
+            html.classList.remove("light");
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try {
+                    sidebar = localStorage.getItem('mdbook-sidebar');
+                } catch (e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document
+                        .getElementById("sidebar-toggle")
+                        .setAttribute("aria-expanded", sidebar === "visible");
+                    document
+                        .getElementById("sidebar")
+                        .setAttribute("aria-hidden", sidebar !== "visible");
+                    Array.from(document.querySelectorAll("#sidebar a")).forEach(
+                        function (link) {
+                            link.setAttribute("tabIndex", sidebar === "visible" ? 0 : -1);
+                        }
+                    );
+                </script>
+
+                <div id="content" class="content">
+
+                    <div>
+
+                        <img src="images/donatoni_111.jpg">
+
+                        <main style="margin-left: 20px;">
+                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="3214-handling-of-the-material-with-vacuums" style="margin:0;"><a class="header" href="#3214-handling-of-the-material-with-vacuums">3.21.4 HANDLING OF THE MATERIAL WITH VACUUMS</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="3.21.4 HANDLING OF THE MATERIAL WITH VACUUMS"--><p>This functionality allows to divide the slab and move the material with the vacuum.</p><div class="TextAlignCenter"><img src="attachments/3.21.4_HANDLING_OF_THE_MATERIAL_WITH_VACUUMS/0.02.png" alt="0.02.png" width="800" onclick="showModal(this.src)"></div><p></p><p>
+</p><p></p><h1 id="buttons"><a class="header" href="#buttons">Buttons</a></h1><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="6dfadb12-2b14-49a9-a80f-785acde97e3c"><colgroup><col style="width: 289.0px;"><col style="width: 1508.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/3.21.4_HANDLING_OF_THE_MATERIAL_WITH_VACUUMS/VentoseMan-20241212-130138.png" alt="VentoseMan-20241212-130138.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Manual handling</strong><br>Allows the operator to have full control over the movements to be performed.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.21.4_HANDLING_OF_THE_MATERIAL_WITH_VACUUMS/VentoseAuto2-20241212-130138.png" alt="VentoseAuto2-20241212-130138.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>handling automatic</strong><br>Allows to execute in automatic the best move.</p></td></tr></tbody></table><p></p><h1 id="manual-handling"><a class="header" href="#manual-handling">Manual handling</a></h1><p>Through this function, the operator can split the slab using cuts, and move to the desired position the material by using the vacuum cups.<br>Based on the number of cuts selected, this function presents two modes.</p><p></p><h2 id="single-selection-mode"><a class="header" href="#single-selection-mode">Single selection mode</a></h2><p>To perform a displacement by vacuum, it is necessary to select a cut with disk, both linear and arch, and press the button. <br>The cut is extended until it reaches the edge of the slab, when possible.<br>If the selected cut is inclined, a linear cut will be automatically added specifically to be able to divide the slab.</p><p>At this point opens the following panel, where it is possible to specify the direction, the way and the distance of the desired shift. </p><div class="TextAlignCenter"><img src="attachments/3.21.4_HANDLING_OF_THE_MATERIAL_WITH_VACUUMS/0.01.png" alt="0.01.png" width="800" onclick="showModal(this.src)"></div><p>In the right section are present these buttons:</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="afd9de43-56bc-48fd-a2b0-46bf9f7bd580"><colgroup><col style="width: 415.0px;"><col style="width: 1384.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/3.21.4_HANDLING_OF_THE_MATERIAL_WITH_VACUUMS/0.04.png" alt="0.04.png" width="121" onclick="showModal(this.src)"></div></td><td><p><strong>Directional Move</strong><br>Move a part of the cut slab in one of the directions.<br>In the text box below it is possible to modify the displacement distance.</p></td></tr></tbody></table><p>Select an arrow on the working area, or press one of the buttons on the right to decide direction and side of the displacement. <br>The slab is divided, and moved based on the type of cut that has been selected.<br>The slab's displacement distance in both cases is editable from the text box located below the four directional buttons. </p><div class="TextAlignCenter"><img src="attachments/3.21.4_HANDLING_OF_THE_MATERIAL_WITH_VACUUMS/0.02.png" alt="0.02.png" width="800" onclick="showModal(this.src)"></div><p>The selected cut is executed first and positioned at the top of the list of cuts to be made. Immediately after, the movement is performed via suction cups.</p>
+<div id="admonition-warning" class="admonition admonish-warning" role="note" aria-labelledby="admonition-warning-title">
+<div class="admonition-title">
+<div id="admonition-warning-title">
+<p>Warning</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-warning"></a>
+</div>
+<div>
+<p>WARNING!The check on the feasibility of the shift is in charge of the operator.</p>
+</div>
+</div>
+<p></p><h2 id="multiple-selection-mode"><a class="header" href="#multiple-selection-mode">Multiple selection mode</a></h2><p>The multiple selection mode allows the lifting of pieces with a generic shape. To do this, it is necessary to select the desired cuts to divide the slab using the multiple selection mode. </p><div class="TextAlignCenter"><img src="attachments/3.21.4_HANDLING_OF_THE_MATERIAL_WITH_VACUUMS/0.05.png" alt="0.05.png" width="800" onclick="showModal(this.src)"></div><p>Once the selection is made, you press the button to start the procedure.</p><p>The selected cuts are extended, if possible, in order to form a continuous path that could divide the slab. In the case in which one or more of the selected cuts are inclined, these are automatically replaced by straight cuts. </p><p>At this point opens the following panel.</p><div class="TextAlignCenter"><img src="attachments/3.21.4_HANDLING_OF_THE_MATERIAL_WITH_VACUUMS/0.07.png" alt="0.07.png" width="800" onclick="showModal(this.src)"></div><p>After having chosen the slab to move, it’s possible to decide the move by dragging it on the work area, or using one of the following buttons:</p><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="6bca4968-32d3-404b-b6fc-49d1d5be13d3"><colgroup><col style="width: 358.0px;"><col style="width: 1438.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/3.21.4_HANDLING_OF_THE_MATERIAL_WITH_VACUUMS/image-20250617-082031.png" alt="image-20250617-082031.png" width="131" onclick="showModal(this.src)"></div></td><td><p><strong>Step</strong><br>You can insert a value indicating the shift distance in mm that is executed by pressing one of the directional buttons.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.21.4_HANDLING_OF_THE_MATERIAL_WITH_VACUUMS/0.20.png" alt="0.20.png" width="117" onclick="showModal(this.src)"></div></td><td><p><strong>Movement along axes</strong><br>In these boxes are displayed values that represent the shift of the slab, respectively in vertical and horizontal direction, with respect to its starting position.<br>It is possible to change manually these values to be able to decide the shift of the slab.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.21.4_HANDLING_OF_THE_MATERIAL_WITH_VACUUMS/image-20250617-082327.png" alt="image-20250617-082327.png" width="187" onclick="showModal(this.src)"></div></td><td><p><strong>Checking collision cuts</strong><br>Parametrix automatically checks that, in the position in which the slab has been moved, no protruding cut goes to damage the other portion of material. In case an anomaly is detected, the slab is moved in the most nearby suitable position.<br>It is possible deactivate it to give full control to the operator on the shift.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.21.4_HANDLING_OF_THE_MATERIAL_WITH_VACUUMS/1.12.png" alt="1.12.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Restore original position</strong><br>Allows to reattach piece of slab moved to where it was initially.</p></td></tr></tbody></table><p></p><p>Upon confirmation, the selected cuts are placed at the top of the list of cuts to be made. Immediately after, the move is executed through suction cups.</p><div class="TextAlignCenter"><img src="attachments/3.21.4_HANDLING_OF_THE_MATERIAL_WITH_VACUUMS/0.08.png" alt="0.08.png" width="800" onclick="showModal(this.src)"></div>
+<div id="admonition-warning-1" class="admonition admonish-warning" role="note" aria-labelledby="admonition-warning-1-title">
+<div class="admonition-title">
+<div id="admonition-warning-1-title">
+<p>Warning</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-warning-1"></a>
+</div>
+<div>
+<p>WARNING!The multiple selection mode allows the lifting of generic shaped pieces, and therefore also cantilever pieces. The control on the feasibility of the movement is in charge of the operator.</p>
+</div>
+</div>
+<p></p><h3 id="rules-for-valid-cuts-selection"><a class="header" href="#rules-for-valid-cuts-selection">Rules for valid cuts selection</a></h3><p>To be able to correctly divide the slab, it is necessary to observe some indications for the selection of the cuts.</p><ul><li><p>The selected cuts can be cuts with disk, both straight and arc, milling and multiple holes on angle.</p></li><li><p>The selected cuts must be able to form a path that separates in two the slab. The selection of cuts that form a closed path is not allowed.</p></li><li><p>The program automatically extends the linear cuts with disk until it finds a solution that allows to divide the slab. The arc cuts, the milling operations and the holes, instead, are not modified automatically.<br>Considering this, it's advisable that the first and the last cut of the path are straight edge cuts with disk.</p></li><li><p>In presence of internal angles, in which the disk's blade doesn't allow completely separating the material, it is necessary insert milling on vertex or multiple holes.</p></li><li><p>The penetration of the selected cuts must be sufficient to be able to separate the slab.</p></li><li><p>The first and last cut must necessarily be able to exit from the slab.</p></li></ul><p></p><h3 id="operation-not-possible-message"><a class="header" href="#operation-not-possible-message">Operation not possible message</a></h3><p>In the case in which the operation of handling is not considered possible by the program, the causes can be the following:</p><ul><li><p>The selected cuts are not sufficient to create a path that divides into two the slab;</p></li><li><p>The chosen cuts form a closed path;</p></li><li><p>The cuts chosen are not able to detach the piece because of the disk's overhang.</p></li><li><p>The extension of the selected cuts goes to ruin other pieces;</p></li><li><p>The penetration of at least one of the selected cuts is not enough to separate the slab;</p></li></ul><p></p><h1 id="handling-automatic"><a class="header" href="#handling-automatic">handling automatic</a></h1><p>Through this function, the program will try to solve automatically situations in which one or more pieces on the work area are damaged by other cuts.</p><div class="TextAlignCenter"><img src="attachments/3.21.4_HANDLING_OF_THE_MATERIAL_WITH_VACUUMS/1.1.png" alt="1.1.png" width="800" onclick="showModal(this.src)"></div><p>The algorithm analyzes the arrangement of cuts and determines autonomously how and where to make the move, optimizing the sequence of operations.</p><div class="TextAlignCenter"><img src="attachments/3.21.4_HANDLING_OF_THE_MATERIAL_WITH_VACUUMS/1.2.png" alt="1.2.png" width="800" onclick="showModal(this.src)"></div><p>However, it is important to note that automatic calculation is not always able to manage all cases. In particularly complex situations, it may be necessary to intervene manually to complete or correct the movement operations.</p>
+<div id="admonition-warning-2" class="admonition admonish-warning" role="note" aria-labelledby="admonition-warning-2-title">
+<div class="admonition-title">
+<div id="admonition-warning-2-title">
+<p>Warning</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-warning-2"></a>
+</div>
+<div>
+<p>WARNING!The check on feasibility of move is in charge of operator.</p>
+</div>
+</div>
+<p></p><h1 id="change-the-position-of-the-vacuum"><a class="header" href="#change-the-position-of-the-vacuum">Change the position of the vacuum</a></h1><p>During this phase, the operator has the ability to change both the vacuum cups taking position and the activation vacuum areas, to ensure an optimal and safe grip on the material.<br>To do it, select the 'Move' item within the list, and press the button for the cuts’ modification.</p><div class="TextAlignCenter"><img src="attachments/3.21.4_HANDLING_OF_THE_MATERIAL_WITH_VACUUMS/0.03.png" alt="0.03.png" width="164" onclick="showModal(this.src)"></div><p>The buttons present in this panel allow the operator to interact with the vacuum.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="5c38e7b6-913e-43e0-bbb8-eb079daaf45d"><colgroup><col style="width: 307.0px;"><col style="width: 1490.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/3.21.4_HANDLING_OF_THE_MATERIAL_WITH_VACUUMS/0.04.png" alt="0.04.png" width="120" onclick="showModal(this.src)"></div></td><td><p><strong>Directional Move</strong><br>Allow to change the position of the vacuum.<br>In the text box below it is possible to choose the distance of this displacement.</p>
+<div id="admonition-info" class="admonition admonish-info" role="note" aria-labelledby="admonition-info-title">
+<div class="admonition-title">
+<div id="admonition-info-title">
+<p>Info</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-info"></a>
+</div>
+<div>
+<p>NOTEIt is possible to move the vacuum cups even by interacting on the working area.</p>
+</div>
+</div>
+</td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.21.4_HANDLING_OF_THE_MATERIAL_WITH_VACUUMS/0.13.png" alt="0.13.png" width="120" onclick="showModal(this.src)"></div></td><td><p><strong>Rotation of the suction cups</strong><br>Rotate the suction cups around their axis.<br>The value in the text box next to it indicates how much the suction cup group rotates with each click on the arrows.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.21.4_HANDLING_OF_THE_MATERIAL_WITH_VACUUMS/0.09.png" alt="0.09.png" width="120" onclick="showModal(this.src)"></div></td><td><p><strong>Suction cups group scheme</strong><br>The scheme of the vacuum cups group allows the operator to select the areas of vacuum that wants to turn on or off during movement. In case one area is green the machine will activate the vacuum, if it's red no. <br>To the left an example with areas 5 and 6 turned off.</p></td></tr></tbody></table><p></p><!--Label="cut_mov"--><!--Label="cut_mov_man"--><!--Label="cut_mov_pos"--><!--Label="cut_mov_aut"-->
+                        </main>
+
+                    </div>
+
+                    <img src="images/donatoni_222.jpg">
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="3.21.3_multiple_selection.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="3.21.5_single_cut.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+
+
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                <a rel="prev" href="3.21.3_multiple_selection.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="3.21.5_single_cut.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="mermaid.min.js"></script>
+        <script src="mermaid-init.js"></script>
+        <script src="hidemenu.js"></script>
+        <script src="imagemodal.js"></script>
+        <script src="login.js"></script>
+    </div>
+
+    <!-- Modale -->
+    <div id="modal" onclick="closeModal()">
+        <img id="modal-img" src="">
+    </div>;
+
+
+</body>
+</html>

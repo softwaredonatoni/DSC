@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+<head>
+    <!-- Book generated using mdBook -->
+    <meta charset="UTF-8" />
+    <title>MANAGE CUTS - SX OPTIMIZATION - PARAMETRIX FEATURES</title>
+
+    <!-- Custom HTML head -->
+
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#ffffff" />
+
+    <link rel="icon" href="favicon.svg" />
+    <link rel="shortcut icon" href="favicon.png" />
+    <link rel="stylesheet" href="css/variables.css" />
+    <link rel="stylesheet" href="css/general.css" />
+    <link rel="stylesheet" href="css/chrome.css" />
+    <link rel="stylesheet" href="css/print.css" media="print" />
+    <link rel="stylesheet" href="css/custom.css" />
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <!-- Fonts -->
+    <link rel="stylesheet" href="FontAwesome/css/font-awesome.css" />
+    <link rel="stylesheet" href="fonts/fonts.css" />
+
+    <!-- Highlight.js Stylesheets -->
+    <link rel="stylesheet" id="highlight-css" href="highlight.css" />
+    <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css" />
+    <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css" />
+
+    <!-- Custom theme stylesheets -->
+    <link rel="stylesheet" href="./mdbook-admonish.css" />
+    <link rel="stylesheet" href="theme/custom.css" />
+    <link rel="stylesheet" href="search.html" />
+    <link rel="stylesheet" href="login.html" />
+    <link rel="stylesheet" href="searchlogin.html" />
+    <link rel="stylesheet" href="searchloginmenu.html" />
+
+    <!-- Provide site root and default themes to javascript -->
+    <script>
+      const path_to_root = "";
+      const default_light_theme = "light";
+      const default_dark_theme = "navy";
+    </script>
+    <!-- Start loading toc.js asap -->
+    <script src="toc.js"></script>
+</head>
+<body>
+    <header class="header-main">
+        <div class="header-flex">
+            <div class="donatoni-flex">
+                <label class="btn hamburger-menu"
+                       id="sidebar-toggle"
+                       for="sidebar-toggle-anchor"
+                       title="Toggle Table of Contents"
+                       aria-label="Toggle Table of Contents"
+                       aria-controls="sidebar">
+                    <i id="sidebar-toggle-icon" class="fa-solid fa-bars"></i>
+                </label>
+
+                <img src="images/donatoni-logo-white.svg" alt="Donatoni Macchine" />
+            </div>
+
+            <div class="donatoni-flex action-header-buttons">
+                <div id="search-wrapper" class="search-wrapper hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search"
+                               id="searchbar"
+                               name="searchbar"
+                               placeholder="Search this book ..."
+                               aria-controls="searchresults-outer"
+                               aria-describedby="searchresults-header" />
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults"></ul>
+                    </div>
+                </div>
+                <button class="btn btn-sm"
+                        id="search-toggle"
+                        type="button"
+                        title="Search. (Shortkey: s)"
+                        aria-label="Toggle Searchbar"
+                        aria-expanded="false"
+                        aria-keyshortcuts="S"
+                        aria-controls="searchbar">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+
+                <button class="btn btn-sm me-2"
+                        onclick="window.location.href='print.html'"
+                        title="Print this book"
+                        aria-label="Print this book">
+                    <i class="fa-solid fa-print"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div id="body-container">
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden" />
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem("mdbook-theme");
+                let sidebar = localStorage.getItem("mdbook-sidebar");
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-theme",
+                        theme.slice(1, theme.length - 1)
+                    );
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-sidebar",
+                        sidebar.slice(1, sidebar.length - 1)
+                    );
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
+                .matches
+                ? default_dark_theme
+                : default_light_theme;
+            let theme;
+            try {
+                theme = localStorage.getItem("mdbook-theme");
+            } catch (e) { }
+            if (theme === null || theme === undefined) {
+                theme = default_theme;
+            }
+            const html = document.documentElement;
+            html.classList.remove("light");
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try {
+                    sidebar = localStorage.getItem('mdbook-sidebar');
+                } catch (e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document
+                        .getElementById("sidebar-toggle")
+                        .setAttribute("aria-expanded", sidebar === "visible");
+                    document
+                        .getElementById("sidebar")
+                        .setAttribute("aria-hidden", sidebar !== "visible");
+                    Array.from(document.querySelectorAll("#sidebar a")).forEach(
+                        function (link) {
+                            link.setAttribute("tabIndex", sidebar === "visible" ? 0 : -1);
+                        }
+                    );
+                </script>
+
+                <div id="content" class="content">
+
+                    <div>
+
+                        <img src="images/donatoni_111.jpg" />
+
+                        <main style="margin-left: 20px;">
+                            <h1 id="manage-cuts---sx-optimization"><a class="header" href="#manage-cuts---sx-optimization">MANAGE CUTS - SX OPTIMIZATION</a></h1><!--Page="MANAGE CUTS - SX OPTIMIZATION"--><p local-id="15e22526-7a79-41b3-ae37-65b7a6809e24">Nella pagina di gestione dei tagli è possibile applicare delle ottimizzazioni per la macchina SX per migliorare la combinazione dei mandrini in fase di taglio.</p><p local-id="86c1ba18-3b98-40a7-8a16-2b9f2f1dbddf">Sara sufficiente inserire il tipo di ottimizzazione e premere il tasto.</p><div class="TextAlignCenter"><img src="attachments/MANAGE_CUTS_-_SX_OPTIMIZATION/image-20250711-051959.png" alt="image-20250711-051959.png" width="115" onclick="showModal(this.src)"></div><p>
+</p><p local-id="a60cd8b3-c171-48ac-8f14-67281f976844"></p><h1 local-id="01c754a8-5ea1-4ef1-b959-fdb4cce35347">Mode 1</h1><p local-id="45b00125-1f34-4d04-94d8-4e4caee53195">Due tagli diversi sulla stessa linea retta diventano un unico taglio.</p><table class="my-table2" data-table-width="760" data-layout="default" ac:local-id="1189a045-7373-4960-ad77-ff3bc15be64b"><tbody><tr ac:local-id="aa62e2e8-040c-43bf-9c07-22e688bafd51"><td ac:local-id="611257d6-ca81-4c9b-b8a0-ce1cc04f6eaf"><div class="TextAlignCenter"><img src="attachments/MANAGE_CUTS_-_SX_OPTIMIZATION/2025-07-11_07_12_16-Form1.png" alt="2025-07-11_07_12_16-Form1.png" width="363" onclick="showModal(this.src)"></div></td><td ac:local-id="aa602b3a-1680-40ae-ae9c-c81499030a61"><div class="TextAlignCenter"><img src="attachments/MANAGE_CUTS_-_SX_OPTIMIZATION/2025-07-11_07_12_27-Form1.png" alt="2025-07-11_07_12_27-Form1.png" width="363" onclick="showModal(this.src)"></div></td></tr></tbody></table><h1 local-id="8cd123ab-7c7d-47a2-bc80-3916edcc9716">Mode 2</h1><p local-id="36001bb0-223f-4181-954c-1b4c465f8f43">Prova a realizzare tutti i tagli della stessa lunghezza (massima).</p><table class="my-table2" data-table-width="760" data-layout="default" ac:local-id="25e8e7d3-8f44-4445-8824-266ee1c472de"><tbody><tr ac:local-id="8d9c0270-cd40-423c-bce2-ff31d4219185"><td ac:local-id="11e4f862-50e4-4739-8d64-3d05de1dbbf3"><div class="TextAlignCenter"><img src="attachments/MANAGE_CUTS_-_SX_OPTIMIZATION/2025-07-11_07_12_50-Form1.png" alt="2025-07-11_07_12_50-Form1.png" width="363" onclick="showModal(this.src)"></div></td><td ac:local-id="4a975007-628b-4f29-87af-84f9219ecef5"><div class="TextAlignCenter"><img src="attachments/MANAGE_CUTS_-_SX_OPTIMIZATION/2fd95fd7-3d59-48be-8a4c-0f4532c09a13.png" alt="2fd95fd7-3d59-48be-8a4c-0f4532c09a13.png" width="363" onclick="showModal(this.src)"></div></td></tr></tbody></table><h1 local-id="18c6abad-b299-43a5-a77f-85f64bf3bd43">Mode 3</h1><p local-id="c9b49eb3-471e-40ca-9af1-f6fe5b7e10bd">Dopo l’utilizzo del sistema di movimentazione è impossibile spostare manualmente il taglio prima dello spostamento. Con l'ottimizzazione 3 il software antepone al movimento il taglio che la macchina può eseguire.</p><table class="my-table2" data-table-width="760" data-layout="default" ac:local-id="7d9809cc-afa7-4cd9-90ec-222b987247b9"><tbody><tr ac:local-id="6c24060c-b17f-4478-9c96-5fb8afefc690"><td ac:local-id="6ae9f3b7-69e1-4290-8a4a-c7ec771cafeb"><div class="TextAlignCenter"><img src="attachments/MANAGE_CUTS_-_SX_OPTIMIZATION/2025-07-11_07_16_55-Form1.png" alt="2025-07-11_07_16_55-Form1.png" width="363" onclick="showModal(this.src)"></div></td><td ac:local-id="ffe25a39-b3ec-47b1-973f-f139996e7169"><div class="TextAlignCenter"><img src="attachments/MANAGE_CUTS_-_SX_OPTIMIZATION/2025-07-11_07_16_17-Form1.png" alt="2025-07-11_07_16_17-Form1.png" width="363" onclick="showModal(this.src)"></div></td></tr></tbody></table><h1 local-id="74030951-bc4e-41ab-8d5d-0d3d4e2000db">Mode 4</h1><p local-id="205aecbe-b2be-45be-8628-de7b7ab0350b">Tagli di lunghezza simile diventano tagli con la stessa lunghezza. All'interno della pagina parametri è presente il parametro Distanza “Opti 4” utilizzato per questa funzione.</p><table class="my-table2" data-table-width="760" data-layout="default" ac:local-id="23482b19-ded9-46a3-99ed-992cd0b48818"><tbody><tr ac:local-id="828e5cb2-1874-42b9-a4e6-8af783279777"><td ac:local-id="f46e6173-2da5-437e-9acc-997f283c1911"><div class="TextAlignCenter"><img src="attachments/MANAGE_CUTS_-_SX_OPTIMIZATION/2025-07-11_07_28_16-Form1.png" alt="2025-07-11_07_28_16-Form1.png" width="363" onclick="showModal(this.src)"></div></td><td ac:local-id="369c92d7-8aa8-4ae2-9d2b-a4931b4b2925"><div class="TextAlignCenter"><img src="attachments/MANAGE_CUTS_-_SX_OPTIMIZATION/2025-07-11_07_28_31-Form1.png" alt="2025-07-11_07_28_31-Form1.png" width="363" onclick="showModal(this.src)"></div></td></tr></tbody></table><h1 local-id="777815ac-2a3e-4de6-bc49-0201f8645f45">Mode 5</h1><p local-id="5e34ae9d-1901-4b5e-81c3-d18fac33c389">Allunga tutti i tagli oltre il bordo della lastra e li rende di lunghezza simile (Mode 2)</p><table class="my-table2" data-table-width="760" data-layout="default" ac:local-id="27365201-250c-47b3-9488-75788e3522eb"><tbody><tr ac:local-id="7d694651-8dd1-40a6-a2d6-53696c5d6bd3"><td ac:local-id="e77cfe09-0cea-4e0e-96f6-5a78977e77e0"><div class="TextAlignCenter"><img src="attachments/MANAGE_CUTS_-_SX_OPTIMIZATION/2025-07-11_07_16_17-Form1.png" alt="2025-07-11_07_16_17-Form1.png" width="363" onclick="showModal(this.src)"></div></td><td ac:local-id="8c03b757-8af0-432a-8f42-d0028f04dec4"><div class="TextAlignCenter"><img src="attachments/MANAGE_CUTS_-_SX_OPTIMIZATION/2025-07-11_07_17_27-Form1.png" alt="2025-07-11_07_17_27-Form1.png" width="363" onclick="showModal(this.src)"></div></td></tr></tbody></table><p local-id="4f52d14b-38c7-4bf2-99c1-a0b15c304aee"></p><h2 local-id="b00b18ab-af9d-424e-b45c-202e6f0ade03">VIDEO</h2><div class="TextAlignCenter"><video controls src="attachments/MANAGE_CUTS_-_SX_OPTIMIZATION/MANAGE_CUTS_-_SX_OPTIMIZATION.mp4" width="760" aria-label="attachments/MANAGE_CUTS_-_SX_OPTIMIZATION/MANAGE_CUTS_-_SX_OPTIMIZATION.mp4"></video></div><!--Label="manage_cuts_sx_optimization"-->
+                        </main>
+
+                    </div>
+
+                    <img src="images/donatoni_222.jpg" />
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="manage_cuts_-_operations.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="dxf_layout_-_import.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+
+
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                <a rel="prev" href="manage_cuts_-_operations.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="dxf_layout_-_import.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="mermaid.min.js"></script>
+        <script src="mermaid-init.js"></script>
+        <script src="hidemenu.js"></script>
+        <script src="imagemodal.js"></script>
+        <script src="login.js"></script>
+    </div>
+
+    <!-- Modale -->
+    <div id="modal" onclick="closeModal()">
+        <img id="modal-img" src="">
+    </div>;
+
+
+</body>
+</html>

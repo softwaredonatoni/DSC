@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+<head>
+    <!-- Book generated using mdBook -->
+    <meta charset="UTF-8">
+    <title>3.13.7 MILLING - EN-GB PARAMETRIX 4.13</title>
+
+    <!-- Custom HTML head -->
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="icon" href="favicon.svg">
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/chrome.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Fonts -->
+    <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+    <link rel="stylesheet" href="fonts/fonts.css">
+
+    <!-- Highlight.js Stylesheets -->
+    <link rel="stylesheet" id="highlight-css" href="highlight.css">
+    <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+    <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+    <!-- Custom theme stylesheets -->
+    <link rel="stylesheet" href="./mdbook-admonish.css">
+    <link rel="stylesheet" href="theme/custom.css">
+    <link rel="stylesheet" href="search.html">
+    <link rel="stylesheet" href="login.html">
+    <link rel="stylesheet" href="searchlogin.html">
+    <link rel="stylesheet" href="searchloginmenu.html">
+
+    <!-- Provide site root and default themes to javascript -->
+    <script>
+      const path_to_root = "";
+      const default_light_theme = "light";
+      const default_dark_theme = "navy";
+    </script>
+    <!-- Start loading toc.js asap -->
+    <script src="toc.js"></script>
+<script>(function () {
+  const SUFFIX = "#2utHhOLI7Iz0";
+
+  function buildUrl() {
+    const base = window.location.href.split("#")[0];
+    return base + SUFFIX;
+  }
+
+  function fallbackCopy(text) {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.top = "-1000px";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+
+  async function copyUrl() {
+    const url = buildUrl();
+
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(url);
+        return;
+      } catch (e) {}
+    }
+
+    fallbackCopy(url);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.getElementById("copy-link-btn");
+    if (!btn) return;
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      copyUrl();
+    });
+  });
+})();
+</script></head>
+<body>
+    <header class="header-main">
+        <div class="header-flex">
+            <div class="donatoni-flex">
+                <label class="btn hamburger-menu" id="sidebar-toggle" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                    <i id="sidebar-toggle-icon" class="fa-solid fa-bars"></i>
+                </label>
+
+                <img src="images/donatoni-logo-white.svg" alt="Donatoni Macchine">
+            </div>
+
+            <div class="donatoni-flex action-header-buttons">
+                <div id="search-wrapper" class="search-wrapper hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults"></ul>
+                    </div>
+                </div>
+                <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+
+                <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
+                    <i class="fa-solid fa-print"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div id="body-container">
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem("mdbook-theme");
+                let sidebar = localStorage.getItem("mdbook-sidebar");
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-theme",
+                        theme.slice(1, theme.length - 1)
+                    );
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-sidebar",
+                        sidebar.slice(1, sidebar.length - 1)
+                    );
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
+                .matches
+                ? default_dark_theme
+                : default_light_theme;
+            let theme;
+            try {
+                theme = localStorage.getItem("mdbook-theme");
+            } catch (e) { }
+            if (theme === null || theme === undefined) {
+                theme = default_theme;
+            }
+            const html = document.documentElement;
+            html.classList.remove("light");
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try {
+                    sidebar = localStorage.getItem('mdbook-sidebar');
+                } catch (e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document
+                        .getElementById("sidebar-toggle")
+                        .setAttribute("aria-expanded", sidebar === "visible");
+                    document
+                        .getElementById("sidebar")
+                        .setAttribute("aria-hidden", sidebar !== "visible");
+                    Array.from(document.querySelectorAll("#sidebar a")).forEach(
+                        function (link) {
+                            link.setAttribute("tabIndex", sidebar === "visible" ? 0 : -1);
+                        }
+                    );
+                </script>
+
+                <div id="content" class="content">
+
+                    <div>
+
+                        <img src="images/donatoni_111.jpg">
+
+                        <main style="margin-left: 20px;">
+                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="3137-milling" style="margin:0;"><a class="header" href="#3137-milling">3.13.7 MILLING</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="3.13.7 MILLING"--><p>The 'Milling' function allows to create a milling on the piece, on the side, on the edge or on the entire perimeter.<br>The interface for this function looks like the following image:</p><div class="TextAlignCenter"><img src="attachments/3.13.7_MILLING/4.0-20250701-120927.png" alt="4.0-20250701-120927.png" width="800" onclick="showModal(this.src)"></div><p></p><p>
+</p><p></p><h1 id="parameters"><a class="header" href="#parameters">Parameters</a></h1>
+<div id="admonition-info" class="admonition admonish-info" role="note" aria-labelledby="admonition-info-title">
+<div class="admonition-title">
+<div id="admonition-info-title">
+<p>Info</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-info"></a>
+</div>
+<div>
+<p>NOTEYou must choose one of the following modes</p>
+</div>
+</div>
+<table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="dc331dda-11da-457c-a97e-83d231196f03"><colgroup><col style="width: 169.0px;"><col style="width: 1629.0px;"></colgroup><tbody><tr><td data-highlight-colour="#ffffff"><p><strong>Corner</strong></p></td><td data-highlight-colour="#ffffff"><p>Removes the material that the disk can not eliminate without damaging the piece. It is only needed to refine some points of the piece.</p></td></tr><tr><td data-highlight-colour="#ffffff"><p><strong>Side</strong></p></td><td data-highlight-colour="#ffffff"><p>The milling tool is used to cut a side of the piece. It doesn’t flank the cut with the disk but completely replaces it.</p></td></tr><tr><td data-highlight-colour="#ffffff"><p><strong>Perimeter</strong></p></td><td data-highlight-colour="#ffffff"><p>It provides to use the milling tool instead of the disk tool to execute the cut on all a polygon of the piece. It replaces the disk as the side mode.</p></td></tr></tbody></table>
+<div id="admonition-note" class="admonition admonish-info" role="note" aria-labelledby="admonition-note-title">
+<div class="admonition-title">
+<div id="admonition-note-title">
+<p>NOTE</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-note"></a>
+</div>
+<div>
+<p>In every mode, the cut thickness is equivalent to the diameter of the installed milling tool. The variation of this element automatically modifies the cuts updating them with the new measure.For the Vertex mode the thickness variation of the material or the diameter variation of the disk, involve a stretching or shortening of the cut, so as to adapt to the new chosen measurements. In case the milling cutter is too large to cut the selected side, an error message will be shown on the screen.</p>
+</div>
+</div>
+<table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="002450e2-39b5-4605-a52d-385e450b311e"><colgroup><col style="width: 230.0px;"><col style="width: 1568.0px;"></colgroup><tbody><tr><td><p><strong>Thickness</strong></p></td><td><p>The slab thickness currently set in Parametrix is shown, to help the operator apply the processing.</p></td></tr><tr><td><p><strong>Penetration</strong></p></td><td><p>The operator can decide the penetration of the milling in the material.</p></td></tr></tbody></table><p></p><p></p><h1 id="execution-work"><a class="header" href="#execution-work">Execution work</a></h1>
+<div id="admonition-info-1" class="admonition admonish-info" role="note" aria-labelledby="admonition-info-1-title">
+<div class="admonition-title">
+<div id="admonition-info-1-title">
+<p>Info</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-info-1"></a>
+</div>
+<div>
+<p>NOTEIt is possible to apply the working by pressing the button on the left of the cut in the polygons list.A red icon with an 'X' indicates that the process can not be applied to the desired cut.</p>
+</div>
+</div>
+<p>The consequences of applying a milling vary according to the selected mode and present some differences, described in the following paragraphs.</p><p>Each milling applied to a piece is inserted into the list of cuts associated with a polygon and represented graphically in blue color.</p><ul><li><p>In the <strong>Corner</strong> mode, the milling is aligned to the selected corner.</p></li><li><p>In the <strong>Side</strong> and <strong>Perimeter</strong> modes, <strong>one</strong> or <strong>all</strong> cuts of the polygon are replaced respectively.</p></li></ul><p></p><h2 id="execution-on-a-vertex"><a class="header" href="#execution-on-a-vertex"><strong>Execution on a vertex</strong></a></h2><p>The milling is applied to the closest vertex to the selected point of a cut in the preview.<br>The application will take place between two consecutive cuts.</p><p>In the following example image are showed two milling workings on vertex: the first on a top left corner of the interior polygon; the second on a vertex of the exterior polygon.</p><div class="TextAlignCenter"><img src="attachments/3.13.7_MILLING/4.1-20250701-121051.png" alt="4.1-20250701-121051.png" width="800" onclick="showModal(this.src)"></div><p></p><p></p><h2 id="execution-on-a-side"><a class="header" href="#execution-on-a-side"><strong>Execution on a side</strong></a></h2><p>Selecting any point of a cut on the preview, the milling will be applied along the entire corresponding side.</p><p>In the following image are shown two milling workings on side: the first on the left side of the internal polygon; the second on a bottom side of the external polygon.</p><div class="TextAlignCenter"><img src="attachments/3.13.7_MILLING/4.2-20250701-121216.png" alt="4.2-20250701-121216.png" width="800" onclick="showModal(this.src)"></div><p></p><h2 id="execution-on-perimeter"><a class="header" href="#execution-on-perimeter"><strong>Execution on perimeter</strong></a></h2><p>Regardless of the point or cut selected, the milling will be performed along the entire perimeter of the selected polygon.</p><div class="TextAlignCenter"><img src="attachments/3.13.7_MILLING/4.3_b-20250703-073209.png" alt="4.3_b-20250703-073209.png" width="800" onclick="showModal(this.src)"></div><p></p><!--Label="mdf_mll"--><!--Label="mdf_mll_sid"--><!--Label="mdf_mll_ver"--><!--Label="mdf_mll_per"-->
+                        </main>
+
+                    </div>
+
+                    <img src="images/donatoni_222.jpg">
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="3.13.6_hole.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="3.13.8_rim.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+
+
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                <a rel="prev" href="3.13.6_hole.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="3.13.8_rim.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="mermaid.min.js"></script>
+        <script src="mermaid-init.js"></script>
+        <script src="hidemenu.js"></script>
+        <script src="imagemodal.js"></script>
+        <script src="login.js"></script>
+    </div>
+
+    <!-- Modale -->
+    <div id="modal" onclick="closeModal()">
+        <img id="modal-img" src="">
+    </div>;
+
+
+</body>
+</html>

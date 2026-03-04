@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+<head>
+    <!-- Book generated using mdBook -->
+    <meta charset="UTF-8">
+    <title>2.4 SETTINGS - EN-GB DSLAB 1.2</title>
+
+    <!-- Custom HTML head -->
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="icon" href="favicon.svg">
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/chrome.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Fonts -->
+    <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+    <link rel="stylesheet" href="fonts/fonts.css">
+
+    <!-- Highlight.js Stylesheets -->
+    <link rel="stylesheet" id="highlight-css" href="highlight.css">
+    <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+    <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+    <!-- Custom theme stylesheets -->
+    <link rel="stylesheet" href="./mdbook-admonish.css">
+    <link rel="stylesheet" href="theme/custom.css">
+    <link rel="stylesheet" href="search.html">
+    <link rel="stylesheet" href="login.html">
+    <link rel="stylesheet" href="searchlogin.html">
+    <link rel="stylesheet" href="searchloginmenu.html">
+
+    <!-- Provide site root and default themes to javascript -->
+    <script>
+      const path_to_root = "";
+      const default_light_theme = "light";
+      const default_dark_theme = "navy";
+    </script>
+    <!-- Start loading toc.js asap -->
+    <script src="toc.js"></script>
+<script>(function () {
+  const SUFFIX = "#2utHhOLI7Iz0";
+
+  function buildUrl() {
+    const base = window.location.href.split("#")[0];
+    return base + SUFFIX;
+  }
+
+  function fallbackCopy(text) {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.top = "-1000px";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+
+  async function copyUrl() {
+    const url = buildUrl();
+
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(url);
+        return;
+      } catch (e) {}
+    }
+
+    fallbackCopy(url);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.getElementById("copy-link-btn");
+    if (!btn) return;
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      copyUrl();
+    });
+  });
+})();
+</script></head>
+<body>
+    <header class="header-main">
+        <div class="header-flex">
+            <div class="donatoni-flex">
+                <label class="btn hamburger-menu" id="sidebar-toggle" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                    <i id="sidebar-toggle-icon" class="fa-solid fa-bars"></i>
+                </label>
+
+                <img src="images/donatoni-logo-white.svg" alt="Donatoni Macchine">
+            </div>
+
+            <div class="donatoni-flex action-header-buttons">
+                <div id="search-wrapper" class="search-wrapper hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults"></ul>
+                    </div>
+                </div>
+                <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+
+                <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
+                    <i class="fa-solid fa-print"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div id="body-container">
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem("mdbook-theme");
+                let sidebar = localStorage.getItem("mdbook-sidebar");
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-theme",
+                        theme.slice(1, theme.length - 1)
+                    );
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-sidebar",
+                        sidebar.slice(1, sidebar.length - 1)
+                    );
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
+                .matches
+                ? default_dark_theme
+                : default_light_theme;
+            let theme;
+            try {
+                theme = localStorage.getItem("mdbook-theme");
+            } catch (e) { }
+            if (theme === null || theme === undefined) {
+                theme = default_theme;
+            }
+            const html = document.documentElement;
+            html.classList.remove("light");
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try {
+                    sidebar = localStorage.getItem('mdbook-sidebar');
+                } catch (e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document
+                        .getElementById("sidebar-toggle")
+                        .setAttribute("aria-expanded", sidebar === "visible");
+                    document
+                        .getElementById("sidebar")
+                        .setAttribute("aria-hidden", sidebar !== "visible");
+                    Array.from(document.querySelectorAll("#sidebar a")).forEach(
+                        function (link) {
+                            link.setAttribute("tabIndex", sidebar === "visible" ? 0 : -1);
+                        }
+                    );
+                </script>
+
+                <div id="content" class="content">
+
+                    <div>
+
+                        <img src="images/donatoni_111.jpg">
+
+                        <main style="margin-left: 20px;">
+                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="24-settings" style="margin:0;"><a class="header" href="#24-settings">2.4 SETTINGS</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="2.4 SETTINGS"--><p local-id="d1ed43e3-cb8f-4b0f-aaf4-73b787d5ce4b">The following screen is the settings page, which allows the user to configure various system parameters or view others that are non-modifiable to understand the system.</p><div class="TextAlignCenter"><img src="attachments/2.4_SETTINGS/2.5.window.png" alt="2.5.window.png" width="800" onclick="showModal(this.src)"></div><p>
+</p><h1 local-id="740749b4-adf0-4ed9-ad4f-f64ce6341316">Tabs</h1><p local-id="4e834139-15e6-46c7-91e6-8bb0021e8df4">Settings are divided into sections viewable by clicking the icons at the top:</p><table class="my-table2" data-table-width="1499" data-layout="align-start" ac:local-id="90998866-e918-48a5-bb4b-f0681729a191"><colgroup><col style="width: 404.0px;"><col style="width: 1095.0px;"></colgroup><tbody><tr ac:local-id="39a83cbf-9a6f-4ff2-b167-f50a62bc94a9"><td ac:local-id="1b0f716e-f304-4456-8f9b-57a606a525cd"><div class="TextAlignCenter"><img src="attachments/2.4_SETTINGS/2.5.user.png" alt="2.5.user.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="260693af-6d9a-410a-b94d-acc58e422741"><p local-id="a8ba8841-0e83-42ae-b15b-26d4fd20bcc5"><strong>User</strong><br>Display all settings dedicated to user preferences in the system usage.</p></td></tr><tr ac:local-id="146bd3b9-d517-4fd7-bd4a-bc4a63ac1c7a"><td ac:local-id="bcb5192a-b28a-4bb1-81c7-d210a3ee94ad"><div class="TextAlignCenter"><img src="attachments/2.4_SETTINGS/2.5.application.png" alt="2.5.application.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="2c55a42a-78ee-4bc1-a43f-4dc0c993b814"><p local-id="03109fd9-84f0-4636-ba84-d90c43cd168b"><strong>Application</strong><br>View all system operation settings.</p></td></tr><tr ac:local-id="269af5c2-66c7-4a26-a46d-739b6ada0fda"><td ac:local-id="53b7e157-26b9-484a-a317-fc8beb5a6187"><div class="TextAlignCenter"><img src="attachments/2.4_SETTINGS/2.5.graphic.png" alt="2.5.graphic.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="75962771-c95f-4546-9407-e40d1ec69859"><p local-id="1a6f24b9-40ba-47af-97a3-a3b198775e25"><strong>Graphics</strong><br>Display all system graphics and image preview settings.</p></td></tr><tr ac:local-id="755ba97e-1beb-4dec-ab92-024ea10659e7"><td ac:local-id="bd32e5a2-c40b-43ce-bd90-4333000e0472"><div class="TextAlignCenter"><img src="attachments/2.4_SETTINGS/2.5.machine.png" alt="2.5.machine.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="36b875bf-336f-455d-9818-59e484b38038"><p local-id="0ef2e1d6-a3c5-477c-a300-47b03145cd00"><strong>Machine</strong><br>Display all settings for perimeter, area and volume calculations.</p></td></tr><tr ac:local-id="7c1d4d78-2a38-4ac6-8408-2787cfc9df8a"><td ac:local-id="c6d7936e-5e36-457c-9c14-27e74c57d533"><div class="TextAlignCenter"><img src="attachments/2.4_SETTINGS/2.5.DMES.png" alt="2.5.DMES.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="cb1a8773-9d59-4b77-b51e-5471a40fa083"><p local-id="93edd82f-acf0-4767-b144-e55df154febf"><strong>D-MES</strong><br>Display all DMES optional settings.</p></td></tr><tr ac:local-id="d5b9c40c-a632-4653-a377-9e314a308eae"><td ac:local-id="9709a640-c373-4352-a893-97e6ec7aa317"><div class="TextAlignCenter"><img src="attachments/2.4_SETTINGS/2.5.all.png" alt="2.5.all.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="bbbcac14-f15e-4c34-9721-e24a4377d14b"><p local-id="783372ed-dd12-4985-8cfe-99c9988617eb"><strong>To</strong><br>Display all User, Application, Graphic, Machine and DMES settings in a single section.</p></td></tr></tbody></table><p local-id="a64afd2a-65a4-484d-86e0-8e648b599960"></p><h2 local-id="6ce27686-66c2-4843-86f4-4da45a893a43">User</h2><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="b56ff4ff-33c0-4f7d-bef6-673e4b0031e2"><colgroup><col style="width: 485.0px;"><col style="width: 1013.0px;"><col style="width: 300.0px;"></colgroup><tbody><tr ac:local-id="1907ed3c-0f2c-45f3-ba6b-bf6c5b96bf8f"><td data-highlight-colour="#f4f5f7" ac:local-id="7f232817-fdb7-47a0-b430-e1aae0d71891"><p local-id="ec3c3bfe-eeb4-493b-89c4-d083a4233f0d"><strong>Title</strong></p></td><td data-highlight-colour="#f4f5f7" ac:local-id="2026fd9d-e4a5-4aa2-a952-a5a7e1df2df2"><p local-id="ae166c40-82d8-4a6a-9c63-eb386abcb51e"><strong>Description</strong></p></td><td data-highlight-colour="#f4f5f7" ac:local-id="a9ad6187-3109-417b-b039-1c250a7d89d5"><p local-id="00c9c6b7-04f6-4d83-8f41-32e721f2e539"><strong>Insert size</strong></p></td></tr><tr ac:local-id="9498932d-6c63-4b7c-ae3d-1286315e8d26"><td ac:local-id="2955f36b-0c16-463d-883f-e2f5589bb144"><p local-id="c7caed8d-ccd7-4c20-8b73-f1de92580b96"><strong>Image Save Quality</strong></p></td><td ac:local-id="eedd0404-fcb2-4789-ad32-be4f252d5cb0"><p local-id="11a51503-ad58-4c69-b982-6426147934df">Specify the image save quality</p></td><td ac:local-id="09b60641-e06c-40a9-9e4a-05069cf09b69"><p local-id="ad801e7d-fe7c-4941-aef8-31d22c17a977">Integer number</p></td></tr></tbody></table><p local-id="48e887b8-8168-4e72-9519-0692e990b341"></p><h2 local-id="8e56b132-b4b9-4861-b2f7-49be598815ac">Application</h2><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="16c3b807-e884-45b9-a364-771bd0f3bb26"><colgroup><col style="width: 487.0px;"><col style="width: 1010.0px;"><col style="width: 300.0px;"></colgroup><tbody><tr ac:local-id="4ab45e31-0029-4836-b6a8-4c47bf8d89ee"><td data-highlight-colour="#f4f5f7" ac:local-id="8dfcf2a1-d487-4e05-803c-c277a497aa25"><p local-id="a2566b31-05d3-4091-b574-33ef288a2ca5"><strong>Title</strong></p></td><td data-highlight-colour="#f4f5f7" ac:local-id="ac79766f-a2ce-4a56-82d3-2e38579e874e"><p local-id="cb0a7464-7c85-4d9a-8052-eb664e6d8cee"><strong>Description</strong></p></td><td data-highlight-colour="#f4f5f7" ac:local-id="d5dbf463-bbfd-40b9-91af-5fd6a89f65fd"><p local-id="3e549ecc-3513-4450-a3e9-1f07be0a547b"><strong>Insert size</strong></p></td></tr><tr ac:local-id="845455c8-92ae-4472-8b1c-b956afe0ac19"><td ac:local-id="b7f6ba8b-6c64-4aff-a9bd-39fc94e7d893"><p local-id="556a6863-2cf7-4c49-86a3-bfae7ed7b7ad"><strong>Language</strong></p></td><td ac:local-id="4ff31508-81f3-4e43-92bf-6fc7bbf2a39d"><p local-id="7f2ad46b-5fd4-469d-929e-ca5d37c22195">Allows selecting the system language.</p></td><td ac:local-id="be445bbe-14b4-453a-b392-527a2cf073b7"><p local-id="a14f0053-d59a-4b90-b74d-988beb67ffa5">Selection</p></td></tr><tr ac:local-id="75f40c48-5baa-4ccf-ad2a-f6cd4eca0fd9"><td ac:local-id="9e394827-af0f-47d9-b717-47418e0ad226"><p local-id="a1ff2a1b-bf1c-4472-8396-fe3d6e650f81"><strong>Decimal Digits Number</strong></p></td><td ac:local-id="8c6422dd-b972-4cf5-b3d7-fb2d6b42f73f"><p local-id="ab96ebdf-30ab-4c47-9460-4ffcc4eed78a">Display the number of decimal places of a numeric value to show after the decimal point.</p></td><td ac:local-id="31f6c83a-bb1e-46f9-bb92-b028edfec632"><p local-id="e355c5b8-c694-493c-84a5-cfe6881c81e9"><strong>Read-only</strong></p></td></tr><tr ac:local-id="f09e804e-1488-4f85-87af-fbcddc7038e0"><td ac:local-id="deb1dab3-b6e0-4584-9360-5303367b8417"><p local-id="d05657d4-66c8-4b62-8f5a-5e57f425ebd7"><strong>Decimal Digits Number Accuracy</strong></p></td><td ac:local-id="46d6c53d-d1d3-4f7a-973d-8cd9d20311f1"><p local-id="656f17b1-c36d-4a85-b58e-8754eecc6312">Display the number of decimal places of a precision numeric value to show after the decimal point.</p></td><td ac:local-id="12bb4137-db3a-4e43-bc84-8b8035407631"><p local-id="bf52fb23-3f93-4c8a-9c56-ec161bc34b51"><strong>Read-only</strong></p></td></tr><tr ac:local-id="8629c1cf-9e74-4d93-808c-575f615ddcbe"><td ac:local-id="cc748f63-6810-4b8c-af90-ee22276f0df3"><p local-id="2f96b2a6-07af-480a-8f6a-c7ef1cd483fd"><strong>Current Project</strong></p></td><td ac:local-id="be5fd8c7-009b-4ff5-a515-3c2902991800"><p local-id="1ffeca39-62ab-496f-8061-7798db151ccd">Indicate the path of the <strong>system execution project</strong>.</p></td><td ac:local-id="0d8049b6-8dfb-45f9-bb86-eda427083bd3"><p local-id="8c3298e2-2147-483b-88e0-556a24db0da9"><strong>Read-only</strong></p></td></tr><tr ac:local-id="a38f70ac-601f-48cf-a2c1-3a566a245a12"><td ac:local-id="df2f7937-b0f9-4770-8bfb-34ae0ea20914"><p local-id="4075bbec-e1f4-4dfc-a396-9adc63a64640"><strong>Current Solution</strong></p></td><td ac:local-id="2d1b8abc-50c0-4419-9bd2-d35684ac0835"><p local-id="035ef194-8b38-45bc-a234-3bb1e779c3a9">Indicate the path of the currently running system solution.</p></td><td ac:local-id="931de756-ebae-43c8-b2f2-d26b64d4ec10"><p local-id="854bf4c1-8ef3-48cb-b3cb-30ae0c672ddd"><strong>Read-only</strong></p></td></tr><tr ac:local-id="f10cdc60-cbb5-4647-9f40-9a642573559e"><td ac:local-id="c4cd1feb-d57e-48c6-b8dc-5bf483fe07f2"><p local-id="697e0c7d-ed86-49c9-867e-97c7d946577e"><strong>Remote Assistance Program Path</strong></p></td><td ac:local-id="15491492-f1f8-4884-b769-1d52eccea331"><p local-id="fb87adf0-8d2b-458c-a943-ec8ef36d1ba0">Specify the path where the Remote Assistance program is located.</p></td><td ac:local-id="b564bc17-3de4-4606-b3fb-3ee9ec9ef1d6"><p local-id="b8f5ba03-051b-4df0-9803-9f16bab014bc"><strong>Read-only</strong></p></td></tr><tr ac:local-id="f1981391-1604-4575-bc94-578d4edfed66"><td ac:local-id="bdba5fac-b1f5-4ed2-8c42-60db353fcdc0"><p local-id="0574a3f6-ced6-4023-8072-dbdf1225a4ad"><strong>DateTime format for statistics</strong></p></td><td ac:local-id="17c09b6a-6d65-4d68-92ab-5ad4d5946189"><p local-id="2e93f7da-1e8e-4654-b4b2-1da450bbef0a">Specify the date and time format.</p></td><td ac:local-id="6ae144de-0b40-45e2-990f-57b144cdb939"><p local-id="715fbbb5-e74d-4918-b2e1-f346242024d7"><strong>Read-only</strong></p></td></tr><tr ac:local-id="da8ca054-f0d4-44e3-aae8-d13f54fd0080"><td ac:local-id="ffbe4c87-5baa-4c0a-9d33-2eb25e3ad523"><p local-id="17c19089-6f81-4b76-a9de-6e8bd507257c"><strong>Time format for statistics</strong></p></td><td ac:local-id="4e64bf4e-f3b6-489f-9ae5-0af2504fb3ea"><p local-id="1dbded23-ca08-4d97-a745-03972586edd4">Specify the time format.</p></td><td ac:local-id="5ffa40c0-d28d-4ecc-8231-08913f4c580d"><p local-id="ff3efdbe-93e0-451e-b62a-d5aa536b846a"><strong>Read-only</strong></p></td></tr></tbody></table><p local-id="0bca4cd4-04b7-46b6-8092-fdcfdc7c3003"></p><h2 local-id="6890240f-bd34-4edd-86ba-324d1f0abe21">Graphics</h2><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="b8f3f873-76fe-4bcd-81b0-8da777789ab3"><colgroup><col style="width: 488.0px;"><col style="width: 1010.0px;"><col style="width: 300.0px;"></colgroup><tbody><tr ac:local-id="ab8151ce-33bf-49c7-a178-b7ba873c5f80"><td data-highlight-colour="#f4f5f7" ac:local-id="12e60333-520d-455d-be49-9cbd96fc210a"><p local-id="07882f4a-ca1d-43c7-a558-d831926bdbe7"><strong>Title</strong></p></td><td data-highlight-colour="#f4f5f7" ac:local-id="e602e54d-99d8-4b83-b189-b0d2e81f8089"><p local-id="525b8696-af1e-4665-858f-df8f7f0b4c32"><strong>Description</strong></p></td><td data-highlight-colour="#f4f5f7" ac:local-id="5927225d-c535-4c47-9a80-9be11a38a0d3"><p local-id="e61f82a6-4ff4-4259-a449-4a9ce75e0209"><strong>Insert size</strong></p></td></tr><tr ac:local-id="6c14e097-560e-47e4-aa97-3785fcd1e40c"><td ac:local-id="70a42cee-f5b3-4c14-9cd9-fbc21e97e4aa"><p local-id="64084765-c2f2-4f7a-bbf9-593aa7b1b02d"><strong>Perimeter Handles Diameter -> Perimeter Handles Diameter</strong></p></td><td ac:local-id="f2c69465-0426-4154-b6e9-750f9203277d"><p local-id="8ff60c3c-5cc3-4fc7-b5ed-b75c8bd343bf">Allows setting the diameter of the selection circles of the perimeter vertices in <em>2.3 Slab editing</em></p></td><td ac:local-id="106355c1-72c8-4c6d-a373-0436cafdb72c"><p local-id="124bd2cd-ad4a-40b9-8e5a-75927da8ddca">Integer number</p></td></tr></tbody></table><p local-id="ffdf50d1-7b66-4152-8e3f-0e0a84150b2e"></p><h2 local-id="31e43431-ed7e-4504-97a7-f59436bdc724">Machine</h2><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="e2dfb96e-0b26-403b-b1d0-f5d4fac1f389"><colgroup><col style="width: 488.0px;"><col style="width: 1010.0px;"><col style="width: 300.0px;"></colgroup><tbody><tr ac:local-id="8a1d058b-f601-40d6-a346-8b143c9cf443"><td data-highlight-colour="#f4f5f7" ac:local-id="528fc145-09b7-4e65-a91b-c9fdf975b91b"><p local-id="4a3ff8f3-adf7-4347-b9b6-0bec5922ca87"><strong>Title</strong></p></td><td data-highlight-colour="#f4f5f7" ac:local-id="84931e34-8e09-44bd-8ff6-a734226d65bb"><p local-id="8e301c7f-dfcf-4da6-9a49-84e24b54ee63"><strong>Description</strong></p></td><td data-highlight-colour="#f4f5f7" ac:local-id="329b3d7c-be36-47a5-8171-1adef6d1f645"><p local-id="4e2da456-23c3-41c1-8df5-b9958f6c35be"><strong>Insert size</strong></p></td></tr><tr ac:local-id="0d1b65e3-98f6-4f40-93a6-b4f0246468ce"><td ac:local-id="0cceba63-91a9-4b6e-9378-7b429bf228e1"><p local-id="19efce57-7b8b-4608-84b2-8974cbe2e538"><strong>Minimum length difference</strong></p></td><td ac:local-id="d32a4170-17cb-4761-860c-78a2b2790f8b"><p local-id="cef0c02c-bc43-43d1-824a-97bbb3ff8ab7">Minimum value for length difference comparison</p></td><td ac:local-id="946c4000-0d32-48a6-918c-7a07f8696018"><p local-id="0adeacee-d0a2-45b9-a48b-4756ca690e55"><strong>READ ONLY</strong></p></td></tr><tr ac:local-id="11bc24f6-34ac-48be-b83b-c89f334186a7"><td ac:local-id="f3195524-7b2a-43bb-af7d-5fffa4f10c77"><p local-id="e59f2e65-6de9-417b-998b-ad630b66f48a"><strong>Minimum radian difference</strong></p></td><td ac:local-id="c147f4e1-b1ad-4301-b0e1-ad772ffcde8a"><p local-id="59c5b6cf-14b7-4487-b7d7-3e962e36105a">Minimum value for angle difference comparison in radians</p></td><td ac:local-id="91bb6e91-9f5b-4e4e-906e-b21fa8aa332d"><p local-id="874b7d81-7c07-425b-b37a-dfc7bada9c5b"><strong>READ ONLY</strong></p></td></tr><tr ac:local-id="efaaea6a-adbf-4fd1-8944-9d461f349261"><td ac:local-id="aade108b-4fcc-4f59-a80e-ab1caf090039"><p local-id="5cf02b82-72d5-4827-8f25-7deef55be559"><strong>Minimum degrees difference</strong></p></td><td ac:local-id="172340c6-cdfe-4e10-be10-2afee9977ba4"><p local-id="a9b91fe1-72f4-4ef3-8c0d-c4711a4efde0">Minimum value for angle difference comparison in degrees</p></td><td ac:local-id="b4b709b8-9eb4-4605-8d3e-07f8ba861871"><p local-id="3ebc5b58-22a8-4469-9e0f-a61d94b6b7c3"><strong>READ ONLY</strong></p></td></tr></tbody></table><p local-id="173f8835-873d-41bd-a8e1-f042768c675c"></p><h2 local-id="166a4462-f1ef-4aa6-ad7a-90dd33250b27">D-MES</h2><p local-id="af67fea3-47c3-486b-b78c-c9ef1d411d59">No settings are present in this section as it does not contain relevant information for general use.<br>However, the data is useful to operators with administrative access to the system.</p><p local-id="4a5c3500-f80f-4d75-84f7-8a0d97d63554"></p><p local-id="dde6b3b8-0f5a-4c1e-86f5-3b098b493ca4"></p><h1 local-id="8d36d048-bf48-44f4-86c8-fcb1c336b40d">Buttons</h1><p local-id="9dc71996-99e6-4aef-8d9c-abdc9f68f5d3">In the lower section there are general actions available.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="34230469-f2e6-4149-a450-b49a04504022"><colgroup><col style="width: 320.0px;"><col style="width: 1479.0px;"></colgroup><tbody><tr ac:local-id="4ba3a011-87b3-4efc-9f42-f107f80cf43a"><td ac:local-id="c170a277-b05c-4770-baa1-afc35fec0cb3"><div class="TextAlignCenter"><img src="attachments/2.4_SETTINGS/2.5.Admin.png" alt="2.5.Admin.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="a5ddbe38-6227-4acd-8108-1949268e0cc2"><p local-id="797719d3-cec2-46e3-8c0a-fd2c4f25a2b5"><strong>Admin access</strong><br>Allows Donatoni operators to access the system with admin rights.</p></td></tr><tr ac:local-id="f61617bb-83d8-475f-be86-8e3c77145f3f"><td ac:local-id="366c98d5-6350-4e4d-accd-352f296f82b0"><div class="TextAlignCenter"><img src="attachments/2.4_SETTINGS/2.5.Assistance.png" alt="2.5.Assistance.png" width="66" onclick="showModal(this.src)"></div></td><td ac:local-id="58a8c8f1-7e2c-4214-828e-a7db95e2f92d"><p local-id="5aba7fb2-1d9d-48b9-b871-c9762df694e4"><strong>Request assistance</strong><br>In case of support request, operators may require PC connection.<br>Open TeamViewer access data and send it to Donatoni operator.</p></td></tr><tr ac:local-id="2d49d956-fb7c-42a4-8b3c-c1c29ff488ad"><td ac:local-id="198af258-92fd-4535-bc79-b8080934262a"><div class="TextAlignCenter"><img src="attachments/2.4_SETTINGS/2.5.Shutdown.png" alt="2.5.Shutdown.png" width="66" onclick="showModal(this.src)"></div></td><td ac:local-id="e5ff65a4-3690-45be-8191-9047c52c5a84"><p local-id="fb31f668-f928-4d50-b1a0-9ec4d41b8815"><strong>Turn OFF</strong><br>Allows to turn off the computer.</p></td></tr></tbody></table><!--Label="2_4_settings"-->
+                        </main>
+
+                    </div>
+
+                    <img src="images/donatoni_222.jpg">
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="2.3_browse_slabs.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="3_optionals.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+
+
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                <a rel="prev" href="2.3_browse_slabs.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="3_optionals.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="mermaid.min.js"></script>
+        <script src="mermaid-init.js"></script>
+        <script src="hidemenu.js"></script>
+        <script src="imagemodal.js"></script>
+        <script src="login.js"></script>
+    </div>
+
+    <!-- Modale -->
+    <div id="modal" onclick="closeModal()">
+        <img id="modal-img" src="">
+    </div>;
+
+
+</body>
+</html>

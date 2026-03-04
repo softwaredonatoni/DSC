@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+<head>
+    <!-- Book generated using mdBook -->
+    <meta charset="UTF-8">
+    <title>3.21.7.1 MACRO - EN-GB PARAMETRIX 4.13</title>
+
+    <!-- Custom HTML head -->
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="icon" href="favicon.svg">
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/chrome.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Fonts -->
+    <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+    <link rel="stylesheet" href="fonts/fonts.css">
+
+    <!-- Highlight.js Stylesheets -->
+    <link rel="stylesheet" id="highlight-css" href="highlight.css">
+    <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+    <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+    <!-- Custom theme stylesheets -->
+    <link rel="stylesheet" href="./mdbook-admonish.css">
+    <link rel="stylesheet" href="theme/custom.css">
+    <link rel="stylesheet" href="search.html">
+    <link rel="stylesheet" href="login.html">
+    <link rel="stylesheet" href="searchlogin.html">
+    <link rel="stylesheet" href="searchloginmenu.html">
+
+    <!-- Provide site root and default themes to javascript -->
+    <script>
+      const path_to_root = "";
+      const default_light_theme = "light";
+      const default_dark_theme = "navy";
+    </script>
+    <!-- Start loading toc.js asap -->
+    <script src="toc.js"></script>
+<script>(function () {
+  const SUFFIX = "#2utHhOLI7Iz0";
+
+  function buildUrl() {
+    const base = window.location.href.split("#")[0];
+    return base + SUFFIX;
+  }
+
+  function fallbackCopy(text) {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.top = "-1000px";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+
+  async function copyUrl() {
+    const url = buildUrl();
+
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(url);
+        return;
+      } catch (e) {}
+    }
+
+    fallbackCopy(url);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.getElementById("copy-link-btn");
+    if (!btn) return;
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      copyUrl();
+    });
+  });
+})();
+</script></head>
+<body>
+    <header class="header-main">
+        <div class="header-flex">
+            <div class="donatoni-flex">
+                <label class="btn hamburger-menu" id="sidebar-toggle" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                    <i id="sidebar-toggle-icon" class="fa-solid fa-bars"></i>
+                </label>
+
+                <img src="images/donatoni-logo-white.svg" alt="Donatoni Macchine">
+            </div>
+
+            <div class="donatoni-flex action-header-buttons">
+                <div id="search-wrapper" class="search-wrapper hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults"></ul>
+                    </div>
+                </div>
+                <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+
+                <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
+                    <i class="fa-solid fa-print"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div id="body-container">
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem("mdbook-theme");
+                let sidebar = localStorage.getItem("mdbook-sidebar");
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-theme",
+                        theme.slice(1, theme.length - 1)
+                    );
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-sidebar",
+                        sidebar.slice(1, sidebar.length - 1)
+                    );
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
+                .matches
+                ? default_dark_theme
+                : default_light_theme;
+            let theme;
+            try {
+                theme = localStorage.getItem("mdbook-theme");
+            } catch (e) { }
+            if (theme === null || theme === undefined) {
+                theme = default_theme;
+            }
+            const html = document.documentElement;
+            html.classList.remove("light");
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try {
+                    sidebar = localStorage.getItem('mdbook-sidebar');
+                } catch (e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document
+                        .getElementById("sidebar-toggle")
+                        .setAttribute("aria-expanded", sidebar === "visible");
+                    document
+                        .getElementById("sidebar")
+                        .setAttribute("aria-hidden", sidebar !== "visible");
+                    Array.from(document.querySelectorAll("#sidebar a")).forEach(
+                        function (link) {
+                            link.setAttribute("tabIndex", sidebar === "visible" ? 0 : -1);
+                        }
+                    );
+                </script>
+
+                <div id="content" class="content">
+
+                    <div>
+
+                        <img src="images/donatoni_111.jpg">
+
+                        <main style="margin-left: 20px;">
+                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="32171-macro" style="margin:0;"><a class="header" href="#32171-macro">3.21.7.1 MACRO</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="3.21.7.1 MACRO"--><p>Inside the user parameters panel, in the first user values window we find a 'Active Operation' where next to it the operation the operator has activated is displayed, if you want to add, modify or delete you must press on the pencil next to it and this window opens:</p><div class="TextAlignCenter"><img src="attachments/3.21.7.1_MACRO/2.0-20250623-070800.png" alt="2.0-20250623-070800.png" width="600" onclick="showModal(this.src)"></div><p>
+</p><p></p><h1 id="bottom-bar-buttons"><a class="header" href="#bottom-bar-buttons">Bottom bar buttons</a></h1><p>Buttons for the generic management of macros</p><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="439b22ec-f8f7-4410-b435-c91a374c7356"><colgroup><col style="width: 337.0px;"><col style="width: 1460.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/3.21.7.1_MACRO/2.2c-20250623-071242.png" alt="2.2c-20250623-071242.png" width="83" onclick="showModal(this.src)"></div></td><td><p><strong>Activate/Deactivate operations in Automatic</strong><br>Indicates if application of the selected operation is enabled when moving to the screen for cut optimization and management.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.21.7.1_MACRO/2.1_b-20250806-114939.png" alt="2.1_b-20250806-114939.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Manage operations</strong><br>Allows to access the panel for activation/deactivation of standard operations.</p></td></tr></tbody></table><p></p><p>Buttons to manage the macro list:</p><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="18000e72-88c4-4892-b78c-e55042308462"><colgroup><col style="width: 337.0px;"><col style="width: 1460.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/3.21.7.1_MACRO/2.3_c-20250806-113352.png" alt="2.3_c-20250806-113352.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Add</strong><br>Allows to create a new custom operation.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.21.7.1_MACRO/2.4_c-20250806-113440.png" alt="2.4_c-20250806-113440.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Delete</strong><br>Allows removing the selected operation within the list.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.21.7.1_MACRO/2.5_c-20250806-113500.png" alt="2.5_c-20250806-113500.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Modify name</strong><br>Allows to modify the name with which the operation is saved.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.21.7.1_MACRO/2.6_c-20250806-113527.png" alt="2.6_c-20250806-113527.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Copy</strong><br>Allows to create a copy of the selected operation</p></td></tr></tbody></table><p></p><p>Button to manage the content of a single macro:</p><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="f3202908-cc0d-4434-8cab-8e266e9d328a"><colgroup><col style="width: 337.0px;"><col style="width: 1460.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/3.21.7.1_MACRO/2.5_c-20250806-113500.png" alt="2.5_c-20250806-113500.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Modify operation</strong><br>Allows to handle the standard operations that compose the selected operation.</p></td></tr></tbody></table><p></p><p></p><h2 id="manage-operations"><a class="header" href="#manage-operations">Manage operations</a></h2><p>The following window opens where you can choose whether or not to activate an operation for each of the four types of operations that will be illustrated below (Standard, Workings ordering in head, Workings ordering in queue and Ordering based on cuts):</p><div class="TextAlignCenter"><img src="attachments/3.21.7.1_MACRO/7.14-20250623-081902.png" alt="7.14-20250623-081902.png" width="600" onclick="showModal(this.src)"></div><p></p><h2 id="add-operation"><a class="header" href="#add-operation">Add operation</a></h2><p>The following window opens that allows you to set the name for the new working:</p><div class="TextAlignCenter"><img src="attachments/3.21.7.1_MACRO/2.7-20250806-114002.png" alt="2.7-20250806-114002.png" width="400" onclick="showModal(this.src)"></div><p></p><p>Once confirmed the choice of the new macro name, this will be added in the left panel and will initially be empty:</p><div class="TextAlignCenter"><img src="attachments/3.21.7.1_MACRO/7.1-20250623-072902.png" alt="7.1-20250623-072902.png" width="600" onclick="showModal(this.src)"></div><p></p><h2 id="modify-operation"><a class="header" href="#modify-operation">Modify operation</a></h2><p>Below is shown the window of edit relative to the selected operation:</p><div class="TextAlignCenter"><img src="attachments/3.21.7.1_MACRO/2.9-20250623-074027.png" alt="2.9-20250623-074027.png" width="600" onclick="showModal(this.src)"></div><p></p><h3 id="selected-operations-buttons"><a class="header" href="#selected-operations-buttons">Selected operations buttons</a></h3><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="906b5d9e-37a3-4017-84ac-07b5f1a76f90"><colgroup><col style="width: 337.0px;"><col style="width: 1460.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/3.21.7.1_MACRO/1.1a.png" alt="1.1a.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Sorting by working</strong><br>Contains operations that allow to modify the order of workings.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.21.7.1_MACRO/1.2a.png" alt="1.2a.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Standard Operations</strong><br>List of standard operations on cuts.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.21.7.1_MACRO/1.3a.png" alt="1.3a.png" width="60" onclick="showModal(this.src)"></div></td><td data-highlight-colour="#ffffff"><p><strong>Sorting workings in head</strong><br>List of operations that foresee the shift on the top of the cut list belonging to a working type.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.21.7.1_MACRO/1.4a.png" alt="1.4a.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Sorting workings in queue</strong><br>List of operations that foresee the moving to queue at the list of cuts belonging to a working type.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.21.7.1_MACRO/1.5a.png" alt="1.5a.png" width="60" onclick="showModal(this.src)"></div></td><td data-highlight-colour="#ffffff"><p><strong>Sorting based on cuts</strong><br>List of operations that foresee the sorting of the cuts based on their position on the work area.</p></td></tr></tbody></table><p></p><h3 id="buttons-of-management-of-the-operations"><a class="header" href="#buttons-of-management-of-the-operations">Buttons of management of the operations</a></h3><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="20b69006-3a40-4d50-bf6a-00c3f1c8b48f"><colgroup><col style="width: 337.0px;"><col style="width: 1460.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/3.21.7.1_MACRO/2.10_Dx_Sx_b-20250807-073612.png" alt="2.10_Dx_Sx_b-20250807-073612.png" width="119" onclick="showModal(this.src)"></div></td><td><p><strong>Add/remove operation</strong><br>Inserts or removes an operation from the list of selected operations.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.21.7.1_MACRO/2.11_Up_Down_b-20250807-073501.png" alt="2.11_Up_Down_b-20250807-073501.png" width="119" onclick="showModal(this.src)"></div></td><td><p><strong>Move Sort</strong><br>Move one of the selected operations one place higher or lower.</p></td></tr></tbody></table><p></p><h2 id="invert-order-of-operations-optional"><a class="header" href="#invert-order-of-operations-optional">Invert order of operations (Optional)</a></h2><p>You can choose to activate this optional that allows to invert the order of the operations.</p><p>If for example I press on the following operations:</p><ul><li><p>First bottom cuts</p></li><li><p>External internal</p></li><li><p>First left cuts</p></li></ul><p>The real order of operations is:</p><ul><li><p>First left cuts</p></li><li><p>External internal</p></li><li><p>First bottom cuts</p></li></ul><p>Why are the positions overwritten, so to make the order of the operations chronological there is this optional.</p><p>With it in this case the order of operations is this:</p><ul><li><p>First bottom cuts</p></li><li><p>External internal</p></li><li><p>First left cuts</p></li></ul><p></p><h2 id="activation-of-a-macro"><a class="header" href="#activation-of-a-macro">Activation of a macro</a></h2><p>When the macro has been created and modified as you like, it is possible to select it and activate it.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="be45f080-ff7d-4304-88e9-2f7e7608c6af"><colgroup><col style="width: 334.0px;"><col style="width: 1465.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/3.21.7.1_MACRO/3.2_b-20250807-090117.png" alt="3.2_b-20250807-090117.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Enable macro disabled</strong><br>Each deselected macro has just to the right the button to activate the disabled macro.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.21.7.1_MACRO/3.1_b-20250807-090058.png" alt="3.1_b-20250807-090058.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Enable macro enabled</strong><br>The macro currently selected and not yet enabled presents the same button of the others, but of green color to indicate the possibility to proceed with enabling.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.21.7.1_MACRO/3.3-20250807-090716.png" alt="3.3-20250807-090716.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Macro activated</strong><br>The macro currently loaded is highlighted in green and has just to the right a symbol that confirms its loading.<br>The name of the macro loaded furthermore will be visible in the <strong>User Values</strong> of the parameters, at the voice '<strong>Active Operation</strong>':</p></td></tr></tbody></table><p></p><p></p><h1 id="procedure-creation-and-loading-of-a-macro"><a class="header" href="#procedure-creation-and-loading-of-a-macro">Procedure creation and loading of a macro</a></h1><p>The first step consists of ensuring that the activation button is set on <strong>ON</strong>, to be able subsequently to employ the desired macro.<br></p><p>You proceed with the creation of a new operation setting a name, you click below on the new operation visible from now in the list and immediately after on the modify button on the right side of the panel to have access to the panel that allows to modify the macro.<br>For each type of operation, select the desired operations from the list on the left (<strong>Available</strong>) and add them to the list of <strong>selected</strong> operations. You can then proceed to confirm the configuration to view and manage it in the operations panel. <br>It is possible to make the loading of the macro by clicking the button placed just to the right of the name of the macro.<br>Below is provided an example of the macro named 'operation_1', containing 3 operations visible on the right, and highlighted in green with the corresponding symbol because in 'loaded' status.</p><p></p><p>The first step is to ensure that the activation button is set to <strong>ON</strong>, condition necessary to be able to use the desired macro. Once activated, proceed with the creation of a new operation, assigning it an identificative name. After having created it, the operation will appear in the list: it is therefore necessary to select it and click on the modification button located on the right side of the panel, so as to access the macro configuration interface.</p><p>Inside this interface, for each type of operation, it is possible to select the desired items from the left list (labeled as 'Available') and add them to the right list, which represents the selected operations. Completed the selection, it is sufficient to confirm the configuration to make it visible and manageable in the panel of operations.</p><p>The macro loading can be performed by clicking on the appropriate button, located immediately to the right of the name assigned to the macro. By way of example, consider the macro named 'operation_1': this includes three operations, displayed in the panel to the right, and is highlighted in green with the appropriate symbol indicating its 'loaded' status.</p><div class="TextAlignCenter"><img src="attachments/3.21.7.1_MACRO/2.12-20250623-075225.png" alt="2.12-20250623-075225.png" width="600" onclick="showModal(this.src)"></div><p></p><!--Label="cut_mcr_mod"--><!--Label="cut_mcr_mng"--><!--Label="cut_mcr_cal"--><!--Label="cut_mcr"--><!--Label="cut_mcr_act"--><!--Label="cut_mcr_add"--><!--Label="cut_mcr_rev"-->
+                        </main>
+
+                    </div>
+
+                    <img src="images/donatoni_222.jpg">
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="3.21.7_operations.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="3.21.8_iso_control_page.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+
+
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                <a rel="prev" href="3.21.7_operations.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="3.21.8_iso_control_page.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="mermaid.min.js"></script>
+        <script src="mermaid-init.js"></script>
+        <script src="hidemenu.js"></script>
+        <script src="imagemodal.js"></script>
+        <script src="login.js"></script>
+    </div>
+
+    <!-- Modale -->
+    <div id="modal" onclick="closeModal()">
+        <img id="modal-img" src="">
+    </div>;
+
+
+</body>
+</html>

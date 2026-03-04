@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+<head>
+    <!-- Book generated using mdBook -->
+    <meta charset="UTF-8">
+    <title>2.2 SLAB EDIT - EN-GB DSLAB 1.2</title>
+
+    <!-- Custom HTML head -->
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="icon" href="favicon.svg">
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/chrome.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Fonts -->
+    <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+    <link rel="stylesheet" href="fonts/fonts.css">
+
+    <!-- Highlight.js Stylesheets -->
+    <link rel="stylesheet" id="highlight-css" href="highlight.css">
+    <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+    <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+    <!-- Custom theme stylesheets -->
+    <link rel="stylesheet" href="./mdbook-admonish.css">
+    <link rel="stylesheet" href="theme/custom.css">
+    <link rel="stylesheet" href="search.html">
+    <link rel="stylesheet" href="login.html">
+    <link rel="stylesheet" href="searchlogin.html">
+    <link rel="stylesheet" href="searchloginmenu.html">
+
+    <!-- Provide site root and default themes to javascript -->
+    <script>
+      const path_to_root = "";
+      const default_light_theme = "light";
+      const default_dark_theme = "navy";
+    </script>
+    <!-- Start loading toc.js asap -->
+    <script src="toc.js"></script>
+<script>(function () {
+  const SUFFIX = "#2utHhOLI7Iz0";
+
+  function buildUrl() {
+    const base = window.location.href.split("#")[0];
+    return base + SUFFIX;
+  }
+
+  function fallbackCopy(text) {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.top = "-1000px";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+
+  async function copyUrl() {
+    const url = buildUrl();
+
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(url);
+        return;
+      } catch (e) {}
+    }
+
+    fallbackCopy(url);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.getElementById("copy-link-btn");
+    if (!btn) return;
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      copyUrl();
+    });
+  });
+})();
+</script></head>
+<body>
+    <header class="header-main">
+        <div class="header-flex">
+            <div class="donatoni-flex">
+                <label class="btn hamburger-menu" id="sidebar-toggle" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                    <i id="sidebar-toggle-icon" class="fa-solid fa-bars"></i>
+                </label>
+
+                <img src="images/donatoni-logo-white.svg" alt="Donatoni Macchine">
+            </div>
+
+            <div class="donatoni-flex action-header-buttons">
+                <div id="search-wrapper" class="search-wrapper hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults"></ul>
+                    </div>
+                </div>
+                <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+
+                <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
+                    <i class="fa-solid fa-print"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div id="body-container">
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem("mdbook-theme");
+                let sidebar = localStorage.getItem("mdbook-sidebar");
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-theme",
+                        theme.slice(1, theme.length - 1)
+                    );
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-sidebar",
+                        sidebar.slice(1, sidebar.length - 1)
+                    );
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
+                .matches
+                ? default_dark_theme
+                : default_light_theme;
+            let theme;
+            try {
+                theme = localStorage.getItem("mdbook-theme");
+            } catch (e) { }
+            if (theme === null || theme === undefined) {
+                theme = default_theme;
+            }
+            const html = document.documentElement;
+            html.classList.remove("light");
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try {
+                    sidebar = localStorage.getItem('mdbook-sidebar');
+                } catch (e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document
+                        .getElementById("sidebar-toggle")
+                        .setAttribute("aria-expanded", sidebar === "visible");
+                    document
+                        .getElementById("sidebar")
+                        .setAttribute("aria-hidden", sidebar !== "visible");
+                    Array.from(document.querySelectorAll("#sidebar a")).forEach(
+                        function (link) {
+                            link.setAttribute("tabIndex", sidebar === "visible" ? 0 : -1);
+                        }
+                    );
+                </script>
+
+                <div id="content" class="content">
+
+                    <div>
+
+                        <img src="images/donatoni_111.jpg">
+
+                        <main style="margin-left: 20px;">
+                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="22-slab-edit" style="margin:0;"><a class="header" href="#22-slab-edit">2.2 SLAB EDIT</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="2.2 SLAB EDIT"--><p local-id="2ffa1b6e-a1e3-4d56-bd7a-637247e3dbdd">In this panel the user can modify and manage a single slab.<br>The following example window is displayed both when the user adds a new slab, and when they decide to modify an existing slab, through the dedicated section:</p><div class="TextAlignCenter"><img src="attachments/2.2_SLAB_EDIT/2.2.Window.png" alt="2.2.Window.png" width="800" onclick="showModal(this.src)"></div><p local-id="2677e5d910a9"></p><p>
+</p><h1 local-id="32270f52-642e-4415-a023-5891dee134c1">Preview slab</h1><p local-id="969b8fb8-21bb-4717-b03b-f1734bececa6">This section occupies the central and left part of the panel and allows the <strong>slab</strong> image <strong>viewing</strong>.</p><div class="TextAlignCenter"><img src="attachments/2.2_SLAB_EDIT/2.2.Preview.png" alt="2.2.Preview.png" width="800" onclick="showModal(this.src)"></div><p local-id="6216f734-f39f-4242-8142-6414ffdcd23a"></p><h2 local-id="07605de2-e66e-4121-9ded-96d6abc95534">Viewing tools</h2><p local-id="378814bc-7e4a-4dbd-b530-5ab185cdf207">These tools, located in the upper central part of the <strong>slab preview</strong>, allow the user to perform the following actions:</p><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="3b0fd705-5792-4675-9cb5-c65c2c7e1180"><colgroup><col style="width: 507.0px;"><col style="width: 1287.0px;"></colgroup><tbody><tr ac:local-id="bb819b17-e397-4bb5-ae11-3fd95b303097"><td ac:local-id="5c263744-48ad-4eb4-a2cb-a14894b1f081"><div class="TextAlignCenter"><img src="attachments/2.2_SLAB_EDIT/2.3.ViewHome.png" alt="2.3.ViewHome.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="d00e93ca-5884-49c4-9c0e-b0a803b65677"><p local-id="3ad85f75-a9c3-4f17-ba22-14338f26c6e7"><strong>Home</strong><br>Reset to the initial <strong>viewing</strong> state at any movement made within the preview.</p></td></tr><tr ac:local-id="db278d8b-1168-4302-ba83-781c7b7aee60"><td ac:local-id="70a2ce0a-3f78-4d0d-9ee8-63682a218973"><div class="TextAlignCenter"><img src="attachments/2.2_SLAB_EDIT/2.3.ViewEye.png" alt="2.3.ViewEye.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="50b9a59e-8562-4b92-9a59-3250f6abfa56"><p local-id="a5b3a41a-d80b-4743-872f-0c7180576c17"><strong>Magnifying Glass</strong><br>Activates a magnifying lens that performs a temporary zoom on the area under the mouse pointer.</p></td></tr><tr ac:local-id="2a912730-4d61-4e37-a016-97a2a87757f9"><td ac:local-id="ae0b0fd8-92e3-4c6d-a92a-610faaddcca1"><div class="TextAlignCenter"><img src="attachments/2.2_SLAB_EDIT/2.3.ZoomWindow.png" alt="2.3.ZoomWindow.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="4a85cc47-4548-475c-97b7-6c4299aa1518"><p local-id="a9bce243-c5a9-4aaa-8458-abe8e850b086"><strong>Zoom Window</strong><br>Allows zooming in on a selected area by selecting a perimeter with the mouse.</p></td></tr><tr ac:local-id="2168d42b-c4cb-421a-a0d0-5e172bca74ea"><td ac:local-id="ffae116b-b9ff-4ea5-8439-2a7fb8e794c2"><div class="TextAlignCenter"><img src="attachments/2.2_SLAB_EDIT/2.3.Zoom.png" alt="2.3.Zoom.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="8862d944-9c74-4e33-acc8-3435bff38bc8"><p local-id="4f122b65-bd4e-4927-bcf1-8dbefa4b44aa"><strong>Zoom</strong><br>Allows to zoom in or out of the zoom area.</p></td></tr><tr ac:local-id="79b5d507-eeaa-4c7a-8d23-50d2aa968d1f"><td ac:local-id="6b28b64d-0b6b-42ad-aa40-ba3f429e47a7"><div class="TextAlignCenter"><img src="attachments/2.2_SLAB_EDIT/2.3.Pan.png" alt="2.3.Pan.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="4e1214cd-87b3-466b-8fa9-cfa9b38a07c1"><p local-id="ecdb748b-3f96-4f8b-9550-4609206105da"><strong>Mode pan</strong><br>Allows movement in the preview area along the X and Y axes.</p></td></tr><tr ac:local-id="12a675cd-cafb-48ad-86b4-da4651c0f36f"><td ac:local-id="63eba177-17b5-402e-b7be-5f40b4655512"><div class="TextAlignCenter"><img src="attachments/2.2_SLAB_EDIT/2.3.Rotate.png" alt="2.3.Rotate.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="4404c1cd-15f8-4d6c-af5b-7051638639a4"><p local-id="d690d709-74aa-4230-b16d-4f3de2887122"><strong>Rotate</strong><br>Permits rotation of the slab image in the preview area around the X, Y and Z axes.</p></td></tr><tr ac:local-id="cff47aea-4c82-4a77-b473-cef9ec7d17e4"><td ac:local-id="8b2f7ae4-e805-4c1c-a920-05b8570f3cb5"><div class="TextAlignCenter"><img src="attachments/2.2_SLAB_EDIT/2.3.ZoomFIt.png" alt="2.3.ZoomFIt.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="a1fb93d6-dcd7-416a-be11-5e9cde099bd6"><p local-id="bd2a41b9-8e08-4c33-bb94-e9bd8c67b115"><strong>Zoom Fit</strong><br>Set the viewing to the full size of the image and the preview perimeter.</p></td></tr></tbody></table><p local-id="48ca5e1e-26ef-4397-875b-e6216328a63f"></p><p local-id="dd1d3897-64b3-49ef-85ba-5e8d55cf83c5"></p><h1 local-id="b765d21f-7256-467f-9e46-50d7aa4217d2">Perimeter</h1><p local-id="751f8f21-f7d7-4f7a-b249-6aba890401d5">In the slab preview it is possible to set the perimeter, which will be displayed as follows:</p><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="b7823cba-088c-49db-913e-cae08fcb51f0" data-table-display-mode="default"><colgroup><col style="width: 507.0px;"><col style="width: 1287.0px;"></colgroup><tbody><tr ac:local-id="5c498ada-2933-4648-9f3d-e072090d3dd3"><td ac:local-id="9c28f265-a6ea-4ad4-91a6-3f32ff3be4e5"><div class="TextAlignCenter"><img src="attachments/2.2_SLAB_EDIT/2.2.PerimeterArea.png" alt="2.2.PerimeterArea.png" width="67" onclick="showModal(this.src)"></div></td><td ac:local-id="64a48209-359c-45b1-a3f4-12670b5b550e"><p local-id="380fa445-f2c1-4a30-ae71-cee1caba4170"><strong>Perimeter</strong><br>Shows the entire perimeter area in the preview. The perimeter can be resized using the <strong>vertices</strong>, highlighted by yellow circular indicators, and modified via the <strong>Perimeter Tool</strong>.</p></td></tr><tr ac:local-id="28f3f2f7-8ab4-4fd7-b49f-3778c87bb3bc"><td ac:local-id="660c1ffd-38fe-4033-82e8-8f139bd66dbd"><div class="TextAlignCenter"><img src="attachments/2.2_SLAB_EDIT/2.2.PerimeterPoint.png" alt="2.2.PerimeterPoint.png" width="67" onclick="showModal(this.src)"></div></td><td ac:local-id="12a2eac5-4228-4680-8e5e-82eb7b751d31"><p local-id="952df3d9-b5e5-4987-9821-26d813bee4e5"><strong>Corner</strong><br>Represents a vertex of the perimeter. A vertex, to be valid, must be connected to two sides.<br>The vertex can be added, moved or deleted.</p></td></tr><tr ac:local-id="cfbaab01-c299-4a60-9494-49824fbefec2"><td ac:local-id="f6306b4e-8c12-4ce8-bfa1-08f154ed7600"><div class="TextAlignCenter"><img src="attachments/2.2_SLAB_EDIT/2.2.PerimeterLine.png" alt="2.2.PerimeterLine.png" width="67" onclick="showModal(this.src)"></div></td><td ac:local-id="e295984d-381b-44fd-bde7-ff2acaba4a2e"><p local-id="516634d7-52b1-431c-99be-7325e48e5931"><strong>Side</strong><br>Represents a side of the <strong>Perimeter</strong>, which appears only if both adjacent vertices are connected.</p></td></tr></tbody></table><p local-id="8b26d162-3ae4-444a-ae9e-585f4029f7a0"></p><h2 local-id="b651c144-274d-4ae5-964c-0e7c46054f47">Perimeter tools</h2><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="2eb9a1c3-55bf-44df-9a8b-b2418a2bb8e3" data-table-display-mode="default"><colgroup><col style="width: 507.0px;"><col style="width: 1287.0px;"></colgroup><tbody><tr ac:local-id="53190dfd-52e7-4da9-be67-1d38810ad32a"><td data-highlight-colour="#ffffff" ac:local-id="00876267-2018-4103-bfea-f8bcd060f891"><div class="TextAlignCenter"><img src="attachments/2.2_SLAB_EDIT/2.3.RectangleP.png" alt="2.3.RectangleP.png" width="120" onclick="showModal(this.src)"></div></td><td data-highlight-colour="#ffffff" ac:local-id="b957de86-63eb-4426-a387-f2890ea358b1"><p local-id="f22ee58c-f4a6-4529-b724-2f4f5ad170a0"><strong>Rectangle</strong><br>Allows setting the perimeter of the slab preview via a resizable rectangle.</p></td></tr><tr ac:local-id="fe55a24b-0bfa-402d-bf1f-72a5c74cd9ac"><td data-highlight-colour="#ffffff" ac:local-id="f6da7c4f-963f-430f-bb78-7502ac5046cd"><div class="TextAlignCenter"><img src="attachments/2.2_SLAB_EDIT/2.3.PointsP.png" alt="2.3.PointsP.png" width="120" onclick="showModal(this.src)"></div></td><td data-highlight-colour="#ffffff" ac:local-id="88f1b206-10e8-4108-bbc7-5cd1a4e45b40"><p local-id="479ba437-d40f-4ce7-b8ac-b3dbd9f6b61b"><strong>Points</strong><br>Allows setting the perimeter of the slab preview via vertices.</p></td></tr></tbody></table><p local-id="fa076401-44ce-4086-ad72-16ab6fcae1c8"></p><h2 local-id="bcb184b1-418e-427c-9f9d-1473282a9438">Perimeter actions</h2><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="54fbbca2-61b7-452b-89e2-351c4293d858"><colgroup><col style="width: 512.0px;"><col style="width: 1284.0px;"></colgroup><tbody><tr ac:local-id="e15d227a-bbcf-446c-ad46-bb3ecea74f48"><td ac:local-id="e55ed715-f193-40bf-9659-1337c2b0070e"><div class="TextAlignCenter"><img src="attachments/2.2_SLAB_EDIT/2.3.BackPoint.png" alt="2.3.BackPoint.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="256d6927-4737-4b43-85be-edcc05ff6053"><p local-id="a2de2765-e559-4e91-afa3-f41017d78d31"><strong>Remove last point</strong><br>Allows removing the last inserted point in the preview perimeter (yellow circle) without closing the perimeter.</p></td></tr><tr ac:local-id="ecc29d29-7904-45f9-bdac-7a7e107c07ed"><td ac:local-id="42522a51-fee6-472b-90ab-43a27a1b723f"><div class="TextAlignCenter"><img src="attachments/2.2_SLAB_EDIT/2.3.Move.png" alt="2.3.Move.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="d701c85e-0edf-4c4e-877a-94f87e7fa450"><p local-id="25528fce-7607-4685-9dff-3c05eba333b9"><strong>Move perimeter</strong><br>Allows activating the mode to move the entire perimeter in the slab preview</p></td></tr><tr ac:local-id="75566e58-2f2b-4ea8-b36d-d2d42dcbd0c5"><td ac:local-id="f511842d-d3b5-4e9b-8025-baa2d566981c"><div class="TextAlignCenter"><img src="attachments/2.2_SLAB_EDIT/2.3.Eraser.png" alt="2.3.Eraser.png" width="120" onclick="showModal(this.src)"></div></td><td ac:local-id="99a6f574-01be-40a6-a382-c54ba64a4356"><p local-id="d69d9fd3-ddec-4841-81eb-d392c5bf6a88"><strong>Delete point</strong><br>Allows activating the delete point mode: by clicking on a vertex of the perimeter, it removes it and recalculates the perimeter with the remaining points.</p></td></tr><tr ac:local-id="db3ac8c3-7302-468b-8fd2-23bd50a0a660"><td ac:local-id="a7da31cf-448d-4f41-8437-06e20e81b3a2"><div class="TextAlignCenter"><img src="attachments/2.2_SLAB_EDIT/2.3.ClosePerimeter.png" alt="2.3.ClosePerimeter.png" width="120" onclick="showModal(this.src)"></div></td><td ac:local-id="b625bc11-cfba-4d78-9ecc-5e1dd7913aa7"><p local-id="a6ff0431-0c6e-4f80-9807-d45fac955bb2"><strong>Close perimeter</strong><br>Allows closing the perimeter by joining the two extreme vertices of the polyline.</p></td></tr></tbody></table><p local-id="056dbb14-27c7-4706-b41b-9945d6594ba1"></p><h2 local-id="bdb78771-d082-4293-9f3b-bf69145573bf">Slab defects</h2><p local-id="42df78ab-1529-49aa-80cc-b603452618a2">All perimeters present in the image are listed in the lower section of the parameters.</p><p local-id="45cb2016-dab7-4cbd-8c9a-b005cf02140f">In the **Parameters** section, at the bottom, the last part contains a list with the **Perimeter** indicating how many perimeters are present in the list.</p><div class="TextAlignCenter"><img src="attachments/2.2_SLAB_EDIT/2.3.ListaPerimetri.png" alt="2.3.ListaPerimetri.png" width="418" onclick="showModal(this.src)"></div><p local-id="3a927517-88ea-4822-abbc-3f785463fed4">The first always indicates the perimeter of the entire slab; the others will have a red perimeter to signal defective areas.<br>The first perimeter in the list refers to the perimeter of the entire slab.<br>Each subsequent perimeter will be colored red and will indicate to the user the defective areas as shown in the following example image:</p><div class="TextAlignCenter"><img src="attachments/2.2_SLAB_EDIT/image-20260120-081036.png" alt="image-20260120-081036.png" width="495" onclick="showModal(this.src)"></div><p local-id="e98d47dd-3841-4409-9ae3-204881e66169"></p><h3 local-id="8c76c407-2a12-4864-83a9-d90b25228936">Buttons</h3><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="5c07074b-0806-40d2-88ef-356031b93dec" data-table-display-mode="default"><colgroup><col style="width: 512.0px;"><col style="width: 1284.0px;"></colgroup><tbody><tr ac:local-id="e118dc4e-7a18-445c-bc24-1bdb5cbf87d3"><td ac:local-id="ba9be582-98e4-481b-b14a-e56aaae2c9d0"><div class="TextAlignCenter"><img src="attachments/2.2_SLAB_EDIT/2.3.PlusP.png" alt="2.3.PlusP.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="1077191b-8003-4180-8929-7599f799fa1a"><p local-id="b0052224-5810-4d81-994a-3480776ac394"><strong>Add</strong><br>Allows adding a defect perimeter to the list and in the slab preview to be set.</p></td></tr><tr ac:local-id="d9c94568-81dc-4099-929e-3bf74ea5ddcd"><td ac:local-id="8e89ea32-0fd6-4059-91ec-d2f4b4452c5d"><div class="TextAlignCenter"><img src="attachments/2.2_SLAB_EDIT/2.3.MinusP.png" alt="2.3.MinusP.png" width="120" onclick="showModal(this.src)"></div></td><td ac:local-id="b81f6e8b-abb4-48f6-8675-9da117100501"><p local-id="077e1737-3587-45bd-8ba2-3e3a68266b16"><strong>Remove</strong><br>Remove the currently selected defect perimeter from the list and preview.</p>
+<div id="admonition-note" class="admonition admonish-info" role="note" aria-labelledby="admonition-note-title">
+<div class="admonition-title">
+<div id="admonition-note-title">
+<p>NOTE:</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-note"></a>
+</div>
+<div>
+<p>If the list contains only the main perimeter, this button will be disabled.</p>
+</div>
+</div>
+</td></tr></tbody></table><p local-id="1c53acd8-249b-4eaa-8ead-7e32ebcb8f37"></p><p local-id="c13dac0c-09d4-4475-8989-e69be91b745d"></p><h1 local-id="5fe6a34c-d143-4a04-ae60-e0f4df91c20e">Parameters</h1><h2 local-id="60ad5da5-ad71-408f-8503-bb66351834e6">Main parameters</h2>
+<div id="admonition-note-1" class="admonition admonish-info" role="note" aria-labelledby="admonition-note-1-title">
+<div class="admonition-title">
+<div id="admonition-note-1-title">
+<p>NOTE</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-note-1"></a>
+</div>
+<div>
+<p>A red asterisk indicates the mandatory field to be filled by the user.</p>
+</div>
+</div>
+<table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="423c72ee-8cf2-4ef7-bf16-9f406c05b2b9"><colgroup><col style="width: 595.0px;"><col style="width: 1201.0px;"></colgroup><tbody><tr ac:local-id="8b8b0ee6-c817-4702-aeca-976eaa8df41a"><td ac:local-id="cda93304-960b-44b8-8b19-73e22743fecf"><div class="TextAlignCenter"><img src="attachments/2.2_SLAB_EDIT/2.3.Nome.png" alt="2.3.Nome.png" width="374" onclick="showModal(this.src)"></div></td><td ac:local-id="a262e37d-bf4e-4ad4-879d-1f16e694da84"><p local-id="2d27c753-ea28-405a-a787-eb9844c174db"><strong>Name</strong><br>Unique identifier of the Slab.</p></td></tr><tr ac:local-id="7dfccf0f-9773-4e37-a9ed-0215a1d2287a"><td ac:local-id="42fa7c61-032d-42a4-95b0-2586beb23978"><div class="TextAlignCenter"><img src="attachments/2.2_SLAB_EDIT/2.3.Spessore.png" alt="2.3.Spessore.png" width="374" onclick="showModal(this.src)"></div></td><td ac:local-id="cb276238-f60b-4c00-bbe7-530e84795d74"><p local-id="531541e3-6299-4e32-b53a-71b2b2a492d3"><strong>Thickness</strong><br>Real thickness of the slab in millimeters.</p></td></tr><tr ac:local-id="991eacde-3f31-4219-89da-8a32e5363dce"><td ac:local-id="2c9aac2f-97a0-4f84-9cf9-d6816914f5a9"><div class="TextAlignCenter"><img src="attachments/2.2_SLAB_EDIT/2.3.Materiale.png" alt="2.3.Materiale.png" width="374" onclick="showModal(this.src)"></div></td><td ac:local-id="f6ae0007-de30-4731-b047-7b9cb60243d3"><p local-id="e6dde9bb-d35d-4c69-b229-7a6331c22298"><strong>Material</strong><br>Type of stone associated with the slab.</p></td></tr><tr ac:local-id="bea74450-6d67-4ebc-a157-d1cb58239e88"><td ac:local-id="d38a78d3-1ec2-436b-95bf-b46428379111"><div class="TextAlignCenter"><img src="attachments/2.2_SLAB_EDIT/2.3.Finitura.png" alt="2.3.Finitura.png" width="374" onclick="showModal(this.src)"></div></td><td ac:local-id="1f07a507-e5f8-4639-b584-19dcfc5aad73"><p local-id="f1f65e1f-d497-4917-9875-1bd806949a37"><strong>Finishing</strong><br>Surface treatment of the slab.</p></td></tr><tr ac:local-id="864819b1-f6e1-4a26-b4d2-6d4e4017f0e7"><td ac:local-id="74f5677f-4788-4b63-b78b-7ea6953c4e89"><div class="TextAlignCenter"><img src="attachments/2.2_SLAB_EDIT/2.3.Recupero.png" alt="2.3.Recupero.png" width="314" onclick="showModal(this.src)"></div></td><td ac:local-id="28f20641-a523-4bcc-af1b-51cb0e3a9121"><p local-id="757250b3-730b-4953-ac66-5af909d7e546"><strong>Recovery Slab</strong><br>Indicate whether the slab is a recovery slab or not.</p></td></tr></tbody></table><p local-id="10f2c530-dc95-474d-a75e-3ea2d6759046"></p><h2 local-id="e564d344-11c5-49a0-97e9-ff22cc6b36c8">Additional properties</h2><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="13a1ce87-606d-4504-a675-9c479563ba9e"><colgroup><col style="width: 594.0px;"><col style="width: 1201.0px;"></colgroup><tbody><tr ac:local-id="277fe66d-2760-4820-93de-f2bac6424222"><td ac:local-id="782b7ba5-da05-4ee9-bac5-b5e1bc6bef6c"><div class="TextAlignCenter"><img src="attachments/2.2_SLAB_EDIT/2.3.Blocco.png" alt="2.3.Blocco.png" width="374" onclick="showModal(this.src)"></div></td><td ac:local-id="ad545d78-7c0e-4350-9874-bca658d8d345"><p local-id="ef883a0b-a237-4f6c-ac94-f5a9c500b66a"><strong>Block</strong><br>Block code of slab origin.</p></td></tr><tr ac:local-id="18d80520-6498-4425-bb5d-19f6c58ce93e"><td ac:local-id="8a028e9d-a5a6-46a6-a6f7-fba85bde0376"><div class="TextAlignCenter"><img src="attachments/2.2_SLAB_EDIT/2.3.Fornitore.png" alt="2.3.Fornitore.png" width="374" onclick="showModal(this.src)"></div></td><td ac:local-id="fc8d4b52-1dae-484c-a9ff-2bf6337e3329"><p local-id="d331ffa9-c003-4f57-9353-e86da8250a5d"><strong>Supplier</strong><br>Slab origin.</p></td></tr><tr ac:local-id="352f3a2a-dfcd-4a22-a5ab-c78a960c9b02"><td ac:local-id="f9fd6213-81c9-4570-9a47-be045c479de7"><div class="TextAlignCenter"><img src="attachments/2.2_SLAB_EDIT/2.3.Pack.png" alt="2.3.Pack.png" width="374" onclick="showModal(this.src)"></div></td><td ac:local-id="9cc7d7a7-9632-438a-9f2e-9d916d7bb4b2"><p local-id="0630cca6-8e30-4de9-837d-8852fc3050a5"><strong>Pack</strong><br>Logistics/commercial grouping.</p></td></tr></tbody></table><p local-id="3d16de2f-5b79-40c4-bafb-7eca2845cfdd"></p><h2 local-id="78edf63e-9f0d-45f6-b8a4-0bad7dbd138f">Perimeter properties</h2><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="2055dd57-f9a9-45d8-ae6e-210a6ad717d1"><colgroup><col style="width: 594.0px;"><col style="width: 1201.0px;"></colgroup><tbody><tr ac:local-id="db3df1ef-0362-45e4-8f3f-1d985a02fc4a"><td ac:local-id="33621a95-0d08-4164-ac51-3117d5711c57"><div class="TextAlignCenter"><img src="attachments/2.2_SLAB_EDIT/2.3.Larghezza.png" alt="2.3.Larghezza.png" width="374" onclick="showModal(this.src)"></div></td><td ac:local-id="4edaa18a-2ca8-4290-8681-a25aaf1e12d8"><p local-id="ac1c22a2-daa6-42bf-94eb-22ce5b81fb97"><strong>Width</strong><br>Value indicating the width of the previewed perimeter.</p></td></tr><tr ac:local-id="2a9401f7-f299-482d-870b-b2d69427dc91"><td ac:local-id="f6f3a333-88d8-45c8-aeaa-f892256f43ac"><div class="TextAlignCenter"><img src="attachments/2.2_SLAB_EDIT/2.3.Altezza.png" alt="2.3.Altezza.png" width="374" onclick="showModal(this.src)"></div></td><td ac:local-id="30c5c4d4-f98c-4109-9501-1b2c34050e19"><p local-id="7f3da34a-cf5d-4526-b361-de810792707a"><strong>Height</strong><br>Value indicating the height of the perimeter shown in preview.</p></td></tr><tr ac:local-id="d7b6e42c-1974-4022-b159-ebc0729caaed"><td ac:local-id="c2cec24b-6fb4-468b-8b61-ab6086923f15"><div class="TextAlignCenter"><img src="attachments/2.2_SLAB_EDIT/2.3.Area.png" alt="2.3.Area.png" width="374" onclick="showModal(this.src)"></div></td><td ac:local-id="9f46f519-7bc3-47dc-a2cb-db75b6de2e9f"><p local-id="75b37fea-d310-486b-80e3-abbe4344a6d6"><strong>Area</strong><br>Value calculated based on the slab's width and height.<br>This field is not modifiable by the user.</p></td></tr><tr ac:local-id="04a51827-3dac-43d1-a850-1723df57d66a"><td ac:local-id="e13da4c0-f670-4b82-98d3-1b5e520c7d5b"><div class="TextAlignCenter"><img src="attachments/2.2_SLAB_EDIT/2.3.Volume.png" alt="2.3.Volume.png" width="374" onclick="showModal(this.src)"></div></td><td ac:local-id="6c06c5db-a843-4362-bcba-515d53b4d978"><p local-id="924c8035-6c67-44a8-b9f1-7b4911aa12fe"><strong>Volume</strong><br>Value calculated based on slab area and thickness.<br>This field is not modifiable by the user.</p></td></tr></tbody></table><p local-id="438fe631-45e7-4133-b6e5-7ad66e9f2006"></p><p local-id="d50b12b5-a7e0-44c1-aa14-f2681a83aad5"></p><h1 local-id="9a49d4bc-49d7-4017-9da9-899fa7ddc97e">File location</h1><p local-id="502a5f4d-3541-4298-aa1c-822ee74fadc0">In the lower section of the slab modification panel, the user can view and access the position of image files and slab parameters.</p><div class="TextAlignCenter"><img src="attachments/2.2_SLAB_EDIT/2.3.File.png" alt="2.3.File.png" width="800" onclick="showModal(this.src)"></div><p local-id="37f6b293-5c2c-4f17-accb-4666658369c2">The absolute path of the image linked to the slab is automatically set, the following buttons are also available to the user:</p><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="be49f4b0-0b36-4cc8-98a7-78b495b14dd8"><colgroup><col style="width: 512.0px;"><col style="width: 1284.0px;"></colgroup><tbody><tr ac:local-id="622c4073-69aa-4237-b837-9c920b30b529"><td ac:local-id="d2c7ec2b-5d88-4d75-943a-25f09c083988"><div class="TextAlignCenter"><img src="attachments/2.2_SLAB_EDIT/2.3.Folder.png" alt="2.3.Folder.png" width="53" onclick="showModal(this.src)"></div></td><td ac:local-id="2160cbfb-9104-470e-88c1-6737cfda30f1"><p local-id="ce3a2ee1-de59-4ad5-b296-83716267aa16"><strong>Open</strong><br>Open the image folder with Explorer.</p></td></tr><tr ac:local-id="3ac75efa-3332-4394-ba50-57eec17f8fa9"><td ac:local-id="0e2999d5-87a4-485b-a724-6c0fcec33968"><div class="TextAlignCenter"><img src="attachments/2.2_SLAB_EDIT/2.3.Copy.png" alt="2.3.Copy.png" width="53" onclick="showModal(this.src)"></div></td><td ac:local-id="526b7a27-c860-45bd-a6d7-23f350fe585a"><p local-id="609180f5-63dd-4662-8b37-0720faa2f42b"><strong>Copy</strong><br>Copy the absolute path of the image.</p></td></tr></tbody></table><p local-id="008366ff-34de-4452-b803-fff78ae77679"></p><!--Label="2_2_modifica_lastra"-->
+                        </main>
+
+                    </div>
+
+                    <img src="images/donatoni_222.jpg">
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="2.1_take_photo.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="2.3_browse_slabs.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+
+
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                <a rel="prev" href="2.1_take_photo.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="2.3_browse_slabs.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="mermaid.min.js"></script>
+        <script src="mermaid-init.js"></script>
+        <script src="hidemenu.js"></script>
+        <script src="imagemodal.js"></script>
+        <script src="login.js"></script>
+    </div>
+
+    <!-- Modale -->
+    <div id="modal" onclick="closeModal()">
+        <img id="modal-img" src="">
+    </div>;
+
+
+</body>
+</html>

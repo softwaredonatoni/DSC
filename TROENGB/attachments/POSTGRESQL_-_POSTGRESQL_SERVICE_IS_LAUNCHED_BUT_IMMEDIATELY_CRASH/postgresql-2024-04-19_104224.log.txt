@@ -1,0 +1,8 @@
+2024-04-19 10:42:24 CEST LOG:  il database   stato arrestato alle 2024-04-18 �19:46:42 CEST
+2024-04-19 10:42:24 CEST LOG:  il record del checkpoint primario non   valido�
+2024-04-19 10:42:24 CEST LOG:  il record del checkpoint secondario non   valido�
+2024-04-19 10:42:24 CEST PANICO:  localizzazione di un record di checkpoint valido fallita
+2024-04-19 10:42:24 CEST LOG:  avvio del processo (PID 512)   stato terminato �dall'eccezione 0xC0000409
+2024-04-19 10:42:24 CEST SUGGERIMENTO:  Consulta il file include C "ntstatus.h" peruna spiegazione del valore esadecimale.
+2024-04-19 10:42:24 CEST LOG:  avvio interrotto a causa del fallimento del processodi avvio
+2024-04-19 10:42:24 CEST LOG:  il database   stato arrestato

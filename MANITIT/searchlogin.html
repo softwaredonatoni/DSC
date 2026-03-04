@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ricerca Pagina</title>
+    <script>
+
+
+async function fetchToken(parametro1) {
+    try {
+      const response = await fetch(`http://192.168.6.14:8081/api/evaluate?token=${encodeURIComponent(parametro1)}`);
+      if (!response.ok) throw new Error("Errore nella risposta HTTP");
+
+      const text = await response.json(); // supponiamo risponda con "True" o "False"
+      if (text == "True") {
+        console.info("login ok");
+        sessionStorage.setItem("isLoggedIn", "true");
+        return true;
+      } else {
+        console.info("login KO");
+        return false;
+      }
+    } catch (error) {
+      console.error("Errore durante la fetch:", error);
+      return false;
+    }
+  }
+
+
+        document.addEventListener("DOMContentLoaded", async () => {
+            const fragment  = window.location.hash.substring(1); // Prende il valore dopo #
+            const [parametro1, parametro2] = fragment.split("|"); // Divide i valori
+            const output = document.getElementById("parametro");
+           
+            if (!parametro1) {
+                output.textContent = "Nessun parametro passato.";
+                return;
+            }
+
+
+            const loginOk = await fetchToken(parametro1); // aspetta la fetch
+
+            if (!loginOk) {
+                 output.textContent = "Token non valido.";
+                return;
+            }
+            
+            if (!parametro2) {
+                output.textContent = "Nessun parametro passato.";
+                return;
+            }
+
+            output.textContent = `Parametro passato: ${parametro2}`;
+
+            // Cerca tutte le corrispondenze nel body
+            const mappings = document.querySelectorAll("p#mapping");
+            for (const mapping of mappings) {
+                const [key, value] = mapping.textContent.split("=");
+                if (key === parametro2) {
+                    window.location.href = value.trim(); // Reindirizza l'utente alla pagina corrispondente
+                    return;
+                }
+            }
+
+            var msg = `Nessuna pagina trovata con questa etichetta: ${parametro2}`;
+
+            alert(msg);
+        });
+    </script>
+        <style>
+            p#mapping { display: none; }
+        </style>
+</head>
+<body>
+    <h1>Ricerca della Pagina</h1>
+    <p id="parametro">Attendi mentre cerchiamo la pagina corrispondente...</p>
+    
+    <!-- Mappatura parametri-pagine -->
+<p id="mapping">mn0001=mn0001_test_del_circuito_di_emergenza.html</p>
+<p id="mapping">mn0002=mn0002_manutenzione_mensile_pompa_del_vuoto.html</p>
+<p id="mapping">mn0003=mn0003_test_funzionamento_segnale_luminoso.html</p>
+<p id="mapping">mn0004=mn0004_ingrassaggio_guide_lineari_sistema_move.html</p>
+<p id="mapping">mn0005=mn0005_ingrassaggio_cuscinetto_chiocciola_asse_z.html</p>
+<p id="mapping">mn0006=mn0006_ingrassaggio_cuscinetti_albero_trasmissione_ponte_asse_y.html</p>
+<p id="mapping">mn0007=mn0007_controllo_lubrificante_sistema_di_ingrassaggio_automatico.html</p>
+<p id="mapping">mn0008=mn0008_ingrassaggio_snodi_del_banco_ribaltabile.html</p>
+<p id="mapping">mn0009=mn0009_ingrassaggio_snodo_braccio_console.html</p>
+<p id="mapping">mn0010=mn0010_controllo_tubazioni_e_raccordi_impianto_oleodinamico.html</p>
+<p id="mapping">mn0011=mn0011_cambio_olio_centralina_idraulica.html</p>
+<p id="mapping">mn0012=mn0012_pulizia_filtri_quadro_elettrico.html</p>
+<p id="mapping">mn0013=mn0013_manutenzione_gruppo_ingresso_aria_compressa.html</p>
+<p id="mapping">mn0014=mn0014_cuscinetti_elettromandrino.html</p>
+<p id="mapping">mn0041=mn0041_ingrassaggio_guide_lineari_mandrino_laterale_tool_plus.html</p>
+<p id="mapping">mn0042=mn0042_pulizia_filtro_impianto_pneumatico.html</p>
+<p id="mapping">mn0043=mn0043_verifica_tenuta_giunto_rotante.html</p>
+<p id="mapping">mn0015=mn0015_controllo_tubazioni_e_raccordi_dellimpianto_di_alta_pressione.html</p>
+<p id="mapping">mn0016=mn0016_controllo_dello_stato_di_pulizia_della_vasca.html</p>
+<p id="mapping">mn0017=mn0017_riparare_le_valvole_di_ritegno_e_gli_otturatori_per_la_bassa_pressione.html</p>
+<p id="mapping">mn0018=mn0018_riparare_il_cilindro_dellalta_pressione.html</p>
+<p id="mapping">mn0019=mn0019_sostituire_la_cartuccia_dellelemento_di_tenuta_dellalta_pressione.html</p>
+<p id="mapping">mn0020=mn0020_sostituire_il_gruppo_otturatore_per_lalta_pressione.html</p>
+<p id="mapping">mn0021=mn0021_sostituire_lotturatore_per_la_bassa_pressione.html</p>
+<p id="mapping">mn0022=mn0022_invertire_il_cilindro_dellalta_pressione.html</p>
+<p id="mapping">mn0023=mn0023_sostituire_il_cilindro_dellalta_pressione.html</p>
+<p id="mapping">mn0024=mn0024_sostituire_il_gruppo_valvola_di_ritegno.html</p>
+<p id="mapping">mn0025=mn0025_sostituire_il_gruppo_alloggiamento_dellelemento_di_tenuta.html</p>
+<p id="mapping">mn0026=mn0026_sostituire_ladattatore_in_uscita.html</p>
+<p id="mapping">mn0027=mn0027.html</p>
+<p id="mapping">mn0028=mn0028_riparazione_della_sezione_idraulica_centrale.html</p>
+<p id="mapping">mn0029=mn0029_riparare_la_valvola_di_spurgo.html</p>
+<p id="mapping">mn0030=mn0030_controllo_lubrificante_sistema_di_ingrassaggio_automatico.html</p>
+<p id="mapping">mn0031=mn0031_sostituire_il_corpo_della_valvola_di_spurgo.html</p>
+<p id="mapping">mn0032=mn0032_pulire_il_refrigeratore_ad_aria.html</p>
+<p id="mapping">mn0033=mn0033.html</p>
+<p id="mapping">mn0034=mn0034_sostituire_il_filtro_dellacqua.html</p>
+<p id="mapping">mn0035=mn0035_controllare_la_qualità_dellacqua.html</p>
+<p id="mapping">mn0036=mn0036_sostituire_lelemento_del_filtro_idraulico.html</p>
+<p id="mapping">mn0037=mn0037_sostituire_il_fluido_idraulico.html</p>
+<p id="mapping">mn0038=mn0038_lubrificare_i_cuscinetti_del_motore_primario.html</p>
+<p id="mapping">mn0039=mn0039_pulizia_filtri_prese_di_aerazione_quadro_elettrico.html</p>
+<p id="mapping">mn0040=mn0040_manutenzione_gruppo_ingresso_aria_compressa.html</p>
+<p id="mapping">hyp_otturatore=gruppo_otturatore_per_alta_pressione.html</p>
+</body>
+</html>

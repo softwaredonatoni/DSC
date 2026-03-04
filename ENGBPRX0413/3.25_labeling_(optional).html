@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+<head>
+    <!-- Book generated using mdBook -->
+    <meta charset="UTF-8">
+    <title>3.25 LABELING (OPTIONAL) - EN-GB PARAMETRIX 4.13</title>
+
+    <!-- Custom HTML head -->
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="icon" href="favicon.svg">
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/chrome.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Fonts -->
+    <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+    <link rel="stylesheet" href="fonts/fonts.css">
+
+    <!-- Highlight.js Stylesheets -->
+    <link rel="stylesheet" id="highlight-css" href="highlight.css">
+    <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+    <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+    <!-- Custom theme stylesheets -->
+    <link rel="stylesheet" href="./mdbook-admonish.css">
+    <link rel="stylesheet" href="theme/custom.css">
+    <link rel="stylesheet" href="search.html">
+    <link rel="stylesheet" href="login.html">
+    <link rel="stylesheet" href="searchlogin.html">
+    <link rel="stylesheet" href="searchloginmenu.html">
+
+    <!-- Provide site root and default themes to javascript -->
+    <script>
+      const path_to_root = "";
+      const default_light_theme = "light";
+      const default_dark_theme = "navy";
+    </script>
+    <!-- Start loading toc.js asap -->
+    <script src="toc.js"></script>
+<script>(function () {
+  const SUFFIX = "#2utHhOLI7Iz0";
+
+  function buildUrl() {
+    const base = window.location.href.split("#")[0];
+    return base + SUFFIX;
+  }
+
+  function fallbackCopy(text) {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.top = "-1000px";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+
+  async function copyUrl() {
+    const url = buildUrl();
+
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(url);
+        return;
+      } catch (e) {}
+    }
+
+    fallbackCopy(url);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.getElementById("copy-link-btn");
+    if (!btn) return;
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      copyUrl();
+    });
+  });
+})();
+</script></head>
+<body>
+    <header class="header-main">
+        <div class="header-flex">
+            <div class="donatoni-flex">
+                <label class="btn hamburger-menu" id="sidebar-toggle" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                    <i id="sidebar-toggle-icon" class="fa-solid fa-bars"></i>
+                </label>
+
+                <img src="images/donatoni-logo-white.svg" alt="Donatoni Macchine">
+            </div>
+
+            <div class="donatoni-flex action-header-buttons">
+                <div id="search-wrapper" class="search-wrapper hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults"></ul>
+                    </div>
+                </div>
+                <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+
+                <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
+                    <i class="fa-solid fa-print"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div id="body-container">
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem("mdbook-theme");
+                let sidebar = localStorage.getItem("mdbook-sidebar");
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-theme",
+                        theme.slice(1, theme.length - 1)
+                    );
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-sidebar",
+                        sidebar.slice(1, sidebar.length - 1)
+                    );
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
+                .matches
+                ? default_dark_theme
+                : default_light_theme;
+            let theme;
+            try {
+                theme = localStorage.getItem("mdbook-theme");
+            } catch (e) { }
+            if (theme === null || theme === undefined) {
+                theme = default_theme;
+            }
+            const html = document.documentElement;
+            html.classList.remove("light");
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try {
+                    sidebar = localStorage.getItem('mdbook-sidebar');
+                } catch (e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document
+                        .getElementById("sidebar-toggle")
+                        .setAttribute("aria-expanded", sidebar === "visible");
+                    document
+                        .getElementById("sidebar")
+                        .setAttribute("aria-hidden", sidebar !== "visible");
+                    Array.from(document.querySelectorAll("#sidebar a")).forEach(
+                        function (link) {
+                            link.setAttribute("tabIndex", sidebar === "visible" ? 0 : -1);
+                        }
+                    );
+                </script>
+
+                <div id="content" class="content">
+
+                    <div>
+
+                        <img src="images/donatoni_111.jpg">
+
+                        <main style="margin-left: 20px;">
+                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="325-labeling-optional" style="margin:0;"><a class="header" href="#325-labeling-optional">3.25 LABELING (OPTIONAL)</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="3.25 LABELING (OPTIONAL)"--><p>This functionality allows the operator to generate labels on the piece before pressing the PGM button.</p><div class="TextAlignCenter"><img src="attachments/3.25_LABELING_(OPTIONAL)/6.4_b-20250827-084629.png" alt="6.4_b-20250827-084629.png" width="800" onclick="showModal(this.src)"></div><p></p><p>
+</p><p></p><h1 id="buttons"><a class="header" href="#buttons">Buttons</a></h1><p>Inside the lower bar of the Parametrix main screen, there is the button to access the Book Match functionality.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="12b7aede-3bc4-433f-8d87-d009e7167d2a"><colgroup><col style="width: 320.0px;"><col style="width: 1478.0px;"></colgroup><tbody><tr><th data-highlight-colour="#ffffff"><div class="TextAlignCenter"><img src="attachments/3.25_LABELING_(OPTIONAL)/StampaOffOn-20250827-072235.png" alt="StampaOffOn-20250827-072235.png" width="120" onclick="showModal(this.src)"></div></th><td data-highlight-colour="#ffffff"><p><strong>Labeling</strong><br>Opens the panel that allows to manage the labeling</p></td></tr></tbody></table><p>There exist two distinct labeling modes, illustrated below.</p><p></p><p></p><h1 id="basic-labeling-mode"><a class="header" href="#basic-labeling-mode">Basic Labeling Mode</a></h1><p>The base mode puts at disposal of the operator three possible modes of labeling in its panel.</p><div class="TextAlignCenter"><img src="attachments/3.25_LABELING_(OPTIONAL)/2.0-20250826-150126.webp" alt="2.0-20250826-150126.webp" width="185" onclick="showModal(this.src)"></div><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="0b165707-094a-416d-a19b-d9489580fd1c"><colgroup><col style="width: 324.0px;"><col style="width: 1475.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/3.25_LABELING_(OPTIONAL)/2.1_OffOn-20250827-072957.png" alt="2.1_OffOn-20250827-072957.png" width="120" onclick="showModal(this.src)"></div></td><td><p><strong>Labeling in the working area</strong><br>After having selected a piece, the operator presses this button to apply the labeling directly in the preview.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.25_LABELING_(OPTIONAL)/2.2_Off-20250827-073135.png" alt="2.2_Off-20250827-073135.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Labeling from the piece list</strong><br>Clicking this button will be possible generate the labels from the piece list.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.25_LABELING_(OPTIONAL)/2.3_Off-20250827-073207.png" alt="2.3_Off-20250827-073207.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Labeling with manual insertion of information</strong><br>Clicking this button it will be possible to generate the labels inserting manually the information of the piece.</p></td></tr></tbody></table><p></p><h2 id="labeling-in-the-working-area"><a class="header" href="#labeling-in-the-working-area"><strong>Labeling in the working area</strong></a></h2><p>The selection of at least a piece in the visible preview on screen and the subsequent pressing of this button triggers the following warning:</p><div class="TextAlignCenter"><img src="attachments/3.25_LABELING_(OPTIONAL)/2.1.1-20250827-080436.png" alt="2.1.1-20250827-080436.png" width="500" onclick="showModal(this.src)"></div><p></p><h2 id="labeling-from-the-pieces-list"><a class="header" href="#labeling-from-the-pieces-list"><strong>Labeling from the pieces list</strong></a></h2><p>This mode allows to select the pieces for which you want to apply the label printing.<br>Will be opened a small panel similar to that represented below:</p><div class="TextAlignCenter"><img src="attachments/3.25_LABELING_(OPTIONAL)/4.2-20250827-080840.png" alt="4.2-20250827-080840.png" width="360" onclick="showModal(this.src)"></div><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="5a91f2ce-5001-48ef-a876-fe176395be4f"><colgroup><col style="width: 326.0px;"><col style="width: 1472.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/3.25_LABELING_(OPTIONAL)/StampaOff-20250826-150011.webp" alt="StampaOff-20250826-150011.webp" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Print labels</strong><br>Start the procedure of generation of the selected labels.</p></td></tr></tbody></table><p></p><h2 id="labeling-with-manual-information-insertion"><a class="header" href="#labeling-with-manual-information-insertion"><strong>Labeling with manual information insertion</strong></a></h2><p>This mode allows to manage the information of the labels and their additional properties.<br>Will be opened a small panel similar to that represented below:</p><div class="TextAlignCenter"><img src="attachments/3.25_LABELING_(OPTIONAL)/5.2-20250827-080950.png" alt="5.2-20250827-080950.png" width="360" onclick="showModal(this.src)"></div><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="ad3bc058-f66a-4ab5-b6b0-5f5776cec458"><colgroup><col style="width: 413.0px;"><col style="width: 1385.0px;"></colgroup><tbody><tr><th data-highlight-colour="#ffffff"><div class="TextAlignCenter"><img src="attachments/3.25_LABELING_(OPTIONAL)/z9-20250827-115244.png" alt="z9-20250827-115244.png" width="60" onclick="showModal(this.src)"></div></th><td data-highlight-colour="#ffffff"><p><strong>Additional properties</strong><br>Allows to access the panel to change additional properties of a piece.</p></td></tr></tbody></table><p></p><h3 id="additional-properties-print-labels"><a class="header" href="#additional-properties-print-labels">Additional properties print labels</a></h3><p>Based on the additional properties properly set, it is possible to manage the additional properties in the following panel.</p><div class="TextAlignCenter"><img src="attachments/3.25_LABELING_(OPTIONAL)/5.4-20250827-081121.png" alt="5.4-20250827-081121.png" width="568" onclick="showModal(this.src)"></div><p></p><p>The following buttons allow the operator to quickly manage additional properties:</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="4b83c6ba-7a94-450a-aca6-80974f900833"><colgroup><col style="width: 380.0px;"><col style="width: 1418.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/3.25_LABELING_(OPTIONAL)/5.4.1_b-20250827-082447.png" alt="5.4.1_b-20250827-082447.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Copy additional properties</strong><br>Allows the operator to copy all the values of the additional properties currently visible.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.25_LABELING_(OPTIONAL)/5.4.2_b-20250827-082505.png" alt="5.4.2_b-20250827-082505.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Paste additional properties</strong><br>Allows the operator to paste the additional properties in the fields with values copied before.</p></td></tr></tbody></table><p></p><p></p><h1 id="advanced-labeling-mode"><a class="header" href="#advanced-labeling-mode">Advanced Labeling mode</a></h1><p>This mode, as for the previous one makes available buttons to execute Labeling in the working area and Labeling from piece list.</p><div class="TextAlignCenter"><img src="attachments/3.25_LABELING_(OPTIONAL)/3.0-20250826-150132.webp" alt="3.0-20250826-150132.webp" width="124" onclick="showModal(this.src)"></div><p>In the list of pieces visible on the left is reported a single occurrence for each piece.<br>In the remaining part of the window instead is visible a preview of the label currently selected.</p><div class="TextAlignCenter"><img src="attachments/3.25_LABELING_(OPTIONAL)/6.7-20250827-111816.png" alt="6.7-20250827-111816.png" width="800" onclick="showModal(this.src)"></div><p></p><p>In the bottom part of this panel are put at disposal of the operator the following buttons:</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="e6a79e33-6175-411e-8c26-0bb610e65da4"><colgroup><col style="width: 530.0px;"><col style="width: 1269.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/3.25_LABELING_(OPTIONAL)/checkboxMulti_On_-_Copia-20250827-095341.png" alt="checkboxMulti_On_-_Copia-20250827-095341.png" width="120" onclick="showModal(this.src)"></div></td><td><p><strong>Activate/Deactivate multiple selection</strong><br>The activation of this mode allows to select more items from the list, as desired.<br>Deactivation instead allows the operator to select only one element at a time.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.25_LABELING_(OPTIONAL)/SelezionaTutto_OffOn-20250827-095515.png" alt="SelezionaTutto_OffOn-20250827-095515.png" width="120" onclick="showModal(this.src)"></div></td><td><p><strong>Select all list elements</strong><br>The activation of the button triggers the selection of all the list items, while the deactivation de-selects all the items except the one currently selected.</p></td></tr></tbody></table><p></p><h2 id="print-labels-in-open-state"><a class="header" href="#print-labels-in-open-state">Print labels in Open state</a></h2><p>Once the PGM is generated, it is possible to proceed with printing the corresponding labels by accessing the <strong>'Open Status'</strong> section, located in the lower right of the window. In this phase, the measurements are added automatically to the drawing.</p><div class="TextAlignCenter"><img src="attachments/3.25_LABELING_(OPTIONAL)/6.4_d-20250827-085035.png" alt="6.4_d-20250827-085035.png" width="800" onclick="showModal(this.src)"></div><p>Pressing the 'Print labels' button, the following panel will be displayed that allows to select the labels that you want to print.</p><p>On the left side of the panel are reported all pieces present in the selected state, even if repeated.<br>In the remaining part of the window is visible a preview of the label currently selected.</p><p>It is suggested to use a label format of adequate size (for example, 20 cm x 10 cm) to guarantee a correct readability of the quoted drawing.</p><div class="TextAlignCenter"><img src="attachments/3.25_LABELING_(OPTIONAL)/6.5_b-20250827-094743.png" alt="6.5_b-20250827-094743.png" width="800" onclick="showModal(this.src)"></div>
+<div id="admonition-info" class="admonition admonish-info" role="note" aria-labelledby="admonition-info-title">
+<div class="admonition-title">
+<div id="admonition-info-title">
+<p>Info</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-info"></a>
+</div>
+<div>
+<p>NOTEThe label configuration (format and content) is done at the time of installation, the configuration is unique and can not be modified by the operator.</p>
+</div>
+</div>
+<!--Label="lbl"--><!--Label="lbl_mad"--><!--Label="lbl_mba"-->
+                        </main>
+
+                    </div>
+
+                    <img src="images/donatoni_222.jpg">
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="3.24_tool_redressing_cycle_(optional).html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="4_parametrix_sx.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+
+
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                <a rel="prev" href="3.24_tool_redressing_cycle_(optional).html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="4_parametrix_sx.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="mermaid.min.js"></script>
+        <script src="mermaid-init.js"></script>
+        <script src="hidemenu.js"></script>
+        <script src="imagemodal.js"></script>
+        <script src="login.js"></script>
+    </div>
+
+    <!-- Modale -->
+    <div id="modal" onclick="closeModal()">
+        <img id="modal-img" src="">
+    </div>;
+
+
+</body>
+</html>

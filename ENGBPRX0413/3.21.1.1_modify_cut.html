@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+<head>
+    <!-- Book generated using mdBook -->
+    <meta charset="UTF-8">
+    <title>3.21.1.1 MODIFY CUT - EN-GB PARAMETRIX 4.13</title>
+
+    <!-- Custom HTML head -->
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="icon" href="favicon.svg">
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/chrome.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Fonts -->
+    <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+    <link rel="stylesheet" href="fonts/fonts.css">
+
+    <!-- Highlight.js Stylesheets -->
+    <link rel="stylesheet" id="highlight-css" href="highlight.css">
+    <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+    <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+    <!-- Custom theme stylesheets -->
+    <link rel="stylesheet" href="./mdbook-admonish.css">
+    <link rel="stylesheet" href="theme/custom.css">
+    <link rel="stylesheet" href="search.html">
+    <link rel="stylesheet" href="login.html">
+    <link rel="stylesheet" href="searchlogin.html">
+    <link rel="stylesheet" href="searchloginmenu.html">
+
+    <!-- Provide site root and default themes to javascript -->
+    <script>
+      const path_to_root = "";
+      const default_light_theme = "light";
+      const default_dark_theme = "navy";
+    </script>
+    <!-- Start loading toc.js asap -->
+    <script src="toc.js"></script>
+<script>(function () {
+  const SUFFIX = "#2utHhOLI7Iz0";
+
+  function buildUrl() {
+    const base = window.location.href.split("#")[0];
+    return base + SUFFIX;
+  }
+
+  function fallbackCopy(text) {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.top = "-1000px";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+
+  async function copyUrl() {
+    const url = buildUrl();
+
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(url);
+        return;
+      } catch (e) {}
+    }
+
+    fallbackCopy(url);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.getElementById("copy-link-btn");
+    if (!btn) return;
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      copyUrl();
+    });
+  });
+})();
+</script></head>
+<body>
+    <header class="header-main">
+        <div class="header-flex">
+            <div class="donatoni-flex">
+                <label class="btn hamburger-menu" id="sidebar-toggle" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                    <i id="sidebar-toggle-icon" class="fa-solid fa-bars"></i>
+                </label>
+
+                <img src="images/donatoni-logo-white.svg" alt="Donatoni Macchine">
+            </div>
+
+            <div class="donatoni-flex action-header-buttons">
+                <div id="search-wrapper" class="search-wrapper hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults"></ul>
+                    </div>
+                </div>
+                <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+
+                <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
+                    <i class="fa-solid fa-print"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div id="body-container">
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem("mdbook-theme");
+                let sidebar = localStorage.getItem("mdbook-sidebar");
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-theme",
+                        theme.slice(1, theme.length - 1)
+                    );
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-sidebar",
+                        sidebar.slice(1, sidebar.length - 1)
+                    );
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
+                .matches
+                ? default_dark_theme
+                : default_light_theme;
+            let theme;
+            try {
+                theme = localStorage.getItem("mdbook-theme");
+            } catch (e) { }
+            if (theme === null || theme === undefined) {
+                theme = default_theme;
+            }
+            const html = document.documentElement;
+            html.classList.remove("light");
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try {
+                    sidebar = localStorage.getItem('mdbook-sidebar');
+                } catch (e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document
+                        .getElementById("sidebar-toggle")
+                        .setAttribute("aria-expanded", sidebar === "visible");
+                    document
+                        .getElementById("sidebar")
+                        .setAttribute("aria-hidden", sidebar !== "visible");
+                    Array.from(document.querySelectorAll("#sidebar a")).forEach(
+                        function (link) {
+                            link.setAttribute("tabIndex", sidebar === "visible" ? 0 : -1);
+                        }
+                    );
+                </script>
+
+                <div id="content" class="content">
+
+                    <div>
+
+                        <img src="images/donatoni_111.jpg">
+
+                        <main style="margin-left: 20px;">
+                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="32111-modify-cut" style="margin:0;"><a class="header" href="#32111-modify-cut">3.21.1.1 MODIFY CUT</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="3.21.1.1 MODIFY CUT"--><p>This panel allows the operator to modify some characteristics of a cut.</p><div class="TextAlignCenter"><img src="attachments/3.21.1.1_MODIFY_CUT/0.00.png" alt="0.00.png" width="800" onclick="showModal(this.src)"></div><p></p><p>
+</p><p></p><h1 id="buttons"><a class="header" href="#buttons">Buttons</a></h1><p>In the top left corner, it is possible to modify the activation of the cut.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="b2283354-9685-42b8-94f5-c96851599567"><colgroup><col style="width: 296.0px;"><col style="width: 1503.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/3.21.1.1_MODIFY_CUT/2.02-20250711-124251.png" alt="2.02-20250711-124251.png" width="119" onclick="showModal(this.src)"></div></td><td><p><strong>Activate/Deactivate cut</strong><br>Allows to activate or deactivate the selected cut. </p>
+<div id="admonition-info" class="admonition admonish-info" role="note" aria-labelledby="admonition-info-title">
+<div class="admonition-title">
+<div id="admonition-info-title">
+<p>Info</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-info"></a>
+</div>
+<div>
+<p>NOTEA disabled cut is not performed by the machine.</p>
+</div>
+</div>
+</td></tr></tbody></table><p>According to the cut type selected, different versions of this panel will be visible.</p><p></p><h1 id="cuts-with-disk"><a class="header" href="#cuts-with-disk">Cuts with disk</a></h1><p>Selecting a cut executed with disk, linear or arc, the following panel is visualized:</p><div class="TextAlignCenter"><img src="attachments/3.21.1.1_MODIFY_CUT/1.1_b.png" alt="1.1_b.png" width="300" onclick="showModal(this.src)"></div><p>The cuts executed with disk are characterized by an initial point and a final point. The arrows define the direction of travel, from beginning to end.</p><div class="TextAlignCenter"><img src="attachments/3.21.1.1_MODIFY_CUT/1.4.png" alt="1.4.png" width="300" onclick="showModal(this.src)"></div><p>On the table reported below, are reported the buttons with which the operator can modify the characteristics of the cut:</p><table class="my-table2" data-table-width="1148" data-layout="align-start" ac:local-id="60668169-546b-4cb6-863d-24e48484cda9"><colgroup><col style="width: 313.0px;"><col style="width: 835.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/3.21.1.1_MODIFY_CUT/2.03-20250711-124203.png" alt="2.03-20250711-124203.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Invert cut direction</strong><br>The operator can invert the execution direction of the cut.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.21.1.1_MODIFY_CUT/3.02.png" alt="3.02.png" width="261" onclick="showModal(this.src)"></div></td><td><p><strong>Quantity of extension</strong><br>Allows to change the length of each cut extension.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.21.1.1_MODIFY_CUT/2.10.png" alt="2.10.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Calculate obstruction</strong><br>Recalculate the quantity of cut extension based on the diameter of the disk and the thickness of the material, making it correspond to the obstruction of the disk.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.21.1.1_MODIFY_CUT/2.08-20250711-125657.png" alt="2.08-20250711-125657.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Extend cut</strong><br>Extend the cut of the length indicated by the extension amount.<br>The left button extends the initial part of the cut, while the right button extends the final part.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.21.1.1_MODIFY_CUT/2.09-20250711-125724.png" alt="2.09-20250711-125724.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Shorten cut</strong><br>Shorten the cut of the length indicated by the amount of extension.<br>The button on the left shortens the initial part of the cut, while the one on the right shortens the final part.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.21.1.1_MODIFY_CUT/c4f239ca-16e3-4055-acff-6a1c17ad040e.png" alt="c4f239ca-16e3-4055-acff-6a1c17ad040e.png" width="166" onclick="showModal(this.src)"></div></td><td><p><strong>Extend extreme initial until edge slab</strong><br>Allows to extend the beginning of the cut to the edge of the slab. <br>The value in the box is used if you want to extend the cut by a certain quantity outside the slab.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.21.1.1_MODIFY_CUT/1.7b.png" alt="1.7b.png" width="168" onclick="showModal(this.src)"></div></td><td><p><strong>Extend end final until edge slab</strong><br>Allows to extend the end of the cut to the edge of the slab. <br>The value in the box is used in case you want to extend the cut by a certain amount outside the slab.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.21.1.1_MODIFY_CUT/2.04-20250711-125014.png" alt="2.04-20250711-125014.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Extend short cuts</strong><br>If the selected cut is too short to make the disk penetrate completely the material, with this button, and if possible, the cut is extended to become through.</p></td></tr></tbody></table><p>Some data regarding the execution of the cut are displayed.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="337d2752-c2b6-42fb-beae-2f5c9da6d79a"><colgroup><col style="width: 432.0px;"><col style="width: 1367.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/3.21.1.1_MODIFY_CUT/1.81-20250711-130222.png" alt="1.81-20250711-130222.png" width="180" onclick="showModal(this.src)"></div></td><td><p><strong>Penetration</strong><br>Cut penetration in the material. The operator can modify this value.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.21.1.1_MODIFY_CUT/1.82-20250711-130211.png" alt="1.82-20250711-130211.png" width="180" onclick="showModal(this.src)"></div></td><td><p><strong>Percentage speed</strong><br>Percentage of speed set to execute the cut. The operator can modify this value.</p>
+<div id="admonition-info-1" class="admonition admonish-info" role="note" aria-labelledby="admonition-info-1-title">
+<div class="admonition-title">
+<div id="admonition-info-1-title">
+<p>Info</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-info-1"></a>
+</div>
+<div>
+<p>NOTEIt is not possible to change the percentage speed of cuts on arcs.</p>
+</div>
+</div>
+</td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.21.1.1_MODIFY_CUT/1.83-20250711-130800.png" alt="1.83-20250711-130800.png" width="180" onclick="showModal(this.src)"></div></td><td><p><strong>Inclination</strong><br>Inclination degrees of the cut. It is not modifiable.</p></td></tr></tbody></table><p></p><h2 id="modify-the-cut-from-the-working-area"><a class="header" href="#modify-the-cut-from-the-working-area">Modify the cut from the working area</a></h2><p>Selecting a cut on the work area and pressing the right button of the mouse, appears a window to be able to modify the cut quickly.</p><div class="TextAlignCenter"><img src="attachments/3.21.1.1_MODIFY_CUT/0.01a.png" alt="0.01a.png" width="250" onclick="showModal(this.src)"></div><p>The buttons correspond to the functions already listed. The extreme of the cut closest to the point where the button was pressed is extended.</p><p></p><h2 id="cuts-on-internal-arcs"><a class="header" href="#cuts-on-internal-arcs">Cuts on internal arcs</a></h2><p>For cuts on arches having curvature turned towards the interior of the piece, it is necessary to consider that the disk’s blade during processing might ruin the side.<br>For this reason, these cuts must be carried out differently from those for external cuts.</p><div class="TextAlignCenter"><img src="attachments/3.21.1.1_MODIFY_CUT/1.1_c.png" alt="1.1_c.png" width="300" onclick="showModal(this.src)"></div><p>Parametrix proposes two modes for cutting internal arcs, selectable with the button that is located in the top right.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="f5913780-9953-4c17-8975-6ad32de52da3" data-table-display-mode="default"><colgroup><col style="width: 194.0px;"><col style="width: 1605.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/3.21.1.1_MODIFY_CUT/2.05-20250711-125040.png" alt="2.05-20250711-125040.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Miter Cut Arc</strong><br>A miter cut to measure is executed. The adequate inclination is calculated automatically.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.21.1.1_MODIFY_CUT/2.06-20250711-125059.png" alt="2.06-20250711-125059.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Offset Arc</strong><br>The cut is executed without inclination, but moved outwards of the piece in relation to its correct position.</p></td></tr></tbody></table>
+<div id="admonition-info-2" class="admonition admonish-info" role="note" aria-labelledby="admonition-info-2-title">
+<div class="admonition-title">
+<div id="admonition-info-2-title">
+<p>Info</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-info-2"></a>
+</div>
+<div>
+<p>NOTEBy default Parametrix recommends to set the processing of these cuts with the 'inclined arch' mode.If is not desired, it is necessary to change the execution mode of each single cut.</p>
+</div>
+</div>
+<p></p><p>Each processing mode possesses merits and defects:</p><ul><li><p>Inclined arches allow a better finish on the final result, which then will require less manual labor to be completed.<br>However they require a greater effort from the machine, and therefore the processing must be carried out at reduced speeds and with more passes. </p></li><li><p>Offset arches are less onerous with regard to the fatigue that the machine must perform for their working, and therefore can be performed at higher speeds.<br>In compensation, the disk obstruction causes greater damage to the material, and moreover the material that must be removed in manual finishing phase is greater.</p></li></ul><p></p><h1 id="holes-and-millings"><a class="header" href="#holes-and-millings">Holes and Millings</a></h1><p>Workings like holes and carvings allow a minor number of changes by the operator.</p><div class="TextAlignCenter"><img src="attachments/3.21.1.1_MODIFY_CUT/0.01.png" alt="0.01.png" width="300" onclick="showModal(this.src)"></div><p>Information related to is available.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="cee82fb6-ec14-43ed-a4eb-1efc748d030c"><colgroup><col style="width: 391.0px;"><col style="width: 1407.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/3.21.1.1_MODIFY_CUT/1.10_b.png" alt="1.10_b.png" width="172" onclick="showModal(this.src)"></div></td><td><p><strong>Penetration</strong><br>Penetration of the cut in the material. The operator can modify this value.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.21.1.1_MODIFY_CUT/image-20250717-145600.png" alt="image-20250717-145600.png" width="170" onclick="showModal(this.src)"></div></td><td><p><strong>Tool diameter</strong><br>The diameter of the tool that is used for the cut is shown.</p></td></tr></tbody></table><p></p><h1 id="rims-and-holes-on-vertex"><a class="header" href="#rims-and-holes-on-vertex">Rims and Holes on vertex</a></h1><p>The holes at angle and the recesses are composed respectively of more holes and milling. In the case one of these items is selected, a list of all cuts that compose them is shown.</p><div class="TextAlignCenter"><img src="attachments/3.21.1.1_MODIFY_CUT/0.02.png" alt="0.02.png" width="300" onclick="showModal(this.src)"></div><p>The operator can decide to activate or deactivate each cut individually using the button on each list entry, or if go to act at the same time on all cuts of the work with the button on the top.<br>The buttons that appear below the list allow to change the order with which the individual cuts are executed.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="a8dfa646-5bd3-4612-b6ae-f80886d22fc4"><colgroup><col style="width: 403.0px;"><col style="width: 1488.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/3.21.1.1_MODIFY_CUT/2.13.png" alt="2.13.png" width="120" onclick="showModal(this.src)"></div></td><td><p><strong>Move with arrows</strong><br>They allow to move the selected cut to the upper or lower position.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.21.1.1_MODIFY_CUT/2.14.png" alt="2.14.png" width="60" onclick="showModal(this.src)"></div></td><td data-highlight-colour="#ffffff"><p><strong>Déplacement to the desired position</strong><br>Allows to move the selected cut in the position indicated by the adjacent text box.</p></td></tr></tbody></table><p>Furthermore, the operator can change the penetration of the working through the field below:</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="ce3815b6-cda6-40f3-9cde-5275814e68f0"><colgroup><col style="width: 403.0px;"><col style="width: 1396.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/3.21.1.1_MODIFY_CUT/1.10_b.png" alt="1.10_b.png" width="172" onclick="showModal(this.src)"></div></td><td><p><strong>Penetration</strong><br>Penetration of the cuts in the material. The operator can modify this value.</p>
+<div id="admonition-info-3" class="admonition admonish-info" role="note" aria-labelledby="admonition-info-3-title">
+<div class="admonition-title">
+<div id="admonition-info-3-title">
+<p>Info</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-info-3"></a>
+</div>
+<div>
+<p>NOTEThe plunge of all cuts composing the working is the sameChanging this value, it will change the penetration of all cuts of the list.</p>
+</div>
+</div>
+</td></tr></tbody></table><!--Label="cut_mdf"--><!--Label="cut_lst"--><!--Label="cut_mdf_dsk"--><!--Label="cmd_mdf_hol"--><!--Label="cut_mdf_rib"-->
+                        </main>
+
+                    </div>
+
+                    <img src="images/donatoni_222.jpg">
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="3.21.1_list_of_cuts.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="3.21.2_slab_probing.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+
+
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                <a rel="prev" href="3.21.1_list_of_cuts.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="3.21.2_slab_probing.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="mermaid.min.js"></script>
+        <script src="mermaid-init.js"></script>
+        <script src="hidemenu.js"></script>
+        <script src="imagemodal.js"></script>
+        <script src="login.js"></script>
+    </div>
+
+    <!-- Modale -->
+    <div id="modal" onclick="closeModal()">
+        <img id="modal-img" src="">
+    </div>;
+
+
+</body>
+</html>

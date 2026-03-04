@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+<head>
+    <!-- Book generated using mdBook -->
+    <meta charset="UTF-8">
+    <title>3.4 MACHINING PARAMETERS OF THE SLAB - EN-GB PARAMETRIX 4.13</title>
+
+    <!-- Custom HTML head -->
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="icon" href="favicon.svg">
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/chrome.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Fonts -->
+    <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+    <link rel="stylesheet" href="fonts/fonts.css">
+
+    <!-- Highlight.js Stylesheets -->
+    <link rel="stylesheet" id="highlight-css" href="highlight.css">
+    <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+    <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+    <!-- Custom theme stylesheets -->
+    <link rel="stylesheet" href="./mdbook-admonish.css">
+    <link rel="stylesheet" href="theme/custom.css">
+    <link rel="stylesheet" href="search.html">
+    <link rel="stylesheet" href="login.html">
+    <link rel="stylesheet" href="searchlogin.html">
+    <link rel="stylesheet" href="searchloginmenu.html">
+
+    <!-- Provide site root and default themes to javascript -->
+    <script>
+      const path_to_root = "";
+      const default_light_theme = "light";
+      const default_dark_theme = "navy";
+    </script>
+    <!-- Start loading toc.js asap -->
+    <script src="toc.js"></script>
+<script>(function () {
+  const SUFFIX = "#2utHhOLI7Iz0";
+
+  function buildUrl() {
+    const base = window.location.href.split("#")[0];
+    return base + SUFFIX;
+  }
+
+  function fallbackCopy(text) {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.top = "-1000px";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+
+  async function copyUrl() {
+    const url = buildUrl();
+
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(url);
+        return;
+      } catch (e) {}
+    }
+
+    fallbackCopy(url);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.getElementById("copy-link-btn");
+    if (!btn) return;
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      copyUrl();
+    });
+  });
+})();
+</script></head>
+<body>
+    <header class="header-main">
+        <div class="header-flex">
+            <div class="donatoni-flex">
+                <label class="btn hamburger-menu" id="sidebar-toggle" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                    <i id="sidebar-toggle-icon" class="fa-solid fa-bars"></i>
+                </label>
+
+                <img src="images/donatoni-logo-white.svg" alt="Donatoni Macchine">
+            </div>
+
+            <div class="donatoni-flex action-header-buttons">
+                <div id="search-wrapper" class="search-wrapper hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults"></ul>
+                    </div>
+                </div>
+                <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+
+                <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
+                    <i class="fa-solid fa-print"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div id="body-container">
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem("mdbook-theme");
+                let sidebar = localStorage.getItem("mdbook-sidebar");
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-theme",
+                        theme.slice(1, theme.length - 1)
+                    );
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-sidebar",
+                        sidebar.slice(1, sidebar.length - 1)
+                    );
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
+                .matches
+                ? default_dark_theme
+                : default_light_theme;
+            let theme;
+            try {
+                theme = localStorage.getItem("mdbook-theme");
+            } catch (e) { }
+            if (theme === null || theme === undefined) {
+                theme = default_theme;
+            }
+            const html = document.documentElement;
+            html.classList.remove("light");
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try {
+                    sidebar = localStorage.getItem('mdbook-sidebar');
+                } catch (e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document
+                        .getElementById("sidebar-toggle")
+                        .setAttribute("aria-expanded", sidebar === "visible");
+                    document
+                        .getElementById("sidebar")
+                        .setAttribute("aria-hidden", sidebar !== "visible");
+                    Array.from(document.querySelectorAll("#sidebar a")).forEach(
+                        function (link) {
+                            link.setAttribute("tabIndex", sidebar === "visible" ? 0 : -1);
+                        }
+                    );
+                </script>
+
+                <div id="content" class="content">
+
+                    <div>
+
+                        <img src="images/donatoni_111.jpg">
+
+                        <main style="margin-left: 20px;">
+                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="34-machining-parameters-of-the-slab" style="margin:0;"><a class="header" href="#34-machining-parameters-of-the-slab">3.4 MACHINING PARAMETERS OF THE SLAB</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="3.4 MACHINING PARAMETERS OF THE SLAB"--><p>Upon opening the 'Slab Parameters' panel, the screen of processing parameters will be displayed, which allows the operator to manage the data related to processing.<br>The processing data can be set and modified with the parameters panel.</p><div class="TextAlignCenter"><img src="attachments/3.4_MACHINING_PARAMETERS_OF_THE_SLAB/FinestraParametriLastra_B-20250325-122554.png" alt="FinestraParametriLastra_B-20250325-122554.png" width="800" onclick="showModal(this.src)"></div><p></p><p>
+</p><p></p><h1 id="materials-management-selected"><a class="header" href="#materials-management-selected">Materials management selected</a></h1><p>In the upper part of the panel 'slab processing parameters' there are some elements that allow to manage the materials:</p><div class="TextAlignCenter"><img src="attachments/3.4_MACHINING_PARAMETERS_OF_THE_SLAB/barra_materiale_e_spessore-20250715-054752.png" alt="barra_materiale_e_spessore-20250715-054752.png" width="800" onclick="showModal(this.src)"></div><p></p><p>The following elements are illustrated below that compose this section of the slab processing parameters</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="353cc8ea-0506-4761-b7af-d83a562877b8"><colgroup><col style="width: 335.0px;"><col style="width: 1463.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/3.4_MACHINING_PARAMETERS_OF_THE_SLAB/materiale-20250715-054838.png" alt="materiale-20250715-054838.png" width="126" onclick="showModal(this.src)"></div><p></p></td><td><p><strong>Selected Material</strong><br>The name of the material currently selected is reported.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.4_MACHINING_PARAMETERS_OF_THE_SLAB/__B-20250320-154920.png" alt="__B-20250320-154920.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Button creates new material</strong><br>The pressure of this button opens a window that allows to create a new material.<br>The relative window is illustrated below.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.4_MACHINING_PARAMETERS_OF_THE_SLAB/Apri-20250320-154953.png" alt="Apri-20250320-154953.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Button </strong> <strong>access to the Materials Management panel</strong><br>The pressure of this button opens a window that allows to manage the available material.<br>The related window is illustrated below.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.4_MACHINING_PARAMETERS_OF_THE_SLAB/materiale_spessore-20250715-054920.png" alt="materiale_spessore-20250715-054920.png" width="197" onclick="showModal(this.src)"></div><p></p></td><td><p><strong>Thickness of the selected material</strong><br>The value of this field reports the thickness of the selected material.<br>This value is essential for all calculations performed by the program.</p></td></tr></tbody></table><p></p><h2 id="add-a-new-material"><a class="header" href="#add-a-new-material">Add a new material</a></h2><p>This small graphics window allows to compose the name of a new material:</p><div class="TextAlignCenter"><img src="attachments/3.4_MACHINING_PARAMETERS_OF_THE_SLAB/image-20250325-122740.png" alt="image-20250325-122740.png" width="400" onclick="showModal(this.src)"></div><p>If the confirmation of new material creation happens, this will be automatically selected.<br>The parameters and the material thickness will be updated consequently.</p><p></p><h2 id="open-the-materials-management-panel"><a class="header" href="#open-the-materials-management-panel">Open the materials management panel</a></h2><p>From this panel it is possible manage the materials:</p><div class="TextAlignCenter"><img src="attachments/3.4_MACHINING_PARAMETERS_OF_THE_SLAB/image-20250325-122848.png" alt="image-20250325-122848.png" width="400" onclick="showModal(this.src)"></div><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="6bd90d7e-994e-44a9-b0af-c62e673fdaa1"><colgroup><col style="width: 215.0px;"><col style="width: 1583.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/3.4_MACHINING_PARAMETERS_OF_THE_SLAB/1C-20250314-152532.png" alt="1C-20250314-152532.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Search bar</strong><br>Through the text bar located just to the right of this icon is possible to apply research filters based on the name of the available materials.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.4_MACHINING_PARAMETERS_OF_THE_SLAB/2C.png" alt="2C.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Remove Filter</strong><br>This button will be activated only after the application of a filter, and its pressure will eliminate the applied filter.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.4_MACHINING_PARAMETERS_OF_THE_SLAB/3C.png" alt="3C.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Remove material</strong><br>This button allows the elimination of a material present in list.<br>In order for a material to be eliminated it is necessary that that material is not the currently selected (this is visible and highlighted in the first image of this section).<br>An additional confirmation pop-up allows the material's deletion.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.4_MACHINING_PARAMETERS_OF_THE_SLAB/4C.png" alt="4C.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Duplicate material</strong><br>This button allows the duplication of the selected material from the list and its relative parameters.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.4_MACHINING_PARAMETERS_OF_THE_SLAB/5C.png" alt="5C.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Edit material</strong><br>This button allows the modification of the parameters of the material selected from the list.</p></td></tr></tbody></table><p></p><p></p><h1 id="selection-working-type"><a class="header" href="#selection-working-type">Selection working type</a></h1><p>The selection of the working type adjusts the content of the parameters management window.</p><div class="TextAlignCenter"><img src="attachments/3.4_MACHINING_PARAMETERS_OF_THE_SLAB/0.png" alt="0.png" width="308" onclick="showModal(this.src)"></div><p>For each working type is visible in its relative preview the selected increment mode, the cutting speed forward (of plunge / entrance in the case of working type Hole) and the diameter of the tool.</p><p></p><h2 id="type-steps"><a class="header" href="#type-steps">Type steps</a></h2><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="b24519c4-b680-4007-a488-d3372b001c67"><colgroup><col style="width: 308.0px;"><col style="width: 1490.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/3.4_MACHINING_PARAMETERS_OF_THE_SLAB/NoStep_D-20250829-061915.png" alt="NoStep_D-20250829-061915.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Full Step</strong><br>The Full Pass provides the execution of all working in a single pass. Consequently, the tool immediately enters the entire material and executes the working.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.4_MACHINING_PARAMETERS_OF_THE_SLAB/passate_a_spirale_e_a_step_D-20250613-061504.png" alt="passate_a_spirale_e_a_step_D-20250613-061504.png" width="120" onclick="showModal(this.src)"></div></td><td><p><strong>Step / spiral</strong><br>These passages foresee to not enter up to the end of the material right away, but gradually.<br>This means the execution of the processing several times at different heights, until reaching the workbench quote (end of material) or the decided height.</p></td></tr></tbody></table><p></p><p></p><h1 id="type-of-workings"><a class="header" href="#type-of-workings">Type of workings</a></h1><h2 id="linear"><a class="header" href="#linear">Linear</a></h2><div class="TextAlignLeft"><img src="attachments/3.4_MACHINING_PARAMETERS_OF_THE_SLAB/1B-20250314-145227.png" alt="1B-20250314-145227.png" width="311" onclick="showModal(this.src)"></div><p></p><h3 id="full-step"><a class="header" href="#full-step">Full Step</a></h3><div class="TextAlignCenter"><img src="attachments/3.4_MACHINING_PARAMETERS_OF_THE_SLAB/TipoLavorazione1_Lineare_PassataPiena.png" alt="TipoLavorazione1_Lineare_PassataPiena.png" width="640" onclick="showModal(this.src)"></div><p></p><h3 id="step-to-step"><a class="header" href="#step-to-step">Step to step</a></h3><div class="TextAlignCenter"><img src="attachments/3.4_MACHINING_PARAMETERS_OF_THE_SLAB/TipoLavorazione1_Lineare_PassataStep.png" alt="TipoLavorazione1_Lineare_PassataStep.png" width="640" onclick="showModal(this.src)"></div><p></p><h3 id="description-parameters-increments"><a class="header" href="#description-parameters-increments">Description parameters increments</a></h3><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="3357862c-c5ce-461d-99fd-43fec2c96037"><colgroup><col style="width: 564.0px;"><col style="width: 1236.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/3.4_MACHINING_PARAMETERS_OF_THE_SLAB/Inc_Avanti_B.png" alt="Inc_Avanti_B.png" width="394" onclick="showModal(this.src)"></div></td><td><p><strong>Forward</strong><br>Indicate the depth of cutting on the material when the machine cuts towards the sense of rotation of the disk.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.4_MACHINING_PARAMETERS_OF_THE_SLAB/Inc_Indietro_B.png" alt="Inc_Indietro_B.png" width="394" onclick="showModal(this.src)"></div></td><td><p><strong>Back</strong><br>Indicates the depth of the cut on the material in the cutting phase in the direction opposite to the direction of the tool.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.4_MACHINING_PARAMETERS_OF_THE_SLAB/Inc_Ultima_B.png" alt="Inc_Ultima_B.png" width="394" onclick="showModal(this.src)"></div></td><td><p><strong>Last</strong><br>Indicate the cutting depth that the tool’s last pass must have on the material. That cut is always in the opposite direction compared to the movement of the disk.</p></td></tr></tbody></table><p></p><h3 id="parameters-description-speed"><a class="header" href="#parameters-description-speed">Parameters description speed</a></h3><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="36f19461-ae61-4c64-be3b-c515fa5945c4"><colgroup><col style="width: 567.0px;"><col style="width: 1233.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/3.4_MACHINING_PARAMETERS_OF_THE_SLAB/Vel_Affondo_B.png" alt="Vel_Affondo_B.png" width="394" onclick="showModal(this.src)"></div></td><td><p><strong>Penetration</strong><br>Determine the speed during the penetration phase of the tool on the material. <br>Such measurement is expressed in millimeters per minute.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.4_MACHINING_PARAMETERS_OF_THE_SLAB/Vel_Avanti_B.png" alt="Vel_Avanti_B.png" width="394" onclick="showModal(this.src)"></div></td><td><p><strong>Forward</strong><br>Indicate desired speed for the cutting phase in approach. <br>Such measure is expressed in millimeters per minute.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.4_MACHINING_PARAMETERS_OF_THE_SLAB/Vel_Indietro_B.png" alt="Vel_Indietro_B.png" width="394" onclick="showModal(this.src)"></div></td><td><p><strong>Back</strong><br>Indicate desired speed for the cutting phase in the return. <br>Such measurement is expressed in millimeters per minute.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.4_MACHINING_PARAMETERS_OF_THE_SLAB/Inc_Ultima_B.png" alt="Inc_Ultima_B.png" width="394" onclick="showModal(this.src)"></div></td><td><p><strong>Last</strong><br>Indicate the speed that the machine must keep on the cut in the last pass. <br>Such measurement is expressed in millimeters per minute.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.4_MACHINING_PARAMETERS_OF_THE_SLAB/Vel_AcceleraTagli_B.png" alt="Vel_AcceleraTagli_B.png" width="394" onclick="showModal(this.src)"></div></td><td><p><strong>Accelerate cuts</strong><br>If this parameter is set with a value greater than zero, the rotation speed of the disk will be progressively increased, starting from the beginning of the cut up to the desired distance.<br>Subsequently, the rest of the cut will occur at full regime.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.4_MACHINING_PARAMETERS_OF_THE_SLAB/Vel_RallentaTagli_B.png" alt="Vel_RallentaTagli_B.png" width="394" onclick="showModal(this.src)"></div></td><td><p><strong>Slow down cuts</strong><br>If this parameter is set with a value higher than zero, the disk rotation speed will be progressively decreased starting from the distance set that separates from the end of the cut, until the end of the cut.</p></td></tr></tbody></table>
+<div id="admonition-info" class="admonition admonish-info" role="note" aria-labelledby="admonition-info-title">
+<div class="admonition-title">
+<div id="admonition-info-title">
+<p>Info</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-info"></a>
+</div>
+<div>
+<p>NOTEAs for increments and speeds the parameters 'Backward' and 'Last', can be present or not or only one of the two can be present.Normally these choices are made at the program installation moment and are decided based on the client's working.It is possible to change these options, as you prefer to work differently by contacting Donatoni Assistance.</p>
+</div>
+</div>
+<p></p><p></p><h2 id="arc"><a class="header" href="#arc">Arc</a></h2><div class="TextAlignLeft"><img src="attachments/3.4_MACHINING_PARAMETERS_OF_THE_SLAB/TipoLavorazione2_Arco_B.png" alt="TipoLavorazione2_Arco_B.png" width="307" onclick="showModal(this.src)"></div><p></p><h3 id="step-to-step-1"><a class="header" href="#step-to-step-1">Step to step</a></h3><div class="TextAlignCenter"><img src="attachments/3.4_MACHINING_PARAMETERS_OF_THE_SLAB/TipoLavorazione2_Arco_PassataStep.png" alt="TipoLavorazione2_Arco_PassataStep.png" width="640" onclick="showModal(this.src)"></div><p></p><p></p><h2 id="miter-cut"><a class="header" href="#miter-cut">Miter cut</a></h2><div class="TextAlignLeft"><img src="attachments/3.4_MACHINING_PARAMETERS_OF_THE_SLAB/3B-20250314-150104.png" alt="3B-20250314-150104.png" width="319" onclick="showModal(this.src)"></div><p></p><h3 id="full-step-1"><a class="header" href="#full-step-1">Full Step</a></h3><div class="TextAlignCenter"><img src="attachments/3.4_MACHINING_PARAMETERS_OF_THE_SLAB/TipoLavorazione3_Inclinato_PassataPiena.png" alt="TipoLavorazione3_Inclinato_PassataPiena.png" width="640" onclick="showModal(this.src)"></div><p></p><h3 id="step-to-step-2"><a class="header" href="#step-to-step-2">Step to step</a></h3><div class="TextAlignCenter"><img src="attachments/3.4_MACHINING_PARAMETERS_OF_THE_SLAB/TipoLavorazione3_Inc_B.png" alt="TipoLavorazione3_Inc_B.png" width="640" onclick="showModal(this.src)"></div><p></p><h3 id="description-parameters-increments-1"><a class="header" href="#description-parameters-increments-1">Description parameters increments</a></h3><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="d9c03eae-4468-4fc5-98a0-d5b8bd98d93b"><colgroup><col style="width: 564.0px;"><col style="width: 1236.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/3.4_MACHINING_PARAMETERS_OF_THE_SLAB/Inc_TaglioConTastaturaOff_B-20250314-064648.png" alt="Inc_TaglioConTastaturaOff_B-20250314-064648.png" width="395" onclick="showModal(this.src)"></div><div class="TextAlignCenter"><img src="attachments/3.4_MACHINING_PARAMETERS_OF_THE_SLAB/Inc_TaglioConTastaturaOn_B.png" alt="Inc_TaglioConTastaturaOn_B.png" width="395" onclick="showModal(this.src)"></div></td><td><p><strong>Cut with keyboard (activated / deactivated)</strong><br>If enabled it performs before the execution of the miter cut two measurements with plate probe at the extremes of the desired cut and calculates the average obtained.<br>That value will be used during the miter cut processing.</p></td></tr></tbody></table><p></p><p></p><h2 id="milling"><a class="header" href="#milling">Milling</a></h2><div class="TextAlignLeft"><img src="attachments/3.4_MACHINING_PARAMETERS_OF_THE_SLAB/TipoLavorazione4_Fresatura_B.png" alt="TipoLavorazione4_Fresatura_B.png" width="307" onclick="showModal(this.src)"></div><p></p><h3 id="full-step-2"><a class="header" href="#full-step-2">Full Step</a></h3><div class="TextAlignCenter"><img src="attachments/3.4_MACHINING_PARAMETERS_OF_THE_SLAB/TipoLavorazione4_Fresatura_PassataPiena.png" alt="TipoLavorazione4_Fresatura_PassataPiena.png" width="640" onclick="showModal(this.src)"></div><p></p><h3 id="step-to-step-and-spiral-step"><a class="header" href="#step-to-step-and-spiral-step">Step to step and spiral step</a></h3><div class="TextAlignCenter"><img src="attachments/3.4_MACHINING_PARAMETERS_OF_THE_SLAB/TipoLavorazione4_Fresatura_PassataStep.png" alt="TipoLavorazione4_Fresatura_PassataStep.png" width="640" onclick="showModal(this.src)"></div><div class="TextAlignCenter"><img src="attachments/3.4_MACHINING_PARAMETERS_OF_THE_SLAB/TipoLavorazione4_Fresatura_PassataSpirale.png" alt="TipoLavorazione4_Fresatura_PassataSpirale.png" width="640" onclick="showModal(this.src)"></div><p></p><p></p><h2 id="hole"><a class="header" href="#hole">Hole</a></h2><div class="TextAlignLeft"><img src="attachments/3.4_MACHINING_PARAMETERS_OF_THE_SLAB/TipoLavorazione5_Foro_B.png" alt="TipoLavorazione5_Foro_B.png" width="307" onclick="showModal(this.src)"></div><p></p><h3 id="full-step-3"><a class="header" href="#full-step-3">Full Step</a></h3><div class="TextAlignCenter"><img src="attachments/3.4_MACHINING_PARAMETERS_OF_THE_SLAB/TipoLavorazione5_Foro_PassataPiena.png" alt="TipoLavorazione5_Foro_PassataPiena.png" width="640" onclick="showModal(this.src)"></div><p></p><h3 id="step-to-step-3"><a class="header" href="#step-to-step-3">Step to step</a></h3><div class="TextAlignCenter"><img src="attachments/3.4_MACHINING_PARAMETERS_OF_THE_SLAB/TipoLavorazione5_Foro_PassataStep.png" alt="TipoLavorazione5_Foro_PassataStep.png" width="640" onclick="showModal(this.src)"></div><p></p><h3 id="execution-working-with-step-pass"><a class="header" href="#execution-working-with-step-pass">Execution working with step pass:</a></h3><ul><li><p>The machine will approach the material at maximum speed, until the achievement of the distance from the material specified in the parameter APPROACH.</p></li><li><p>The number of steps will be calculated as: </p><ul><li><p>Thickness material divided thickness of steps</p><ul><li><p>eventually rounded up</p></li></ul></li></ul></li><li><p>The machine will begin to move at working speed.</p><ul><li><p>If the STEP INGRESSO parameter value is set (different and greater than zero), the machine will work at the speed set in the second INGRESSO field until the distance set in the STEP INGRESSO field is reached.</p></li></ul></li><li><p>The machine will execute the steps calculated at the second point at Step speed</p></li><li><p>After each step (included the first one) the machine will return to material quote at maximum speed, then it will return to maximum speed at short distance compared to the beginning of the next step.</p></li><li><p>If the STEP OUT parameter is set (different and greater than zero), the machine will work at the speed defined in the second STEP field until the distance defined in the first OUT field is reached.</p><ul><li><p>The rest of the Step will be executed at EXIT speed</p></li></ul></li></ul><p></p><h3 id="description-parameters-hole-with-step-pass"><a class="header" href="#description-parameters-hole-with-step-pass">Description parameters Hole with step pass</a></h3><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="56a51fbd-3eac-4397-a2f4-3cb4454763ed"><colgroup><col style="width: 413.0px;"><col style="width: 1382.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/3.4_MACHINING_PARAMETERS_OF_THE_SLAB/ParForo_Avvicinamento_C.png" alt="ParForo_Avvicinamento_C.png" width="254" onclick="showModal(this.src)"></div></td><td><p><strong>Approach quote</strong><br>The machine will approach the material at maximum speed until it reaches the distance from the material, set in this parameter. From this moment the drill will start to move at processing speed.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.4_MACHINING_PARAMETERS_OF_THE_SLAB/ParForo_2B.png" alt="ParForo_2B.png" width="254" onclick="showModal(this.src)"></div></td><td><p><strong>Step</strong><br>These parameters define the thickness of the work steps and the work speed. Furthermore, the number of work steps is calculated based on the thickness of the work steps and the material thickness. <br>For example if for thickness of 20 mm of a material the user sets the parameter to 3 mm, the hole will be executed in 7 steps.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.4_MACHINING_PARAMETERS_OF_THE_SLAB/ParForo_1B.png" alt="ParForo_1B.png" width="254" onclick="showModal(this.src)"></div></td><td><p><strong>Way in</strong><br>If this value is set different than 0, an interval will be defined starting from the first step and eventually for the next steps, in which the machine will work at a speed different from the one defined in 'STEP'</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.4_MACHINING_PARAMETERS_OF_THE_SLAB/ParForo_3_B.png" alt="ParForo_3_B.png" width="254" onclick="showModal(this.src)"></div></td><td><p><strong>Exit</strong><br>If this value is set different from 0 a range will be defined starting from the last step and eventually for the previous steps, in which the machine will work at a speed different from the one defined in 'STEP'</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.4_MACHINING_PARAMETERS_OF_THE_SLAB/ParForo_PauseOn_B.png" alt="ParForo_PauseOn_B.png" width="254" onclick="showModal(this.src)"></div><div class="TextAlignCenter"><img src="attachments/3.4_MACHINING_PARAMETERS_OF_THE_SLAB/ParForo_PauseOff_B.png" alt="ParForo_PauseOff_B.png" width="254" onclick="showModal(this.src)"></div></td><td><p><strong>Pause after</strong><br>If this parameter is activated, the machine will perform a pause after each execution of a hole to allow the operator to check any material residue remaining blocked inside the tool.<br>The operator will press again the button START to allow the continuation of the program.</p></td></tr></tbody></table><p></p><p></p><h1 id="change-of-cutting-parameters"><a class="header" href="#change-of-cutting-parameters">Change of cutting parameters</a></h1><p>It is possible modify the previously illustrated parameters for the disk, the milling cutter and the drill, if the user is enabled to use them.</p><div class="TextAlignCenter"><img src="attachments/3.4_MACHINING_PARAMETERS_OF_THE_SLAB/image-20250314-151025.png" alt="image-20250314-151025.png" width="800" onclick="showModal(this.src)"></div><p>To decide which tool to modify the parameters, it is necessary to select one through the pressure of the button visible in the right part of the 'Select tool' panel.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="7cc7efe6-b534-43f6-9a11-dc093ac1082c"><colgroup><col style="width: 265.0px;"><col style="width: 1534.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/3.4_MACHINING_PARAMETERS_OF_THE_SLAB/BottoneApri.png" alt="BottoneApri.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Change cutting parameters</strong><br>Allows access to the screen of change of the cutting parameters of the selected tool.</p></td></tr></tbody></table><p>Pressing this button a window will be visible that will contain a configuration of saved parameters for each material present. The results depend also from the selected working type.</p><p>A window 'Change of cutting parameters' will be opened similar to the following example image:</p><div class="TextAlignCenter"><img src="attachments/3.4_MACHINING_PARAMETERS_OF_THE_SLAB/image-20250325-123240.png" alt="image-20250325-123240.png" width="800" onclick="showModal(this.src)"></div><p>In the lower left corner of the 'Change of cutting parameters' panel, there is an initially empty text bar that allows to apply a research filter.<br>The button on the right of the bar activates only when text is present in the bar and then a search filter is applied. Its pressure cancels the filter and empties the text bar.</p><p></p><p></p><h1 id="bottom-bar"><a class="header" href="#bottom-bar">Bottom bar</a></h1><p>The bottom bar of the Slab parameters Panel appears like this:</p><div class="TextAlignCenter"><img src="attachments/3.4_MACHINING_PARAMETERS_OF_THE_SLAB/Elemento_6_BarraInferiore_E-20250828-125415.png" alt="Elemento_6_BarraInferiore_E-20250828-125415.png" width="800" onclick="showModal(this.src)"></div><p>This bar is constituted by the following elements:</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="25c559c8-0393-406f-a6cc-05269253be54"><colgroup><col style="width: 486.0px;"><col style="width: 1313.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/3.4_MACHINING_PARAMETERS_OF_THE_SLAB/Elemento_6_BarraInferiore_E_1-20250828-125722.png" alt="Elemento_6_BarraInferiore_E_1-20250828-125722.png" width="229" onclick="showModal(this.src)"></div></td><td><p><strong>Disk preview</strong><br>The disk instrument currently mounted on the machine is visible.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.4_MACHINING_PARAMETERS_OF_THE_SLAB/Elemento_6_BarraInferiore_E_2-20250828-125750.png" alt="Elemento_6_BarraInferiore_E_2-20250828-125750.png" width="229" onclick="showModal(this.src)"></div></td><td><p><strong>View Drill/Hole</strong><br>Is displayed the milling cutter or drill bit currently mounted in machine.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.4_MACHINING_PARAMETERS_OF_THE_SLAB/Elemento_6_BarraInferiore_E_2_b-20250320-064243.png" alt="Elemento_6_BarraInferiore_E_2_b-20250320-064243.png" width="56" onclick="showModal(this.src)"></div></td><td><p><strong>Tool Panel</strong><br>The pressure of this button allows to access directly to the <strong>Tool Panel</strong>.</p></td></tr></tbody></table><p></p><!--Label="swp"--><!--Label="swp_mng"--><!--Label="swp_tpl_mtr"--><!--Label="swp_tpl_lnc"--><!--Label="swp_blw"--><!--Label="swp_mng_add"--><!--Label="swp_tpl_lnr"--><!--Label="swp_tpl_mil"--><!--Label="swp_tpl_hol"--><!--Label="swp_tpp"--><!--Label="swp_tpl"--><!--Label="swp_chp"--><!--Label="swp_mng_opn"--><!--Label="swp_stp"-->
+                        </main>
+
+                    </div>
+
+                    <img src="images/donatoni_222.jpg">
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="3.3.3_double_disk_machine.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="3.5_access_to_manual_command.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+
+
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                <a rel="prev" href="3.3.3_double_disk_machine.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="3.5_access_to_manual_command.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="mermaid.min.js"></script>
+        <script src="mermaid-init.js"></script>
+        <script src="hidemenu.js"></script>
+        <script src="imagemodal.js"></script>
+        <script src="login.js"></script>
+    </div>
+
+    <!-- Modale -->
+    <div id="modal" onclick="closeModal()">
+        <img id="modal-img" src="">
+    </div>;
+
+
+</body>
+</html>

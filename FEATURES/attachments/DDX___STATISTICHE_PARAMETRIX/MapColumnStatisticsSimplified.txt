@@ -1,0 +1,10 @@
+IdStatistiche
+NomeLavorazione
+StatoLavorazione
+DataInizioLavorazione
+DataFineLavorazione
+DurataLavorazioneMin
+LunghezzaLineari
+LunghezzaRapidi
+PreforiWJ
+Fori

@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+<head>
+    <!-- Book generated using mdBook -->
+    <meta charset="UTF-8">
+    <title>2.1 SCATTA FOTO - IT-IT DSLAB 1.2</title>
+
+    <!-- Custom HTML head -->
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="icon" href="favicon.svg">
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/chrome.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Fonts -->
+    <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+    <link rel="stylesheet" href="fonts/fonts.css">
+
+    <!-- Highlight.js Stylesheets -->
+    <link rel="stylesheet" id="highlight-css" href="highlight.css">
+    <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+    <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+    <!-- Custom theme stylesheets -->
+    <link rel="stylesheet" href="./mdbook-admonish.css">
+    <link rel="stylesheet" href="theme/custom.css">
+    <link rel="stylesheet" href="search.html">
+    <link rel="stylesheet" href="login.html">
+    <link rel="stylesheet" href="searchlogin.html">
+    <link rel="stylesheet" href="searchloginmenu.html">
+
+    <!-- Provide site root and default themes to javascript -->
+    <script>
+      const path_to_root = "";
+      const default_light_theme = "light";
+      const default_dark_theme = "navy";
+    </script>
+    <!-- Start loading toc.js asap -->
+    <script src="toc.js"></script>
+<script>(function () {
+  const SUFFIX = "#2utHhOLI7Iz0";
+
+  function buildUrl() {
+    const base = window.location.href.split("#")[0];
+    return base + SUFFIX;
+  }
+
+  function fallbackCopy(text) {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.top = "-1000px";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+
+  async function copyUrl() {
+    const url = buildUrl();
+
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(url);
+        return;
+      } catch (e) {}
+    }
+
+    fallbackCopy(url);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.getElementById("copy-link-btn");
+    if (!btn) return;
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      copyUrl();
+    });
+  });
+})();
+</script></head>
+<body>
+    <header class="header-main">
+        <div class="header-flex">
+            <div class="donatoni-flex">
+                <label class="btn hamburger-menu" id="sidebar-toggle" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                    <i id="sidebar-toggle-icon" class="fa-solid fa-bars"></i>
+                </label>
+
+                <img src="images/donatoni-logo-white.svg" alt="Donatoni Macchine">
+            </div>
+
+            <div class="donatoni-flex action-header-buttons">
+                <div id="search-wrapper" class="search-wrapper hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults"></ul>
+                    </div>
+                </div>
+                <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+
+                <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
+                    <i class="fa-solid fa-print"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div id="body-container">
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem("mdbook-theme");
+                let sidebar = localStorage.getItem("mdbook-sidebar");
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-theme",
+                        theme.slice(1, theme.length - 1)
+                    );
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-sidebar",
+                        sidebar.slice(1, sidebar.length - 1)
+                    );
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
+                .matches
+                ? default_dark_theme
+                : default_light_theme;
+            let theme;
+            try {
+                theme = localStorage.getItem("mdbook-theme");
+            } catch (e) { }
+            if (theme === null || theme === undefined) {
+                theme = default_theme;
+            }
+            const html = document.documentElement;
+            html.classList.remove("light");
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try {
+                    sidebar = localStorage.getItem('mdbook-sidebar');
+                } catch (e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document
+                        .getElementById("sidebar-toggle")
+                        .setAttribute("aria-expanded", sidebar === "visible");
+                    document
+                        .getElementById("sidebar")
+                        .setAttribute("aria-hidden", sidebar !== "visible");
+                    Array.from(document.querySelectorAll("#sidebar a")).forEach(
+                        function (link) {
+                            link.setAttribute("tabIndex", sidebar === "visible" ? 0 : -1);
+                        }
+                    );
+                </script>
+
+                <div id="content" class="content">
+
+                    <div>
+
+                        <img src="images/donatoni_111.jpg">
+
+                        <main style="margin-left: 20px;">
+                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="21-scatta-foto" style="margin:0;"><a class="header" href="#21-scatta-foto">2.1 SCATTA FOTO</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="2.1 SCATTA FOTO"--><p local-id="510555b8-3522-4ebf-81f7-58e27b08b53b">Questa funzione importa l’immagine di una lastra tramite una fotocamera collegata al dispositivo.<br>All’apertura del pannello verrà visualizzata la seguente schermata, inizialmente sprovvista di una immagine di anteprima:</p><div class="TextAlignCenter"><img src="attachments/2.1_SCATTA_FOTO/2.1.WindowNoPhoto.png" alt="2.1.WindowNoPhoto.png" width="800" onclick="showModal(this.src)"></div><p>
+</p><h1 local-id="c43a3ea5de08">Anteprima foto</h1><p local-id="a8686fcd-c6da-4606-988a-60d1bbf69733">L’anteprima foto è il riquadro che domina la parte centrale e sinistra del pannello.<br>È possibile caricare l’anteprima dell’immagine attualmente caricata premendo il pulsante “Scatta foto“.</p><div class="TextAlignCenter"><img src="attachments/2.1_SCATTA_FOTO/2.1.WindowWithPhoto.png" alt="2.1.WindowWithPhoto.png" width="800" onclick="showModal(this.src)"></div><p local-id="7bcd1845-9928-4188-8879-5336c7f9e95b"></p><h1 local-id="07162ec5290f">Parametri</h1><p local-id="bf69b250-92a8-40ef-9374-fa1c0a638d6c">La sezione parametri si trova in alto a destra del pannello e contiene le seguenti tipologie di parametri:</p><div class="TextAlignCenter"><img src="attachments/2.1_SCATTA_FOTO/2.1.Parameters.png" alt="2.1.Parameters.png" width="450" onclick="showModal(this.src)"></div><p local-id="037ffa24-6354-42e2-bf99-16852bb3cd46"></p><h2 local-id="d5dfdba3b291">Parametri principali</h2>
+<div id="admonition-nota" class="admonition admonish-info" role="note" aria-labelledby="admonition-nota-title">
+<div class="admonition-title">
+<div id="admonition-nota-title">
+<p>NOTA</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-nota"></a>
+</div>
+<div>
+<p>Il simbolo “*” accanto ai nomi indica che il parametro è obbligatorio</p>
+</div>
+</div>
+<table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="3ce4a1af-8cbb-464a-abcb-b74d662a5e6f" data-table-display-mode="default"><colgroup><col style="width: 845.0px;"><col style="width: 952.0px;"></colgroup><tbody><tr ac:local-id="c90e7496-75cf-4e74-b872-f5d48a6a8121"><td data-highlight-colour="#ffffff" ac:local-id="337bc856-f417-4c56-ba19-fbfb507473fd"><div class="TextAlignCenter"><img src="attachments/2.1_SCATTA_FOTO/2.1.Nome.png" alt="2.1.Nome.png" width="505" onclick="showModal(this.src)"></div></td><td data-highlight-colour="#ffffff" ac:local-id="d76b402a-879f-4ff0-8156-e347fb307dd6f"><p local-id="042a60fd-2f94-4cc9-bca3-4e645208407f"><strong>Nome</strong><br>Identificativo univoco della lastra.</p></td></tr><tr ac:local-id="5091c48d-79a6-4cd1-b20a-e4dc7d05fe44"><td data-highlight-colour="#ffffff" ac:local-id="d1117124-a873-4f4b-b56f-807a92e68aae"><div class="TextAlignCenter"><img src="attachments/2.1_SCATTA_FOTO/2.1.SpessoreLastra.png" alt="2.1.SpessoreLastra.png" width="505" onclick="showModal(this.src)"></div></td><td data-highlight-colour="#ffffff" ac:local-id="8803a8ed-e99b-4acd-b9d7-495c426ebf6d"><p local-id="a96a1867-d71f-4761-91a4-278c1eb37e5f"><strong>Spessore lastra</strong><br>Spessore reale della lastra.</p></td></tr><tr ac:local-id="f67159e1-bc2f-4630-890f-1f092278a8d8"><td data-highlight-colour="#ffffff" ac:local-id="bcfd91a8-68fa-4b54-bd6e-2bd897c25a70"><div class="TextAlignCenter"><img src="attachments/2.1_SCATTA_FOTO/2.1.SpessoreTotale.png" alt="2.1.SpessoreTotale.png" width="505" onclick="showModal(this.src)"></div></td><td data-highlight-colour="#ffffff" ac:local-id="722307dc-38b0-476d-8f0c-0b494a206987"><p local-id="8fa92097-9111-4b23-9a6b-aa147ce81ae3"><strong>Spessore totale</strong><br>Spessore totale della lastra.</p></td></tr><tr ac:local-id="87cd5dad-356e-4321-bcf6-0db74fa37bbc"><td data-highlight-colour="#ffffff" ac:local-id="11277588-9f6f-4c2a-9474-f5311f3d260c"><div class="TextAlignCenter"><img src="attachments/2.1_SCATTA_FOTO/2.1.Materiale.png" alt="2.1.Materiale.png" width="505" onclick="showModal(this.src)"></div></td><td data-highlight-colour="#ffffff" ac:local-id="bbc1a751-0c67-44b2-9543-3f26eeef275e"><p local-id="3d4151f7-92df-41ef-9d6d-3077200366f7"><strong>Materiale</strong><br>Tipo di pietra associata alla lastra.</p></td></tr><tr ac:local-id="42a51e8c-dba8-43c6-8ff4-08941b8d3bd9"><td data-highlight-colour="#ffffff" ac:local-id="600dc61f-9ae5-4cc5-b6d3-8ecf399ae59f"><div class="TextAlignCenter"><img src="attachments/2.1_SCATTA_FOTO/2.1.Finitura.png" alt="2.1.Finitura.png" width="505" onclick="showModal(this.src)"></div></td><td data-highlight-colour="#ffffff" ac:local-id="e36d1f14-a3d2-4c24-9c42-f07b6454b7e3"><p local-id="7eaf7c02-fdc6-4b38-893e-a6e74b325998"><strong>Finitura</strong><br>Trattamento superficiale della lastra.</p></td></tr></tbody></table><p local-id="fa81b0b5-2891-49ed-bc8c-cc925381b2a0"></p><h2 local-id="504fb3415cc9">Parametri di contesto</h2><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="25cbe337-f76b-4fd5-bebb-f09851ccfb5b" data-table-display-mode="default"><colgroup><col style="width: 845.0px;"><col style="width: 948.0px;"></colgroup><tbody><tr ac:local-id="d1c918ea-62bb-4956-a0e4-7d3c3f28cf0f"><td ac:local-id="357ff0a7-8492-45f7-81ec-5adc08cff756"><div class="TextAlignCenter"><img src="attachments/2.1_SCATTA_FOTO/2.1.Blocco.png" alt="2.1.Blocco.png" width="505" onclick="showModal(this.src)"></div></td><td ac:local-id="daac3db8-f7a4-44ec-b371-8f5032762137"><p local-id="7db00c7d-ddf0-4874-bf77-caaf66eb59f9"><strong>Blocco</strong><br>Codice di origine della lastra.</p></td></tr><tr ac:local-id="6b2bbb1a-7095-40f7-80e8-26731b0e0dde"><td ac:local-id="32403c32-eee7-41d7-b640-1a170bf3c56a"><div class="TextAlignCenter"><img src="attachments/2.1_SCATTA_FOTO/2.1.Fornitore.png" alt="2.1.Fornitore.png" width="505" onclick="showModal(this.src)"></div></td><td ac:local-id="4b60232f-70ad-4bb7-8d00-faa1526cc591"><p local-id="e64fa51a-5680-49a0-82ea-a730d4a923e5"><strong>Fornitore</strong><br>Azienda cha ha rifornito la lastra.</p></td></tr><tr ac:local-id="357e5e4b-16a0-4a03-92c8-186043e10196"><td ac:local-id="6b8ef636-a7e4-42f1-8a04-94fe59f3fa41"><div class="TextAlignCenter"><img src="attachments/2.1_SCATTA_FOTO/2.1.Pack.png" alt="2.1.Pack.png" width="505" onclick="showModal(this.src)"></div></td><td ac:local-id="e9eb32a6-ec74-461e-bcb8-85a97cfe13ab"><p local-id="741568f4-ec8a-4fd3-89a1-fb2ff225d690"><strong>Pack</strong><br>Raggruppamento logistico e commerciale.</p></td></tr></tbody></table><p local-id="94abcd67-f8cf-4394-84b9-ccf6fe70d54b"></p><h2 local-id="bfc4bd38806a">Pulsanti parametri</h2><p local-id="c587f51f-9293-498b-9887-012eacb060ca">Alcuni parametri dispongono di opportuni pulsanti sul lato destro che permettono all’utente di eseguire determinate azioni:</p><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="1ac870ab-979e-4e61-9673-add15abe4a1d"><colgroup><col style="width: 345.0px;"><col style="width: 1450.0px;"></colgroup><tbody><tr ac:local-id="73d7def9-c7fe-49e7-94f6-ade9a5135d96"><td ac:local-id="f740e1ad-c31c-4c48-aefb-8d86028e5da8"><div class="TextAlignCenter"><img src="attachments/2.1_SCATTA_FOTO/2.1.Lock_Unlock.png" alt="2.1.Lock_Unlock.png" width="169" onclick="showModal(this.src)"></div></td><td ac:local-id="82862500-cbe7-4daf-8534-745ffcb62e3b"><p local-id="44bc592d-f6e5-4f59-8401-567126d92e07"><strong>Blocco/Sblocco parametro</strong><br>Indica che il parametro è rispettivamente bloccato e non modificabile, oppure sbloccato e modificabile.<br>È possibile alternare il blocco e lo sblocco del parametro cliccando questo pulsante.</p></td></tr><tr ac:local-id="63011d06-0de1-4978-b99b-e171cc6db93a"><td ac:local-id="f34b5784-7cbd-417a-bdd4-3c5c1ff3d335"><div class="TextAlignCenter"><img src="attachments/2.1_SCATTA_FOTO/2.1.SelezionaDaLista.png" alt="2.1.SelezionaDaLista.png" width="86" onclick="showModal(this.src)"></div></td><td ac:local-id="3c1a9a04-8134-44fb-9688-0cde2626b03c"><p local-id="138ad9df-6739-4492-b88a-dd83cea2a5b7"><strong>Seleziona</strong><br>Permette di impostare il parametro selezionando tra i valori inseriti precedentemente nel sistema.</p></td></tr></tbody></table><p local-id="7cdfb54e-3fba-4e35-b3df-83b1f2a7d43d"></p><h1 local-id="e63227a01cda">Azione scatta foto</h1><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="15448a99-3772-49f4-88b1-57fd2ece24b6"><colgroup><col style="width: 346.0px;"><col style="width: 1447.0px;"></colgroup><tbody><tr ac:local-id="9f92ebe0-7e83-4617-b2d1-fcb74a3ce947"><td ac:local-id="b431f8ca-3b4b-4fc6-a608-494b94b38370"><div class="TextAlignCenter"><img src="attachments/2.1_SCATTA_FOTO/2.1.Scatta.png" alt="2.1.Scatta.png" width="123" onclick="showModal(this.src)"></div></td><td ac:local-id="71943fa1-4955-40b1-8167-e3b20172f128"><p local-id="e729e9c4-9ca4-491e-b524-71954f4d1f03"><strong>Scatta foto</strong><br>Premendo questo pulsante, l’utente procede a scattare una foto con la fotocamera opportunamente configurata e collegata al sistema.<br>L’immagine scattata verrà quindi visualizzata in <strong>Anteprima foto</strong>.</p>
+<div id="admonition-attenzione" class="admonition admonish-warning" role="note" aria-labelledby="admonition-attenzione-title">
+<div class="admonition-title">
+<div id="admonition-attenzione-title">
+<p>ATTENZIONE!</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-attenzione"></a>
+</div>
+<div>
+<p>Non è possibile scattare una foto senza aver prima configurato tutti i parametri obbligatori.</p>
+</div>
+</div>
+</td></tr></tbody></table><p local-id="e44e7028-466a-4c61-8ea4-174c215b731f"></p><h1 local-id="b46b596b56a0">Barra inferiore</h1><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="8415361c-7656-48ea-b0a3-7f74ab1766ca" data-table-display-mode="default"><colgroup><col style="width: 512.0px;"><col style="width: 1284.0px;"></colgroup><tbody><tr ac:local-id="40a272d5-b8e6-4f70-96cc-ba37e240c464"><td ac:local-id="ed3f9d0a-59df-4e6e-93e0-54847249a254"><div class="TextAlignCenter"><img src="attachments/2.1_SCATTA_FOTO/2.1.Confirm.png" alt="2.1.Confirm.png" width="300" onclick="showModal(this.src)"></div></td><td ac:local-id="d43db705-ba53-41a5-a286-59ee4a903e20"><p local-id="ecb9b4a6-4c4e-4c3d-8b4e-1dddd12e3e6d"><strong>Conferma</strong><br>Dopo aver scattato la foto e compilato i parametri, conferma per aprire la finestra che consente di aggiungere o modificare altri parametri.</p>
+<div id="admonition-attenzione-1" class="admonition admonish-warning" role="note" aria-labelledby="admonition-attenzione-1-title">
+<div class="admonition-title">
+<div id="admonition-attenzione-1-title">
+<p>ATTENZIONE!</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-attenzione-1"></a>
+</div>
+<div>
+<p>Cliccando su questo conferma, la lastra non si aggiunge ancora al sistema; sarà necessario farlo nella finestra successiva.</p>
+</div>
+</div>
+</td></tr><tr ac:local-id="dd2a5588-4a57-4860-9cd3-5740e149fb2d"><td ac:local-id="8eb320f1-0eb6-45fe-b673-a3b2a319e268"><div class="TextAlignCenter"><img src="attachments/2.1_SCATTA_FOTO/2.1.Cancel.png" alt="2.1.Cancel.png" width="300" onclick="showModal(this.src)"></div></td><td ac:local-id="2917b5ed-8bff-4108-adb2-d8ff24e161d1"><p local-id="815cbb33-3de9-40ba-a2d0-70a2879afb89"><strong>Annulla</strong><br>Chiude la finestra senza applicare modifiche e ritorna alla schermata Home.</p></td></tr></tbody></table><p local-id="6ec48db7-064c-4cbf-b448-80b8f144866d"></p><!--Label="2_1_scatta_foto"-->
+                        </main>
+
+                    </div>
+
+                    <img src="images/donatoni_222.jpg">
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="2_dslab.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="2.2_modifica_lastra.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+
+
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                <a rel="prev" href="2_dslab.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="2.2_modifica_lastra.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="mermaid.min.js"></script>
+        <script src="mermaid-init.js"></script>
+        <script src="hidemenu.js"></script>
+        <script src="imagemodal.js"></script>
+        <script src="login.js"></script>
+    </div>
+
+    <!-- Modale -->
+    <div id="modal" onclick="closeModal()">
+        <img id="modal-img" src="">
+    </div>;
+
+
+</body>
+</html>

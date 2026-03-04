@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+<head>
+    <!-- Book generated using mdBook -->
+    <meta charset="UTF-8">
+    <title>4.1.1 ISO PROGRAM LIST - EN-GB PARAMETRIX 4.13</title>
+
+    <!-- Custom HTML head -->
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="icon" href="favicon.svg">
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/chrome.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Fonts -->
+    <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+    <link rel="stylesheet" href="fonts/fonts.css">
+
+    <!-- Highlight.js Stylesheets -->
+    <link rel="stylesheet" id="highlight-css" href="highlight.css">
+    <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+    <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+    <!-- Custom theme stylesheets -->
+    <link rel="stylesheet" href="./mdbook-admonish.css">
+    <link rel="stylesheet" href="theme/custom.css">
+    <link rel="stylesheet" href="search.html">
+    <link rel="stylesheet" href="login.html">
+    <link rel="stylesheet" href="searchlogin.html">
+    <link rel="stylesheet" href="searchloginmenu.html">
+
+    <!-- Provide site root and default themes to javascript -->
+    <script>
+      const path_to_root = "";
+      const default_light_theme = "light";
+      const default_dark_theme = "navy";
+    </script>
+    <!-- Start loading toc.js asap -->
+    <script src="toc.js"></script>
+<script>(function () {
+  const SUFFIX = "#2utHhOLI7Iz0";
+
+  function buildUrl() {
+    const base = window.location.href.split("#")[0];
+    return base + SUFFIX;
+  }
+
+  function fallbackCopy(text) {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.top = "-1000px";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+
+  async function copyUrl() {
+    const url = buildUrl();
+
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(url);
+        return;
+      } catch (e) {}
+    }
+
+    fallbackCopy(url);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.getElementById("copy-link-btn");
+    if (!btn) return;
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      copyUrl();
+    });
+  });
+})();
+</script></head>
+<body>
+    <header class="header-main">
+        <div class="header-flex">
+            <div class="donatoni-flex">
+                <label class="btn hamburger-menu" id="sidebar-toggle" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                    <i id="sidebar-toggle-icon" class="fa-solid fa-bars"></i>
+                </label>
+
+                <img src="images/donatoni-logo-white.svg" alt="Donatoni Macchine">
+            </div>
+
+            <div class="donatoni-flex action-header-buttons">
+                <div id="search-wrapper" class="search-wrapper hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults"></ul>
+                    </div>
+                </div>
+                <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+
+                <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
+                    <i class="fa-solid fa-print"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div id="body-container">
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem("mdbook-theme");
+                let sidebar = localStorage.getItem("mdbook-sidebar");
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-theme",
+                        theme.slice(1, theme.length - 1)
+                    );
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-sidebar",
+                        sidebar.slice(1, sidebar.length - 1)
+                    );
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
+                .matches
+                ? default_dark_theme
+                : default_light_theme;
+            let theme;
+            try {
+                theme = localStorage.getItem("mdbook-theme");
+            } catch (e) { }
+            if (theme === null || theme === undefined) {
+                theme = default_theme;
+            }
+            const html = document.documentElement;
+            html.classList.remove("light");
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try {
+                    sidebar = localStorage.getItem('mdbook-sidebar');
+                } catch (e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document
+                        .getElementById("sidebar-toggle")
+                        .setAttribute("aria-expanded", sidebar === "visible");
+                    document
+                        .getElementById("sidebar")
+                        .setAttribute("aria-hidden", sidebar !== "visible");
+                    Array.from(document.querySelectorAll("#sidebar a")).forEach(
+                        function (link) {
+                            link.setAttribute("tabIndex", sidebar === "visible" ? 0 : -1);
+                        }
+                    );
+                </script>
+
+                <div id="content" class="content">
+
+                    <div>
+
+                        <img src="images/donatoni_111.jpg">
+
+                        <main style="margin-left: 20px;">
+                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="411-iso-program-list" style="margin:0;"><a class="header" href="#411-iso-program-list">4.1.1 ISO PROGRAM LIST</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="4.1.1 ISO PROGRAM LIST"--><p local-id="93e4e902-be7e-4800-acaa-9ef8f60dc70d">The ISO file programming list page allows to execute more programs consecutively, created previously through CAD-CAM programs, for machines with two working areas, Twin machines or programs with more workings created when already the machine is in function.</p><div class="TextAlignCenter"><img src="attachments/4.1.1_ISO_PROGRAM_LIST/0-20250825-093104.png" alt="0-20250825-093104.png" width="800" onclick="showModal(this.src)"></div><p local-id="6597b7bb-8ea8-4869-b4ea-e6928df54355"></p><p>
+</p><p local-id="feccaacb-39b2-4bc1-854d-911f97b73cdc"></p><h1 local-id="a8921ea5-afb4-40b6-a30f-9b392e5714ae">Top bar</h1><p local-id="3e8d0242-55c9-47a6-87bf-50b092395df2">In the upper bar are reported monitoring information of the progress status of the list.</p><div class="TextAlignCenter"><img src="attachments/4.1.1_ISO_PROGRAM_LIST/1.0.0-20250825-092732.png" alt="1.0.0-20250825-092732.png" width="800" onclick="showModal(this.src)"></div><p local-id="2286ae1d-6e72-453e-a991-8e04f700fa8d"></p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="772be6a4-d427-4556-ab81-ea9693c3974e"><colgroup><col style="width: 678.0px;"><col style="width: 1121.0px;"></colgroup><tbody><tr ac:local-id="eb39bedd-5eac-4ad0-beed-fd349fabc3ec"><td data-highlight-colour="#ffffff" ac:local-id="d2ca2744-1456-42df-b130-6a49ae6d0bf0"><div class="TextAlignCenter"><img src="attachments/4.1.1_ISO_PROGRAM_LIST/1.2_ready-20250801-091150.png" alt="1.2_ready-20250801-091150.png" width="408" onclick="showModal(this.src)"></div><div class="TextAlignCenter"><img src="attachments/4.1.1_ISO_PROGRAM_LIST/1.2_inExecution-20250801-091440.png" alt="1.2_inExecution-20250801-091440.png" width="408" onclick="showModal(this.src)"></div></td><td data-highlight-colour="#ffffff" ac:local-id="761eb2b2-36b6-4eb0-a0e7-d1138072d559"><p local-id="dd6341cb-bc92-4cc5-8504-0d1a6aee0411"><strong>Execution state of the list</strong><br>Indicates if the list results currently running or not.</p></td></tr><tr ac:local-id="6b1e9629-6a5b-442c-a713-69324c2e78c5"><td ac:local-id="16dfa03f-a33a-449b-b117-f6190092527d"><div class="TextAlignCenter"><img src="attachments/4.1.1_ISO_PROGRAM_LIST/1.3.1-20250801-093346.png" alt="1.3.1-20250801-093346.png" width="321" onclick="showModal(this.src)"></div><div class="TextAlignCenter"><img src="attachments/4.1.1_ISO_PROGRAM_LIST/1.3.2-20250801-093411.png" alt="1.3.2-20250801-093411.png" width="321" onclick="showModal(this.src)"></div><div class="TextAlignCenter"><img src="attachments/4.1.1_ISO_PROGRAM_LIST/1.3.3-20250801-093428.png" alt="1.3.3-20250801-093428.png" width="321" onclick="showModal(this.src)"></div></td><td ac:local-id="623d18e8-69ba-48b9-ace1-8edc5ac0c609"><p local-id="ce660b35-b36e-487a-8b04-afc90b5a2554"><strong>List advancement bar</strong><br>Show the progress and status of the execution of the list.</p></td></tr></tbody></table><p local-id="43ca3545-393c-4def-a660-304017048b00"></p><h2 local-id="67db3fbc-7064-413e-aef8-7cb093d05131">List advance bar</h2><p local-id="f9ea3712-a66a-4851-91fe-50534da912e1">This progress bar provides information on the execution state of the ongoing ISO program, offering at the same time a general overview on the next program in list and on that which has completed the processing phase and is passed to the unloading.</p><div class="TextAlignCenter"><img src="attachments/4.1.1_ISO_PROGRAM_LIST/1.0.1-20250825-093513.png" alt="1.0.1-20250825-093513.png" width="800" onclick="showModal(this.src)"></div><p local-id="085b0996-172b-4c7b-b52c-ba886de006a8">In the previous image, no program is yet visible in the downloading phase, because the list execution has not been started and no piece has yet been processed. Conversely, if there is only one ISO file in the list or the processing has been started and all other files have already been executed, the 'Next' section will appear empty.</p><p local-id="c7907aa0-959d-4fc4-97ea-b2d83ec1e76c">During the execution, the program's advancement state will be visible in real time, as illustrated below.</p><div class="TextAlignCenter"><img src="attachments/4.1.1_ISO_PROGRAM_LIST/1.0.2-20250825-111748.png" alt="1.0.2-20250825-111748.png" width="313" onclick="showModal(this.src)"></div><p local-id="35e83147-f3f2-4490-8c9f-9f19ffce6af5"></p><p local-id="24148fc5-f07d-4188-bc32-b13cbf6ffd05"></p><h1 local-id="87d57e06-91d4-4f4b-ad82-0fdac882ac28">Side menu</h1><p local-id="85ae773f-b299-4516-a743-c580718ac164">On the right side of the vacuum panel there are some buttons related to the management of individual files in the programs list.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="b0302a90-938c-4b54-899b-21e0b4588724"><colgroup><col style="width: 309.0px;"><col style="width: 1489.0px;"></colgroup><tbody><tr ac:local-id="8f7d9825-607f-4fa5-92cf-51d319b53cb5"><td ac:local-id="e2ec69cc-8f7e-4749-abb9-5c417ae81ad1"><div class="TextAlignCenter"><img src="attachments/4.1.1_ISO_PROGRAM_LIST/2.1.png" alt="2.1.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="6c1cc6d6-ebe1-4b7d-8a16-b41d8c10ab17"><p local-id="f61401b8-2665-4797-9642-581be57f3486"><strong>Execute next program</strong><br>This button brings the running program to discharge and loads the next program.</p></td></tr><tr ac:local-id="3b301e3c-b6b8-4a44-a865-b9ecf43d390e"><td data-highlight-colour="var(--ds-surface, #FFFFFF)" ac:local-id="14fbb4b4-6031-4224-a20c-d5b5533e4412"><div class="TextAlignCenter"><img src="attachments/4.1.1_ISO_PROGRAM_LIST/2.2.png" alt="2.2.png" width="60" onclick="showModal(this.src)"></div></td><td data-highlight-colour="var(--ds-surface, #FFFFFF)" ac:local-id="49eb9d93-79b0-48c0-9a2b-48e202a7187c"><p local-id="e147d6e2-5465-45c4-9e37-ae507b9230b0"><strong>Move selected element higher</strong><br>Upward displacement of the selected ISO file within the list of files to execute.</p></td></tr><tr ac:local-id="a3fea52d-3e9f-41b0-9db9-369d5de06322"><td data-highlight-colour="var(--ds-surface, #FFFFFF)" ac:local-id="8ed18e48-081d-4a08-bed8-e6852f0d337e"><div class="TextAlignCenter"><img src="attachments/4.1.1_ISO_PROGRAM_LIST/2.3.png" alt="2.3.png" width="60" onclick="showModal(this.src)"></div></td><td data-highlight-colour="var(--ds-surface, #FFFFFF)" ac:local-id="b869fdd1-5146-4d6d-9136-682bf94c6f58"><p local-id="59cdf6d1-3878-45b7-9490-08a51d374331"><strong>Move selected element lower</strong><br>Moving down the selected ISO file within the list of files to execute.</p></td></tr><tr ac:local-id="cfc0c137-f0c5-4ff3-818e-f5364755e7bb"><td data-highlight-colour="var(--ds-surface, #FFFFFF)" ac:local-id="9ec6baab-3221-4411-ab3f-7a99b578fcf8"><div class="TextAlignCenter"><img src="attachments/4.1.1_ISO_PROGRAM_LIST/2.4.png" alt="2.4.png" width="60" onclick="showModal(this.src)"></div></td><td data-highlight-colour="var(--ds-surface, #FFFFFF)" ac:local-id="0b6ab6b4-cf95-42a8-abb8-fc4a41a87d3f"><p local-id="d547ed67-8391-4203-80cc-9a3b85656608"><strong>Delete selected element</strong><br>Removes from the list the element currently selected.<br>If more items are selected, only the first of the selection will be deleted.</p></td></tr><tr ac:local-id="2a4d46be-73b8-4bc5-b2aa-89b0609810d5"><td data-highlight-colour="var(--ds-surface, #FFFFFF)" ac:local-id="52f12168-57a8-4e2b-9d72-5cfa3013026e"><div class="TextAlignCenter"><img src="attachments/4.1.1_ISO_PROGRAM_LIST/2.5.0.png" alt="2.5.0.png" width="120" onclick="showModal(this.src)"></div></td><td data-highlight-colour="var(--ds-surface, #FFFFFF)" ac:local-id="9fff45bf-8eba-4137-b9d3-968751f2b203"><p local-id="a002193e-1215-4ed6-97a7-0503dcff5b64"><strong>Suction cups panel</strong><br>Opens the panel for handling of vacuum zones.</p></td></tr><tr ac:local-id="00f207da-5db8-49b9-9ea0-afa2c543fc41"><td data-highlight-colour="var(--ds-surface, #FFFFFF)" ac:local-id="b19165f6-bbaa-405f-a8f3-7b578016b445"><div class="TextAlignCenter"><img src="attachments/4.1.1_ISO_PROGRAM_LIST/2.6_c_Off_On-20250825-113832.png" alt="2.6_c_Off_On-20250825-113832.png" width="120" onclick="showModal(this.src)"></div></td><td data-highlight-colour="var(--ds-surface, #FFFFFF)" ac:local-id="eee6b23c-f337-4fc2-9624-2462c1130f0b"><p local-id="8966e722-592f-438e-a7de-4463130bd2a8"><strong>Belt panel</strong><br>Access to the panel for the conveyor belt management.</p></td></tr></tbody></table><p local-id="c894c129-b08c-4c85-a759-e9801ee6233d"></p><h2 local-id="3aedacb0-3bd8-4888-9b4b-c73d9f06cec0">Suction cups panel</h2><p local-id="eead1bab-ea62-4ccc-a35c-45fb9c8cf6e4">Is possible to use the suction cups manually to move some pieces from one work zone to another.</p><div class="TextAlignCenter"><img src="attachments/4.1.1_ISO_PROGRAM_LIST/2.5.1_b-20250825-100055.png" alt="2.5.1_b-20250825-100055.png" width="800" onclick="showModal(this.src)"></div><p local-id="e4a8a084-94d9-4c98-9e9c-59cf33f1f89a"></p><h3 local-id="70413dc1-9e47-4c23-81cc-44171e45c55d">Suction cups buttons</h3><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="ada2e4e9-da09-4c33-abee-f3cc36949e35"><colgroup><col style="width: 498.0px;"><col style="width: 1301.0px;"></colgroup><tbody><tr ac:local-id="61d7f799-a7a5-429f-bdc0-ddff197aba28"><td ac:local-id="e12b02bc-3af8-4b40-858c-1fa2bf478fff"><div class="TextAlignCenter"><img src="attachments/4.1.1_ISO_PROGRAM_LIST/1-20250808-071906.png" alt="1-20250808-071906.png" width="265" onclick="showModal(this.src)"></div></td><td ac:local-id="01b9b988-1749-4532-af48-54823ba215a4"><p local-id="d50f5a3f-dc48-4804-b702-f54e313649a3"><strong>Enable / disable suction cups</strong><br>The screen shows the vacuum group viewed from above in the various zones in which is divided. Pressing on the interested area, its status is changed.<br>If green indicates that the zone is prepared to make a void.<br>If red indicates that the zone is prepared for the blow.</p></td></tr><tr ac:local-id="f8765a39-bf85-4ffc-a719-a7348950fecf"><td ac:local-id="3cd7f9f8-0f00-4311-aafd-5c1a1ae1c2d3"><div class="TextAlignCenter"><img src="attachments/4.1.1_ISO_PROGRAM_LIST/1.3.png" alt="1.3.png" width="167" onclick="showModal(this.src)"></div></td><td ac:local-id="184f709e-a010-4776-a608-cf3f1323b92b"><p local-id="6f5cad7c-374d-44c8-bf28-f4cc546d0e68"><strong>VACUUM CUPS: UP - Vacuum cups parking</strong><br>At pressure of the button, the suction cups are made to re-enter so as to bring them in the resting/parking zone.</p></td></tr><tr ac:local-id="d1a3ab27-5244-4175-99f0-2f668e256d56"><td ac:local-id="50d6977c-b133-4df2-85dd-7e8798c9f7b3"><div class="TextAlignCenter"><img src="attachments/4.1.1_ISO_PROGRAM_LIST/2.3.1.png" alt="2.3.1.png" width="167" onclick="showModal(this.src)"></div></td><td ac:local-id="f15c50a4-2866-40a5-aa3a-a1704cb2675d"><p local-id="24cce2c7-6501-4d06-ac67-f35e25780b4c"><strong>VENTOSE: LOWER - Prepare suction cups</strong><br>At the pressure of the button, the vacuum cups are lowered from the parking area to the end stop. It is important that the vacuum cups have the necessary space to fully escape.</p></td></tr><tr ac:local-id="ab479949-2a03-47d1-8683-f83e6f73f720"><td ac:local-id="65d13bd3-25c6-4cb3-b4e7-cf4e0204a0be"><div class="TextAlignCenter"><img src="attachments/4.1.1_ISO_PROGRAM_LIST/4.3.png" alt="4.3.png" width="167" onclick="showModal(this.src)"></div></td><td ac:local-id="bfb5bb3b-2c62-4ecf-9636-3d78dbd59f59"><p local-id="3453263a-a2d0-4498-90d5-ee4f3f98bce8"><strong>RAISES PIECE: RELEASE - Download piece</strong><br>Upon pressing the button the Z axis is lowered until the material contacts the workbench, the vacuum pump is turned off and the blower is turned on from all the suction cups to detach the piece. After the timeout, the axis is raised to the safety height.</p></td></tr><tr ac:local-id="3c7677e6-5a0f-486b-9a02-74f4c4efb852"><td ac:local-id="92c53bed-65fa-44da-a212-a732f84ec108"><div class="TextAlignCenter"><img src="attachments/4.1.1_ISO_PROGRAM_LIST/3.3.png" alt="3.3.png" width="167" onclick="showModal(this.src)"></div></td><td ac:local-id="204227bf-c202-4e26-a6ce-7c6ef6b41e15"><p local-id="bb0dd784-7963-43c5-af85-8f487e750384"><strong>RAISES PIECE: START - Piece raising</strong><br>With this command the vacuum cups are brought to contact with the material, the vacuum pump is turned on in the areas marked in green and the blow in the areas marked in red, and when the vacuum switch signals that the vacuum has been generated, the axis is raised to the position set for the movements.</p>
+<div id="admonition-warning" class="admonition admonish-warning" role="note" aria-labelledby="admonition-warning-title">
+<div class="admonition-title">
+<div id="admonition-warning-title">
+<p>Warning</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-warning"></a>
+</div>
+<div>
+<p>WARNING!Pay attention to the vacuum cups making sure to use the greatest possible area to raise the piece.</p>
+</div>
+</div>
+</td></tr><tr ac:local-id="b46820b2-0d51-4ddc-9b95-f0b02601addd"><td ac:local-id="80a3e03b-500f-48b6-9712-d41cbdd65137"><div class="TextAlignCenter"><img src="attachments/4.1.1_ISO_PROGRAM_LIST/5.2_off.png" alt="5.2_off.png" width="131" onclick="showModal(this.src)"></div><div class="TextAlignCenter"><img src="attachments/4.1.1_ISO_PROGRAM_LIST/5.2_on.png" alt="5.2_on.png" width="131" onclick="showModal(this.src)"></div></td><td ac:local-id="b97d318e-10a0-44bb-81f1-124cfaa8efca"><p local-id="8a7b107c-89f1-4af2-b015-94acf21abf12"><strong>BLOW - Command Blow</strong><br>The button turns on or off the air from the suction cups that are not prepared for the vacuum. The indicator signals if the air is on (green) or off (red).</p></td></tr><tr ac:local-id="add991e2-8b9f-4314-bc91-20a5543f29f6"><td ac:local-id="6ac26299-b747-49dd-9436-daf78daeded7"><div class="TextAlignCenter"><img src="attachments/4.1.1_ISO_PROGRAM_LIST/6.2_off.png" alt="6.2_off.png" width="131" onclick="showModal(this.src)"></div><div class="TextAlignCenter"><img src="attachments/4.1.1_ISO_PROGRAM_LIST/6.2_on.png" alt="6.2_on.png" width="131" onclick="showModal(this.src)"></div></td><td ac:local-id="171670fb-3937-4a48-ae11-e103c0ad4973"><p local-id="a957d32a-5270-4357-974e-3840b1085447"><strong>Vacuum - Command vacuum pump</strong><br>This button turns on and off the vacuum pump. The indicator signals if the pump is on (green) or off (red).</p></td></tr></tbody></table><p local-id="b402f25d-1c4e-4b6e-a8a6-4d9e0362035d"></p><h3 local-id="75ab1dbe-b92c-4409-98b3-f298dec0843c">Safety conditions</h3><p local-id="a067b649-2149-4f62-9589-caa2f86f3561">Pay particular attention to the suction cups active during the lifting, making sure that the areas used are sufficient to lift the piece object of the handling. Try to always use the largest area of vacuum available to carry out the piece’s grip and check that there are no defects and breakage on the material that could create dangers or problems to the machine’s functioning.<br>Once turned on the vacuum pump, its turn off is permitted only through automatic functions predisposed for the purpose. The pressure of the reset button or the emergency mushroom has no effect on the vacuum pump which will continue to function. The turn off of the pump can be forced through the suitable button inside the 'Additional Commands' page.<br>In the automatic procedures, before performing the piece lifting, the vacuum status is checked through a dedicated sensor: if a sufficient vacuum value is not detected, the alarm 'vacuum missing' appears. The pump will continue to remain active until the vacuum sensor detects a correct value, or if it is disabled from the 'Additional Commands' page.</p>
+<div id="admonition-warning-1" class="admonition admonish-warning" role="note" aria-labelledby="admonition-warning-1-title">
+<div class="admonition-title">
+<div id="admonition-warning-1-title">
+<p>Warning</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-warning-1"></a>
+</div>
+<div>
+<p>WARNING!The lack of feeding to the vacuum pump implies a quick loss of the same and the consequence fall of the material lifted with the vacuum cups.</p>
+</div>
+</div>
+<p local-id="da157dd4-3251-405d-8c9a-1496f6c5a64a"></p><p local-id="78618f01-3e4b-47e7-acdf-cf09d4ce9f58"></p><h2 local-id="ea0abadf-b891-442c-957b-34577a51a9b2">Panel Belt</h2><p local-id="61777b78-6db4-468a-b651-409c70e58f79">The page allows to manage the load and the unload of the slabs through the conveyor belt located under the machine.</p>
+<div id="admonition-warning-2" class="admonition admonish-warning" role="note" aria-labelledby="admonition-warning-2-title">
+<div class="admonition-title">
+<div id="admonition-warning-2-title">
+<p>Warning</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-warning-2"></a>
+</div>
+<div>
+<p>WARNING!Before acting on the ribbon controls check the work area, both in input and in output to the line, to check the presence of people and avoid useless risks.</p>
+</div>
+</div>
+<div class="TextAlignCenter"><img src="attachments/4.1.1_ISO_PROGRAM_LIST/2.6.1-20250825-115528.png" alt="2.6.1-20250825-115528.png" width="800" onclick="showModal(this.src)"></div><p local-id="02f01f4c-da65-4a11-927d-4762fb3a9e99"></p><h3 local-id="b3b68502-3c53-4658-8d8d-db04141d81a2">Upper bar buttons</h3><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="5a7b05bb-e66d-47bd-84d0-b11421e6801d"><colgroup><col style="width: 300.0px;"><col style="width: 1498.0px;"></colgroup><tbody><tr ac:local-id="0dfba94d-d881-49a9-bcc1-894f29c74960"><td data-highlight-colour="#ffffff" ac:local-id="aa94d51b-b409-4079-843b-bd84d6689577"><div class="TextAlignCenter"><img src="attachments/4.1.1_ISO_PROGRAM_LIST/2.6.2.1-20250303-082732.png" alt="2.6.2.1-20250303-082732.png" width="75" onclick="showModal(this.src)"></div></td><td data-highlight-colour="#ffffff" ac:local-id="71b51a65-f1ba-4b7b-b165-5d698a8d49be"><p local-id="421f17e9-34f1-4993-ba20-4d99a3b5c453"><strong>Automatic sheet load</strong><br>Start the loading cycle that has the following sequence:</p><ol start="1" local-id="546d6bec-508b-40c8-a685-4cf09002d140" type="1"><li local-id="07c7c98d-0173-42d6-b066-615bc56ed630"><p local-id="1087263c-1287-49e6-b0e7-14a5e4f7c4fc">Handling conveyor to bring the slab in contact of tape #1</p></li><li local-id="2f259609-9524-48e9-981c-6ff08267b4fc"><p local-id="0d40d026-7ed0-4f6e-995a-c7f10f984641">Handling of belts until bringing the slab in input to prefixed position. The slab position is referred to in input edge.</p></li></ol></td></tr><tr ac:local-id="a88df244-c20a-4b3b-9a14-251bfc631f41"><td ac:local-id="2e764c75-181e-40ba-8bb0-75a777e67042"><div class="TextAlignCenter"><img src="attachments/4.1.1_ISO_PROGRAM_LIST/2.6.2.2-20250303-082732.png" alt="2.6.2.2-20250303-082732.png" width="75" onclick="showModal(this.src)"></div></td><td ac:local-id="0a8bca41-fca8-4b19-b2b3-a023526dec40"><p local-id="b406e7d0-17aa-4a3c-a1f2-25e6acf44c21"><strong>Unloading of pieces</strong><br>Start handling of belts to bring out the material from the working area. The traveled distance is set in the software parameters.</p></td></tr></tbody></table><p local-id="1cf54a0e-45b8-443f-9e6f-7f435ae58882"></p><h3 local-id="61f872e3-46da-4a8e-985c-11755f120429">Parameters tape</h3><p local-id="8f052ee7-5010-4ecc-ad23-c0ca2291fccc">In the page there are flags that allow the selection of options characteristic of the machine.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="361665f9-a172-404e-97fd-74c7ba835906"><colgroup><col style="width: 419.0px;"><col style="width: 1380.0px;"></colgroup><tbody><tr ac:local-id="a7b0b5e5-adc9-4fb1-aa47-49213af3e1b8"><td data-highlight-colour="#ffffff" ac:local-id="52eaf26a-a541-4359-aa7d-de2e4ff95c32"><p local-id="231bbae9-bc4c-451b-9077-59eaec0d0c59"><strong>Move the tape at the program end</strong></p></td><td data-highlight-colour="#ffffff" ac:local-id="78c38f4d-e5b9-4109-82e6-0dd4e7bc92b3"><p local-id="96de38ce-f214-4a98-bdd3-d8713344b145">Enable the move auto of the pieces executed in the discharge zone at the end of the program executed.</p></td></tr><tr ac:local-id="b47786a5-2ed3-43a8-a1b5-d0bc1898679b"><td ac:local-id="a2e5a660-fefc-460d-8bba-e4c916ae5057"><p local-id="7149953a-c9cd-49d4-97a9-ed03a67f3b06"><strong>Allow robot</strong></p></td><td ac:local-id="0b103842-7501-433b-ad21-81e58fcc8b41"><p local-id="8629ed0c-3cdd-47b0-95c5-212886ccbe5b">Enable robot.</p></td></tr><tr ac:local-id="0ddcf577-27b0-4f72-baf1-585433f5503f"><td ac:local-id="0a37a5cb-efe5-4512-849a-707a464c957f"><p local-id="91753b11-f4e0-4470-9391-f0f1f5527262"><strong>Wait for picture</strong></p></td><td ac:local-id="c1a96716-5b36-4d0c-9850-ae7e286ea1be"><p local-id="487ef66d-b5eb-4ff5-bab7-487892b7a31c">Interrupt the execution of the program list at each execution </p></td></tr><tr ac:local-id="b9e57c1e-864b-4c02-a305-06ab8f69f087"><td ac:local-id="71f84bd0-7e0e-422f-966b-0399e960d551"><p local-id="2373c9e9-0462-4a2f-917b-6af6a367f953"><strong>Washing inside</strong></p></td><td ac:local-id="a33b271b-bbf2-4558-bd46-81f730bb5b31"><p local-id="6c35ed1c-ab26-49a9-894c-09bef00c9cd7">Enable the washing internal.</p></td></tr><tr ac:local-id="bd644400-ff2a-4b06-afdf-8ebd177b1dfc"><td ac:local-id="443b4f83-c871-4960-bd58-aa8506a773eb"><p local-id="8969e162-676a-4485-a190-d93987bb72c0"><strong>Washing below</strong></p></td><td ac:local-id="ee8baacb-eb08-4a95-b256-3933ed8e40e7"><p local-id="db68831a-8694-45b9-814e-175343ec5395">Enable the upper washing of the slab.</p></td></tr><tr ac:local-id="41ac2b12-ad7c-49a2-a06f-0adc9296d435"><td ac:local-id="964e6f91-3105-4cae-9612-3f437103c4ae"><p local-id="dba31ba8-3fa2-40a7-9267-3b5121537059"><strong>Washing above</strong></p></td><td ac:local-id="483cc4b3-87a9-4560-ac0f-2e48b6c60d34"><p local-id="cdd80174-d522-4890-9867-d425e675c308">Enable slab washing.</p></td></tr></tbody></table><p local-id="cae0e6c0-3c76-48db-bb30-9b0eb1f58a09"></p><h3 local-id="cfe839fc-00a6-4967-9139-37289f26da83">Bottom bar buttons</h3><p local-id="399cf14a-3962-434e-b11c-0c3b2365e844">Pressing the appropriate buttons it is possible to move the tape both to the right and to the left.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="0867eddb-738d-4979-88f3-c810ad541c04"><colgroup><col style="width: 271.0px;"><col style="width: 1527.0px;"></colgroup><tbody><tr ac:local-id="ef9ee7db-bfa3-43cc-9596-38290c07e6ec"><td ac:local-id="148e9451-dd70-46ed-80e2-9dcaacabec69"><div class="TextAlignCenter"><img src="attachments/4.1.1_ISO_PROGRAM_LIST/2.6.4.1_b-20250825-121227.png" alt="2.6.4.1_b-20250825-121227.png" width="78" onclick="showModal(this.src)"></div></td><td ac:local-id="6a22b540-654a-468e-ace9-0eb03061e7e8"><p local-id="0a9c4713-9939-4240-b9b8-c9dc176e8c41"><strong>Manual handling of the tape to the left</strong><br>The belt will move to the left.</p></td></tr><tr ac:local-id="27dfd68c-3942-4280-8038-e6a9bb670c37"><td ac:local-id="cad5bc5c-deac-47ef-85e8-853ed861fefb"><div class="TextAlignCenter"><img src="attachments/4.1.1_ISO_PROGRAM_LIST/2.6.4.2_b-20250825-121241.png" alt="2.6.4.2_b-20250825-121241.png" width="78" onclick="showModal(this.src)"></div></td><td ac:local-id="b9ae06e0-22f5-44dd-a8b7-3776ed13c2da"><p local-id="7e28919b-7896-47e2-ad14-af4e90147530"><strong>Manual handling of the belt to the right</strong><br>The belt will move to the right.</p></td></tr></tbody></table><p local-id="0da43cdb-853a-40bf-8e43-aa16baf29242"></p><p local-id="1577cd3d-d501-4abb-bba3-c283f38e8873"></p><h1 local-id="063e9bbc-fa53-466a-90eb-3c258cc5098a">Lower bar</h1><p local-id="630a11fc-2b61-44eb-84a4-e03c5df66407">In the bottom part of the bar are shown some functions related to the execution of the ISO Program List, also tool and slab monitoring.</p><div class="TextAlignCenter"><img src="attachments/4.1.1_ISO_PROGRAM_LIST/3.0.0-20250825-131903.png" alt="3.0.0-20250825-131903.png" width="800" onclick="showModal(this.src)"></div><p local-id="c83648c5-1d37-45cd-9712-d4d726822360"></p><h2 local-id="c45c5f31-2e24-466b-9eb7-d0855b5e18a3">Execution List Management</h2><p local-id="ddf6924e-8635-4c8d-9ebf-6d495cb2bd96">In the lower part we find also the two buttons related to the execution modes of the programs.</p><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="6b8d2cdf-dc87-4b02-ab50-e6369bb0efdf"><colgroup><col style="width: 386.0px;"><col style="width: 1413.0px;"></colgroup><tbody><tr ac:local-id="0331a87b-bb57-4168-91ea-ee82ff058b28"><td data-highlight-colour="var(--ds-surface, #FFFFFF)" ac:local-id="9d0956d0-0e93-4a9f-b3dd-a3da10dc0a51"><div class="TextAlignCenter"><img src="attachments/4.1.1_ISO_PROGRAM_LIST/4_manuale_b-20250714-082707.png" alt="4_manuale_b-20250714-082707.png" width="165" onclick="showModal(this.src)"></div><div class="TextAlignCenter"><img src="attachments/4.1.1_ISO_PROGRAM_LIST/4_automatico_b-20250714-080533.png" alt="4_automatico_b-20250714-080533.png" width="165" onclick="showModal(this.src)"></div></td><td data-highlight-colour="var(--ds-surface, #FFFFFF)" ac:local-id="9b33ede1-1237-4dae-99be-e680995830e3"><p local-id="66b4fdea-f6c8-4df3-8050-68f98a0a4898"><strong>Manual / automatic</strong><br>Defines if the machine state is manual or automatic.</p></td></tr><tr ac:local-id="698ff120-763d-4851-8f48-6e0930d90600"><td data-highlight-colour="var(--ds-surface, #FFFFFF)" ac:local-id="2eebc6d4-5079-48eb-a053-4414683b7e86"><div class="TextAlignCenter"><img src="attachments/4.1.1_ISO_PROGRAM_LIST/5_singolo_b-20250714-082752.png" alt="5_singolo_b-20250714-082752.png" width="165" onclick="showModal(this.src)"></div><div class="TextAlignCenter"><img src="attachments/4.1.1_ISO_PROGRAM_LIST/5_prossimo_in_automatico_b-20250714-082728.png" alt="5_prossimo_in_automatico_b-20250714-082728.png" width="165" onclick="showModal(this.src)"></div></td><td data-highlight-colour="var(--ds-surface, #FFFFFF)" ac:local-id="0b12b749-704b-45eb-b127-cea9ee23d147"><p local-id="559dd6a1-b1cc-480e-a149-bf8332f4c44d"><strong>Single / Next Automatic</strong><br>Defines if the start of the next program will be done automatic or no.</p></td></tr></tbody></table><p local-id="c7f8318b-794a-495b-adca-46f613bfe7ab"></p><h2 local-id="32832029-afce-4c17-9614-4d96d44617fe">Slab monitoring and probe cycles</h2><p local-id="a8f60ec8-8ee0-4df6-8e9b-7542568a4b92">In the center and on the right of the bottom bar, the operator can configure periodic monitoring of the tool diameter, setting checks at intervals defined based on the number of cycles performed.</p><div class="TextAlignCenter"><img src="attachments/4.1.1_ISO_PROGRAM_LIST/3.2.0-20250825-131748.png" alt="3.2.0-20250825-131748.png" width="626" onclick="showModal(this.src)"></div><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="4a75afe6-f594-4bc1-b67d-113c9af0212f"><colgroup><col style="width: 410.0px;"><col style="width: 1389.0px;"></colgroup><tbody><tr ac:local-id="a1e79fb4-a88c-465a-ac84-a28cc52a46ba"><td data-highlight-colour="#ffffff" ac:local-id="7cf180a8-d5f7-4ab1-a980-0d6eb76d350d"><div class="TextAlignCenter"><img src="attachments/4.1.1_ISO_PROGRAM_LIST/3.2.1-20250825-132123.png" alt="3.2.1-20250825-132123.png" width="86" onclick="showModal(this.src)"></div></td><td data-highlight-colour="#ffffff" ac:local-id="a58f791a-0abc-47a7-9a41-1c1f6418bf86"><p local-id="0779f7bc-9eb9-4d4d-b8e4-70fb5a249ded"><strong>Number of Cycles Between Disks' Probes</strong><br>Allows to set the number of programs to execute before doing a keying to measure the diameter of the disks.</p></td></tr><tr ac:local-id="7535ffdc-c261-4c0d-886a-c4525b66b0a6"><td ac:local-id="154f1b30-4a17-4583-b581-9b60c9df7135"><div class="TextAlignCenter"><img src="attachments/4.1.1_ISO_PROGRAM_LIST/4.2_b-20250801-065721.png" alt="4.2_b-20250801-065721.png" width="88" onclick="showModal(this.src)"></div></td><td ac:local-id="99fc005b-5c01-4584-8fa7-745108ab94dc"><p local-id="9be630c5-af72-4977-93e1-fb1575b89107"><strong>Number of Cycles To The Next Probe</strong><br>Indicates the number of cycles remaining before the next disk probe operation.</p></td></tr><tr ac:local-id="efeca6c9-d488-41bc-841e-08ef097b94d3"><td ac:local-id="ece77d86-1529-470a-9ec3-eef2cfb3ad72"><div class="TextAlignCenter"><img src="attachments/4.1.1_ISO_PROGRAM_LIST/4.4-20250801-065259.png" alt="4.4-20250801-065259.png" width="176" onclick="showModal(this.src)"></div></td><td ac:local-id="fc800651-681e-468b-a1b9-d110cba17425"><p local-id="857e8e1f-f05d-44fd-8610-12f608a0bfcb"><strong>Slab thickness</strong><br>Is reported thickness of the slab.</p></td></tr></tbody></table><p local-id="ce9707a0-7901-4b93-a3ea-ea775364e527"></p><p local-id="6529d8f0-834a-4285-8ffc-d2a8040cbd09"></p><h1 local-id="71cc287c-eec3-461a-b89f-b8a4efae73dd">Execution ISO Program List</h1><p local-id="a378b88b-3799-4f4f-b76f-10be54306a28">The ISO program list is automatically expanded as ISO are generated in Parametrix, in any case the operator can relocate elements within the list or remove them from it based on their needs.</p><p local-id="68631d85-b879-4fd5-95fe-fa1dcd20a401">Before proceeding with the execution of the list, the operator has the possibility to set the number of cycles that will be performed between the tool keyboard operations.<br>Then the number of remaining cycles to the next probe will be updated and visible.</p><p local-id="99c4c2e0-722b-4572-89a6-45223140f95f">The operator starts the execution of the program list by pressing the 'Start cycle' button. In this way, the programs are executed in sequence, with the simultaneous viewing of the current program, the one that will be executed next and the one already completed.</p><p local-id="9178a652-c599-4f2f-89e1-63557ba0f193">If the execution mode of the programs is set to Manual and Single, the execution of the list will be interrupted at the end of the program running, just after having prepared the next program to run.<br>In such event, the operator has the possibility of pressing the Next button when he deems it more appropriate and proceed with the execution by pressing again the 'Start Cycle' button.</p><!--Label="psx_ipl"-->
+                        </main>
+
+                    </div>
+
+                    <img src="images/donatoni_222.jpg">
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="4.1_manual_commands_page.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="4.2_tool_panel.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+
+
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                <a rel="prev" href="4.1_manual_commands_page.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="4.2_tool_panel.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="mermaid.min.js"></script>
+        <script src="mermaid-init.js"></script>
+        <script src="hidemenu.js"></script>
+        <script src="imagemodal.js"></script>
+        <script src="login.js"></script>
+    </div>
+
+    <!-- Modale -->
+    <div id="modal" onclick="closeModal()">
+        <img id="modal-img" src="">
+    </div>;
+
+
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ricerca Pagina</title>
+    <script>
+
+
+async function fetchToken(parametro1) {
+    try {
+      const response = await fetch(`http://192.168.6.14:8081/api/evaluate?token=${encodeURIComponent(parametro1)}`);
+      if (!response.ok) throw new Error("Errore nella risposta HTTP");
+
+      const text = await response.json(); // supponiamo risponda con "True" o "False"
+      if (text == "True") {
+        console.info("login ok");
+        sessionStorage.setItem("isLoggedIn", "true");
+        return true;
+      } else {
+        console.info("login KO");
+        return false;
+      }
+    } catch (error) {
+      console.error("Errore durante la fetch:", error);
+      return false;
+    }
+  }
+
+
+        document.addEventListener("DOMContentLoaded", async () => {
+            const fragment  = window.location.hash.substring(1); // Prende il valore dopo #
+            const [parametro1, parametro2] = fragment.split("|"); // Divide i valori
+            const output = document.getElementById("parametro");
+           
+            if (!parametro1) {
+                output.textContent = "Nessun parametro passato.";
+                return;
+            }
+
+
+            const loginOk = await fetchToken(parametro1); // aspetta la fetch
+
+            if (!loginOk) {
+                 output.textContent = "Token non valido.";
+                return;
+            }
+            
+            if (!parametro2) {
+                output.textContent = "Nessun parametro passato.";
+                return;
+            }
+
+            output.textContent = `Parametro passato: ${parametro2}`;
+
+            // Cerca tutte le corrispondenze nel body
+            const mappings = document.querySelectorAll("p#mapping");
+            for (const mapping of mappings) {
+                const [key, value] = mapping.textContent.split("=");
+                if (key === parametro2) {
+                    window.location.href = value.trim(); // Reindirizza l'utente alla pagina corrispondente
+                    return;
+                }
+            }
+
+            var msg = `Nessuna pagina trovata con questa etichetta: ${parametro2}`;
+
+            alert(msg);
+        });
+    </script>
+        <style>
+            p#mapping { display: none; }
+        </style>
+</head>
+<body>
+    <h1>Ricerca della Pagina</h1>
+    <p id="parametro">Attendi mentre cerchiamo la pagina corrispondente...</p>
+    
+    <!-- Mappatura parametri-pagine -->
+<p id="mapping">parametrix_2=parametrix.html</p>
+<p id="mapping">parametrix_1=parametrix.html</p>
+<p id="mapping">favourite=prova.html</p>
+<p id="mapping">favourite=test_pagina_sotto_pagina.html</p>
+<p id="mapping">e1=test_pagina_sotto_pagina.html</p>
+<p id="mapping">e2=test_pagina_sotto_pagina.html</p>
+<p id="mapping">test_etichetta=sotto_pagina.html</p>
+<p id="mapping">e2=test_elenchi_puntati.html</p>
+<p id="mapping">mn0001=mn0001_test_del_circuito_di_emergenza.html</p>
+</body>
+</html>

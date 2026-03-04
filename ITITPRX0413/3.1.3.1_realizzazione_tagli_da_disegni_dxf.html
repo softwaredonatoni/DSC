@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+<head>
+    <!-- Book generated using mdBook -->
+    <meta charset="UTF-8">
+    <title>3.1.3.1 REALIZZAZIONE TAGLI DA DISEGNI DXF - IT-IT PARAMETRIX 4.13</title>
+
+    <!-- Custom HTML head -->
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="icon" href="favicon.svg">
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/chrome.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Fonts -->
+    <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+    <link rel="stylesheet" href="fonts/fonts.css">
+
+    <!-- Highlight.js Stylesheets -->
+    <link rel="stylesheet" id="highlight-css" href="highlight.css">
+    <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+    <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+    <!-- Custom theme stylesheets -->
+    <link rel="stylesheet" href="./mdbook-admonish.css">
+    <link rel="stylesheet" href="theme/custom.css">
+    <link rel="stylesheet" href="search.html">
+    <link rel="stylesheet" href="login.html">
+    <link rel="stylesheet" href="searchlogin.html">
+    <link rel="stylesheet" href="searchloginmenu.html">
+
+    <!-- Provide site root and default themes to javascript -->
+    <script>
+      const path_to_root = "";
+      const default_light_theme = "light";
+      const default_dark_theme = "navy";
+    </script>
+    <!-- Start loading toc.js asap -->
+    <script src="toc.js"></script>
+<script>(function () {
+  const SUFFIX = "#2utHhOLI7Iz0";
+
+  function buildUrl() {
+    const base = window.location.href.split("#")[0];
+    return base + SUFFIX;
+  }
+
+  function fallbackCopy(text) {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.top = "-1000px";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+
+  async function copyUrl() {
+    const url = buildUrl();
+
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(url);
+        return;
+      } catch (e) {}
+    }
+
+    fallbackCopy(url);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.getElementById("copy-link-btn");
+    if (!btn) return;
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      copyUrl();
+    });
+  });
+})();
+</script></head>
+<body>
+    <header class="header-main">
+        <div class="header-flex">
+            <div class="donatoni-flex">
+                <label class="btn hamburger-menu" id="sidebar-toggle" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                    <i id="sidebar-toggle-icon" class="fa-solid fa-bars"></i>
+                </label>
+
+                <img src="images/donatoni-logo-white.svg" alt="Donatoni Macchine">
+            </div>
+
+            <div class="donatoni-flex action-header-buttons">
+                <div id="search-wrapper" class="search-wrapper hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults"></ul>
+                    </div>
+                </div>
+                <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+
+                <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
+                    <i class="fa-solid fa-print"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div id="body-container">
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem("mdbook-theme");
+                let sidebar = localStorage.getItem("mdbook-sidebar");
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-theme",
+                        theme.slice(1, theme.length - 1)
+                    );
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-sidebar",
+                        sidebar.slice(1, sidebar.length - 1)
+                    );
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
+                .matches
+                ? default_dark_theme
+                : default_light_theme;
+            let theme;
+            try {
+                theme = localStorage.getItem("mdbook-theme");
+            } catch (e) { }
+            if (theme === null || theme === undefined) {
+                theme = default_theme;
+            }
+            const html = document.documentElement;
+            html.classList.remove("light");
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try {
+                    sidebar = localStorage.getItem('mdbook-sidebar');
+                } catch (e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document
+                        .getElementById("sidebar-toggle")
+                        .setAttribute("aria-expanded", sidebar === "visible");
+                    document
+                        .getElementById("sidebar")
+                        .setAttribute("aria-hidden", sidebar !== "visible");
+                    Array.from(document.querySelectorAll("#sidebar a")).forEach(
+                        function (link) {
+                            link.setAttribute("tabIndex", sidebar === "visible" ? 0 : -1);
+                        }
+                    );
+                </script>
+
+                <div id="content" class="content">
+
+                    <div>
+
+                        <img src="images/donatoni_111.jpg">
+
+                        <main style="margin-left: 20px;">
+                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="3131-realizzazione-tagli-da-disegni-dxf" style="margin:0;"><a class="header" href="#3131-realizzazione-tagli-da-disegni-dxf">3.1.3.1 REALIZZAZIONE TAGLI DA DISEGNI DXF</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="3.1.3.1 REALIZZAZIONE TAGLI DA DISEGNI DXF"--><p>La macchina può eseguire tagli, fresature e fori tramite disegni creati con software CAD e salvati in formato “.dxf“ con il riconoscimento automatico di alcune lavorazioni utili per semplificare e rendere più veloce il lavoro all’operatore bordo macchina.</p>
+<div id="admonition-nota" class="admonition admonish-info" role="note" aria-labelledby="admonition-nota-title">
+<div class="admonition-title">
+<div id="admonition-nota-title">
+<p>NOTA</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-nota"></a>
+</div>
+<div>
+<p>Per fare in modo che Parametrix possa interpretare queste informazioni, dovranno essere rispettate alcune convenzioni in fase di realizzazione del disegno:
+<br>
+Tutti i pezzi disegnati devono essere chiusi e convertiti in polilinee formando un poligono.
+<br>
+Qualora si desideri inserire la marca del pezzo per l’identificazione dovrà essere inserita all’interno del poligono.</p>
+</div>
+</div>
+<div class="TextAlignCenter"><img src="attachments/3.1.3.1_REALIZZAZIONE_TAGLI_DA_DISEGNI_DXF/0.0.png" alt="0.0.png" width="600" onclick="showModal(this.src)"></div><p></p><p>
+</p><h1 id="impostazioni-parametrix-per-il-riconoscimento-dei-layer-importati"><a class="header" href="#impostazioni-parametrix-per-il-riconoscimento-dei-layer-importati">Impostazioni Parametrix per il riconoscimento dei layer importati</a></h1><p>Per accedere alla finestra dedicata alle impostazioni di personalizzazione relative all’importazione dei file DXF, premere il pulsante dei Parametri Utente che si trova sulla barra superiore di Parametrix.<br>Da qui, spostarsi nella sezione dedicata alla gestione dei nomi dei Layer.</p><p>Per ogni tipologia di funzione elencata, l’utente può assegnare un nome (corrispondente al nome del Layer impostato nel software CAD utilizzato) e assegnare alcuni parametri relativi ai valori di default per alcune lavorazioni.</p><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="e4ea2044-658d-4187-bdac-59c197e7ac76"><tbody><tr><td data-highlight-colour="#ffffff"><p style="text-align: center;"><strong>Funzione</strong></p></td><td data-highlight-colour="#ffffff"><p style="text-align: center;"><strong>Nome Layer</strong></p></td></tr><tr><td data-highlight-colour="#ffffff"><p>Tagli inclinati</p></td><td data-highlight-colour="#ffffff"><p>Inclinato</p></td></tr><tr><td data-highlight-colour="#ffffff"><p>Alzata</p></td><td data-highlight-colour="#ffffff"><p>Alzata</p></td></tr><tr><td data-highlight-colour="#ffffff"><p>Rivestimento</p></td><td data-highlight-colour="#ffffff"><p>Rivestimento</p></td></tr><tr><td data-highlight-colour="#ffffff"><p>Offset</p></td><td data-highlight-colour="#ffffff"><p>Offset</p></td></tr><tr><td data-highlight-colour="#ffffff"><p>Tagli sotto il materiale</p></td><td data-highlight-colour="#ffffff"><p>Sotto</p></td></tr><tr><td data-highlight-colour="#ffffff"><p>Gocciolatoio</p></td><td data-highlight-colour="#ffffff"><p>Gocciola</p></td></tr><tr><td data-highlight-colour="#ffffff"><p>Fresatura</p></td><td data-highlight-colour="#ffffff"><p>Fresatura</p></td></tr><tr><td data-highlight-colour="#ffffff"><p>Ribasso</p></td><td data-highlight-colour="#ffffff"><p>Ribasso</p></td></tr><tr><td data-highlight-colour="#ffffff"><p>Foratura</p></td><td data-highlight-colour="#ffffff"><p>Foratura</p></td></tr><tr><td data-highlight-colour="#ffffff"><p>Taglio aggiunto</p></td><td data-highlight-colour="#ffffff"><p>Aggiunto</p></td></tr><tr><td data-highlight-colour="#ffffff"><p>Foro di ancoraggio</p></td><td data-highlight-colour="#ffffff"><p>Keil</p></td></tr><tr><td data-highlight-colour="#ffffff"><p>Smusso</p></td><td data-highlight-colour="#ffffff"><p>Smusso</p></td></tr><tr><td data-highlight-colour="#ffffff"><p>Becco</p></td><td data-highlight-colour="#ffffff"><p>Becco</p></td></tr><tr><td data-highlight-colour="#ffffff"><p>Disattiva</p></td><td data-highlight-colour="#ffffff"><p>Disattiva</p></td></tr><tr><td data-highlight-colour="#ffffff"><p>Rimuovi</p></td><td data-highlight-colour="#ffffff"><p>Rimuovi</p></td></tr></tbody></table><p></p><h1 id="pulsanti"><a class="header" href="#pulsanti">Pulsanti</a></h1><p>I pulsanti a sinistra di ogni lavorazione permettono di:</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="9c5ac8e5-ae22-44e8-9a43-2570c039f23a" data-table-display-mode="default"><colgroup><col style="width: 193.0px;"><col style="width: 1606.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/3.1.3.1_REALIZZAZIONE_TAGLI_DA_DISEGNI_DXF/0.1.png" alt="0.1.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Finestra informativa</strong><br>Mostra una rappresentazione grafica delle informazioni richieste per creare un Layer associato alla lavorazione.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.1.3.1_REALIZZAZIONE_TAGLI_DA_DISEGNI_DXF/0.2.png" alt="0.2.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Scarica esempio</strong><br>Permette di scaricare un file DXF contenente un esempio di Layer associato alla lavorazione.</p></td></tr></tbody></table><p></p><p></p><h1 id="modalità-taglio-inclinato"><a class="header" href="#modalità-taglio-inclinato">Modalità Taglio Inclinato</a></h1><p>Per poter inserire in automatico un taglio inclinato è necessario osservare alcune convenzioni:</p><ul><li><p>I tagli inclinati si possono inserire solamente sui lati dei pezzi; qualora il taglio inclinato non valga per tutto il tratto lo si può dividere in più parti.</p></li><li><p>Può essere applicato il taglio inclinato su archi esterni (Es: tavolo circolare, oppure su copertine curve solamente per quanto riguarda il taglio esterno).</p></li><li><p>Per quanto riguarda gli archi interni (es: copertine in curva) il taglio viene effettuato a passate; il taglio sarà effettuato inclinando il disco automaticamente, evitando problemi di collisione con il materiale.</p></li></ul><p>La procedura per chi utilizza sistemi CAD, prevede la creazione di un Layer che abbia le seguenti proprietà:</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="21f548b7-1105-4b01-9b59-5a113f8e7d77"><colgroup><col style="width: 385.0px;"><col style="width: 1413.0px;"></colgroup><tbody><tr><td><p><strong>Nome del Layer</strong></p></td><td><p>Inclinato _ (seguita dal numero che identifica i gradi di inclinazione desiderato).</p>
+<div id="admonition-nota-1" class="admonition admonish-info" role="note" aria-labelledby="admonition-nota-1-title">
+<div class="admonition-title">
+<div id="admonition-nota-1-title">
+<p>NOTA</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-nota-1"></a>
+</div>
+<div>
+<p>L’inclinazione è espressa in gradi sessagesimali.</p>
+</div>
+</div>
+</td></tr><tr><td><p><strong>Esempio</strong></p></td><td><p>Inclinato45 o Inclinato-45</p></td></tr></tbody></table><p>Quando viene inserito un valore negativo l’inclinazione è riferita ad un taglio divergente mentre se il valore è positivo il taglio sarà convergente verso l’interno del poligono.</p><p></p><p></p><h1 id="modalità-alzata"><a class="header" href="#modalità-alzata">Modalità Alzata</a></h1><p>La funzione alzata è una lavorazione che permette di ottenere un pezzo rettangolare di pari lunghezza alla retta impostata come lato di riferimento.</p><p>Per l’inserimento automatico dei tagli volendo creare un’alzata sarà necessario creare un Layer con il nome “<strong>Alzata</strong>” e di seguito inserire la misura dell’altezza.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="33e1914f-c126-41e2-8837-90c67ac04205"><colgroup><col style="width: 385.0px;"><col style="width: 1413.0px;"></colgroup><tbody><tr><td><p><strong>Nome del Layer</strong></p></td><td><p>Alzata _ (seguita dalla misura dell’altezza dell’alzata).</p>
+<div id="admonition-nota-2" class="admonition admonish-info" role="note" aria-labelledby="admonition-nota-2-title">
+<div class="admonition-title">
+<div id="admonition-nota-2-title">
+<p>NOTA</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-nota-2"></a>
+</div>
+<div>
+<p>La misura è espressa in millimetri.</p>
+</div>
+</div>
+</td></tr><tr><td><p><strong>Esempio</strong></p></td><td><p>Alzata100</p></td></tr></tbody></table><p>Questo automatismo all’interno di Parametrix crea un nuovo pezzo di larghezza pari alla lunghezza della retta che identifica il lato dell’alzata desiderata con i due lati che saranno incollati assieme tagliati con la stessa inclinazione, pronti per una finitura con cartabuono.<br>L’inclinazione associata a questi lati è impostabile dal parametro a fianco.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="9886c091-0578-44d1-91c9-e97c9d8a9e07"><colgroup><col style="width: 390.0px;"><col style="width: 1409.0px;"></colgroup><tbody><tr><td><p><strong>Gradi</strong></p></td><td><p>Permette di impostare l’inclinazione con cui vengono importati i lati inclinati della lavorazione.</p></td></tr></tbody></table><p></p><p></p><h1 id="modalità-rivestimento"><a class="header" href="#modalità-rivestimento">Modalità Rivestimento</a></h1><p>La funzione rivestimento / alzata è una lavorazione che permette di ottenere un pezzo rettangolare di pari lunghezza alla retta impostata come lato di riferimento.</p><p>In modo analogo, per l’inserimento automatico dei tagli volendo creare un rivestimento sarà necessario creare un Layer con il nome “<strong>Rivestimento</strong>” e di seguito inserire la misura dell’altezza.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="8dd0b814-c37e-445e-a0f7-7b1e6883c9d8"><colgroup><col style="width: 385.0px;"><col style="width: 1413.0px;"></colgroup><tbody><tr><td><p><strong>Nome del Layer</strong></p></td><td><p>Rivestimento _ (seguita dalla misura dell’altezza del rivestimento).</p>
+<div id="admonition-nota-3" class="admonition admonish-info" role="note" aria-labelledby="admonition-nota-3-title">
+<div class="admonition-title">
+<div id="admonition-nota-3-title">
+<p>NOTA</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-nota-3"></a>
+</div>
+<div>
+<p>La misura è espressa in millimetri.</p>
+</div>
+</div>
+</td></tr><tr><td><p><strong>Esempio</strong></p></td><td><p>Rivestimento150</p></td></tr></tbody></table><p>Questo automatismo all’interno di Parametrix crea un nuovo pezzo di larghezza pari alla lunghezza della retta che identifica il lato del rivestimento desiderato senza taglio inclinato ma bensì pronto per una finitura ad angolo dritto con presa di costa.</p><p></p><p></p><h1 id="modalità-offset"><a class="header" href="#modalità-offset">Modalità Offset</a></h1><p>La funzione offset è molto utile quando si voglia lasciare più materiale rispetto alle dimensioni del pezzo finito; tramite il disegno di rette sui lati desiderati, le funzioni associate ai lati indicati verranno spostati automaticamente nella direzione corretta.</p><p>Per poter inserire in automatico il sovra materiale desiderato sarà necessario creare un Layer con il nome “<strong>Offset</strong>” e inserire tutte le rette relative ai lati dove si desidera avere effetto automatico dell’impostazione.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="193ae8cf-8821-4276-9c34-21012d107805"><colgroup><col style="width: 385.0px;"><col style="width: 1413.0px;"></colgroup><tbody><tr><td><p><strong>Nome del Layer</strong></p></td><td><p>Offset _ (seguita dal numero che identifica la misura di offset).</p>
+<div id="admonition-nota-4" class="admonition admonish-info" role="note" aria-labelledby="admonition-nota-4-title">
+<div class="admonition-title">
+<div id="admonition-nota-4-title">
+<p>NOTA</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-nota-4"></a>
+</div>
+<div>
+<p>La misura è espressa in millimetri.</p>
+</div>
+</div>
+</td></tr><tr><td><p><strong>Esempio</strong></p></td><td><p>Offset3</p></td></tr></tbody></table><p></p><p></p><h1 id="modalità-taglio-sotto"><a class="header" href="#modalità-taglio-sotto">Modalità Taglio Sotto</a></h1><p>La funzione di taglio sotto è valida solo per chi ha installato l’optional meccanico che permette di effettuare un taglio sotto la superficie a vista della lastra.</p><p>Per poter inserire in automatico un taglio sotto sarà necessario creare un Layer con il nome “<strong>Sotto</strong>” e inserire una retta che rappresenterà il taglio.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="3ae54069-44a9-45b2-8d02-1e942c891bad"><colgroup><col style="width: 385.0px;"><col style="width: 1413.0px;"></colgroup><tbody><tr><td><p><strong>Nome del Layer</strong></p></td><td><p>Sotto</p></td></tr><tr><td><p><strong>Esempio</strong></p></td><td><p>Sotto</p></td></tr></tbody></table>
+<div id="admonition-nota-5" class="admonition admonish-info" role="note" aria-labelledby="admonition-nota-5-title">
+<div class="admonition-title">
+<div id="admonition-nota-5-title">
+<p>NOTA</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-nota-5"></a>
+</div>
+<div>
+<p>La lunghezza del taglio risultante dipende anche dal diametro del disco e dallo spessore del materiale impostati su Parametrix.</p>
+</div>
+</div>
+<p></p><p></p><h1 id="modalità-gocciolatoio"><a class="header" href="#modalità-gocciolatoio">Modalità Gocciolatoio</a></h1><p>La funzione di gocciolatoio permette di inserire un taglio di larghezza maggiore rispetto allo spessore del disco e profondità minore rispetto allo spessore del materiale.</p><p>Per poter inserire in automatico un gocciolatoio sarà necessario creare un Layer con il nome “<strong>Gocciola</strong>” e inserire una retta o arco che rappresenta il centro della larghezza.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="6c4610d8-4f9a-4e88-8412-9ec2f12ffb04"><colgroup><col style="width: 385.0px;"><col style="width: 1413.0px;"></colgroup><tbody><tr><td><p><strong>Nome del Layer</strong></p></td><td><p>Gocciola _ (seguita dal numero che identifica la larghezza del gocciolatoio).</p>
+<div id="admonition-nota-6" class="admonition admonish-info" role="note" aria-labelledby="admonition-nota-6-title">
+<div class="admonition-title">
+<div id="admonition-nota-6-title">
+<p>NOTA</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-nota-6"></a>
+</div>
+<div>
+<p>La larghezza è espressa in millimetri.</p>
+</div>
+</div>
+</td></tr><tr><td><p><strong>Esempio</strong></p></td><td><p>Gocciola10</p></td></tr></tbody></table><p>In questo modo la profondità del gocciolatoio viene stabilita dal parametro dedicato.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="caede460-852a-4354-a649-5229715bb290"><colgroup><col style="width: 381.0px;"><col style="width: 1418.0px;"></colgroup><tbody><tr><td><p><strong>Scavo</strong></p></td><td><p>Profondità del taglio associato al gocciolatoio. Questo valore non viene considerato se l’utente imposta un valore sul DXF.</p></td></tr></tbody></table><p>La profondità del taglio può essere gestita in automatico prendendo come valore il parametro dedicato in Parametrix o lasciando che l’utente imposti un valore inserendo il carattere “<strong>&</strong>” seguito dallo spessore desiderato.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="58e21c7f-7fdd-487a-9c65-1b6262db1443"><colgroup><col style="width: 385.0px;"><col style="width: 1413.0px;"></colgroup><tbody><tr><td><p><strong>Nome del Layer</strong></p></td><td><p>Gocciola _ (larghezza del gocciolatoio) _ & _ (profondità del gocciolatoio).</p>
+<div id="admonition-nota-7" class="admonition admonish-info" role="note" aria-labelledby="admonition-nota-7-title">
+<div class="admonition-title">
+<div id="admonition-nota-7-title">
+<p>NOTA</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-nota-7"></a>
+</div>
+<div>
+<p>La profondità è espresso in millimetri.</p>
+</div>
+</div>
+</td></tr><tr><td><p><strong>Esempio</strong></p></td><td><p>Gocciola10&5</p></td></tr></tbody></table>
+<div id="admonition-nota-8" class="admonition admonish-info" role="note" aria-labelledby="admonition-nota-8-title">
+<div class="admonition-title">
+<div id="admonition-nota-8-title">
+<p>NOTA</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-nota-8"></a>
+</div>
+<div>
+<p>La lunghezza del taglio risultante dipende anche dal diametro del disco e dallo spessore del materiale impostati su Parametrix.</p>
+</div>
+</div>
+<div id="admonition-nota-9" class="admonition admonish-info" role="note" aria-labelledby="admonition-nota-9-title">
+<div class="admonition-title">
+<div id="admonition-nota-9-title">
+<p>NOTA</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-nota-9"></a>
+</div>
+<div>
+<p>Per gocciolatoi in curva viene fatto un solo taglio con il disco esterno all’arco stesso.
+<br>
+Gli eventuali parametri indicati nel nome del Layer non vengono considerati.</p>
+</div>
+</div>
+<p></p><p></p><h1 id="modalità-fresatura"><a class="header" href="#modalità-fresatura">Modalità Fresatura</a></h1><p>Per poter inserire una fresatura automatica è necessario osservare alcune convenzioni.</p><p>Se creata una geometria di fresatura che riguarda uno o più lati del poligono esterno, la fresa effettuerà la lavorazione esterna al perimetro disegnato; vale anche per un singolo lato del perimetro; se la lavorazione prevede il taglio di tutto il perimetro con la fresa vengono tolti eventuali taglio con il disco.</p><p>La profondità del taglio può essere definita tramite la creazione di un Layer dedicato.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="13f7a894-6d2f-4555-8087-f4e3d68c7a76"><colgroup><col style="width: 385.0px;"><col style="width: 1413.0px;"></colgroup><tbody><tr><td><p><strong>Nome del Layer</strong></p></td><td><p>Fresatura _ (seguita dal numero che identifica lo spessore della fresatura).</p>
+<div id="admonition-nota-10" class="admonition admonish-info" role="note" aria-labelledby="admonition-nota-10-title">
+<div class="admonition-title">
+<div id="admonition-nota-10-title">
+<p>NOTA</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-nota-10"></a>
+</div>
+<div>
+<p>La misura è espressa in millimetri.</p>
+</div>
+</div>
+</td></tr><tr><td><p><strong>Esempio</strong></p></td><td><p>Fresatura10</p></td></tr></tbody></table><p>Se non viene indicato nessun valore di profondità al nome del Layer “<strong>Fresatura</strong>“ viene considerato lo spessore della lavorazione in corso.</p><p>Un’ulteriore funzionalità resa possibile è l’inserimento di una polilinea (aperta/chiusa, ad esempio cerchio o singolo percorso composto da una polilinea lineare) per andare a fresare una forma all’interno del perimetro maggiore.</p><p></p><p></p><h1 id="modalità-ribasso--filo-top"><a class="header" href="#modalità-ribasso--filo-top">Modalità Ribasso / Filo Top</a></h1><p>La funzione ribasso / filo top è una lavorazione che permette di ribassare un perimetro, solitamente per effettuare l’incasso di elettrodomestici o lavabi.</p><p>Per poter inserire in automatico il ribasso desiderato sarà necessario creare un Layer con il nome “<strong>Ribasso</strong>”.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="51b85066-6056-4b28-8fee-172da9288914"><colgroup><col style="width: 385.0px;"><col style="width: 1413.0px;"></colgroup><tbody><tr><td><p><strong>Nome del Layer</strong></p></td><td><p>Ribasso _ (seguita dal numero che identifica la larghezza del ribasso).</p>
+<div id="admonition-nota-11" class="admonition admonish-info" role="note" aria-labelledby="admonition-nota-11-title">
+<div class="admonition-title">
+<div id="admonition-nota-11-title">
+<p>NOTA</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-nota-11"></a>
+</div>
+<div>
+<p>La larghezza è espressa in millimetri.</p>
+</div>
+</div>
+</td></tr><tr><td><p><strong>Esempio</strong></p></td><td><p>Ribasso20</p></td></tr></tbody></table><p>In questo modo la profondità del ribasso viene stabilita dal parametro dedicato.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="e7044dd0-4290-44ce-b937-6ca80e5dc902"><colgroup><col style="width: 381.0px;"><col style="width: 1418.0px;"></colgroup><tbody><tr><td><p><strong>Scavo</strong></p></td><td><p>Profondità del ribasso. Questo valore non viene considerato se l’utente imposta un valore sul DXF.</p></td></tr></tbody></table><p>La profondità del ribasso può essere gestita in automatico prendendo come valore il parametro dedicato in Parametrix o impostato un valore dall’utente inserendo il carattere “<strong>&</strong>” seguito dallo spessore desiderato.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="c4edab7e-04f2-40d8-a363-a1db6e72e18b"><colgroup><col style="width: 385.0px;"><col style="width: 1413.0px;"></colgroup><tbody><tr><td><p><strong>Nome del Layer</strong></p></td><td><p>Ribasso _ (larghezza del ribasso) _ & _ (spessore del ribasso).</p>
+<div id="admonition-nota-12" class="admonition admonish-info" role="note" aria-labelledby="admonition-nota-12-title">
+<div class="admonition-title">
+<div id="admonition-nota-12-title">
+<p>NOTA</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-nota-12"></a>
+</div>
+<div>
+<p>Lo spessore è espresso in millimetri.</p>
+</div>
+</div>
+</td></tr><tr><td><p><strong>Esempio</strong></p></td><td><p>Ribasso20&3</p></td></tr></tbody></table>
+<div id="admonition-nota-13" class="admonition admonish-info" role="note" aria-labelledby="admonition-nota-13-title">
+<div class="admonition-title">
+<div id="admonition-nota-13-title">
+<p>NOTA</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-nota-13"></a>
+</div>
+<div>
+<p>Il raggio di raccordo tra i lati del perimetro non possono essere modificati dall’utente ma bensì sarà il raggio fresa a determinarlo.</p>
+</div>
+</div>
+<p>Il ribasso può essere effettuato su di un percorso chiuso non sovrapposto ai lati pezzo, in questo caso verrà effettuata una fresatura all’interno del perimetro disegnato.</p><p></p><p></p><h1 id="modalità-foratura"><a class="header" href="#modalità-foratura">Modalità Foratura</a></h1><p>La funzione foratura permette al software Parametrix di aggiungere lavorazioni di foratura sui pezzi.</p><p>Per poter inserire in automatico una lavorazione di foratura è necessario creare un Layer con il nome “<strong>Foratura</strong>” e disegnare un cerchio dove si vuole realizzare il foro.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="be98b3cf-4169-4935-9952-05ffa58ae5d0"><colgroup><col style="width: 385.0px;"><col style="width: 1413.0px;"></colgroup><tbody><tr><td><p><strong>Nome del Layer</strong></p></td><td><p>Foratura _ (seguita dal numero che identifica la profondità del foro).</p>
+<div id="admonition-nota-14" class="admonition admonish-info" role="note" aria-labelledby="admonition-nota-14-title">
+<div class="admonition-title">
+<div id="admonition-nota-14-title">
+<p>NOTA</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-nota-14"></a>
+</div>
+<div>
+<p>La misura è espressa in millimetri.</p>
+</div>
+</div>
+</td></tr><tr><td><p><strong>Esempio</strong></p></td><td><p>Foratura5</p></td></tr></tbody></table><p>Se non viene specificata la profondità il foro verrà applicato con lo spessore del materiale correntemente utilizzato da Parametrix.</p><p>Nella modalità base il raggio del cerchio corrisponde al raggio dell’utensile correntemente impostato su Parametrix.</p><p></p><p></p><h1 id="modalità-taglio-aggiunto"><a class="header" href="#modalità-taglio-aggiunto">Modalità Taglio Aggiunto</a></h1><p>La funzione di taglio aggiunto permette al software Parametrix di aggiungere un taglio.</p><p>Per poter inserire in automatico un taglio aggiunto è necessario creare un Layer con il nome “<strong>Aggiunto</strong>” e disegnare sopra alla linea che rappresenta il lato di cui si vuole creare un taglio aggiunto una nuova linea.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="f531d35f-6cb7-4acb-b6a6-7376b001a86a"><colgroup><col style="width: 385.0px;"><col style="width: 1413.0px;"></colgroup><tbody><tr><td><p><strong>Nome del Layer</strong></p></td><td><p>Aggiunto _ (seguita dal numero che identifica la distanza alla quale il taglio verrà aggiunto).</p>
+<div id="admonition-nota-15" class="admonition admonish-info" role="note" aria-labelledby="admonition-nota-15-title">
+<div class="admonition-title">
+<div id="admonition-nota-15-title">
+<p>NOTA</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-nota-15"></a>
+</div>
+<div>
+<p>La misura è espressa in millimetri.</p>
+</div>
+</div>
+</td></tr><tr><td><p><strong>Esempio</strong></p></td><td><p>Aggiunto50</p></td></tr></tbody></table><p>Il taglio verrà aggiunto all’interno (dove c'è materiale) o all’esterno (dove non c'è materiale) del pezzo, in base al segno distanza:</p><ul><li><p>Se il segno distanza è positivo, il taglio verrà aggiunto esternamente al pezzo</p></li><li><p>In caso contrario quando il segno distanza è negativo, verrà aggiunto il taglio internamente al pezzo</p></li></ul><p>Applicando un taglio aggiunto su dei tagli interni, ad esempio di uno scasso, il taglio verrà aggiunto internamente al pezzo, dove non c'è materiale.</p><p></p><p></p><h1 id="modalità-foro-di-ancoraggio"><a class="header" href="#modalità-foro-di-ancoraggio">Modalità Foro di Ancoraggio</a></h1><p>La funzione foro di ancoraggio permette al software Parametrix di aggiungere lavorazioni foro di ancoraggio sui pezzi.</p><p>Per poter inserire in automatico una lavorazione foro di ancoraggio è necessario creare una Layer con il nome “<strong>Keil</strong>” e disegnare un cerchio dove si vuole realizzare il foro di ancoraggio.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="b6ba90f1-4182-412c-9819-5ffbfc4820d2"><colgroup><col style="width: 385.0px;"><col style="width: 1413.0px;"></colgroup><tbody><tr><td><p><strong>Nome del Layer</strong></p></td><td><p>Keil _ (seguita dal numero che identifica la profondità del foro di ancoraggio).</p>
+<div id="admonition-nota-16" class="admonition admonish-info" role="note" aria-labelledby="admonition-nota-16-title">
+<div class="admonition-title">
+<div id="admonition-nota-16-title">
+<p>NOTA</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-nota-16"></a>
+</div>
+<div>
+<p>La misura è espressa in millimetri.</p>
+</div>
+</div>
+</td></tr><tr><td><p><strong>Esempio</strong></p></td><td><p>Keil5</p></td></tr></tbody></table><p>Nella modalità base il raggio del cerchio corrisponde al raggio dell’utensile correntemente impostato su Parametrix.</p><p></p><p></p><h1 id="modalità-smusso"><a class="header" href="#modalità-smusso">Modalità Smusso</a></h1><p>La funzione smusso permette al software Parametrix di aggiungere lavorazioni smusso sui pezzi.</p><p>Per poter inserire in automatico una lavorazione smusso è necessario creare un Layer con il nome “<strong>Smusso</strong>” e disegnare sopra alla linea che rappresenta il lato di cui si vuole creare un taglio aggiunto una nuova linea.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="b37602b2-9759-4df5-bfd8-52784c549708"><colgroup><col style="width: 385.0px;"><col style="width: 1413.0px;"></colgroup><tbody><tr><td><p><strong>Nome del Layer</strong></p></td><td><p>Smusso _ (distanza lungo asse X) _ & _ (distanza lungo asse Y) _ & _ (angolo di inclinazione).</p>
+<div id="admonition-nota-17" class="admonition admonish-info" role="note" aria-labelledby="admonition-nota-17-title">
+<div class="admonition-title">
+<div id="admonition-nota-17-title">
+<p>NOTA</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-nota-17"></a>
+</div>
+<div>
+<p>Le misure sono espresse in:
+<br>
+X: millimetri
+<br>
+Y: millimetri
+<br>
+A: gradi sessagesimali</p>
+</div>
+</div>
+</td></tr><tr><td><p><strong>Esempio</strong></p></td><td><p>Smusso10&10&45</p></td></tr></tbody></table><p>Se i tre valori non sono geometricamente compatibili tra loro la lavorazione non verrà applicata.</p><p></p><p></p><h1 id="modalità-becco"><a class="header" href="#modalità-becco">Modalità Becco</a></h1><p>La funzione becco permette al software Parametrix di aggiungere lavorazioni smusso sui pezzi.</p><p>Per poter inserire in automatico una lavorazione becco è necessario creare un Layer con il nome “<strong>Becco</strong>” e disegnare sopra alla linea che rappresenta il lato di cui si vuole creare un taglio aggiunto una nuova linea.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="e814d72a-a7d1-4dec-83c2-8fd7d8e6dc28"><colgroup><col style="width: 385.0px;"><col style="width: 1413.0px;"></colgroup><tbody><tr><td><p><strong>Nome del Layer</strong></p></td><td><p>Becco _ (distanza lungo asse X) _ & _ (distanza lungo asse Y) _ & _ (angolo di inclinazione).</p>
+<div id="admonition-nota-18" class="admonition admonish-info" role="note" aria-labelledby="admonition-nota-18-title">
+<div class="admonition-title">
+<div id="admonition-nota-18-title">
+<p>NOTA</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-nota-18"></a>
+</div>
+<div>
+<p>Le misure sono espresse in:
+<br>
+X: millimetri
+<br>
+Y: millimetri
+<br>
+A: gradi sessagesimali</p>
+</div>
+</div>
+</td></tr><tr><td><p><strong>Esempio</strong></p></td><td><p>Becco10&10&45</p></td></tr></tbody></table><p>Se i tre valori non sono geometricamente compatibili tra loro la lavorazione non verrà applicata.</p><p></p><p></p><h1 id="modalità-disattiva"><a class="header" href="#modalità-disattiva">Modalità Disattiva</a></h1><p>La funzione disattiva permette al software Parametrix di disattivare tagli sui pezzi.</p><p>Per poter inserire in automatico una funzione disattiva è necessario creare un Layer con il nome “<strong>Disattiva</strong>” e disegnare una nuova linea sopra a quella che rappresenta il lato che si vuole disattivare.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="f6c568d2-e4cd-47f4-8ff1-4d14ae6befe7"><colgroup><col style="width: 385.0px;"><col style="width: 1413.0px;"></colgroup><tbody><tr><td><p><strong>Nome del Layer</strong></p></td><td><p>Disattiva</p></td></tr><tr><td><p><strong>Esempio</strong></p></td><td><p>Disattiva</p></td></tr></tbody></table><p></p><p></p><h1 id="modalità-rimuovi"><a class="header" href="#modalità-rimuovi">Modalità Rimuovi</a></h1><p>La funzione rimuovi permette al software Parametrix di rimuovere tagli sui pezzi.</p><p>Per poter inserire in automatico una lavorazione rimuovi è necessario: creare un Layer con il nome “<strong>Rimuovi</strong>” e disegnare una nuova linea sopra al quella che rappresenta il lato che si vuole rimuovere.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="009be8f3-0065-43d9-9f9a-9df0b29b7b1d"><colgroup><col style="width: 385.0px;"><col style="width: 1413.0px;"></colgroup><tbody><tr><td><p><strong>Nome del Layer</strong></p></td><td><p>Rimuovi</p></td></tr><tr><td><p><strong>Esempio</strong></p></td><td><p>Rimuovi</p></td></tr></tbody></table><p></p><p></p><h1 id="modalità-foro"><a class="header" href="#modalità-foro">Modalità Foro</a></h1><p>La funzione di foratura permette al software Parametrix di riconoscere ogni cerchio avente un raggio inferiore al parametro “Raggio massimo foretto” presente all’interno dell’area del pezzo.</p><p>I fori possono essere inseriti liberamente in tutti i Layer (che non siano identificati come neutri).</p><p>Un’ulteriore opzione riferita all’utilizzo del foretto permette di togliere un’isola di materiale rimasta attaccata dopo aver effettuato i tagli con il disco; questa opzione per essere considerata dal software Parametrix deve essere disegnato uno o più cerchi che intersechino i lati dell’isola tagliata con il disco e tramite il parametro “Distanza Fori Automatici” saranno posizionati una serie di fori calcolati automaticamente in base al materiale rimasto da tagliare dopo aver tagliato il disco.</p><p></p><p></p><h1 id="gestione-layer-neutri"><a class="header" href="#gestione-layer-neutri">Gestione Layer neutri</a></h1><p>Volendo mantenere nel file DXF alcune parti di disegno che non sono da considerare come tagli o altre funzionalità da gestire con il software Parametrix è possibile assegnarle ad alcuni Layer che vengono riconosciuti come neutri.</p><p>Creare i Layer con nomi assegnati nei campi Layer neutri (1,2,3) nella pagina “Nomi Layer” dei parametri utente di Parametrix tenendo presente che il carattere “*” farà si che tutti i Layer importati con il medesimo nome prima e dopo il simbolo “*” non saranno considerati nell’importazione.</p><p></p><p></p><h1 id="esempi"><a class="header" href="#esempi">Esempi</a></h1><p class="media-group"><p><a href='attachments/3.1.3.1_REALIZZAZIONE_TAGLI_DA_DISEGNI_DXF/WorkingDetails.dxf'>WorkingDetails.dxf</a></p><p><a href='attachments/3.1.3.1_REALIZZAZIONE_TAGLI_DA_DISEGNI_DXF/VeinDirections.dxf'>VeinDirections.dxf</a></p><p><a href='attachments/3.1.3.1_REALIZZAZIONE_TAGLI_DA_DISEGNI_DXF/Top.dxf'>Top.dxf</a></p><p><a href='attachments/3.1.3.1_REALIZZAZIONE_TAGLI_DA_DISEGNI_DXF/Kitchen_WithLayout.dxf'>Kitchen_WithLayout.dxf</a></p><p><a href='attachments/3.1.3.1_REALIZZAZIONE_TAGLI_DA_DISEGNI_DXF/Kitchen_Curve.dxf'>Kitchen_Curve.dxf</a></p><p><a href='attachments/3.1.3.1_REALIZZAZIONE_TAGLI_DA_DISEGNI_DXF/BookMatch_Wall.dxf'>BookMatch_Wall.dxf</a></p><p><a href='attachments/3.1.3.1_REALIZZAZIONE_TAGLI_DA_DISEGNI_DXF/BookMatch_Floor.dxf'>BookMatch_Floor.dxf</a></p><p><a href='attachments/3.1.3.1_REALIZZAZIONE_TAGLI_DA_DISEGNI_DXF/Bathroom.dxf'>Bathroom.dxf</a></p><p></p><!--Label="dxf_rcn"--><!--Label="dxf_rcn_bcc"--><!--Label="dxf_rcn_ntr"--><!--Label="dxf_rcn_lwr"--><!--Label="dxf_rcn_mtr"--><!--Label="dxf_rcn_dwn"--><!--Label="dxf_rcn_mll"--><!--Label="dxf_rcn_anc"--><!--Label="dxf_rcn_rmv"--><!--Label="dxf_rcn_hol"--><!--Label="dxf_rcn_ffs"--><!--Label="dxf_rcn_dct"--><!--Label="dxf_rcn_drp"--><!--Label="dxf_rcn_rim"--><!--Label="dxf_rcn_sms"--><!--Label="dxf_rcn_frt"--><!--Label="dxf_rcn_add"-->
+                        </main>
+
+                    </div>
+
+                    <img src="images/donatoni_222.jpg">
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="3.1.3_nomi_layer.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="3.1.3.2_colorare_i_layer.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+
+
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                <a rel="prev" href="3.1.3_nomi_layer.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="3.1.3.2_colorare_i_layer.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="mermaid.min.js"></script>
+        <script src="mermaid-init.js"></script>
+        <script src="hidemenu.js"></script>
+        <script src="imagemodal.js"></script>
+        <script src="login.js"></script>
+    </div>
+
+    <!-- Modale -->
+    <div id="modal" onclick="closeModal()">
+        <img id="modal-img" src="">
+    </div>;
+
+
+</body>
+</html>

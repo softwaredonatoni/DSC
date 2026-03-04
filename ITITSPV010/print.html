@@ -1,0 +1,219 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>IT-IT Superview 1.0.1.0</title>
+        <meta name="robots" content="noindex">
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="./mdbook-admonish.css">
+        <link rel="stylesheet" href="theme/custom.css">
+        <link rel="stylesheet" href="search.html">
+        <link rel="stylesheet" href="login.html">
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">IT-IT Superview 1.0.1.0</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="iti-t-superview-1010"><a class="header" href="#iti-t-superview-1010">ITI-T Superview 1.0.1.0</a></h1><!--Page="ITI-T Superview 1.0.1.0"--><div class="TextAlignCenter"><img src="attachments/ITI-T_Superview_1.0.1.0/image-20260123-093643.png" alt="image-20260123-093643.png" width="1172" onclick="showModal(this.src)"></div><h1 local-id="a356d2f8-898d-44fa-b081-3ef3e55e05fa">Manuale software Superview</h1><p local-id="b0dcf880179d">Una pubblicazione di Donatoni Macchine S.r.l.</p><p local-id="3d740fe13bce">Versione Software: 1.0.1.0</p><p local-id="8ee0209c3648">Versione Manuale: 1.0</p><p local-id="90ca0e0d987c">Data: 02/02/2026</p><p local-id="6aad3a06f5a5"></p>
+<ul>
+<li><a href="./1_configurazione_corrente.html">1 CONFIGURAZIONE CORRENTE</a></li>
+<li><a href="./2_segnalazione_pezzi_rotti.html">2 SEGNALAZIONE PEZZI ROTTI</a></li>
+<li><a href="./3_stampa_etichette.html">3 STAMPA ETICHETTE</a></li>
+<li><a href="./4_apri_configurazione.html">4 APRI CONFIGURAZIONE</a></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="1-configurazione-corrente"><a class="header" href="#1-configurazione-corrente">1 CONFIGURAZIONE CORRENTE</a></h1><!--Page="1 CONFIGURAZIONE CORRENTE"--><h2 local-id="72575dcc-c2f6-4730-82c7-215706af0a65"><strong>INFORMAZIONI</strong></h2><div class="TextAlignLeft"><img src="attachments/1_CONFIGURAZIONE_CORRENTE/current.png" alt="current.png" width="1000" onclick="showModal(this.src)"></div><p local-id="5d9b3617-1849-4c93-b8b3-5625ff6d374e">Pagina che permette di visualizzare la configurazione di taglio attualmente presente nella zona di scarico.</p><p local-id="0f5fd121-46cb-454b-83d3-54cb21caccb1">E’ presente una finestra di visualizzazione dove è possibile visualizzare il banco con sopra le lastre eseguite con i relativi pezzi. A destra è presente la lista di lastre e pezzi visualizzati, e sotto un pannello con le informazioni dell’oggetto selezionato. E’ possibile selezionare una lastra o un pezzo facendo click direttamente sull’oggetto desiderato nella finestra di visualizzazione, oppure sul nome dell’oggetto nella lista a destra.</p><div class="TextAlignLeft"><img src="attachments/1_CONFIGURAZIONE_CORRENTE/instructions-viewer.png" alt="instructions-viewer.png" width="790" onclick="showModal(this.src)"></div><p local-id="65f46328-72fa-4ebc-8844-1968f2cf9393"></p><p local-id="b58a7543-651e-4c13-868e-42837dc8d26d"><br></p><p local-id="5f05e893-b9e4-44d3-9643-8539000b80a0"><br></p><div class="TextAlignLeft"><img src="attachments/1_CONFIGURAZIONE_CORRENTE/instructions-twin.png" alt="instructions-twin.png" width="789" onclick="showModal(this.src)"></div><div class="TextAlignLeft"><img src="attachments/1_CONFIGURAZIONE_CORRENTE/instructions-panels.png" alt="instructions-panels.png" width="789" onclick="showModal(this.src)"></div><p local-id="d2818483-a8bc-4c97-87c6-234bb04f75c5"></p><p local-id="6f3ffab7-ae8e-48f0-a315-dacdaef0893b"><br></p><p local-id="cb23e6fc-c398-41c5-af94-270b999beb15"><br></p><div class="TextAlignLeft"><img src="attachments/1_CONFIGURAZIONE_CORRENTE/instructions-ok.png" alt="instructions-ok.png" width="786" onclick="showModal(this.src)"></div><p local-id="3dbfb9c3-3c61-4dc3-b5e9-359b1fa903f3"><br></p><div style="break-before: page; page-break-before: always;"></div><h1 id="2-segnalazione-pezzi-rotti"><a class="header" href="#2-segnalazione-pezzi-rotti">2 SEGNALAZIONE PEZZI ROTTI</a></h1><!--Page="2 SEGNALAZIONE PEZZI ROTTI"--><h2 local-id="7d69a707-7b60-4a77-bf9a-99e684c00e8e"><strong>SEGNALAZIONE PEZZI ROTTI</strong></h2><div class="TextAlignLeft"><img src="attachments/2_SEGNALAZIONE_PEZZI_ROTTI/image2024-1-11_9-36-37.png" alt="image2024-1-11_9-36-37.png" width="1000" onclick="showModal(this.src)"></div><div class="TextAlignLeft"><img src="attachments/2_SEGNALAZIONE_PEZZI_ROTTI/image2024-1-11_9-43-19.png" alt="image2024-1-11_9-43-19.png" width="789" onclick="showModal(this.src)"></div><div style="break-before: page; page-break-before: always;"></div><h1 id="3-stampa-etichette"><a class="header" href="#3-stampa-etichette">3 STAMPA ETICHETTE</a></h1><!--Page="3 STAMPA ETICHETTE"--><h2 local-id="97f715d0-9cf9-4826-b902-2015bd32c7ef"><strong>STAMPA ETICHETTE</strong></h2><div class="TextAlignLeft"><img src="attachments/3_STAMPA_ETICHETTE/image2024-1-11_9-48-37.png" alt="image2024-1-11_9-48-37.png" width="1000" onclick="showModal(this.src)"></div><div class="TextAlignLeft"><img src="attachments/3_STAMPA_ETICHETTE/print-print.png" alt="print-print.png" width="789" onclick="showModal(this.src)"></div><div style="break-before: page; page-break-before: always;"></div><h1 id="4-apri-configurazione"><a class="header" href="#4-apri-configurazione">4 APRI CONFIGURAZIONE</a></h1><!--Page="4 APRI CONFIGURAZIONE"--><h1 local-id="98742a3d-62ad-44f9-a565-dac1fed8ea9f"><strong>APRI CONFIGURAZIONE</strong></h1><div class="TextAlignLeft"><img src="attachments/4_APRI_CONFIGURAZIONE/old.png" alt="old.png" width="1000" onclick="showModal(this.src)"></div><p local-id="87c528d6e082">Questa pagina consente di visualizzare la lista di configurazioni di taglio precedenti e riaprirle.</p><p local-id="81ef67dcb3a5">Per selezionare una configurazione di taglio precedente basta selezionarla dalla lista di sinistra.</p>
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="mermaid.min.js"></script>
+        <script src="mermaid-init.js"></script>
+        <script src="hidemenu.js"></script>
+        <script src="imagemodal.js"></script>
+        <script src="login.js"></script>
+
+        <script>
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+
+    </div>
+    </body>
+</html>

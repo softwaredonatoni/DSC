@@ -1,0 +1,630 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+<head>
+    <!-- Book generated using mdBook -->
+    <meta charset="UTF-8">
+    <title>labels - IT-IT PARAMETRIX 4.13</title>
+
+
+    <!-- Custom HTML head -->
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="icon" href="favicon.svg">
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/chrome.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
+
+    <!-- Fonts -->
+    <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+    <link rel="stylesheet" href="fonts/fonts.css">
+
+    <!-- Highlight.js Stylesheets -->
+    <link rel="stylesheet" href="highlight.css">
+    <link rel="stylesheet" href="tomorrow-night.css">
+    <link rel="stylesheet" href="ayu-highlight.css">
+
+    <!-- Custom theme stylesheets -->
+    <link rel="stylesheet" href="./mdbook-admonish.css">
+    <link rel="stylesheet" href="theme/custom.css">
+    <link rel="stylesheet" href="search.html">
+    <link rel="stylesheet" href="login.html">
+    <link rel="stylesheet" href="searchlogin.html">
+    <link rel="stylesheet" href="searchloginmenu.html">
+
+
+    <!-- Provide site root to javascript -->
+    <script>var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";</script>
+    <!-- Start loading toc.js asap -->
+    <script src="toc.js"></script>
+</head>
+<body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }</script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");</script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);</script>
+
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">IT-IT PARAMETRIX 4.13</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });</script>
+
+                <div id="content" class="content">
+                    <main>
+
+<h1 id="1_PREMESSE"><a class="header" >1_PREMESSE</a></h1>
+<p>pre</p>
+<h1 id="2.1_MANUALE_(VENTOSE)"><a class="header" >2.1_MANUALE_(VENTOSE)</a></h1>
+<p>pbm_sct</p>
+<h1 id="2.2_TAGLIO_SINGOLO"><a class="header" >2.2_TAGLIO_SINGOLO</a></h1>
+<p>pbm_sng</p>
+<h1 id="2.3_PROGRAMMA_ISO"><a class="header" >2.3_PROGRAMMA_ISO</a></h1>
+<p>pbm_iso</p>
+<p>pbm_iso_lst</p>
+<p>pbm_iso_exe</p>
+<p>pbm_iso_prw</p>
+<p>pbm_iso_cod</p>
+<h1 id="2.4_SPIANATURA"><a class="header" >2.4_SPIANATURA</a></h1>
+<p>pbm_lvl</p>
+<h1 id="2.5_SCAVO"><a class="header" >2.5_SCAVO</a></h1>
+<p>pbm_pck</p>
+<p>pbm_pck_pez</p>
+<p>pbm_pck_ban</p>
+<h1 id="2.6_TAGLI"><a class="header" >2.6_TAGLI</a></h1>
+<p>pbm_cut</p>
+<p>pbm_cut_bal</p>
+<p>pbm_cut_eop</p>
+<p>pbm_cut_bca</p>
+<p>pbm_cut_bac</p>
+<p>pbm_cut_bse</p>
+<p>pbm_cut_bpa</p>
+<p>pbm_cut_bth</p>
+<p>pbm_cut_efi</p>
+<p>pbm_cut_ese</p>
+<h1 id="2.7_ISOCAM"><a class="header" >2.7_ISOCAM</a></h1>
+<p>pbm_scm_two</p>
+<p>pbm_scm_one</p>
+<p>pbm_scm_fou</p>
+<p>pbm_scm</p>
+<p>pbm_scm_thr</p>
+<p>pbm_scm_crt</p>
+<h1 id="2.8_LUCIDATURA_(OPZIONALE)"><a class="header" >2.8_LUCIDATURA_(OPZIONALE)</a></h1>
+<p>pbm_pls</p>
+<p>pbm_pls_fre</p>
+<p>pbm_pls_rct</p>
+<h1 id="2.9_LISTA_PROGRAMMI"><a class="header" >2.9_LISTA_PROGRAMMI</a></h1>
+<p>pbm_ipl</p>
+<p>pbm_ipl_elm</p>
+<p>pbm_ipl_abv</p>
+<p>pbm_ipl_men</p>
+<p>pbm_ipl_pan</p>
+<p>pbm_ipl_mon</p>
+<p>pbm_ipl_exe</p>
+<h1 id="2_PROGRAMMI_BORDO_MACCHINA"><a class="header" >2_PROGRAMMI_BORDO_MACCHINA</a></h1>
+<p>pbm</p>
+<p>pbm_lrm</p>
+<p>pbm_rgn</p>
+<p>pbm_rtc</p>
+<p>pbm_mtr</p>
+<p>pbm_fed</p>
+<p>pbm_axs</p>
+<p>pbm_cnt</p>
+<p>pbm_too</p>
+<h1 id="3.1.1_VALORI_UTENTE"><a class="header" >3.1.1_VALORI_UTENTE</a></h1>
+<p>srp_srv</p>
+<p>srp_srv_rst</p>
+<p>srp_srv_bnl</p>
+<p>srp_srv_ttr</p>
+<p>srp_srv_bhg</p>
+<h1 id="3.1.2_STATISTICA"><a class="header" >3.1.2_STATISTICA</a></h1>
+<p>srp_stt</p>
+<p>srp_stt_ffc</p>
+<p>srp_stt_vdo</p>
+<p>srp_stt_oil</p>
+<p>srp_stt_tmr</p>
+<h1 id="3.1.3.1_REALIZZAZIONE_TAGLI_DA_DISEGNI_DXF"><a class="header" >3.1.3.1_REALIZZAZIONE_TAGLI_DA_DISEGNI_DXF</a></h1>
+<p>dxf_rcn</p>
+<p>dxf_rcn_bcc</p>
+<p>dxf_rcn_ntr</p>
+<p>dxf_rcn_lwr</p>
+<p>dxf_rcn_mtr</p>
+<p>dxf_rcn_dwn</p>
+<p>dxf_rcn_mll</p>
+<p>dxf_rcn_anc</p>
+<p>dxf_rcn_rmv</p>
+<p>dxf_rcn_hol</p>
+<p>dxf_rcn_ffs</p>
+<p>dxf_rcn_dct</p>
+<p>dxf_rcn_drp</p>
+<p>dxf_rcn_rim</p>
+<p>dxf_rcn_sms</p>
+<p>dxf_rcn_frt</p>
+<p>dxf_rcn_add</p>
+<h1 id="3.1.3.2_COLORARE_I_LAYER"><a class="header" >3.1.3.2_COLORARE_I_LAYER</a></h1>
+<p>dxf_pnt</p>
+<h1 id="3.1.3.3_DYNAMIC_TAGS"><a class="header" >3.1.3.3_DYNAMIC_TAGS</a></h1>
+<p>dxf_dnm</p>
+<h1 id="3.1.3_NOMI_LAYER"><a class="header" >3.1.3_NOMI_LAYER</a></h1>
+<p>dxf</p>
+<h1 id="3.1.4_VENTOSE"><a class="header" >3.1.4_VENTOSE</a></h1>
+<p>srp_sct</p>
+<h1 id="3.10_VISUALIZZAZIONE_DELLE_ENTITÀ_DI_LAVORO"><a class="header" >3.10_VISUALIZZAZIONE_DELLE_ENTITÀ_DI_LAVORO</a></h1>
+<p>nty</p>
+<h1 id="3.11.1_IMPORTAZIONE_DI_FILE_DXF"><a class="header" >3.11.1_IMPORTAZIONE_DI_FILE_DXF</a></h1>
+<p>crt_dxf</p>
+<p>crt_dxf_dtl</p>
+<h1 id="3.11.2_CREAZIONE_DI_RETTANGOLI"><a class="header" >3.11.2_CREAZIONE_DI_RETTANGOLI</a></h1>
+<p>crt_rct</p>
+<h1 id="3.11.3_CREAZIONE_DI_FIGURE_PARAMETRICHE"><a class="header" >3.11.3_CREAZIONE_DI_FIGURE_PARAMETRICHE</a></h1>
+<p>crt_prm</p>
+<h1 id="3.11.4_IMPORTAZIONE_DI_FILE_EXCEL_(CSV)"><a class="header" >3.11.4_IMPORTAZIONE_DI_FILE_EXCEL_(CSV)</a></h1>
+<p>crt_csv</p>
+<h1 id="3.11.5_CRONOLOGIA_DEI_PEZZI_IMPORTATI"><a class="header" >3.11.5_CRONOLOGIA_DEI_PEZZI_IMPORTATI</a></h1>
+<p>crt_crn</p>
+<h1 id="3.11.6_PREFERITI"><a class="header" >3.11.6_PREFERITI</a></h1>
+<p>crt_fvr</p>
+<h1 id="3.11.7_CREAZIONE_DI_PEZZI_COMMERCIALI"><a class="header" >3.11.7_CREAZIONE_DI_PEZZI_COMMERCIALI</a></h1>
+<p>crt_pcc</p>
+<h1 id="3.11_CREAZIONE_DEI_PEZZI"><a class="header" >3.11_CREAZIONE_DEI_PEZZI</a></h1>
+<p>crt</p>
+<p>crt_mdl</p>
+<p>crt_lst</p>
+<h1 id="3.12.1_FILTRARE_E_ORDINARE_I_PEZZI_DELLA_LISTA"><a class="header" >3.12.1_FILTRARE_E_ORDINARE_I_PEZZI_DELLA_LISTA</a></h1>
+<p>lst_fao_flt</p>
+<p>lst_fao</p>
+<p>lst_fao_ord</p>
+<p>lst_fao_mor</p>
+<h1 id="3.12.2_PROPRIETÁ_AGGIUNTIVE_DEI_PEZZI"><a class="header" >3.12.2_PROPRIETÁ_AGGIUNTIVE_DEI_PEZZI</a></h1>
+<p>lst_pro</p>
+<h1 id="3.12_LISTA_DEI_PEZZI"><a class="header" >3.12_LISTA_DEI_PEZZI</a></h1>
+<p>lst</p>
+<h1 id="3.13.10_ALZATA"><a class="header" >3.13.10_ALZATA</a></h1>
+<p>mdr_dwn</p>
+<p>mdr_dwn_riv</p>
+<p>mdr_dwn_alz</p>
+<h1 id="3.13.11_CORDOLO"><a class="header" >3.13.11_CORDOLO</a></h1>
+<p>mdr_crb</p>
+<p>mdr_crb_sms</p>
+<p>mdr_crb_bcc</p>
+<h1 id="3.13.12_LAVORAZIONI_SUPERFICIALI_(OPZIONALE)"><a class="header" >3.13.12_LAVORAZIONI_SUPERFICIALI_(OPZIONALE)</a></h1>
+<p>mdr_spr</p>
+<p>mdr_spr_ert</p>
+<p>mdr_spr_ezz</p>
+<p>mdr_spr_prt</p>
+<p>mdr_spr_pzz</p>
+<h1 id="3.13.13_SPIANATURA_(OPZIONALE)"><a class="header" >3.13.13_SPIANATURA_(OPZIONALE)</a></h1>
+<p>mdr_lvl</p>
+<p>mdr_lvl_exe</p>
+<p>mdr_lvl_par</p>
+<h1 id="3.13.14_CANALETTE_(OPZIONALE)"><a class="header" >3.13.14_CANALETTE_(OPZIONALE)</a></h1>
+<p>mdr_chn</p>
+<p>mdr_chn_eaa</p>
+<p>mdr_chn_eff</p>
+<p>mdr_chn_enf</p>
+<p>mdr_chn_psi</p>
+<p>mdr_chn_enn</p>
+<p>mdr_chn_efn</p>
+<p>mdr_chn_pst</p>
+<h1 id="3.13.15_RACCORDO"><a class="header" >3.13.15_RACCORDO</a></h1>
+<p>mdr_fll</p>
+<p>mdr_fll_sid</p>
+<p>mdr_fll_psd</p>
+<p>mdr_fll_vrt</p>
+<p>mdr_fll_vps</p>
+<p>mdr_fll_pvv</p>
+<h1 id="3.13.16_DIVIDI"><a class="header" >3.13.16_DIVIDI</a></h1>
+<p>mdr_crp</p>
+<p>mdr_crp_pdp</p>
+<p>mdr_crp_eor</p>
+<p>mdr_crp_ppo</p>
+<p>mdr_crp_epa</p>
+<p>mdr_crp_edp</p>
+<p>mdr_crp_dvs</p>
+<h1 id="3.13.17_SCASSO_INTERNO"><a class="header" >3.13.17_SCASSO_INTERNO</a></h1>
+<p>mdr_int</p>
+<p>mdr_int_ecr</p>
+<p>mdr_int_pcr</p>
+<p>mdr_int_ert</p>
+<p>mdr_int_prt</p>
+<p>mdr_int_pll</p>
+<p>mdr_int_ell</p>
+<h1 id="3.13.18_FLUTES"><a class="header" >3.13.18_FLUTES</a></h1>
+<p>mdr_flt</p>
+<p>mdr_flt_rad</p>
+<p>mdr_flt_tan</p>
+<p>mdr_flt_exe</p>
+<p>mdr_fit_arc</p>
+<h1 id="3.13.19_INGOMBRO_MASSIMO_(OPZIONALE)"><a class="header" >3.13.19_INGOMBRO_MASSIMO_(OPZIONALE)</a></h1>
+<p>mdr_max</p>
+<h1 id="3.13.1_INCLINA"><a class="header" >3.13.1_INCLINA</a></h1>
+<p>mdf_mtr_neg</p>
+<p>mdf_mtr</p>
+<p>mdf_mtr_pos</p>
+<h1 id="3.13.20_SPECCHIO"><a class="header" >3.13.20_SPECCHIO</a></h1>
+<p>mdr_mrr</p>
+<h1 id="3.13.2_GOCCIOLATOIO"><a class="header" >3.13.2_GOCCIOLATOIO</a></h1>
+<p>mdf_drp</p>
+<h1 id="3.13.3_AGGIUNGI"><a class="header" >3.13.3_AGGIUNGI</a></h1>
+<p>mdf_add</p>
+<h1 id="3.13.4_CANCELLA"><a class="header" >3.13.4_CANCELLA</a></h1>
+<p>mdf_cnl</p>
+<h1 id="3.13.5_OFFSET"><a class="header" >3.13.5_OFFSET</a></h1>
+<p>mdf_ffs</p>
+<h1 id="3.13.6_FORO"><a class="header" >3.13.6_FORO</a></h1>
+<p>mdf_hol</p>
+<p>mdf_hol_him</p>
+<p>mdf_hol_sco</p>
+<h1 id="3.13.7_FRESATURA"><a class="header" >3.13.7_FRESATURA</a></h1>
+<p>mdf_mll</p>
+<p>mdf_mll_sid</p>
+<p>mdf_mll_ver</p>
+<p>mdf_mll_per</p>
+<h1 id="3.13.8_RIBASSO"><a class="header" >3.13.8_RIBASSO</a></h1>
+<p>mdf_rim</p>
+<h1 id="3.13.9_TAGLIO_SOTTO_(OPZIONALE)"><a class="header" >3.13.9_TAGLIO_SOTTO_(OPZIONALE)</a></h1>
+<p>mdf_lwr</p>
+<h1 id="3.13_MODIFICA_PEZZO"><a class="header" >3.13_MODIFICA_PEZZO</a></h1>
+<p>mdf</p>
+<p>mdf_blw</p>
+<p>mdf_lst</p>
+<p>mdf_prw</p>
+<h1 id="3.14.1_NESTING_AUTOMATICO_(OPZIONALE)"><a class="header" >3.14.1_NESTING_AUTOMATICO_(OPZIONALE)</a></h1>
+<p>nst_aut</p>
+<h1 id="3.14_NESTING"><a class="header" >3.14_NESTING</a></h1>
+<p>nst</p>
+<h1 id="3.15.1_MAGNETIZZARE_I_PEZZI"><a class="header" >3.15.1_MAGNETIZZARE_I_PEZZI</a></h1>
+<p>mag</p>
+<p>mag_lgn_det</p>
+<p>mag_drg</p>
+<p>mag_lgn</p>
+<p>mag_lgn_lrf</p>
+<h1 id="3.15.2_TAGLIO_INCLINATO"><a class="header" >3.15.2_TAGLIO_INCLINATO</a></h1>
+<p>mtr</p>
+<p>mtr_exe</p>
+<p>mtr_exe_fst</p>
+<h1 id="3.15.3_MODIFICA_PEZZO_COMMERCIALE"><a class="header" >3.15.3_MODIFICA_PEZZO_COMMERCIALE</a></h1>
+<p>pcc</p>
+<p>pcc_exe_rsz</p>
+<p>pcc_exe</p>
+<p>pcc_exe_tch</p>
+<p>pcc_exe_str</p>
+<h1 id="3.15_INTERAZIONE_CON_I_PEZZI_SULLAREA_DI_LAVORO"><a class="header" >3.15_INTERAZIONE_CON_I_PEZZI_SULLAREA_DI_LAVORO</a></h1>
+<p>wrk</p>
+<p>wrk_rtt</p>
+<p>wrk_cnl</p>
+<p>wrk_slc</p>
+<p>wrk_rmv</p>
+<p>wrk_mve</p>
+<h1 id="3.16_SALVATAGGIO_LAVORAZIONE"><a class="header" >3.16_SALVATAGGIO_LAVORAZIONE</a></h1>
+<p>sav</p>
+<p>sav_how</p>
+<p>sav_dxf</p>
+<h1 id="3.17.1_SLAB_MATCHING"><a class="header" >3.17.1_SLAB_MATCHING</a></h1>
+<p>lod_slb</p>
+<h1 id="3.17_CARICA_LAVORAZIONE"><a class="header" >3.17_CARICA_LAVORAZIONE</a></h1>
+<p>lod</p>
+<p>lod_lst</p>
+<p>lod_dxf</p>
+<p>lod_oth</p>
+<p>lod_prw</p>
+<p>lod_how</p>
+<h1 id="3.18_INFORMAZIONI"><a class="header" >3.18_INFORMAZIONI</a></h1>
+<p>nfo</p>
+<h1 id="3.19_MACCHINA_SU_TAGLIO"><a class="header" >3.19_MACCHINA_SU_TAGLIO</a></h1>
+<p>moc</p>
+<p>moc_adv</p>
+<p>moc_adv_dsk</p>
+<p>moc_adv_cro</p>
+<p>moc_adv_mll</p>
+<p>moc_adv_tlp</p>
+<p>moc_exe</p>
+<h1 id="3.1_PARAMETRI_UTENTE"><a class="header" >3.1_PARAMETRI_UTENTE</a></h1>
+<p>srp</p>
+<p>srp_sst</p>
+<p>srp_pht</p>
+<h1 id="3.20_GESTIONE_DELLORDINE_DI_TAGLIO_DEI_PEZZI"><a class="header" >3.20_GESTIONE_DELLORDINE_DI_TAGLIO_DEI_PEZZI</a></h1>
+<p>ord</p>
+<p>ord_arr</p>
+<p>ord_pos</p>
+<p>ord_pau</p>
+<p>ord_wrk</p>
+<h1 id="3.21.1.1_MODIFICA_TAGLIO"><a class="header" >3.21.1.1_MODIFICA_TAGLIO</a></h1>
+<p>cut_mdf</p>
+<p>cut_lst</p>
+<p>cut_mdf_dsk</p>
+<p>cmd_mdf_hol</p>
+<p>cut_mdf_rib</p>
+<h1 id="3.21.1_LISTA_DEI_TAGLI"><a class="header" >3.21.1_LISTA_DEI_TAGLI</a></h1>
+<p>cut_lst</p>
+<p>cut_lst_fnc</p>
+<h1 id="3.21.2_TASTA_LASTRA"><a class="header" >3.21.2_TASTA_LASTRA</a></h1>
+<p>cut_prb</p>
+<h1 id="3.21.3_SELEZIONE_MULTIPLA"><a class="header" >3.21.3_SELEZIONE_MULTIPLA</a></h1>
+<p>cut_slc</p>
+<h1 id="3.21.4_MOVIMENTAZIONE_DEL_MATERIALE_CON_VENTOSE"><a class="header" >3.21.4_MOVIMENTAZIONE_DEL_MATERIALE_CON_VENTOSE</a></h1>
+<p>cut_mov</p>
+<p>cut_mov_man</p>
+<p>cut_mov_pos</p>
+<p>cut_mov_aut</p>
+<h1 id="3.21.5_TAGLIO_SINGOLO"><a class="header" >3.21.5_TAGLIO_SINGOLO</a></h1>
+<p>cut_sng</p>
+<h1 id="3.21.6_CICLO_DI_LAVAGGIO"><a class="header" >3.21.6_CICLO_DI_LAVAGGIO</a></h1>
+<p>cut_cln</p>
+<p>cut_cln_man</p>
+<p>cut_cln_lwc</p>
+<p>cut_cln_lpz</p>
+<h1 id="3.21.7.1_MACRO"><a class="header" >3.21.7.1_MACRO</a></h1>
+<p>cut_mcr_mod</p>
+<p>cut_mcr_mng</p>
+<p>cut_mcr_cal</p>
+<p>cut_mcr</p>
+<p>cut_mcr_act</p>
+<p>cut_mcr_add</p>
+<p>cut_mcr_rev</p>
+<h1 id="3.21.7_OPERAZIONI"><a class="header" >3.21.7_OPERAZIONI</a></h1>
+<p>cut_opr</p>
+<p>cut_opr_hea</p>
+<p>cut_opr_tai</p>
+<p>cut_opr_mcr</p>
+<p>cut_opr_ops</p>
+<p>cut_opr_srt</p>
+<p>cut_opr_cut</p>
+<h1 id="3.21.8_PAGINA_CONTROLLO_ISO"><a class="header" >3.21.8_PAGINA_CONTROLLO_ISO</a></h1>
+<p>cut_iso</p>
+<p>cut_iso_eng</p>
+<p>cut_iso_prw</p>
+<p>cut_iso_axi</p>
+<p>cut_iso_man</p>
+<h1 id="3.21_OTTIMIZZAZIONE_E_GESTIONE_DEI_TAGLI"><a class="header" >3.21_OTTIMIZZAZIONE_E_GESTIONE_DEI_TAGLI</a></h1>
+<p>cut</p>
+<h1 id="3.22.1_EASY_MATCH_(OPZIONALE)"><a class="header" >3.22.1_EASY_MATCH_(OPZIONALE)</a></h1>
+<p>bkm_esy_wkb</p>
+<p>bkm_esy</p>
+<p>bkm_esy_prw</p>
+<h1 id="3.22.2_PROJECT_MATCH_(OPZIONALE)"><a class="header" >3.22.2_PROJECT_MATCH_(OPZIONALE)</a></h1>
+<p>bkm_prj_cnt</p>
+<p>bkm_prj_prj</p>
+<p>bkm_prj_pln</p>
+<p>bkm_prj_prw</p>
+<p>bkm_prj</p>
+<h1 id="3.22_MACCHIA_APERTA_(OPZIONALE)"><a class="header" >3.22_MACCHIA_APERTA_(OPZIONALE)</a></h1>
+<p>bkm</p>
+<h1 id="3.23_SCARICA_PEZZO_(OPZIONALE)"><a class="header" >3.23_SCARICA_PEZZO_(OPZIONALE)</a></h1>
+<p>nld_all</p>
+<p>nld</p>
+<p>nld_sng</p>
+<h1 id="3.24_CICLO_RAVVIVA_UTENSILE_(OPZIONALE)"><a class="header" >3.24_CICLO_RAVVIVA_UTENSILE_(OPZIONALE)</a></h1>
+<p>rdr_man</p>
+<p>rdr</p>
+<p>rdr_cut</p>
+<p>rdr_prm</p>
+<h1 id="3.25_ETICHETTATURA_(OPZIONALE)"><a class="header" >3.25_ETICHETTATURA_(OPZIONALE)</a></h1>
+<p>lbl</p>
+<p>lbl_mad</p>
+<p>lbl_mba</p>
+<h1 id="3.2_NUOVA_LAVORAZIONE"><a class="header" >3.2_NUOVA_LAVORAZIONE</a></h1>
+<p>nww</p>
+<h1 id="3.3.1_TOOL_PLUS_(OPZIONALE)"><a class="header" >3.3.1_TOOL_PLUS_(OPZIONALE)</a></h1>
+<p>tlp_pls_rtt</p>
+<p>tlp_pls</p>
+<p>tlp_pls_wtr</p>
+<p>tlp_pls_lft</p>
+<p>tlp_pls_dcr</p>
+<h1 id="3.3.2_MACCHINA_CAMBIO_UTENSILE_AUTOMATICO"><a class="header" >3.3.2_MACCHINA_CAMBIO_UTENSILE_AUTOMATICO</a></h1>
+<p>tlp_atc</p>
+<p>tlp_atc_crc</p>
+<h1 id="3.3.3_MACCHINA_DOPPIO_DISCO"><a class="header" >3.3.3_MACCHINA_DOPPIO_DISCO</a></h1>
+<p>tlp_ddm</p>
+<h1 id="3.3_PANNELLO_UTENSILE"><a class="header" >3.3_PANNELLO_UTENSILE</a></h1>
+<p>tlp_cng</p>
+<p>tlp_crt</p>
+<p>tlp_rmv</p>
+<p>tlp</p>
+<p>tlp_dpl</p>
+<p>tlp_prb</p>
+<h1 id="3.4_PARAMETRI_DI_LAVORAZIONE_DELLA_LASTRA"><a class="header" >3.4_PARAMETRI_DI_LAVORAZIONE_DELLA_LASTRA</a></h1>
+<p>swp</p>
+<p>swp_mng</p>
+<p>swp_tpl_mtr</p>
+<p>swp_tpl_lnc</p>
+<p>swp_blw</p>
+<p>swp_mng_add</p>
+<p>swp_tpl_lnr</p>
+<p>swp_tpl_mil</p>
+<p>swp_tpl_hol</p>
+<p>swp_tpp</p>
+<p>swp_tpl</p>
+<p>swp_chp</p>
+<p>swp_mng_opn</p>
+<p>swp_stp</p>
+<h1 id="3.5_ACCESSO_AL_COMANDO_MANUALE"><a class="header" >3.5_ACCESSO_AL_COMANDO_MANUALE</a></h1>
+<p>mnl</p>
+<p>mnl_prb</p>
+<p>mnl_crf</p>
+<h1 id="3.6_GESTIONE_DEL_LASER"><a class="header" >3.6_GESTIONE_DEL_LASER</a></h1>
+<p>lsr</p>
+<p>lsr_lin</p>
+<p>lsr_cro</p>
+<h1 id="3.7_AGGIUNGERE_UNA_FOTO_ALLAREA_DI_LAVORO"><a class="header" >3.7_AGGIUNGERE_UNA_FOTO_ALLAREA_DI_LAVORO</a></h1>
+<p>sht</p>
+<p>sht_cho</p>
+<p>sht_sho</p>
+<p>sht_per</p>
+<h1 id="3.8.1_INTESTAZIONE_DELLA_LASTRA"><a class="header" >3.8.1_INTESTAZIONE_DELLA_LASTRA</a></h1>
+<p>prm_nts</p>
+<h1 id="3.8.2_PERIMETRO_AUTOMATICO_(OPZIONALE)"><a class="header" >3.8.2_PERIMETRO_AUTOMATICO_(OPZIONALE)</a></h1>
+<p>prm_aut</p>
+<h1 id="3.8.3_INTEGRAZIONE_SOFTWARE_ESTERNI"><a class="header" >3.8.3_INTEGRAZIONE_SOFTWARE_ESTERNI</a></h1>
+<p>prm_cii</p>
+<p>prm_cii_mul</p>
+<p>prm_cii_exe</p>
+<h1 id="3.8_PERIMETRO_DELLA_LASTRA"><a class="header" >3.8_PERIMETRO_DELLA_LASTRA</a></h1>
+<p>prm</p>
+<p>prm_rct</p>
+<p>prm_ctr</p>
+<p>prm_ctr_avo</p>
+<p>prm_pts</p>
+<p>prm_blw</p>
+<h1 id="3.9_GESTIONE_DELLA_VISUALIZZAZIONE_DEL_BANCO"><a class="header" >3.9_GESTIONE_DELLA_VISUALIZZAZIONE_DEL_BANCO</a></h1>
+<p>vsb</p>
+<h1 id="3_PARAMETRIX"><a class="header" >3_PARAMETRIX</a></h1>
+<p>prx</p>
+<p>prx_wkz_lst</p>
+<p>prx_abv</p>
+<p>prx_wkz</p>
+<p>prx_blw</p>
+<p>prx_wkz_pos</p>
+<p>prx_lat</p>
+<h1 id="4.1.1_LISTA_PROGRAMMI_ISO"><a class="header" >4.1.1_LISTA_PROGRAMMI_ISO</a></h1>
+<p>psx_ipl</p>
+<h1 id="4.1_PAGINA_COMANDI_MANUALI"><a class="header" >4.1_PAGINA_COMANDI_MANUALI</a></h1>
+<p>psx_man</p>
+<p>psx_man_rgh</p>
+<p>psx_man_cnt</p>
+<p>psx_man_abv</p>
+<p>psx_man_blw</p>
+<h1 id="4.2.1_COMPENSAZIONI"><a class="header" >4.2.1_COMPENSAZIONI</a></h1>
+<p>psx_cmp</p>
+<h1 id="4.2_PANNELLO_UTENSILI"><a class="header" >4.2_PANNELLO_UTENSILI</a></h1>
+<p>psx_tlp</p>
+<h1 id="4.3.1_OTTIMIZZAZIONE_DEI_TAGLI"><a class="header" >4.3.1_OTTIMIZZAZIONE_DEI_TAGLI</a></h1>
+<p>psx_cut</p>
+<h1 id="4.3_OTTIMIZZAZIONE_E_GESTIONE_DEI_TAGLI"><a class="header" >4.3_OTTIMIZZAZIONE_E_GESTIONE_DEI_TAGLI</a></h1>
+<p>psx_ptm</p>
+<h1 id="4.4.1_SCARICATORE"><a class="header" >4.4.1_SCARICATORE</a></h1>
+<p>psx_cmb_nld</p>
+<h1 id="4.4_COMBINAZIONE_DEI_TAGLI"><a class="header" >4.4_COMBINAZIONE_DEI_TAGLI</a></h1>
+<p>psx_cmb</p>
+<h1 id="4_PARAMETRIX_SX"><a class="header" >4_PARAMETRIX_SX</a></h1>
+<p>psx</p>
+
+                    </main>
+
+                </div>
+
+                <!-- Livereload script (if served using the cli tool) -->
+                <script>const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }</script>
+
+
+
+                <script>window.playground_copyable = true;</script>
+
+
+                <script src="elasticlunr.min.js"></script>
+                <script src="mark.min.js"></script>
+                <script src="searcher.js"></script>
+
+                <script src="clipboard.min.js"></script>
+                <script src="highlight.js"></script>
+                <script src="book.js"></script>
+
+                <!-- Custom JS scripts -->
+                <script src="mermaid.min.js"></script>
+                <script src="mermaid-init.js"></script>
+                <script src="imagemodal.js"></script>
+                <script src="hidemenu.js"></script>
+                <script src="login.js"></script>
+
+
+            </div>
+</body>
+</html>

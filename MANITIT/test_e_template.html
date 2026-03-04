@@ -1,0 +1,257 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Test e Template - Maintenance IT-IT</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="./mdbook-admonish.css">
+        <link rel="stylesheet" href="theme/custom.css">
+        <link rel="stylesheet" href="search.html">
+        <link rel="stylesheet" href="login.html">
+        <link rel="stylesheet" href="searchlogin.html">
+        <link rel="stylesheet" href="searchloginmenu.html">
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Maintenance IT-IT</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="test-e-template"><a class="header" href="#test-e-template">Test e Template</a></h1>
+<ul>
+<li><a href="#video">Video</a></li>
+<li><a href="#procedura">Procedura</a>
+<ul>
+<li><a href="#allegati-vari">Allegati vari</a></li>
+<li><a href="#"></a></li>
+</ul>
+</li>
+</ul>
+<!--Page="Test e Template"-->
+<div id="admonition-attenzione-prima-di-procedere-leggere-attentamente-le" class="admonition admonish-warning" role="note" aria-labelledby="admonition-attenzione-prima-di-procedere-leggere-attentamente-le-title">
+<div class="admonition-title">
+<div id="admonition-attenzione-prima-di-procedere-leggere-attentamente-le-title">
+<p>ATTENZIONE: Prima di procedere leggere attentamente le</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-attenzione-prima-di-procedere-leggere-attentamente-le"></a>
+</div>
+<div>
+<p>ISTRUZIONI DI SICUREZZA</p>
+</div>
+</div>
+<table class="my-table2" data-table-width="760" data-layout="default" ac:local-id="85e18120-421b-48c4-b375-dfbfdc4e6731"><tbody><tr><td data-highlight-colour="#deebff"><p><emoticon ac:name="blue-star" ac:emoji-shortname=":timer:" ac:emoji-id="23f2" ac:emoji-fallback="⏲️"></emoticon> <strong>Intervallo</strong>: 200 ore di lavoro</p></td><td data-highlight-colour="#e6fcff"><p><emoticon ac:name="blue-star" ac:emoji-shortname=":level_slider:" ac:emoji-id="1f39a" ac:emoji-fallback="🎚️"></emoticon> <strong>Complessità operazione</strong>: <emoticon ac:name="blue-star" ac:emoji-shortname=":star:" ac:emoji-id="2b50" ac:emoji-fallback="⭐"></emoticon><emoticon ac:name="blue-star" ac:emoji-shortname=":gray_star:" ac:emoji-id="atlassian-gray_star" ac:emoji-fallback=":gray_star:"></emoticon><emoticon ac:name="blue-star" ac:emoji-shortname=":gray_star:" ac:emoji-id="atlassian-gray_star" ac:emoji-fallback=":gray_star:"></emoticon><emoticon ac:name="blue-star" ac:emoji-shortname=":gray_star:" ac:emoji-id="atlassian-gray_star" ac:emoji-fallback=":gray_star:"></emoticon><emoticon ac:name="blue-star" ac:emoji-shortname=":gray_star:" ac:emoji-id="atlassian-gray_star" ac:emoji-fallback=":gray_star:"></emoticon> </p></td></tr><tr><td data-highlight-colour="#deebff"><p><emoticon ac:name="blue-star" ac:emoji-shortname=":factory_worker:" ac:emoji-id="1f9d1-200d-1f3ed" ac:emoji-fallback="🧑&zwj;🏭"></emoticon> <strong>Figura autorizzata</strong>: Operatore macchina</p></td><td data-highlight-colour="#e6fcff"><p><emoticon ac:name="blue-star" ac:emoji-shortname=":gloves:" ac:emoji-id="1f9e4" ac:emoji-fallback="🧤"></emoticon> <strong>DPI previsti</strong>:   <div><img src="5c50dea6-c18e-4b4c-af4e-4a88d2222111#media-blob-url=true&amp;id=a2372503-420e-48f2-91c7-86ad5df99b36&amp;contextId=183010144&amp;collection=contentId-183010144" alt="image-20240327-084216.png" onclick="showModal(this.src)"></div> </td></tr></tbody></table>
+<h2 id="video"><a class="header" href="#video">Video</a></h2>
+<p>Se esiste un video che mostra cosa fare va messo come prima cosa con anche una descrizione di cosa ci sarà nel video</p>
+<h1 id="procedura"><a class="header" href="#procedura">Procedura</a></h1>
+<h3 id="localizzazione"><a class="header" href="#localizzazione">Localizzazione</a></h3>
+<p>Inserire immagine per capire dove si dovrà operare</p>
+<h3 id="istruzioni"><a class="header" href="#istruzioni">Istruzioni</a></h3>
+<p>lista o elenco con i diversi passaggi da seguire</p>
+<h2 id="allegati-vari"><a class="header" href="#allegati-vari">Allegati vari</a></h2>
+<table class="my-table2" data-table-width="760" data-layout="default" ac:local-id="87e6076c-13a7-4139-a0fc-6cbb4be6ba6e"><tbody><tr><th data-highlight-colour="#4c9aff"><p><emoticon ac:name="blue-star" ac:emoji-shortname=":timer:" ac:emoji-id="23f2" ac:emoji-fallback="⏲️"></emoticon> <strong>Intervallo</strong></p></th><th data-highlight-colour="#4c9aff"><p><emoticon ac:name="blue-star" ac:emoji-shortname=":factory_worker:" ac:emoji-id="1f9d1-200d-1f3ed" ac:emoji-fallback="🧑&zwj;🏭"></emoticon> <strong>Figura autorizzata</strong></p></th><th data-highlight-colour="#4c9aff"><p><emoticon ac:name="blue-star" ac:emoji-shortname=":level_slider:" ac:emoji-id="1f39a" ac:emoji-fallback="🎚️"></emoticon> <strong>Complessità </strong></p></th><th data-highlight-colour="#4c9aff"><p><emoticon ac:name="blue-star" ac:emoji-shortname=":gloves:" ac:emoji-id="1f9e4" ac:emoji-fallback="🧤"></emoticon>  <strong>DPI previsti</strong></p></th></tr><tr><td><p>200 ore di lavoro</p></td><td><p>Operatore<br>Manutentore generico<br>Tecnico elettricista<br>Tecnico meccanico<br>Tecnico esperto</p></td><td data-highlight-colour="#ffffff">
+<h2 id=""><a class="header" href="#"></a></h2>
+<p></p></td><td><div class="TextAlignCenter"><img src="5c50dea6-c18e-4b4c-af4e-4a88d2222111#media-blob-url=true&amp;id=a2372503-420e-48f2-91c7-86ad5df99b36&amp;contextId=183010144&amp;collection=contentId-183010144" alt="image-20240327-084216.png" width="153" onclick="showModal(this.src)"></div><p></p></td></tr></tbody></table>
+  <!-- Modale -->
+  <div id="modal" onclick="closeModal()">
+    <img id="modal-img" src="">
+  </div>
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="gruppo_otturatore_per_alta_pressione.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="istruzioni_di_sicurezza.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="gruppo_otturatore_per_alta_pressione.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="istruzioni_di_sicurezza.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="mermaid.min.js"></script>
+        <script src="mermaid-init.js"></script>
+        <script src="hidemenu.js"></script>
+        <script src="imagemodal.js"></script>
+        <script src="login.js"></script>
+
+
+    </div>
+    </body>
+</html>

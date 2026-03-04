@@ -1,0 +1,273 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+<head>
+    <!-- Book generated using mdBook -->
+    <meta charset="UTF-8">
+    <title>labels - Maintenance IT-IT</title>
+
+
+    <!-- Custom HTML head -->
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="icon" href="favicon.svg">
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/chrome.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
+
+    <!-- Fonts -->
+    <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+    <link rel="stylesheet" href="fonts/fonts.css">
+
+    <!-- Highlight.js Stylesheets -->
+    <link rel="stylesheet" href="highlight.css">
+    <link rel="stylesheet" href="tomorrow-night.css">
+    <link rel="stylesheet" href="ayu-highlight.css">
+
+    <!-- Custom theme stylesheets -->
+    <link rel="stylesheet" href="./mdbook-admonish.css">
+    <link rel="stylesheet" href="theme/custom.css">
+    <link rel="stylesheet" href="search.html">
+    <link rel="stylesheet" href="login.html">
+    <link rel="stylesheet" href="searchlogin.html">
+    <link rel="stylesheet" href="searchloginmenu.html">
+
+
+    <!-- Provide site root to javascript -->
+    <script>var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";</script>
+    <!-- Start loading toc.js asap -->
+    <script src="toc.js"></script>
+</head>
+<body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }</script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");</script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);</script>
+
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Maintenance IT-IT</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });</script>
+
+                <div id="content" class="content">
+                    <main>
+
+<h1 id="GRUPPO_OTTURATORE_PER_ALTA_PRESSIONE"><a class="header" >GRUPPO_OTTURATORE_PER_ALTA_PRESSIONE</a></h1>
+<p>hyp_otturatore</p>
+<h1 id="MN0001_TEST_DEL_CIRCUITO_DI_EMERGENZA"><a class="header" >MN0001_TEST_DEL_CIRCUITO_DI_EMERGENZA</a></h1>
+<p>mn0001</p>
+<h1 id="MN0002_MANUTENZIONE_MENSILE_POMPA_DEL_VUOTO"><a class="header" >MN0002_MANUTENZIONE_MENSILE_POMPA_DEL_VUOTO</a></h1>
+<p>mn0002</p>
+<h1 id="MN0003_TEST_FUNZIONAMENTO_SEGNALE_LUMINOSO"><a class="header" >MN0003_TEST_FUNZIONAMENTO_SEGNALE_LUMINOSO</a></h1>
+<p>mn0003</p>
+<h1 id="MN0004_INGRASSAGGIO_GUIDE_LINEARI_SISTEMA_MOVE"><a class="header" >MN0004_INGRASSAGGIO_GUIDE_LINEARI_SISTEMA_MOVE</a></h1>
+<p>mn0004</p>
+<h1 id="MN0005_INGRASSAGGIO_CUSCINETTO_CHIOCCIOLA_ASSE_Z"><a class="header" >MN0005_INGRASSAGGIO_CUSCINETTO_CHIOCCIOLA_ASSE_Z</a></h1>
+<p>mn0005</p>
+<h1 id="MN0006_INGRASSAGGIO_CUSCINETTI_ALBERO_TRASMISSIONE_PONTE_ASSE_Y"><a class="header" >MN0006_INGRASSAGGIO_CUSCINETTI_ALBERO_TRASMISSIONE_PONTE_ASSE_Y</a></h1>
+<p>mn0006</p>
+<h1 id="MN0007_CONTROLLO_LUBRIFICANTE_SISTEMA_DI_INGRASSAGGIO_AUTOMATICO"><a class="header" >MN0007_CONTROLLO_LUBRIFICANTE_SISTEMA_DI_INGRASSAGGIO_AUTOMATICO</a></h1>
+<p>mn0007</p>
+<h1 id="MN0008_INGRASSAGGIO_SNODI_DEL_BANCO_RIBALTABILE"><a class="header" >MN0008_INGRASSAGGIO_SNODI_DEL_BANCO_RIBALTABILE</a></h1>
+<p>mn0008</p>
+<h1 id="MN0009_INGRASSAGGIO_SNODO_BRACCIO_CONSOLE"><a class="header" >MN0009_INGRASSAGGIO_SNODO_BRACCIO_CONSOLE</a></h1>
+<p>mn0009</p>
+<h1 id="MN0010_CONTROLLO_TUBAZIONI_E_RACCORDI_IMPIANTO_OLEODINAMICO"><a class="header" >MN0010_CONTROLLO_TUBAZIONI_E_RACCORDI_IMPIANTO_OLEODINAMICO</a></h1>
+<p>mn0010</p>
+<h1 id="MN0011_CAMBIO_OLIO_CENTRALINA_IDRAULICA"><a class="header" >MN0011_CAMBIO_OLIO_CENTRALINA_IDRAULICA</a></h1>
+<p>mn0011</p>
+<h1 id="MN0012_PULIZIA_FILTRI_QUADRO_ELETTRICO"><a class="header" >MN0012_PULIZIA_FILTRI_QUADRO_ELETTRICO</a></h1>
+<p>mn0012</p>
+<h1 id="MN0013_MANUTENZIONE_GRUPPO_INGRESSO_ARIA_COMPRESSA"><a class="header" >MN0013_MANUTENZIONE_GRUPPO_INGRESSO_ARIA_COMPRESSA</a></h1>
+<p>mn0013</p>
+<h1 id="MN0014_CUSCINETTI_ELETTROMANDRINO"><a class="header" >MN0014_CUSCINETTI_ELETTROMANDRINO</a></h1>
+<p>mn0014</p>
+<h1 id="MN0015_CONTROLLO_TUBAZIONI_E_RACCORDI_DELLIMPIANTO_DI_ALTA_PRESSIONE"><a class="header" >MN0015_CONTROLLO_TUBAZIONI_E_RACCORDI_DELLIMPIANTO_DI_ALTA_PRESSIONE</a></h1>
+<p>mn0015</p>
+<h1 id="MN0016_CONTROLLO_DELLO_STATO_DI_PULIZIA_DELLA_VASCA"><a class="header" >MN0016_CONTROLLO_DELLO_STATO_DI_PULIZIA_DELLA_VASCA</a></h1>
+<p>mn0016</p>
+<h1 id="MN0017_RIPARARE_LE_VALVOLE_DI_RITEGNO_E_GLI_OTTURATORI_PER_LA_BASSA_PRESSIONE"><a class="header" >MN0017_RIPARARE_LE_VALVOLE_DI_RITEGNO_E_GLI_OTTURATORI_PER_LA_BASSA_PRESSIONE</a></h1>
+<p>mn0017</p>
+<h1 id="MN0018_RIPARARE_IL_CILINDRO_DELLALTA_PRESSIONE"><a class="header" >MN0018_RIPARARE_IL_CILINDRO_DELLALTA_PRESSIONE</a></h1>
+<p>mn0018</p>
+<h1 id="MN0019_SOSTITUIRE_LA_CARTUCCIA_DELLELEMENTO_DI_TENUTA_DELLALTA_PRESSIONE"><a class="header" >MN0019_SOSTITUIRE_LA_CARTUCCIA_DELLELEMENTO_DI_TENUTA_DELLALTA_PRESSIONE</a></h1>
+<p>mn0019</p>
+<h1 id="MN0020_SOSTITUIRE_IL_GRUPPO_OTTURATORE_PER_LALTA_PRESSIONE"><a class="header" >MN0020_SOSTITUIRE_IL_GRUPPO_OTTURATORE_PER_LALTA_PRESSIONE</a></h1>
+<p>mn0020</p>
+<h1 id="MN0021_SOSTITUIRE_LOTTURATORE_PER_LA_BASSA_PRESSIONE"><a class="header" >MN0021_SOSTITUIRE_LOTTURATORE_PER_LA_BASSA_PRESSIONE</a></h1>
+<p>mn0021</p>
+<h1 id="MN0022_INVERTIRE_IL_CILINDRO_DELLALTA_PRESSIONE"><a class="header" >MN0022_INVERTIRE_IL_CILINDRO_DELLALTA_PRESSIONE</a></h1>
+<p>mn0022</p>
+<h1 id="MN0023_SOSTITUIRE_IL_CILINDRO_DELLALTA_PRESSIONE"><a class="header" >MN0023_SOSTITUIRE_IL_CILINDRO_DELLALTA_PRESSIONE</a></h1>
+<p>mn0023</p>
+<h1 id="MN0024_SOSTITUIRE_IL_GRUPPO_VALVOLA_DI_RITEGNO"><a class="header" >MN0024_SOSTITUIRE_IL_GRUPPO_VALVOLA_DI_RITEGNO</a></h1>
+<p>mn0024</p>
+<h1 id="MN0025_SOSTITUIRE_IL_GRUPPO_ALLOGGIAMENTO_DELLELEMENTO_DI_TENUTA"><a class="header" >MN0025_SOSTITUIRE_IL_GRUPPO_ALLOGGIAMENTO_DELLELEMENTO_DI_TENUTA</a></h1>
+<p>mn0025</p>
+<h1 id="MN0026_SOSTITUIRE_LADATTATORE_IN_USCITA"><a class="header" >MN0026_SOSTITUIRE_LADATTATORE_IN_USCITA</a></h1>
+<p>mn0026</p>
+<h1 id="MN0027"><a class="header" >MN0027</a></h1>
+<p>mn0027</p>
+<h1 id="MN0028_RIPARAZIONE_DELLA_SEZIONE_IDRAULICA_CENTRALE"><a class="header" >MN0028_RIPARAZIONE_DELLA_SEZIONE_IDRAULICA_CENTRALE</a></h1>
+<p>mn0028</p>
+<h1 id="MN0029_RIPARARE_LA_VALVOLA_DI_SPURGO"><a class="header" >MN0029_RIPARARE_LA_VALVOLA_DI_SPURGO</a></h1>
+<p>mn0029</p>
+<h1 id="MN0030_CONTROLLO_LUBRIFICANTE_SISTEMA_DI_INGRASSAGGIO_AUTOMATICO"><a class="header" >MN0030_CONTROLLO_LUBRIFICANTE_SISTEMA_DI_INGRASSAGGIO_AUTOMATICO</a></h1>
+<p>mn0030</p>
+<h1 id="MN0031_SOSTITUIRE_IL_CORPO_DELLA_VALVOLA_DI_SPURGO"><a class="header" >MN0031_SOSTITUIRE_IL_CORPO_DELLA_VALVOLA_DI_SPURGO</a></h1>
+<p>mn0031</p>
+<h1 id="MN0032_PULIRE_IL_REFRIGERATORE_AD_ARIA"><a class="header" >MN0032_PULIRE_IL_REFRIGERATORE_AD_ARIA</a></h1>
+<p>mn0032</p>
+<h1 id="MN0033"><a class="header" >MN0033</a></h1>
+<p>mn0033</p>
+<h1 id="MN0034_SOSTITUIRE_IL_FILTRO_DELLACQUA"><a class="header" >MN0034_SOSTITUIRE_IL_FILTRO_DELLACQUA</a></h1>
+<p>mn0034</p>
+<h1 id="MN0035_CONTROLLARE_LA_QUALITÀ_DELLACQUA"><a class="header" >MN0035_CONTROLLARE_LA_QUALITÀ_DELLACQUA</a></h1>
+<p>mn0035</p>
+<h1 id="MN0036_SOSTITUIRE_LELEMENTO_DEL_FILTRO_IDRAULICO"><a class="header" >MN0036_SOSTITUIRE_LELEMENTO_DEL_FILTRO_IDRAULICO</a></h1>
+<p>mn0036</p>
+<h1 id="MN0037_SOSTITUIRE_IL_FLUIDO_IDRAULICO"><a class="header" >MN0037_SOSTITUIRE_IL_FLUIDO_IDRAULICO</a></h1>
+<p>mn0037</p>
+<h1 id="MN0038_LUBRIFICARE_I_CUSCINETTI_DEL_MOTORE_PRIMARIO"><a class="header" >MN0038_LUBRIFICARE_I_CUSCINETTI_DEL_MOTORE_PRIMARIO</a></h1>
+<p>mn0038</p>
+<h1 id="MN0039_PULIZIA_FILTRI_PRESE_DI_AERAZIONE_QUADRO_ELETTRICO"><a class="header" >MN0039_PULIZIA_FILTRI_PRESE_DI_AERAZIONE_QUADRO_ELETTRICO</a></h1>
+<p>mn0039</p>
+<h1 id="MN0040_MANUTENZIONE_GRUPPO_INGRESSO_ARIA_COMPRESSA"><a class="header" >MN0040_MANUTENZIONE_GRUPPO_INGRESSO_ARIA_COMPRESSA</a></h1>
+<p>mn0040</p>
+<h1 id="MN0041_INGRASSAGGIO_GUIDE_LINEARI_MANDRINO_LATERALE_TOOL_PLUS"><a class="header" >MN0041_INGRASSAGGIO_GUIDE_LINEARI_MANDRINO_LATERALE_TOOL_PLUS</a></h1>
+<p>mn0041</p>
+<h1 id="MN0042_PULIZIA_FILTRO_IMPIANTO_PNEUMATICO"><a class="header" >MN0042_PULIZIA_FILTRO_IMPIANTO_PNEUMATICO</a></h1>
+<p>mn0042</p>
+<h1 id="MN0043_VERIFICA_TENUTA_GIUNTO_ROTANTE"><a class="header" >MN0043_VERIFICA_TENUTA_GIUNTO_ROTANTE</a></h1>
+<p>mn0043</p>
+
+                    </main>
+
+                </div>
+
+                <!-- Livereload script (if served using the cli tool) -->
+                <script>const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }</script>
+
+
+
+                <script>window.playground_copyable = true;</script>
+
+
+                <script src="elasticlunr.min.js"></script>
+                <script src="mark.min.js"></script>
+                <script src="searcher.js"></script>
+
+                <script src="clipboard.min.js"></script>
+                <script src="highlight.js"></script>
+                <script src="book.js"></script>
+
+                <!-- Custom JS scripts -->
+                <script src="mermaid.min.js"></script>
+                <script src="mermaid-init.js"></script>
+                <script src="imagemodal.js"></script>
+                <script src="hidemenu.js"></script>
+                <script src="login.js"></script>
+
+
+            </div>
+</body>
+</html>

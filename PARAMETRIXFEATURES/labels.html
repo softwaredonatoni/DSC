@@ -1,0 +1,313 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+<head>
+    <!-- Book generated using mdBook -->
+    <meta charset="UTF-8">
+    <title>labels - PARAMETRIX FEATURES</title>
+
+
+    <!-- Custom HTML head -->
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="icon" href="favicon.svg">
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/chrome.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
+
+    <!-- Fonts -->
+    <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+    <link rel="stylesheet" href="fonts/fonts.css">
+
+    <!-- Highlight.js Stylesheets -->
+    <link rel="stylesheet" href="highlight.css">
+    <link rel="stylesheet" href="tomorrow-night.css">
+    <link rel="stylesheet" href="ayu-highlight.css">
+
+    <!-- Custom theme stylesheets -->
+    <link rel="stylesheet" href="./mdbook-admonish.css">
+    <link rel="stylesheet" href="theme/custom.css">
+    <link rel="stylesheet" href="search.html">
+    <link rel="stylesheet" href="login.html">
+    <link rel="stylesheet" href="searchlogin.html">
+    <link rel="stylesheet" href="searchloginmenu.html">
+
+
+    <!-- Provide site root to javascript -->
+    <script>var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";</script>
+    <!-- Start loading toc.js asap -->
+    <script src="toc.js"></script>
+</head>
+<body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }</script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");</script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);</script>
+
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">PARAMETRIX FEATURES</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });</script>
+
+                <div id="content" class="content">
+                    <main>
+
+<h1 id="BASE"><a class="header" >BASE</a></h1>
+<p>base</p>
+<h1 id="COMBINE_CUT"><a class="header" >COMBINE_CUT</a></h1>
+<p>combine_cut</p>
+<h1 id="CONFIGURAZIONE"><a class="header" >CONFIGURAZIONE</a></h1>
+<p>configurazione</p>
+<h1 id="DMES"><a class="header" >DMES</a></h1>
+<p>dmes</p>
+<h1 id="DXF_LAYOUT_-_EXPORT"><a class="header" >DXF_LAYOUT_-_EXPORT</a></h1>
+<p>dxf_layout_export</p>
+<h1 id="DXF_LAYOUT_-_IMPORT"><a class="header" >DXF_LAYOUT_-_IMPORT</a></h1>
+<p>dxf_layout_import</p>
+<h1 id="DXF_LAYOUT_-_IMPORT_-_SLABMATCHING"><a class="header" >DXF_LAYOUT_-_IMPORT_-_SLABMATCHING</a></h1>
+<p>dxf_layout_import_slabmatching</p>
+<h1 id="EASY_MATCH"><a class="header" >EASY_MATCH</a></h1>
+<p>easy_match</p>
+<h1 id="HEADING_CUTS"><a class="header" >HEADING_CUTS</a></h1>
+<p>heading_cuts</p>
+<h1 id="INDEX"><a class="header" >INDEX</a></h1>
+<p>parametrix_features</p>
+<h1 id="ISO_CONTROL_-_Z_VIEW"><a class="header" >ISO_CONTROL_-_Z_VIEW</a></h1>
+<p>iso_control_z_view</p>
+<h1 id="JOBS"><a class="header" >JOBS</a></h1>
+<p>jobs</p>
+<h1 id="LABEL"><a class="header" >LABEL</a></h1>
+<p>label</p>
+<h1 id="LABELLING"><a class="header" >LABELLING</a></h1>
+<p>labelling</p>
+<h1 id="LASER"><a class="header" >LASER</a></h1>
+<p>laser</p>
+<h1 id="MACCHINE_AGGIUNTIVE_E_AREA_MANUALE"><a class="header" >MACCHINE_AGGIUNTIVE_E_AREA_MANUALE</a></h1>
+<p>macchine_aggiuntive_e_area_manuale</p>
+<h1 id="MANAGE_CUTS_-_AUTOMATIC_MOVE"><a class="header" >MANAGE_CUTS_-_AUTOMATIC_MOVE</a></h1>
+<p>manage_cuts_automatic_move</p>
+<h1 id="MANAGE_CUTS_-_MANUAL_MOVE"><a class="header" >MANAGE_CUTS_-_MANUAL_MOVE</a></h1>
+<p>manage_cuts_manual_move</p>
+<h1 id="MANAGE_CUTS_-_OPERATIONS"><a class="header" >MANAGE_CUTS_-_OPERATIONS</a></h1>
+<p>manage_cuts_operations</p>
+<h1 id="MANAGE_CUTS_-_STROKE_CHECK"><a class="header" >MANAGE_CUTS_-_STROKE_CHECK</a></h1>
+<p>manage_cuts_stroke_check</p>
+<h1 id="MANAGE_CUTS_-_SX_OPTIMIZATION"><a class="header" >MANAGE_CUTS_-_SX_OPTIMIZATION</a></h1>
+<p>manage_cuts_sx_optimization</p>
+<h1 id="MANAGE_CUTS_-_UNLOAD_SCRAP"><a class="header" >MANAGE_CUTS_-_UNLOAD_SCRAP</a></h1>
+<p>manage_cuts_unload_scrap</p>
+<h1 id="MODIFY_PIECE"><a class="header" >MODIFY_PIECE</a></h1>
+<p>modify_piece</p>
+<h1 id="MODIFY_PIECE_-_AUTOMATIC_WORKING"><a class="header" >MODIFY_PIECE_-_AUTOMATIC_WORKING</a></h1>
+<p>modify_piece_automatic_working</p>
+<h1 id="NESTING"><a class="header" >NESTING</a></h1>
+<p>nesting</p>
+<h1 id="NESTING_-_ADVANCED"><a class="header" >NESTING_-_ADVANCED</a></h1>
+<p>nesting_advanced</p>
+<h1 id="NOTIFICHE"><a class="header" >NOTIFICHE</a></h1>
+<p>notifiche</p>
+<h1 id="PARAMETRIX"><a class="header" >PARAMETRIX</a></h1>
+<p>parametrix</p>
+<h1 id="PARAMETRIX_FEATURES"><a class="header" >PARAMETRIX_FEATURES</a></h1>
+<p>parametrix_features</p>
+<h1 id="PHOTO"><a class="header" >PHOTO</a></h1>
+<p>photo</p>
+<h1 id="PHOTO_-_AUTOMATIC_PERIMETER"><a class="header" >PHOTO_-_AUTOMATIC_PERIMETER</a></h1>
+<p>photo_automatic_perimeter</p>
+<h1 id="PHOTO_-_DSLAB_INTEGRATION"><a class="header" >PHOTO_-_DSLAB_INTEGRATION</a></h1>
+<p>photo_dslab_integration</p>
+<h1 id="PHOTO_-_EXTERNAL_INTEGRATION"><a class="header" >PHOTO_-_EXTERNAL_INTEGRATION</a></h1>
+<p>photo_external_integration</p>
+<h1 id="PIECE_CREATION"><a class="header" >PIECE_CREATION</a></h1>
+<p>piece_creation</p>
+<h1 id="PIECE_CREATION_-_CSV"><a class="header" >PIECE_CREATION_-_CSV</a></h1>
+<p>piece_creation_csv</p>
+<h1 id="PIECE_CREATION_-_CSV_-_WORKINGS"><a class="header" >PIECE_CREATION_-_CSV_-_WORKINGS</a></h1>
+<p>piece_creation_csv_workings</p>
+<h1 id="PIECE_CREATION_-_DXF"><a class="header" >PIECE_CREATION_-_DXF</a></h1>
+<p>piece_creation_dxf</p>
+<h1 id="PIECE_CREATION_-_DXF_-_TAG"><a class="header" >PIECE_CREATION_-_DXF_-_TAG</a></h1>
+<p>piece_creation_dxf_tag</p>
+<h1 id="PIECE_CREATION_-_ELLIPSE_-_FIGURE_-_DXF"><a class="header" >PIECE_CREATION_-_ELLIPSE_-_FIGURE_-_DXF</a></h1>
+<p>piece_creation_ellipse_figure_dxf</p>
+<h1 id="PIECE_FILTERS"><a class="header" >PIECE_FILTERS</a></h1>
+<p>piece_filters</p>
+<h1 id="PIECE_PERIMETER_OFFSET"><a class="header" >PIECE_PERIMETER_OFFSET</a></h1>
+<p>piece_perimeter_offset</p>
+<h1 id="PROJECT_MATCH"><a class="header" >PROJECT_MATCH</a></h1>
+<p>project_match</p>
+<h1 id="PROJECT_MATCH_-_CUTMODE"><a class="header" >PROJECT_MATCH_-_CUTMODE</a></h1>
+<p>project_match_cutmode</p>
+<h1 id="PROJECT_MATCH_-_DXF_ENTITIES"><a class="header" >PROJECT_MATCH_-_DXF_ENTITIES</a></h1>
+<p>project_match_dxf_entities</p>
+<h1 id="PROJECT_MATCH_-_EXECUTION_PROJECT"><a class="header" >PROJECT_MATCH_-_EXECUTION_PROJECT</a></h1>
+<p>project_match_execution_project</p>
+<h1 id="PROJECT_MATCH_-_JOB_SIMULATION_-_NESTING"><a class="header" >PROJECT_MATCH_-_JOB_SIMULATION_-_NESTING</a></h1>
+<p>project_match_job_simulation_nesting</p>
+<h1 id="PROJECT_MATCH_-_PAGINATE"><a class="header" >PROJECT_MATCH_-_PAGINATE</a></h1>
+<p>project_match_paginate</p>
+<h1 id="RECOVERY_SLABS"><a class="header" >RECOVERY_SLABS</a></h1>
+<p>recovery_slab</p>
+<h1 id="ROBOT_OPTIMIZATION"><a class="header" >ROBOT_OPTIMIZATION</a></h1>
+<p>robot_optimization</p>
+<h1 id="SLABS"><a class="header" >SLABS</a></h1>
+<p>slabs</p>
+<h1 id="SLAB_MATCHING"><a class="header" >SLAB_MATCHING</a></h1>
+<p>slab_matching</p>
+<h1 id="STANDARD_PIECE"><a class="header" >STANDARD_PIECE</a></h1>
+<p>standard_piece</p>
+<h1 id="STATISTICS"><a class="header" >STATISTICS</a></h1>
+<p>statistics</p>
+<h1 id="STATISTICS_-_OFFICE"><a class="header" >STATISTICS_-_OFFICE</a></h1>
+<p>statistics_office</p>
+<h1 id="STATISTICS_-_SLAB_REWORK"><a class="header" >STATISTICS_-_SLAB_REWORK</a></h1>
+<p>statistics_slab_rework</p>
+<h1 id="TOOL_SHARPENING"><a class="header" >TOOL_SHARPENING</a></h1>
+<p>tool_sharpening</p>
+<h1 id="WORKFLOW_-_COMPLETE"><a class="header" >WORKFLOW_-_COMPLETE</a></h1>
+<p>workflow_complete</p>
+<h1 id="WORKFLOW_-_CUT_MANAGEMENT_-_PGM"><a class="header" >WORKFLOW_-_CUT_MANAGEMENT_-_PGM</a></h1>
+<p>workflow_cut_management_pgm</p>
+<h1 id="WORKFLOW_-_OFFICE"><a class="header" >WORKFLOW_-_OFFICE</a></h1>
+<p>workflow_office</p>
+<h1 id="WORKFLOW_-_OFFICE_-_MACHINE_SLABMATCHING_-_MOVE"><a class="header" >WORKFLOW_-_OFFICE_-_MACHINE_SLABMATCHING_-_MOVE</a></h1>
+<p>workflow_office_machine_slabmatching_move</p>
+<h1 id="WORKFLOW_-_TOOL_PLUS"><a class="header" >WORKFLOW_-_TOOL_PLUS</a></h1>
+<p>workflow_tool_plus</p>
+<h1 id="WORKING_PARAMETERS"><a class="header" >WORKING_PARAMETERS</a></h1>
+<p>working_parameters</p>
+<h1 id="WORKING_PARAMETERS_-_EXTEND_STEP_CUT"><a class="header" >WORKING_PARAMETERS_-_EXTEND_STEP_CUT</a></h1>
+<p>working_parameters_extend_step_cut</p>
+<h1 id="WORKING_PARAMETERS_-_PROBE_CUT"><a class="header" >WORKING_PARAMETERS_-_PROBE_CUT</a></h1>
+<p>working_parameters_probe_cut</p>
+
+                    </main>
+
+                </div>
+
+                <!-- Livereload script (if served using the cli tool) -->
+                <script>const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }</script>
+
+
+
+                <script>window.playground_copyable = true;</script>
+
+
+                <script src="elasticlunr.min.js"></script>
+                <script src="mark.min.js"></script>
+                <script src="searcher.js"></script>
+
+                <script src="clipboard.min.js"></script>
+                <script src="highlight.js"></script>
+                <script src="book.js"></script>
+
+                <!-- Custom JS scripts -->
+                <script src="mermaid.min.js"></script>
+                <script src="mermaid-init.js"></script>
+                <script src="imagemodal.js"></script>
+                <script src="hidemenu.js"></script>
+                <script src="login.js"></script>
+
+
+            </div>
+</body>
+</html>

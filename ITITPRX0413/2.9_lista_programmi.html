@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+<head>
+    <!-- Book generated using mdBook -->
+    <meta charset="UTF-8">
+    <title>2.9 LISTA PROGRAMMI - IT-IT PARAMETRIX 4.13</title>
+
+    <!-- Custom HTML head -->
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="icon" href="favicon.svg">
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/chrome.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Fonts -->
+    <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+    <link rel="stylesheet" href="fonts/fonts.css">
+
+    <!-- Highlight.js Stylesheets -->
+    <link rel="stylesheet" id="highlight-css" href="highlight.css">
+    <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+    <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+    <!-- Custom theme stylesheets -->
+    <link rel="stylesheet" href="./mdbook-admonish.css">
+    <link rel="stylesheet" href="theme/custom.css">
+    <link rel="stylesheet" href="search.html">
+    <link rel="stylesheet" href="login.html">
+    <link rel="stylesheet" href="searchlogin.html">
+    <link rel="stylesheet" href="searchloginmenu.html">
+
+    <!-- Provide site root and default themes to javascript -->
+    <script>
+      const path_to_root = "";
+      const default_light_theme = "light";
+      const default_dark_theme = "navy";
+    </script>
+    <!-- Start loading toc.js asap -->
+    <script src="toc.js"></script>
+<script>(function () {
+  const SUFFIX = "#2utHhOLI7Iz0";
+
+  function buildUrl() {
+    const base = window.location.href.split("#")[0];
+    return base + SUFFIX;
+  }
+
+  function fallbackCopy(text) {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.top = "-1000px";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+
+  async function copyUrl() {
+    const url = buildUrl();
+
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(url);
+        return;
+      } catch (e) {}
+    }
+
+    fallbackCopy(url);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.getElementById("copy-link-btn");
+    if (!btn) return;
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      copyUrl();
+    });
+  });
+})();
+</script></head>
+<body>
+    <header class="header-main">
+        <div class="header-flex">
+            <div class="donatoni-flex">
+                <label class="btn hamburger-menu" id="sidebar-toggle" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                    <i id="sidebar-toggle-icon" class="fa-solid fa-bars"></i>
+                </label>
+
+                <img src="images/donatoni-logo-white.svg" alt="Donatoni Macchine">
+            </div>
+
+            <div class="donatoni-flex action-header-buttons">
+                <div id="search-wrapper" class="search-wrapper hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults"></ul>
+                    </div>
+                </div>
+                <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+
+                <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
+                    <i class="fa-solid fa-print"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div id="body-container">
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem("mdbook-theme");
+                let sidebar = localStorage.getItem("mdbook-sidebar");
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-theme",
+                        theme.slice(1, theme.length - 1)
+                    );
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-sidebar",
+                        sidebar.slice(1, sidebar.length - 1)
+                    );
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
+                .matches
+                ? default_dark_theme
+                : default_light_theme;
+            let theme;
+            try {
+                theme = localStorage.getItem("mdbook-theme");
+            } catch (e) { }
+            if (theme === null || theme === undefined) {
+                theme = default_theme;
+            }
+            const html = document.documentElement;
+            html.classList.remove("light");
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try {
+                    sidebar = localStorage.getItem('mdbook-sidebar');
+                } catch (e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document
+                        .getElementById("sidebar-toggle")
+                        .setAttribute("aria-expanded", sidebar === "visible");
+                    document
+                        .getElementById("sidebar")
+                        .setAttribute("aria-hidden", sidebar !== "visible");
+                    Array.from(document.querySelectorAll("#sidebar a")).forEach(
+                        function (link) {
+                            link.setAttribute("tabIndex", sidebar === "visible" ? 0 : -1);
+                        }
+                    );
+                </script>
+
+                <div id="content" class="content">
+
+                    <div>
+
+                        <img src="images/donatoni_111.jpg">
+
+                        <main style="margin-left: 20px;">
+                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="29-lista-programmi" style="margin:0;"><a class="header" href="#29-lista-programmi">2.9 LISTA PROGRAMMI</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="2.9 LISTA PROGRAMMI"--><p>La pagina Lista programmazione file ISO permette di eseguire più programmi consecutivamente, creati precedentemente attraverso programmi CAD-CAM, per macchine con due aree di lavoro, macchine Twin o programmi con più lavorazioni create quando già la macchina è in funzione.</p><div class="TextAlignCenter"><img src="attachments/2.9_LISTA_PROGRAMMI/0d-20250801-062400.png" alt="0d-20250801-062400.png" width="800" onclick="showModal(this.src)"></div><p></p><p>
+</p><p></p><h1 id="barra-superiore"><a class="header" href="#barra-superiore">Barra superiore</a></h1><p>Nella barra superiore sono riportate informazioni di monitoraggio dello stato di avanzamento della lista </p><div class="TextAlignCenter"><img src="attachments/2.9_LISTA_PROGRAMMI/8.0-20250801-083953.png" alt="8.0-20250801-083953.png" width="800" onclick="showModal(this.src)"></div><p></p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="dd2900b3-83f2-48d2-b344-7bf4fb9e9d6d"><colgroup><col style="width: 629.0px;"><col style="width: 1162.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/2.9_LISTA_PROGRAMMI/1.1_Off-20250303-082733.png" alt="1.1_Off-20250303-082733.png" width="146" onclick="showModal(this.src)"></div><div class="TextAlignCenter"><img src="attachments/2.9_LISTA_PROGRAMMI/1.1_On-20250303-082733.png" alt="1.1_On-20250303-082733.png" width="146" onclick="showModal(this.src)"></div></td><td><p><strong>Attivazione/Disattivazione Lista Programmi ISO</strong><br>Questo pulsante collocato nella parte superiore a destra del pannello <strong>Lista Programmi ISO</strong> permette di abilitare/disabilitare la funzionalità.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.9_LISTA_PROGRAMMI/8.3_c-20250801-091150.png" alt="8.3_c-20250801-091150.png" width="408" onclick="showModal(this.src)"></div><div class="TextAlignCenter"><img src="attachments/2.9_LISTA_PROGRAMMI/8.2_b-20250801-091440.png" alt="8.2_b-20250801-091440.png" width="408" onclick="showModal(this.src)"></div></td><td><p><strong>Stato di esecuzione della lista</strong><br>Indica se la lista risulta attualmente in esecuzione o meno.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.9_LISTA_PROGRAMMI/1.2.1_b-20250801-093346.png" alt="1.2.1_b-20250801-093346.png" width="321" onclick="showModal(this.src)"></div><div class="TextAlignCenter"><img src="attachments/2.9_LISTA_PROGRAMMI/1.2.2_b-20250801-093411.png" alt="1.2.2_b-20250801-093411.png" width="321" onclick="showModal(this.src)"></div><div class="TextAlignCenter"><img src="attachments/2.9_LISTA_PROGRAMMI/1.2.3_b-20250801-093428.png" alt="1.2.3_b-20250801-093428.png" width="321" onclick="showModal(this.src)"></div></td><td><p><strong>Barra di avanzamento della lista</strong><br>Mostra i progressi e lo stato di avanzamento dell’esecuzione della lista.</p></td></tr></tbody></table><p></p><h2 id="barra-di-avanzamento-della-lista"><a class="header" href="#barra-di-avanzamento-della-lista">Barra di avanzamento della lista</a></h2><p>Questa barra di avanzamento fornisce informazioni sullo stato di esecuzione del programma ISO in corso, offrendo al contempo una panoramica generale sul programma successivo in lista e su quello che ha già completato la fase di lavorazione ed è passato allo scarico.</p><div class="TextAlignCenter"><img src="attachments/2.9_LISTA_PROGRAMMI/8.4-20250801-084128.png" alt="8.4-20250801-084128.png" width="800" onclick="showModal(this.src)"></div><p>Nell'immagine precedente non è ancora visibile alcun programma in fase di scarico, poiché l'esecuzione della lista non è stata avviata e nessun pezzo è stato ancora processato. Viceversa, nel caso in cui sia presente un solo file ISO nella lista oppure la lavorazione sia stata avviata e tutti gli altri file siano già stati eseguiti, la sezione <strong>Prossimo </strong>risulterà vuota.</p><p>Durante l'esecuzione, verrà visualizzato in tempo reale lo stato di avanzamento del programma, come illustrato di seguito.</p><div class="TextAlignCenter"><img src="attachments/2.9_LISTA_PROGRAMMI/1.2.1-20250801-094123.png" alt="1.2.1-20250801-094123.png" width="241" onclick="showModal(this.src)"></div><p></p><p></p><h1 id="menù-laterale"><a class="header" href="#menù-laterale">Menù laterale</a></h1><p>Sul lato destro del pannello ventose sono presenti alcuni pulsanti relativi alla gestione dei singoli file nella lista programmi.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="b0302a90-938c-4b54-899b-21e0b4588724"><colgroup><col style="width: 309.0px;"><col style="width: 1489.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/2.9_LISTA_PROGRAMMI/1.1_b-20250731-143413.png" alt="1.1_b-20250731-143413.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Esegui programma successivo</strong><br>Passa direttamente all’esecuzione del programma successivo della lista.</p></td></tr><tr><td data-highlight-colour="var(--ds-surface, #FFFFFF)"><div class="TextAlignCenter"><img src="attachments/2.9_LISTA_PROGRAMMI/SpostaInAlto_B.png" alt="SpostaInAlto_B.png" width="60" onclick="showModal(this.src)"></div></td><td data-highlight-colour="var(--ds-surface, #FFFFFF)"><p><strong>Sposta elemento selezionato più in alto</strong><br>Spostamento verso l’alto del file ISO selezionato all’interno della lista di file da eseguire.</p></td></tr><tr><td data-highlight-colour="var(--ds-surface, #FFFFFF)"><div class="TextAlignCenter"><img src="attachments/2.9_LISTA_PROGRAMMI/SpostaInBasso_B.png" alt="SpostaInBasso_B.png" width="60" onclick="showModal(this.src)"></div></td><td data-highlight-colour="var(--ds-surface, #FFFFFF)"><p><strong>Sposta elemento selezionato più in basso</strong><br>Spostamento verso il basso del file ISO selezionato all’interno della lista di file da eseguire.</p></td></tr><tr><td data-highlight-colour="var(--ds-surface, #FFFFFF)"><div class="TextAlignCenter"><img src="attachments/2.9_LISTA_PROGRAMMI/cest_b-20250731-112553.png" alt="cest_b-20250731-112553.png" width="60" onclick="showModal(this.src)"></div></td><td data-highlight-colour="var(--ds-surface, #FFFFFF)"><p><strong>Cancella elemento selezionato</strong><br>Rimuove dalla lista l’elemento attualmente selezionato.<br>Se più elementi sono selezionati verrà eliminato solamente il primo della selezione.</p></td></tr><tr><td data-highlight-colour="var(--ds-surface, #FFFFFF)"><div class="TextAlignCenter"><img src="attachments/2.9_LISTA_PROGRAMMI/8.3_c_Off_On-20250825-082901.png" alt="8.3_c_Off_On-20250825-082901.png" width="120" onclick="showModal(this.src)"></div></td><td data-highlight-colour="var(--ds-surface, #FFFFFF)"><p><strong>Pannello ventose</strong><br>Accesso al pannello per la gestione delle ventose.</p></td></tr></tbody></table><p></p><h2 id="pannello-ventose"><a class="header" href="#pannello-ventose">Pannello Ventose</a></h2><p>E’ possibile utilizzare le ventose in manuale per spostare dei pezzi da una zona di lavoro all’altra.</p><div class="TextAlignCenter"><img src="attachments/2.9_LISTA_PROGRAMMI/8.1-20250801-095028.png" alt="8.1-20250801-095028.png" width="800" onclick="showModal(this.src)"></div><p></p><h3 id="pulsanti-ventose"><a class="header" href="#pulsanti-ventose">Pulsanti ventose</a></h3><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="ada2e4e9-da09-4c33-abee-f3cc36949e35"><colgroup><col style="width: 467.0px;"><col style="width: 1332.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/2.9_LISTA_PROGRAMMI/Test_-_png_-_20.png" alt="Test_-_png_-_20.png" width="271" onclick="showModal(this.src)"></div></td><td><p><strong>Abilitazione / disabilitazione ventose</strong><br>Lo schermo mostra il gruppo ventose visto dall’alto nelle varie zone in cui è diviso. Premendo sull’area interessata, se ne cambia lo stato.<br>Se verde indica che la zona è predisposta per effettuare il vuoto.<br>Se rosso indica che la zona è predisposta per il soffio.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.9_LISTA_PROGRAMMI/1.3.png" alt="1.3.png" width="170" onclick="showModal(this.src)"></div></td><td><p><strong>VENTOSE: ALZA  -  Parcheggio ventose</strong><br>Alla pressione del pulsante, vengono fatte rientrare le ventose in modo da portarle nella zona di riposo/parcheggio.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.9_LISTA_PROGRAMMI/2.3.png" alt="2.3.png" width="167" onclick="showModal(this.src)"></div></td><td><p><strong>VENTOSE: ABBASSA  -  Predisponi ventose</strong><br>Alla pressione del pulsante vengono fatte scendere le ventose dalla zona di parcheggio fino al finecorsa. È importante che le ventose abbiano lo spazio necessario per fuoriuscire completamente.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.9_LISTA_PROGRAMMI/4.3.png" alt="4.3.png" width="167" onclick="showModal(this.src)"></div></td><td><p><strong>SOLLEVA PEZZO: RILASCIA  -  Scaricamento pezzo</strong><br>Alla pressione del pulsante viene abbassato l’asse Z fino al contatto del materiale con il piano di lavoro, viene spenta la pompa del vuoto e acceso il soffio da tutte le ventose per staccare il pezzo. Dopo l’attesa di un time-out, viene sollevato l’asse fino a quota di sicurezza.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.9_LISTA_PROGRAMMI/3.3.png" alt="3.3.png" width="167" onclick="showModal(this.src)"></div></td><td><p><strong>SOLLEVA PEZZO: AVVIA  -  Sollevamento pezzo</strong><br>Con questo comando le ventose vengono portate a contatto con il materiale, viene accesa la pompa del vuoto nelle aree segnate in verde e il soffio nelle aree segnate in rosso, e quando il vacuostato segnala che il vuoto è stato generato, viene sollevato l’asse fino alla posizione impostata per le movimentazioni.</p>
+<div id="admonition-attenzione" class="admonition admonish-warning" role="note" aria-labelledby="admonition-attenzione-title">
+<div class="admonition-title">
+<div id="admonition-attenzione-title">
+<p>ATTENZIONE!</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-attenzione"></a>
+</div>
+<div>
+<p>Prestare attenzione alle ventose attive facendo in modo di utilizzare la maggior area possibile per sollevare il pezzo.</p>
+</div>
+</div>
+</td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.9_LISTA_PROGRAMMI/5.2_off.png" alt="5.2_off.png" width="131" onclick="showModal(this.src)"></div><div class="TextAlignCenter"><img src="attachments/2.9_LISTA_PROGRAMMI/5.2_on.png" alt="5.2_on.png" width="131" onclick="showModal(this.src)"></div></td><td><p><strong>SOFFIO  -  Comando soffio</strong><br>Il pulsante accende o spegne il soffio dalle ventose che non sono predisposte per il vuoto. L’indicatore segnala se il soffio è acceso (verde) o spento (rosso).</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.9_LISTA_PROGRAMMI/6.2_off.png" alt="6.2_off.png" width="131" onclick="showModal(this.src)"></div><div class="TextAlignCenter"><img src="attachments/2.9_LISTA_PROGRAMMI/6.2_on.png" alt="6.2_on.png" width="131" onclick="showModal(this.src)"></div></td><td><p><strong>VUOTO  -  Comando pompa del vuoto</strong><br>Questo pulsante accende e spegne la pompa del vuoto. L’indicatore segnala se la pompa è accesa (verde) o spenta (rosso).</p></td></tr></tbody></table><p></p><h3 id="condizioni-di-sicurezza"><a class="header" href="#condizioni-di-sicurezza">Condizioni di sicurezza</a></h3><p>Prestare particolare attenzione alle ventose attive durante il sollevamento, assicurandosi che le aree utilizzate siano sufficienti a sollevare il pezzo oggetto della movimentazione. Cercare di utilizzare sempre la maggior area di vuoto disponibile per effettuare la presa del pezzo e controllare che non ci siano difetti e rotture sul materiale che possano creare pericoli o problemi al funzionamento della macchina.<br>Una volta accesa la pompa del vuoto, il suo spegnimento è consentito solo attraverso le funzioni automatiche predisposte allo scopo. La pressione del pulsante di reset o del fungo di emergenza non ha alcun effetto sulla pompa del vuoto che continuerà a funzionare. Lo spegnimento della pompa può essere forzato mediante l’apposito pulsante dentro la pagina “Comandi Aggiuntivi”.<br>Nelle procedure automatiche, prima di effettuare il sollevamento del pezzo, viene controllato lo stato del vuoto attraverso un apposito sensore: se non viene rilevato un valore di vuoto sufficiente appare l’allarme “mancanza vuoto”. La pompa continuerà a rimanere attiva fino a quando il vacuostato non rileva un valore corretto, oppure se verrà disabilitata dalla pagina “Comandi Aggiuntivi”.</p>
+<div id="admonition-attenzione-1" class="admonition admonish-warning" role="note" aria-labelledby="admonition-attenzione-1-title">
+<div class="admonition-title">
+<div id="admonition-attenzione-1-title">
+<p>ATTENZIONE!</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-attenzione-1"></a>
+</div>
+<div>
+<p>La mancanza di alimentazione alla pompa del vuoto comporta una veloce perdita dello stesso e la conseguente caduta del materiale sollevato con le ventose.</p>
+</div>
+</div>
+<p></p><p></p><h1 id="barra-inferiore"><a class="header" href="#barra-inferiore">Barra inferiore</a></h1><p>Nella parte inferiore della barra vengono visualizzate alcune funzionalità relative all’esecuzione della lista dei programmi ISO, oltre al monitoraggio sia dell’utensile sia della lastra.</p><div class="TextAlignCenter"><img src="attachments/2.9_LISTA_PROGRAMMI/7.0-20250801-082407.png" alt="7.0-20250801-082407.png" width="800" onclick="showModal(this.src)"></div><p></p><h2 id="gestione-esecuzione-lista"><a class="header" href="#gestione-esecuzione-lista">Gestione esecuzione lista</a></h2><p>Nella parte inferiore troviamo inoltre i due pulsanti relativi alle modalità di esecuzione dei programmi:</p><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="6b8d2cdf-dc87-4b02-ab50-e6369bb0efdf"><colgroup><col style="width: 386.0px;"><col style="width: 1413.0px;"></colgroup><tbody><tr><td data-highlight-colour="var(--ds-surface, #FFFFFF)"><div class="TextAlignCenter"><img src="attachments/2.9_LISTA_PROGRAMMI/4_manuale_b-20250714-082707.png" alt="4_manuale_b-20250714-082707.png" width="165" onclick="showModal(this.src)"></div><div class="TextAlignCenter"><img src="attachments/2.9_LISTA_PROGRAMMI/4_automatico_b-20250714-080533.png" alt="4_automatico_b-20250714-080533.png" width="165" onclick="showModal(this.src)"></div></td><td data-highlight-colour="var(--ds-surface, #FFFFFF)"><p><strong>Manuale / automatico</strong><br>Definisce se lo stato della macchina è manuale o automatico.</p></td></tr><tr><td data-highlight-colour="var(--ds-surface, #FFFFFF)"><div class="TextAlignCenter"><img src="attachments/2.9_LISTA_PROGRAMMI/5_singolo_b-20250714-082752.png" alt="5_singolo_b-20250714-082752.png" width="165" onclick="showModal(this.src)"></div><div class="TextAlignCenter"><img src="attachments/2.9_LISTA_PROGRAMMI/5_prossimo_in_automatico_b-20250714-082728.png" alt="5_prossimo_in_automatico_b-20250714-082728.png" width="165" onclick="showModal(this.src)"></div></td><td data-highlight-colour="var(--ds-surface, #FFFFFF)"><p><strong>Singolo / prossimo automatico</strong><br>Definisce se l’avvio del prossimo programma sarà fatto in automatico oppure no.</p></td></tr></tbody></table><p></p><h2 id="monitoraggio-lastra-e-utensile"><a class="header" href="#monitoraggio-lastra-e-utensile">Monitoraggio lastra e utensile</a></h2><p>Al centro e sulla destra della barra inferiore, l’operatore può configurare monitoraggi periodici del diametro dell’utensile, impostando controlli a intervalli definiti in base al numero di cicli effettuati.</p><div class="TextAlignCenter"><img src="attachments/2.9_LISTA_PROGRAMMI/4.0-20250801-065401.png" alt="4.0-20250801-065401.png" width="678" onclick="showModal(this.src)"></div><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="4a75afe6-f594-4bc1-b67d-113c9af0212f"><colgroup><col style="width: 410.0px;"><col style="width: 1389.0px;"></colgroup><tbody><tr><th data-highlight-colour="#ffffff"><div class="TextAlignCenter"><img src="attachments/2.9_LISTA_PROGRAMMI/4.1_b-20250801-065709.png" alt="4.1_b-20250801-065709.png" width="88" onclick="showModal(this.src)"></div></th><th data-highlight-colour="#ffffff"><p><strong>Numero di Cicli tra le Tastatura Disco</strong><br>Specifica il numero di cicli che devono intercorrere tra un'operazione di tastatura del disco e la successiva.</p></th></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.9_LISTA_PROGRAMMI/4.2_b-20250801-065721.png" alt="4.2_b-20250801-065721.png" width="88" onclick="showModal(this.src)"></div></td><td><p><strong>Numero di Cicli alla Prossima Tastatura</strong><br>Indica il numero di cicli rimanenti prima della successiva operazione di tastatura del disco.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.9_LISTA_PROGRAMMI/4.3-20250801-065255.png" alt="4.3-20250801-065255.png" width="176" onclick="showModal(this.src)"></div></td><td><p><strong>Diametro utensile</strong><br>Viene riportato il valore del diametro del disco.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.9_LISTA_PROGRAMMI/4.4-20250801-065259.png" alt="4.4-20250801-065259.png" width="176" onclick="showModal(this.src)"></div></td><td><p><strong>Spessore lastra</strong><br>Viene riportato lo spessore della lastra.</p></td></tr></tbody></table><p></p><p></p><h1 id="esecuzione-della-lista-programmi-iso"><a class="header" href="#esecuzione-della-lista-programmi-iso">Esecuzione della Lista Programmi ISO</a></h1><p>Se la Lista Programmi Iso è disattivata, l’interruttore in alto a destra del pannello comparirà spento; sarà quindi possibile abilitare la funzionalità semplicemente cliccando questo pulsante.</p><p>La lista di programmi ISO viene automaticamente ampliata man mano che vengono generati ISO in Parametrix, ad ogni modo l’operatore può ricollocare elementi all’interno della lista oppure rimuoverli da essa in base alle proprie esigenze.</p><p>Prima di procedere con l’esecuzione della lista, l’operatore ha la possibilità di impostare il numero di cicli che verranno eseguiti tra le operazioni di tastatura dell’utensile.<br>Verrà quindi aggiornato e visualizzato il numero di cicli rimanenti alla tastatura successiva.</p><p>L’operatore avvia l’esecuzione della lista di programmi premendo il pulsante “Avvia ciclo“. In tal modo, i programmi vengono eseguiti in sequenza, con la visualizzazione simultanea del programma in corso, di quello che sarà eseguito successivamente e di quello già completato.</p><p>Se la modalità di esecuzione dei programmi è impostata su <strong>Manuale</strong> e <strong>Singolo</strong>, l’esecuzione della lista verrà interrotta al termine del programma in esecuzione, appena dopo aver preparato il successivo programma da eseguire.<br>In tale evenienza l’operatore ha la possibilità di premere il pulsante <strong>Successivo</strong> quando ritiene più opportuno e procedere con l’esecuzione pigiando nuovamente il pulsante “<strong>Avvia Ciclo</strong>“</p><p></p><p></p><!--Label="pbm_ipl"--><!--Label="pbm_ipl_elm"--><!--Label="pbm_ipl_abv"--><!--Label="pbm_ipl_men"--><!--Label="pbm_ipl_pan"--><!--Label="pbm_ipl_mon"--><!--Label="pbm_ipl_exe"-->
+                        </main>
+
+                    </div>
+
+                    <img src="images/donatoni_222.jpg">
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="2.8_lucidatura_(opzionale).html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="3_parametrix.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+
+
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                <a rel="prev" href="2.8_lucidatura_(opzionale).html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="3_parametrix.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="mermaid.min.js"></script>
+        <script src="mermaid-init.js"></script>
+        <script src="hidemenu.js"></script>
+        <script src="imagemodal.js"></script>
+        <script src="login.js"></script>
+    </div>
+
+    <!-- Modale -->
+    <div id="modal" onclick="closeModal()">
+        <img id="modal-img" src="">
+    </div>;
+
+
+</body>
+</html>

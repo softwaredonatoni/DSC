@@ -1,0 +1,24 @@
+p {
+    text-align: justify;
+    text-justify: inter-word;
+  }
+  
+  .header {
+      color: #084987 !important;
+  }
+  
+  img {
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.resize-img {
+  width: 200px !important;
+  height: auto !important; /* Mantiene le proporzioni */
+}
+
+.my-table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+}

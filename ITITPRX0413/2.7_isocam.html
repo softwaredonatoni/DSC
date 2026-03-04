@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+<head>
+    <!-- Book generated using mdBook -->
+    <meta charset="UTF-8">
+    <title>2.7 ISOCAM - IT-IT PARAMETRIX 4.13</title>
+
+    <!-- Custom HTML head -->
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="icon" href="favicon.svg">
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/chrome.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Fonts -->
+    <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+    <link rel="stylesheet" href="fonts/fonts.css">
+
+    <!-- Highlight.js Stylesheets -->
+    <link rel="stylesheet" id="highlight-css" href="highlight.css">
+    <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+    <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+    <!-- Custom theme stylesheets -->
+    <link rel="stylesheet" href="./mdbook-admonish.css">
+    <link rel="stylesheet" href="theme/custom.css">
+    <link rel="stylesheet" href="search.html">
+    <link rel="stylesheet" href="login.html">
+    <link rel="stylesheet" href="searchlogin.html">
+    <link rel="stylesheet" href="searchloginmenu.html">
+
+    <!-- Provide site root and default themes to javascript -->
+    <script>
+      const path_to_root = "";
+      const default_light_theme = "light";
+      const default_dark_theme = "navy";
+    </script>
+    <!-- Start loading toc.js asap -->
+    <script src="toc.js"></script>
+<script>(function () {
+  const SUFFIX = "#2utHhOLI7Iz0";
+
+  function buildUrl() {
+    const base = window.location.href.split("#")[0];
+    return base + SUFFIX;
+  }
+
+  function fallbackCopy(text) {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.top = "-1000px";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+
+  async function copyUrl() {
+    const url = buildUrl();
+
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(url);
+        return;
+      } catch (e) {}
+    }
+
+    fallbackCopy(url);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.getElementById("copy-link-btn");
+    if (!btn) return;
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      copyUrl();
+    });
+  });
+})();
+</script></head>
+<body>
+    <header class="header-main">
+        <div class="header-flex">
+            <div class="donatoni-flex">
+                <label class="btn hamburger-menu" id="sidebar-toggle" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                    <i id="sidebar-toggle-icon" class="fa-solid fa-bars"></i>
+                </label>
+
+                <img src="images/donatoni-logo-white.svg" alt="Donatoni Macchine">
+            </div>
+
+            <div class="donatoni-flex action-header-buttons">
+                <div id="search-wrapper" class="search-wrapper hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults"></ul>
+                    </div>
+                </div>
+                <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+
+                <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
+                    <i class="fa-solid fa-print"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div id="body-container">
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem("mdbook-theme");
+                let sidebar = localStorage.getItem("mdbook-sidebar");
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-theme",
+                        theme.slice(1, theme.length - 1)
+                    );
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-sidebar",
+                        sidebar.slice(1, sidebar.length - 1)
+                    );
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
+                .matches
+                ? default_dark_theme
+                : default_light_theme;
+            let theme;
+            try {
+                theme = localStorage.getItem("mdbook-theme");
+            } catch (e) { }
+            if (theme === null || theme === undefined) {
+                theme = default_theme;
+            }
+            const html = document.documentElement;
+            html.classList.remove("light");
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try {
+                    sidebar = localStorage.getItem('mdbook-sidebar');
+                } catch (e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document
+                        .getElementById("sidebar-toggle")
+                        .setAttribute("aria-expanded", sidebar === "visible");
+                    document
+                        .getElementById("sidebar")
+                        .setAttribute("aria-hidden", sidebar !== "visible");
+                    Array.from(document.querySelectorAll("#sidebar a")).forEach(
+                        function (link) {
+                            link.setAttribute("tabIndex", sidebar === "visible" ? 0 : -1);
+                        }
+                    );
+                </script>
+
+                <div id="content" class="content">
+
+                    <div>
+
+                        <img src="images/donatoni_111.jpg">
+
+                        <main style="margin-left: 20px;">
+                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="27-isocam" style="margin:0;"><a class="header" href="#27-isocam">2.7 ISOCAM</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="2.7 ISOCAM"--><p>IsoCam è il software per l’esecuzione di sagomature con il disco; permette di disegnare o importare sagome, decidere il profilo e applicare diversi modi di lavorazione.<br>La gestione della programmazione del lavoro viene divisa in diverse fasi che verranno descritte nei seguenti paragrafi.</p><p>All’apertura del programma Isocam, se non è presente alcuna lavorazione precedentemente creata, l’operatore potrà crearne una nuova, dal primo passo di lavorazione.<br>Nel caso invece in cui sia presente una lavorazione precedentemente creata, questa verrà automaticamente caricata e l’operatore avrà accesso direttamente all’ultimo step della lavorazione:</p><div class="TextAlignCenter"><img src="attachments/2.7_ISOCAM/0.0-20250806-060119.png" alt="0.0-20250806-060119.png" width="800" onclick="showModal(this.src)"></div><p>
+</p><p></p><h1 id="elementi-in-comune-tra-i-vari-step"><a class="header" href="#elementi-in-comune-tra-i-vari-step">Elementi in comune tra i vari step</a></h1><p>L'interfaccia utente è composta da diverse aree.</p><ul><li><p><strong>Menù: </strong>utility rapide.</p></li><li><p><strong>Barra superiore</strong>: funzioni specifiche della pagina attiva.</p></li><li><p><strong>Parte centrale</strong>: contiene il disegno o l’area attiva in base alla pagina.</p></li><li><p><strong>Barra laterale</strong>: finestra contenente i parametri da modificare.</p></li><li><p><strong>Barra inferiore</strong>: pulsanti generalmente validi in diverse aree del software.</p></li></ul>
+<div id="admonition-nota" class="admonition admonish-info" role="note" aria-labelledby="admonition-nota-title">
+<div class="admonition-title">
+<div id="admonition-nota-title">
+<p>NOTA</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-nota"></a>
+</div>
+<div>
+<p>Tutti questi elementi variano a seconda del contesto operativo.</p>
+</div>
+</div>
+<p>I seguenti elementi rimarranno sempre visibili, indipendentemente dalla fase corrente del processo.</p><p></p><h2 id="menù"><a class="header" href="#menù">Menù</a></h2><p>La barra dei menù è collocata in alto, al di sopra di ogni altro elemento di questa interfaccia.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="6f224507-9283-43b4-9c55-ad455f9c443f"><colgroup><col style="width: 269.0px;"><col style="width: 1530.0px;"></colgroup><tbody><tr><td><p><strong>Visualizza</strong></p></td><td><p>Vengono messe a disposizione dell’operatore alcune impostazioni relative alla visibilità dei pezzi presenti nell’area di lavoro.</p></td></tr><tr><td><p><strong>Opzioni</strong></p></td><td><p>È possibile modificare impostazioni relative ai colori.</p></td></tr><tr><td><p><strong>Lingua</strong></p></td><td><p>ISOCAM è attualmente disponibile nelle seguenti lingue:</p><ul><li><p>Tedesco</p></li><li><p>Inglese</p></li><li><p>Spagnolo</p></li><li><p>Francese</p></li><li><p>Italiano</p></li><li><p>Portoghese</p></li></ul></td></tr></tbody></table><p></p><h2 id="barra-laterale-destra"><a class="header" href="#barra-laterale-destra">Barra laterale destra</a></h2><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="15f40c20-d2ea-44bb-a67a-08553ab225b9"><colgroup><col style="width: 557.0px;"><col style="width: 1239.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_ISOCAM/1.2.1-20250730-093200.png" alt="1.2.1-20250730-093200.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Impostazioni</strong><br>Apre al centro della pagina il pannello impostazioni.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_ISOCAM/1.2.2-20250730-093321.png" alt="1.2.2-20250730-093321.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Info</strong><br>Apre un piccolo pannello contenente informazioni utili e contatti.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_ISOCAM/1.2.3-20250730-093452.png" alt="1.2.3-20250730-093452.png" width="337" onclick="showModal(this.src)"></div></td><td><p><strong>Gestione Step</strong><br>Da questa sezione è possibile navigare avanti e indietro tra i diversi step del flusso operativo.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_ISOCAM/1.2.4-20250730-093522.png" alt="1.2.4-20250730-093522.png" width="337" onclick="showModal(this.src)"></div></td><td><p><strong>Chiudi</strong><br>Premendo il pulsante, il programma <strong>IsoCam</strong> verrà chiuso.</p></td></tr></tbody></table><p></p><h3 id="impostazioni"><a class="header" href="#impostazioni">Impostazioni</a></h3><p>Questo pannello permette di passare alla modalità Avanzata di <strong>IsoCam</strong>, di tornare alla versione <strong>base</strong>, e di modificare i valori di <strong>Passo Griglia in X e Y.</strong></p><div class="TextAlignCenter"><img src="attachments/2.7_ISOCAM/1.2.1.0-20250801-124523.png" alt="1.2.1.0-20250801-124523.png" width="293" onclick="showModal(this.src)"></div><p></p><h2 id="barra-inferiore"><a class="header" href="#barra-inferiore">Barra inferiore</a></h2><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="20375b56-8f17-42f3-bf9d-853b728e762c"><colgroup><col style="width: 393.0px;"><col style="width: 1404.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_ISOCAM/PulsanteNuovaLavorazione-20250612-071704.png" alt="PulsanteNuovaLavorazione-20250612-071704.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Nuova lavorazione</strong><br>Apre una nuova finestra vuota di IsoCam, reimpostando il flusso operativo allo Step 1 di 4.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_ISOCAM/5_OffOn-20250714-111837.png" alt="5_OffOn-20250714-111837.png" width="120" onclick="showModal(this.src)"></div></td><td><p><strong>Apri lavorazione</strong><br>Permette di aprire una lavorazione precedentemente salvata.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_ISOCAM/4_OffOn-20250714-111851.png" alt="4_OffOn-20250714-111851.png" width="120" onclick="showModal(this.src)"></div></td><td><p><strong>Salva lavorazione</strong><br>Permette di salvare le modifiche apportate a una lavorazione.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_ISOCAM/1.3.4-20250730-094226.png" alt="1.3.4-20250730-094226.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Modifica lavorazione</strong><br>Riporta il flusso operativo allo Step 1 di 4, consentendo l'applicazione di modifiche alla lavorazione attualmente in uso.</p></td></tr></tbody></table><p></p><p></p><h1 id="disegno-della-sezione-step-1-di-4"><a class="header" href="#disegno-della-sezione-step-1-di-4">Disegno della sezione (step 1 di 4)</a></h1><p>La prima fase della programmazione consiste nel disegno della sezione da lavorare. La finestra propone i comandi caratteristici di un software CAD: disegno linea, disegno arco, snap, sposta, ecc…<br>L’idea alla base del software è la creazione della sezione come veloce schizzo che verrà poi modificato, entità per entità, con gli appositi comandi. Rimane sempre attiva la possibilità di importare disegni .dxf generati da CAD esterni.</p><div class="TextAlignCenter"><img src="attachments/2.7_ISOCAM/0.1-20250806-060204.png" alt="0.1-20250806-060204.png" width="800" onclick="showModal(this.src)"></div><p></p><p></p><p></p><h2 id="barra-superiore"><a class="header" href="#barra-superiore">Barra superiore</a></h2><p></p><div class="TextAlignCenter"><img src="attachments/2.7_ISOCAM/2.1.0-20250730-095852.png" alt="2.1.0-20250730-095852.png" width="452" onclick="showModal(this.src)"></div><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="d2c344f9-d1f9-4ef0-b5f7-a82171f28e51"><colgroup><col style="width: 302.0px;"><col style="width: 1496.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_ISOCAM/2.1.1_Off_On-20250730-113243.png" alt="2.1.1_Off_On-20250730-113243.png" width="120" onclick="showModal(this.src)"></div></td><td><p><strong>Comando disegno Linea</strong><br>Abilita/Disabilita il comando di disegno linea.<br>Quando abilitato, crea una nuova linea che prende origine dal punto finale dell’ultima entità inserita, se disponibile; in caso contrario, la linea viene generata nel punto selezionato.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_ISOCAM/2.1.2_Off_On-20250730-113307.png" alt="2.1.2_Off_On-20250730-113307.png" width="120" onclick="showModal(this.src)"></div></td><td><p><strong>Comando disegno arco</strong><br>Abilita/Disabilita il comando di disegno arco.<br>Quando abilitato, crea un nuovo arco che prende origine dal punto finale dell’ultima entità inserita, se disponibile; in caso contrario, l’arco viene generato a partire dal punto selezionato.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_ISOCAM/2.1.3_Off_On-20250730-114034.png" alt="2.1.3_Off_On-20250730-114034.png" width="120" onclick="showModal(this.src)"></div></td><td><p><strong>Muove i tratti selezionati</strong><br>Dopo aver selezionato una entità è possibile, mediante la pressione di questo pulsante, di muoverla all’interno dell’area di lavoro.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_ISOCAM/2.1.4_Off_On-20250730-114358.png" alt="2.1.4_Off_On-20250730-114358.png" width="120" onclick="showModal(this.src)"></div></td><td><p><strong>Figura Speculare</strong><br>Dopo aver selezionato un'entità, è possibile capovolgerla orizzontalmente e/o verticalmente all'interno dell'area di lavoro tramite questo pulsante.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_ISOCAM/2.1.5_Off_On-20250730-112017.png" alt="2.1.5_Off_On-20250730-112017.png" width="120" onclick="showModal(this.src)"></div></td><td><p><strong>Raccorda</strong><br>Dopo aver attivato la funzione seguire i parametri sulla destra</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_ISOCAM/2.1.6_Off_On-20250730-114854.png" alt="2.1.6_Off_On-20250730-114854.png" width="120" onclick="showModal(this.src)"></div></td><td><p><strong>Inversione della selezione attiva</strong><br>Inverte la selezione attiva nel momento in cui viene premuto il pulsante</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_ISOCAM/2.1.7_Off_On-20250730-115136.png" alt="2.1.7_Off_On-20250730-115136.png" width="120" onclick="showModal(this.src)"></div></td><td><p><strong>Elimina tratti selezionati</strong><br>Cancella le entità selezionate</p></td></tr></tbody></table><p></p><h2 id="barra-laterale-destra-1"><a class="header" href="#barra-laterale-destra-1">Barra laterale destra</a></h2><h3 id="proprietà-linea"><a class="header" href="#proprietà-linea">Proprietà linea</a></h3><p>Selezionando una linea nell’area di lavoro, la colonna laterale destra viene aggiornata per mostrare le caratteristiche dell’entità selezionata, che possono essere modificate dall’utente:</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="105be186-f7bd-4afb-b874-64172eb9fb09"><colgroup><col style="width: 487.0px;"><col style="width: 1306.0px;"></colgroup><tbody><tr><td><p><strong>Lunghezza</strong></p></td><td><p>Indica la distanza lineare tra i due estremi della linea selezionata, calcolata in base alle coordinate nello spazio di lavoro.</p></td></tr><tr><td><p><strong>Angolo</strong></p></td><td><p>Indica l’orientamento della linea rispetto all’asse orizzontale del sistema di riferimento.</p></td></tr><tr><td><p><strong>Δx</strong></p></td><td><p>Indica la variazione della coordinata X tra il punto iniziale e quello finale di una linea o entità, ovvero la distanza orizzontale percorsa rispetto all’asse X del sistema di riferimento.</p></td></tr><tr><td><p><strong>Δy</strong></p></td><td><p>Indica la variazione della coordinata Y tra il punto iniziale e quello finale di una linea o entità, ovvero la distanza verticale percorsa rispetto all’asse Y del sistema di riferimento.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_ISOCAM/2.3.1.2_b-20250801-141232.png" alt="2.3.1.2_b-20250801-141232.png" width="319" onclick="showModal(this.src)"></div></td><td><p><strong>Allunga/Accorcia linea selezionata</strong><br>Permette di allungare o accorciare la linea selezionata di una misura specificata, modificandone la lunghezza mantenendo invariata la direzione dell’angolo. La variazione viene definita tramite l’apposito campo di input.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_ISOCAM/2.3.1.1_c-20250801-141229.png" alt="2.3.1.1_c-20250801-141229.png" width="319" onclick="showModal(this.src)"></div></td><td><p><strong>Approssima Angolo</strong><br>Consente di arrotondare automaticamente l’angolo della linea al multiplo di 90_ più vicino (0_, 90_, 180_, 270_), facilitando l’allineamento con le direzioni ortogonali del sistema di riferimento.</p></td></tr><tr><td><p><strong>Scala tratti connessi</strong></p></td><td><p>Consente di applicare una scalatura proporzionale a tutte le entità direttamente o indirettamente collegate alla linea selezionata.<br>Quando questa opzione è attiva durante l’allungamento o l’accorciamento della linea, viene mantenuta la coerenza spaziale tra gli elementi collegati, preservando le relative posizioni nell’anteprima.</p></td></tr></tbody></table><p></p><h3 id="proprietà-arco"><a class="header" href="#proprietà-arco">Proprietà arco</a></h3><p>Selezionando un arco nell’area di lavoro, la colonna laterale destra viene aggiornata per mostrare le caratteristiche dell’entità selezionata, che possono essere modificate dall’utente.<br>L’arco può essere definito in diversi modi: per punti, come centro, raggio e arco , ecc…<br>Le varie caratteristiche vengono mostrate nella finestra che appare sulla destra.<br>La variazione di alcune caratteristiche può essere soddisfatta in diversi modi, ad esempio cambiando il raggio o il punto iniziale/finale; per discriminare il modo di modifica è presente il flag “Centro fisso”.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="89969649-a12f-497f-aa87-75127a920161"><colgroup><col style="width: 319.0px;"><col style="width: 1480.0px;"></colgroup><tbody><tr><td><p><strong>Raggio</strong></p></td><td><p>Indica la distanza costante tra il centro di una curva circolare o di un arco e qualsiasi punto lungo la sua circonferenza.</p></td></tr><tr><td><p><strong>Angolo iniziale/finale</strong></p></td><td><p>Angolo del punto iniziale o finale rispetto al centro.</p></td></tr><tr><td><p><strong>Tangente Prec. / Succ.</strong></p></td><td><p>Modifica l’angolo iniziale o finale in modo che l’arco risulti tangente all’entità precedente o successiva.</p></td></tr><tr><td><p><strong>Centro fisso</strong></p></td><td><p>Permette di decidere le conseguenze di una modifica (raggio o angolo).</p></td></tr></tbody></table><p></p><h3 id="sposta--muovi-selezione"><a class="header" href="#sposta--muovi-selezione">Sposta / Muovi selezione</a></h3><p>All’abilitazione del comando “sposta” appare la finestra con i parametri per la movimentazione. La movimentazione può essere fatta direttamente tramite click sull’area di disegno (anche con gli snap attivi) o tramite impostazione dei parametri.<br>La conferma dello spostamento deve essere data con il pulsante “OK”.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="04cc1745-ccf8-4b7c-a6d1-68b1259a3955"><colgroup><col style="width: 330.0px;"><col style="width: 1464.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_ISOCAM/2.3.3.1-20250730-140447.png" alt="2.3.3.1-20250730-140447.png" width="200" onclick="showModal(this.src)"></div></td><td><p><strong>Selettore posizione</strong><br>Sposta del valore “Delta” impostato nella direzione della freccia.<br>Il pulsante al centro azzera lo spostamento</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_ISOCAM/2.4.2-20250730-130907.png" alt="2.4.2-20250730-130907.png" width="200" onclick="showModal(this.src)"></div></td><td><p><strong>Traslazione</strong><br>Totale dello spostamento rispetto alla posizione iniziale.<br>I numeri nelle caselle di destra servono per il comando di “copia matrice”</p></td></tr><tr><td><p><strong>Muovi copia</strong></p></td><td><p>Se abilitata, la funzione crea una copia dell’entità selezionata e applica lo spostamento solo a questa copia, lasciando invariata l’entità originale.</p>
+<div id="admonition-nota-1" class="admonition admonish-info" role="note" aria-labelledby="admonition-nota-1-title">
+<div class="admonition-title">
+<div id="admonition-nota-1-title">
+<p>NOTA</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-nota-1"></a>
+</div>
+<div>
+<p>Questo comando è visibile solo se i valori della seconda colonna del parametro “Traslazione“ valgono 1.</p>
+</div>
+</div>
+</td></tr></tbody></table><p></p><h3 id="specchia"><a class="header" href="#specchia">Specchia</a></h3><p>Dopo aver abilitato il comando è necessario impostare il centro di simmetria tramite click sull’area di lavoro o impostando le quote, selezionare la direzione dello specchia e premere il pulsante “OK” per confermare.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="137bb05b-527d-4baa-a8ca-728c6f10926e"><colgroup><col style="width: 293.0px;"><col style="width: 1506.0px;"></colgroup><tbody><tr><td><p><strong>Centro di simmetria</strong></p></td><td><p>Consente di modificare le coordinate del centro di simmetria utilizzato per il ribaltamento orizzontale o verticale dell’entità selezionata.</p></td></tr><tr><td><p><strong>Coordinate da invertire</strong></p></td><td><p>Indica se eseguire il ribaltamento in orizzontale, in verticale oppure in entrambe le direzioni.</p></td></tr><tr><td><p><strong>Specchia copia</strong></p></td><td><p>Se attivata, l’operazione di specchiatura viene eseguita creando una copia specchiata dell’entità selezionata, mantenendo intatta l’originale.</p></td></tr></tbody></table><p></p><h3 id="raccorda"><a class="header" href="#raccorda">Raccorda</a></h3><p>Un primo messaggio, visualizzato nella colonna di destra, consente all’operatore di impostare il raggio del raccordo e confermare la selezione.</p><div class="TextAlignCenter"><img src="attachments/2.7_ISOCAM/2.1.5.1-20250804-061131.png" alt="2.1.5.1-20250804-061131.png" width="288" onclick="showModal(this.src)"></div><p>Un secondo messaggio informa l’operatore che è ora possibile inserire raccordi tra due linee, operazione disponibile fino alla disattivazione della funzionalità.</p><div class="TextAlignCenter"><img src="attachments/2.7_ISOCAM/2.1.5.2-20250804-061226.png" alt="2.1.5.2-20250804-061226.png" width="288" onclick="showModal(this.src)"></div><p>Di seguito l’esempio di applicazione di raccordi su due linee adiacenti e una linea adiacente a un arco:</p><div class="TextAlignCenter"><img src="attachments/2.7_ISOCAM/2.1.5.3-20250804-061606.png" alt="2.1.5.3-20250804-061606.png" width="800" onclick="showModal(this.src)"></div><p>Dopo l’applicazione dei raccordi:</p><div class="TextAlignCenter"><img src="attachments/2.7_ISOCAM/2.1.5.4-20250804-061702.png" alt="2.1.5.4-20250804-061702.png" width="800" onclick="showModal(this.src)"></div><p></p><h2 id="barra-inferiore-1"><a class="header" href="#barra-inferiore-1">Barra inferiore</a></h2><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="ee37faf0-e1dc-4a46-bcf1-162ad00e56f2"><colgroup><col style="width: 270.0px;"><col style="width: 1528.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_ISOCAM/2.4.1-20250730-140958.png" alt="2.4.1-20250730-140958.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Importa file DXF</strong><br>Importa file DXF Non ci sono vincoli sul formato del file ma si consiglia di importare file di piccole dimensioni in formato R12.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_ISOCAM/2.4.2-20250730-141038.png" alt="2.4.2-20250730-141038.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Esporta file DXF</strong><br>Esporta il disegno in formato DXF.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_ISOCAM/2.4.3-20250730-141114.png" alt="2.4.3-20250730-141114.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Annulla modifica</strong><br>Annulla l’ultimo comando eseguito. </p>
+<div id="admonition-nota-2" class="admonition admonish-info" role="note" aria-labelledby="admonition-nota-2-title">
+<div class="admonition-title">
+<div id="admonition-nota-2-title">
+<p>NOTA</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-nota-2"></a>
+</div>
+<div>
+<p>Il pulsante “Esc” della tastiera esegue la stessa funzione.</p>
+</div>
+</div>
+</td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_ISOCAM/2.4.4_Off_On-20250804-064138.png" alt="2.4.4_Off_On-20250804-064138.png" width="120" onclick="showModal(this.src)"></div></td><td><p><strong>Snap inizio/fine</strong><br>Facilita la selezione del punto iniziale o finale di un arco o di una linea.<br>Avvicinando il cursore a un vertice, viene evidenziato il punto più vicino mediante un riquadro giallo contenente una <strong>X</strong> e le coordinate del vertice.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_ISOCAM/2.4.5_Off_On-20250804-064117.png" alt="2.4.5_Off_On-20250804-064117.png" width="120" onclick="showModal(this.src)"></div></td><td><p><strong>Comando Orto</strong><br>Abilita/Disabilita il comando “Orto” per mantenere i tratti ortogonali.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_ISOCAM/2.4.6_Off_On-20250804-064055.png" alt="2.4.6_Off_On-20250804-064055.png" width="120" onclick="showModal(this.src)"></div></td><td><p><strong>Comando Tratti connessi</strong><br>Abilita/Disabilita il comando “Tratti connessi”. Il punto iniziale del tratto seguente sarà il punto finale del tratto precedente.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_ISOCAM/2.4.7_Off_On-20250804-064033.png" alt="2.4.7_Off_On-20250804-064033.png" width="120" onclick="showModal(this.src)"></div></td><td><p><strong>Griglia di disegno</strong><br>Abilita/Disabilita la griglia nella finestra di disegno. I parametri della griglia sono accessibili con il pulsante delle impostazioni.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_ISOCAM/2.4.15-20250804-070203.png" alt="2.4.15-20250804-070203.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Undo Zoom</strong><br>Ripristina lo zoom precedente.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_ISOCAM/2.4.16-20250804-070239.png" alt="2.4.16-20250804-070239.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Seleziona selezione per Zoom</strong><br>Seleziona un’area di focus per lo zoom.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_ISOCAM/2.4.17-20250804-070308.png" alt="2.4.17-20250804-070308.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Ripristina Zoom</strong><br>Riporta lo zoom allo stato originario.</p></td></tr></tbody></table><p></p><p></p><h1 id="selezione-profilo-step-2-di-4"><a class="header" href="#selezione-profilo-step-2-di-4">Selezione profilo (step 2 di 4)</a></h1><p>La sezione precedentemente disegnata deve essere applicata su un opportuno profilo.<br>Il profilo può essere lineare o ad arco, nel piano X/Y o anche verticale; in base alla selezione verranno poi abilitate o disabilitate alcune modalità di lavoro. Così, ad esempio, un profilo ad arco nel piano XY può essere lavorato solo con disco verticale e viceversa per un profilo ad arco nel piano XZ o YZ.<br>La tipologia di profilo viene scelta con i pulsanti sulla sinistra, al centro in alto vengono mostrati i parametri per descrivere geometricamente il profilo e nella parte centrale in basso viene mostrata l’anteprima del risultato.</p><div class="TextAlignCenter"><img src="attachments/2.7_ISOCAM/0.2-20250806-063626.png" alt="0.2-20250806-063626.png" width="800" onclick="showModal(this.src)"></div><p></p><p></p><h2 id="parte-centrale"><a class="header" href="#parte-centrale"><strong>Parte centrale</strong></a></h2><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="ac8a5d93-b842-46c3-8a09-49199894f094"><colgroup><col style="width: 394.0px;"><col style="width: 1405.0px;"></colgroup><tbody><tr><td><p><strong>Profilo Lineare</strong></p></td><td><p>Si imposta la direzione e la lunghezza.<br>Il valore “Delta Z” segue come segno l’asse Z (positivo verso l’alto, negativo verso il basso).</p></td></tr><tr><td><p><strong>Profilo ad arco</strong></p></td><td><p>Si definiscono: direzione, piano di lavoro, concavità e le caratteristiche geometriche.<br>Ogni variazione delle caratteristiche geometriche ha ripercussione su altre variabili.</p>
+<div id="admonition-nota-3" class="admonition admonish-info" role="note" aria-labelledby="admonition-nota-3-title">
+<div class="admonition-title">
+<div id="admonition-nota-3-title">
+<p>NOTA</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-nota-3"></a>
+</div>
+<div>
+<p>Il raggio massimo impostabile è 9999mm</p>
+</div>
+</div>
+</td></tr><tr><td><p><strong>Profilo a cerchio</strong></p></td><td><p>Verrà lavorato solo esternamente con disco orizzontale.<br></p></td></tr></tbody></table><p></p><h3 id="parametri-profilo-lineare"><a class="header" href="#parametri-profilo-lineare">Parametri profilo Lineare</a></h3><div class="TextAlignCenter"><img src="attachments/2.7_ISOCAM/3.1.1.png" alt="3.1.1.png" width="800" onclick="showModal(this.src)"></div><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="79f1d4dc-94b6-4051-ad7e-5221a80c1c6b"><colgroup><col style="width: 387.0px;"><col style="width: 1412.0px;"></colgroup><tbody><tr><td><p><strong>Esecuzione Profilo</strong></p></td><td><p>Sono disponibili due modalità: “<strong>Lungo X</strong>” e “<strong>Lungo Y</strong>”.</p></td></tr><tr><td><p><strong>Lunghezza linea (L)</strong></p></td><td><p>Lunghezza orizzontale della base del tratto inclinato, misurata tra il punto di partenza e il punto finale proiettato orizzontalmente.</p></td></tr><tr><td><p><strong>Delta Z punto finale (H)</strong></p></td><td><p>Altezza del tratto inclinato, ovvero la differenza di quota tra l’inizio e la fine del segmento.</p></td></tr></tbody></table><p></p><h3 id="parametri-profilo-arco"><a class="header" href="#parametri-profilo-arco">Parametri profilo Arco</a></h3><div class="TextAlignCenter"><img src="attachments/2.7_ISOCAM/3.1.2.png" alt="3.1.2.png" width="800" onclick="showModal(this.src)"></div><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="25a6fcde-25c6-4891-9c3a-cd943526af08"><colgroup><col style="width: 390.0px;"><col style="width: 1409.0px;"></colgroup><tbody><tr><td><p><strong>Esecuzione Profilo</strong></p></td><td><p>Scelta tra “<strong>Lungo X</strong>“ oppure “<strong>Lungo Y</strong>“.</p></td></tr><tr><td><p><strong>Orientamento lavorazione</strong></p></td><td><p>Scelta tra “<strong>Piano XZ</strong>“ oppure “<strong>Piano XY</strong>“.</p></td></tr><tr><td><p><strong>Tipo di lavorazione</strong></p></td><td><p>Scelta tra “<strong>Concavo</strong>“ oppure “<strong>Convesso</strong>“.</p></td></tr><tr><td><p><strong>Lunghezza (L)</strong></p></td><td><p>Distanza orizzontale tra i due estremi dell’arco, ovvero la corda che collega l’inizio e la fine dell’arco.</p></td></tr><tr><td><p><strong>Raggio di partenza (R)</strong></p></td><td><p>Distanza dal centro dell’arco al punto dell’arco stesso. Determina la curvatura complessiva dell’arco.</p></td></tr><tr><td><p><strong>Sviluppo in verticale (H)</strong></p></td><td><p>Altezza massima dell’arco rispetto alla corda L; rappresenta la distanza verticale tra il punto più alto dell’arco e la corda.</p></td></tr><tr><td><p><strong>Ampiezza angolo (A)</strong></p></td><td><p>Angolo al centro sotteso dall’arco, espresso in gradi.</p></td></tr></tbody></table>
+<div id="admonition-nota-4" class="admonition admonish-info" role="note" aria-labelledby="admonition-nota-4-title">
+<div class="admonition-title">
+<div id="admonition-nota-4-title">
+<p>NOTA</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-nota-4"></a>
+</div>
+<div>
+<p>La modifica di uno dei seguenti valori: “Lunghezza”, “Raggio di partenza”, “Sviluppo in verticale” o “Ampiezza dell’angolo”, comporta il ricalcolo automatico dei parametri rimanenti.</p>
+</div>
+</div>
+<p></p><p></p><p><strong>Parametri profilo Cerchio</strong></p><div class="TextAlignCenter"><img src="attachments/2.7_ISOCAM/3.1.3.png" alt="3.1.3.png" width="800" onclick="showModal(this.src)"></div><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="1394e894-2567-43c0-bb3d-91447cd98e95"><colgroup><col style="width: 389.0px;"><col style="width: 1410.0px;"></colgroup><tbody><tr><td><p><strong>Raggio di partenza (R)</strong></p></td><td><p>Determina il raggio dal punto di partenza.</p></td></tr><tr><td><p><strong>Custodia</strong></p></td><td><p>Questo flag indica se nella fase di lavoro l’asse C ruota (custodia attiva) o rimane fermo con C=0_ (custodia non presente).</p></td></tr></tbody></table><p></p><h2 id="barra-inferiore-2"><a class="header" href="#barra-inferiore-2">Barra inferiore</a></h2><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="e9d4d382-5821-4542-be9c-fb4895f486d5"><colgroup><col style="width: 393.0px;"><col style="width: 1404.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_ISOCAM/3.3.1-20250804-074510.png" alt="3.3.1-20250804-074510.png" width="56" onclick="showModal(this.src)"></div></td><td><p><strong>Vista tavola</strong><br>Abilita/Disabilita la vista della tavola.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_ISOCAM/3.3.2-20250804-073744.png" alt="3.3.2-20250804-073744.png" width="56" onclick="showModal(this.src)"></div></td><td><p><strong>Luci aggiuntive</strong><br>Abilita/Disabilita luci aggiuntive per la vista 3D.<br></p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_ISOCAM/3.3.4-20250804-074411.png" alt="3.3.4-20250804-074411.png" width="236" onclick="showModal(this.src)"></div></td><td><p><strong>Gestione delle viste di default</strong><br>Permette di modificare il punto di vista.</p></td></tr></tbody></table><p></p><p></p><h1 id="parametri-di-lavoro-step-3-di-4"><a class="header" href="#parametri-di-lavoro-step-3-di-4">Parametri di lavoro (step 3 di 4)</a></h1><p>La pagina è divisa in riquadri con diversi tipi di dati da impostare per la lavorazione</p><div class="TextAlignCenter"><img src="attachments/2.7_ISOCAM/0.3-20250806-063601.png" alt="0.3-20250806-063601.png" width="800" onclick="showModal(this.src)"></div><p></p><h2 id="parametri-utensile"><a class="header" href="#parametri-utensile"><strong>Parametri utensile</strong></a></h2><p>L’operatore può definire i parametri dell’utensile:</p><div class="TextAlignCenter"><img src="attachments/2.7_ISOCAM/4.1-20250804-080346.png" alt="4.1-20250804-080346.png" width="250" onclick="showModal(this.src)"></div><p>Se si tratta di un nuovo progetto i dati vengono caricati automaticamente in base all’utensile fisicamente installato; se si tratta invece di una lavorazione precedentemente salvata, i dati dell’utensile saranno quelli già salvati nel programma precedente.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="178f4104-1b35-4d87-8695-fe482ddf8b4e"><colgroup><col style="width: 287.0px;"><col style="width: 1511.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_ISOCAM/4.1.1-20250804-083117.png" alt="4.1.1-20250804-083117.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Nome utensile</strong><br>Viene mostrato il nome dell’utensile selezionato.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_ISOCAM/4.1.2-20250804-083315.png" alt="4.1.2-20250804-083315.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Spessore</strong><br>Indica lo spessore della lama nella direzione del taglio (spessore del corpo disco).</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_ISOCAM/4.1.3-20250804-083441.png" alt="4.1.3-20250804-083441.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Diametro</strong><br>Diametro massimo del disco, misurato da un’estremità all’altra del bordo dentato.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_ISOCAM/4.1.4-20250804-083610.png" alt="4.1.4-20250804-083610.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>CRF (Centro Rotazione Flangia)</strong><br>Permette di misurare la distanza del filo interno del dente del disco attualmente montato in macchina, dall’asse di rotazione C.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_ISOCAM/4.1.5-20250804-083657.png" alt="4.1.5-20250804-083657.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Quota di sicurezza</strong><br>Distanza di sicurezza tra il disco ed il banco di lavoro.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_ISOCAM/4.1.6-20250804-083753.png" alt="4.1.6-20250804-083753.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>RPM (Giri Al Minuto)</strong><br>Numero di rotazioni al minuto del disco durante il funzionamento.</p></td></tr></tbody></table><p></p><h2 id="orientamento-lavorazione"><a class="header" href="#orientamento-lavorazione">Orientamento lavorazione</a></h2><div class="TextAlignCenter"><img src="attachments/2.7_ISOCAM/4.2.0.png" alt="4.2.0.png" width="250" onclick="showModal(this.src)"></div><p></p><h3 id="profilo-lineare"><a class="header" href="#profilo-lineare">Profilo Lineare</a></h3><p>Per profili lineari c’è la possibilità di scegliere se eseguire la lavorazione con disco in verticale o con disco in orizzontale (da fronte o da sinistra).</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="4abdee3c-13ec-473f-ac8c-470997b24b9e"><tbody><tr><td><p><strong>Orientamento Verticale</strong></p></td><td><p><strong>Orientamento Orizzontale</strong></p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_ISOCAM/4.2.1-20250804-100010.png" alt="4.2.1-20250804-100010.png" width="297" onclick="showModal(this.src)"></div></td><td><div class="TextAlignCenter"><img src="attachments/2.7_ISOCAM/4.2.2-20250804-100204.png" alt="4.2.2-20250804-100204.png" width="297" onclick="showModal(this.src)"></div></td></tr></tbody></table><p></p><h3 id="profilo-arcato"><a class="header" href="#profilo-arcato">Profilo Arcato</a></h3><p>Per profili curvilinei l’orientamento è vincolato dal tipo di profilo:</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="5ed2b7b7-6676-42f4-a803-0f2ff3f62c41"><colgroup><col style="width: 238.0px;"><col style="width: 735.0px;"><col style="width: 825.0px;"></colgroup><tbody><tr><td><p><strong>Tipo di lavorazione</strong></p></td><td><p><strong>Orientamento Verticale</strong></p></td><td><p><strong>Orientamento Orizzontale</strong></p></td></tr><tr><td><p><strong>Concava</strong></p></td><td><div class="TextAlignCenter"><img src="attachments/2.7_ISOCAM/4.2.3-20250804-110311.png" alt="4.2.3-20250804-110311.png" width="297" onclick="showModal(this.src)"></div></td><td><div class="TextAlignCenter"><img src="attachments/2.7_ISOCAM/4.2.6-20250804-110644.png" alt="4.2.6-20250804-110644.png" width="297" onclick="showModal(this.src)"></div></td></tr><tr><td><p><strong>Convessa</strong></p></td><td><div class="TextAlignCenter"><img src="attachments/2.7_ISOCAM/4.2.5-20250804-110505.png" alt="4.2.5-20250804-110505.png" width="297" onclick="showModal(this.src)"></div></td><td><div class="TextAlignCenter"><img src="attachments/2.7_ISOCAM/4.2.4-20250804-110410.png" alt="4.2.4-20250804-110410.png" width="297" onclick="showModal(this.src)"></div></td></tr></tbody></table><p></p><h2 id="tipo-di-lavorazione"><a class="header" href="#tipo-di-lavorazione">Tipo di lavorazione</a></h2><div class="TextAlignCenter"><img src="attachments/2.7_ISOCAM/4.6.0.png" alt="4.6.0.png" width="535" onclick="showModal(this.src)"></div><p>La lavorazione può essere eseguita in due modalità:</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="7ea1c737-446b-4e26-9c13-7a4d42cdaaf0" data-table-display-mode="default"><colgroup><col style="width: 384.0px;"><col style="width: 1415.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_ISOCAM/4.6.1.png" alt="4.6.1.png" width="115" onclick="showModal(this.src)"></div></td><td><p><strong>Modalità per tagli</strong><br>Permette di eseguire tagli paralleli fra loro che seguono il profilo selezionato.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_ISOCAM/4.6.2.png" alt="4.6.2.png" width="115" onclick="showModal(this.src)"></div></td><td><p><strong>Modalità spatolato</strong><br>Permette di eseguire tagli paralleli fra loro, trasversali alla direzione del profilo.</p></td></tr></tbody></table><p></p><h3 id="configurazione-per-tagli"><a class="header" href="#configurazione-per-tagli">Configurazione Per tagli</a></h3><p>Verranno eseguiti tagli paralleli fra loro che seguono il profilo selezionato ad una distanza fra i tagli presa da parametro.</p><div class="TextAlignCenter"><img src="attachments/2.7_ISOCAM/4.6.3.png" alt="4.6.3.png" width="409" onclick="showModal(this.src)"></div><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="76cec607-fe43-4e11-83e9-cff64f0b277c"><colgroup><col style="width: 366.0px;"><col style="width: 1433.0px;"></colgroup><tbody><tr><td><p><strong>Passo</strong></p></td><td><p>Indica la distanza fra la posizione di un taglio e di quello adiacente. Se superiore allo spessore del disco rimarrà del materiale fra le passate.</p></td></tr><tr><td><p><strong>Allungo inizio / fine</strong></p></td><td><p>Permette di allungare un taglio nella parte iniziale / finale del valore impostato.</p></td></tr><tr><td><p><strong>Più Auto</strong></p></td><td><p>L’abilitazione del flag comporta un incremento automatico del valore di allungo, sulla base di un valore stabilito dal sistema.</p></td></tr><tr><td><p><strong>Sovramateriale</strong></p></td><td><p>Spessore del materiale da lasciare sopra la sezione finale desiderata.</p></td></tr><tr><td><p><strong>Direzione tagli</strong></p></td><td><p>La direzione del taglio può avvenire da destra verso sinistra oppure da sinistra verso destra, a seconda della configurazione selezionata.</p></td></tr></tbody></table><p></p><h3 id="configurazione-spatolato"><a class="header" href="#configurazione-spatolato">Configurazione Spatolato</a></h3><p>Il movimento sarà trasversale alla direzione del profilo, viene utilizzata per una finitura superficiale del pezzo.</p><div class="TextAlignCenter"><img src="attachments/2.7_ISOCAM/4.6.4.png" alt="4.6.4.png" width="409" onclick="showModal(this.src)"></div><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="d0e9dece-7cd7-4ea3-96d1-db66e652849a"><colgroup><col style="width: 368.0px;"><col style="width: 1431.0px;"></colgroup><tbody><tr><th data-highlight-colour="#ffffff"><p><strong>Passo di spatolamento</strong></p></th><td data-highlight-colour="#ffffff"><p>Indica la distanza tra un movimento trasversale e il successivo lungo la direzione del profilo.</p></td></tr></tbody></table><p></p><h2 id="velocità-e-modo-di-taglio"><a class="header" href="#velocità-e-modo-di-taglio">Velocità e modo di taglio </a></h2><p>In base alle selezioni precedenti appaiono diversi menù per la selezione dei parametri necessari a definire la lavorazione.</p><div class="TextAlignCenter"><img src="attachments/2.7_ISOCAM/4.4.png" alt="4.4.png" width="611" onclick="showModal(this.src)"></div><p>Se il tipo di lavorazione selezionata è la <strong>Configurazione per Tagli</strong>, saranno disponibili due tipologie di parametri di lavoro:</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="def0ed26-1234-49cd-8760-ab7e5440c67a"><colgroup><col style="width: 367.0px;"><col style="width: 1432.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_ISOCAM/4.4.1_Off_On_b-20250804-121406.png" alt="4.4.1_Off_On_b-20250804-121406.png" width="210" onclick="showModal(this.src)"></div></td><td><p><strong>Modalità Marmo </strong><br>Il taglio è effettuato in una sola passata.<br></p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_ISOCAM/4.4.2_Off_On_b-20250804-121500.png" alt="4.4.2_Off_On_b-20250804-121500.png" width="210" onclick="showModal(this.src)"></div></td><td><p><strong>Modalità Granito</strong><br>Il taglio effettuato a step.<br></p></td></tr></tbody></table><p></p><h3 id="modalità-marmo"><a class="header" href="#modalità-marmo">Modalità Marmo</a></h3><div class="TextAlignCenter"><img src="attachments/2.7_ISOCAM/4.4.png" alt="4.4.png" width="611" onclick="showModal(this.src)"></div><p>Parametri generali:</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="dbec0ded-672b-411b-9963-a1533367c765"><colgroup><col style="width: 368.0px;"><col style="width: 1431.0px;"></colgroup><tbody><tr><td><p><strong>Tagli nei due sensi (finitura)</strong></p></td><td><p>Questo flag permette di impostare una velocità di <strong>ritorno</strong> diversa dalla velocità di <strong>andata</strong>.</p></td></tr><tr><td><p><strong>Non alzare mai (finitura)</strong></p></td><td>
+<div id="admonition-attenzione" class="admonition admonish-warning" role="note" aria-labelledby="admonition-attenzione-title">
+<div class="admonition-title">
+<div id="admonition-attenzione-title">
+<p>ATTENZIONE!</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-attenzione"></a>
+</div>
+<div>
+<p>Quando questo parametro è abilitato, è necessario che il disco fuoriesca completamente dalla sezione di taglio.</p>
+</div>
+</div>
+</td></tr></tbody></table><p>Parametri di velocità:</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="24424499-2873-4023-921b-3071ef3df351"><colgroup><col style="width: 372.0px;"><col style="width: 1427.0px;"></colgroup><tbody><tr><td><p><strong>Andata</strong></p></td><td><p>La velocità di esecuzione di andata della passata.</p></td></tr><tr><td><p><strong>Ritorno</strong></p></td><td><p>La velocità di esecuzione di ritorno della passata.</p></td></tr><tr><td><p><strong>Penetrazione</strong></p></td><td><p>La velocità di esecuzione di penetrazione della passata.</p></td></tr><tr><td><p><strong>Minima</strong></p></td><td><p>Impostando un valore diverso da zero la velocità di taglio dipenderà dalla profondità del taglio stesso, si avrà quindi un movimento a velocità di andata per tagli a profondità nulla e a velocità minima quando il taglio è alla massima profondità per la sezione selezionata.</p></td></tr></tbody></table><p></p><h3 id="modalità-granito"><a class="header" href="#modalità-granito">Modalità Granito</a></h3><div class="TextAlignCenter"><img src="attachments/2.7_ISOCAM/4.4.3.png" alt="4.4.3.png" width="516" onclick="showModal(this.src)"></div><p>Parametri generali:</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="a118572f-2676-4dce-bbc4-89c538f4a19a"><colgroup><col style="width: 368.0px;"><col style="width: 1431.0px;"></colgroup><tbody><tr><td><p><strong>Asportazione in taglio</strong></p></td><td><p>Quantità di materiale che viene asportata nella passata di andata.</p></td></tr><tr><td><p><strong>Asportazione in ritorno</strong></p></td><td><p>Quantità di materiale che viene asportata nella passata di ritorno.</p></td></tr></tbody></table><p></p><p>Se il tipo di lavorazione selezionata è la <strong>Configurazione Spatolato</strong>, sarà disponibile un unico parametro di lavoro:</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="4621747e-1498-49d1-b9c4-62de1fdcaaca"><colgroup><col style="width: 379.0px;"><col style="width: 1420.0px;"></colgroup><tbody><tr><th data-highlight-colour="#ffffff"><p><strong>Velocità - Lavorazione</strong></p></th><td data-highlight-colour="#ffffff"><p>Imposta la velocità con cui il tipo di lavorazione spatolato verrà eseguita.</p></td></tr></tbody></table><p></p><h2 id="parametri-di-lavorazione-avanzato"><a class="header" href="#parametri-di-lavorazione-avanzato">Parametri di lavorazione (avanzato)</a></h2><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="ba16bc93-1f99-47bf-b640-dcac17f3ff5b"><colgroup><col style="width: 257.0px;"><col style="width: 1542.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_ISOCAM/4.5.1.png" alt="4.5.1.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Parametri di lavorazione (avanzato)</strong><br>Questo pulsante consente di accedere alla finestra dei parametri avanzati della lavorazione.</p></td></tr></tbody></table><p>In questa schermata è possibile verificare e modificare diversi parametri, molti dei quali sono stati impostati negli step 2 e 3.</p><div class="TextAlignCenter"><img src="attachments/2.7_ISOCAM/4.5-20250804-082714.png" alt="4.5-20250804-082714.png" width="400" onclick="showModal(this.src)"></div><p>La prima operazione consiste nella selezione del <strong>tipo di profilo</strong> da utilizzare:</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="c0b7d274-2dc6-4004-a29d-6c71cb07f8c2"><colgroup><col style="width: 398.0px;"><col style="width: 1401.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_ISOCAM/4.5.1.1_b-20250804-085943.png" alt="4.5.1.1_b-20250804-085943.png" width="139" onclick="showModal(this.src)"></div></td><td><p><strong>Lineare</strong><br>Verrà eseguito un taglio lineare.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_ISOCAM/4.5.1.2_b-20250804-090056.png" alt="4.5.1.2_b-20250804-090056.png" width="139" onclick="showModal(this.src)"></div></td><td><p><strong>Arcato</strong><br>Verrà eseguito un taglio arcato.</p></td></tr></tbody></table><p>E successivamente i seguenti parametri:</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="70a14959-ae8f-48af-811d-3c9181390a9c"><colgroup><col style="width: 400.0px;"><col style="width: 1399.0px;"></colgroup><tbody><tr><td><p><strong>Lavorazione</strong></p></td><td><p>Può essere per <strong>tagli</strong> o <strong>spatolato</strong>.</p></td></tr><tr><td><p><strong>Orientamento lavorazione</strong></p></td><td><p>La lavorazione può essere eseguita in <strong>verticale</strong> oppure in <strong>orizzontale</strong>.</p></td></tr><tr><td><p><strong>Esecuzione profilo lungo</strong></p></td><td><p>Lungo <strong>X</strong> oppure <strong>Y</strong>.</p></td></tr></tbody></table><p></p><h3 id="dati-di-lavorazione"><a class="header" href="#dati-di-lavorazione">Dati di Lavorazione</a></h3><p>Per il profilo Lineare è possibile impostare i seguenti parametri:</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="dff87c51-566c-487d-a9be-e8decdce84f0"><colgroup><col style="width: 417.0px;"><col style="width: 1382.0px;"></colgroup><tbody><tr><td><p><strong>Spessore del materiale</strong></p></td><td><p>Definisce la misura dello spessore del materiale (in mm)</p></td></tr><tr><td><p><strong>Inclinazione del profilo (mm)</strong></p></td><td><p>Permette di definire l’inclinazione del profilo indicando la differenza di altezza tra il punto finale ed il punto iniziale.</p></td></tr></tbody></table><p></p><p>Per il profilo Arcato sono messi a disposizione i parametri impostabili nei passi precedenti.</p><p></p><p>Entrambi i profili hanno inoltre i seguenti <strong>dati di lavorazione</strong> in comune:</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="8059b6df-c5d7-4150-9e25-e8c3573cb40a"><colgroup><col style="width: 411.0px;"><col style="width: 1388.0px;"></colgroup><tbody><tr><td><p><strong>Passo</strong></p></td><td><p><strong>Fisso in Y: </strong>mantiene la distanza fissa fra i tagli indipendentemente dalla sezione sottostante<br><strong>Lungo la corda:</strong> il passo viene riferito alla distanza fra i punti di contatto sulla sezione, lo spostamento cambia quindi in base alla pendenza della sezione</p></td></tr><tr><td><p><strong>Direzione tagli</strong></p></td><td><p>Scelta tra “<strong>Y_</strong>“ oppure “<strong>Y-</strong>“.</p></td></tr><tr><td><p><strong>Lavorazione completa del profilo</strong></p></td><td><p>Permette di scegliere se eseguire o meno la lavorazione completa del profilo.</p></td></tr><tr><td><p><strong>Forza tagli su angoli</strong></p></td><td><p>Aggiunge tagli nei punti di variazione di pendenza. </p></td></tr><tr><td><p><strong>Togli sovrapposti</strong></p></td><td><p>Se questo flag è abilitato e il valore “<strong>Passo</strong>“ è maggiore del valore “<strong>Spessore</strong>“, verranno eliminati i tagli sovrapposti.</p></td></tr><tr><td><p><strong>Passo ottimizzato (tintura) % Sorm.</strong></p></td><td><p>Se il valore “<strong>Passo</strong>“ è minore del valore “<strong>Spessore</strong>“, il passo sarà ottimizzato sulle linee orizzontali.</p></td></tr><tr><td><p><strong>Esegui taglio all’inizio</strong></p></td><td><p>Permette di scegliere se eseguire o meno un taglio all’inizio del profilo. Tramite la casella a fianco è possibile impostare la profondità di questo taglio.</p></td></tr><tr><td><p><strong>Esegui taglio alla fine</strong></p></td><td><p>Permette di scegliere se eseguire o meno un taglio alla fine del profilo. Tramite la casella a fianco è possibile impostare la profondità di questo taglio.</p></td></tr></tbody></table><p></p><h3 id="dati-utensile"><a class="header" href="#dati-utensile">Dati Utensile</a></h3><p>Sono qui riportati alcuni dati precedentemente impostati e altri parametri specifici per l’utensile.</p><div class="TextAlignCenter"><img src="attachments/2.7_ISOCAM/4.5.3.0-20250804-092838.png" alt="4.5.3.0-20250804-092838.png" width="160" onclick="showModal(this.src)"></div><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="d0a65bef-7547-4a29-91da-5963c2924f61"><colgroup><col style="width: 361.0px;"><col style="width: 1437.0px;"></colgroup><tbody><tr><td><p><strong>Descrizione utensile</strong></p></td><td><p>Una rapida descrizione dell’utensile</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_ISOCAM/4.5.3.1.0-20250804-093318.png" alt="4.5.3.1.0-20250804-093318.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Magazzino utensili</strong><br>L’apertura di questo pannello consente la gestione degli utensili: è possibile creare nuovi utensili, modificare quelli esistenti, cambiarne l’ordine nella lista oppure rimuoverli.</p></td></tr><tr><td><p><strong>N_ Posizione</strong></p></td><td><p>Indica il numero della posizione all’interno del magazzino dell’utensile selezionato.</p></td></tr><tr><td><p><strong>N_ Correttore</strong></p></td><td><p>Indica il numero che identifica il nome dell’utensile selezionato.</p></td></tr><tr><td><p><strong>Spessore anima disco (SA)</strong></p></td><td><p>Spessore del corpo portante centrale del disco.</p></td></tr><tr><td><p><strong>Forma dente</strong></p></td><td><p>L’operatore potrà scegliere una tra tre forma del dente:</p><ul><li><p>Quadrata</p></li><li><p>Sferica</p></li><li><p>Smussata (in questo caso è possibile definire i valori di smussatura)</p></li></ul></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_ISOCAM/4.5.3.2_b-20250804-094307.png" alt="4.5.3.2_b-20250804-094307.png" width="68" onclick="showModal(this.src)"></div></td><td><p><strong>Scelta materiale</strong><br>Questo pulsante posizionato appena a sinistra del valore della <strong>velocità di penetrazione</strong> permette di selezionare il materiale tra:</p><ul><li><p>Graniti ad alto tenore di quarto</p></li><li><p>Graniti a basso tenore di quarzo</p></li><li><p>Marmo</p></li><li><p>Travertino</p></li><li><p>Arenarie</p></li></ul></td></tr><tr><td><p><strong>Priorità</strong></p></td><td><p>È possibile stabilire un valore di priorità (rigorosamente positivo).</p></td></tr><tr><td><p><strong>Profondità</strong></p></td><td><p>Indica la profondità del taglio utensile.</p></td></tr></tbody></table><p></p><p></p><h1 id="lavorazione-step-4-di-4"><a class="header" href="#lavorazione-step-4-di-4">Lavorazione (step 4 di 4)</a></h1><p>In base alle selezioni precedenti viene visualizzata un’anteprima dei tagli calcolati. La pagina è divisa in diverse aree con i comandi per gestire le modifiche.</p><div class="TextAlignCenter"><img src="attachments/2.7_ISOCAM/0.4-20250806-063532.png" alt="0.4-20250806-063532.png" width="800" onclick="showModal(this.src)"></div><p>Una volta verificati i tagli o effettuate le modifiche desiderate premere sul pulsante “AVANTI” per aprire la pagina per generare il programma di taglio.</p><p></p><h2 id="menù-1"><a class="header" href="#menù-1">Menù</a></h2><p>Nel quarto step viene resa visibile un’ulteriore voce nel menù superiore:</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="ef535af7-f4b6-4c58-bc05-78443898ec1f"><colgroup><col style="width: 269.0px;"><col style="width: 1530.0px;"></colgroup><tbody><tr><th data-highlight-colour="#ffffff"><p><strong>Tagli</strong></p></th><td data-highlight-colour="#ffffff"><p>Questo menù offre all’operatore alcune rapide impostazioni per i tagli generati.</p></td></tr></tbody></table><p></p><h2 id="barra-superiore-1"><a class="header" href="#barra-superiore-1">Barra superiore</a></h2>
+<div id="admonition-nota-5" class="admonition admonish-info" role="note" aria-labelledby="admonition-nota-5-title">
+<div class="admonition-title">
+<div id="admonition-nota-5-title">
+<p>NOTA</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-nota-5"></a>
+</div>
+<div>
+<p>Alcuni pulsanti rimangono disattivati fino alla selezione di un taglio.</p>
+</div>
+</div>
+<table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="60a0a742-1ebb-403a-9efe-2df311002d71"><colgroup><col style="width: 291.0px;"><col style="width: 1508.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_ISOCAM/5.1.1-20250804-141449.png" alt="5.1.1-20250804-141449.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Generazione tagli</strong><br>Rigenera i tagli con le impostazioni di default.</p>
+<div id="admonition-nota-6" class="admonition admonish-info" role="note" aria-labelledby="admonition-nota-6-title">
+<div class="admonition-title">
+<div id="admonition-nota-6-title">
+<p>NOTA</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-nota-6"></a>
+</div>
+<div>
+<p>Questa operazione viene eseguita automaticamente al raggiungimento del passaggio 4 di 4.</p>
+</div>
+</div>
+</td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_ISOCAM/5.1.2_Off_On-20250804-142945.png" alt="5.1.2_Off_On-20250804-142945.png" width="120" onclick="showModal(this.src)"></div></td><td><p><strong>Modifica la posizione del taglio</strong><br>Permette di modificare la posizione del taglio selezionato</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_ISOCAM/5.1.3-20250804-141717.png" alt="5.1.3-20250804-141717.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Aggiunge un taglio di testa per separazione dei pezzi</strong><br>Inserisce un taglio nel punto iniziale della lavorazione.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_ISOCAM/5.1.4-20250804-141752.png" alt="5.1.4-20250804-141752.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Aggiunge un taglio di coda per separazione dei pezzi</strong><br>Inserisce un taglio nel punto finale della lavorazione.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_ISOCAM/5.1.5-20250804-141826.png" alt="5.1.5-20250804-141826.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Aggiunge un taglio nella posizione del mouse (Ins)</strong><br>Aggiunge un nuovo taglio nella posizione indicata dal mouse.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_ISOCAM/5.1.6_Off_On-20250804-142922.png" alt="5.1.6_Off_On-20250804-142922.png" width="120" onclick="showModal(this.src)"></div></td><td><p><strong>Elimina il taglio selezionato</strong><br>Rimuove il taglio selezionato dall’anteprima e ricalcola il numero progressivo di taglio a tutti i tagli rimanenti.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_ISOCAM/5.1.7_Off_On-20250804-142901.png" alt="5.1.7_Off_On-20250804-142901.png" width="120" onclick="showModal(this.src)"></div></td><td><p><strong>Elimina i tagli precedenti al taglio selezionato</strong><br>Prendendo come riferimento il taglio selezionato, verranno rimossi i tagli con progressivo minore.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_ISOCAM/5.1.8_Off_On-20250804-142834.png" alt="5.1.8_Off_On-20250804-142834.png" width="120" onclick="showModal(this.src)"></div></td><td><p><strong>Elimina i tagli successivi al taglio selezionato</strong><br>Prendendo come riferimento il taglio selezionato, verranno rimossi i tagli con progressivo maggiore.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_ISOCAM/5.1.9-20250804-142145.png" alt="5.1.9-20250804-142145.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Simulazione tagli</strong><br>Verranno selezionati uno alla volta tutti i tagli in base al numero progressivo taglio.</p>
+<div id="admonition-nota-7" class="admonition admonish-info" role="note" aria-labelledby="admonition-nota-7-title">
+<div class="admonition-title">
+<div id="admonition-nota-7-title">
+<p>NOTA</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-nota-7"></a>
+</div>
+<div>
+<p>Per accelerare la rassegna dei tagli, premere il tasto
+<br>
+freccia sinistra
+<br>
+, mentre per rallentarla è sufficiente premere il tasto
+<br>
+freccia destra
+<br>
+.</p>
+</div>
+</div>
+</td></tr></tbody></table><p></p><h2 id="parte-centrale-1"><a class="header" href="#parte-centrale-1"><strong>Parte centrale</strong></a></h2><p></p><h2 id="barra-laterale-destra-2"><a class="header" href="#barra-laterale-destra-2">Barra laterale destra</a></h2><p>Nel quarto step questa barra contiene le seguenti informazioni:</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="27ea8784-afd9-45f2-9324-38de2934b0de"><colgroup><col style="width: 326.0px;"><col style="width: 1473.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_ISOCAM/5.2.1_b-20250805-054658.png" alt="5.2.1_b-20250805-054658.png" width="200" onclick="showModal(this.src)"></div></td><td><p><strong>Progressivo taglio</strong><br>Per ciascun taglio selezionato, vengono visualizzati il numero progressivo del taglio, le coordinate spaziali degli spigoli e lo stato di contatto degli spigoli con le entità, indicando se uno o entrambi risultano a contatto.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_ISOCAM/5.2.2-20250805-054501.png" alt="5.2.2-20250805-054501.png" width="200" onclick="showModal(this.src)"></div></td><td><p><strong>Dati Generali</strong><br>Viene riportata una serie di dati relativi alla lavorazione, impostati nei passi precedenti.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_ISOCAM/5.2.3-20250805-054524.png" alt="5.2.3-20250805-054524.png" width="200" onclick="showModal(this.src)"></div></td><td><p><strong>Dati Tagli</strong><br>Al raggiungimento del passaggio 4, vengono riportati automaticamente alcuni dati calcolati, tra cui: la direzione e il numero dei tagli, nonché l'immersione del taglio con il valore massimo.</p></td></tr></tbody></table><p></p><h2 id="barra-inferiore-3"><a class="header" href="#barra-inferiore-3">Barra inferiore</a></h2><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="54ca7dc9-e822-48a5-b0b7-80998e37712e"><colgroup><col style="width: 422.0px;"><col style="width: 1376.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_ISOCAM/5.3.1-20250805-063514.png" alt="5.3.1-20250805-063514.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Opzioni sul taglio</strong><br>Alternativa al tasto destro del mouse per visualizzazione delle opzioni sul taglio</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_ISOCAM/5.3.2_Off-20250805-064206.png" alt="5.3.2_Off-20250805-064206.png" width="251" onclick="showModal(this.src)"></div><div class="TextAlignCenter"><img src="attachments/2.7_ISOCAM/5.3.2-20250805-063733.png" alt="5.3.2-20250805-063733.png" width="251" onclick="showModal(this.src)"></div></td><td><p><strong>Sposta/allunga tagli</strong><br>Alternativa alle frecce da tastiera per spostare/allungare i tagli</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_ISOCAM/5.3.3_Off_On-20250805-064544.png" alt="5.3.3_Off_On-20250805-064544.png" width="120" onclick="showModal(this.src)"></div></td><td><p><strong>Shift</strong><br>Alternativa al pulsante Shift da tastiera.</p></td></tr></tbody></table><p></p><p></p><h1 id="creazione-programma"><a class="header" href="#creazione-programma">Creazione programma</a></h1><p>Al completamento della preparazione nel quarto step, è possibile accedere alla fase finale, che include la visualizzazione del risultato ottenuto e la generazione del file ISO.<br>Nella parte centrale viene mostrato il 3D della lavorazione generata tenendo in considerazione il modo di lavoro. Cliccando nell’area è possibile ruotare la vista e gestire lo zoom.</p>
+<div id="admonition-nota-8" class="admonition admonish-info" role="note" aria-labelledby="admonition-nota-8-title">
+<div class="admonition-title">
+<div id="admonition-nota-8-title">
+<p>NOTA</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-nota-8"></a>
+</div>
+<div>
+<p>All’avvio del programma viene mostrata l’ultima lavorazione creata.</p>
+</div>
+</div>
+<div class="TextAlignCenter"><img src="attachments/2.7_ISOCAM/image-20250718-055517.png" alt="image-20250718-055517.png" width="800" onclick="showModal(this.src)"></div><p></p><p></p><h1 id="procedura-base"><a class="header" href="#procedura-base">Procedura base</a></h1><h2 id="passo-1"><a class="header" href="#passo-1">Passo 1</a></h2><p>Per iniziare, premere il pulsante "Nuova lavorazione". Assicurarsi che la funzione "Tratti connessi" sia attiva, quindi attivare il comando "linea". Procedere con una serie di clic sull’area di lavoro per disegnare la sezione desiderata. Una volta completato il disegno, fare nuovamente clic sul comando "linea" per disattivarlo. A questo punto, selezionare ogni entità individualmente per verificarne e, se necessario, modificarne i parametri.</p><p></p><h2 id="passo-2"><a class="header" href="#passo-2">Passo 2</a></h2><p>In questo passo l’operatore può impostare alcune generalità basilari legate al tipo di lavorazione ricercata.</p><p></p><h2 id="passo-3"><a class="header" href="#passo-3">Passo 3</a></h2><p>A questo punto è possibile impostare parametri relativi all’utensile, al tipo, orientamento e parametri della lavorazione selezionata.<br>Nel pannello “Parametri di lavorazione (avanzato)“ inoltre è possibile avere una panoramica di tutti i parametri impostati fino a questo momento.</p><p></p><h2 id="passo-4"><a class="header" href="#passo-4">Passo 4</a></h2><p>Viene automaticamente generata una lista di tagli per la lavorazione corrente. È possibile inserire, modificare e rimuovere tagli in relazione alle esigenze operative.<br></p><h2 id="generazione-iso"><a class="header" href="#generazione-iso">Generazione ISO</a></h2><p>Il passo finale della lavorazione permette all’operatore di creare un file ISO dalla lavorazione ottenuta oppure di ricominciare la procedura.</p><!--Label="pbm_scm_two"--><!--Label="pbm_scm_one"--><!--Label="pbm_scm_fou"--><!--Label="pbm_scm"--><!--Label="pbm_scm_thr"--><!--Label="pbm_scm_crt"-->
+                        </main>
+
+                    </div>
+
+                    <img src="images/donatoni_222.jpg">
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="2.6_tagli.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="2.8_lucidatura_(opzionale).html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+
+
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                <a rel="prev" href="2.6_tagli.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="2.8_lucidatura_(opzionale).html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="mermaid.min.js"></script>
+        <script src="mermaid-init.js"></script>
+        <script src="hidemenu.js"></script>
+        <script src="imagemodal.js"></script>
+        <script src="login.js"></script>
+    </div>
+
+    <!-- Modale -->
+    <div id="modal" onclick="closeModal()">
+        <img id="modal-img" src="">
+    </div>;
+
+
+</body>
+</html>
