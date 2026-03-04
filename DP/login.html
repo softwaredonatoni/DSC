@@ -90,7 +90,7 @@
             });
         </script>
 
- 
+
         <script>
 
             function authenticate() {
@@ -98,32 +98,29 @@
                 const username = document.getElementById('username').value;
                 const password = document.getElementById('password').value;
                 const token = 'Donatoni2026!';
-                let text='False';
+                let text = 'False';
                 // Clear any previous error message
                 const errorMessage = document.getElementById('error-message');
                 errorMessage.textContent = '';
 
-                if(password == token)
-                {
-                  text = 'True';
+                if (password == token) {
+                    text = 'True';
                 }
 
-                        if (text == "True") 
-                        {
-                            sessionStorage.setItem("isLoggedIn", "true");
+                if (text == "True") {
+                    sessionStorage.setItem("isLoggedIn", "true");
 
-                            const targetPage = sessionStorage.getItem("pageName");
-                            const redirectTo = targetPage && targetPage.trim() !== "" ? targetPage : "index.html";
+                    const targetPage = sessionStorage.getItem("pageName");
+                    const redirectTo = targetPage && targetPage.trim() !== "" ? targetPage : "index.html";
 
-                            setTimeout(function () {
-                                window.location.href = redirectTo;
-                            }, 1000);
-                        }
-                        else 
-                        {
-                            errorMessage.textContent = 'Username o password non validi';
-                            console.log(`text ricevuto: [${text}]`);
-                        }            
+                    setTimeout(function () {
+                        window.location.href = redirectTo;
+                    }, 1000);
+                }
+                else {
+                    errorMessage.textContent = 'Username o password non validi';
+                    console.log(`text ricevuto: [${text}]`);
+                }
             }
         </script>
 

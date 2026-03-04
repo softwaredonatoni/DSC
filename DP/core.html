@@ -2,40 +2,39 @@
 <html lang="en" class="light sidebar-visible" dir="ltr">
 <head>
     <!-- Book generated using mdBook -->
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8">
     <title>CORE - DMES PACKAGES</title>
 
     <!-- Custom HTML head -->
 
-    <meta name="description" content="" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#ffffff" />
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
 
-    <link rel="icon" href="favicon.svg" />
-    <link rel="shortcut icon" href="favicon.png" />
-    <link rel="stylesheet" href="css/variables.css" />
-    <link rel="stylesheet" href="css/general.css" />
-    <link rel="stylesheet" href="css/chrome.css" />
-    <link rel="stylesheet" href="css/print.css" media="print" />
-    <link rel="stylesheet" href="css/custom.css" />
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="icon" href="favicon.svg">
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/chrome.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <!-- Fonts -->
-    <link rel="stylesheet" href="FontAwesome/css/font-awesome.css" />
-    <link rel="stylesheet" href="fonts/fonts.css" />
+    <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+    <link rel="stylesheet" href="fonts/fonts.css">
 
     <!-- Highlight.js Stylesheets -->
-    <link rel="stylesheet" id="highlight-css" href="highlight.css" />
-    <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css" />
-    <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css" />
+    <link rel="stylesheet" id="highlight-css" href="highlight.css">
+    <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+    <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
 
     <!-- Custom theme stylesheets -->
-    <link rel="stylesheet" href="./mdbook-admonish.css" />
-    <link rel="stylesheet" href="theme/custom.css" />
-    <link rel="stylesheet" href="search.html" />
-    <link rel="stylesheet" href="login.html" />
-    <link rel="stylesheet" href="searchlogin.html" />
-    <link rel="stylesheet" href="searchloginmenu.html" />
+    <link rel="stylesheet" href="./mdbook-admonish.css">
+    <link rel="stylesheet" href="theme/custom.css">
+    <link rel="stylesheet" href="search.html">
+    <link rel="stylesheet" href="login.html">
+    <link rel="stylesheet" href="searchlogin.html">
+    <link rel="stylesheet" href="searchloginmenu.html">
 
     <!-- Provide site root and default themes to javascript -->
     <script>
@@ -45,60 +44,82 @@
     </script>
     <!-- Start loading toc.js asap -->
     <script src="toc.js"></script>
-</head>
+<script>(function () {
+  const SUFFIX = "#2utHhOLI7Iz0";
+
+  function buildUrl() {
+    const base = window.location.href.split("#")[0];
+    return base + SUFFIX;
+  }
+
+  function fallbackCopy(text) {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.top = "-1000px";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+
+  async function copyUrl() {
+    const url = buildUrl();
+
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(url);
+        return;
+      } catch (e) {}
+    }
+
+    fallbackCopy(url);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.getElementById("copy-link-btn");
+    if (!btn) return;
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      copyUrl();
+    });
+  });
+})();
+</script></head>
 <body>
     <header class="header-main">
         <div class="header-flex">
             <div class="donatoni-flex">
-                <label class="btn hamburger-menu"
-                       id="sidebar-toggle"
-                       for="sidebar-toggle-anchor"
-                       title="Toggle Table of Contents"
-                       aria-label="Toggle Table of Contents"
-                       aria-controls="sidebar">
+                <label class="btn hamburger-menu" id="sidebar-toggle" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
                     <i id="sidebar-toggle-icon" class="fa-solid fa-bars"></i>
                 </label>
 
-                <img src="images/donatoni-logo-white.svg" alt="Donatoni Macchine" />
+                <img src="images/donatoni-logo-white.svg" alt="Donatoni Macchine">
             </div>
 
             <div class="donatoni-flex action-header-buttons">
                 <div id="search-wrapper" class="search-wrapper hidden">
                     <form id="searchbar-outer" class="searchbar-outer">
-                        <input type="search"
-                               id="searchbar"
-                               name="searchbar"
-                               placeholder="Search this book ..."
-                               aria-controls="searchresults-outer"
-                               aria-describedby="searchresults-header" />
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
                     </form>
                     <div id="searchresults-outer" class="searchresults-outer hidden">
                         <div id="searchresults-header" class="searchresults-header"></div>
                         <ul id="searchresults"></ul>
                     </div>
                 </div>
-                <button class="btn btn-sm"
-                        id="search-toggle"
-                        type="button"
-                        title="Search. (Shortkey: s)"
-                        aria-label="Toggle Searchbar"
-                        aria-expanded="false"
-                        aria-keyshortcuts="S"
-                        aria-controls="searchbar">
+                <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </button>
 
-                <button class="btn btn-sm me-2"
-                        onclick="window.location.href='print.html'"
-                        title="Print this book"
-                        aria-label="Print this book">
+                <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
                     <i class="fa-solid fa-print"></i>
                 </button>
             </div>
         </div>
     </header>
     <div id="body-container">
-        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden" />
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
         <script>
             try {
@@ -191,36 +212,15 @@
 
                     <div>
 
-                        <img src="images/donatoni_111.jpg" />
+                        <img src="images/donatoni_111.jpg">
 
                         <main style="margin-left: 20px;">
-                            <h1 id="core"><a class="header" href="#core">CORE</a></h1>
-<ul>
-<li><a href="#dashboard">DASHBOARD</a></li>
-<li><a href="#informazioni-di-area">INFORMAZIONI DI AREA</a></li>
-<li><a href="#allarmi">ALLARMI</a></li>
-<li><a href="#produzione">PRODUZIONE</a></li>
-<li><a href="#invio-file-di-lavoro">INVIO FILE DI LAVORO</a></li>
-<li><a href="#report">REPORT</a></li>
-</ul>
-<!--Page="CORE"--><p local-id="703399c6-9b5e-428e-b8bf-dd997887a7bc">Rappresenta il pacchetto minimo di selezione del prodotto DMES, cosa comprende:</p>
-<h1 id="dashboard"><a class="header" href="#dashboard">DASHBOARD</a></h1>
-<p local-id="779566c7-e3e5-4295-be8c-8616863443bf">Pagina di riepilogo delle macchine e stazione connesse al DMES qui posso vedere lo stato della macchine, su cosa sta lavorando e alcuni dati di produzione.</p><div class="TextAlignCenter"><img src="attachments/CORE/4647f9c1-0350-4232-a7d1-2bce8593fe7c.png" alt="4647f9c1-0350-4232-a7d1-2bce8593fe7c.png" width="760" onclick="showModal(this.src)"></div>
-<h1 id="informazioni-di-area"><a class="header" href="#informazioni-di-area">INFORMAZIONI DI AREA</a></h1>
-<p local-id="053c72cd-aa50-415d-95f3-9cd66e0af487">Pagina dettagliata della macchine dove posso visualizzare i dati in realtime e i dati di produzione come il numero di pezzi prodotti e i mq di lastra tagliati</p><div class="TextAlignCenter"><img src="attachments/CORE/02_info_page.png" alt="02_info_page.png" width="760" onclick="showModal(this.src)"></div>
-<h1 id="allarmi"><a class="header" href="#allarmi">ALLARMI</a></h1>
-<p local-id="eb54d4a7-73d1-4800-b809-54d235cfcb43">In questa pagina posso controllare lo storico degli allarmi che la macchina ha avuto in un certo periodo</p><div class="TextAlignCenter"><img src="attachments/CORE/04_info_page_performance_statistics.png" alt="04_info_page_performance_statistics.png" width="760" onclick="showModal(this.src)"></div>
-<h1 id="produzione"><a class="header" href="#produzione">PRODUZIONE</a></h1>
-<p local-id="81f844a0-9b2e-44b0-b935-fc11712021e4">Pagina dedicata ai dati di produzione in un certo periodo di tempo, posso visualizzare quante lastre sono state fatte giornalmente e inserirei un obbiettivo di produzione ideale.</p><div class="TextAlignCenter"><img src="attachments/CORE/03_info_page_production_statistics.png" alt="03_info_page_production_statistics.png" width="760" onclick="showModal(this.src)"></div>
-<h1 id="invio-file-di-lavoro"><a class="header" href="#invio-file-di-lavoro">INVIO FILE DI LAVORO</a></h1>
-<p local-id="9e346ff6-8b20-4078-8ffc-f26421836a99">Pagina di gestione dei file di lavoro, qui posso selezionare un file dxf, csv o iso e inviarlo in macchine per la lavorazione</p><div class="TextAlignCenter"><img src="attachments/CORE/dda85e5c-1588-4733-b4cb-f873ebdd4866.png" alt="dda85e5c-1588-4733-b4cb-f873ebdd4866.png" width="760" onclick="showModal(this.src)"></div>
-<h1 id="report"><a class="header" href="#report">REPORT</a></h1>
-<p local-id="74adc39a-d71d-4bb8-b92f-5961bc0f4349">Pagina dedicata alla reportistica, posso cercare il nome di un file di lavorazione e generare un report pdf o csv</p><div class="TextAlignCenter"><img src="attachments/CORE/75c0f8ae-31b0-4708-b928-2437cd7eac18.png" alt="75c0f8ae-31b0-4708-b928-2437cd7eac18.png" width="760" onclick="showModal(this.src)"></div><p local-id="4b9c60dd-6d69-4680-84e0-a021dfc1cc23"></p><p local-id="f20fa7ab-98c9-4718-b625-6686c7a58297"></p><p local-id="a02032d7-b845-4693-98ed-7abd33876df2"></p>
+                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="core" style="margin:0;"><a class="header" href="#core">CORE</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="CORE"--><p local-id="703399c6-9b5e-428e-b8bf-dd997887a7bc">Rappresenta il pacchetto minimo di selezione del prodotto DMES, cosa comprende:</p><h1 local-id="3d05e87a-09a6-463d-ab1f-ac64278a2f6c">DASHBOARD</h1><p local-id="779566c7-e3e5-4295-be8c-8616863443bf">Pagina di riepilogo delle macchine e stazione connesse al DMES qui posso vedere lo stato della macchine, su cosa sta lavorando e alcuni dati di produzione.</p><div class="TextAlignCenter"><img src="attachments/CORE/4647f9c1-0350-4232-a7d1-2bce8593fe7c.png" alt="4647f9c1-0350-4232-a7d1-2bce8593fe7c.png" width="760" onclick="showModal(this.src)"></div><h1 local-id="51cc7831-fcfb-406b-87c9-3a70cbf28cb4">INFORMAZIONI DI AREA</h1><p local-id="053c72cd-aa50-415d-95f3-9cd66e0af487">Pagina dettagliata della macchine dove posso visualizzare i dati in realtime e i dati di produzione come il numero di pezzi prodotti e i mq di lastra tagliati</p><div class="TextAlignCenter"><img src="attachments/CORE/02_info_page.png" alt="02_info_page.png" width="760" onclick="showModal(this.src)"></div><h1 local-id="eacc23e0-341f-4e11-9880-d18342691331">ALLARMI</h1><p local-id="eb54d4a7-73d1-4800-b809-54d235cfcb43">In questa pagina posso controllare lo storico degli allarmi che la macchina ha avuto in un certo periodo</p><div class="TextAlignCenter"><img src="attachments/CORE/04_info_page_performance_statistics.png" alt="04_info_page_performance_statistics.png" width="760" onclick="showModal(this.src)"></div><h1 local-id="57aeb7e1-3e1a-4956-b25a-76b8acc99a69">PRODUZIONE</h1><p local-id="81f844a0-9b2e-44b0-b935-fc11712021e4">Pagina dedicata ai dati di produzione in un certo periodo di tempo, posso visualizzare quante lastre sono state fatte giornalmente e inserirei un obbiettivo di produzione ideale.</p><div class="TextAlignCenter"><img src="attachments/CORE/03_info_page_production_statistics.png" alt="03_info_page_production_statistics.png" width="760" onclick="showModal(this.src)"></div><h1 local-id="9cdb575a-6476-426c-9e1c-67605c9fd957">INVIO FILE DI LAVORO</h1><p local-id="9e346ff6-8b20-4078-8ffc-f26421836a99">Pagina di gestione dei file di lavoro, qui posso selezionare un file dxf, csv o iso e inviarlo in macchine per la lavorazione</p><div class="TextAlignCenter"><img src="attachments/CORE/dda85e5c-1588-4733-b4cb-f873ebdd4866.png" alt="dda85e5c-1588-4733-b4cb-f873ebdd4866.png" width="760" onclick="showModal(this.src)"></div><h1 local-id="017c5b9f-b8cb-4a7d-8412-6242995625dc">REPORT</h1><p local-id="74adc39a-d71d-4bb8-b92f-5961bc0f4349">Pagina dedicata alla reportistica, posso cercare il nome di un file di lavorazione e generare un report pdf o csv</p><div class="TextAlignCenter"><img src="attachments/CORE/75c0f8ae-31b0-4708-b928-2437cd7eac18.png" alt="75c0f8ae-31b0-4708-b928-2437cd7eac18.png" width="760" onclick="showModal(this.src)"></div><p local-id="4b9c60dd-6d69-4680-84e0-a021dfc1cc23"></p><p local-id="f20fa7ab-98c9-4718-b625-6686c7a58297"></p><p local-id="a02032d7-b845-4693-98ed-7abd33876df2"></p>
                         </main>
 
                     </div>
 
-                    <img src="images/donatoni_222.jpg" />
+                    <img src="images/donatoni_222.jpg">
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->

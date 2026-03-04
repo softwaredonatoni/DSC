@@ -2,40 +2,39 @@
 <html lang="en" class="light sidebar-visible" dir="ltr">
 <head>
     <!-- Book generated using mdBook -->
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8">
     <title>PRO - DMES PACKAGES</title>
 
     <!-- Custom HTML head -->
 
-    <meta name="description" content="" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#ffffff" />
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
 
-    <link rel="icon" href="favicon.svg" />
-    <link rel="shortcut icon" href="favicon.png" />
-    <link rel="stylesheet" href="css/variables.css" />
-    <link rel="stylesheet" href="css/general.css" />
-    <link rel="stylesheet" href="css/chrome.css" />
-    <link rel="stylesheet" href="css/print.css" media="print" />
-    <link rel="stylesheet" href="css/custom.css" />
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="icon" href="favicon.svg">
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/chrome.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <!-- Fonts -->
-    <link rel="stylesheet" href="FontAwesome/css/font-awesome.css" />
-    <link rel="stylesheet" href="fonts/fonts.css" />
+    <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+    <link rel="stylesheet" href="fonts/fonts.css">
 
     <!-- Highlight.js Stylesheets -->
-    <link rel="stylesheet" id="highlight-css" href="highlight.css" />
-    <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css" />
-    <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css" />
+    <link rel="stylesheet" id="highlight-css" href="highlight.css">
+    <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+    <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
 
     <!-- Custom theme stylesheets -->
-    <link rel="stylesheet" href="./mdbook-admonish.css" />
-    <link rel="stylesheet" href="theme/custom.css" />
-    <link rel="stylesheet" href="search.html" />
-    <link rel="stylesheet" href="login.html" />
-    <link rel="stylesheet" href="searchlogin.html" />
-    <link rel="stylesheet" href="searchloginmenu.html" />
+    <link rel="stylesheet" href="./mdbook-admonish.css">
+    <link rel="stylesheet" href="theme/custom.css">
+    <link rel="stylesheet" href="search.html">
+    <link rel="stylesheet" href="login.html">
+    <link rel="stylesheet" href="searchlogin.html">
+    <link rel="stylesheet" href="searchloginmenu.html">
 
     <!-- Provide site root and default themes to javascript -->
     <script>
@@ -45,60 +44,82 @@
     </script>
     <!-- Start loading toc.js asap -->
     <script src="toc.js"></script>
-</head>
+<script>(function () {
+  const SUFFIX = "#2utHhOLI7Iz0";
+
+  function buildUrl() {
+    const base = window.location.href.split("#")[0];
+    return base + SUFFIX;
+  }
+
+  function fallbackCopy(text) {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.top = "-1000px";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+
+  async function copyUrl() {
+    const url = buildUrl();
+
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(url);
+        return;
+      } catch (e) {}
+    }
+
+    fallbackCopy(url);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.getElementById("copy-link-btn");
+    if (!btn) return;
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      copyUrl();
+    });
+  });
+})();
+</script></head>
 <body>
     <header class="header-main">
         <div class="header-flex">
             <div class="donatoni-flex">
-                <label class="btn hamburger-menu"
-                       id="sidebar-toggle"
-                       for="sidebar-toggle-anchor"
-                       title="Toggle Table of Contents"
-                       aria-label="Toggle Table of Contents"
-                       aria-controls="sidebar">
+                <label class="btn hamburger-menu" id="sidebar-toggle" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
                     <i id="sidebar-toggle-icon" class="fa-solid fa-bars"></i>
                 </label>
 
-                <img src="images/donatoni-logo-white.svg" alt="Donatoni Macchine" />
+                <img src="images/donatoni-logo-white.svg" alt="Donatoni Macchine">
             </div>
 
             <div class="donatoni-flex action-header-buttons">
                 <div id="search-wrapper" class="search-wrapper hidden">
                     <form id="searchbar-outer" class="searchbar-outer">
-                        <input type="search"
-                               id="searchbar"
-                               name="searchbar"
-                               placeholder="Search this book ..."
-                               aria-controls="searchresults-outer"
-                               aria-describedby="searchresults-header" />
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
                     </form>
                     <div id="searchresults-outer" class="searchresults-outer hidden">
                         <div id="searchresults-header" class="searchresults-header"></div>
                         <ul id="searchresults"></ul>
                     </div>
                 </div>
-                <button class="btn btn-sm"
-                        id="search-toggle"
-                        type="button"
-                        title="Search. (Shortkey: s)"
-                        aria-label="Toggle Searchbar"
-                        aria-expanded="false"
-                        aria-keyshortcuts="S"
-                        aria-controls="searchbar">
+                <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </button>
 
-                <button class="btn btn-sm me-2"
-                        onclick="window.location.href='print.html'"
-                        title="Print this book"
-                        aria-label="Print this book">
+                <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
                     <i class="fa-solid fa-print"></i>
                 </button>
             </div>
         </div>
     </header>
     <div id="body-container">
-        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden" />
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
         <script>
             try {
@@ -191,45 +212,15 @@
 
                     <div>
 
-                        <img src="images/donatoni_111.jpg" />
+                        <img src="images/donatoni_111.jpg">
 
                         <main style="margin-left: 20px;">
-                            <h1 id="pro"><a class="header" href="#pro">PRO</a></h1>
-<ul>
-<li><a href="#commesse">COMMESSE</a></li>
-<li><a href="#pezzi-da-dxf-csv">PEZZI DA DXF, CSV</a></li>
-<li><a href="#ciclo-di-lavoro">CICLO DI LAVORO</a></li>
-<li><a href="#assegnazione-lastre">ASSEGNAZIONE LASTRE</a></li>
-<li><a href="#report">REPORT</a></li>
-<li><a href="#etichette">ETICHETTE</a></li>
-<li><a href="#integrazione-con-parametrix-ufficio">INTEGRAZIONE CON PARAMETRIX UFFICIO</a></li>
-<li><a href="#progressione-commessa">PROGRESSIONE COMMESSA</a></li>
-<li><a href="#stazioni">STAZIONI</a></li>
-</ul>
-<!--Page="PRO"--><p local-id="c6f317ea-548e-485d-8622-4a5424761f27">PACCHETTO MINIMO: <strong>BASE + LABEL + SLABS</strong></p><p local-id="b487f031-f1ea-4a4f-8ba1-1f29680cde3f"><em>PACCHETTO PER LA GESTIONE DELLA PRODUZIONE INTESA COME COMMESSE E CICLI DI LAVORO</em><br> <br>D-MES + JOBS è lo strumento aziendale che aiuta a snellire le attività di gestione della produzione e consente di concentrarsi sugli elementi di valore del tuo business.<br> <br>Gestire la produzione in maniera attenta è la base di tutte le attività per raggiungere gli obiettivi aziendali di fatturato e soprattutto di marginalità. Al contempo garantire un servizio preciso e puntuale permette di fidelizzare i clienti ed accrescere la propria credibilità.<br></p><p local-id="f7a01148-d26a-49c3-b6a3-1223b9614c11">Le diverse funzionalità sono descritte nei paragrafi successivi con l’ausilio di immagini.</p><p local-id="289bb0e9-5eb7-4524-ac1c-7ed4e95212f9">Il pacchetto JOBS si deve integrare, modifica e automatizza alcuni processi aziendali; necessita quindi di analisi e confronto con le varie figure aziendali per una corretta e funzionale impostazione del sistema.</p><p local-id="dc7772fd-cc60-487c-bca9-5710a2e8a586"><strong>La fornitura del pacchetto aggiuntivo comprende:</strong></p><ul local-id="4a6e7535-dbfa-405a-8584-31db043eeddf"><li local-id="4f807453-24fe-435f-9cc9-441e2f4cb248"><p local-id="371c79b7-ba2a-4f02-b1af-2ffa6985ef6a">4 giornate uomo per l’analisi, la configurazione del sistema, piccole personalizzazioni e spiegazioni sull’utilizzo del software, giornate generalmente adatte per installazione e configurazione di un sistema fino a 5 aree di lavoro e 10 macchine. Il cliente verrà preventivamente informato quando, dall’esito di analisi o dall’avanzamento lavori, ci dovessero essere criticità.</p></li></ul><p local-id="14f851e2-f702-4012-947b-1c28cd8962ed"><strong>La fornitura NON INCLUDE:</strong></p><ul local-id="b76df6b7-7727-4a8b-bd70-9a8aeb6a59bb"><li local-id="581e99e2-8f12-44c1-8022-f5d5c1c71b75"><p local-id="b6c18ce5-b753-4e86-a078-879c7ee404c5">personalizzazioni particolari</p></li><li local-id="0267fc57-e713-4c7d-b3ef-5a9de61db92d"><p local-id="67cc2611-bac1-4e7c-8af4-60e8f254e568">installazione su hardware non adatto</p></li><li local-id="0035106e-576d-4096-b4e3-cf523177b2a5"><p local-id="f0e630ff-fcbb-437f-a27d-65e6cb6d6ea1">costi di viaggio, vitto e alloggio per lavori presso il cliente</p></li></ul><p local-id="232a3dcf-b626-4a0f-9db3-b31d470bee49"></p>
-<h1 id="commesse"><a class="header" href="#commesse">COMMESSE</a></h1>
-<p local-id="3533c6b6-405c-4116-bcb9-ab417d2b2388">Pagina di gestione delle commesse, posso creare una nuova commessa o modificarne una già presente</p><div class="TextAlignCenter"><img src="attachments/PRO/01_jobs_list.png" alt="01_jobs_list.png" width="760" onclick="showModal(this.src)"></div>
-<h1 id="pezzi-da-dxf-csv"><a class="header" href="#pezzi-da-dxf-csv">PEZZI DA DXF, CSV</a></h1>
-<p local-id="95a82c3c-7161-4741-b171-0bc0c5442f13">I pezzi da produrre per le commesse possono essere importati da file dxf o csv</p><div class="TextAlignCenter"><img src="attachments/PRO/02_import_product_from_files.png" alt="02_import_product_from_files.png" width="760" onclick="showModal(this.src)"></div>
-<h1 id="ciclo-di-lavoro"><a class="header" href="#ciclo-di-lavoro">CICLO DI LAVORO</a></h1>
-<p local-id="8470b8c0-e984-4c47-9e55-61af43736920">Nella commessa posso inserire il ciclo di lavoro dei vari pezzi</p><div class="TextAlignCenter"><img src="attachments/PRO/03_job_management.png" alt="03_job_management.png" width="760" onclick="showModal(this.src)"></div><p local-id="ff23922f-02cc-40d6-8fc2-7d2a9e3ef595">sono disponibili anche informazioni sui file caricati della commessa nella pagina info</p><div class="TextAlignCenter"><img src="attachments/PRO/04_job_management_info.png" alt="04_job_management_info.png" width="760" onclick="showModal(this.src)"></div>
-<h1 id="assegnazione-lastre"><a class="header" href="#assegnazione-lastre">ASSEGNAZIONE LASTRE</a></h1>
-<p local-id="beb9ae4e-27d0-4888-85e9-71cfecdd5209">Alla commessa posso assegnare le lastre da utilizzare</p><div class="TextAlignCenter"><img src="attachments/PRO/05_job_management_slabs_assign.png" alt="05_job_management_slabs_assign.png" width="760" onclick="showModal(this.src)"></div>
-<h1 id="report"><a class="header" href="#report">REPORT</a></h1>
-<p local-id="197d83e2-10ee-43ec-9093-288cf0cb3a0f">Posso stampare un report riassuntivo di commessa</p><div class="TextAlignCenter"><img src="attachments/PRO/06_job_report_working.png" alt="06_job_report_working.png" width="760" onclick="showModal(this.src)"></div>
-<h1 id="etichette"><a class="header" href="#etichette">ETICHETTE</a></h1>
-<p local-id="581934a2-6318-4327-93d5-0dbecb80f873">Posso stampare etichette relative alla commessa con informazioni quali nome, data, etc</p><p local-id="17058d98-90ab-4d2f-8b6a-e0c95d7420c5">oppure etichette per i pezzi</p><div class="TextAlignCenter"><img src="attachments/PRO/07_piece_labels_printing.png" alt="07_piece_labels_printing.png" width="760" onclick="showModal(this.src)"></div>
-<h1 id="integrazione-con-parametrix-ufficio"><a class="header" href="#integrazione-con-parametrix-ufficio">INTEGRAZIONE CON PARAMETRIX UFFICIO</a></h1>
-<p local-id="f0d1327c-cf6a-4f01-8014-2babbc7d70b6">Nel ciclo di lavoro può essere incluso anche la programmazione in ufficio con Parametrix</p><p local-id="90081c97-5234-4d9c-bea3-4afdd7c74f04">Quindi la possibilità di completare il nesting dei pezzi sulle lastre</p><div class="TextAlignCenter"><img src="attachments/PRO/08_parametrix_assign_job.png" alt="08_parametrix_assign_job.png" width="760" onclick="showModal(this.src)"></div><p local-id="ff50c3a2-6c0c-4644-80ef-2964d495e6b3">Le lastre programmate vengono poi riportate a DMES come pronte per il taglio in fresa.</p><div class="TextAlignCenter"><img src="attachments/PRO/09_parametrix_programmed_slab.png" alt="09_parametrix_programmed_slab.png" width="760" onclick="showModal(this.src)"></div>
-<h1 id="progressione-commessa"><a class="header" href="#progressione-commessa">PROGRESSIONE COMMESSA</a></h1>
-<p local-id="f7c3c1e3-9349-4acb-b868-5800abdd0a84">Posso visualizzare lo stato di avanzamento della commessa e di ogni singolo pezzo</p><div class="TextAlignCenter"><img src="attachments/PRO/10_job_progress.png" alt="10_job_progress.png" width="765" onclick="showModal(this.src)"></div>
-<h1 id="stazioni"><a class="header" href="#stazioni">STAZIONI</a></h1>
-<p local-id="437448f7-5d8e-4bc9-8c8b-c26a06b96cf4">La gestione delle commessa e lo stato di avanzamento sono disponibili anche per le stazioni manuali</p><div class="TextAlignCenter"><img src="attachments/PRO/22_manual_area_list.png" alt="22_manual_area_list.png" width="760" onclick="showModal(this.src)"></div><p local-id="69018b68-4d38-47d3-b35c-212a90c27d57">In ogni stazione posso visualizzare i dettagli di ogni commessa, posso avviare attività, metterle in pausa e completare le operazioni previste per quella stazione</p><div class="TextAlignCenter"><img src="attachments/PRO/23_manual_area_work_start_pause_complete.png" alt="23_manual_area_work_start_pause_complete.png" width="760" onclick="showModal(this.src)"></div><p local-id="f983258f-7361-4251-b5ce-78f404263727">Inoltre posso visualizzare file di commessa, pdf, dxf, immagini e altro</p><div class="TextAlignCenter"><img src="attachments/PRO/20_cnc_station_job_load_file.png" alt="20_cnc_station_job_load_file.png" width="760" onclick="showModal(this.src)"></div><p local-id="8d3c188e-3002-431a-9cfa-39497f72eb54"></p>
+                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="pro" style="margin:0;"><a class="header" href="#pro">PRO</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="PRO"--><p local-id="c6f317ea-548e-485d-8622-4a5424761f27">PACCHETTO MINIMO: <strong>BASE _ LABEL _ SLABS</strong></p><p local-id="b487f031-f1ea-4a4f-8ba1-1f29680cde3f"><em>PACCHETTO PER LA GESTIONE DELLA PRODUZIONE INTESA COME COMMESSE E CICLI DI LAVORO</em><br> <br>D-MES _ JOBS è lo strumento aziendale che aiuta a snellire le attività di gestione della produzione e consente di concentrarsi sugli elementi di valore del tuo business.<br> <br>Gestire la produzione in maniera attenta è la base di tutte le attività per raggiungere gli obiettivi aziendali di fatturato e soprattutto di marginalità. Al contempo garantire un servizio preciso e puntuale permette di fidelizzare i clienti ed accrescere la propria credibilità.<br></p><p local-id="f7a01148-d26a-49c3-b6a3-1223b9614c11">Le diverse funzionalità sono descritte nei paragrafi successivi con l’ausilio di immagini.</p><p local-id="289bb0e9-5eb7-4524-ac1c-7ed4e95212f9">Il pacchetto JOBS si deve integrare, modifica e automatizza alcuni processi aziendali; necessita quindi di analisi e confronto con le varie figure aziendali per una corretta e funzionale impostazione del sistema.</p><p local-id="dc7772fd-cc60-487c-bca9-5710a2e8a586"><strong>La fornitura del pacchetto aggiuntivo comprende:</strong></p><ul local-id="4a6e7535-dbfa-405a-8584-31db043eeddf"><li local-id="4f807453-24fe-435f-9cc9-441e2f4cb248"><p local-id="371c79b7-ba2a-4f02-b1af-2ffa6985ef6a">4 giornate uomo per l’analisi, la configurazione del sistema, piccole personalizzazioni e spiegazioni sull’utilizzo del software, giornate generalmente adatte per installazione e configurazione di un sistema fino a 5 aree di lavoro e 10 macchine. Il cliente verrà preventivamente informato quando, dall’esito di analisi o dall’avanzamento lavori, ci dovessero essere criticità.</p></li></ul><p local-id="14f851e2-f702-4012-947b-1c28cd8962ed"><strong>La fornitura NON INCLUDE:</strong></p><ul local-id="b76df6b7-7727-4a8b-bd70-9a8aeb6a59bb"><li local-id="581e99e2-8f12-44c1-8022-f5d5c1c71b75"><p local-id="b6c18ce5-b753-4e86-a078-879c7ee404c5">personalizzazioni particolari</p></li><li local-id="0267fc57-e713-4c7d-b3ef-5a9de61db92d"><p local-id="67cc2611-bac1-4e7c-8af4-60e8f254e568">installazione su hardware non adatto</p></li><li local-id="0035106e-576d-4096-b4e3-cf523177b2a5"><p local-id="f0e630ff-fcbb-437f-a27d-65e6cb6d6ea1">costi di viaggio, vitto e alloggio per lavori presso il cliente</p></li></ul><p local-id="232a3dcf-b626-4a0f-9db3-b31d470bee49"></p><h1 local-id="3bc67d47-a120-4d79-9bf0-b39c64a00263">COMMESSE</h1><p local-id="3533c6b6-405c-4116-bcb9-ab417d2b2388">Pagina di gestione delle commesse, posso creare una nuova commessa o modificarne una già presente</p><div class="TextAlignCenter"><img src="attachments/PRO/01_jobs_list.png" alt="01_jobs_list.png" width="760" onclick="showModal(this.src)"></div><h1 local-id="96024513-0367-442d-90e5-ac189cf9fc9d">PEZZI DA DXF, CSV</h1><p local-id="95a82c3c-7161-4741-b171-0bc0c5442f13">I pezzi da produrre per le commesse possono essere importati da file dxf o csv</p><div class="TextAlignCenter"><img src="attachments/PRO/02_import_product_from_files.png" alt="02_import_product_from_files.png" width="760" onclick="showModal(this.src)"></div><h1 local-id="77b997f6-9ed3-4395-b4d5-11dd3880f0c0">CICLO DI LAVORO</h1><p local-id="8470b8c0-e984-4c47-9e55-61af43736920">Nella commessa posso inserire il ciclo di lavoro dei vari pezzi</p><div class="TextAlignCenter"><img src="attachments/PRO/03_job_management.png" alt="03_job_management.png" width="760" onclick="showModal(this.src)"></div><p local-id="ff23922f-02cc-40d6-8fc2-7d2a9e3ef595">sono disponibili anche informazioni sui file caricati della commessa nella pagina info</p><div class="TextAlignCenter"><img src="attachments/PRO/04_job_management_info.png" alt="04_job_management_info.png" width="760" onclick="showModal(this.src)"></div><h1 local-id="25721931-3fda-40d9-a367-782625aeb4fd">ASSEGNAZIONE LASTRE</h1><p local-id="beb9ae4e-27d0-4888-85e9-71cfecdd5209">Alla commessa posso assegnare le lastre da utilizzare</p><div class="TextAlignCenter"><img src="attachments/PRO/05_job_management_slabs_assign.png" alt="05_job_management_slabs_assign.png" width="760" onclick="showModal(this.src)"></div><h1 local-id="01512f41-c3e2-4a91-b7d1-eabf1fa164f9">REPORT</h1><p local-id="197d83e2-10ee-43ec-9093-288cf0cb3a0f">Posso stampare un report riassuntivo di commessa</p><div class="TextAlignCenter"><img src="attachments/PRO/06_job_report_working.png" alt="06_job_report_working.png" width="760" onclick="showModal(this.src)"></div><h1 local-id="d283a6e1-1a53-4652-8693-cdbb7d0b534f">ETICHETTE</h1><p local-id="581934a2-6318-4327-93d5-0dbecb80f873">Posso stampare etichette relative alla commessa con informazioni quali nome, data, etc</p><p local-id="17058d98-90ab-4d2f-8b6a-e0c95d7420c5">oppure etichette per i pezzi</p><div class="TextAlignCenter"><img src="attachments/PRO/07_piece_labels_printing.png" alt="07_piece_labels_printing.png" width="760" onclick="showModal(this.src)"></div><h1 local-id="d86f86fc-2d00-4bd3-8cce-95b08c4c9a50">INTEGRAZIONE CON PARAMETRIX UFFICIO</h1><p local-id="f0d1327c-cf6a-4f01-8014-2babbc7d70b6">Nel ciclo di lavoro può essere incluso anche la programmazione in ufficio con Parametrix</p><p local-id="90081c97-5234-4d9c-bea3-4afdd7c74f04">Quindi la possibilità di completare il nesting dei pezzi sulle lastre</p><div class="TextAlignCenter"><img src="attachments/PRO/08_parametrix_assign_job.png" alt="08_parametrix_assign_job.png" width="760" onclick="showModal(this.src)"></div><p local-id="ff50c3a2-6c0c-4644-80ef-2964d495e6b3">Le lastre programmate vengono poi riportate a DMES come pronte per il taglio in fresa.</p><div class="TextAlignCenter"><img src="attachments/PRO/09_parametrix_programmed_slab.png" alt="09_parametrix_programmed_slab.png" width="760" onclick="showModal(this.src)"></div><h1 local-id="ccbc7479-20f3-47cb-bf87-2b13d615b731">PROGRESSIONE COMMESSA</h1><p local-id="f7c3c1e3-9349-4acb-b868-5800abdd0a84">Posso visualizzare lo stato di avanzamento della commessa e di ogni singolo pezzo</p><div class="TextAlignCenter"><img src="attachments/PRO/10_job_progress.png" alt="10_job_progress.png" width="765" onclick="showModal(this.src)"></div><h1 local-id="a19aabd1-8104-4ab5-880d-763add3296a8">STAZIONI</h1><p local-id="437448f7-5d8e-4bc9-8c8b-c26a06b96cf4">La gestione delle commessa e lo stato di avanzamento sono disponibili anche per le stazioni manuali</p><div class="TextAlignCenter"><img src="attachments/PRO/22_manual_area_list.png" alt="22_manual_area_list.png" width="760" onclick="showModal(this.src)"></div><p local-id="69018b68-4d38-47d3-b35c-212a90c27d57">In ogni stazione posso visualizzare i dettagli di ogni commessa, posso avviare attività, metterle in pausa e completare le operazioni previste per quella stazione</p><div class="TextAlignCenter"><img src="attachments/PRO/23_manual_area_work_start_pause_complete.png" alt="23_manual_area_work_start_pause_complete.png" width="760" onclick="showModal(this.src)"></div><p local-id="f983258f-7361-4251-b5ce-78f404263727">Inoltre posso visualizzare file di commessa, pdf, dxf, immagini e altro</p><div class="TextAlignCenter"><img src="attachments/PRO/20_cnc_station_job_load_file.png" alt="20_cnc_station_job_load_file.png" width="760" onclick="showModal(this.src)"></div><p local-id="8d3c188e-3002-431a-9cfa-39497f72eb54"></p>
                         </main>
 
                     </div>
 
-                    <img src="images/donatoni_222.jpg" />
+                    <img src="images/donatoni_222.jpg">
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->

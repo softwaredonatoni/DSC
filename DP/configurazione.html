@@ -2,40 +2,39 @@
 <html lang="en" class="light sidebar-visible" dir="ltr">
 <head>
     <!-- Book generated using mdBook -->
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8">
     <title>CONFIGURAZIONE - DMES PACKAGES</title>
 
     <!-- Custom HTML head -->
 
-    <meta name="description" content="" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#ffffff" />
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
 
-    <link rel="icon" href="favicon.svg" />
-    <link rel="shortcut icon" href="favicon.png" />
-    <link rel="stylesheet" href="css/variables.css" />
-    <link rel="stylesheet" href="css/general.css" />
-    <link rel="stylesheet" href="css/chrome.css" />
-    <link rel="stylesheet" href="css/print.css" media="print" />
-    <link rel="stylesheet" href="css/custom.css" />
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="icon" href="favicon.svg">
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/chrome.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <!-- Fonts -->
-    <link rel="stylesheet" href="FontAwesome/css/font-awesome.css" />
-    <link rel="stylesheet" href="fonts/fonts.css" />
+    <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+    <link rel="stylesheet" href="fonts/fonts.css">
 
     <!-- Highlight.js Stylesheets -->
-    <link rel="stylesheet" id="highlight-css" href="highlight.css" />
-    <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css" />
-    <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css" />
+    <link rel="stylesheet" id="highlight-css" href="highlight.css">
+    <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+    <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
 
     <!-- Custom theme stylesheets -->
-    <link rel="stylesheet" href="./mdbook-admonish.css" />
-    <link rel="stylesheet" href="theme/custom.css" />
-    <link rel="stylesheet" href="search.html" />
-    <link rel="stylesheet" href="login.html" />
-    <link rel="stylesheet" href="searchlogin.html" />
-    <link rel="stylesheet" href="searchloginmenu.html" />
+    <link rel="stylesheet" href="./mdbook-admonish.css">
+    <link rel="stylesheet" href="theme/custom.css">
+    <link rel="stylesheet" href="search.html">
+    <link rel="stylesheet" href="login.html">
+    <link rel="stylesheet" href="searchlogin.html">
+    <link rel="stylesheet" href="searchloginmenu.html">
 
     <!-- Provide site root and default themes to javascript -->
     <script>
@@ -45,60 +44,82 @@
     </script>
     <!-- Start loading toc.js asap -->
     <script src="toc.js"></script>
-</head>
+<script>(function () {
+  const SUFFIX = "#2utHhOLI7Iz0";
+
+  function buildUrl() {
+    const base = window.location.href.split("#")[0];
+    return base + SUFFIX;
+  }
+
+  function fallbackCopy(text) {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.top = "-1000px";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+
+  async function copyUrl() {
+    const url = buildUrl();
+
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(url);
+        return;
+      } catch (e) {}
+    }
+
+    fallbackCopy(url);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.getElementById("copy-link-btn");
+    if (!btn) return;
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      copyUrl();
+    });
+  });
+})();
+</script></head>
 <body>
     <header class="header-main">
         <div class="header-flex">
             <div class="donatoni-flex">
-                <label class="btn hamburger-menu"
-                       id="sidebar-toggle"
-                       for="sidebar-toggle-anchor"
-                       title="Toggle Table of Contents"
-                       aria-label="Toggle Table of Contents"
-                       aria-controls="sidebar">
+                <label class="btn hamburger-menu" id="sidebar-toggle" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
                     <i id="sidebar-toggle-icon" class="fa-solid fa-bars"></i>
                 </label>
 
-                <img src="images/donatoni-logo-white.svg" alt="Donatoni Macchine" />
+                <img src="images/donatoni-logo-white.svg" alt="Donatoni Macchine">
             </div>
 
             <div class="donatoni-flex action-header-buttons">
                 <div id="search-wrapper" class="search-wrapper hidden">
                     <form id="searchbar-outer" class="searchbar-outer">
-                        <input type="search"
-                               id="searchbar"
-                               name="searchbar"
-                               placeholder="Search this book ..."
-                               aria-controls="searchresults-outer"
-                               aria-describedby="searchresults-header" />
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
                     </form>
                     <div id="searchresults-outer" class="searchresults-outer hidden">
                         <div id="searchresults-header" class="searchresults-header"></div>
                         <ul id="searchresults"></ul>
                     </div>
                 </div>
-                <button class="btn btn-sm"
-                        id="search-toggle"
-                        type="button"
-                        title="Search. (Shortkey: s)"
-                        aria-label="Toggle Searchbar"
-                        aria-expanded="false"
-                        aria-keyshortcuts="S"
-                        aria-controls="searchbar">
+                <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </button>
 
-                <button class="btn btn-sm me-2"
-                        onclick="window.location.href='print.html'"
-                        title="Print this book"
-                        aria-label="Print this book">
+                <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
                     <i class="fa-solid fa-print"></i>
                 </button>
             </div>
         </div>
     </header>
     <div id="body-container">
-        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden" />
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
         <script>
             try {
@@ -191,18 +212,15 @@
 
                     <div>
 
-                        <img src="images/donatoni_111.jpg" />
+                        <img src="images/donatoni_111.jpg">
 
                         <main style="margin-left: 20px;">
-                            <h1 id="configurazione"><a class="header" href="#configurazione">CONFIGURAZIONE</a></h1>
-<!--Page="CONFIGURAZIONE"--><p local-id="1d8c98e3-1b39-4084-a467-56b989f0f163">Il DMES è strutturato a pacchetti e può essere configurato in base alle esigenze del cliente.</p><p local-id="24e46ab2-55cf-4508-b404-cb439d189c65">il pacchetto comune a tutte le configurazioni è il pacchetto BASE:</p><div class="TextAlignCenter"><img src="attachments/CONFIGURAZIONE/Pacchetti.png" alt="Pacchetti.png" width="400" onclick="showModal(this.src)"></div><p local-id="b01f9d23-7636-4f37-adf5-23c4fee193be">I prezzi dei pacchetti sono da considerarsi in aggiunta, il prezzo complessivo sarà quindi la somma delle diverse opzioni selezionate. La costruzione del pacchetto prevede dei vincoli, ad esempio per il pacchetto “SLABS” è necessario aver acquistato DMES BASE + LABEL.</p><table class="my-table2" data-table-width="760" data-layout="default" ac:local-id="561d3591-9c04-48e9-a116-bf8f1c98bccc"><colgroup><col style="width: 70.0px;"><col style="width: 317.0px;"><col style="width: 175.0px;"><col style="width: 90.0px;"><col style="width: 99.0px;"></colgroup><tbody><tr ac:local-id="d83fe300-b4e6-4591-909e-ea0e8b0070fa"><th ac:local-id="daf7a5d5-0dfd-45b2-9972-181dc89f1a4c"><p local-id="a167ca46-9543-40d1-be64-426d76ec45ef"><strong>Indice</strong></p></th><th ac:local-id="a07e1c45-998b-47b3-9481-87274475f5fd"><p local-id="3f886f4b-16a1-4fb0-a5c0-1e228bea420d"><strong>Nome prodotto</strong></p></th><th ac:local-id="adc6f971-b7be-4bcf-af2d-f4d08b282b7b"><p local-id="184b0fd8-88aa-413a-87bc-9a3b19330025"><strong>Link a descrizione</strong></p></th><th ac:local-id="7d40003c-faa8-4456-8334-b8568a855c40"><p local-id="53a192cc-d68c-44c0-9eb5-7af5f61681d1"><strong>Prezzo iniziale</strong></p></th><th ac:local-id="dd2f47d9-ace2-41e3-8c62-184f8c8fbf0f"><p local-id="c02857c3-aada-4bc6-be95-398e1cc24874"><strong>Prezzo di rinnovo</strong></p></th></tr><tr ac:local-id="a2948f48-89b2-4949-a222-d0dc69b1ac73"><td ac:local-id="d8c52b33-2607-41e0-9109-3b3967cabb61"><p local-id="75d44cf4-3563-47f8-8c72-35642ad1ffb6">1</p></td><td ac:local-id="403f23f3-b8ea-42e1-a82c-934a485b08a0"><p local-id="eb0b52cc-8469-48c1-96f8-a60c2dccd0b1">DMES - CORE</p></td><td ac:local-id="83506ae4-5893-4d23-b974-ae15d59ce317"><p local-id="27494d29-5585-4a73-a4b3-5f63796377ad"><link ac:local-id="0d694533-c8fe-43ac-9438-43d1aff49617" ac:card-appearance="inline"><page ri:content-title="CORE" ri:version-at-save="2"></page><link-body>CORE</link-body></p></td><td ac:local-id="f0ca89a3-43ad-4708-8c00-6d7085aa5301"><p local-id="3174135a-d95e-4924-9fd4-866e90fe060d"></p></td><td ac:local-id="41cec341-92c1-45b5-b141-20e9cb33833b"><p local-id="73acadaf-3efe-48af-b5b7-3710f1934ae7"></p></td></tr><tr ac:local-id="50f6aaf6-5e88-4dfe-995a-e1aee962fb90"><td ac:local-id="620ede6c-3c57-44e0-9444-33286b79e1c8"><p local-id="b52e366b-acff-457d-8460-27b0c2e22bd3">2</p></td><td ac:local-id="341bf75d-eaa1-4cb6-aa80-67634709e0b0"><p local-id="d6bd07b7-9e0b-44bc-a532-482fb648cf58">TRACE</p></td><td ac:local-id="fa92c96e-4e8e-42a7-81d7-f45294ea8e44"><p local-id="a8b6e8b7-b0bb-4024-be58-5e0c6c340ab7"><link ac:local-id="8124ffea-8f84-4539-a29a-26b746576bb0" ac:card-appearance="inline"><page ri:content-title="TRACE" ri:version-at-save="3"></page><link-body>LABEL</link-body> </p></td><td ac:local-id="2ffbf8f3-832d-43c6-8370-d26293a92e0f"><p local-id="3b07f587-6833-4d8c-8031-d1e92484dafb"></p></td><td ac:local-id="c88996ef-a2e6-478c-9d38-a4d514ba3ceb"><p local-id="7ce20ecc-4ba5-4c09-a041-337003350bc8"></p></td></tr><tr ac:local-id="e294e555-9329-4c2e-ba18-76daa3df3f59"><td ac:local-id="1a3e8fda-483e-4dc6-9938-1500491de8eb"><p local-id="2d9c35a1-e0c1-4846-95de-ede16358a936">3</p></td><td ac:local-id="45f4ae3c-dd33-4e08-b587-fc2efecedbbc"><p local-id="0e586033-1435-489d-9199-fe2956612bcd">MATRIX</p></td><td ac:local-id="faa1788e-5465-461d-a44b-21280649b142"><p local-id="d4e7cb03-2e7e-4dc0-bd24-ef7ca93960a0"><link ac:local-id="d571eb83-de4e-40cd-b85c-7a3d9a6005a8" ac:card-appearance="inline"><page ri:content-title="MATRIX" ri:version-at-save="5"></page><link-body>SLABS</link-body> </p></td><td ac:local-id="4e54a3d4-d8ed-402c-8c06-e89efabf2322"><p local-id="2872e4b4-451e-46dc-a81d-af4f55fcf2fe"></p></td><td ac:local-id="d4e15ff3-885c-4bab-8f82-51a92b2b16f0"><p local-id="ac366e76-7341-47d1-975c-c9888ceefb6c"></p></td></tr><tr ac:local-id="d8ea9bf3-e628-428a-9139-14d67e74bc96"><td ac:local-id="dc349338-493d-4b7e-9b05-fade9513f828"><p local-id="c297cad0-7996-4c02-b00b-ddc35a9e7451">4</p></td><td ac:local-id="467dd28d-68eb-4905-bd58-bc94767b68f8"><p local-id="d45a2bab-e302-420a-b885-8e18b85bed91">PRO</p></td><td ac:local-id="35933411-751a-4573-850e-63e7e5444652"><p local-id="c0aea363-41e0-436d-8acf-a20c0fc81552"><link ac:local-id="d22ca546-d77f-462f-9fdb-014b758532c9" ac:card-appearance="inline"><page ri:content-title="PRO" ri:version-at-save="3"></page><link-body>JOBS</link-body> </p></td><td ac:local-id="dcd83f19-1927-423e-a13b-6b4b78c32362"><p local-id="f1b0535f-df13-4203-b2f6-6ed906c3d706"></p></td><td ac:local-id="43ff5a0e-98c0-4c68-8523-2a00369d5727"><p local-id="9a685c96-1a39-4efc-91b4-a092ba118e77"></p></td></tr><tr ac:local-id="3b54bdc3-365d-4520-8b8a-e69c6f76cb33"><td colspan="5" ac:local-id="bb2490ef-ebf9-4871-aa1d-2f944a60bef5"><p local-id="cf13d8e5-0984-4470-bf5f-bc18bc36ca03"><strong>Pacchetti e opzioni aggiuntive</strong></p></td></tr><tr ac:local-id="9500d8bf-2d39-41ac-ab58-69a0b88f3155"><td ac:local-id="ec86fe29-ed24-42a8-9031-7230d2e5bdfa"><p local-id="96fb7a45-bb48-4a32-82d9-da07b7ca60c5">5</p></td><td ac:local-id="9976e5fc-33ab-44e5-be62-1d8e6fa1b78f"><p local-id="ab838d6d-c11c-433f-917d-33b639685ad3">NOTIFICHE</p></td><td ac:local-id="2a6cbd93-5965-4e8e-b909-d62a5a3e8d0a"><p local-id="78ed7a7b-dfea-4081-92ec-e37163164432"><link ac:local-id="1cc52f4d-763a-4ab9-bf6c-3a0e10db7641" ac:card-appearance="inline"><page ri:content-title="NOTIFICHE" ri:version-at-save="2"></page><link-body>NOTIFICHE</link-body> </p></td><td ac:local-id="c77588a2-c2b1-4c83-a5c1-3f2c97aca1fb"><p local-id="00846414-e217-40b4-a13b-476fea302f81"></p></td><td ac:local-id="09430961-c7db-4bcc-ab19-12dc072a171e"><p local-id="8764fe51-9138-47a0-bfb2-ad0491ce2056"></p></td></tr><tr ac:local-id="064f8ade-cda6-4f4a-b3ec-ac94797cc36b"><td ac:local-id="6868ceaf-5410-4991-a490-7ed13d1b8fcf"><p local-id="bd17bc8a-09a6-425b-94f4-cccc593b7f7f">6</p></td><td ac:local-id="094a32e7-7213-4860-9587-fabb69a42b1e"><p local-id="18b8fc81-20a4-4478-9f0d-a8b20ffe85b8">Aggiunta di n°1 macchina Donatoni</p></td><td ac:local-id="714e9428-2f9e-4815-b056-fa605753f0b7"><p local-id="e96ee792-5df6-4cbe-b535-99786c43f8ff"><link ac:local-id="ea152612-497d-4e82-a621-50a1d85afe1f" ac:card-appearance="inline"><page ri:content-title="MACCHINE AGGIUNTIVE E AREA MANUALE" ri:version-at-save="1"></page><link-body>MACCHINE AGGIUNTIVE E AREA MANUALE</link-body> </p></td><td ac:local-id="0e7512d0-beb2-4096-922b-dd131620c813"><p local-id="57954071-e5b7-4697-ad73-2f92fe22bb3a"></p></td><td ac:local-id="666f00a0-56d9-4426-b32d-d2293d054ef3"><p local-id="68d5df95-a8a6-4a5c-8ed0-975a433cc736"></p></td></tr><tr ac:local-id="49961673-6872-4412-8430-64fa96ce0ab6"><td ac:local-id="066905be-8c2e-43af-8669-c0709b1aa58d"><p local-id="7fe8438b-17e9-400a-acda-745aecb45e36">7</p></td><td ac:local-id="d612c2cc-9d81-4ce0-a32a-b4cd8350655b"><p local-id="9401bc36-b476-46ca-83d9-214faf94b10b">Aggiunta di una stazione manuale e installazione del SW D-MES Station su hardware del cliente</p></td><td ac:local-id="5242d716-4fc0-42f8-91ca-20754862c9a7"><p local-id="68f9453e-b4ad-4b43-9e0b-83001fc398ca"><link ac:local-id="515382b6-4a62-491b-bbef-a7edf40facc5" ac:card-appearance="inline"><page ri:content-title="MACCHINE AGGIUNTIVE E AREA MANUALE" ri:version-at-save="1"></page><link-body>MACCHINE AGGIUNTIVE E AREA MANUALE</link-body> </p></td><td ac:local-id="04a7eb8c-0aab-4239-afba-1ea6cf2d63a4"><p local-id="12759507-139c-4e04-af5a-8e876f4439b8"></p></td><td ac:local-id="1ded7119-07ea-479e-8483-75d35d319392"><p local-id="7be09c3d-4a52-4467-8d65-fc676c4a7ac2"></p></td></tr><tr ac:local-id="b4cc073f-9281-47b6-a1ff-771c8b3ec979"><td ac:local-id="0aba206b-5589-4273-9820-71a1cad5808e"><p local-id="d10682e3-f579-45b9-8378-e5b66a35f178">8</p></td><td ac:local-id="a6966b54-720b-492e-be29-5d47d86ecbcf"><p local-id="c8a52d9e-ca12-4c7f-942e-03d25344fca6">Aggiunta di n°1 macchina NON Donatoni con interfaccia 4.0</p></td><td ac:local-id="34296991-2b44-4d59-ab7d-72e7b3c097d0"><p local-id="58ee0b32-1830-43a6-a985-20d4b1ac5642"><link ac:local-id="98024d49-e562-4bbf-abfb-38bef927cc44" ac:card-appearance="inline"><page ri:content-title="MACCHINE AGGIUNTIVE E AREA MANUALE" ri:version-at-save="1"></page><link-body>MACCHINE AGGIUNTIVE E AREA MANUALE</link-body> </p></td><td ac:local-id="2f57c5a2-78de-44bb-9cd2-05a5eedc3fbb"><p local-id="b562bbb0-009a-4c9b-ad4e-f7fb025ca979"></p></td><td ac:local-id="2b944182-bd0f-4324-a360-b504caf21f4d"><p local-id="a4d35c56-b5d5-4c25-9cfa-d834de93a683"></p></td></tr><tr ac:local-id="a2345db9-215d-45ac-b9f7-f0dacfd42993"><td ac:local-id="7f47002c-b0ea-49b9-a7d5-50219dd4c417"><p local-id="149fb78c-8af0-4d9b-a772-00a9cc687af0">9</p></td><td ac:local-id="b6edbdcc-3277-4e83-a315-f0bd9a54ca6f"><p local-id="960fe6ee-161d-41d8-804a-602550093640">Aggiunta di una macchina NON Donatoni SENZA interfaccia 4.0</p></td><td ac:local-id="dd56db59-5383-4450-8c00-14ab0159a73f"><p local-id="ccd55532-60fd-482b-a78b-a52c96bf7ae8"><link ac:local-id="62279a43-cf6d-47f1-99cc-e04d12a85b71" ac:card-appearance="inline"><page ri:content-title="MACCHINE AGGIUNTIVE E AREA MANUALE" ri:version-at-save="1"></page><link-body>MACCHINE AGGIUNTIVE E AREA MANUALE</link-body> </p></td><td ac:local-id="84b49240-3b3b-4914-b7ab-3156473eb62a"><p local-id="01fb3d6a-7ccc-4a17-ae90-21dcb451a4e6"></p></td><td ac:local-id="0309a603-7dc2-43a4-9c9e-8efd30a19d49"><p local-id="4e584713-fd99-41e1-9031-79af6b474abb"></p></td></tr></tbody></table>
-<h3 id="condizioni-di-utilizzo-e-rinnovi"><a class="header" href="#condizioni-di-utilizzo-e-rinnovi">CONDIZIONI DI UTILIZZO E RINNOVI:</a></h3>
-<p local-id="8182a20e-7968-415f-bf53-e39eb4ce1335">DONATONI MES è accessibile, tramite dispositivi compatibili, con licenza d'uso, non esclusiva e non trasferibile, soggetta alle condizioni d’uso.</p><p local-id="4f66013a-190f-4b4e-a95a-4bbc0374dc59">La proprietà del Software, e di ogni diritto non espressamente concesso, sono e rimarranno di spettanza di Donatoni Macchine (e/o dei relativi fornitori di software).</p><p local-id="98535ecd-d8b7-4f6a-bb88-d1ff712a1d3b">Gli oneri di connessione fisica ed i costi di connettività sono a carico del cliente.</p><p local-id="458079f5-a11f-4767-b1d7-b59218bfa310">I servizi DONATONI MES sono forniti all'Acquirente per un periodo di 12 mesi dal momento della loro attivazione, saranno rinnovati automaticamente a titolo oneroso al prezzo di listino, salvo intervenga disdetta dell'Acquirente entro 30 giorni prima della fine della validità del servizio.<br>Nel caso in cui il servizio DONATONI MES non venga rinnovato vengono bloccate alcune funzionalità del software.</p><p local-id="60a1ef2a-01b3-4969-a78e-3d662389985e">Servizi di aggiornamento e assistenza:</p><ul local-id="05a4e8a2-536a-4cfc-b75f-770d785892c7"><li local-id="59fdc5b2-8e3e-4578-8669-9a712ecfa626"><p local-id="6242fc59-7272-4766-8771-6b9a6dcb681c">Aggiornamento all’ultima revisione</p></li><li local-id="8dc17122-8dab-416d-a701-f0880af3b0fb"><p local-id="e4a27cbe-9bb1-42fc-bcba-6060f2a106d5">Risoluzione bug</p></li><li local-id="061f2ffb-6c2c-4ac8-8260-1d522ce2ff1b"><p local-id="288f6945-a2ab-485a-98dd-775fed9dac23">Assistenza remota</p></li></ul><p local-id="95290053-abdb-4697-ad45-045496a48ecf">Il prezzo per i rinnovi, potrebbe subire variazioni a seconda delle esigenze di mercato o in correlazione a variazioni dei costi di produzione, del personale o dei servizi accessori, fatte salve eventuali disposizioni legislative con impatti sui prezzi di vendita.</p>
+                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="configurazione" style="margin:0;"><a class="header" href="#configurazione">CONFIGURAZIONE</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="CONFIGURAZIONE"--><p local-id="1d8c98e3-1b39-4084-a467-56b989f0f163">Il DMES è strutturato a pacchetti e può essere configurato in base alle esigenze del cliente.</p><p local-id="24e46ab2-55cf-4508-b404-cb439d189c65">il pacchetto comune a tutte le configurazioni è il pacchetto BASE:</p><div class="TextAlignCenter"><img src="attachments/CONFIGURAZIONE/Pacchetti.png" alt="Pacchetti.png" width="400" onclick="showModal(this.src)"></div><p local-id="b01f9d23-7636-4f37-adf5-23c4fee193be">I prezzi dei pacchetti sono da considerarsi in aggiunta, il prezzo complessivo sarà quindi la somma delle diverse opzioni selezionate. La costruzione del pacchetto prevede dei vincoli, ad esempio per il pacchetto “SLABS” è necessario aver acquistato DMES BASE _ LABEL.</p><table class="my-table2" data-table-width="760" data-layout="default" ac:local-id="561d3591-9c04-48e9-a116-bf8f1c98bccc"><colgroup><col style="width: 70.0px;"><col style="width: 317.0px;"><col style="width: 175.0px;"><col style="width: 90.0px;"><col style="width: 99.0px;"></colgroup><tbody><tr ac:local-id="d83fe300-b4e6-4591-909e-ea0e8b0070fa"><th ac:local-id="daf7a5d5-0dfd-45b2-9972-181dc89f1a4c"><p local-id="a167ca46-9543-40d1-be64-426d76ec45ef"><strong>Indice</strong></p></th><th ac:local-id="a07e1c45-998b-47b3-9481-87274475f5fd"><p local-id="3f886f4b-16a1-4fb0-a5c0-1e228bea420d"><strong>Nome prodotto</strong></p></th><th ac:local-id="adc6f971-b7be-4bcf-af2d-f4d08b282b7b"><p local-id="184b0fd8-88aa-413a-87bc-9a3b19330025"><strong>Link a descrizione</strong></p></th><th ac:local-id="7d40003c-faa8-4456-8334-b8568a855c40"><p local-id="53a192cc-d68c-44c0-9eb5-7af5f61681d1"><strong>Prezzo iniziale</strong></p></th><th ac:local-id="dd2f47d9-ace2-41e3-8c62-184f8c8fbf0f"><p local-id="c02857c3-aada-4bc6-be95-398e1cc24874"><strong>Prezzo di rinnovo</strong></p></th></tr><tr ac:local-id="a2948f48-89b2-4949-a222-d0dc69b1ac73"><td ac:local-id="d8c52b33-2607-41e0-9109-3b3967cabb61"><p local-id="75d44cf4-3563-47f8-8c72-35642ad1ffb6">1</p></td><td ac:local-id="403f23f3-b8ea-42e1-a82c-934a485b08a0"><p local-id="eb0b52cc-8469-48c1-96f8-a60c2dccd0b1">DMES - CORE</p></td><td ac:local-id="83506ae4-5893-4d23-b974-ae15d59ce317"><p local-id="27494d29-5585-4a73-a4b3-5f63796377ad"><link ac:local-id="0d694533-c8fe-43ac-9438-43d1aff49617" ac:card-appearance="inline"><page ri:content-title="CORE" ri:version-at-save="2"></page><link-body>CORE</link-body></p></td><td ac:local-id="f0ca89a3-43ad-4708-8c00-6d7085aa5301"><p local-id="3174135a-d95e-4924-9fd4-866e90fe060d"></p></td><td ac:local-id="41cec341-92c1-45b5-b141-20e9cb33833b"><p local-id="73acadaf-3efe-48af-b5b7-3710f1934ae7"></p></td></tr><tr ac:local-id="50f6aaf6-5e88-4dfe-995a-e1aee962fb90"><td ac:local-id="620ede6c-3c57-44e0-9444-33286b79e1c8"><p local-id="b52e366b-acff-457d-8460-27b0c2e22bd3">2</p></td><td ac:local-id="341bf75d-eaa1-4cb6-aa80-67634709e0b0"><p local-id="d6bd07b7-9e0b-44bc-a532-482fb648cf58">TRACE</p></td><td ac:local-id="fa92c96e-4e8e-42a7-81d7-f45294ea8e44"><p local-id="a8b6e8b7-b0bb-4024-be58-5e0c6c340ab7"><link ac:local-id="8124ffea-8f84-4539-a29a-26b746576bb0" ac:card-appearance="inline"><page ri:content-title="TRACE" ri:version-at-save="3"></page><link-body>LABEL</link-body> </p></td><td ac:local-id="2ffbf8f3-832d-43c6-8370-d26293a92e0f"><p local-id="3b07f587-6833-4d8c-8031-d1e92484dafb"></p></td><td ac:local-id="c88996ef-a2e6-478c-9d38-a4d514ba3ceb"><p local-id="7ce20ecc-4ba5-4c09-a041-337003350bc8"></p></td></tr><tr ac:local-id="e294e555-9329-4c2e-ba18-76daa3df3f59"><td ac:local-id="1a3e8fda-483e-4dc6-9938-1500491de8eb"><p local-id="2d9c35a1-e0c1-4846-95de-ede16358a936">3</p></td><td ac:local-id="45f4ae3c-dd33-4e08-b587-fc2efecedbbc"><p local-id="0e586033-1435-489d-9199-fe2956612bcd">MATRIX</p></td><td ac:local-id="faa1788e-5465-461d-a44b-21280649b142"><p local-id="d4e7cb03-2e7e-4dc0-bd24-ef7ca93960a0"><link ac:local-id="d571eb83-de4e-40cd-b85c-7a3d9a6005a8" ac:card-appearance="inline"><page ri:content-title="MATRIX" ri:version-at-save="5"></page><link-body>SLABS</link-body> </p></td><td ac:local-id="4e54a3d4-d8ed-402c-8c06-e89efabf2322"><p local-id="2872e4b4-451e-46dc-a81d-af4f55fcf2fe"></p></td><td ac:local-id="d4e15ff3-885c-4bab-8f82-51a92b2b16f0"><p local-id="ac366e76-7341-47d1-975c-c9888ceefb6c"></p></td></tr><tr ac:local-id="d8ea9bf3-e628-428a-9139-14d67e74bc96"><td ac:local-id="dc349338-493d-4b7e-9b05-fade9513f828"><p local-id="c297cad0-7996-4c02-b00b-ddc35a9e7451">4</p></td><td ac:local-id="467dd28d-68eb-4905-bd58-bc94767b68f8"><p local-id="d45a2bab-e302-420a-b885-8e18b85bed91">PRO</p></td><td ac:local-id="35933411-751a-4573-850e-63e7e5444652"><p local-id="c0aea363-41e0-436d-8acf-a20c0fc81552"><link ac:local-id="d22ca546-d77f-462f-9fdb-014b758532c9" ac:card-appearance="inline"><page ri:content-title="PRO" ri:version-at-save="3"></page><link-body>JOBS</link-body> </p></td><td ac:local-id="dcd83f19-1927-423e-a13b-6b4b78c32362"><p local-id="f1b0535f-df13-4203-b2f6-6ed906c3d706"></p></td><td ac:local-id="43ff5a0e-98c0-4c68-8523-2a00369d5727"><p local-id="9a685c96-1a39-4efc-91b4-a092ba118e77"></p></td></tr><tr ac:local-id="3b54bdc3-365d-4520-8b8a-e69c6f76cb33"><td colspan="5" ac:local-id="bb2490ef-ebf9-4871-aa1d-2f944a60bef5"><p local-id="cf13d8e5-0984-4470-bf5f-bc18bc36ca03"><strong>Pacchetti e opzioni aggiuntive</strong></p></td></tr><tr ac:local-id="9500d8bf-2d39-41ac-ab58-69a0b88f3155"><td ac:local-id="ec86fe29-ed24-42a8-9031-7230d2e5bdfa"><p local-id="96fb7a45-bb48-4a32-82d9-da07b7ca60c5">5</p></td><td ac:local-id="9976e5fc-33ab-44e5-be62-1d8e6fa1b78f"><p local-id="ab838d6d-c11c-433f-917d-33b639685ad3">NOTIFICHE</p></td><td ac:local-id="2a6cbd93-5965-4e8e-b909-d62a5a3e8d0a"><p local-id="78ed7a7b-dfea-4081-92ec-e37163164432"><link ac:local-id="1cc52f4d-763a-4ab9-bf6c-3a0e10db7641" ac:card-appearance="inline"><page ri:content-title="NOTIFICHE" ri:version-at-save="2"></page><link-body>NOTIFICHE</link-body> </p></td><td ac:local-id="c77588a2-c2b1-4c83-a5c1-3f2c97aca1fb"><p local-id="00846414-e217-40b4-a13b-476fea302f81"></p></td><td ac:local-id="09430961-c7db-4bcc-ab19-12dc072a171e"><p local-id="8764fe51-9138-47a0-bfb2-ad0491ce2056"></p></td></tr><tr ac:local-id="064f8ade-cda6-4f4a-b3ec-ac94797cc36b"><td ac:local-id="6868ceaf-5410-4991-a490-7ed13d1b8fcf"><p local-id="bd17bc8a-09a6-425b-94f4-cccc593b7f7f">6</p></td><td ac:local-id="094a32e7-7213-4860-9587-fabb69a42b1e"><p local-id="18b8fc81-20a4-4478-9f0d-a8b20ffe85b8">Aggiunta di n_1 macchina Donatoni</p></td><td ac:local-id="714e9428-2f9e-4815-b056-fa605753f0b7"><p local-id="e96ee792-5df6-4cbe-b535-99786c43f8ff"><link ac:local-id="ea152612-497d-4e82-a621-50a1d85afe1f" ac:card-appearance="inline"><page ri:content-title="MACCHINE AGGIUNTIVE E AREA MANUALE" ri:version-at-save="1"></page><link-body>MACCHINE AGGIUNTIVE E AREA MANUALE</link-body> </p></td><td ac:local-id="0e7512d0-beb2-4096-922b-dd131620c813"><p local-id="57954071-e5b7-4697-ad73-2f92fe22bb3a"></p></td><td ac:local-id="666f00a0-56d9-4426-b32d-d2293d054ef3"><p local-id="68d5df95-a8a6-4a5c-8ed0-975a433cc736"></p></td></tr><tr ac:local-id="49961673-6872-4412-8430-64fa96ce0ab6"><td ac:local-id="066905be-8c2e-43af-8669-c0709b1aa58d"><p local-id="7fe8438b-17e9-400a-acda-745aecb45e36">7</p></td><td ac:local-id="d612c2cc-9d81-4ce0-a32a-b4cd8350655b"><p local-id="9401bc36-b476-46ca-83d9-214faf94b10b">Aggiunta di una stazione manuale e installazione del SW D-MES Station su hardware del cliente</p></td><td ac:local-id="5242d716-4fc0-42f8-91ca-20754862c9a7"><p local-id="68f9453e-b4ad-4b43-9e0b-83001fc398ca"><link ac:local-id="515382b6-4a62-491b-bbef-a7edf40facc5" ac:card-appearance="inline"><page ri:content-title="MACCHINE AGGIUNTIVE E AREA MANUALE" ri:version-at-save="1"></page><link-body>MACCHINE AGGIUNTIVE E AREA MANUALE</link-body> </p></td><td ac:local-id="04a7eb8c-0aab-4239-afba-1ea6cf2d63a4"><p local-id="12759507-139c-4e04-af5a-8e876f4439b8"></p></td><td ac:local-id="1ded7119-07ea-479e-8483-75d35d319392"><p local-id="7be09c3d-4a52-4467-8d65-fc676c4a7ac2"></p></td></tr><tr ac:local-id="b4cc073f-9281-47b6-a1ff-771c8b3ec979"><td ac:local-id="0aba206b-5589-4273-9820-71a1cad5808e"><p local-id="d10682e3-f579-45b9-8378-e5b66a35f178">8</p></td><td ac:local-id="a6966b54-720b-492e-be29-5d47d86ecbcf"><p local-id="c8a52d9e-ca12-4c7f-942e-03d25344fca6">Aggiunta di n_1 macchina NON Donatoni con interfaccia 4.0</p></td><td ac:local-id="34296991-2b44-4d59-ab7d-72e7b3c097d0"><p local-id="58ee0b32-1830-43a6-a985-20d4b1ac5642"><link ac:local-id="98024d49-e562-4bbf-abfb-38bef927cc44" ac:card-appearance="inline"><page ri:content-title="MACCHINE AGGIUNTIVE E AREA MANUALE" ri:version-at-save="1"></page><link-body>MACCHINE AGGIUNTIVE E AREA MANUALE</link-body> </p></td><td ac:local-id="2f57c5a2-78de-44bb-9cd2-05a5eedc3fbb"><p local-id="b562bbb0-009a-4c9b-ad4e-f7fb025ca979"></p></td><td ac:local-id="2b944182-bd0f-4324-a360-b504caf21f4d"><p local-id="a4d35c56-b5d5-4c25-9cfa-d834de93a683"></p></td></tr><tr ac:local-id="a2345db9-215d-45ac-b9f7-f0dacfd42993"><td ac:local-id="7f47002c-b0ea-49b9-a7d5-50219dd4c417"><p local-id="149fb78c-8af0-4d9b-a772-00a9cc687af0">9</p></td><td ac:local-id="b6edbdcc-3277-4e83-a315-f0bd9a54ca6f"><p local-id="960fe6ee-161d-41d8-804a-602550093640">Aggiunta di una macchina NON Donatoni SENZA interfaccia 4.0</p></td><td ac:local-id="dd56db59-5383-4450-8c00-14ab0159a73f"><p local-id="ccd55532-60fd-482b-a78b-a52c96bf7ae8"><link ac:local-id="62279a43-cf6d-47f1-99cc-e04d12a85b71" ac:card-appearance="inline"><page ri:content-title="MACCHINE AGGIUNTIVE E AREA MANUALE" ri:version-at-save="1"></page><link-body>MACCHINE AGGIUNTIVE E AREA MANUALE</link-body> </p></td><td ac:local-id="84b49240-3b3b-4914-b7ab-3156473eb62a"><p local-id="01fb3d6a-7ccc-4a17-ae90-21dcb451a4e6"></p></td><td ac:local-id="0309a603-7dc2-43a4-9c9e-8efd30a19d49"><p local-id="4e584713-fd99-41e1-9031-79af6b474abb"></p></td></tr></tbody></table><h3 local-id="1bac863b-2a74-40f7-9007-4a670716d502"><strong><u>CONDIZIONI DI UTILIZZO E RINNOVI:</u></strong></h3><p local-id="8182a20e-7968-415f-bf53-e39eb4ce1335">DONATONI MES è accessibile, tramite dispositivi compatibili, con licenza d'uso, non esclusiva e non trasferibile, soggetta alle condizioni d’uso.</p><p local-id="4f66013a-190f-4b4e-a95a-4bbc0374dc59">La proprietà del Software, e di ogni diritto non espressamente concesso, sono e rimarranno di spettanza di Donatoni Macchine (e/o dei relativi fornitori di software).</p><p local-id="98535ecd-d8b7-4f6a-bb88-d1ff712a1d3b">Gli oneri di connessione fisica ed i costi di connettività sono a carico del cliente.</p><p local-id="458079f5-a11f-4767-b1d7-b59218bfa310">I servizi DONATONI MES sono forniti all'Acquirente per un periodo di 12 mesi dal momento della loro attivazione, saranno rinnovati automaticamente a titolo oneroso al prezzo di listino, salvo intervenga disdetta dell'Acquirente entro 30 giorni prima della fine della validità del servizio.<br>Nel caso in cui il servizio DONATONI MES non venga rinnovato vengono bloccate alcune funzionalità del software.</p><p local-id="60a1ef2a-01b3-4969-a78e-3d662389985e">Servizi di aggiornamento e assistenza:</p><ul local-id="05a4e8a2-536a-4cfc-b75f-770d785892c7"><li local-id="59fdc5b2-8e3e-4578-8669-9a712ecfa626"><p local-id="6242fc59-7272-4766-8771-6b9a6dcb681c">Aggiornamento all’ultima revisione</p></li><li local-id="8dc17122-8dab-416d-a701-f0880af3b0fb"><p local-id="e4a27cbe-9bb1-42fc-bcba-6060f2a106d5">Risoluzione bug</p></li><li local-id="061f2ffb-6c2c-4ac8-8260-1d522ce2ff1b"><p local-id="288f6945-a2ab-485a-98dd-775fed9dac23">Assistenza remota</p></li></ul><p local-id="95290053-abdb-4697-ad45-045496a48ecf">Il prezzo per i rinnovi, potrebbe subire variazioni a seconda delle esigenze di mercato o in correlazione a variazioni dei costi di produzione, del personale o dei servizi accessori, fatte salve eventuali disposizioni legislative con impatti sui prezzi di vendita.</p>
                         </main>
 
                     </div>
 
-                    <img src="images/donatoni_222.jpg" />
+                    <img src="images/donatoni_222.jpg">
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->

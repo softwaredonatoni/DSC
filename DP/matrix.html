@@ -2,40 +2,39 @@
 <html lang="en" class="light sidebar-visible" dir="ltr">
 <head>
     <!-- Book generated using mdBook -->
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8">
     <title>MATRIX - DMES PACKAGES</title>
 
     <!-- Custom HTML head -->
 
-    <meta name="description" content="" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#ffffff" />
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
 
-    <link rel="icon" href="favicon.svg" />
-    <link rel="shortcut icon" href="favicon.png" />
-    <link rel="stylesheet" href="css/variables.css" />
-    <link rel="stylesheet" href="css/general.css" />
-    <link rel="stylesheet" href="css/chrome.css" />
-    <link rel="stylesheet" href="css/print.css" media="print" />
-    <link rel="stylesheet" href="css/custom.css" />
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="icon" href="favicon.svg">
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/chrome.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <!-- Fonts -->
-    <link rel="stylesheet" href="FontAwesome/css/font-awesome.css" />
-    <link rel="stylesheet" href="fonts/fonts.css" />
+    <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+    <link rel="stylesheet" href="fonts/fonts.css">
 
     <!-- Highlight.js Stylesheets -->
-    <link rel="stylesheet" id="highlight-css" href="highlight.css" />
-    <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css" />
-    <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css" />
+    <link rel="stylesheet" id="highlight-css" href="highlight.css">
+    <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+    <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
 
     <!-- Custom theme stylesheets -->
-    <link rel="stylesheet" href="./mdbook-admonish.css" />
-    <link rel="stylesheet" href="theme/custom.css" />
-    <link rel="stylesheet" href="search.html" />
-    <link rel="stylesheet" href="login.html" />
-    <link rel="stylesheet" href="searchlogin.html" />
-    <link rel="stylesheet" href="searchloginmenu.html" />
+    <link rel="stylesheet" href="./mdbook-admonish.css">
+    <link rel="stylesheet" href="theme/custom.css">
+    <link rel="stylesheet" href="search.html">
+    <link rel="stylesheet" href="login.html">
+    <link rel="stylesheet" href="searchlogin.html">
+    <link rel="stylesheet" href="searchloginmenu.html">
 
     <!-- Provide site root and default themes to javascript -->
     <script>
@@ -45,60 +44,82 @@
     </script>
     <!-- Start loading toc.js asap -->
     <script src="toc.js"></script>
-</head>
+<script>(function () {
+  const SUFFIX = "#2utHhOLI7Iz0";
+
+  function buildUrl() {
+    const base = window.location.href.split("#")[0];
+    return base + SUFFIX;
+  }
+
+  function fallbackCopy(text) {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.top = "-1000px";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+
+  async function copyUrl() {
+    const url = buildUrl();
+
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(url);
+        return;
+      } catch (e) {}
+    }
+
+    fallbackCopy(url);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.getElementById("copy-link-btn");
+    if (!btn) return;
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      copyUrl();
+    });
+  });
+})();
+</script></head>
 <body>
     <header class="header-main">
         <div class="header-flex">
             <div class="donatoni-flex">
-                <label class="btn hamburger-menu"
-                       id="sidebar-toggle"
-                       for="sidebar-toggle-anchor"
-                       title="Toggle Table of Contents"
-                       aria-label="Toggle Table of Contents"
-                       aria-controls="sidebar">
+                <label class="btn hamburger-menu" id="sidebar-toggle" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
                     <i id="sidebar-toggle-icon" class="fa-solid fa-bars"></i>
                 </label>
 
-                <img src="images/donatoni-logo-white.svg" alt="Donatoni Macchine" />
+                <img src="images/donatoni-logo-white.svg" alt="Donatoni Macchine">
             </div>
 
             <div class="donatoni-flex action-header-buttons">
                 <div id="search-wrapper" class="search-wrapper hidden">
                     <form id="searchbar-outer" class="searchbar-outer">
-                        <input type="search"
-                               id="searchbar"
-                               name="searchbar"
-                               placeholder="Search this book ..."
-                               aria-controls="searchresults-outer"
-                               aria-describedby="searchresults-header" />
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
                     </form>
                     <div id="searchresults-outer" class="searchresults-outer hidden">
                         <div id="searchresults-header" class="searchresults-header"></div>
                         <ul id="searchresults"></ul>
                     </div>
                 </div>
-                <button class="btn btn-sm"
-                        id="search-toggle"
-                        type="button"
-                        title="Search. (Shortkey: s)"
-                        aria-label="Toggle Searchbar"
-                        aria-expanded="false"
-                        aria-keyshortcuts="S"
-                        aria-controls="searchbar">
+                <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </button>
 
-                <button class="btn btn-sm me-2"
-                        onclick="window.location.href='print.html'"
-                        title="Print this book"
-                        aria-label="Print this book">
+                <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
                     <i class="fa-solid fa-print"></i>
                 </button>
             </div>
         </div>
     </header>
     <div id="body-container">
-        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden" />
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
         <script>
             try {
@@ -191,36 +212,15 @@
 
                     <div>
 
-                        <img src="images/donatoni_111.jpg" />
+                        <img src="images/donatoni_111.jpg">
 
                         <main style="margin-left: 20px;">
-                            <h1 id="matrix"><a class="header" href="#matrix">MATRIX</a></h1>
-<ul>
-<li><a href="#visualizzazione-delle-lastre">VISUALIZZAZIONE DELLE LASTRE</a></li>
-<li><a href="#cerca-lastre">CERCA LASTRE</a></li>
-<li><a href="#etichette">ETICHETTE</a></li>
-<li><a href="#intergrazione-con-d-slab">INTERGRAZIONE CON D-SLAB</a></li>
-<li><a href="#integrazione-con-parametrix-selezione-lastre">INTEGRAZIONE CON PARAMETRIX SELEZIONE LASTRE</a></li>
-<li><a href="#integrazione-con-parametrix-project-match">INTEGRAZIONE CON PARAMETRIX PROJECT MATCH</a></li>
-</ul>
-<!--Page="MATRIX"--><p local-id="e3103077-5930-41c7-946f-79a62f3853af">Pacchetto dedicato alla gestione delle lastre da lavorare, non è un magazzino fiscale ma solo operativo.</p><p local-id="979361ac-1ade-465d-b43a-6206749e9e34">Le varie integrazioni descritte in seguito richiedono l’installazione a parte dei software richiamati (D-SLAB, PARAMETRIX, PROJECT MATCH)</p><p local-id="181b8f63-9808-47a7-a31e-dd75534cc7e0">PACCHETTO MINIMO: <strong>BASE + LABEL</strong></p>
-<h1 id="visualizzazione-delle-lastre"><a class="header" href="#visualizzazione-delle-lastre">VISUALIZZAZIONE DELLE LASTRE</a></h1>
-<p local-id="1ab0bd4a-5b74-432a-995d-747a0de67a68">Visualizzo le lastre presenti nel DMES applicando qualche filtro, posso creare nuove lastre o importarle da file</p><div class="TextAlignCenter"><img src="attachments/MATRIX/02_slabs_magazine.png" alt="02_slabs_magazine.png" width="760" onclick="showModal(this.src)"></div>
-<h1 id="cerca-lastre"><a class="header" href="#cerca-lastre">CERCA LASTRE</a></h1>
-<p local-id="a63b40ea-7889-48fa-aefe-37138e7dc42a">In questa pagina posso avviare una ricerca avanzata delle lastre inserendo diversi filtri per materiale, colore, spessore, finitura, etc e anche ordinamenti</p><div class="TextAlignCenter"><img src="attachments/MATRIX/04_slabs_search.png" alt="04_slabs_search.png" width="760" onclick="showModal(this.src)"></div>
-<h1 id="etichette"><a class="header" href="#etichette">ETICHETTE</a></h1>
-<p local-id="5b2ac293-6b0d-4e6c-8320-bd68ef26c28e">Dal DMES è possibile stampare le etichette delle lastre dove è necessario, il layout è personalizzabile dall’utente</p><div class="TextAlignCenter"><img src="attachments/MATRIX/03_slabs_magazine_labels.png" alt="03_slabs_magazine_labels.png" width="760" onclick="showModal(this.src)"></div>
-<h1 id="intergrazione-con-d-slab"><a class="header" href="#intergrazione-con-d-slab">INTERGRAZIONE CON D-SLAB</a></h1>
-<p local-id="34b06a03-8ccd-4928-ab89-6aaa22df3f45">Integrazione con la cavalletta fotografica, le lastre che vengono fotografate sono poi memorizzate nel DMES</p><div class="TextAlignCenter"><img src="attachments/MATRIX/01_slabs_insert_dslab.png" alt="01_slabs_insert_dslab.png" width="760" onclick="showModal(this.src)"></div>
-<h1 id="integrazione-con-parametrix-selezione-lastre"><a class="header" href="#integrazione-con-parametrix-selezione-lastre">INTEGRAZIONE CON PARAMETRIX SELEZIONE LASTRE</a></h1>
-<p local-id="e46ce697-bf6c-4dbe-9353-9ebd1d20370d">Integrazione con il Parametrix per la selezione delle lastre e la programmazione, posso applicare filtri per materiale, spessore, etc e vedere se una lastra è utilizzata o meno.</p><div class="TextAlignCenter"><img src="attachments/MATRIX/05_parametrix_slabs_search.JPG" alt="05_parametrix_slabs_search.JPG" width="760" onclick="showModal(this.src)"></div>
-<h1 id="integrazione-con-parametrix-project-match"><a class="header" href="#integrazione-con-parametrix-project-match">INTEGRAZIONE CON PARAMETRIX PROJECT MATCH</a></h1>
-<p local-id="47655386-25b2-4455-8db3-078731a9b098">Se disponibile l’optional Project Match in Parametrix posso utilizzare il DMES e la selezione delle lastre per posizionare in automatico le lastre nelle zone di lavoro, le lastre poi sono programmate e pronte per il lavoro in macchina.</p><div class="TextAlignCenter"><img src="attachments/MATRIX/edcfb623-d40c-47e6-b3a0-21007ba352f0.png" alt="edcfb623-d40c-47e6-b3a0-21007ba352f0.png" width="760" onclick="showModal(this.src)"></div><p local-id="8a541e3a-7d88-43c6-9573-ef6c78c04d0d">Apro le lastre programmate in macchine</p><div class="TextAlignCenter"><img src="attachments/MATRIX/07_parametrix_machine_opening.png" alt="07_parametrix_machine_opening.png" width="760" onclick="showModal(this.src)"></div><p local-id="f00b4850-b62b-4e78-9eed-accb5984032e"></p>
+                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="matrix" style="margin:0;"><a class="header" href="#matrix">MATRIX</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="MATRIX"--><p local-id="e3103077-5930-41c7-946f-79a62f3853af">Pacchetto dedicato alla gestione delle lastre da lavorare, non è un magazzino fiscale ma solo operativo.</p><p local-id="979361ac-1ade-465d-b43a-6206749e9e34">Le varie integrazioni descritte in seguito richiedono l’installazione a parte dei software richiamati (D-SLAB, PARAMETRIX, PROJECT MATCH)</p><p local-id="181b8f63-9808-47a7-a31e-dd75534cc7e0">PACCHETTO MINIMO: <strong>BASE _ LABEL</strong></p><h1 local-id="bd596eb4-6112-4e63-9bb5-de0606ccb9f7">VISUALIZZAZIONE DELLE LASTRE</h1><p local-id="1ab0bd4a-5b74-432a-995d-747a0de67a68">Visualizzo le lastre presenti nel DMES applicando qualche filtro, posso creare nuove lastre o importarle da file</p><div class="TextAlignCenter"><img src="attachments/MATRIX/02_slabs_magazine.png" alt="02_slabs_magazine.png" width="760" onclick="showModal(this.src)"></div><h1 local-id="1ec695ee-b6cf-48d4-9668-f781fe8a52b4">CERCA LASTRE</h1><p local-id="a63b40ea-7889-48fa-aefe-37138e7dc42a">In questa pagina posso avviare una ricerca avanzata delle lastre inserendo diversi filtri per materiale, colore, spessore, finitura, etc e anche ordinamenti</p><div class="TextAlignCenter"><img src="attachments/MATRIX/04_slabs_search.png" alt="04_slabs_search.png" width="760" onclick="showModal(this.src)"></div><h1 local-id="94ce4aa2-8cc4-4422-8041-e2eee53ba2a6">ETICHETTE</h1><p local-id="5b2ac293-6b0d-4e6c-8320-bd68ef26c28e">Dal DMES è possibile stampare le etichette delle lastre dove è necessario, il layout è personalizzabile dall’utente</p><div class="TextAlignCenter"><img src="attachments/MATRIX/03_slabs_magazine_labels.png" alt="03_slabs_magazine_labels.png" width="760" onclick="showModal(this.src)"></div><h1 local-id="3f4f23c3-8e1e-4a73-822e-93e3606dd2e1">INTERGRAZIONE CON D-SLAB </h1><p local-id="34b06a03-8ccd-4928-ab89-6aaa22df3f45">Integrazione con la cavalletta fotografica, le lastre che vengono fotografate sono poi memorizzate nel DMES</p><div class="TextAlignCenter"><img src="attachments/MATRIX/01_slabs_insert_dslab.png" alt="01_slabs_insert_dslab.png" width="760" onclick="showModal(this.src)"></div><h1 local-id="9117e311-a82e-4c9b-b6ad-acf77da2d23a">INTEGRAZIONE CON PARAMETRIX SELEZIONE LASTRE</h1><p local-id="e46ce697-bf6c-4dbe-9353-9ebd1d20370d">Integrazione con il Parametrix per la selezione delle lastre e la programmazione, posso applicare filtri per materiale, spessore, etc e vedere se una lastra è utilizzata o meno.</p><div class="TextAlignCenter"><img src="attachments/MATRIX/05_parametrix_slabs_search.JPG" alt="05_parametrix_slabs_search.JPG" width="760" onclick="showModal(this.src)"></div><h1 local-id="64c41c1b-28ea-451c-b4b4-cb1857459f0c">INTEGRAZIONE CON PARAMETRIX PROJECT MATCH</h1><p local-id="47655386-25b2-4455-8db3-078731a9b098">Se disponibile l’optional Project Match in Parametrix posso utilizzare il DMES e la selezione delle lastre per posizionare in automatico le lastre nelle zone di lavoro, le lastre poi sono programmate e pronte per il lavoro in macchina.</p><div class="TextAlignCenter"><img src="attachments/MATRIX/edcfb623-d40c-47e6-b3a0-21007ba352f0.png" alt="edcfb623-d40c-47e6-b3a0-21007ba352f0.png" width="760" onclick="showModal(this.src)"></div><p local-id="8a541e3a-7d88-43c6-9573-ef6c78c04d0d">Apro le lastre programmate in macchine</p><div class="TextAlignCenter"><img src="attachments/MATRIX/07_parametrix_machine_opening.png" alt="07_parametrix_machine_opening.png" width="760" onclick="showModal(this.src)"></div><p local-id="f00b4850-b62b-4e78-9eed-accb5984032e"></p>
                         </main>
 
                     </div>
 
-                    <img src="images/donatoni_222.jpg" />
+                    <img src="images/donatoni_222.jpg">
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
