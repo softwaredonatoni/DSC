@@ -7,21 +7,16 @@ document.addEventListener("DOMContentLoaded", function () {
   {
       const fragment  = window.location.hash.substring(1);
       const [parametro1] = fragment.split("|");
-      const output = document.getElementById("parametro");
+      let result = 'false';
+      const token = 'Donatoni2026!'
 
-      // crea iframe invisibile
-      const iframe = document.createElement("iframe");
-      iframe.style.display = "none";
 
-      iframe.src = `https://softwaredonatoni.github.io/DSCEV/#${encodeURIComponent(parametro1)}`;
+                if(parametro1 == token)
+                {
+                  result = 'True';
+                }
 
-      iframe.onload = function () {
-
-          try {
-
-              const result = iframe.contentDocument.getElementById("out").textContent.trim();
-
-              if (result == "true" || result == "True")
+              if (result == "True")
               {
                   console.info("login ok");
                   sessionStorage.setItem("isLoggedIn", "true");
@@ -32,15 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
                   window.location.href = "login.html";
               }
 
-          }
-          catch (error)
-          {
-              console.error("Errore:", error);
-          }
 
-      };
-
-      document.body.appendChild(iframe);
   }
 
 });
