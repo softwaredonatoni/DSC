@@ -54,10 +54,11 @@
 
         async function fetchToken(parametro1) {
             try {
-                const response = await fetch(`http://192.168.6.14:8081/api/evaluate?token=${encodeURIComponent(parametro1)}`);
-                if (!response.ok) throw new Error("Errore nella risposta HTTP");
-
-                const text = await response.json(); // supponiamo risponda con "True" o "False"
+                const token = 'Donatoni2026!'
+                let text = 'false';
+                if (parametro1 == token) {
+                    text = 'True';
+                }
                 if (text == "True") {
                     console.info("login ok");
                     sessionStorage.setItem("isLoggedIn", "true");
@@ -111,7 +112,7 @@
 
 
             output.textContent = `Parametro passato: ${parametro2}`;
-            
+
             // Cerca tutte le corrispondenze nel body
             const mappings = document.querySelectorAll("p#mapping");
             for (const mapping of mappings) {
