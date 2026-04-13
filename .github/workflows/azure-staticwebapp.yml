@@ -24,6 +24,7 @@ env:
   APP_LOCATION: "/" # location of your client code
   APP_ARTIFACT_LOCATION: "/" # location of client code build output
   AZURE_STATIC_WEB_APPS_API_TOKEN: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }} # secret containing deployment token for your static web app
+  SKIP_DEPLOY_ON_MISSING_SECRETS: true # set to true to skip deployment if secrets are missing, set to false to fail workflow if secrets are missing
 
 permissions:
   contents: read
