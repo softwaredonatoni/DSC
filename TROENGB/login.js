@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 if (!response.ok) {
                     throw new Error("Errore nella risposta HTTP");
                 }
-                return response.json();
+                return response.text();
             })
             .then(text => {
                 if (text === true || text === "True") {
