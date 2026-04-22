@@ -68,49 +68,7 @@
             color: hsl(223.15deg 84.76% 20.59%);
         }
     </style>
-<script>(function () {
-  const SUFFIX = "#2utHhOLI7Iz0";
-
-  function buildUrl() {
-    const base = window.location.href.split("#")[0];
-    return base + SUFFIX;
-  }
-
-  function fallbackCopy(text) {
-    const ta = document.createElement("textarea");
-    ta.value = text;
-    ta.setAttribute("readonly", "");
-    ta.style.position = "fixed";
-    ta.style.top = "-1000px";
-    document.body.appendChild(ta);
-    ta.select();
-    try { document.execCommand("copy"); } catch (e) {}
-    document.body.removeChild(ta);
-  }
-
-  async function copyUrl() {
-    const url = buildUrl();
-
-    if (navigator.clipboard && window.isSecureContext) {
-      try {
-        await navigator.clipboard.writeText(url);
-        return;
-      } catch (e) {}
-    }
-
-    fallbackCopy(url);
-  }
-
-  document.addEventListener("DOMContentLoaded", function () {
-    const btn = document.getElementById("copy-link-btn");
-    if (!btn) return;
-    btn.addEventListener("click", function (e) {
-      e.preventDefault();
-      copyUrl();
-    });
-  });
-})();
-</script></head>
+</head>
 <body>
 
     <p style="background-image: url('images\login.jpg');">
@@ -132,46 +90,39 @@
             });
         </script>
 
+
         <script>
 
             function authenticate() {
                 // Get input values
                 const username = document.getElementById('username').value;
                 const password = document.getElementById('password').value;
-
+                const token = 'Donatoni2026!';
+                let text = 'False';
                 // Clear any previous error message
                 const errorMessage = document.getElementById('error-message');
                 errorMessage.textContent = '';
 
-                fetch(`http://192.168.6.14:8081/api/login?user=${encodeURIComponent(username)}&psw=${encodeURIComponent(password)}`)
-                    .then(response => {
-                        if (!response.ok) throw new Error("Errore nella risposta HTTP");
-                        return response.json(); // supponiamo che la risposta sia `true` o `false` in JSON
-                    })
-                    .then(text => {
+                if (password == token) {
+                    text = 'True';
+                }
 
-                        if (text == "True") {
-                            sessionStorage.setItem("isLoggedIn", "true");
+                if (text == "True") {
+                    sessionStorage.setItem("isLoggedIn", "true");
 
-                            const targetPage = sessionStorage.getItem("pageName");
-                            const redirectTo = targetPage && targetPage.trim() !== "" ? targetPage : "index.html";
+                    const targetPage = sessionStorage.getItem("pageName");
+                    const redirectTo = targetPage && targetPage.trim() !== "" ? targetPage : "index.html";
 
-                            setTimeout(function () {
-                                window.location.href = redirectTo;
-                            }, 1000);
-                        }
-                        else {
-                            errorMessage.textContent = 'Username o password non validi';
-                            console.log(`text ricevuto: [${text}]`);
-                        }
-                    })
-                    .catch(error => {
-                        console.error("Errore:", error);
-                    });
-
-
-
+                    setTimeout(function () {
+                        window.location.href = redirectTo;
+                    }, 1000);
+                }
+                else {
+                    errorMessage.textContent = 'Username o password non validi';
+                    console.log(`text ricevuto: [${text}]`);
+                }
             }
         </script>
+
 </body>
 </html>
