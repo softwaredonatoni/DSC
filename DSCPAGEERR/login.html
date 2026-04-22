@@ -90,39 +90,46 @@
             });
         </script>
 
-
         <script>
-
             function authenticate() {
-                // Get input values
                 const username = document.getElementById('username').value;
                 const password = document.getElementById('password').value;
-                const token = 'Donatoni2026!';
-                let text = 'False';
-                // Clear any previous error message
+
                 const errorMessage = document.getElementById('error-message');
                 errorMessage.textContent = '';
 
-                if (password == token) {
-                    text = 'True';
+                if (!username || !password) {
+                    errorMessage.textContent = 'Inserisci username e password';
+                    return;
                 }
 
-                if (text == "True") {
-                    sessionStorage.setItem("isLoggedIn", "true");
+                fetch(`https://dat.donatonimacchine.eu:44326/api/login?user=${encodeURIComponent(username)}&psw=${encodeURIComponent(password)}`)
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error("Errore nella risposta HTTP");
+                        }
+                        return response.json();
+                    })
+                    .then(text => {
+                        if (text === true || text === "True") {
+                            sessionStorage.setItem("isLoggedIn", "true");
 
-                    const targetPage = sessionStorage.getItem("pageName");
-                    const redirectTo = targetPage && targetPage.trim() !== "" ? targetPage : "index.html";
+                            const targetPage = sessionStorage.getItem("pageName");
+                            const redirectTo = targetPage && targetPage.trim() !== "" ? targetPage : "index.html";
 
-                    setTimeout(function () {
-                        window.location.href = redirectTo;
-                    }, 1000);
-                }
-                else {
-                    errorMessage.textContent = 'Username o password non validi';
-                    console.log(`text ricevuto: [${text}]`);
-                }
+                            setTimeout(function () {
+                                window.location.href = redirectTo;
+                            }, 1000);
+                        } else {
+                            errorMessage.textContent = 'Username o password non validi';
+                            console.log(`text ricevuto: [${text}]`);
+                        }
+                    })
+                    .catch(error => {
+                        console.error("Errore:", error);
+                        errorMessage.textContent = 'Errore di connessione al server. Riprova più tardi.';
+                    });
             }
         </script>
-
 </body>
 </html>

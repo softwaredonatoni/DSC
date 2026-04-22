@@ -91,24 +91,27 @@
         </script>
 
         <script>
-
             function authenticate() {
-                // Get input values
                 const username = document.getElementById('username').value;
                 const password = document.getElementById('password').value;
 
-                // Clear any previous error message
                 const errorMessage = document.getElementById('error-message');
                 errorMessage.textContent = '';
 
+                if (!username || !password) {
+                    errorMessage.textContent = 'Inserisci username e password';
+                    return;
+                }
+
                 fetch(`https://dat.donatonimacchine.eu:44326/api/login?user=${encodeURIComponent(username)}&psw=${encodeURIComponent(password)}`)
                     .then(response => {
-                        if (!response.ok) throw new Error("Errore nella risposta HTTP");
-                        return response.json(); // supponiamo che la risposta sia `true` o `false` in JSON
+                        if (!response.ok) {
+                            throw new Error("Errore nella risposta HTTP");
+                        }
+                        return response.json();
                     })
                     .then(text => {
-
-                        if (text == "True") {
+                        if (text === true || text === "True") {
                             sessionStorage.setItem("isLoggedIn", "true");
 
                             const targetPage = sessionStorage.getItem("pageName");
@@ -117,18 +120,15 @@
                             setTimeout(function () {
                                 window.location.href = redirectTo;
                             }, 1000);
-                        }
-                        else {
+                        } else {
                             errorMessage.textContent = 'Username o password non validi';
                             console.log(`text ricevuto: [${text}]`);
                         }
                     })
                     .catch(error => {
                         console.error("Errore:", error);
+                        errorMessage.textContent = 'Errore di connessione al server. Riprova più tardi.';
                     });
-
-
-
             }
         </script>
 </body>
