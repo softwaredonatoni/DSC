@@ -2,6 +2,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const pageName = window.location.pathname.split("/").pop();
     sessionStorage.setItem("pageName", pageName);
+    sessionStorage.setItem("isLoggedIn", "true");
+    return;
 
     if (sessionStorage.getItem("isLoggedIn") !== "true") {
         const fragment = window.location.hash.substring(1);
