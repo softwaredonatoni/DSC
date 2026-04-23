@@ -68,49 +68,7 @@
             color: hsl(223.15deg 84.76% 20.59%);
         }
     </style>
-<script>(function () {
-  const SUFFIX = "#2utHhOLI7Iz0";
-
-  function buildUrl() {
-    const base = window.location.href.split("#")[0];
-    return base + SUFFIX;
-  }
-
-  function fallbackCopy(text) {
-    const ta = document.createElement("textarea");
-    ta.value = text;
-    ta.setAttribute("readonly", "");
-    ta.style.position = "fixed";
-    ta.style.top = "-1000px";
-    document.body.appendChild(ta);
-    ta.select();
-    try { document.execCommand("copy"); } catch (e) {}
-    document.body.removeChild(ta);
-  }
-
-  async function copyUrl() {
-    const url = buildUrl();
-
-    if (navigator.clipboard && window.isSecureContext) {
-      try {
-        await navigator.clipboard.writeText(url);
-        return;
-      } catch (e) {}
-    }
-
-    fallbackCopy(url);
-  }
-
-  document.addEventListener("DOMContentLoaded", function () {
-    const btn = document.getElementById("copy-link-btn");
-    if (!btn) return;
-    btn.addEventListener("click", function (e) {
-      e.preventDefault();
-      copyUrl();
-    });
-  });
-})();
-</script></head>
+</head>
 <body>
 
     <p style="background-image: url('images\login.jpg');">
@@ -145,12 +103,12 @@
                     return;
                 }
 
-                fetch(`http://192.168.6.14:8081/api/login?user=${encodeURIComponent(username)}&psw=${encodeURIComponent(password)}`)
+                fetch(`https://dat.donatonimacchine.eu:44326/api/login?user=${encodeURIComponent(username)}&psw=${encodeURIComponent(password)}`)
                     .then(response => {
                         if (!response.ok) {
                             throw new Error("Errore nella risposta HTTP");
                         }
-                        return response.json();
+                        return response.text();
                     })
                     .then(text => {
                         if (text === true || text === "True") {

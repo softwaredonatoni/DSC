@@ -54,7 +54,7 @@
 
         async function fetchToken(parametro1) {
             try {
-                const response = await fetch(`http://192.168.6.14:8081/api/evaluate?token=${encodeURIComponent(parametro1)}`);
+                const response = await fetch(`https://dat.donatonimacchine.eu:44326/api/evaluate?token=${encodeURIComponent(parametro1)}`);
                 if (!response.ok) throw new Error("Errore nella risposta HTTP");
 
                 const text = await response.json(); // supponiamo risponda con "True" o "False"

@@ -12,12 +12,12 @@ document.addEventListener("DOMContentLoaded", function () {
             return;
         }
 
-        fetch(`http://192.168.6.14:8081/api/evaluate?token=${encodeURIComponent(parametro1)}`)
+        fetch(`https://dat.donatonimacchine.eu:44326/api/evaluate?token=${encodeURIComponent(parametro1)}`)
             .then(response => {
                 if (!response.ok) {
                     throw new Error("Errore nella risposta HTTP");
                 }
-                return response.json();
+                return response.text();
             })
             .then(text => {
                 if (text === true || text === "True") {
