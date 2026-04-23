@@ -1,0 +1,407 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+<head>
+    <!-- Book generated using mdBook -->
+    <meta charset="UTF-8">
+    <title>labels - Troubleshootings IT-IT</title>
+
+
+    <!-- Custom HTML head -->
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="icon" href="favicon.svg">
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/chrome.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
+
+    <!-- Fonts -->
+    <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+    <link rel="stylesheet" href="fonts/fonts.css">
+
+    <!-- Highlight.js Stylesheets -->
+    <link rel="stylesheet" href="highlight.css">
+    <link rel="stylesheet" href="tomorrow-night.css">
+    <link rel="stylesheet" href="ayu-highlight.css">
+
+    <!-- Custom theme stylesheets -->
+    <link rel="stylesheet" href="./mdbook-admonish.css">
+    <link rel="stylesheet" href="theme/custom.css">
+    <link rel="stylesheet" href="search.html">
+    <link rel="stylesheet" href="login.html">
+    <link rel="stylesheet" href="searchlogin.html">
+    <link rel="stylesheet" href="searchloginmenu.html">
+
+
+    <!-- Provide site root to javascript -->
+    <script>var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";</script>
+    <!-- Start loading toc.js asap -->
+    <script src="toc.js"></script>
+</head>
+<body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }</script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");</script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);</script>
+
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Troubleshootings IT-IT</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });</script>
+
+                <div id="content" class="content">
+                    <main>
+
+<h1 id="ARTICOLI_TROUBLESHOOTING"><a class="header" >ARTICOLI_TROUBLESHOOTING</a></h1>
+<p>key_mainpagetrouble</p>
+<p>home_troubleshooting</p>
+<h1 id="BLOCCO_ALLAVVIO_NON_RIPETITIVO"><a class="header" >BLOCCO_ALLAVVIO_NON_RIPETITIVO</a></h1>
+<p>kb-troubleshooting-article</p>
+<p>parametrix</p>
+<p>key_prx_01</p>
+<h1 id="BLOCCO_ALLAVVIO_RIPETITIVO"><a class="header" >BLOCCO_ALLAVVIO_RIPETITIVO</a></h1>
+<p>kb-troubleshooting-article</p>
+<p>parametrix</p>
+<p>key_prx_02</p>
+<h1 id="BLOCCO_DURANTE_CALIBRAZIONE_AUTOMATICAMANUALE_PER_DLLNOTFOUNDEXCEPTION"><a class="header" >BLOCCO_DURANTE_CALIBRAZIONE_AUTOMATICAMANUALE_PER_DLLNOTFOUNDEXCEPTION</a></h1>
+<p>kb-troubleshooting-article</p>
+<p>dtwain</p>
+<p>fotocamera</p>
+<p>calibrazione</p>
+<p>key_dtw01</p>
+<h1 id="BLOCCO_DURANTE_LA_CALIBRAZIONE_-_FASE_SELEZIONE_RETTANGOLO"><a class="header" >BLOCCO_DURANTE_LA_CALIBRAZIONE_-_FASE_SELEZIONE_RETTANGOLO</a></h1>
+<p>kb-troubleshooting-article</p>
+<p>dtwain</p>
+<p>key_dtw02</p>
+<h1 id="DTWAIN_NON_SI_AVVIA"><a class="header" >DTWAIN_NON_SI_AVVIA</a></h1>
+<p>key_dtw03</p>
+<h1 id="DTWAIN_VECCHIO_DA_PARAMETRIX_APPARE_RICHIESTA_NOME"><a class="header" >DTWAIN_VECCHIO_DA_PARAMETRIX_APPARE_RICHIESTA_NOME</a></h1>
+<p>key_dtw04</p>
+<h1 id="ERRORI_DATABASE_E_SERVIZIO_POSTGRESQL"><a class="header" >ERRORI_DATABASE_E_SERVIZIO_POSTGRESQL</a></h1>
+<p>key_psql_00</p>
+<h1 id="FOTO_NON_SCATTATA"><a class="header" >FOTO_NON_SCATTATA</a></h1>
+<p>kb-troubleshooting-article</p>
+<p>dtwain</p>
+<p>fotocamera</p>
+<p>key_dtw05</p>
+<h1 id="INSTALLAZIONE_POSTGRESQL"><a class="header" >INSTALLAZIONE_POSTGRESQL</a></h1>
+<p>key_t_prx_psql_instal</p>
+<h1 id="MISURE_PEZZI_ERRATE"><a class="header" >MISURE_PEZZI_ERRATE</a></h1>
+<p>key_nocode_01</p>
+<h1 id="PARALLELISMO_DISCO_AL_VARIARE_DI_A"><a class="header" >PARALLELISMO_DISCO_AL_VARIARE_DI_A</a></h1>
+<p>kb-troubleshooting-article</p>
+<p>key_trouble_parallel_disk</p>
+<h1 id="PARAMETRIX_NON_SI_AVVIA_SENZA_DARE_ERRORI"><a class="header" >PARAMETRIX_NON_SI_AVVIA_SENZA_DARE_ERRORI</a></h1>
+<p>key_prx_03</p>
+<h1 id="PARAMETRIX_VIENE_CHIUSO_DAL_SISTEMA_OPERATIVO"><a class="header" >PARAMETRIX_VIENE_CHIUSO_DAL_SISTEMA_OPERATIVO</a></h1>
+<p>kb-troubleshooting-article</p>
+<p>parametrix</p>
+<p>windowsxp</p>
+<p>key_prx_04</p>
+<h1 id="PE0000_EMERGENZA_GENERALE"><a class="header" >PE0000_EMERGENZA_GENERALE</a></h1>
+<p>sicurezza</p>
+<p>consolle</p>
+<p>pe0000</p>
+<h1 id="PE0003_MANCANZA_TENSIONE_DI_RETE"><a class="header" >PE0003_MANCANZA_TENSIONE_DI_RETE</a></h1>
+<p>elettrico</p>
+<p>quadro</p>
+<p>pe0003</p>
+<h1 id="PE0005_MANCANZA_ABILITAZIONE_COMANDI"><a class="header" >PE0005_MANCANZA_ABILITAZIONE_COMANDI</a></h1>
+<p>sicurezza</p>
+<p>pe0005</p>
+<h1 id="PE0006_TERMICO_POMPA_BANCO_ATTIVO"><a class="header" >PE0006_TERMICO_POMPA_BANCO_ATTIVO</a></h1>
+<p>elettrico</p>
+<p>quadro</p>
+<p>pe0006</p>
+<h1 id="PE0007_TERMICO_DISCO_ATTIVO"><a class="header" >PE0007_TERMICO_DISCO_ATTIVO</a></h1>
+<p>elettrico</p>
+<p>quadro</p>
+<p>inverter</p>
+<p>pe0007</p>
+<h1 id="PE0008_FC_COLLISIONE_ATTIVO"><a class="header" >PE0008_FC_COLLISIONE_ATTIVO</a></h1>
+<p>sensore</p>
+<p>pe0008</p>
+<h1 id="PE0009_RICH._QUOTA_COLLISIONE"><a class="header" >PE0009_RICH._QUOTA_COLLISIONE</a></h1>
+<p>manuale</p>
+<p>pe0009</p>
+<h1 id="PE0010_EXTRACORRENTE_ASSE_X"><a class="header" >PE0010_EXTRACORRENTE_ASSE_X</a></h1>
+<p>extracorrente</p>
+<p>pe0010</p>
+<h1 id="PE0011_EXTRACORRENTE_ASSE_Y"><a class="header" >PE0011_EXTRACORRENTE_ASSE_Y</a></h1>
+<p>extracorrente</p>
+<p>pe0011</p>
+<h1 id="PE0012_EXTRACORRENTE_ASSE_Z"><a class="header" >PE0012_EXTRACORRENTE_ASSE_Z</a></h1>
+<p>extracorrente</p>
+<p>pe0012</p>
+<h1 id="PE0013_EXTRACORRENTE_ASSE_A"><a class="header" >PE0013_EXTRACORRENTE_ASSE_A</a></h1>
+<p>extracorrente</p>
+<p>pe0013</p>
+<h1 id="PE0014_EXTRACORRENTE_ASSE_C"><a class="header" >PE0014_EXTRACORRENTE_ASSE_C</a></h1>
+<p>extracorrente</p>
+<p>pe0014</p>
+<h1 id="PE0015_EXTRACORRENTE_MANDRINO"><a class="header" >PE0015_EXTRACORRENTE_MANDRINO</a></h1>
+<p>extracorrente</p>
+<p>pe0015</p>
+<h1 id="PE0016_MANCANZA_ACQUA"><a class="header" >PE0016_MANCANZA_ACQUA</a></h1>
+<p>pressostato</p>
+<p>elettrovalvola</p>
+<p>carro</p>
+<p>pe0016</p>
+<h1 id="PE0018_FEED_NULLA__IMPOSTARE__0"><a class="header" >PE0018_FEED_NULLA__IMPOSTARE__0</a></h1>
+<p>kb-troubleshooting-article</p>
+<p>parametri</p>
+<p>pe0018</p>
+<h1 id="PE0019_ERRORE_SU_AZIONAMENTI"><a class="header" >PE0019_ERRORE_SU_AZIONAMENTI</a></h1>
+<p>asse</p>
+<p>dive</p>
+<p>motore</p>
+<p>azionamento</p>
+<p>pe0019</p>
+<h1 id="PE0021_BANCO_RIBALTABILE_NON_IN_POSIZIONE"><a class="header" >PE0021_BANCO_RIBALTABILE_NON_IN_POSIZIONE</a></h1>
+<p>elettrico</p>
+<p>banco</p>
+<p>pe0021</p>
+<h1 id="PE0023_MUTING_ATTIVO"><a class="header" >PE0023_MUTING_ATTIVO</a></h1>
+<p>consolle</p>
+<p>pe0023</p>
+<h1 id="PE0027_MANCANZA_ACQUA_INTERNA"><a class="header" >PE0027_MANCANZA_ACQUA_INTERNA</a></h1>
+<p>pressostato</p>
+<p>elettrovalvola</p>
+<p>carro</p>
+<p>pe0027</p>
+<h1 id="PE0028_ASSE_A_NON_IN_POSIZIONE_CORRETTA"><a class="header" >PE0028_ASSE_A_NON_IN_POSIZIONE_CORRETTA</a></h1>
+<p>testa</p>
+<p>pe0028</p>
+<h1 id="PE0029_IMPIANTO_DI_LUBRIFICAZIONE_GUASTO"><a class="header" >PE0029_IMPIANTO_DI_LUBRIFICAZIONE_GUASTO</a></h1>
+<p>kb-troubleshooting-article</p>
+<p>grasso</p>
+<p>ponte</p>
+<p>pe0029</p>
+<h1 id="PE0031_SOVRATEMPERATURA_QUADRO"><a class="header" >PE0031_SOVRATEMPERATURA_QUADRO</a></h1>
+<p>kb-troubleshooting-article</p>
+<p>quadro</p>
+<p>pe0031</p>
+<h1 id="PE0041_CH_0_PROGRAMMA_SENZA_M2-M30"><a class="header" >PE0041_CH_0_PROGRAMMA_SENZA_M2-M30</a></h1>
+<p>pe0041</p>
+<h1 id="PE0065_TERMICO_POMPA_VUOTO_ATTIVO"><a class="header" >PE0065_TERMICO_POMPA_VUOTO_ATTIVO</a></h1>
+<p>elettrico</p>
+<p>quadro</p>
+<p>pe0065</p>
+<h1 id="PE0066_MANCANZA_ARIA"><a class="header" >PE0066_MANCANZA_ARIA</a></h1>
+<p>kb-troubleshooting-article</p>
+<p>pe0066</p>
+<h1 id="PE0067_VUOTO_NON_GENERATO"><a class="header" >PE0067_VUOTO_NON_GENERATO</a></h1>
+<p>kb-troubleshooting-article</p>
+<p>pe0067</p>
+<h1 id="PE0069_VENTOSE_NON_IN_PARCHEGGIO"><a class="header" >PE0069_VENTOSE_NON_IN_PARCHEGGIO</a></h1>
+<p>kb-troubleshooting-article</p>
+<p>pe0069</p>
+<h1 id="PE0070_VENTOSE_GIÀ_A_CONTATTO_(ERRORE)"><a class="header" >PE0070_VENTOSE_GIÀ_A_CONTATTO_(ERRORE)</a></h1>
+<p>kb-troubleshooting-article</p>
+<p>pe0070</p>
+<h1 id="PE0095_ALLARME_INVERTER"><a class="header" >PE0095_ALLARME_INVERTER</a></h1>
+<p>kb-troubleshooting-article</p>
+<p>pe0095</p>
+<h1 id="PM0011_PISTONE_TASTATORE_FUORI_POSIZIONE"><a class="header" >PM0011_PISTONE_TASTATORE_FUORI_POSIZIONE</a></h1>
+<p>kb-troubleshooting-article</p>
+<p>tastatore</p>
+<p>pm0011</p>
+<h1 id="PM0033_RIPRISTINO_PRESSIONI"><a class="header" >PM0033_RIPRISTINO_PRESSIONI</a></h1>
+<p>kb-troubleshooting-article</p>
+<p>move1</p>
+<h1 id="POSTGRESQL_-_DATA_E_ORA"><a class="header" >POSTGRESQL_-_DATA_E_ORA</a></h1>
+<p>key_psql_01</p>
+<h1 id="POSTGRESQL_-_ERRORI_IN_FASE_DI_INSTALLAZIONE_SU_WINDOWS_XP"><a class="header" >POSTGRESQL_-_ERRORI_IN_FASE_DI_INSTALLAZIONE_SU_WINDOWS_XP</a></h1>
+<p>key_psql_07</p>
+<h1 id="POSTGRESQL_-_INSTALLAZIONE_AVVIO_DI_PARAMETRIX_SU_VERSIONE_PSQL_DIVERSA_DA_QUELLA_DEL_SETUP"><a class="header" >POSTGRESQL_-_INSTALLAZIONE_AVVIO_DI_PARAMETRIX_SU_VERSIONE_PSQL_DIVERSA_DA_QUELLA_DEL_SETUP</a></h1>
+<p>key_psql_05</p>
+<h1 id="POSTGRESQL_-_INSTALLAZIONE__.DLL_MANCANTE"><a class="header" >POSTGRESQL_-_INSTALLAZIONE__.DLL_MANCANTE</a></h1>
+<p>key_t_param_psql_04</p>
+<h1 id="POSTGRESQL_-_SERVIZIO_POSTGRESQL_NON_AVVIATO"><a class="header" >POSTGRESQL_-_SERVIZIO_POSTGRESQL_NON_AVVIATO</a></h1>
+<p>key_psql_06</p>
+<h1 id="POSTGRESQL_-_SERVIZIO_POSTGRESQL_NON_PARTE"><a class="header" >POSTGRESQL_-_SERVIZIO_POSTGRESQL_NON_PARTE</a></h1>
+<p>key_psql_03</p>
+<h1 id="POSTGRESQL_-_SERVIZIO_POSTGRESQL_SI_AVVIA_E_SI_ARRESTA_SUBITO"><a class="header" >POSTGRESQL_-_SERVIZIO_POSTGRESQL_SI_AVVIA_E_SI_ARRESTA_SUBITO</a></h1>
+<p>key_psql_08</p>
+<h1 id="POSTGRESQL_-_UTENTE_DEL_SERVIZIO_POSTGRESQL"><a class="header" >POSTGRESQL_-_UTENTE_DEL_SERVIZIO_POSTGRESQL</a></h1>
+<p>key_psql_02</p>
+<h1 id="PROBLEMI_DI_VISUALIZZAZIONE_ANTEPRIME_PEZZI_O_FOTO_NERA"><a class="header" >PROBLEMI_DI_VISUALIZZAZIONE_ANTEPRIME_PEZZI_O_FOTO_NERA</a></h1>
+<p>anteprime-pezzi</p>
+<p>direct3d</p>
+<p>direct</p>
+<p>foto-nera</p>
+<p>anteprima-pezzi</p>
+<h1 id="PROBLEMI_DI_VISUALIZZAZIONE_CON_IMPOSTAZIONI_SCHERMO_NON_STANDARD"><a class="header" >PROBLEMI_DI_VISUALIZZAZIONE_CON_IMPOSTAZIONI_SCHERMO_NON_STANDARD</a></h1>
+<p>key_prx_05</p>
+<h1 id="PROBLEMI_DXF"><a class="header" >PROBLEMI_DXF</a></h1>
+<p>key_prx_06</p>
+<p>dxf</p>
+<h1 id="PULSANTE_CONFERMA_FOTO_NON_FUNZIONA"><a class="header" >PULSANTE_CONFERMA_FOTO_NON_FUNZIONA</a></h1>
+<p>key_prx_07</p>
+<h1 id="TEAMVIEWER_NON_FUNZIONANTE"><a class="header" >TEAMVIEWER_NON_FUNZIONANTE</a></h1>
+<p>kb-troubleshooting-article</p>
+<p>teamviewer</p>
+<p>key_net_01</p>
+<h1 id="TOOL__POSIZIONE_PARCHEGGIO"><a class="header" >TOOL__POSIZIONE_PARCHEGGIO</a></h1>
+<p>key_trouble_parking_position</p>
+<h1 id="TROUBLESHOOTING_DTWAIN_E_FOTOCAMERA"><a class="header" >TROUBLESHOOTING_DTWAIN_E_FOTOCAMERA</a></h1>
+<p>dtwain</p>
+<p>key_dtw00</p>
+<h1 id="TROUBLESHOOTING_FOTOCAMERE_MATRIX_VISION"><a class="header" >TROUBLESHOOTING_FOTOCAMERE_MATRIX_VISION</a></h1>
+<p>dtwain</p>
+<p>fotocamera</p>
+<p>troubleshootung</p>
+<p>matrix</p>
+<p>vision</p>
+<h1 id="TROUBLESHOOTING_MACCHINE_VECCHIE"><a class="header" >TROUBLESHOOTING_MACCHINE_VECCHIE</a></h1>
+<p>kb-troubleshooting-article</p>
+<p>key_trouble_old_machines</p>
+<h1 id="TROUBLESHOOTING_MECCANICI"><a class="header" >TROUBLESHOOTING_MECCANICI</a></h1>
+<p>key_trouble_mechanics</p>
+<h1 id="TROUBLESHOOTING_PARAMETRIX"><a class="header" >TROUBLESHOOTING_PARAMETRIX</a></h1>
+<p>parametrix</p>
+<p>key_prx_00</p>
+<h1 id="TROUBLESHOOTING_RETE"><a class="header" >TROUBLESHOOTING_RETE</a></h1>
+<p>key_net_00</p>
+<h1 id="TWIN_INVIO_IMMAGINI_A_MONITOR_DI_SCARICO_(ALFABETI_DIVERSI)"><a class="header" >TWIN_INVIO_IMMAGINI_A_MONITOR_DI_SCARICO_(ALFABETI_DIVERSI)</a></h1>
+<p>kb-troubleshooting-article</p>
+<p>twin</p>
+<p>monitor</p>
+<p>scarico</p>
+<p>key_prx_08</p>
+<h1 id="VISUALIZZAZIONE_CARTELLE_CONDIVISE"><a class="header" >VISUALIZZAZIONE_CARTELLE_CONDIVISE</a></h1>
+<p>kb-troubleshooting-article</p>
+<p>sharedfolder</p>
+<p>ufficio</p>
+<p>key_net_02</p>
+
+                    </main>
+
+                </div>
+
+                <!-- Livereload script (if served using the cli tool) -->
+                <script>const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }</script>
+
+
+
+                <script>window.playground_copyable = true;</script>
+
+
+                <script src="elasticlunr.min.js"></script>
+                <script src="mark.min.js"></script>
+                <script src="searcher.js"></script>
+
+                <script src="clipboard.min.js"></script>
+                <script src="highlight.js"></script>
+                <script src="book.js"></script>
+
+                <!-- Custom JS scripts -->
+                <script src="mermaid.min.js"></script>
+                <script src="mermaid-init.js"></script>
+                <script src="imagemodal.js"></script>
+                <script src="hidemenu.js"></script>
+                <script src="login.js"></script>
+
+
+            </div>
+</body>
+</html>

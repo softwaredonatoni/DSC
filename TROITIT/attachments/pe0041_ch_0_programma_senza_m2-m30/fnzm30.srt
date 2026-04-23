@@ -1,0 +1,8 @@
+: Esegue M30
+IF(WHO()==1) M30
+
+SPC 30000,0
+IF ( %DatiGenerali.Opzioni.0) M103
+M30
+
+RET
