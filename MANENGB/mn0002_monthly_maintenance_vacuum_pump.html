@@ -2,40 +2,39 @@
 <html lang="en" class="light sidebar-visible" dir="ltr">
 <head>
     <!-- Book generated using mdBook -->
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8">
     <title>MN0002 MONTHLY MAINTENANCE VACUUM PUMP - Maintenance EN-GB</title>
 
     <!-- Custom HTML head -->
 
-    <meta name="description" content="" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#ffffff" />
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
 
-    <link rel="icon" href="favicon.svg" />
-    <link rel="shortcut icon" href="favicon.png" />
-    <link rel="stylesheet" href="css/variables.css" />
-    <link rel="stylesheet" href="css/general.css" />
-    <link rel="stylesheet" href="css/chrome.css" />
-    <link rel="stylesheet" href="css/print.css" media="print" />
-    <link rel="stylesheet" href="css/custom.css" />
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="icon" href="favicon.svg">
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/chrome.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <!-- Fonts -->
-    <link rel="stylesheet" href="FontAwesome/css/font-awesome.css" />
-    <link rel="stylesheet" href="fonts/fonts.css" />
+    <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+    <link rel="stylesheet" href="fonts/fonts.css">
 
     <!-- Highlight.js Stylesheets -->
-    <link rel="stylesheet" id="highlight-css" href="highlight.css" />
-    <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css" />
-    <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css" />
+    <link rel="stylesheet" id="highlight-css" href="highlight.css">
+    <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+    <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
 
     <!-- Custom theme stylesheets -->
-    <link rel="stylesheet" href="./mdbook-admonish.css" />
-    <link rel="stylesheet" href="theme/custom.css" />
-    <link rel="stylesheet" href="search.html" />
-    <link rel="stylesheet" href="login.html" />
-    <link rel="stylesheet" href="searchlogin.html" />
-    <link rel="stylesheet" href="searchloginmenu.html" />
+    <link rel="stylesheet" href="./mdbook-admonish.css">
+    <link rel="stylesheet" href="theme/custom.css">
+    <link rel="stylesheet" href="search.html">
+    <link rel="stylesheet" href="login.html">
+    <link rel="stylesheet" href="searchlogin.html">
+    <link rel="stylesheet" href="searchloginmenu.html">
 
     <!-- Provide site root and default themes to javascript -->
     <script>
@@ -45,60 +44,82 @@
     </script>
     <!-- Start loading toc.js asap -->
     <script src="toc.js"></script>
-</head>
+<script>(function () {
+  const SUFFIX = "#2utHhOLI7Iz0";
+
+  function buildUrl() {
+    const base = window.location.href.split("#")[0];
+    return base + SUFFIX;
+  }
+
+  function fallbackCopy(text) {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.top = "-1000px";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+
+  async function copyUrl() {
+    const url = buildUrl();
+
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(url);
+        return;
+      } catch (e) {}
+    }
+
+    fallbackCopy(url);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.getElementById("copy-link-btn");
+    if (!btn) return;
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      copyUrl();
+    });
+  });
+})();
+</script></head>
 <body>
     <header class="header-main">
         <div class="header-flex">
             <div class="donatoni-flex">
-                <label class="btn hamburger-menu"
-                       id="sidebar-toggle"
-                       for="sidebar-toggle-anchor"
-                       title="Toggle Table of Contents"
-                       aria-label="Toggle Table of Contents"
-                       aria-controls="sidebar">
+                <label class="btn hamburger-menu" id="sidebar-toggle" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
                     <i id="sidebar-toggle-icon" class="fa-solid fa-bars"></i>
                 </label>
 
-                <img src="images/donatoni-logo-white.svg" alt="Donatoni Macchine" />
+                <img src="images/donatoni-logo-white.svg" alt="Donatoni Macchine">
             </div>
 
             <div class="donatoni-flex action-header-buttons">
                 <div id="search-wrapper" class="search-wrapper hidden">
                     <form id="searchbar-outer" class="searchbar-outer">
-                        <input type="search"
-                               id="searchbar"
-                               name="searchbar"
-                               placeholder="Search this book ..."
-                               aria-controls="searchresults-outer"
-                               aria-describedby="searchresults-header" />
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
                     </form>
                     <div id="searchresults-outer" class="searchresults-outer hidden">
                         <div id="searchresults-header" class="searchresults-header"></div>
                         <ul id="searchresults"></ul>
                     </div>
                 </div>
-                <button class="btn btn-sm"
-                        id="search-toggle"
-                        type="button"
-                        title="Search. (Shortkey: s)"
-                        aria-label="Toggle Searchbar"
-                        aria-expanded="false"
-                        aria-keyshortcuts="S"
-                        aria-controls="searchbar">
+                <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </button>
 
-                <button class="btn btn-sm me-2"
-                        onclick="window.location.href='print.html'"
-                        title="Print this book"
-                        aria-label="Print this book">
+                <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
                     <i class="fa-solid fa-print"></i>
                 </button>
             </div>
         </div>
     </header>
     <div id="body-container">
-        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden" />
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
         <script>
             try {
@@ -191,31 +212,15 @@
 
                     <div>
 
-                        <img src="images/donatoni_111.jpg" />
+                        <img src="images/donatoni_111.jpg">
 
                         <main style="margin-left: 20px;">
-                            <h1 id="mn0002-monthly-maintenance-vacuum-pump"><a class="header" href="#mn0002-monthly-maintenance-vacuum-pump">MN0002 MONTHLY MAINTENANCE VACUUM PUMP</a></h1>
-<ul>
-<li><a href="#video">Video</a></li>
-<li><a href="#procedure">Procedure</a></li>
-<li><a href="#advanced-instructions">Advanced Instructions</a></li>
-</ul>
-<!--Page="MN0002 MONTHLY MAINTENANCE VACUUM PUMP"--><table class="my-table2" data-table-width="760" data-layout="center" ac:local-id="b763cb63-b363-4732-987c-793beddd7a0e"><tbody><tr><td data-highlight-colour="#f4f5f7" colspan="2"><p style="text-align: center;">⚠️Before proceeding, carefully read the <p><a href='safety_instructions.html'>SAFETY INSTRUCTIONS</a></p></td></tr><tr><td data-highlight-colour="#f4f5f7"><p>⏲️ <strong>Interval</strong>: every week; every month</p></td><td data-highlight-colour="#f4f5f7"><p>🎚️ <strong>Complexity operation</strong>: ⭐☆☆☆☆ </p></td></tr><tr><td data-highlight-colour="#f4f5f7"><p>🧑‍🏭 <strong>Authorized figure</strong>: Machine operator</p></td><td data-highlight-colour="#f4f5f7"><p>🧤 <strong>Expected DPI</strong>:   <div><img src="attachments/mn0002_monthly_maintenance_vacuum_pump/image-20240327-084216.png" alt="image-20240327-084216.png" onclick="showModal(this.src)" class="inline-img"></div> </td></tr></tbody></table>
-<h2 id="video"><a class="header" href="#video">Video</a></h2>
-<div class="TextAlignCenter"><video controls src="attachments/mn0002_monthly_maintenance_vacuum_pump/VacuumPumpMaintenance.mp4" width="760" aria-label="attachments/mn0002_monthly_maintenance_vacuum_pump/VacuumPumpMaintenance.mp4"></video></div>
-<h2 id="procedure"><a class="header" href="#procedure">Procedure</a></h2>
-<p>The maintenance in good condition of the vacuum pump depends on the level of cleanliness of the water of the hydraulic system. It is the responsibility of the buyer to ensure that the characteristics of the water used are compliant to what is foreseen by the use and maintenance manual of the vacuum pump manufacturer.</p>
-<h3 id="every-week"><a class="header" href="#every-week">Every week:</a></h3>
-<ul><li><p>Verify that the water level in the tank reaches the level of the overflow drain pipe.</p></li><li><p>In case of sporadic use of the vacuum system, operate the vacuum pump weekly through the vacuum activation command (refer to section B of the 'Instructions for use' manual accompanying this manual).</p></li></ul>
-<h3 id="every-month"><a class="header" href="#every-month">Every month:</a></h3>
-<ul><li><p> Perform an accurate cleaning of the tank removing any sediment deposits accumulated on the bottom</p></li></ul>
-<h2 id="advanced-instructions"><a class="header" href="#advanced-instructions">Advanced Instructions</a></h2>
-<p>For more detailed instructions on vacuum pump maintenance, refer to the use and maintenance manual.<p><a href='attachments/mn0002_monthly_maintenance_vacuum_pump/120113044828_Manuale_Vuoto_Italiano.pdf'>120113044828_Manuale_Vuoto_Italiano.pdf</a></p> <p> </p><p> </p><p></p><!--Label="mn0002"-->
+                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="mn0002-monthly-maintenance-vacuum-pump" style="margin:0;"><a class="header" href="#mn0002-monthly-maintenance-vacuum-pump">MN0002 MONTHLY MAINTENANCE VACUUM PUMP</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="MN0002 MONTHLY MAINTENANCE VACUUM PUMP"--><table class="my-table2" data-table-width="760" data-layout="center" ac:local-id="b763cb63-b363-4732-987c-793beddd7a0e"><tbody><tr><td data-highlight-colour="#f4f5f7" colspan="2"><p style="text-align: center;">⚠️Before proceeding, carefully read the <p><a href='safety_instructions.html'>SAFETY INSTRUCTIONS</a></p></td></tr><tr><td data-highlight-colour="#f4f5f7"><p>⏲️ <strong>Interval</strong>: every week; every month</p></td><td data-highlight-colour="#f4f5f7"><p>🎚️ <strong>Complexity operation</strong>: ⭐☆☆☆☆ </p></td></tr><tr><td data-highlight-colour="#f4f5f7"><p>🧑‍🏭 <strong>Authorized figure</strong>: Machine operator</p></td><td data-highlight-colour="#f4f5f7"><p>🧤 <strong>Expected DPI</strong>:   <div><img src="attachments/mn0002_monthly_maintenance_vacuum_pump/image-20240327-084216.png" alt="image-20240327-084216.png" onclick="showModal(this.src)" class="inline-img" id="a2372503-420e-48f2-91c7-86ad5df99b36" contextid="183010144"></div> </td></tr></tbody></table><h2 id="video"><a class="header" href="#video">Video</a></h2><div class="TextAlignCenter"><video controls src="attachments/mn0002_monthly_maintenance_vacuum_pump/VacuumPumpMaintenance.mp4" width="760" aria-label="attachments/mn0002_monthly_maintenance_vacuum_pump/VacuumPumpMaintenance.mp4"></video></div><h2 id="procedure"><a class="header" href="#procedure">Procedure</a></h2><p>The maintenance in good condition of the vacuum pump depends on the level of cleanliness of the water of the hydraulic system. It is the responsibility of the buyer to ensure that the characteristics of the water used are compliant to what is foreseen by the use and maintenance manual of the vacuum pump manufacturer.</p><h3 id="every-week"><a class="header" href="#every-week">Every week:</a></h3><ul><li><p>Verify that the water level in the tank reaches the level of the overflow drain pipe.</p></li><li><p>In case of sporadic use of the vacuum system, operate the vacuum pump weekly through the vacuum activation command (refer to section B of the 'Instructions for use' manual accompanying this manual).</p></li></ul><h3 id="every-month"><a class="header" href="#every-month">Every month:</a></h3><ul><li><p> Perform an accurate cleaning of the tank removing any sediment deposits accumulated on the bottom</p></li></ul><h2 id="advanced-instructions"><a class="header" href="#advanced-instructions">Advanced Instructions</a></h2><p>For more detailed instructions on vacuum pump maintenance, refer to the use and maintenance manual.<p><a href='attachments/mn0002_monthly_maintenance_vacuum_pump/120113044828_Manuale_Vuoto_Italiano.pdf'>120113044828_Manuale_Vuoto_Italiano.pdf</a></p> <p> </p><p> </p><p></p><!--Label="mn0002"-->
                         </main>
 
                     </div>
 
-                    <img src="images/donatoni_222.jpg" />
+                    <img src="images/donatoni_222.jpg">
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
