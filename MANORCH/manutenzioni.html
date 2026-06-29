@@ -2,40 +2,39 @@
 <html lang="en" class="light sidebar-visible" dir="ltr">
 <head>
     <!-- Book generated using mdBook -->
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8">
     <title>MANUTENZIONI - Maintenance Orchestrator</title>
 
     <!-- Custom HTML head -->
 
-    <meta name="description" content="" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#ffffff" />
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
 
-    <link rel="icon" href="favicon.svg" />
-    <link rel="shortcut icon" href="favicon.png" />
-    <link rel="stylesheet" href="css/variables.css" />
-    <link rel="stylesheet" href="css/general.css" />
-    <link rel="stylesheet" href="css/chrome.css" />
-    <link rel="stylesheet" href="css/print.css" media="print" />
-    <link rel="stylesheet" href="css/custom.css" />
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="icon" href="favicon.svg">
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/chrome.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <!-- Fonts -->
-    <link rel="stylesheet" href="FontAwesome/css/font-awesome.css" />
-    <link rel="stylesheet" href="fonts/fonts.css" />
+    <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+    <link rel="stylesheet" href="fonts/fonts.css">
 
     <!-- Highlight.js Stylesheets -->
-    <link rel="stylesheet" id="highlight-css" href="highlight.css" />
-    <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css" />
-    <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css" />
+    <link rel="stylesheet" id="highlight-css" href="highlight.css">
+    <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+    <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
 
     <!-- Custom theme stylesheets -->
-    <link rel="stylesheet" href="./mdbook-admonish.css" />
-    <link rel="stylesheet" href="theme/custom.css" />
-    <link rel="stylesheet" href="search.html" />
-    <link rel="stylesheet" href="login.html" />
-    <link rel="stylesheet" href="searchlogin.html" />
-    <link rel="stylesheet" href="searchloginmenu.html" />
+    <link rel="stylesheet" href="./mdbook-admonish.css">
+    <link rel="stylesheet" href="theme/custom.css">
+    <link rel="stylesheet" href="search.html">
+    <link rel="stylesheet" href="login.html">
+    <link rel="stylesheet" href="searchlogin.html">
+    <link rel="stylesheet" href="searchloginmenu.html">
 
     <!-- Provide site root and default themes to javascript -->
     <script>
@@ -45,108 +44,131 @@
     </script>
     <!-- Start loading toc.js asap -->
     <script src="toc.js"></script>
-</head>
+<script>(function () {
+  const SUFFIX = "#2utHhOLI7Iz0";
+
+  function buildUrl() {
+    const base = window.location.href.split("#")[0];
+    return base + SUFFIX;
+  }
+
+  function fallbackCopy(text) {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.top = "-1000px";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+
+  async function copyUrl() {
+    const url = buildUrl();
+
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(url);
+        return;
+      } catch (e) {}
+    }
+
+    fallbackCopy(url);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.getElementById("copy-link-btn");
+    if (!btn) return;
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      copyUrl();
+    });
+  });
+})();
+</script></head>
 <body>
     <header class="header-main">
         <div class="header-flex">
             <div class="donatoni-flex">
-                <label class="btn hamburger-menu"
-                       id="sidebar-toggle"
-                       for="sidebar-toggle-anchor"
-                       title="Toggle Table of Contents"
-                       aria-label="Toggle Table of Contents"
-                       aria-controls="sidebar">
+                <label class="btn hamburger-menu" id="sidebar-toggle" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
                     <i id="sidebar-toggle-icon" class="fa-solid fa-bars"></i>
                 </label>
 
-                <img src="images/donatoni-logo-white.svg" alt="Donatoni Macchine" />
+                <img src="images/donatoni-logo-white.svg" alt="Donatoni Macchine">
             </div>
 
             <div class="donatoni-flex action-header-buttons">
                 <div id="search-wrapper" class="search-wrapper hidden">
                     <form id="searchbar-outer" class="searchbar-outer">
-                        <input type="search"
-                               id="searchbar"
-                               name="searchbar"
-                               placeholder="Search this book ..."
-                               aria-controls="searchresults-outer"
-                               aria-describedby="searchresults-header" />
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
                     </form>
                     <div id="searchresults-outer" class="searchresults-outer hidden">
                         <div id="searchresults-header" class="searchresults-header"></div>
                         <ul id="searchresults"></ul>
                     </div>
                 </div>
-                <button class="btn btn-sm"
-                        id="search-toggle"
-                        type="button"
-                        title="Search. (Shortkey: s)"
-                        aria-label="Toggle Searchbar"
-                        aria-expanded="false"
-                        aria-keyshortcuts="S"
-                        aria-controls="searchbar">
+                <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </button>
 
-                <button class="btn btn-sm me-2"
-                        onclick="window.location.href='print.html'"
-                        title="Print this book"
-                        aria-label="Print this book">
+                <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
                     <i class="fa-solid fa-print"></i>
                 </button>
             </div>
         </div>
     </header>
     <div id="body-container">
-        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden" />
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
         <script>
-        try {
-          let theme = localStorage.getItem("mdbook-theme");
-          let sidebar = localStorage.getItem("mdbook-sidebar");
+            try {
+                let theme = localStorage.getItem("mdbook-theme");
+                let sidebar = localStorage.getItem("mdbook-sidebar");
 
-          if (theme.startsWith('"') && theme.endsWith('"')) {
-            localStorage.setItem(
-              "mdbook-theme",
-              theme.slice(1, theme.length - 1)
-            );
-          }
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-theme",
+                        theme.slice(1, theme.length - 1)
+                    );
+                }
 
-          if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
-            localStorage.setItem(
-              "mdbook-sidebar",
-              sidebar.slice(1, sidebar.length - 1)
-            );
-          }
-        } catch (e) {}
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-sidebar",
+                        sidebar.slice(1, sidebar.length - 1)
+                    );
+                }
+            } catch (e) { }
         </script>
 
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script>
-        const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
-          .matches
-          ? default_dark_theme
-          : default_light_theme;
-        let theme;
-        try {
-          theme = localStorage.getItem("mdbook-theme");
-        } catch (e) {}
-        if (theme === null || theme === undefined) {
-          theme = default_theme;
-        }
-        const html = document.documentElement;
-        html.classList.remove("light");
-        html.classList.add(theme);
-        html.classList.add("js");
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
+                .matches
+                ? default_dark_theme
+                : default_light_theme;
+            let theme;
+            try {
+                theme = localStorage.getItem("mdbook-theme");
+            } catch (e) { }
+            if (theme === null || theme === undefined) {
+                theme = default_theme;
+            }
+            const html = document.documentElement;
+            html.classList.remove("light");
+            html.classList.add(theme);
+            html.classList.add("js");
         </script>
 
         <!-- Hide / unhide sidebar before it is displayed -->
         <script>
-        let sidebar = null;
+            let sidebar = null;
             const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
             if (document.body.clientWidth >= 1080) {
                 try {
-				sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                    sidebar = localStorage.getItem('mdbook-sidebar');
+                } catch (e) { }
                 sidebar = sidebar || 'visible';
             } else {
                 sidebar = 'hidden';
@@ -173,476 +195,564 @@
 
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
                 <script>
-            document
-              .getElementById("sidebar-toggle")
-              .setAttribute("aria-expanded", sidebar === "visible");
-            document
-              .getElementById("sidebar")
-              .setAttribute("aria-hidden", sidebar !== "visible");
-            Array.from(document.querySelectorAll("#sidebar a")).forEach(
-              function (link) {
-                link.setAttribute("tabIndex", sidebar === "visible" ? 0 : -1);
-              }
-            );
+                    document
+                        .getElementById("sidebar-toggle")
+                        .setAttribute("aria-expanded", sidebar === "visible");
+                    document
+                        .getElementById("sidebar")
+                        .setAttribute("aria-hidden", sidebar !== "visible");
+                    Array.from(document.querySelectorAll("#sidebar a")).forEach(
+                        function (link) {
+                            link.setAttribute("tabIndex", sidebar === "visible" ? 0 : -1);
+                        }
+                    );
                 </script>
 
                 <div id="content" class="content">
 
-                    <img src="images/donatoni_11.jpg" />
+                    <div>
 
-                    <main>
-                        <h1 id="manutenzioni"><a class="header" href="#manutenzioni">MANUTENZIONI</a></h1>
-<ul>
-<li><a href="#manutenzioni">Manutenzioni</a></li>
-</ul>
-<!--Page="MANUTENZIONI"--><p>Lista delle manutenzioni previste per le macchine Donatoni.</p><p>Descrizione:</p><p><strong>ID: </strong>Identificativo univoco della manutenzione</p><p><strong>CODE</strong>: Tag univoco per legare la manutenzione alla pagina corretta</p><p><strong>NAME, DESCRIPTION</strong>: Descrizione della manutenzione</p><p><strong>TECHNICAL LEVEL</strong>: Livello del tecnico che esegue la manutenzione</p><p><strong>CRITICAL LEVEL</strong>: Gravità della manutenzione: 0 = Solo informativa, 1 = Avvertimento significativo, 2 = Avvertimento bloccante</p><p><strong>TYPE: </strong>Tipo di conteggio per sollevare la manutenzione: 0 = A tempo, 1 = A tempo di un registro macchina, 2 = A misura di un registro macchina</p><p><strong>WARNING VALUE, ERROR VALUE</strong>: Valore limite per sollevare gli eventi di avvertimento e errore</p><p><strong>NODE VALUE</strong>: Valore del nodo o registro della macchina per conteggiare la manutenzione</p><p><strong>UM: </strong>Unità di misura del valore letto dal nodo per quanto riguarda il tempo, secondi, ore, giorni, etc</p><p><strong>ACTIONS: </strong>0=none,1=warning,2=maxvalue,3=both: ShowMessage, SendMail, BlockMachine</p>
-<h1 id="manutenzioni-1"><a class="header" href="#manutenzioni-1">Manutenzioni</a></h1>
-<table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="3b3bf367-b465-48c9-b8fc-5aa13150343e" data-table-display-mode="default"><colgroup><col style="width: 72.0px;"><col style="width: 132.0px;"><col style="width: 159.0px;"><col style="width: 270.0px;"><col style="width: 175.0px;"><col style="width: 144.0px;"><col style="width: 92.0px;"><col style="width: 148.0px;"><col style="width: 110.0px;"><col style="width: 107.0px;"><col style="width: 81.0px;"><col style="width: 130.0px;"><col style="width: 180.0px;"></colgroup><tbody><tr><th><p><strong>ID</strong></p></th><th><p><strong>CODE</strong></p></th><th><p><strong>NAME</strong></p></th><th><p><strong>DESCRIPTION</strong></p></th><th><p><strong>TECHNICAL LEVEL</strong></p></th><th><p><strong>CRITICAL LEVEL</strong></p></th><th><p><strong>TYPE</strong></p></th><th><p><strong>WARNING VALUE</strong></p></th><th><p><strong>ERROR VALUE</strong></p></th><th><p><strong>NODE VALUE</strong></p></th><th><p><strong>UM</strong></p></th><th><p><strong>ACTIONS</strong></p></th><th><p><strong>ENABLE</strong></p></th></tr><tr><td><p>1</p></td><td><p>mn0001</p></td><td><p>Testing of the emergency stop circuit</p></td><td><p>Before starting work on the machine, check that the danger zone is clear of people, materials or equipment</p></td><td><p>#1451</p></td><td><p>1</p></td><td><p>1</p></td><td><p>160</p></td><td><p>200</p></td><td><p>R1</p></td><td><p>SEC</p></td><td><p>0</p><p>0</p><p>0</p></td><td><p>
-<ul>
-<li><input disabled="" type="checkbox"/>
-JET</li>
-</ul>
-<p><br></p><p></p>
-<ul>
-<li><input disabled="" type="checkbox"/>
-WATERJET</li>
-</ul>
-<p><br></p></td></tr><tr><td><p>2</p></td><td><p>mn0002</p></td><td><p>Vacuum pump maintenance - monthly</p></td><td><p>Thoroughly clean the tank, in other words remove all sediments that have built up on the bottom</p></td><td><p>#1450</p></td><td><p>1</p></td><td><p>0</p></td><td><p>2100</p></td><td><p>2160</p></td><td><p></p></td><td><p></p></td><td><p>0</p><p>0</p><p>0</p></td><td><p></p>
-<ul>
-<li><input disabled="" type="checkbox" checked=""/>
-JET</li>
-</ul>
-<p><br></p><p></p>
-<ul>
-<li><input disabled="" type="checkbox"/>
-WATERJET</li>
-</ul>
-<p><br></p></td></tr><tr><td><p>3</p></td><td><p>mn0003</p></td><td><p>Light signal testing</p></td><td><p>Test of orange light in stack. Test of green light in stack. Test of red light in stack</p></td><td><p>#1450</p></td><td><p>1</p></td><td><p>1</p></td><td><p>160</p></td><td><p>200</p></td><td><p>R1</p></td><td><p>SEC</p></td><td><p>0</p><p>0</p><p>0</p></td><td><p></p>
-<ul>
-<li><input disabled="" type="checkbox"/>
-JET</li>
-</ul>
-<p><br></p><p></p>
-<ul>
-<li><input disabled="" type="checkbox"/>
-WATERJET</li>
-</ul>
-<p><br></p></td></tr><tr><td><p>4</p></td><td><p>mn0004</p></td><td><p>Greasing of linear guides in MOVE system</p></td><td><p>Using a dedicated gun, grease the linear guides of the MOVE system with 1 cucm of grease through the dedicated nozzles</p></td><td><p>#1450</p></td><td><p>1</p></td><td><p>1</p></td><td><p>300</p></td><td><p>350</p></td><td><p>R1</p></td><td><p>SEC</p></td><td><p>0</p><p>0</p><p>0</p></td><td><p></p>
-<ul>
-<li><input disabled="" type="checkbox" checked=""/>
-JET</li>
-</ul>
-<p><br></p><p></p>
-<ul>
-<li><input disabled="" type="checkbox"/>
-WATERJET</li>
-</ul>
-<p><br></p></td></tr><tr><td><p>5</p></td><td><p>mn0005</p></td><td><p>Greasing of lead screw bearing in Z axis</p></td><td><p>Using a dedicated gun, grease the bearing of the lead screw in the Z axis  with 1 cucm of grease through the dedicated nozzles</p></td><td><p>#1450</p></td><td><p>1</p></td><td><p>1</p></td><td><p>8700</p></td><td><p>8760</p></td><td><p>R1</p></td><td><p>SEC</p></td><td><p>0</p><p>0</p><p>0</p></td><td><p></p>
-<ul>
-<li><input disabled="" type="checkbox" checked=""/>
-JET</li>
-</ul>
-<p><br></p><p></p>
-<ul>
-<li><input disabled="" type="checkbox"/>
-WATERJET</li>
-</ul>
-<p><br></p></td></tr><tr><td><p>6</p></td><td><p>mn0006</p></td><td><p>Greasing of bearings in bridge drive shaft in Y axis</p></td><td><p>Using a dedicated gun, grease the bearings of the Y axis bridge drive shaft with 1 cucm of grease through the dedicated nozzles</p></td><td><p>#1450</p></td><td><p>1</p></td><td><p>1</p></td><td><p>8700</p></td><td><p>8760</p></td><td><p>R1</p></td><td><p>SEC</p></td><td><p>0</p><p>0</p><p>0</p></td><td><p></p>
-<ul>
-<li><input disabled="" type="checkbox" checked=""/>
-JET</li>
-</ul>
-<p><br></p><p></p>
-<ul>
-<li><input disabled="" type="checkbox"/>
-WATERJET</li>
-</ul>
-<p><br></p></td></tr><tr><td><p>7</p></td><td><p>mn0007</p></td><td><p>Checking of lubricant in automatic greasing system</p></td><td><p>The tank must be topped up with the necessary grease, without exceeding the maximum level indicated</p></td><td><p>#1450</p></td><td><p>1</p></td><td><p>1</p></td><td><p>500</p></td><td><p>550</p></td><td><p>R1</p></td><td><p>SEC</p></td><td><p>0</p><p>0</p><p>0</p></td><td><p></p>
-<ul>
-<li><input disabled="" type="checkbox" checked=""/>
-JET</li>
-</ul>
-<p><br></p><p></p>
-<ul>
-<li><input disabled="" type="checkbox"/>
-WATERJET</li>
-</ul>
-<p><br></p></td></tr><tr><td><p>8</p></td><td><p>mn0008</p></td><td><p>Greasing of joints in tilting bench</p></td><td><p>Greasing of joints in tilting bench</p></td><td><p>#1450</p></td><td><p>1</p></td><td><p>0</p></td><td><p>2100</p></td><td><p>2160</p></td><td><p></p></td><td><p></p></td><td><p>0</p><p>0</p><p>0</p></td><td><p></p>
-<ul>
-<li><input disabled="" type="checkbox" checked=""/>
-JET</li>
-</ul>
-<p><br></p><p></p>
-<ul>
-<li><input disabled="" type="checkbox"/>
-WATERJET</li>
-</ul>
-<p><br></p></td></tr><tr><td><p>9</p></td><td><p>mn0009</p></td><td><p>Greasing of control panel arm joint</p></td><td><p>Using a dedicated gun, grease the joint of the control panel arm with 1 cu.cm  of grease through the dedicated nozzles</p></td><td><p>#1450</p></td><td><p>1</p></td><td><p>0</p></td><td><p>2100</p></td><td><p>2160</p></td><td><p></p></td><td><p></p></td><td><p>0</p><p>0</p><p>0</p></td><td><p></p>
-<ul>
-<li><input disabled="" type="checkbox"/>
-JET</li>
-</ul>
-<p><br></p><p></p>
-<ul>
-<li><input disabled="" type="checkbox"/>
-WATERJET</li>
-</ul>
-<p><br></p></td></tr><tr><td><p>10</p></td><td><p>mn0010</p></td><td><p>Checking of pipes and connections in hydraulic oil system</p></td><td><p>Check the pipes in the hydraulic oil system for wear, taking care to identify and locate any deteriorated or damaged points on the pipes or fittings, as well as any oil leaks from the system</p></td><td><p>#1452</p></td><td><p>2</p></td><td><p>1</p></td><td><p>1000</p></td><td><p>1100</p></td><td><p>R1</p></td><td><p>SEC</p></td><td><p>0</p><p>0</p><p>0</p></td><td><p></p>
-<ul>
-<li><input disabled="" type="checkbox"/>
-JET</li>
-</ul>
-<p><br></p><p></p>
-<ul>
-<li><input disabled="" type="checkbox"/>
-WATERJET</li>
-</ul>
-<p><br></p></td></tr><tr><td><p>11</p></td><td><p>mn0011</p></td><td><p>Oil change in hydraulic control unit</p></td><td><p>Replacement must be coupled with a thorough cleaning of the tank. The fluid must be filled into the tank through a 10-micron mesh filter through the oil fill plug</p></td><td><p>#1450</p></td><td><p>2</p></td><td><p>1</p></td><td><p>2000</p></td><td><p>2100</p></td><td><p>R1</p></td><td><p>SEC</p></td><td><p>0</p><p>0</p><p>0</p></td><td><p></p>
-<ul>
-<li><input disabled="" type="checkbox"/>
-JET</li>
-</ul>
-<p><br></p><p></p>
-<ul>
-<li><input disabled="" type="checkbox"/>
-WATERJET</li>
-</ul>
-<p><br></p></td></tr><tr><td><p>12</p></td><td><p>mn0012</p></td><td><p>Cleaning of air vent filters in electrical panel</p></td><td><p></p></td><td><p>#1451</p></td><td><p>1</p></td><td><p>1</p></td><td><p>2100</p></td><td><p>2160</p></td><td><p>R1</p></td><td><p>SEC</p></td><td><p>0</p><p>0</p><p>0</p></td><td><p></p>
-<ul>
-<li><input disabled="" type="checkbox" checked=""/>
-JET</li>
-</ul>
-<p><br></p><p></p>
-<ul>
-<li><input disabled="" type="checkbox"/>
-WATERJET</li>
-</ul>
-<p><br></p></td></tr><tr><td><p>13</p></td><td><p>mn0013</p></td><td><p>Maintenance of compressed air inlet unit</p></td><td><p>Before performing maintenance operations, close the shut-off valve and padlock it</p></td><td><p>#1450</p></td><td><p>2</p></td><td><p>1</p></td><td><p>2000</p></td><td><p>2100</p></td><td><p>R1</p></td><td><p>SEC</p></td><td><p>0</p><p>0</p><p>0</p></td><td><p></p>
-<ul>
-<li><input disabled="" type="checkbox"/>
-JET</li>
-</ul>
-<p><br></p><p></p>
-<ul>
-<li><input disabled="" type="checkbox"/>
-WATERJET</li>
-</ul>
-<p><br></p></td></tr><tr><td><p>14</p></td><td><p>mn0014</p></td><td><p>Electrospindle bearings</p></td><td><p>Monitor the noise level and vibrations produced during operation without a load</p></td><td><p>#1450</p></td><td><p>1</p></td><td><p>1</p></td><td><p>1550</p></td><td><p>1600</p></td><td><p>R1</p></td><td><p>SEC</p></td><td><p>0</p><p>0</p><p>0</p></td><td><p></p>
-<ul>
-<li><input disabled="" type="checkbox"/>
-JET</li>
-</ul>
-<p><br></p><p></p>
-<ul>
-<li><input disabled="" type="checkbox"/>
-WATERJET</li>
-</ul>
-<p><br></p></td></tr><tr><td><p>15</p></td><td><p>mn0015</p></td><td><p>Checking of pipes and connections in high-pressure system</p></td><td><p>Check for leaks or signs of wear</p></td><td><p>#1450</p></td><td><p>0</p></td><td><p>1</p></td><td><p>1000</p></td><td><p>1100</p></td><td><p>rWtPlc12</p></td><td><p>SEC</p></td><td><p>0</p><p>0</p><p>0</p></td><td><p></p>
-<ul>
-<li><input disabled="" type="checkbox"/>
-JET</li>
-</ul>
-<p><br></p><p></p>
-<ul>
-<li><input disabled="" type="checkbox" checked=""/>
-WATERJET</li>
-</ul>
-<p><br></p></td></tr><tr><td><p>16</p></td><td><p>mn0016</p></td><td><p>Checking the state of cleanliness of the tank</p></td><td><p>If the abrasive recovery tanks contain 20 cm of sand, removal and emptying is recommended</p></td><td><p>#1450</p></td><td><p>0</p></td><td><p>1</p></td><td><p>720</p></td><td><p>750</p></td><td><p>rWtPlc13</p></td><td><p>SEC</p></td><td><p>0</p><p>0</p><p>0</p></td><td><p></p>
-<ul>
-<li><input disabled="" type="checkbox"/>
-JET</li>
-</ul>
-<p><br></p><p></p>
-<ul>
-<li><input disabled="" type="checkbox" checked=""/>
-WATERJET</li>
-</ul>
-<p><br></p></td></tr><tr><td><p>17</p></td><td><p>mn0017</p></td><td><p>Repair check valves and low-pressure shutters</p></td><td><p></p></td><td><p>#1450</p></td><td><p>0</p></td><td><p>1</p></td><td><p>500</p></td><td><p>550</p></td><td><p>rWtPlc12</p></td><td><p>SEC</p></td><td><p>0</p><p>0</p><p>0</p></td><td><p></p>
-<ul>
-<li><input disabled="" type="checkbox"/>
-JET</li>
-</ul>
-<p><br></p><p></p>
-<ul>
-<li><input disabled="" type="checkbox" checked=""/>
-WATERJET</li>
-</ul>
-<p><br></p></td></tr><tr><td><p>18</p></td><td><p>mn0018</p></td><td><p>Repair the high-pressure cylinder</p></td><td><p></p></td><td><p>#1450</p></td><td><p>0</p></td><td><p>1</p></td><td><p>500</p></td><td><p>550</p></td><td><p>rWtPlc12</p></td><td><p>SEC</p></td><td><p>0</p><p>0</p><p>0</p></td><td><p></p>
-<ul>
-<li><input disabled="" type="checkbox"/>
-JET</li>
-</ul>
-<p><br></p><p></p>
-<ul>
-<li><input disabled="" type="checkbox" checked=""/>
-WATERJET</li>
-</ul>
-<p><br></p></td></tr><tr><td><p>19</p></td><td><p>mn0019</p></td><td><p>Replace the high-pressure sealing element cartridge</p></td><td><p></p></td><td><p>#1450</p></td><td><p>0</p></td><td><p>1</p></td><td><p>500</p></td><td><p>550</p></td><td><p>rWtPlc12</p></td><td><p>SEC</p></td><td><p>0</p><p>0</p><p>0</p></td><td><p></p>
-<ul>
-<li><input disabled="" type="checkbox"/>
-JET</li>
-</ul>
-<p><br></p><p></p>
-<ul>
-<li><input disabled="" type="checkbox" checked=""/>
-WATERJET</li>
-</ul>
-<p><br></p></td></tr><tr><td><p>20</p></td><td><p>mn0020</p></td><td><p>Replace the high-pressure shutter</p></td><td><p></p></td><td><p>#1450</p></td><td><p>0</p></td><td><p>1</p></td><td><p>1000</p></td><td><p>1080</p></td><td><p>rWtPlc12</p></td><td><p>SEC</p></td><td><p>0</p><p>0</p><p>0</p></td><td><p></p>
-<ul>
-<li><input disabled="" type="checkbox"/>
-JET</li>
-</ul>
-<p><br></p><p></p>
-<ul>
-<li><input disabled="" type="checkbox" checked=""/>
-WATERJET</li>
-</ul>
-<p><br></p></td></tr><tr><td><p>21</p></td><td><p>mn0021</p></td><td><p>Replace the low-pressure shutter</p></td><td><p></p></td><td><p>#1450</p></td><td><p>0</p></td><td><p>1</p></td><td><p>1000</p></td><td><p>1080</p></td><td><p>rWtPlc12</p></td><td><p>SEC</p></td><td><p>0</p><p>0</p><p>0</p></td><td><p></p>
-<ul>
-<li><input disabled="" type="checkbox"/>
-JET</li>
-</ul>
-<p><br></p><p></p>
-<ul>
-<li><input disabled="" type="checkbox" checked=""/>
-WATERJET</li>
-</ul>
-<p><br></p></td></tr><tr><td><p>22</p></td><td><p>mn0022</p></td><td><p>Invert the high-pressure cylinder</p></td><td><p></p></td><td><p>#1452</p></td><td><p>0</p></td><td><p>1</p></td><td><p>1500</p></td><td><p>1600</p></td><td><p>rWtPlc12</p></td><td><p>SEC</p></td><td><p>0</p><p>0</p><p>0</p></td><td><p></p>
-<ul>
-<li><input disabled="" type="checkbox"/>
-JET</li>
-</ul>
-<p><br></p><p></p>
-<ul>
-<li><input disabled="" type="checkbox" checked=""/>
-WATERJET</li>
-</ul>
-<p><br></p></td></tr><tr><td><p>23</p></td><td><p>mn0023</p></td><td><p>Replace the high-pressure cylinder</p></td><td><p></p></td><td><p>#1452</p></td><td><p>0</p></td><td><p>1</p></td><td><p>3000</p></td><td><p>3150</p></td><td><p>rWtPlc12</p></td><td><p>SEC</p></td><td><p>0</p><p>0</p><p>0</p></td><td><p></p>
-<ul>
-<li><input disabled="" type="checkbox"/>
-JET</li>
-</ul>
-<p><br></p><p></p>
-<ul>
-<li><input disabled="" type="checkbox" checked=""/>
-WATERJET</li>
-</ul>
-<p><br></p></td></tr><tr><td><p>24</p></td><td><p>mn0024</p></td><td><p>Replace the check valve unit</p></td><td><p></p></td><td><p>#1450</p></td><td><p>0</p></td><td><p>1</p></td><td><p>3000</p></td><td><p>3150</p></td><td><p>rWtPlc12</p></td><td><p>SEC</p></td><td><p>0</p><p>0</p><p>0</p></td><td><p></p>
-<ul>
-<li><input disabled="" type="checkbox"/>
-JET</li>
-</ul>
-<p><br></p><p></p>
-<ul>
-<li><input disabled="" type="checkbox" checked=""/>
-WATERJET</li>
-</ul>
-<p><br></p></td></tr><tr><td><p>25</p></td><td><p>mn0025</p></td><td><p>Replace sealing element housing unit</p></td><td><p></p></td><td><p>#1450</p></td><td><p>0</p></td><td><p>1</p></td><td><p>6000</p></td><td><p>6200</p></td><td><p>rWtPlc12</p></td><td><p>SEC</p></td><td><p>0</p><p>0</p><p>0</p></td><td><p></p>
-<ul>
-<li><input disabled="" type="checkbox"/>
-JET</li>
-</ul>
-<p><br></p><p></p>
-<ul>
-<li><input disabled="" type="checkbox" checked=""/>
-WATERJET</li>
-</ul>
-<p><br></p></td></tr><tr><td><p>26</p></td><td><p>mn0026</p></td><td><p>Replace the output adapter</p></td><td><p></p></td><td><p>#1450</p></td><td><p>0</p></td><td><p>1</p></td><td><p>6000</p></td><td><p>6200</p></td><td><p>rWtPlc12</p></td><td><p>SEC</p></td><td><p>0</p><p>0</p><p>0</p></td><td><p></p>
-<ul>
-<li><input disabled="" type="checkbox"/>
-JET</li>
-</ul>
-<p><br></p><p></p>
-<ul>
-<li><input disabled="" type="checkbox" checked=""/>
-WATERJET</li>
-</ul>
-<p><br></p></td></tr><tr><td><p>27</p></td><td><p>mn0027</p></td><td><p></p></td><td><p></p></td><td><p></p></td><td><p></p></td><td><p></p></td><td><p></p></td><td><p></p></td><td><p></p></td><td><p></p></td><td><p></p></td><td><p></p></td></tr><tr><td><p>28</p></td><td><p>mn0028</p></td><td><p>Repairing the central hydraulic section</p></td><td><p>Contact Donatoni Service</p></td><td><p>#1452</p></td><td><p>0</p></td><td><p>1</p></td><td><p>12000</p></td><td><p>12400</p></td><td><p>rWtPlc12</p></td><td><p>SEC</p></td><td><p>0</p><p>0</p><p>0</p></td><td><p></p>
-<ul>
-<li><input disabled="" type="checkbox"/>
-JET</li>
-</ul>
-<p><br></p><p></p>
-<ul>
-<li><input disabled="" type="checkbox" checked=""/>
-WATERJET</li>
-</ul>
-<p><br></p></td></tr><tr><td><p>29</p></td><td><p>mn0029</p></td><td><p>Repair the purge valve.</p></td><td><p></p></td><td><p>#1452</p></td><td><p>0</p></td><td><p>1</p></td><td><p>1000</p></td><td><p>1100</p></td><td><p>rWtPlc12</p></td><td><p>SEC</p></td><td><p>0</p><p>0</p><p>0</p></td><td><p></p>
-<ul>
-<li><input disabled="" type="checkbox"/>
-JET</li>
-</ul>
-<p><br></p><p></p>
-<ul>
-<li><input disabled="" type="checkbox" checked=""/>
-WATERJET</li>
-</ul>
-<p><br></p></td></tr><tr><td><p>30</p></td><td><p>mn0030</p></td><td><p>Checking of lubricant in automatic greasing system</p></td><td><p>The tank must be topped up with the necessary grease, without exceeding the maximum level indicated</p></td><td><p>#1450</p></td><td><p>1</p></td><td><p>1</p></td><td><p>450</p></td><td><p>500</p></td><td><p>rWtPlc12</p></td><td><p>SEC</p></td><td><p>0</p><p>0</p><p>0</p></td><td><p></p>
-<ul>
-<li><input disabled="" type="checkbox"/>
-JET</li>
-</ul>
-<p><br></p><p></p>
-<ul>
-<li><input disabled="" type="checkbox" checked=""/>
-WATERJET</li>
-</ul>
-<p><br></p></td></tr><tr><td><p>31</p></td><td><p>mn0031</p></td><td><p>Replace the purge valve body</p></td><td><p></p></td><td><p>#1452</p></td><td><p>0</p></td><td><p>1</p></td><td><p>3000</p></td><td><p>3200</p></td><td><p>rWtPlc12</p></td><td><p>SEC</p></td><td><p>0</p><p>0</p><p>0</p></td><td><p></p>
-<ul>
-<li><input disabled="" type="checkbox"/>
-JET</li>
-</ul>
-<p><br></p><p></p>
-<ul>
-<li><input disabled="" type="checkbox" checked=""/>
-WATERJET</li>
-</ul>
-<p><br></p></td></tr><tr><td><p>32</p></td><td><p>mn0032</p></td><td><p>Clean the air cooler</p></td><td><p></p></td><td><p>#1450</p></td><td><p>0</p></td><td><p>1</p></td><td><p>1000</p></td><td><p>1100</p></td><td><p>rWtPlc12</p></td><td><p>SEC</p></td><td><p>0</p><p>0</p><p>0</p></td><td><p></p>
-<ul>
-<li><input disabled="" type="checkbox"/>
-JET</li>
-</ul>
-<p><br></p><p></p>
-<ul>
-<li><input disabled="" type="checkbox" checked=""/>
-WATERJET</li>
-</ul>
-<p><br></p></td></tr><tr><td><p>33</p></td><td><p>mn0033</p></td><td><p></p></td><td><p></p></td><td><p></p></td><td><p></p></td><td><p></p></td><td><p></p></td><td><p></p></td><td><p></p></td><td><p></p></td><td><p></p></td><td><p></p></td></tr><tr><td><p>34</p></td><td><p>mn0034</p></td><td><p>Replace the water filter</p></td><td><p></p></td><td><p>#1450</p></td><td><p>0</p></td><td><p>1</p></td><td><p>1000</p></td><td><p>1100</p></td><td><p>rWtPlc12</p></td><td><p>SEC</p></td><td><p>0</p><p>0</p><p>0</p></td><td><p></p>
-<ul>
-<li><input disabled="" type="checkbox"/>
-JET</li>
-</ul>
-<p><br></p><p></p>
-<ul>
-<li><input disabled="" type="checkbox" checked=""/>
-WATERJET</li>
-</ul>
-<p><br></p></td></tr><tr><td><p>35</p></td><td><p>mn0035</p></td><td><p>Check the quality of the water</p></td><td><p></p></td><td><p>#1450</p></td><td><p>0</p></td><td><p>1</p></td><td><p>1000</p></td><td><p>1100</p></td><td><p>rWtPlc12</p></td><td><p>SEC</p></td><td><p>0</p><p>0</p><p>0</p></td><td><p></p>
-<ul>
-<li><input disabled="" type="checkbox"/>
-JET</li>
-</ul>
-<p><br></p><p></p>
-<ul>
-<li><input disabled="" type="checkbox" checked=""/>
-WATERJET</li>
-</ul>
-<p><br></p></td></tr><tr><td><p>36</p></td><td><p>mn0036</p></td><td><p>Replace the hydraulic filter element</p></td><td><p></p></td><td><p>#1450</p></td><td><p>0</p></td><td><p>1</p></td><td><p>1500</p></td><td><p>1650</p></td><td><p>rWtPlc12</p></td><td><p>SEC</p></td><td><p>0</p><p>0</p><p>0</p></td><td><p></p>
-<ul>
-<li><input disabled="" type="checkbox"/>
-JET</li>
-</ul>
-<p><br></p><p></p>
-<ul>
-<li><input disabled="" type="checkbox" checked=""/>
-WATERJET</li>
-</ul>
-<p><br></p></td></tr><tr><td><p>37</p></td><td><p>mn0037</p></td><td><p>Replace the hydraulic fluid</p></td><td><p></p></td><td><p>#1450</p></td><td><p>0</p></td><td><p>1</p></td><td><p>3000</p></td><td><p>3200</p></td><td><p>rWtPlc12</p></td><td><p>SEC</p></td><td><p>0</p><p>0</p><p>0</p></td><td><p></p>
-<ul>
-<li><input disabled="" type="checkbox"/>
-JET</li>
-</ul>
-<p><br></p><p></p>
-<ul>
-<li><input disabled="" type="checkbox" checked=""/>
-WATERJET</li>
-</ul>
-<p><br></p></td></tr><tr><td><p>38</p></td><td><p>mn0038</p></td><td><p>Lubricate the main motor bearings</p></td><td><p></p></td><td><p>#1450</p></td><td><p>0</p></td><td><p>1</p></td><td><p>3000</p></td><td><p>3200</p></td><td><p>rWtPlc12</p></td><td><p>SEC</p></td><td><p>0</p><p>0</p><p>0</p></td><td><p></p>
-<ul>
-<li><input disabled="" type="checkbox"/>
-JET</li>
-</ul>
-<p><br></p><p></p>
-<ul>
-<li><input disabled="" type="checkbox" checked=""/>
-WATERJET</li>
-</ul>
-<p><br></p></td></tr><tr><td><p>39</p></td><td><p>mn0039</p></td><td><p>Cleaning of air vent filters in electrical panel</p></td><td><p></p></td><td><p>#1451</p></td><td><p>1</p></td><td><p>1</p></td><td><p>2000</p></td><td><p>2100</p></td><td><p>rWtPlc12</p></td><td><p>SEC</p></td><td><p>0</p><p>0</p><p>0</p></td><td><p></p>
-<ul>
-<li><input disabled="" type="checkbox"/>
-JET</li>
-</ul>
-<p><br></p><p></p>
-<ul>
-<li><input disabled="" type="checkbox" checked=""/>
-WATERJET</li>
-</ul>
-<p><br></p></td></tr><tr><td><p>40</p></td><td><p>mn0040</p></td><td><p>Maintenance of compressed air inlet unit</p></td><td><p>Before performing maintenance operations, close the shut-off valve and padlock it</p></td><td><p>#1450</p></td><td><p>2</p></td><td><p>1</p></td><td><p>2000</p></td><td><p>2100</p></td><td><p>rWtPlc12</p></td><td><p>SEC</p></td><td><p>0</p><p>0</p><p>0</p></td><td><p></p>
-<ul>
-<li><input disabled="" type="checkbox"/>
-JET</li>
-</ul>
-<p><br></p><p></p>
-<ul>
-<li><input disabled="" type="checkbox" checked=""/>
-WATERJET</li>
-</ul>
-<p><br></p></td></tr><tr><td><p>41</p></td><td><p>mn0041</p></td><td><p>Greasing linear guides side spindle</p></td><td><p></p></td><td><p>#1450</p></td><td><p>1</p></td><td><p>1</p></td><td><p>300</p></td><td><p>350</p></td><td><p>R1</p></td><td><p>SEC</p></td><td><p>0</p><p>0</p><p>0</p></td><td><p></p>
-<ul>
-<li><input disabled="" type="checkbox"/>
-JET</li>
-</ul>
-<p><br></p><p></p>
-<ul>
-<li><input disabled="" type="checkbox"/>
-WATERJET</li>
-</ul>
-<p><br></p></td></tr><tr><td><p>42</p></td><td><p>mn0042</p></td><td><p>Cleaning pneumatic system filter</p></td><td><p></p></td><td><p>#1450</p></td><td><p>2</p></td><td><p>1</p></td><td><p>2100</p></td><td><p>2160</p></td><td><p>R1</p></td><td><p>SEC</p></td><td><p>0</p><p>0</p><p>0</p></td><td><p></p>
-<ul>
-<li><input disabled="" type="checkbox" checked=""/>
-JET</li>
-</ul>
-<p><br></p><p></p>
-<ul>
-<li><input disabled="" type="checkbox"/>
-WATERJET</li>
-</ul>
-<p><br></p></td></tr><tr><td><p>43</p></td><td><p>mn0043</p></td><td><p>Rotary joint seal check</p></td><td><p></p></td><td><p>#1450</p></td><td><p>1</p></td><td><p>1</p></td><td><p>400</p></td><td><p>500</p></td><td><p>R1</p></td><td><p>SEC</p></td><td><p>0</p><p>0</p><p>0</p></td><td><p></p>
-<ul>
-<li><input disabled="" type="checkbox"/>
-JET</li>
-</ul>
-<p><br></p><p></p>
-<ul>
-<li><input disabled="" type="checkbox"/>
-WATERJET</li>
-</ul>
-<p><br></p></td></tr></tbody></table><p></p><p></p></p>
-                    </main>
+                        <img src="images/donatoni_111.jpg">
 
-                    <img src="images/donatoni_22.jpg" />
+                        <main style="margin-left: 20px;">
+                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="manutenzioni" style="margin:0;"><a class="header" href="#manutenzioni">MANUTENZIONI</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="MANUTENZIONI"--><p local-id="5c2eedf896a7">Lista delle manutenzioni previste per le macchine Donatoni.</p><p local-id="414a311217a8">Descrizione:</p><p local-id="0e4b1581de1b"><strong>ID: </strong>Identificativo univoco della manutenzione</p><p local-id="22f20716a317"><strong>CODE</strong>: Tag univoco per legare la manutenzione alla pagina corretta</p><p local-id="1a4c9cfa2f2e"><strong>NAME, DESCRIPTION</strong>: Descrizione della manutenzione</p><p local-id="75d152477a60"><strong>TECHNICAL LEVEL</strong>: Livello del tecnico che esegue la manutenzione</p><p local-id="89dfbf11c6ab"><strong>CRITICAL LEVEL</strong>: Gravità della manutenzione: 0 = Solo informativa, 1 = Avvertimento significativo, 2 = Avvertimento bloccante</p><p local-id="038d36cf8a5d"><strong>TYPE: </strong>Tipo di conteggio per sollevare la manutenzione: 0 = A tempo, 1 = A tempo di un registro macchina, 2 = A misura di un registro macchina</p><p local-id="a6a5bdc1d913"><strong>WARNING VALUE, ERROR VALUE</strong>: Valore limite per sollevare gli eventi di avvertimento e errore</p><p local-id="b091e9176bb6"><strong>NODE VALUE</strong>: Valore del nodo o registro della macchina per conteggiare la manutenzione</p><p local-id="1118712b2bf6"><strong>UM: </strong>Unità di misura del valore letto dal nodo per quanto riguarda il tempo, secondi, ore, giorni, etc</p><p local-id="3adb87ab2639"><strong>ACTIONS: </strong>0=none,1=warning,2=maxvalue,3=both: ShowMessage, SendMail, BlockMachine</p><h1 local-id="6c33de662c20">Manutenzioni</h1><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="3b3bf367-b465-48c9-b8fc-5aa13150343e" data-table-display-mode="default"><colgroup><col style="width: 72.0px;"><col style="width: 132.0px;"><col style="width: 257.0px;"><col style="width: 278.0px;"><col style="width: 140.0px;"><col style="width: 70.0px;"><col style="width: 92.0px;"><col style="width: 148.0px;"><col style="width: 110.0px;"><col style="width: 107.0px;"><col style="width: 81.0px;"><col style="width: 130.0px;"><col style="width: 180.0px;"></colgroup><tbody><tr ac:local-id="ec72c551d31e"><th ac:local-id="044cca5e0e40"><p local-id="36368d862da4"><strong>ID</strong></p></th><th ac:local-id="c0df516a1337"><p local-id="622022352287"><strong>CODE</strong></p></th><th ac:local-id="48372a6a6bc5"><p local-id="0f994274c8ae"><strong>NAME</strong></p></th><th ac:local-id="1c0934dc7d0a"><p local-id="34a9a6cb224f"><strong>DESCRIPTION</strong></p></th><th ac:local-id="ce5d43fad7d4"><p local-id="d53f270f3cf5"><strong>TECHNICAL LEVEL</strong></p></th><th ac:local-id="ff52ffab0be9"><p local-id="2bef1d39b7d6"><strong>CRITICAL LEVEL</strong></p></th><th ac:local-id="812526c72a19"><p local-id="499b8ab89b8b"><strong>TYPE</strong></p></th><th ac:local-id="8b3456ef601e"><p local-id="4a4a0cdfa639"><strong>WARNING VALUE</strong></p></th><th ac:local-id="7cb69e207302"><p local-id="062909803109"><strong>ERROR VALUE</strong></p></th><th ac:local-id="fee89d4eb286"><p local-id="ecddb06e1daa"><strong>NODE VALUE</strong></p></th><th ac:local-id="e9b6f7459b76"><p local-id="8cdfa4d1f534"><strong>UM</strong></p></th><th ac:local-id="b08654898cce"><p local-id="82a0ae0b9a58"><strong>ACTIONS</strong></p></th><th ac:local-id="2bd9be59d604"><p local-id="45b8df51bd7b"><strong>ENABLE</strong></p></th></tr><tr ac:local-id="639c393fc494"><td ac:local-id="7b9fc8e3f2da"><p local-id="e1ab8a1f5fe6">1</p></td><td ac:local-id="a5994197c30f"><p local-id="35be23d344ce">mn0001</p></td><td ac:local-id="4d67aa08d3b0"><p local-id="7eefc39bf122">Testing of the emergency stop circuit</p></td><td ac:local-id="9ba5ba8b05db"><p local-id="f25ed5d813d9">Before starting work on the machine, check that the danger zone is clear of people, materials or equipment</p></td><td ac:local-id="57a337879bdd"><p local-id="18883a563cb0">#1451</p></td><td ac:local-id="1022b0bafad7"><p local-id="9513b8c4f7f9">1</p></td><td ac:local-id="6d5c6837f992"><p local-id="abe8d952aa40">1</p></td><td ac:local-id="cc0d77f9d60a"><p local-id="4d977a0f72a5">160</p></td><td ac:local-id="9ad79bb96f31"><p local-id="c3f1409eda00">200</p></td><td ac:local-id="01fe54415c13"><p local-id="c09a54b6fdc1">R1</p></td><td ac:local-id="27a40b761761"><p local-id="ed99a4deae51">SEC</p></td><td ac:local-id="205ccb035b8e"><p local-id="52f0f706bc13">0</p><p local-id="6405f59e6574">0</p><p local-id="bad7a57159a1">0</p></td><td ac:local-id="a15486d8e265"><p>
+<ul>
+<li><input disabled="" type="checkbox">
+JET</li>
+</ul>
+<p><br></p><p></p>
+<ul>
+<li><input disabled="" type="checkbox">
+WATERJET</li>
+</ul>
+<p><br></p></td></tr><tr ac:local-id="c381678b50f7"><td ac:local-id="7c04c9d53109"><p local-id="ab7cf168ea84">2</p></td><td ac:local-id="594ffd8e7856"><p local-id="7a39749a0f07">mn0002</p></td><td ac:local-id="35611df69837"><p local-id="bc6f284aa563">Vacuum pump maintenance - monthly</p></td><td ac:local-id="f0b094390b2b"><p local-id="e736655ecedb">Thoroughly clean the tank, in other words remove all sediments that have built up on the bottom</p></td><td ac:local-id="0163ceb811c9"><p local-id="b2ffba81b27f">#1450</p></td><td ac:local-id="7e340ca0e9a5"><p local-id="bc901480592b">1</p></td><td ac:local-id="ffb466b60183"><p local-id="85d38d24ebcc">0</p></td><td ac:local-id="6b065ae3aa1f"><p local-id="2b6f819143e0">2100</p></td><td ac:local-id="b13665c1e1e0"><p local-id="f5ce522e8078">2160</p></td><td ac:local-id="284c3d5ff154"><p local-id="8338121e6fdb"></p></td><td ac:local-id="ee6b3411ef9a"><p local-id="f72512cfcff4"></p></td><td ac:local-id="5e76bd3ba7a5"><p local-id="9cf34e404219">0</p><p local-id="62615816f87c">0</p><p local-id="8f0b385d80d9">0</p></td><td ac:local-id="09ff550593e2"><p></p>
+<ul>
+<li><input disabled="" type="checkbox" checked="">
+JET</li>
+</ul>
+<p><br></p><p></p>
+<ul>
+<li><input disabled="" type="checkbox">
+WATERJET</li>
+</ul>
+<p><br></p></td></tr><tr ac:local-id="be61d2a7ef86"><td ac:local-id="bbf45d171bff"><p local-id="007a5dfe5050">3</p></td><td ac:local-id="2d59d385c851"><p local-id="36566d9c6d48">mn0003</p></td><td ac:local-id="031a583fbd67"><p local-id="821d37ac9d5d">Light signal testing</p></td><td ac:local-id="b72999a8adcb"><p local-id="912d1e43647a">Test of orange light in stack. Test of green light in stack. Test of red light in stack</p></td><td ac:local-id="1e597708ecd2"><p local-id="4ef211a5511e">#1450</p></td><td ac:local-id="065cebbf3f62"><p local-id="34afaedfe630">1</p></td><td ac:local-id="9a2f52283b25"><p local-id="7c9d28adca1c">1</p></td><td ac:local-id="141e33bec124"><p local-id="5c26327f47c1">160</p></td><td ac:local-id="fe2d64650c49"><p local-id="57c3e776ea06">200</p></td><td ac:local-id="3bfec4e8720e"><p local-id="8c025d36e73b">R1</p></td><td ac:local-id="700425ab8e85"><p local-id="d5fc56adac1d">SEC</p></td><td ac:local-id="ca6769e4aee7"><p local-id="0a06609ef5ad">0</p><p local-id="38390208617c">0</p><p local-id="068320216087">0</p></td><td ac:local-id="d6fc14fdd5b0"><p></p>
+<ul>
+<li><input disabled="" type="checkbox">
+JET</li>
+</ul>
+<p><br></p><p></p>
+<ul>
+<li><input disabled="" type="checkbox">
+WATERJET</li>
+</ul>
+<p><br></p></td></tr><tr ac:local-id="271530f5fd70"><td ac:local-id="bb4530682f85"><p local-id="ef356d7ff297">4</p></td><td ac:local-id="5de7c538e156"><p local-id="c4b4e3397d41">mn0004</p></td><td ac:local-id="544f8c38c799"><p local-id="2d6c8e4d9800">Greasing of linear guides in MOVE system</p></td><td ac:local-id="383c6a8c988e"><p local-id="2382434cbfac">Using a dedicated gun, grease the linear guides of the MOVE system with 1 cucm of grease through the dedicated nozzles</p></td><td ac:local-id="8ac4f0687c0b"><p local-id="0d8a1a99d16c">#1450</p></td><td ac:local-id="72afaeaa807e"><p local-id="453033387f33">1</p></td><td ac:local-id="d092eb332f5e"><p local-id="c2ad2cb20ddc">1</p></td><td ac:local-id="ff3492b67b1d"><p local-id="2ee0bcccef5a">300</p></td><td ac:local-id="55baf436848e"><p local-id="55b1b16aaa77">350</p></td><td ac:local-id="0d821cff5adc"><p local-id="cff0491ad94e">R1</p></td><td ac:local-id="0b9ce20b2bd5"><p local-id="3130aface530">SEC</p></td><td ac:local-id="867fcfa649ba"><p local-id="c0830a664ec9">0</p><p local-id="555995cf079a">0</p><p local-id="dd74f4b7d80a">0</p></td><td ac:local-id="bee516dc9c65"><p></p>
+<ul>
+<li><input disabled="" type="checkbox" checked="">
+JET</li>
+</ul>
+<p><br></p><p></p>
+<ul>
+<li><input disabled="" type="checkbox">
+WATERJET</li>
+</ul>
+<p><br></p></td></tr><tr ac:local-id="5f34ea67e71e"><td ac:local-id="e3d2a44b101d"><p local-id="0f21ae8d5289">5</p></td><td ac:local-id="d22ca5be793c"><p local-id="8929b7c24e1e">mn0005</p></td><td ac:local-id="fbd5394fe479"><p local-id="9d7c6eda1e9e">Greasing of lead screw bearing in Z axis</p></td><td ac:local-id="6765358cfdca"><p local-id="d530e7703a4b">Using a dedicated gun, grease the bearing of the lead screw in the Z axis  with 1 cucm of grease through the dedicated nozzles</p></td><td ac:local-id="0d6f0860c808"><p local-id="49b80bb8c036">#1450</p></td><td ac:local-id="4de05fbc716a"><p local-id="6f6273602b12">1</p></td><td ac:local-id="a560332f957e"><p local-id="550eaab9ce87">1</p></td><td ac:local-id="b358b2103ef7"><p local-id="ca3b59c97edf">8700</p></td><td ac:local-id="8a348184d725"><p local-id="e223de907eb8">8760</p></td><td ac:local-id="0cc983bf76a0"><p local-id="aafe45d7e942">R1</p></td><td ac:local-id="05596fbd8245"><p local-id="0d400753d7cc">SEC</p></td><td ac:local-id="e5d58726be87"><p local-id="89868fab11b8">0</p><p local-id="5643995f9565">0</p><p local-id="fdac8f10c2fc">0</p></td><td ac:local-id="5a8092847948"><p></p>
+<ul>
+<li><input disabled="" type="checkbox" checked="">
+JET</li>
+</ul>
+<p><br></p><p></p>
+<ul>
+<li><input disabled="" type="checkbox">
+WATERJET</li>
+</ul>
+<p><br></p></td></tr><tr ac:local-id="f3484ae1fc74"><td ac:local-id="d7c5bc8b89ec"><p local-id="78f5641fe069">6</p></td><td ac:local-id="6f3e5de6b339"><p local-id="efafd061d891">mn0006</p></td><td ac:local-id="d7ca8565d2d5"><p local-id="51a4ee209162">Greasing of bearings in bridge drive shaft in Y axis</p></td><td ac:local-id="3e3149ac442b"><p local-id="415025ce4aa5">Using a dedicated gun, grease the bearings of the Y axis bridge drive shaft with 1 cucm of grease through the dedicated nozzles</p></td><td ac:local-id="99c541332a16"><p local-id="a2191b1db43d">#1450</p></td><td ac:local-id="48214865d6af"><p local-id="14e4e328999a">1</p></td><td ac:local-id="ba73dc20d7e2"><p local-id="ec66d5131517">1</p></td><td ac:local-id="bfb2a3f6f20f"><p local-id="599617c69be5">8700</p></td><td ac:local-id="c1ced707b6c3"><p local-id="a8209e5aa708">8760</p></td><td ac:local-id="cc6680317f83"><p local-id="f01defd5cc96">R1</p></td><td ac:local-id="24e26dc39e28"><p local-id="d96976885d62">SEC</p></td><td ac:local-id="57f8a2b79b31"><p local-id="606d0f5578a1">0</p><p local-id="a24b0fde18b3">0</p><p local-id="33e20e41521c">0</p></td><td ac:local-id="8519cdfce1f9"><p></p>
+<ul>
+<li><input disabled="" type="checkbox" checked="">
+JET</li>
+</ul>
+<p><br></p><p></p>
+<ul>
+<li><input disabled="" type="checkbox">
+WATERJET</li>
+</ul>
+<p><br></p></td></tr><tr ac:local-id="4fcd9f48e3a1"><td ac:local-id="a63b901b18b9"><p local-id="fb4d2f08dbed">7</p></td><td ac:local-id="44baa4eeba2b"><p local-id="5241d0fba4bc">mn0007</p></td><td ac:local-id="85258f377a47"><p local-id="9e572ad093cb">Checking of lubricant in automatic greasing system</p></td><td ac:local-id="b66124794cf6"><p local-id="1ea85fbb2c79">The tank must be topped up with the necessary grease, without exceeding the maximum level indicated</p></td><td ac:local-id="33c458a51799"><p local-id="2f5ab375a6bf">#1450</p></td><td ac:local-id="9e53d291b5ac"><p local-id="02c349162cd1">1</p></td><td ac:local-id="252478b04f84"><p local-id="701640153b54">1</p></td><td ac:local-id="af862314a4dc"><p local-id="a6afaa268734">500</p></td><td ac:local-id="bd8ed621b7af"><p local-id="8e7254d55ace">550</p></td><td ac:local-id="ef38a7b660c4"><p local-id="c3678bb32d10">R1</p></td><td ac:local-id="3d6afe69057f"><p local-id="c3d6d88dfa14">SEC</p></td><td ac:local-id="b0e3b785c3fb"><p local-id="28d0e4e2636b">0</p><p local-id="3393f81cb454">0</p><p local-id="c4e42104030d">0</p></td><td ac:local-id="dfea22c94987"><p></p>
+<ul>
+<li><input disabled="" type="checkbox" checked="">
+JET</li>
+</ul>
+<p><br></p><p></p>
+<ul>
+<li><input disabled="" type="checkbox">
+WATERJET</li>
+</ul>
+<p><br></p></td></tr><tr ac:local-id="9c16dab8cf5d"><td ac:local-id="f6fb9598b09c"><p local-id="c5302c5198f2">8</p></td><td ac:local-id="17d1eeacde0d"><p local-id="386eb8072e6b">mn0008</p></td><td ac:local-id="ea93c121eb59"><p local-id="af320e383f8a">Greasing of joints in tilting bench</p></td><td ac:local-id="c5d7625faf29"><p local-id="283dad23f12a">Greasing of joints in tilting bench</p></td><td ac:local-id="ff4ccf6629c7"><p local-id="919d6a26eccd">#1450</p></td><td ac:local-id="6a3edbd91ef3"><p local-id="b16eccfd1cbf">1</p></td><td ac:local-id="395aea73806b"><p local-id="05b4193b3140">0</p></td><td ac:local-id="fddb5dc8c576"><p local-id="8eeb7834a3d4">2100</p></td><td ac:local-id="99afb59e2100"><p local-id="74d9876402e1">2160</p></td><td ac:local-id="e4e686a3a942"><p local-id="56ff10fbd013"></p></td><td ac:local-id="da537826309d"><p local-id="2705351061d8"></p></td><td ac:local-id="9b0f5b5692ac"><p local-id="6c508e2e4e9e">0</p><p local-id="759b809093c7">0</p><p local-id="d49aa427475b">0</p></td><td ac:local-id="f36b701bb5eb"><p></p>
+<ul>
+<li><input disabled="" type="checkbox" checked="">
+JET</li>
+</ul>
+<p><br></p><p></p>
+<ul>
+<li><input disabled="" type="checkbox">
+WATERJET</li>
+</ul>
+<p><br></p></td></tr><tr ac:local-id="10e6b036b134"><td ac:local-id="eeb6b9e6c2a0"><p local-id="b19245293743">9</p></td><td ac:local-id="9c6b132ed1cf"><p local-id="918514aa5475">mn0009</p></td><td ac:local-id="68543320d2dc"><p local-id="64dc403e4cb9">Greasing of control panel arm joint</p></td><td ac:local-id="917e6bc6251a"><p local-id="864554848fee">Using a dedicated gun, grease the joint of the control panel arm with 1 cu.cm  of grease through the dedicated nozzles</p></td><td ac:local-id="7c6eb83daf46"><p local-id="18416872b926">#1450</p></td><td ac:local-id="c6f055e68088"><p local-id="3bc53aaaf2e3">1</p></td><td ac:local-id="e0c3fec28a98"><p local-id="c072c1f9c9c8">0</p></td><td ac:local-id="ff0339e6885c"><p local-id="329f721efe3d">2100</p></td><td ac:local-id="8bcd17820fa6"><p local-id="a9f7a1b53fda">2160</p></td><td ac:local-id="4071b0a6155a"><p local-id="aebb51f4cfde"></p></td><td ac:local-id="8cb4ec761333"><p local-id="dd14fd1fbc30"></p></td><td ac:local-id="e17fc54f328b"><p local-id="308e2e8fd7a8">0</p><p local-id="4c0c6725ecd9">0</p><p local-id="942a29733993">0</p></td><td ac:local-id="cd7ef1f76627"><p></p>
+<ul>
+<li><input disabled="" type="checkbox">
+JET</li>
+</ul>
+<p><br></p><p></p>
+<ul>
+<li><input disabled="" type="checkbox">
+WATERJET</li>
+</ul>
+<p><br></p></td></tr><tr ac:local-id="b2ee0962fcd2"><td ac:local-id="48204cebdcf8"><p local-id="f6aad0a12b1d">10</p></td><td ac:local-id="212441c8419d"><p local-id="fdf0e9eb957b">mn0010</p></td><td ac:local-id="288621d03040"><p local-id="271edf00e228">Checking of pipes and connections in hydraulic oil system</p></td><td ac:local-id="88be932243fd"><p local-id="706f61760868">Check the pipes in the hydraulic oil system for wear, taking care to identify and locate any deteriorated or damaged points on the pipes or fittings, as well as any oil leaks from the system</p></td><td ac:local-id="5d260be80eef"><p local-id="98f3fc7db3a6">#1452</p></td><td ac:local-id="e0d77cc1cf39"><p local-id="35374270c1ae">2</p></td><td ac:local-id="8c0853b2b354"><p local-id="f388d22c0e6d">1</p></td><td ac:local-id="e7a93b329ff1"><p local-id="8d523e5d3634">1000</p></td><td ac:local-id="7987879c8ac5"><p local-id="ea12ccd48a8b">1100</p></td><td ac:local-id="516743c1675e"><p local-id="e7e38e55fdb1">R1</p></td><td ac:local-id="3193c1ceba29"><p local-id="058ff6d59198">SEC</p></td><td ac:local-id="ebd1afd2363b"><p local-id="240bf142fba4">0</p><p local-id="1ba8a1a117f7">0</p><p local-id="136bdbe96cfc">0</p></td><td ac:local-id="b4d4614063ed"><p></p>
+<ul>
+<li><input disabled="" type="checkbox">
+JET</li>
+</ul>
+<p><br></p><p></p>
+<ul>
+<li><input disabled="" type="checkbox">
+WATERJET</li>
+</ul>
+<p><br></p></td></tr><tr ac:local-id="a50267008210"><td ac:local-id="1b08e484cf65"><p local-id="62959782f039">11</p></td><td ac:local-id="8044b5b12eed"><p local-id="484d5cbdfff7">mn0011</p></td><td ac:local-id="114dd812aa37"><p local-id="3e74a991a62c">Oil change in hydraulic control unit</p></td><td ac:local-id="4ef060227db0"><p local-id="a97af3d01867">Replacement must be coupled with a thorough cleaning of the tank. The fluid must be filled into the tank through a 10-micron mesh filter through the oil fill plug</p></td><td ac:local-id="251ffdc50af5"><p local-id="2db7fbd59036">#1450</p></td><td ac:local-id="749300814d38"><p local-id="aaed7eab7c0f">2</p></td><td ac:local-id="21331a408a8b"><p local-id="124e94235581">1</p></td><td ac:local-id="667cfa2b5a9a"><p local-id="b69b8e81c792">2000</p></td><td ac:local-id="b8efc104a686"><p local-id="ee53b86ac451">2100</p></td><td ac:local-id="9f101efac45f"><p local-id="1cac4532e9b2">R1</p></td><td ac:local-id="a75464f6f2f3"><p local-id="328600668104">SEC</p></td><td ac:local-id="6a24c508f2e9"><p local-id="7fd39a8a217d">0</p><p local-id="c7e0fbcec76c">0</p><p local-id="1fd062638611">0</p></td><td ac:local-id="6aa23edc67a0"><p></p>
+<ul>
+<li><input disabled="" type="checkbox">
+JET</li>
+</ul>
+<p><br></p><p></p>
+<ul>
+<li><input disabled="" type="checkbox">
+WATERJET</li>
+</ul>
+<p><br></p></td></tr><tr ac:local-id="b82d3fb511fd"><td ac:local-id="7248f82ff4aa"><p local-id="021c1b09f658">12</p></td><td ac:local-id="e8b74c4fbc9d"><p local-id="247026d898f3">mn0012</p></td><td ac:local-id="18b1f1dd84a2"><p local-id="60370e60a7ec">Cleaning of air vent filters in electrical panel</p></td><td ac:local-id="672083a008ff"><p local-id="89b98541afaf"></p></td><td ac:local-id="403414e037df"><p local-id="2403a39dfce8">#1451</p></td><td ac:local-id="d0a8fe91607e"><p local-id="46c8ac3b9ea8">1</p></td><td ac:local-id="b0312930b167"><p local-id="e64b88047f85">1</p></td><td ac:local-id="e12eff9cb014"><p local-id="fad434b57aec">2100</p></td><td ac:local-id="10f613fd946c"><p local-id="085d33c87cac">2160</p></td><td ac:local-id="48410a4b95c3"><p local-id="a8262ad08d80">R1</p></td><td ac:local-id="8153eb5972dd"><p local-id="03d496cf2495">SEC</p></td><td ac:local-id="eec41d18fe59"><p local-id="31077823819d">0</p><p local-id="8c347144eeed">0</p><p local-id="7cb78d03e4e8">0</p></td><td ac:local-id="5029883ce20b"><p></p>
+<ul>
+<li><input disabled="" type="checkbox" checked="">
+JET</li>
+</ul>
+<p><br></p><p></p>
+<ul>
+<li><input disabled="" type="checkbox">
+WATERJET</li>
+</ul>
+<p><br></p></td></tr><tr ac:local-id="7f50e7dcf652"><td ac:local-id="e0f47452a3bb"><p local-id="0b92cf37742e">13</p></td><td ac:local-id="4fe098754bd9"><p local-id="9f2a3c38b7b0">mn0013</p></td><td ac:local-id="8cc19c49c4a8"><p local-id="20d100bea3fc">Maintenance of compressed air inlet unit</p></td><td ac:local-id="22458c2e7d36"><p local-id="e019b07f5f0e">Before performing maintenance operations, close the shut-off valve and padlock it</p></td><td ac:local-id="df5b2c705c85"><p local-id="0b8d80c974be">#1450</p></td><td ac:local-id="5ef431e185fa"><p local-id="ecdfaaf87ab7">2</p></td><td ac:local-id="c0114b1ad235"><p local-id="346b00969c2c">1</p></td><td ac:local-id="339a3da80176"><p local-id="9f7002752735">2000</p></td><td ac:local-id="fef83c6da70c"><p local-id="84f3b9fb8d51">2100</p></td><td ac:local-id="32724326f615"><p local-id="f25220c817e5">R1</p></td><td ac:local-id="16701b394e74"><p local-id="ee84fedc38f7">SEC</p></td><td ac:local-id="aad3294626b0"><p local-id="ecdf39171c2a">0</p><p local-id="53d2e27b6e32">0</p><p local-id="a7ae67ad2170">0</p></td><td ac:local-id="9d31a5ccbb0d"><p></p>
+<ul>
+<li><input disabled="" type="checkbox">
+JET</li>
+</ul>
+<p><br></p><p></p>
+<ul>
+<li><input disabled="" type="checkbox">
+WATERJET</li>
+</ul>
+<p><br></p></td></tr><tr ac:local-id="19611a342906"><td ac:local-id="bcf46232e08b"><p local-id="a292387c695b">14</p></td><td ac:local-id="fbcfc624d6be"><p local-id="f81a95374f68">mn0014</p></td><td ac:local-id="ca61bb3946e5"><p local-id="cbb02fe463b5">Electrospindle bearings</p></td><td ac:local-id="f4559f6bf0a5"><p local-id="7b41cc570198">Monitor the noise level and vibrations produced during operation without a load</p></td><td ac:local-id="5bdb2c613987"><p local-id="c2fed78b72bd">#1450</p></td><td ac:local-id="e64e04880f94"><p local-id="f6aeb8c78536">1</p></td><td ac:local-id="c02368e20896"><p local-id="710104312f04">1</p></td><td ac:local-id="01b527322803"><p local-id="3072a26a809b">1550</p></td><td ac:local-id="25c66773e77f"><p local-id="af3d44619d5e">1600</p></td><td ac:local-id="32b9b0adf37b"><p local-id="c600f96544f8">R1</p></td><td ac:local-id="8d4869e3c017"><p local-id="1b7a26082769">SEC</p></td><td ac:local-id="f1df407ee8c5"><p local-id="86d06869e051">0</p><p local-id="2dd6fcc01ac5">0</p><p local-id="e86e8044aaa3">0</p></td><td ac:local-id="e318bf90feec"><p></p>
+<ul>
+<li><input disabled="" type="checkbox">
+JET</li>
+</ul>
+<p><br></p><p></p>
+<ul>
+<li><input disabled="" type="checkbox">
+WATERJET</li>
+</ul>
+<p><br></p></td></tr><tr ac:local-id="d8e073c7666c"><td ac:local-id="c850a243596b"><p local-id="b55265c1e9ea">15</p></td><td ac:local-id="c0b9ff6816df"><p local-id="bc081d86d105">mn0015</p></td><td ac:local-id="260027c08e7c"><p local-id="7875f82ebd53">Controllo tubazioni e raccordi dell’impianto di alta pressione</p></td><td ac:local-id="82b0140990f5"><p local-id="5adfe7ae4fdf">Verificare perdite o segni di usura lungo tutti i passaggi. Sostituire in caso di anomalie per prevenire fermi macchina</p></td><td ac:local-id="2b1e18cc0ed9"><p local-id="a8e6b848fa56">#1450</p></td><td ac:local-id="ecce4d47ef50"><p local-id="c8c772848c44">0</p></td><td ac:local-id="91519fff3728"><p local-id="8f43abdb512a">0</p></td><td ac:local-id="042ba1dd7b64"><p local-id="8f97c907de43">2100</p></td><td ac:local-id="977cc7b32512"><p local-id="5f7c40e7a03a">2200</p></td><td ac:local-id="32188fb740ff"><p local-id="cfa5f40d566d"></p></td><td ac:local-id="948d85774d68"><p local-id="9095354fccc9"></p></td><td ac:local-id="897841fde6c3"><p local-id="a59bd427b709">0</p><p local-id="0b6964dc20ea">0</p><p local-id="f6e68d3cfb0d">0</p></td><td ac:local-id="8bd991ed8208"><p></p>
+<ul>
+<li><input disabled="" type="checkbox">
+JET</li>
+</ul>
+<p><br></p><p></p>
+<ul>
+<li><input disabled="" type="checkbox" checked="">
+WATERJET</li>
+</ul>
+<p><br></p></td></tr><tr ac:local-id="b8e132c1b705"><td ac:local-id="01844461f691"><p local-id="90ecb971e2ac">16</p></td><td ac:local-id="80430352597c"><p local-id="2cce7b04dc79">mn0016</p></td><td ac:local-id="a4a852f8c103"><p local-id="7e885aec43f2">Controllare lo stato di pulizia della vasca</p></td><td ac:local-id="ae9f963bd219"><p local-id="2fc5de8a95f5">se il livello dell’abrasivo è superiore a 20cm procedere con lo svuotamento e pulizia completa.</p></td><td ac:local-id="0ed90cba3728"><p local-id="b6139087922d">#1450</p></td><td ac:local-id="0a4da4aafce1"><p local-id="0dd77f794937">0</p></td><td ac:local-id="d4a4bed1aec7"><p local-id="a35ba33ccf24">2</p></td><td ac:local-id="bd1613a22d97"><p local-id="71acb69e0ee3">1500</p></td><td ac:local-id="410fa2a3ef1e"><p local-id="4de71563defe">1750</p></td><td ac:local-id="d0638fe6f6b5"><p local-id="c2a2e603a628">rWtPlc26</p></td><td ac:local-id="902cec2bb328"><p local-id="5405b098d542"></p></td><td ac:local-id="8a03fc2f7ec4"><p local-id="59a56330e69b">0</p><p local-id="087ffc478e16">0</p><p local-id="b49c2ec41c5d">0</p></td><td ac:local-id="509534c8d46e"><p></p>
+<ul>
+<li><input disabled="" type="checkbox">
+JET</li>
+</ul>
+<p><br></p><p></p>
+<ul>
+<li><input disabled="" type="checkbox" checked="">
+WATERJET</li>
+</ul>
+<p><br></p></td></tr><tr ac:local-id="2f5c5ed05b37"><td ac:local-id="7ee652dee617"><p local-id="c469ae3e1c7d">17</p></td><td ac:local-id="63f868804f2d"><p local-id="4a473d7a2573">mn0017</p></td><td ac:local-id="98bc73f5292f"><p local-id="6621a003e8ef">Repair check valves and low-pressure shutters</p></td><td ac:local-id="0c978b1e737b"><p local-id="0c83887aec1e"></p></td><td ac:local-id="56ca71f24eaf"><p local-id="8c05d6f633ce">#1450</p></td><td ac:local-id="81773b05388a"><p local-id="b448d61e8539">0</p></td><td ac:local-id="92a0d6fcf581"><p local-id="b7a45c5b78f5">1</p></td><td ac:local-id="9b69aabb1158"><p local-id="e8e92684c904">500</p></td><td ac:local-id="c0e28399f579"><p local-id="4e2bdae4f75e">550</p></td><td ac:local-id="a6e2959bb49b"><p local-id="260148241d1c">rWtPlc12</p></td><td ac:local-id="682d744c75e1"><p local-id="da5589e66e96">SEC</p></td><td ac:local-id="be1b4eed8fe7"><p local-id="bf8b638f30ff">0</p><p local-id="ec97087b809c">0</p><p local-id="0e9c5ff8fde8">0</p></td><td ac:local-id="8af2e17a4880"><p></p>
+<ul>
+<li><input disabled="" type="checkbox">
+JET</li>
+</ul>
+<p><br></p><p></p>
+<ul>
+<li><input disabled="" type="checkbox">
+WATERJET</li>
+</ul>
+<p><br></p></td></tr><tr ac:local-id="5e475113bb35"><td ac:local-id="06abec65eaf4"><p local-id="b4644e61d9b3">18</p></td><td ac:local-id="84738af243d2"><p local-id="e087f13ffd5f">mn0018</p></td><td ac:local-id="032d2f78e59a"><p local-id="04a815c63fde">Repair the high-pressure cylinder</p></td><td ac:local-id="eb14d188ae29"><p local-id="ccbbf0e86e58"></p></td><td ac:local-id="25f663142475"><p local-id="cadf5b62a1d0">#1450</p></td><td ac:local-id="5167794625f5"><p local-id="604e6defba7d">0</p></td><td ac:local-id="6beea9017a38"><p local-id="aaccdfb5b76b">1</p></td><td ac:local-id="0e30d710cd8a"><p local-id="03f58f9f6c8f">500</p></td><td ac:local-id="b565c477096c"><p local-id="e3b9bffcc59e">550</p></td><td ac:local-id="fad4105d9659"><p local-id="7fd18374577a">rWtPlc12</p></td><td ac:local-id="0c120c0684f8"><p local-id="0e6b4570e906">SEC</p></td><td ac:local-id="51029d5746ca"><p local-id="0c9ff20af8c0">0</p><p local-id="74d61d5039e4">0</p><p local-id="d791484f9617">0</p></td><td ac:local-id="a8bbf4e47a43"><p></p>
+<ul>
+<li><input disabled="" type="checkbox">
+JET</li>
+</ul>
+<p><br></p><p></p>
+<ul>
+<li><input disabled="" type="checkbox">
+WATERJET</li>
+</ul>
+<p><br></p></td></tr><tr ac:local-id="91a2cf43c6df"><td ac:local-id="7a1f743441e7"><p local-id="8e3dd1561ed9">19</p></td><td ac:local-id="77d508efd681"><p local-id="85ce11670f70">mn0019</p></td><td ac:local-id="2f62950fc824"><p local-id="179222795563">Replace the high-pressure sealing element cartridge</p></td><td ac:local-id="dc7b1cf9b74b"><p local-id="164bae80af35"></p></td><td ac:local-id="c185fc319695"><p local-id="822495438919">#1450</p></td><td ac:local-id="2f8020f828fb"><p local-id="fae94e09dc19">0</p></td><td ac:local-id="93cad653b44f"><p local-id="7026cc40c6fb">1</p></td><td ac:local-id="154c7b72c762"><p local-id="285f7aa1d4e4">500</p></td><td ac:local-id="60f3cbc0973a"><p local-id="2219107d36af">550</p></td><td ac:local-id="312293ff7540"><p local-id="28ab828d82ac">rWtPlc12</p></td><td ac:local-id="14fe54697e59"><p local-id="8fb46f0b127c">SEC</p></td><td ac:local-id="9eee51057d29"><p local-id="c3846abc6009">0</p><p local-id="3b909fe0f91e">0</p><p local-id="024e1a9078ca">0</p></td><td ac:local-id="e2a66a8ec6cb"><p></p>
+<ul>
+<li><input disabled="" type="checkbox">
+JET</li>
+</ul>
+<p><br></p><p></p>
+<ul>
+<li><input disabled="" type="checkbox">
+WATERJET</li>
+</ul>
+<p><br></p></td></tr><tr ac:local-id="b833c71701b6"><td ac:local-id="e6c4b4ab07e9"><p local-id="242829203677">20</p></td><td ac:local-id="5ba7c2695bd5"><p local-id="1a4cf5572f00">mn0020</p></td><td ac:local-id="c44cee095547"><p local-id="5bc0d1e058b5">Replace the high-pressure shutter</p></td><td ac:local-id="6436e3a181aa"><p local-id="89ef6a96bb3b"></p></td><td ac:local-id="077549537921"><p local-id="aa4f1a35dcbf">#1450</p></td><td ac:local-id="40c2370b68c0"><p local-id="a478d8d0f107">0</p></td><td ac:local-id="2ecf6b985ee2"><p local-id="3df9ad90726b">1</p></td><td ac:local-id="c055244149c7"><p local-id="e71668e60834">1000</p></td><td ac:local-id="c6128afad9de"><p local-id="7bcbf9cbd159">1080</p></td><td ac:local-id="683bbe41d95d"><p local-id="b14c738cb076">rWtPlc12</p></td><td ac:local-id="9fe9912f4143"><p local-id="d73296dfdd6f">SEC</p></td><td ac:local-id="4891dbd9d4fc"><p local-id="bcd6b9f234ec">0</p><p local-id="4750e65473fe">0</p><p local-id="ef9e24c966c8">0</p></td><td ac:local-id="d45144718c35"><p></p>
+<ul>
+<li><input disabled="" type="checkbox">
+JET</li>
+</ul>
+<p><br></p><p></p>
+<ul>
+<li><input disabled="" type="checkbox">
+WATERJET</li>
+</ul>
+<p><br></p></td></tr><tr ac:local-id="f8d4096063f9"><td ac:local-id="1f35082ca3f7"><p local-id="be45dad2c1d7">21</p></td><td ac:local-id="515bc44aacd3"><p local-id="3fbe78730f03">mn0021</p></td><td ac:local-id="8f85831851a6"><p local-id="8ed964c2737e">Replace the low-pressure shutter</p></td><td ac:local-id="80d41eba21d5"><p local-id="13d76c54abb7"></p></td><td ac:local-id="069066587a59"><p local-id="46a6f6bf6ae2">#1450</p></td><td ac:local-id="99d0692d6059"><p local-id="b50def57da24">0</p></td><td ac:local-id="87c844eb2c28"><p local-id="f2976b321c4a">1</p></td><td ac:local-id="dc356382002e"><p local-id="db566f2cc64d">1000</p></td><td ac:local-id="c7f44df1975e"><p local-id="9233c9501f2d">1080</p></td><td ac:local-id="2c2c803ff938"><p local-id="3367c28e4c2d">rWtPlc12</p></td><td ac:local-id="6e10b7b3cec5"><p local-id="4f5cd5bba09b">SEC</p></td><td ac:local-id="0dafcb17ddae"><p local-id="4a9fb03bc881">0</p><p local-id="bd6fb85ba5c4">0</p><p local-id="ccfb2784cb1b">0</p></td><td ac:local-id="01b7d1c92def"><p></p>
+<ul>
+<li><input disabled="" type="checkbox">
+JET</li>
+</ul>
+<p><br></p><p></p>
+<ul>
+<li><input disabled="" type="checkbox">
+WATERJET</li>
+</ul>
+<p><br></p></td></tr><tr ac:local-id="486aa5672b53"><td ac:local-id="0d19c523f69c"><p local-id="84368759110a">22</p></td><td ac:local-id="0b6df07f6ba1"><p local-id="51035be9c570">mn0022</p></td><td ac:local-id="ebc79992526e"><p local-id="641047027018">Invert the high-pressure cylinder</p></td><td ac:local-id="443a5c82220a"><p local-id="27972b91ff6b"></p></td><td ac:local-id="42ea97cb93bc"><p local-id="f7040cec3b07">#1452</p></td><td ac:local-id="c77e3cf600cc"><p local-id="26e4e3445140">0</p></td><td ac:local-id="4c77951566fb"><p local-id="676a54ba0414">1</p></td><td ac:local-id="6044e2dabb55"><p local-id="b000fd41a090">1500</p></td><td ac:local-id="679c7f831e94"><p local-id="a47580126e2a">1600</p></td><td ac:local-id="2e06aa5c730b"><p local-id="e35fdb8fe215">rWtPlc12</p></td><td ac:local-id="30a98a2af980"><p local-id="a17c18e62e64">SEC</p></td><td ac:local-id="178d629ea684"><p local-id="03dce6ac1bff">0</p><p local-id="6c5e27e12824">0</p><p local-id="7b8477af6429">0</p></td><td ac:local-id="09218f4d965c"><p></p>
+<ul>
+<li><input disabled="" type="checkbox">
+JET</li>
+</ul>
+<p><br></p><p></p>
+<ul>
+<li><input disabled="" type="checkbox">
+WATERJET</li>
+</ul>
+<p><br></p></td></tr><tr ac:local-id="d088da892082"><td ac:local-id="3294e8f930f5"><p local-id="1bf3991a630a">23</p></td><td ac:local-id="618ee8601f6a"><p local-id="4522ad0e226b">mn0023</p></td><td ac:local-id="400bf40aa610"><p local-id="0f18f23f5723">Replace the high-pressure cylinder</p></td><td ac:local-id="ce508ac528a4"><p local-id="cb5701acdddc"></p></td><td ac:local-id="b189441853e1"><p local-id="4d7c80033af3">#1452</p></td><td ac:local-id="fb89426c3731"><p local-id="fe428290da64">0</p></td><td ac:local-id="c09ca19b84bf"><p local-id="135d9e3275b7">1</p></td><td ac:local-id="e6fc7abc101f"><p local-id="225ca1848aa9">3000</p></td><td ac:local-id="3418f302620f"><p local-id="c589b3ee4559">3150</p></td><td ac:local-id="2e00cbd5a84f"><p local-id="23ae7c0846cc">rWtPlc12</p></td><td ac:local-id="598f9d92d524"><p local-id="4320d7224f14">SEC</p></td><td ac:local-id="5cf08e1cb177"><p local-id="1c37793e22e9">0</p><p local-id="c67cdb63cc48">0</p><p local-id="0f8763fd56b1">0</p></td><td ac:local-id="1f79b623e7d6"><p></p>
+<ul>
+<li><input disabled="" type="checkbox">
+JET</li>
+</ul>
+<p><br></p><p></p>
+<ul>
+<li><input disabled="" type="checkbox">
+WATERJET</li>
+</ul>
+<p><br></p></td></tr><tr ac:local-id="cd689cb395bc"><td ac:local-id="855e5b40a6e2"><p local-id="7a1d1dc761c7">24</p></td><td ac:local-id="6e9c0b4e4360"><p local-id="b83391927a61">mn0024</p></td><td ac:local-id="631ebbe32b9d"><p local-id="cdc6123115c2">Replace the check valve unit</p></td><td ac:local-id="1c2e9a2f7435"><p local-id="da43c4335307"></p></td><td ac:local-id="41f2d6c367c4"><p local-id="b1fe21956752">#1450</p></td><td ac:local-id="45da99b86a26"><p local-id="f3a2dc1a3bcf">0</p></td><td ac:local-id="455abe1b75b5"><p local-id="d6ae434b2c7c">1</p></td><td ac:local-id="68c71dbd8f98"><p local-id="d27f8b3f77b9">3000</p></td><td ac:local-id="ef58c0e70602"><p local-id="43607aeab32b">3150</p></td><td ac:local-id="627ef98b8709"><p local-id="5b18c6298085">rWtPlc12</p></td><td ac:local-id="bbdaf2032343"><p local-id="15be7dd86350">SEC</p></td><td ac:local-id="fb94ea94a4ec"><p local-id="ae51ebfcd919">0</p><p local-id="8093a3bb20e9">0</p><p local-id="779dd89ffb42">0</p></td><td ac:local-id="dfa8cc07663c"><p></p>
+<ul>
+<li><input disabled="" type="checkbox">
+JET</li>
+</ul>
+<p><br></p><p></p>
+<ul>
+<li><input disabled="" type="checkbox">
+WATERJET</li>
+</ul>
+<p><br></p></td></tr><tr ac:local-id="dc69f01b1117"><td ac:local-id="d85f6c51a8b4"><p local-id="2a18473fd03f">25</p></td><td ac:local-id="3d381e485fed"><p local-id="d177bee847b4">mn0025</p></td><td ac:local-id="234bbf5c5c1d"><p local-id="e29fe54775a9">Replace sealing element housing unit</p></td><td ac:local-id="24ad3b76c0fd"><p local-id="2a3b626875b4"></p></td><td ac:local-id="507271fe84c4"><p local-id="1230d6e6f6f9">#1450</p></td><td ac:local-id="2ed9d835c64e"><p local-id="dd49ab012cec">0</p></td><td ac:local-id="c28957dc6bb3"><p local-id="40c1545b7b46">1</p></td><td ac:local-id="a1e7eb3cc23e"><p local-id="7990b0aa4af8">6000</p></td><td ac:local-id="8e46f2d09c9e"><p local-id="1a2395802f6c">6200</p></td><td ac:local-id="b0e592e35b8f"><p local-id="e4f17b6b8f21">rWtPlc12</p></td><td ac:local-id="483cd91145ac"><p local-id="a3d625d20a25">SEC</p></td><td ac:local-id="4a9ca50744cb"><p local-id="09c0211753c2">0</p><p local-id="83fca2a91354">0</p><p local-id="62a9e3cdb8be">0</p></td><td ac:local-id="b893e4179e1c"><p></p>
+<ul>
+<li><input disabled="" type="checkbox">
+JET</li>
+</ul>
+<p><br></p><p></p>
+<ul>
+<li><input disabled="" type="checkbox">
+WATERJET</li>
+</ul>
+<p><br></p></td></tr><tr ac:local-id="66f98dddf0dc"><td ac:local-id="48431fbe27cb"><p local-id="1b63f3670ec5">26</p></td><td ac:local-id="f998fffe9900"><p local-id="b3a755857bb7">mn0026</p></td><td ac:local-id="03742fa5f16b"><p local-id="597675841e7f">Replace the output adapter</p></td><td ac:local-id="269d203a1b71"><p local-id="1e3732d3a326"></p></td><td ac:local-id="94ed04c14808"><p local-id="d3c964264e60">#1450</p></td><td ac:local-id="596c5806efe3"><p local-id="934ded01b608">0</p></td><td ac:local-id="0bf7379f426d"><p local-id="5e765b762f3d">1</p></td><td ac:local-id="00a044542e24"><p local-id="eaf76d76fdaf">6000</p></td><td ac:local-id="ceb1e06f410b"><p local-id="664e69b36e0f">6200</p></td><td ac:local-id="2974bc9cf748"><p local-id="96e00bcf314f">rWtPlc12</p></td><td ac:local-id="473d2f0850ed"><p local-id="8b171e5721a6">SEC</p></td><td ac:local-id="07bf8a8443e0"><p local-id="7fb3fa0b5104">0</p><p local-id="9da11213b01e">0</p><p local-id="d599f46abffd">0</p></td><td ac:local-id="57716679062b"><p></p>
+<ul>
+<li><input disabled="" type="checkbox">
+JET</li>
+</ul>
+<p><br></p><p></p>
+<ul>
+<li><input disabled="" type="checkbox">
+WATERJET</li>
+</ul>
+<p><br></p></td></tr><tr ac:local-id="f609c5b823b9"><td ac:local-id="2be927a12707"><p local-id="affc745d1603">27</p></td><td ac:local-id="64e8496699d7"><p local-id="919ff0aa275c">mn0027</p></td><td ac:local-id="7a60b1ed63b3"><p local-id="ffe237066dd1"></p></td><td ac:local-id="754a7f939a41"><p local-id="1517dc62d338"></p></td><td ac:local-id="d48fac096c8e"><p local-id="6838b6b2f28c"></p></td><td ac:local-id="8027ec32db8d"><p local-id="1f99e0b08999"></p></td><td ac:local-id="0d3b69ac5352"><p local-id="3f28c5ddca07"></p></td><td ac:local-id="868a23b36fcf"><p local-id="af0223de1d15"></p></td><td ac:local-id="9274413cfe91"><p local-id="148a02e02be7"></p></td><td ac:local-id="19ee1c293e01"><p local-id="8299695477e7"></p></td><td ac:local-id="97c7693dd441"><p local-id="4ad6864278bd"></p></td><td ac:local-id="3022ab0ee4d5"><p local-id="0aa773f9aad1"></p></td><td ac:local-id="886994360638"><p local-id="f05b594b00a1"></p></td></tr><tr ac:local-id="7a1c61bff1f4"><td ac:local-id="01c3451b89f2"><p local-id="84f66009a6f1">28</p></td><td ac:local-id="47c384e48625"><p local-id="2b4f0c6c933e">mn0028</p></td><td ac:local-id="56479cca8756"><p local-id="daa2165b2d02">Repairing the central hydraulic section</p></td><td ac:local-id="a841dca27c58"><p local-id="adb5abc0232b">Contact Donatoni Service</p></td><td ac:local-id="1788a9a5501e"><p local-id="de0a5760ec42">#1452</p></td><td ac:local-id="5f0196f9a95e"><p local-id="3d37605ea1f8">0</p></td><td ac:local-id="84563855cd1b"><p local-id="5a826cc6868d">1</p></td><td ac:local-id="0e1286f93835"><p local-id="6127abc43209">12000</p></td><td ac:local-id="66c957b4b7d9"><p local-id="7f7460bb2114">12400</p></td><td ac:local-id="5d40c500098a"><p local-id="1f17eee7e43e">rWtPlc12</p></td><td ac:local-id="77c155f4c625"><p local-id="b797ccbb8552">SEC</p></td><td ac:local-id="865e8aa1ea4e"><p local-id="85f82121ebbe">0</p><p local-id="d2d9473ad94a">0</p><p local-id="bd0b478c90cc">0</p></td><td ac:local-id="aa79f4db9702"><p></p>
+<ul>
+<li><input disabled="" type="checkbox">
+JET</li>
+</ul>
+<p><br></p><p></p>
+<ul>
+<li><input disabled="" type="checkbox">
+WATERJET</li>
+</ul>
+<p><br></p></td></tr><tr ac:local-id="c78a1028e29d"><td ac:local-id="27a2cfc2c320"><p local-id="45b306ae98c8">29</p></td><td ac:local-id="f416b6207030"><p local-id="e85091c78471">mn0029</p></td><td ac:local-id="cc2edc5e81ec"><p local-id="79c5e57bac10">Repair the purge valve.</p></td><td ac:local-id="6659b5db10a9"><p local-id="bfe3abe69338"></p></td><td ac:local-id="d0ef6e6ca9a7"><p local-id="3fdd7e72d3a2">#1452</p></td><td ac:local-id="5f3a6c079b50"><p local-id="3e40c0e68278">0</p></td><td ac:local-id="84915ec707a8"><p local-id="05d3e8c02403">1</p></td><td ac:local-id="d371d0330175"><p local-id="cad5ed24ace5">1000</p></td><td ac:local-id="265dd2bc4b4c"><p local-id="8af8afc71c83">1100</p></td><td ac:local-id="e72003b647a0"><p local-id="681e140a5f80">rWtPlc12</p></td><td ac:local-id="d2a5c48ad68a"><p local-id="6055bdbe9d2f">SEC</p></td><td ac:local-id="d02f5169e2ef"><p local-id="7c8387a2896e">0</p><p local-id="411d934647b4">0</p><p local-id="66da4fafd4bb">0</p></td><td ac:local-id="d921b1866807"><p></p>
+<ul>
+<li><input disabled="" type="checkbox">
+JET</li>
+</ul>
+<p><br></p><p></p>
+<ul>
+<li><input disabled="" type="checkbox">
+WATERJET</li>
+</ul>
+<p><br></p></td></tr><tr ac:local-id="226b4308d376"><td ac:local-id="60dddbfee225"><p local-id="9f985c94621e">30</p></td><td ac:local-id="c0870e7294ef"><p local-id="f07da2f9eef7">mn0030</p></td><td ac:local-id="3bb9d79b2e40"><p local-id="0a82e3d77aa8">Controllo del lubrificante del sistema di ingrassaggio automatico</p></td><td ac:local-id="4d14fd9f4082"><p local-id="a6892c554227">The tank must be topped up with the necessary grease, without exceeding the maximum level indicated</p></td><td ac:local-id="a7ffa8c9146e"><p local-id="64ff5e9c9d1b">#1450</p></td><td ac:local-id="d2ee7821c1b8"><p local-id="a0d0d0c8ffe7">1</p></td><td ac:local-id="20dbc8e5ef47"><p local-id="691fc199b05b">1</p></td><td ac:local-id="9f3f70308e83"><p local-id="f951cb1df402">450</p></td><td ac:local-id="2d689804de78"><p local-id="ef3750076e45">500</p></td><td ac:local-id="171ddb2b9b32"><p local-id="1f308baeaebc">rWtPlc12</p></td><td ac:local-id="5fbca9feab51"><p local-id="05d312b95fba">SEC</p></td><td ac:local-id="ed8d3f3d687f"><p local-id="ec086a95a2ec">0</p><p local-id="2dad64359418">0</p><p local-id="50dccef1ce16">0</p></td><td ac:local-id="c7e2de2b450a"><p></p>
+<ul>
+<li><input disabled="" type="checkbox">
+JET</li>
+</ul>
+<p><br></p><p></p>
+<ul>
+<li><input disabled="" type="checkbox" checked="">
+WATERJET</li>
+</ul>
+<p><br></p></td></tr><tr ac:local-id="7587dddcd41c"><td ac:local-id="151d7a392dcb"><p local-id="e9e8eadb7fe4">31</p></td><td ac:local-id="6a5d9563ba5a"><p local-id="05c6ece99da4">mn0031</p></td><td ac:local-id="9ba2e88cd4d3"><p local-id="6d4b1f2ff50a">Replace the purge valve body</p></td><td ac:local-id="78b47ab287a6"><p local-id="1bd77b915730"></p></td><td ac:local-id="2ffb029f7c2e"><p local-id="3d4c02f577a9">#1452</p></td><td ac:local-id="82b94cecc1d3"><p local-id="4b49f6f64df1">0</p></td><td ac:local-id="f24e5c30f538"><p local-id="6bb183aad751">1</p></td><td ac:local-id="36e68c7fe633"><p local-id="9b89b41b0dcd">3000</p></td><td ac:local-id="0985d8f3a6c6"><p local-id="ed5ab97ba04e">3200</p></td><td ac:local-id="ecf814fc8291"><p local-id="e68ecefcab57">rWtPlc12</p></td><td ac:local-id="b3f3c858d2db"><p local-id="33c99cdaa096">SEC</p></td><td ac:local-id="c4338136b397"><p local-id="f7dbbb182bc4">0</p><p local-id="0e3f671ba58a">0</p><p local-id="72117c230d2b">0</p></td><td ac:local-id="b8af4bc64f53"><p></p>
+<ul>
+<li><input disabled="" type="checkbox">
+JET</li>
+</ul>
+<p><br></p><p></p>
+<ul>
+<li><input disabled="" type="checkbox">
+WATERJET</li>
+</ul>
+<p><br></p></td></tr><tr ac:local-id="c04ad10f9058"><td ac:local-id="8fc781ad6082"><p local-id="a5aaf50618c3">32</p></td><td ac:local-id="b7663ff71415"><p local-id="22decbf22479">mn0032</p></td><td ac:local-id="61dd169b49bf"><p local-id="55fb10c7745e">Clean the air cooler</p></td><td ac:local-id="3ee128d37163"><p local-id="537db0237394"></p></td><td ac:local-id="f2da07bd153c"><p local-id="502a6cf44afc">#1450</p></td><td ac:local-id="23531fc672f3"><p local-id="a90443b62868">0</p></td><td ac:local-id="16296aceabc3"><p local-id="e7f1138f237a">1</p></td><td ac:local-id="037b37f7e657"><p local-id="d95345f7b9fa">1000</p></td><td ac:local-id="c4e313f8ddee"><p local-id="338b2817f1b3">1100</p></td><td ac:local-id="7591564e3582"><p local-id="e6595d74c1af">rWtPlc12</p></td><td ac:local-id="036b16dcd32d"><p local-id="e7a9ded85be5">SEC</p></td><td ac:local-id="a64be44b08a8"><p local-id="129be268e751">0</p><p local-id="40ecd51aad28">0</p><p local-id="f3287589ae90">0</p></td><td ac:local-id="f3d739ca76a0"><p></p>
+<ul>
+<li><input disabled="" type="checkbox">
+JET</li>
+</ul>
+<p><br></p><p></p>
+<ul>
+<li><input disabled="" type="checkbox">
+WATERJET</li>
+</ul>
+<p><br></p></td></tr><tr ac:local-id="2078d9eaa5e0"><td ac:local-id="8a7e01edc28e"><p local-id="250da9dd9dc2">33</p></td><td ac:local-id="e22d0bea3ea9"><p local-id="6f38b06cdae0">mn0033</p></td><td ac:local-id="3f4277b86981"><p local-id="4b1ac109d3c0"></p></td><td ac:local-id="93b8bcfb9ad8"><p local-id="d42c75a818d9"></p></td><td ac:local-id="3e46f89fbfa9"><p local-id="a438761e7d29"></p></td><td ac:local-id="d22edd7e5183"><p local-id="77cf83aced7b"></p></td><td ac:local-id="3fe60d4635aa"><p local-id="46cb927f0d6f"></p></td><td ac:local-id="e7676b05b0a1"><p local-id="f6bce55349a7"></p></td><td ac:local-id="66d8442df49d"><p local-id="7034b6019627"></p></td><td ac:local-id="87e07310f37c"><p local-id="f5ad9a2889aa"></p></td><td ac:local-id="7ca3bd923889"><p local-id="4ab923b43db6"></p></td><td ac:local-id="8138d5a30884"><p local-id="7469c1e05bf8"></p></td><td ac:local-id="712ff92ffb2e"><p local-id="4a8942688f39"></p></td></tr><tr ac:local-id="9ce8677dd4ec"><td ac:local-id="2618fc662405"><p local-id="6d5068b2a399">34</p></td><td ac:local-id="926c9c3fe3fd"><p local-id="c8d2a1e7760b">mn0034</p></td><td ac:local-id="f4391e5915be"><p local-id="2d197c03734f">Replace the water filter</p></td><td ac:local-id="eaca0ac9cc05"><p local-id="8005e0565fae"></p></td><td ac:local-id="a271247f7491"><p local-id="2b57acd567ed">#1450</p></td><td ac:local-id="81f0dbf08c1d"><p local-id="635246d9f781">0</p></td><td ac:local-id="cc0bbff2a86b"><p local-id="6f424ab75989">1</p></td><td ac:local-id="b5d0d932b9c6"><p local-id="fbf4f2a7ce3a">1000</p></td><td ac:local-id="062e0594bda1"><p local-id="413223a06fef">1100</p></td><td ac:local-id="b8734a0fd74f"><p local-id="3f0960ce74ca">rWtPlc12</p></td><td ac:local-id="bf6d8f9cc0df"><p local-id="6772eff82f15">SEC</p></td><td ac:local-id="5b07ae7d1088"><p local-id="da2830d5144b">0</p><p local-id="a28a9ea32972">0</p><p local-id="dacbffa1c027">0</p></td><td ac:local-id="ba6388c45c01"><p></p>
+<ul>
+<li><input disabled="" type="checkbox">
+JET</li>
+</ul>
+<p><br></p><p></p>
+<ul>
+<li><input disabled="" type="checkbox">
+WATERJET</li>
+</ul>
+<p><br></p></td></tr><tr ac:local-id="f2179cb686a3"><td ac:local-id="dedd2f7b067a"><p local-id="696917de8faf">35</p></td><td ac:local-id="5340fcd242b0"><p local-id="de73cbf9610a">mn0035</p></td><td ac:local-id="e3780e3c51ae"><p local-id="e7dd9c653a75">Check the quality of the water</p></td><td ac:local-id="023d4e743b57"><p local-id="46be1f76e9d6"></p></td><td ac:local-id="a901a3770fa1"><p local-id="c66229f3c81b">#1450</p></td><td ac:local-id="6e4deec4d278"><p local-id="357d8c38c944">0</p></td><td ac:local-id="f2647df605ce"><p local-id="292f454d33da">1</p></td><td ac:local-id="6c605becafd8"><p local-id="1e19492ebec6">1000</p></td><td ac:local-id="66e573e0e825"><p local-id="9f98edafd014">1100</p></td><td ac:local-id="21d871650b19"><p local-id="2b47d0e25ccf">rWtPlc12</p></td><td ac:local-id="95fbd06f15ee"><p local-id="86f6dabf27fd">SEC</p></td><td ac:local-id="7a3a4c880f75"><p local-id="5d3836751791">0</p><p local-id="9a9dde1e48f2">0</p><p local-id="0bd400085ff3">0</p></td><td ac:local-id="7eb7e6829dd8"><p></p>
+<ul>
+<li><input disabled="" type="checkbox">
+JET</li>
+</ul>
+<p><br></p><p></p>
+<ul>
+<li><input disabled="" type="checkbox">
+WATERJET</li>
+</ul>
+<p><br></p></td></tr><tr ac:local-id="03f5e942df8b"><td ac:local-id="92e8d2f6d54d"><p local-id="8a6fad3d2f42">36</p></td><td ac:local-id="906a10ba3740"><p local-id="232a3c972550">mn0036</p></td><td ac:local-id="4defb3f1e878"><p local-id="f8ec9fefa17f">Replace the hydraulic filter element</p></td><td ac:local-id="6beb6fc92399"><p local-id="8612eb48f2f4"></p></td><td ac:local-id="b4aa4acc6bf5"><p local-id="23190d5095ed">#1450</p></td><td ac:local-id="89df1a6f621d"><p local-id="7e494d065077">0</p></td><td ac:local-id="5b9ef5be94ab"><p local-id="239252729103">1</p></td><td ac:local-id="5c9a77aac9fe"><p local-id="5fd51ce04d2b">1500</p></td><td ac:local-id="8f5f17916904"><p local-id="78683291394b">1650</p></td><td ac:local-id="117bfc6bf4e4"><p local-id="a903c8f002ab">rWtPlc12</p></td><td ac:local-id="bed5ce052eb2"><p local-id="0f9132f8f75a">SEC</p></td><td ac:local-id="f0367fbaa681"><p local-id="a3021f842595">0</p><p local-id="ccf4c4cc8ce0">0</p><p local-id="988fde135e03">0</p></td><td ac:local-id="d61559d57781"><p></p>
+<ul>
+<li><input disabled="" type="checkbox">
+JET</li>
+</ul>
+<p><br></p><p></p>
+<ul>
+<li><input disabled="" type="checkbox">
+WATERJET</li>
+</ul>
+<p><br></p></td></tr><tr ac:local-id="06079271ff97"><td ac:local-id="7e87df3e294d"><p local-id="8509642df8b4">37</p></td><td ac:local-id="468846c4313d"><p local-id="93e491bbfcee">mn0037</p></td><td ac:local-id="21b6092050d5"><p local-id="cdc1958a2f3c">Replace the hydraulic fluid</p></td><td ac:local-id="802014f57fb7"><p local-id="3366fd63411b"></p></td><td ac:local-id="38d95f9e58be"><p local-id="0e1873a90577">#1450</p></td><td ac:local-id="9b767a1252fc"><p local-id="465e9b1294a3">0</p></td><td ac:local-id="af02a2c1ad90"><p local-id="df535fa2053b">1</p></td><td ac:local-id="b9abec2d7069"><p local-id="f3e88b63603a">3000</p></td><td ac:local-id="2ac7a3a9d184"><p local-id="489a1a70599a">3200</p></td><td ac:local-id="5c698c4d0e8d"><p local-id="eaf719660f73">rWtPlc12</p></td><td ac:local-id="c439bacde32b"><p local-id="5c3debe972f7">SEC</p></td><td ac:local-id="f0023c02e528"><p local-id="78cb3d3ec268">0</p><p local-id="ccb108d89c4b">0</p><p local-id="1d7f14e35da3">0</p></td><td ac:local-id="8905a1943a57"><p></p>
+<ul>
+<li><input disabled="" type="checkbox">
+JET</li>
+</ul>
+<p><br></p><p></p>
+<ul>
+<li><input disabled="" type="checkbox">
+WATERJET</li>
+</ul>
+<p><br></p></td></tr><tr ac:local-id="ada4e8cb639d"><td ac:local-id="3869cb4a5ab2"><p local-id="a8ffeebc101a">38</p></td><td ac:local-id="f01e24001e11"><p local-id="8ac5fb9826d5">mn0038</p></td><td ac:local-id="5757aa53e573"><p local-id="7944b1da5058">Lubricate the main motor bearings</p></td><td ac:local-id="b3e8423b8f0b"><p local-id="05fbec4187a4"></p></td><td ac:local-id="c62e9fa79998"><p local-id="47102cfd55f6">#1450</p></td><td ac:local-id="b7121f16ee68"><p local-id="8c0970cfa514">0</p></td><td ac:local-id="75747a206288"><p local-id="39703bef2968">1</p></td><td ac:local-id="95c3b0e36119"><p local-id="cc8b16283316">3000</p></td><td ac:local-id="7683dac9fd56"><p local-id="e63682f74418">3200</p></td><td ac:local-id="876927755920"><p local-id="6844d04c257c">rWtPlc12</p></td><td ac:local-id="ae44dc9fe88a"><p local-id="fab3b09ea309">SEC</p></td><td ac:local-id="6ffe564b0548"><p local-id="a59fd9fca246">0</p><p local-id="91db1d0f9586">0</p><p local-id="cd4aa4c7a25b">0</p></td><td ac:local-id="659c57f2c9fe"><p></p>
+<ul>
+<li><input disabled="" type="checkbox">
+JET</li>
+</ul>
+<p><br></p><p></p>
+<ul>
+<li><input disabled="" type="checkbox">
+WATERJET</li>
+</ul>
+<p><br></p></td></tr><tr ac:local-id="8c200a689723"><td ac:local-id="7ddafbe9e77f"><p local-id="79f0c6f153ac">39</p></td><td ac:local-id="d75ed011ea1c"><p local-id="a70c22b4b3a3">mn0039</p></td><td ac:local-id="4aff6e34e8e1"><p local-id="8bea7a8e9d76">Pulizia filtri prese di aerazione quadro elettrico</p></td><td ac:local-id="8bade1b850b9"><p local-id="0e0b95e6aa70">Dopo aver spento e tolto alimentazione, sganciare la rete di protezione e pulire il filtro.</p></td><td ac:local-id="05c9b9e2083e"><p local-id="1f6dc5e91b68">#1451</p></td><td ac:local-id="6476128bcc96"><p local-id="22d8e16bedbd">0</p></td><td ac:local-id="19266fcc438d"><p local-id="5224e3a522b9">0</p></td><td ac:local-id="689bff3f6a21"><p local-id="a7c5ecff2730">1440</p></td><td ac:local-id="13b3babb2d7e"><p local-id="c8163bf6d18f">1500</p></td><td ac:local-id="5147bbc95146"><p local-id="faff9d1b8c96"></p></td><td ac:local-id="1a26bf70ca2c"><p local-id="5671c7cc2041"></p></td><td ac:local-id="17aba666a746"><p local-id="2c59e7095fe6">0</p><p local-id="2c48d02a46b0">0</p><p local-id="6bbbebf9f5ec">0</p></td><td ac:local-id="0130b7a459b8"><p></p>
+<ul>
+<li><input disabled="" type="checkbox">
+JET</li>
+</ul>
+<p><br></p><p></p>
+<ul>
+<li><input disabled="" type="checkbox" checked="">
+WATERJET</li>
+</ul>
+<p><br></p></td></tr><tr ac:local-id="0ea5d64954d9"><td ac:local-id="09c914b8505b"><p local-id="3493f8872c01">40</p></td><td ac:local-id="69ac12541b86"><p local-id="42dbe05d169f">mn0040</p></td><td ac:local-id="24c604c3f4b9"><p local-id="06c259b5620c">Manutenzione gruppo ingresso aria compressa</p></td><td ac:local-id="84a09b40f20f"><p local-id="4bf544a3e012">Chiudere la valvola manuale e svuotare eventuali residui di umidità tramite l’apposito rubinetto</p></td><td ac:local-id="8d590fecfc16"><p local-id="0a8ad7f147e6">#1450</p></td><td ac:local-id="05c7c2d16621"><p local-id="dca04a33b7b3">0</p></td><td ac:local-id="6d294a474ae0"><p local-id="eca2f72c3bb9">0</p></td><td ac:local-id="33ff48276e0d"><p local-id="524e332e7094">1440</p></td><td ac:local-id="0a854a151fae"><p local-id="d8ec23fb510f">1500</p></td><td ac:local-id="2efd98bad142"><p local-id="0723989f20c0"></p></td><td ac:local-id="2025eb896743"><p local-id="2e99a7be4744"></p></td><td ac:local-id="cca232c75b82"><p local-id="e6599c35c424">0</p><p local-id="35b7e50a1552">0</p><p local-id="7495867e978b">0</p></td><td ac:local-id="b865e8acaeb6"><p></p>
+<ul>
+<li><input disabled="" type="checkbox">
+JET</li>
+</ul>
+<p><br></p><p></p>
+<ul>
+<li><input disabled="" type="checkbox" checked="">
+WATERJET</li>
+</ul>
+<p><br></p></td></tr><tr ac:local-id="44cb4aceb292"><td ac:local-id="9b69b10ae85a"><p local-id="3a19937e75ad">41</p></td><td ac:local-id="2f80c8367ccb"><p local-id="699016fc3519">mn0041</p></td><td ac:local-id="a6edf3973e3c"><p local-id="4a4499e88c7e">Greasing linear guides side spindle</p></td><td ac:local-id="647c5b8c6fe2"><p local-id="dd9910b10c4b"></p></td><td ac:local-id="970d106a0f49"><p local-id="05643134623a">#1450</p></td><td ac:local-id="06180bf75677"><p local-id="391d697627f5">1</p></td><td ac:local-id="91503fbf897b"><p local-id="fe39e14baab0">1</p></td><td ac:local-id="5b068dab5cff"><p local-id="3297398a4947">300</p></td><td ac:local-id="1f881ee4ae88"><p local-id="835d372f77ab">350</p></td><td ac:local-id="33597ebfb59c"><p local-id="940faa02d691">R1</p></td><td ac:local-id="9011f40b127f"><p local-id="7a0b315ea6c4">SEC</p></td><td ac:local-id="8832552ad0d6"><p local-id="32ec68d75b16">0</p><p local-id="79e4ad50f3b6">0</p><p local-id="51b5df27ea2f">0</p></td><td ac:local-id="9f1b7971d68a"><p></p>
+<ul>
+<li><input disabled="" type="checkbox">
+JET</li>
+</ul>
+<p><br></p><p></p>
+<ul>
+<li><input disabled="" type="checkbox">
+WATERJET</li>
+</ul>
+<p><br></p></td></tr><tr ac:local-id="4a519c4357da"><td ac:local-id="6ea80ccbf071"><p local-id="5d19876577bb">42</p></td><td ac:local-id="82542dd4625f"><p local-id="1978f92d04a0">mn0042</p></td><td ac:local-id="196c056bb5d3"><p local-id="e01cc8629d92">Cleaning pneumatic system filter</p></td><td ac:local-id="b60d8866bb1d"><p local-id="11f39bb91a8e"></p></td><td ac:local-id="84f6f5bdfff2"><p local-id="f9006b2be5ec">#1450</p></td><td ac:local-id="f1cf8961d870"><p local-id="82e9fac55ae0">2</p></td><td ac:local-id="24cb48e3a002"><p local-id="ca8bcbd6cef2">1</p></td><td ac:local-id="114f2acaa4d7"><p local-id="0b812d6c2281">2100</p></td><td ac:local-id="b1ab596de7c1"><p local-id="60c5d2bf0cd5">2160</p></td><td ac:local-id="cb2ff2336358"><p local-id="ebd7de64f167">R1</p></td><td ac:local-id="ac57052f1137"><p local-id="cd4dc543a828">SEC</p></td><td ac:local-id="3cbe843ade6e"><p local-id="13735b2fd4c3">0</p><p local-id="3e41c1d698cc">0</p><p local-id="ef519bdb8098">0</p></td><td ac:local-id="8f7c91f0aa77"><p></p>
+<ul>
+<li><input disabled="" type="checkbox" checked="">
+JET</li>
+</ul>
+<p><br></p><p></p>
+<ul>
+<li><input disabled="" type="checkbox">
+WATERJET</li>
+</ul>
+<p><br></p></td></tr><tr ac:local-id="4c9e9e135c8d"><td ac:local-id="83936ef8ee92"><p local-id="068665da4fc3">43</p></td><td ac:local-id="2471def7c092"><p local-id="c1801a00399b">mn0043</p></td><td ac:local-id="5b57cb761d74"><p local-id="0343cd18c831">Rotary joint seal check</p></td><td ac:local-id="b68e9df8b120"><p local-id="cea3b752ece1"></p></td><td ac:local-id="5de25f474ada"><p local-id="4a41a910383d">#1450</p></td><td ac:local-id="9804c51ae7c2"><p local-id="756f55012edc">1</p></td><td ac:local-id="9d82d000b04b"><p local-id="7943d5ebb44b">1</p></td><td ac:local-id="9c14c6c00472"><p local-id="7b15ee6b0085">400</p></td><td ac:local-id="0e4022c85769"><p local-id="ad603b70a78e">500</p></td><td ac:local-id="8c67d8078927"><p local-id="bfb0f30954d4">R1</p></td><td ac:local-id="a3bb815773a5"><p local-id="ad09bc79f039">SEC</p></td><td ac:local-id="70224b583467"><p local-id="28e5942776af">0</p><p local-id="7c6b2ef4d166">0</p><p local-id="fc622f98e240">0</p></td><td ac:local-id="f66656ae3e4f"><p></p>
+<ul>
+<li><input disabled="" type="checkbox">
+JET</li>
+</ul>
+<p><br></p><p></p>
+<ul>
+<li><input disabled="" type="checkbox">
+WATERJET</li>
+</ul>
+<p><br></p></td></tr><tr ac:local-id="76b7924a09c5"><td ac:local-id="7b2232d03860"><p local-id="c0810927464a">44</p></td><td ac:local-id="d8ec0df0f9dd"><p local-id="35e48780bd69">mn0044</p></td><td ac:local-id="e90fc4807c27"><p local-id="def72e125eaf">Sostituzione orifizio</p></td><td ac:local-id="e2ebacb65d86"><p local-id="078bfcd3e053">sostituire l’orifizio per avere un getto uniforme e preservare i componenti della testa di taglio</p></td><td ac:local-id="b20155aad79d"><p local-id="52ee975617a8">#1450</p></td><td ac:local-id="e15f33590f35"><p local-id="9bdce5ec0ec2">0</p></td><td ac:local-id="a4d6663990b7"><p local-id="fac8b5915ebb">1</p></td><td ac:local-id="7f4a8acba4de"><p local-id="2349e0054db1">70</p></td><td ac:local-id="a269d73fe672"><p local-id="85577cea6e22">80</p></td><td ac:local-id="eef1d6f8-1991-4f34-a19a-67b685682484"><p local-id="4c109072b67c">rWtPlc12</p></td><td ac:local-id="2f65ee719d8b"><p local-id="8ff6391a257d">SEC</p></td><td ac:local-id="4ea8b6f0-27c3-4373-aea5-7f446357accf"><p local-id="c81e9c5f2c10">0</p><p local-id="e942d7830411">0</p><p local-id="ea4a372302e9">0</p></td><td ac:local-id="da29e90666c4"><p></p>
+<ul>
+<li><input disabled="" type="checkbox">
+JET</li>
+</ul>
+<p><br></p><p></p>
+<ul>
+<li><input disabled="" type="checkbox" checked="">
+WATERJET</li>
+</ul>
+<p><br></p></td></tr><tr ac:local-id="4f47c2c79cc4"><td ac:local-id="1368f0ac5f91"><p local-id="e48c2aee6801">45</p></td><td ac:local-id="b29c1dadcd3b"><p local-id="71adb3db929e">mn0045</p></td><td ac:local-id="8d508d6a81df"><p local-id="43aaba94aedf">Ingrassaggio manuale di alcuni particolari</p></td><td ac:local-id="b5413b17f495"><p local-id="d3d7d0fdf98f">Procedere con l’ingrassaggio manuale (1cm^3 di grasso) per: tastatore, asse A, Tool_ e banco se presenti</p></td><td ac:local-id="7c3f76f1379c"><p local-id="c119e31ac51b">#1450</p></td><td ac:local-id="07bc90968305"><p local-id="34e5f27e7047">0</p></td><td ac:local-id="6382ee7387ee"><p local-id="5e12ce12c6ec">0</p></td><td ac:local-id="f9180583412a"><p local-id="625d68597755">2100</p></td><td ac:local-id="b9387d717a69"><p local-id="e4f714c727c1">2200</p></td><td ac:local-id="9a48aa210a97"><p local-id="4292be0da7bc"></p></td><td ac:local-id="e184f1c8ea87"><p local-id="6fea13e058fa"></p></td><td ac:local-id="93966ee9-3c09-47de-979c-1a7f0b197063"><p local-id="7760948d8e93">0</p><p local-id="b99811de9675">0</p><p local-id="42aa443f4a55">0</p></td><td ac:local-id="e6fb29a02578"><p></p>
+<ul>
+<li><input disabled="" type="checkbox">
+JET</li>
+</ul>
+<p><br></p><p></p>
+<ul>
+<li><input disabled="" type="checkbox" checked="">
+WATERJET</li>
+</ul>
+<p><br></p></td></tr><tr ac:local-id="9c67a98ae88f"><td ac:local-id="08ff57d3e133"><p local-id="701c4308b84e">46</p></td><td ac:local-id="ecb44ec5b492"><p local-id="f6fc3eeec28f">mn0046</p></td><td ac:local-id="6fb1733aac15"><p local-id="e947a6d8ab14">Verifica o sostituzione dei filtri della pompa Hydrox</p></td><td ac:local-id="7978783d08f2"><p local-id="b32b3d0f11e1">Verificare ed eventualmente sostituire i filtri acqua in ingresso alla pompa</p></td><td ac:local-id="015aea0369d6"><p local-id="720f4bc2d7ec">#1450</p></td><td ac:local-id="3d0cb7629d2b"><p local-id="41d2d98840d0">0</p></td><td ac:local-id="16247527c15b"><p local-id="c33c8e52ef41">1</p></td><td ac:local-id="49ee1b8e48e5"><p local-id="1a392ca5b7f5">150</p></td><td ac:local-id="68bd82958614"><p local-id="cfb7b1c8e82b">200</p></td><td ac:local-id="8b3b86257072"><p local-id="115fe54a365e">rWtPlc10</p></td><td ac:local-id="92890d4262c4"><p local-id="7f9d19395747">SEC</p></td><td ac:local-id="af22337532d0"><p local-id="03d62c462fc1">0</p><p local-id="441a64f6357a">0</p><p local-id="255430fa5edf">0</p></td><td ac:local-id="7a0ec819-66c8-4b3b-bd2b-6314cffc7833"><p></p>
+<ul>
+<li><input disabled="" type="checkbox">
+JET</li>
+</ul>
+<p><br></p><p></p>
+<ul>
+<li><input disabled="" type="checkbox" checked="">
+WATERJET</li>
+</ul>
+<p><br></p></td></tr><tr ac:local-id="f7e601e6fc9c"><td ac:local-id="a18f32fd3111"><p local-id="a31049c38a4f">47</p></td><td ac:local-id="7e3100b83bde"><p local-id="f44fae559ec0">mn0047</p></td><td ac:local-id="f0fb83cbeed0"><p local-id="eeddb3d87f39">Sostituzione del focalizzatore</p></td><td ac:local-id="627488eef0e1"><p local-id="4af8bede9105">Sostituire il focalizzatore con uno nuovo</p></td><td ac:local-id="782fcaab-72aa-4a32-a717-64ac06121375"><p local-id="f24a950b303a">#1450</p></td><td ac:local-id="f9c074a4-8f4e-42aa-a42b-485d8bde4170"><p local-id="8c520b5f1c1c">0</p></td><td ac:local-id="675d9bd7-9557-4c75-9f38-771249f86586"><p local-id="b1bec08cb59e">1</p></td><td ac:local-id="ea3a5a25b19b"><p local-id="7e0cebe17be6">100</p></td><td ac:local-id="ac59047fc6f5"><p local-id="a4bcebb8f302">120</p></td><td ac:local-id="a94e57686814"><p local-id="48a28e7613a7">rWtPlc12</p></td><td ac:local-id="9b57684989ef"><p local-id="b5fb4b90f907">SEC</p></td><td ac:local-id="4e47e9ff-1544-4f86-9714-79f21c94a126"><p local-id="7d90acd3dd4d">0</p><p local-id="3a83866e33c3">0</p><p local-id="fb940d28b5ef">0</p></td><td ac:local-id="6290fe6505f1"><p></p>
+<ul>
+<li><input disabled="" type="checkbox">
+JET</li>
+</ul>
+<p><br></p><p></p>
+<ul>
+<li><input disabled="" type="checkbox" checked="">
+WATERJET</li>
+</ul>
+<p><br></p></td></tr><tr ac:local-id="c29e8fe335d1"><td ac:local-id="a483dbe32295"><p local-id="a3424c8df678">48</p></td><td ac:local-id="807541de7d86"><p local-id="5914e7ebca89">mn0048</p></td><td ac:local-id="1e4d1ce29540"><p local-id="aac4f68bbaf8">Controlli generali della pompa Hydrox </p></td><td ac:local-id="a99965048061"><p local-id="8b515652ac2b">Verifica del livello dell’olio e controllo di eventuali perdite</p></td><td ac:local-id="fbd8913cbbe8"><p local-id="2f734a608f4d">#1450</p></td><td ac:local-id="1d687151edfc"><p local-id="eac5d4098731">0</p></td><td ac:local-id="a93c8e2dc36f"><p local-id="e60f27f1f50c">0</p></td><td ac:local-id="4db25c90e13f"><p local-id="72ccff7f6f0e">700</p></td><td ac:local-id="784ace111c09"><p local-id="e9c6b3f7acb9">800</p></td><td ac:local-id="8b08173de981"><p local-id="0fdfa99a2d32">-</p></td><td ac:local-id="cdaa183e94fc"><p local-id="4b24df3fb1e7">-</p></td><td ac:local-id="c6d374db-737f-45a6-9e39-f4d874ac7cf4"><p local-id="e5ca16fff26f">0</p><p local-id="9103d1e2464f">0</p><p local-id="6ea68732154a">0</p></td><td ac:local-id="29ebf6b849d7"><p></p>
+<ul>
+<li><input disabled="" type="checkbox">
+JET</li>
+</ul>
+<p><br></p><p></p>
+<ul>
+<li><input disabled="" type="checkbox" checked="">
+WATERJET</li>
+</ul>
+<p><br></p></td></tr><tr ac:local-id="ddb312d3fc83"><td ac:local-id="49a1389da733"><p local-id="72fbd562b6b7">49</p></td><td ac:local-id="a788b903313d"><p local-id="b5823070ae90">mn0049</p></td><td ac:local-id="ec43b717da60"><p local-id="df9c40d1e203">Prima sostituzione olio della poma Hydrox</p></td><td ac:local-id="8315fe2c0fc7"><p local-id="39326afbcc15">Sostituire l’olio della pompa con lo specifico previsto da manuale</p></td><td ac:local-id="6ed4f6be7cf0"><p local-id="c3d397326506">#1450</p></td><td ac:local-id="b18174913205"><p local-id="d75eaad352aa">0</p></td><td ac:local-id="d07af5ca7559"><p local-id="3f829356b472">1</p></td><td ac:local-id="7baf5495121e"><p local-id="a10f6aa17941">950</p></td><td ac:local-id="0a3168ff3d9c"><p local-id="12f4e39a6d03">1050</p></td><td ac:local-id="58b3b0d2e762"><p local-id="175a7810ad27">rWtPlc10</p></td><td ac:local-id="d273a9b7643e"><p local-id="0153e47f6f40">SEC</p></td><td ac:local-id="4fbbaf15-6053-45f4-ba98-3fec6ef2ecb5"><p local-id="d700ebfe9526">0</p><p local-id="817117d924cc">0</p><p local-id="0fb48dea5fe6">0</p></td><td ac:local-id="3bf32f6e11d9"><p></p>
+<ul>
+<li><input disabled="" type="checkbox">
+JET</li>
+</ul>
+<p><br></p><p></p>
+<ul>
+<li><input disabled="" type="checkbox" checked="">
+WATERJET</li>
+</ul>
+<p><br></p></td></tr><tr ac:local-id="8a6aaf9f351d"><td ac:local-id="7e2f037efba4"><p local-id="dde92d8416f3">50</p></td><td ac:local-id="d8c2abccb260"><p local-id="20f5d1e5e1d8">mn0050</p></td><td ac:local-id="530f694a9cc9"><p local-id="e9ba6fca39f7">Sostituzione dell’olio della pompa Hydrox</p></td><td ac:local-id="13498c6f2976"><p local-id="eb068bd60645">Sostituire l’olio della pompa con lo specifico previsto da manuale</p></td><td ac:local-id="76bd463b-ec02-4e45-9f82-9cf0a3178e22"><p local-id="3721ea03fdec">#1450</p></td><td ac:local-id="16774e1c-72e7-43e7-b0aa-e0f7bd24e4be"><p local-id="1ea57dfc3234">0</p></td><td ac:local-id="866601e3-d897-4d98-8df5-ebdcadd7a06c"><p local-id="c2735ed7b845">1</p></td><td ac:local-id="874d5928-43b3-4b93-b3da-d3b0b9595c33"><p local-id="a20ef672a7b1">4000</p></td><td ac:local-id="fd70b799-0bb2-4895-adc8-a12dd21df6cf"><p local-id="0848a74d8cb2">4100</p></td><td ac:local-id="33d8e406-8c38-4fdb-b439-f281dc182a19"><p local-id="25c5cabf1b88">rWtPlc10</p></td><td ac:local-id="02d594b8-7b0b-45de-b63e-e781af708143"><p local-id="ffd4e452be4f">SEC</p></td><td ac:local-id="59e71abc-072f-4f7a-8f8f-2731550f838d"><p local-id="9c6c0b7ddb9c">0</p><p local-id="01b463ff03db">0</p><p local-id="aefd18592470">0</p></td><td ac:local-id="07bc4a9b-c744-4741-abb0-2e9600ed9992"><p></p>
+<ul>
+<li><input disabled="" type="checkbox">
+JET</li>
+</ul>
+<p><br></p><p></p>
+<ul>
+<li><input disabled="" type="checkbox" checked="">
+WATERJET</li>
+</ul>
+<p><br></p></td></tr><tr ac:local-id="d899c4d817de"><td ac:local-id="281daccb0668"><p local-id="fd2adf8d85db">51</p></td><td ac:local-id="f2d111c42c0c"><p local-id="6022c997d51b">mn0051</p></td><td ac:local-id="12defe9475aa"><p local-id="ce8e1d1b3619">Manutenzione corpo della pompa alta pressione</p></td><td ac:local-id="def408e1c5c9"><p local-id="9139976b00a2">Contattare l’assistenza</p></td><td ac:local-id="3c5ca265-28db-4894-826e-152e2346ba56"><p local-id="c63deb75aa15">#1450</p></td><td ac:local-id="ce81bb92-8459-45c8-b7c7-d4e938c85e54"><p local-id="39ada2cf526a">0</p></td><td ac:local-id="35578a26-24a7-46a5-b50f-0c0fd434d822"><p local-id="ba25281eb401">1</p></td><td ac:local-id="9166d660-6c97-42fd-95d7-a63f392fd168"><p local-id="278b4c4ea42e">1500</p></td><td ac:local-id="86ad61ee-744e-4742-93a1-77f3cbcb3336"><p local-id="c79ded9ab40c">1600</p></td><td ac:local-id="160f98e0-3dff-4296-966e-eadadec4053d"><p local-id="c0aed696d016">rWtPlc10</p></td><td ac:local-id="b0024909-d51f-4c7e-8ea3-72d80a8804ce"><p local-id="273fa4781d51">SEC</p></td><td ac:local-id="6a923556-f5b7-4add-8469-a47ab6e2fe58"><p local-id="2af06935ae53">0</p><p local-id="47c886a5fd84">0</p><p local-id="d02b3a54caee">0</p></td><td ac:local-id="c086f275-48ba-4cae-8079-27678a7ad4a9"><p></p>
+<ul>
+<li><input disabled="" type="checkbox">
+JET</li>
+</ul>
+<p><br></p><p></p>
+<ul>
+<li><input disabled="" type="checkbox" checked="">
+WATERJET</li>
+</ul>
+<p><br></p></td></tr><tr ac:local-id="f91a653f2090"><td ac:local-id="91ef3270c0d9"><p local-id="ed12006e57ec">52</p></td><td ac:local-id="857063752fac"><p local-id="3192eac929c2">mn0052</p></td><td ac:local-id="86985e376026"><p local-id="ee4d11fade29">Sostituzione cinghie pompa</p></td><td ac:local-id="7371a7da575d"><p local-id="cd6c85d948c8">Contattare l’assistenza</p></td><td ac:local-id="37e7e022-a7de-4365-8344-60e858683e51"><p local-id="279a42afe75f">#1450</p></td><td ac:local-id="940d82ed-aede-4a8e-a06c-5bfa4353cd2d"><p local-id="e332fe9a0cd0">0</p></td><td ac:local-id="1055f4fc-c5f8-4b3a-b36e-ee06312f38dd"><p local-id="94a5a6b2de61">1</p></td><td ac:local-id="ac36cb47-07fa-412d-bcee-edc65bf1fd9b"><p local-id="d72b7b5b9129">6000</p></td><td ac:local-id="3bc15e31-a194-4c3c-9207-ffdac304e5c3"><p local-id="5fbc62a3453c">6500</p></td><td ac:local-id="6a4ab42a-5cb3-483f-bc23-746ef259ab14"><p local-id="92d4a46568a8">rWtPlc10</p></td><td ac:local-id="c8de4c97-c849-4735-a7f6-0d166da8b36e"><p local-id="f2c7af3633ea">SEC</p></td><td ac:local-id="c2af869a-8c34-4d2d-9492-920b8ac5a477"><p local-id="3e2418c62b48">0</p><p local-id="5018adb12fe8">0</p><p local-id="a9526b5c7879">0</p></td><td ac:local-id="d7998efd-de80-43c3-8bce-0637cdd6cec4"><p></p>
+<ul>
+<li><input disabled="" type="checkbox">
+JET</li>
+</ul>
+<p><br></p><p></p>
+<ul>
+<li><input disabled="" type="checkbox" checked="">
+WATERJET</li>
+</ul>
+<p><br></p></td></tr></tbody></table><p local-id="d5a12fb292ae"></p><p local-id="8bb1ba73bcb9"></p>
+                        </main>
+
+                    </div>
+
+                    <img src="images/donatoni_222.jpg">
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="maintenance_orchestrator.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
 
-                        <a rel="next prefetch"
-                           href="parametrix.html"
-                           class="mobile-nav-chapters next"
-                           title="Next chapter"
-                           aria-label="Next chapter"
-                           aria-keyshortcuts="Right">
-                            <i class="fa fa-angle-right"></i>
-                        </a>
+                            <a rel="next prefetch" href="traduzioni.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
 
                         <div style="clear: both"></div>
                     </nav>
+
+
                 </div>
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                <a rel="next prefetch"
-                   href="parametrix.html"
-                   class="nav-chapters next"
-                   title="Next chapter"
-                   aria-label="Next chapter"
-                   aria-keyshortcuts="Right">
-                    <i class="fa fa-angle-right"></i>
-                </a>
+                <a rel="prev" href="maintenance_orchestrator.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="traduzioni.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
             </nav>
+
         </div>
 
         <script>
-        window.playground_copyable = true;
+            window.playground_copyable = true;
         </script>
 
         <script src="elasticlunr.min.js"></script>
@@ -660,5 +770,12 @@ WATERJET</li>
         <script src="imagemodal.js"></script>
         <script src="login.js"></script>
     </div>
+
+    <!-- Modale -->
+    <div id="modal" onclick="closeModal()">
+        <img id="modal-img" src="">
+    </div>;
+
+
 </body>
 </html>

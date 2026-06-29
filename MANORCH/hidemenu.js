@@ -54,8 +54,20 @@ document.addEventListener("DOMContentLoaded", function () {
                 menuToggle.addEventListener("click", function () {
                     menu.classList.toggle("closed");
                 });
+
             }
 
+            const html = document.documentElement;
+            const toggle = document.getElementById("sidebar-toggle-anchor");
+
+            if (toggle) {
+                toggle.checked = false;
+            }
+
+            html.classList.remove("sidebar-visible");
+            html.classList.add("sidebar-hidden");
+
+            localStorage.setItem('mdbook-sidebar', 'hidden');
 
         }
     }

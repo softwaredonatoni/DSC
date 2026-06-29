@@ -135,19 +135,18 @@ html:not(.js) .left-buttons button {
     font-size: 2.5em;
     text-align: center;
     text-decoration: none;
-
     position: fixed;
-    top: 0;
+    top: unset;
+    height: 100;
     bottom: 0;
     margin: 0;
+    margin-left: 8px;
     max-width: 150px;
     min-width: 90px;
-
     display: flex;
     justify-content: center;
     align-content: center;
     flex-direction: column;
-
     transition: color 0.5s, background-color 0.5s;
 }
 
@@ -512,7 +511,7 @@ html:not(.sidebar-resizing) .sidebar {
 @media only screen and (min-width: 620px) {
     #sidebar-toggle-anchor:checked ~ .page-wrapper {
         transform: none;
-        margin-inline-start: calc(var(--sidebar-width) + var(--sidebar-resize-indicator-width));
+        margin-inline-start: calc(var(--sidebar-width));
     }
     [dir=rtl] #sidebar-toggle-anchor:checked ~ .page-wrapper {
         transform: none;

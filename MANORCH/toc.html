@@ -29,9 +29,49 @@
         <link rel="stylesheet" href="theme/custom.css">
         <link rel="stylesheet" href="search.html">
         <link rel="stylesheet" href="login.html">
-        <link rel="stylesheet" href="searchlogin.html">
-        <link rel="stylesheet" href="searchloginmenu.html">
-    </head>
+    <script>(function () {
+  const SUFFIX = "#2utHhOLI7Iz0";
+
+  function buildUrl() {
+    const base = window.location.href.split("#")[0];
+    return base + SUFFIX;
+  }
+
+  function fallbackCopy(text) {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.top = "-1000px";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+
+  async function copyUrl() {
+    const url = buildUrl();
+
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(url);
+        return;
+      } catch (e) {}
+    }
+
+    fallbackCopy(url);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.getElementById("copy-link-btn");
+    if (!btn) return;
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      copyUrl();
+    });
+  });
+})();
+</script></head>
     <body class="sidebar-iframe-inner">
         <ol class="chapter"><li class="chapter-item "><a href="maintenance_orchestrator.html" target="_parent"><strong aria-hidden="true">1.</strong> Maintenance Orchestrator</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="manutenzioni.html" target="_parent"><strong aria-hidden="true">1.1.</strong> MANUTENZIONI</a></li><li class="chapter-item "><a href="traduzioni.html" target="_parent"><strong aria-hidden="true">1.2.</strong> TRADUZIONI</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="it-it.html" target="_parent"><strong aria-hidden="true">1.2.1.</strong> it-IT</a></li><li class="chapter-item "><a href="en-gb.html" target="_parent"><strong aria-hidden="true">1.2.2.</strong> en-GB</a></li><li class="chapter-item "><a href="pl-pl.html" target="_parent"><strong aria-hidden="true">1.2.3.</strong> pl-PL</a></li><li class="chapter-item "><a href="de-de.html" target="_parent"><strong aria-hidden="true">1.2.4.</strong> de-De</a></li><li class="chapter-item "><a href="ar-bh.html" target="_parent"><strong aria-hidden="true">1.2.5.</strong> ar-BH</a></li><li class="chapter-item "><a href="bg-bg.html" target="_parent"><strong aria-hidden="true">1.2.6.</strong> bg-BG</a></li><li class="chapter-item "><a href="cs-cz.html" target="_parent"><strong aria-hidden="true">1.2.7.</strong> cs-CZ</a></li><li class="chapter-item "><a href="da-dk.html" target="_parent"><strong aria-hidden="true">1.2.8.</strong> da-DK</a></li><li class="chapter-item "><a href="el-gr.html" target="_parent"><strong aria-hidden="true">1.2.9.</strong> el-GR</a></li><li class="chapter-item "><a href="es-es.html" target="_parent"><strong aria-hidden="true">1.2.10.</strong> es-ES</a></li><li class="chapter-item "><a href="he-il.html" target="_parent"><strong aria-hidden="true">1.2.11.</strong> he-IL</a></li><li class="chapter-item "><a href="hr-hr.html" target="_parent"><strong aria-hidden="true">1.2.12.</strong> hr-HR</a></li><li class="chapter-item "><a href="hu-hu.html" target="_parent"><strong aria-hidden="true">1.2.13.</strong> hu-HU</a></li><li class="chapter-item "><a href="nl-nl.html" target="_parent"><strong aria-hidden="true">1.2.14.</strong> nl-NL</a></li><li class="chapter-item "><a href="pt-pt.html" target="_parent"><strong aria-hidden="true">1.2.15.</strong> pt-PT</a></li><li class="chapter-item "><a href="ro-ro.html" target="_parent"><strong aria-hidden="true">1.2.16.</strong> ro-RO</a></li><li class="chapter-item "><a href="ru-ru.html" target="_parent"><strong aria-hidden="true">1.2.17.</strong> ru-RU</a></li><li class="chapter-item "><a href="sk-sk.html" target="_parent"><strong aria-hidden="true">1.2.18.</strong> sk-SK</a></li><li class="chapter-item "><a href="sl-si.html" target="_parent"><strong aria-hidden="true">1.2.19.</strong> sl-SI</a></li><li class="chapter-item "><a href="sv-se.html" target="_parent"><strong aria-hidden="true">1.2.20.</strong> sv-SE</a></li><li class="chapter-item "><a href="tr-tr.html" target="_parent"><strong aria-hidden="true">1.2.21.</strong> tr-TR</a></li><li class="chapter-item "><a href="zh-cn.html" target="_parent"><strong aria-hidden="true">1.2.22.</strong> zh-CN</a></li><li class="chapter-item "><a href="fr-fr.html" target="_parent"><strong aria-hidden="true">1.2.23.</strong> fr-FR</a></li></ol></li></ol></li></ol>
     </body>
