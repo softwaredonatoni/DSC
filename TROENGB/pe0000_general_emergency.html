@@ -2,40 +2,39 @@
 <html lang="en" class="light sidebar-visible" dir="ltr">
 <head>
     <!-- Book generated using mdBook -->
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8">
     <title>PE0000 GENERAL EMERGENCY - Troubleshootings EN-GB</title>
 
     <!-- Custom HTML head -->
 
-    <meta name="description" content="" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#ffffff" />
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
 
-    <link rel="icon" href="favicon.svg" />
-    <link rel="shortcut icon" href="favicon.png" />
-    <link rel="stylesheet" href="css/variables.css" />
-    <link rel="stylesheet" href="css/general.css" />
-    <link rel="stylesheet" href="css/chrome.css" />
-    <link rel="stylesheet" href="css/print.css" media="print" />
-    <link rel="stylesheet" href="css/custom.css" />
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="icon" href="favicon.svg">
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/chrome.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <!-- Fonts -->
-    <link rel="stylesheet" href="FontAwesome/css/font-awesome.css" />
-    <link rel="stylesheet" href="fonts/fonts.css" />
+    <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+    <link rel="stylesheet" href="fonts/fonts.css">
 
     <!-- Highlight.js Stylesheets -->
-    <link rel="stylesheet" id="highlight-css" href="highlight.css" />
-    <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css" />
-    <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css" />
+    <link rel="stylesheet" id="highlight-css" href="highlight.css">
+    <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+    <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
 
     <!-- Custom theme stylesheets -->
-    <link rel="stylesheet" href="./mdbook-admonish.css" />
-    <link rel="stylesheet" href="theme/custom.css" />
-    <link rel="stylesheet" href="search.html" />
-    <link rel="stylesheet" href="login.html" />
-    <link rel="stylesheet" href="searchlogin.html" />
-    <link rel="stylesheet" href="searchloginmenu.html" />
+    <link rel="stylesheet" href="./mdbook-admonish.css">
+    <link rel="stylesheet" href="theme/custom.css">
+    <link rel="stylesheet" href="search.html">
+    <link rel="stylesheet" href="login.html">
+    <link rel="stylesheet" href="searchlogin.html">
+    <link rel="stylesheet" href="searchloginmenu.html">
 
     <!-- Provide site root and default themes to javascript -->
     <script>
@@ -45,60 +44,82 @@
     </script>
     <!-- Start loading toc.js asap -->
     <script src="toc.js"></script>
-</head>
+<script>(function () {
+  const SUFFIX = "#2utHhOLI7Iz0";
+
+  function buildUrl() {
+    const base = window.location.href.split("#")[0];
+    return base + SUFFIX;
+  }
+
+  function fallbackCopy(text) {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.top = "-1000px";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+
+  async function copyUrl() {
+    const url = buildUrl();
+
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(url);
+        return;
+      } catch (e) {}
+    }
+
+    fallbackCopy(url);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.getElementById("copy-link-btn");
+    if (!btn) return;
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      copyUrl();
+    });
+  });
+})();
+</script></head>
 <body>
     <header class="header-main">
         <div class="header-flex">
             <div class="donatoni-flex">
-                <label class="btn hamburger-menu"
-                       id="sidebar-toggle"
-                       for="sidebar-toggle-anchor"
-                       title="Toggle Table of Contents"
-                       aria-label="Toggle Table of Contents"
-                       aria-controls="sidebar">
+                <label class="btn hamburger-menu" id="sidebar-toggle" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
                     <i id="sidebar-toggle-icon" class="fa-solid fa-bars"></i>
                 </label>
 
-                <img src="images/donatoni-logo-white.svg" alt="Donatoni Macchine" />
+                <img src="images/donatoni-logo-white.svg" alt="Donatoni Macchine">
             </div>
 
             <div class="donatoni-flex action-header-buttons">
                 <div id="search-wrapper" class="search-wrapper hidden">
                     <form id="searchbar-outer" class="searchbar-outer">
-                        <input type="search"
-                               id="searchbar"
-                               name="searchbar"
-                               placeholder="Search this book ..."
-                               aria-controls="searchresults-outer"
-                               aria-describedby="searchresults-header" />
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
                     </form>
                     <div id="searchresults-outer" class="searchresults-outer hidden">
                         <div id="searchresults-header" class="searchresults-header"></div>
                         <ul id="searchresults"></ul>
                     </div>
                 </div>
-                <button class="btn btn-sm"
-                        id="search-toggle"
-                        type="button"
-                        title="Search. (Shortkey: s)"
-                        aria-label="Toggle Searchbar"
-                        aria-expanded="false"
-                        aria-keyshortcuts="S"
-                        aria-controls="searchbar">
+                <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </button>
 
-                <button class="btn btn-sm me-2"
-                        onclick="window.location.href='print.html'"
-                        title="Print this book"
-                        aria-label="Print this book">
+                <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
                     <i class="fa-solid fa-print"></i>
                 </button>
             </div>
         </div>
     </header>
     <div id="body-container">
-        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden" />
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
         <script>
             try {
@@ -191,40 +212,22 @@
 
                     <div>
 
-                        <img src="images/donatoni_111.jpg" />
+                        <img src="images/donatoni_111.jpg">
 
                         <main style="margin-left: 20px;">
-                            <h1 id="pe0000-general-emergency"><a class="header" href="#pe0000-general-emergency">PE0000 GENERAL EMERGENCY</a></h1>
-<ul>
-<li><a href="#explanation-of-the-error">Explanation of the error</a></li>
-<li><a href="#possible-causes">Possible causes</a></li>
-<li><a href="#possible-solutions">Possible solutions</a></li>
-<li><a href="#related-articles">Related articles</a></li>
-</ul>
-<!--Page="PE0000 GENERAL EMERGENCY"--><hr>
-<h2 id="explanation-of-the-error"><a class="header" href="#explanation-of-the-error">Explanation of the error</a></h2>
-<p>Machine in emergency situation, the red light is flashing and the machine does not move. The emergency circuit is open.</p>
-<h2 id="possible-causes"><a class="header" href="#possible-causes">Possible causes</a></h2>
-<div class='panelContent' style='background-color: #fff; border: 1px solid #D3D3D3; padding: 5px;'><ol start="1" type="1"><li><p>Emergency button pressed;</p></li><li><p>Emergency button failure;</p></li><li><p>Failure of the safety control unit inside the electrical panel;</p></li><li><p>Multi-core cable connected from the console to the electrical panel faulty;</p></li></ol></div>
-<h2 id="possible-solutions"><a class="header" href="#possible-solutions">Possible solutions</a></h2>
-<p><!-- <placeholder>Provide steps that the user can take to solve the problem. For example &quot;The level 7 printer will flash red when it is out of paper. Add paper to tray 1&quot;.</placeholder> --></p><div class='panelContent' style='background-color: #fff; border: 1px solid #D3D3D3; padding: 5px;'><ol start="1" type="1"><li><p>Unlock emergency button:<br></p><div class="TextAlignCenter"><img src="attachments/pe0000_general_emergency/IMG_20181112_110712.jpg" alt="IMG_20181112_110712.jpg" width="183" onclick="showModal(this.src)"></div><p><br></p><hr></li><li><p>Check the correct functioning of the button and the connected electrical contacts located underneath the mushroom itself (console button panel);<br></p><div class="TextAlignCenter"><img src="attachments/pe0000_general_emergency/IMG_20181112_110548.jpg" alt="IMG_20181112_110548.jpg" width="176" onclick="showModal(this.src)"></div><hr></li><li><p>Check the correct functioning of the control unit. In order to do this, first ensure that the emergency circuit is closed as per the electrical diagram, then ensure that the control unit must function in the following way:<br></p><ol start="1" type="a"><li><p>With emergency button pressed (emergency circuit open):<br></p><div class="TextAlignCenter"><img src="attachments/pe0000_general_emergency/IMG_20181112_110804.jpg" alt="IMG_20181112_110804.jpg" width="176" onclick="showModal(this.src)"></div><hr></li><li><p>With emergency button released (emergency circuit closed):<br></p><div class="TextAlignCenter"><img src="attachments/pe0000_general_emergency/IMG_20181112_110817.jpg" alt="IMG_20181112_110817.jpg" width="176" onclick="showModal(this.src)"></div></li></ol><hr></li><li><p>Check the continuity between the cables connected to the emergency button contacts and the respective cables connected to the respective terminal block in the electrical panel. Find the information on the diagram;</p></li></ol><p><br></p><p><br></p></div>
-<h2 id="related-articles"><a class="header" href="#related-articles">Related articles</a></h2>
-<p><!-- <placeholder>Related articles appear here based on the labels you select. Click to edit the macro and add or change labels.</placeholder> --></p><div class='panelContent' style='background-color: #fff; border: 1px solid #D3D3D3; padding: 5px;'><p><br></p></div><p><br></p><!--Label="sicurezza"--><!--Label="consolle"--><!--Label="pe0000"-->
+                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="pe0000-general-emergency" style="margin:0;"><a class="header" href="#pe0000-general-emergency">PE0000 GENERAL EMERGENCY</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="PE0000 GENERAL EMERGENCY"--><hr local-id="7caddc333788"><h2 local-id="5689a2ef99a3">Error explanation</h2><p local-id="90f423d8b3f3">Machine in emergency situation, the red light is flashing and the machine does not move. The emergency circuit is open.</p><h2 local-id="b0fe76ff75a5">Possible causes</h2><div class='panelContent' style='background-color: #fff; border: 1px solid #D3D3D3; padding: 5px;'><ol start="1" local-id="118a98f01201" type="1"><li local-id="bcdd27649df8"><p local-id="8243dcdf4a48">Emergency button pressed;</p><p local-id="10f31b7dd9e3">Emergency button failure;</p><p local-id="1aea007b4787">Safety control unit inside the electrical panel failure;</p><p local-id="21669f63dea5">Multi-core cable connected from the console to the electrical panel failure;</p></li></ol></div><h2 local-id="2f7930edeea9">Emergency mushroom pressed;</h2><p local-id="34c5f46953c3">Emergency stop failure;</p><div class='panelContent' style='background-color: #fff; border: 1px solid #D3D3D3; padding: 5px;'><ol start="1" local-id="6c41aa8c0d11" type="1"><li local-id="0ba839333709"><p local-id="65848224db9b">Unlock emergency mushroom:</p><div class="TextAlignCenter"><img src="attachments/pe0000_general_emergency/IMG_20181112_110712.jpg" alt="IMG_20181112_110712.jpg" width="197" onclick="showModal(this.src)"></div><p local-id="390a6484712a"><br></p></li><li local-id="433c3b5db203"><p local-id="fcea4210ddb3">Check the correct functioning of the mushroom and the connected electrical contacts located underneath the mushroom itself (console button panel);<br></p><div class="TextAlignCenter"><img src="attachments/pe0000_general_emergency/IMG_20181112_110548.jpg" alt="IMG_20181112_110548.jpg" width="187" onclick="showModal(this.src)"></div></li><li local-id="04561ebb0852"><p local-id="904d08a306b5">Check that the control unit is working correctly, that is, once you have verified that the emergency circuit is closed as per the wiring diagram, the control unit must function as follows:<br></p><ol start="1" local-id="9067d56347ba" type="a"><li local-id="658e201e1b70"><p local-id="25e6f4b98279">With emergency button pressed (emergency circuit open):<br></p><div class="TextAlignCenter"><img src="attachments/pe0000_general_emergency/IMG_20181112_110804.jpg" alt="IMG_20181112_110804.jpg" width="187" onclick="showModal(this.src)"></div></li><li local-id="1c84022a6af6"><p local-id="590f840885e6">With emergency mushroom released (emergency circuit closed):<br></p><div class="TextAlignCenter"><img src="attachments/pe0000_general_emergency/IMG_20181112_110817.jpg" alt="IMG_20181112_110817.jpg" width="187" onclick="showModal(this.src)"></div></li></ol></li><li local-id="c28da553d308"><p local-id="23a73557cc01">Check the continuity between the cables connected to the mushroom contacts and the respective cables connected to the relevant terminal block in the electrical panel. Find the information on the diagram;</p></li></ol><p local-id="edde2bf44659"><br></p><p local-id="b47d1b1487d6"><br></p></div><h2 local-id="d490935a3eec">Fault of safety control unit inside electrical panel;</h2><p local-id="932c37a3785c">Multicore cable connected from console to electrical panel faulty;</p><p local-id="99f44e7d4e25">Possible solutions</p><p><br></p><p local-id="fceaf5c30645"><br></p><p local-id="a55899e12caa"><!-- <placeholder ac:local-id="70d41df7b85f">Indicate steps that the user can follow to resolve the issue, for example 'The level 7 printer will flash red when it is out of paper. Insert paper into tray 1'.</placeholder> --></p><!--Label="sicurezza"--><!--Label="consolle"--><!--Label="pe0000"-->
                         </main>
 
                     </div>
 
-                    <img src="images/donatoni_222.jpg" />
+                    <img src="images/donatoni_222.jpg">
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="wrong_pieces_measures.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="pe0023_mute_enabled.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
-                            <a rel="next prefetch" href="pe0003_lack_of_mains_voltage.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                                <i class="fa fa-angle-right"></i>
-                            </a>
 
                         <div style="clear: both"></div>
                     </nav>
@@ -234,12 +237,8 @@
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                <a rel="prev" href="wrong_pieces_measures.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                <a rel="prev" href="pe0023_mute_enabled.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
-                    </a>
-
-                    <a rel="next prefetch" href="pe0003_lack_of_mains_voltage.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                        <i class="fa fa-angle-right"></i>
                     </a>
             </nav>
 

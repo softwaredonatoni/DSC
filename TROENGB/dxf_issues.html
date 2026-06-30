@@ -2,40 +2,39 @@
 <html lang="en" class="light sidebar-visible" dir="ltr">
 <head>
     <!-- Book generated using mdBook -->
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8">
     <title>DXF ISSUES - Troubleshootings EN-GB</title>
 
     <!-- Custom HTML head -->
 
-    <meta name="description" content="" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#ffffff" />
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
 
-    <link rel="icon" href="favicon.svg" />
-    <link rel="shortcut icon" href="favicon.png" />
-    <link rel="stylesheet" href="css/variables.css" />
-    <link rel="stylesheet" href="css/general.css" />
-    <link rel="stylesheet" href="css/chrome.css" />
-    <link rel="stylesheet" href="css/print.css" media="print" />
-    <link rel="stylesheet" href="css/custom.css" />
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="icon" href="favicon.svg">
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/chrome.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <!-- Fonts -->
-    <link rel="stylesheet" href="FontAwesome/css/font-awesome.css" />
-    <link rel="stylesheet" href="fonts/fonts.css" />
+    <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+    <link rel="stylesheet" href="fonts/fonts.css">
 
     <!-- Highlight.js Stylesheets -->
-    <link rel="stylesheet" id="highlight-css" href="highlight.css" />
-    <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css" />
-    <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css" />
+    <link rel="stylesheet" id="highlight-css" href="highlight.css">
+    <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+    <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
 
     <!-- Custom theme stylesheets -->
-    <link rel="stylesheet" href="./mdbook-admonish.css" />
-    <link rel="stylesheet" href="theme/custom.css" />
-    <link rel="stylesheet" href="search.html" />
-    <link rel="stylesheet" href="login.html" />
-    <link rel="stylesheet" href="searchlogin.html" />
-    <link rel="stylesheet" href="searchloginmenu.html" />
+    <link rel="stylesheet" href="./mdbook-admonish.css">
+    <link rel="stylesheet" href="theme/custom.css">
+    <link rel="stylesheet" href="search.html">
+    <link rel="stylesheet" href="login.html">
+    <link rel="stylesheet" href="searchlogin.html">
+    <link rel="stylesheet" href="searchloginmenu.html">
 
     <!-- Provide site root and default themes to javascript -->
     <script>
@@ -45,60 +44,82 @@
     </script>
     <!-- Start loading toc.js asap -->
     <script src="toc.js"></script>
-</head>
+<script>(function () {
+  const SUFFIX = "#2utHhOLI7Iz0";
+
+  function buildUrl() {
+    const base = window.location.href.split("#")[0];
+    return base + SUFFIX;
+  }
+
+  function fallbackCopy(text) {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.top = "-1000px";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+
+  async function copyUrl() {
+    const url = buildUrl();
+
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(url);
+        return;
+      } catch (e) {}
+    }
+
+    fallbackCopy(url);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.getElementById("copy-link-btn");
+    if (!btn) return;
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      copyUrl();
+    });
+  });
+})();
+</script></head>
 <body>
     <header class="header-main">
         <div class="header-flex">
             <div class="donatoni-flex">
-                <label class="btn hamburger-menu"
-                       id="sidebar-toggle"
-                       for="sidebar-toggle-anchor"
-                       title="Toggle Table of Contents"
-                       aria-label="Toggle Table of Contents"
-                       aria-controls="sidebar">
+                <label class="btn hamburger-menu" id="sidebar-toggle" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
                     <i id="sidebar-toggle-icon" class="fa-solid fa-bars"></i>
                 </label>
 
-                <img src="images/donatoni-logo-white.svg" alt="Donatoni Macchine" />
+                <img src="images/donatoni-logo-white.svg" alt="Donatoni Macchine">
             </div>
 
             <div class="donatoni-flex action-header-buttons">
                 <div id="search-wrapper" class="search-wrapper hidden">
                     <form id="searchbar-outer" class="searchbar-outer">
-                        <input type="search"
-                               id="searchbar"
-                               name="searchbar"
-                               placeholder="Search this book ..."
-                               aria-controls="searchresults-outer"
-                               aria-describedby="searchresults-header" />
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
                     </form>
                     <div id="searchresults-outer" class="searchresults-outer hidden">
                         <div id="searchresults-header" class="searchresults-header"></div>
                         <ul id="searchresults"></ul>
                     </div>
                 </div>
-                <button class="btn btn-sm"
-                        id="search-toggle"
-                        type="button"
-                        title="Search. (Shortkey: s)"
-                        aria-label="Toggle Searchbar"
-                        aria-expanded="false"
-                        aria-keyshortcuts="S"
-                        aria-controls="searchbar">
+                <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </button>
 
-                <button class="btn btn-sm me-2"
-                        onclick="window.location.href='print.html'"
-                        title="Print this book"
-                        aria-label="Print this book">
+                <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
                     <i class="fa-solid fa-print"></i>
                 </button>
             </div>
         </div>
     </header>
     <div id="body-container">
-        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden" />
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
         <script>
             try {
@@ -191,29 +212,23 @@
 
                     <div>
 
-                        <img src="images/donatoni_111.jpg" />
+                        <img src="images/donatoni_111.jpg">
 
                         <main style="margin-left: 20px;">
-                            <h1 id="dxf-issues"><a class="header" href="#dxf-issues">DXF ISSUES</a></h1>
-<ul>
-<li><a href="#parametrix-non-visualizza-i-dxf-e-non-importa-i-dxf">Parametrix non visualizza i DXF e non importa i DXF</a></li>
-</ul>
-<!--Page="DXF ISSUES"-->
-<h1 id="parametrix-non-visualizza-i-dxf-e-non-importa-i-dxf"><a class="header" href="#parametrix-non-visualizza-i-dxf-e-non-importa-i-dxf">Parametrix non visualizza i DXF e non importa i DXF</a></h1>
-<p><strong>Problema:</strong></p><ul><li><p>Parametrix non importa i DXF</p></li><li><p>Parametrix non visualizza l'anteprima dei DXF</p></li></ul><p><strong>Sintomi</strong>:</p><ul><li><p>Parametrix non visualizza l'anteprima dei DXF</p></li><li><p>Parametrix da un errore generico quando si provano ad importare i DXF</p></li><li><p>Log Parametrix:  errore su CopyModules.dll</p></li><li><p>Parametro "DXF Tutto Polilinee" nel secondo lucchetto attivo (parametro NewImportDxf = True sul config.ini)</p></li><li><p>Gli stessi file su cui si vede il problema non danno problemi se utilizzati su altri PC (i DXF sono corretti)</p></li></ul><p>Il problema è tipico dei PC ufficio, ma può capitare anche su PC bordo macchina.</p><p>Per far si che l'importazione dei DXF funzioni correttamente si devono aggiornare alcune DLL del Sistema Operativo.</p><p><strong>Soluzione:</strong></p><ol start="1" type="1"><li><p>copiare le due seguenti DLL Teigha sul proprio PC locale:</p><ol start="1" type="a"><li><p><strong>msvcp100.dll</strong></p></li><li><p><strong>msvcr100.dll</strong></p></li></ol></li><li><p>le DLL si possono trovare in due posti:</p><ol start="1" type="a"><li><p>in allegato nella seguente pagina</p></li><li><p>all'indirizzo: <strong>\\FILESERVER01\DiscoUTec\UfficioTecnicoProgrammazione\Programmi Esterni\Files Programmi\DLL Teigha</strong></p></li></ol></li><li><p>copiare entrambe le DLL dal proprio PC locale al desktop del PC del cliente</p></li><li><p>copiare entrambe le DLL dal desktop del PC del cliente nei seguenti percorsi del PC del cliente:</p><ol start="1" type="a"><li><p><strong>C:\Windows\System32</strong></p></li><li><p><strong>C:\Windows\SysWOW64</strong></p></li></ol></li><li><p>in alternativa al punto 4 si possono copiare entrambe le DLL nella cartella di installazione di Parametrix (solitamente C:\Parametrix)</p></li><li><p>cancellare entrambe le DLL dal desktop del PC del cliente</p></li></ol><p><strong>NB</strong>: non si possono copiare direttamente le DLL nei due path indicati del PC del cliente tramite TeamViewer, per questo la procedura indica di passare prima dal desktop del PC del cliente.</p><p>Di seguito le DLL.</p><p><p><a href='attachments/dxf_issues/msvcp100.dll'>msvcp100.dll</a></p><p><a href='attachments/dxf_issues/msvcr100.dll'>msvcr100.dll</a></p><!--Label="key_prx_06"--><!--Label="dxf"-->
+                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="dxf-issues" style="margin:0;"><a class="header" href="#dxf-issues">DXF ISSUES</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="DXF ISSUES"--><h1 id="parametrix-does-not-display-the-dxfs-and-does-not-import-the-dxfs"><a class="header" href="#parametrix-does-not-display-the-dxfs-and-does-not-import-the-dxfs">Parametrix does not display the DXFs and does not import the DXFs</a></h1><p><strong>Issue:</strong></p><ul><li><p>Parametrix does not import DXFs</p></li><li><p>Parametrix does not display the .dxf preview</p></li></ul><p><strong>Symptoms</strong>:</p><ul><li><p>Parametrix does not display the .dxf preview</p></li><li><p>Parametrix returns a generic error when attempting to import DXFs</p></li><li><p>Log Parametrix: error in CopyModules.dll</p></li><li><p>Parameter 'DXF All Polylines' in second lock active (parameter NewImportDxf=True on the config.ini)</p></li><li><p>The same files on which the problem is seen do not cause problems when used on other PCs (the DXFs are correct)</p></li></ul><p>The issue is typical of office PCs but can also occur on machine-side PCs.</p><p>To ensure proper importation of DXFs, some System Operating System DLLs must be updated.</p><p><strong>Solution:</strong></p><ol start="1" type="1"><li><p>copy the two following DLLs Teigha on your local PC:</p><ol start="1" type="a"><li><p><strong>Microsoft Visual C__ 2010 Redistributable</strong></p></li><li><p><strong>Microsoft Visual C__ 2010 Redistributable (msvcr100.dll)</strong></p></li></ol></li><li><p>the DLLs can be found in two places:</p><ol start="1" type="a"><li><p>attached in the following page</p></li><li><p>at address: <strong>\\FILESERVER01\\DiscoUTec\\UfficioTecnicoProgrammazione\\Programmi Esterni\\Files Programmi\\Teigha DLL</strong></p></li></ol></li><li><p>copy both DLLs from your local PC to the client's PC desktop</p></li><li><p>copy both DLLs from the client's PC desktop into the following paths on the client’s PC:</p><ol start="1" type="a"><li><p><strong>C:\\Windows\\System32</strong></p></li><li><p><strong>C:\\Windows\\System32</strong></p></li></ol></li><li><p>C:\\Windows\\System32</p></li><li><p>as an alternative, both DLL can be copied into the installation folder of Parametrix (usually C:\\Parametrix)</p></li></ol><p>Delete both DLLs from client’s PC desktop</p><p><strong>NOTE</strong>: it is not possible to copy the DLLs directly into the two indicated client PC paths via TeamViewer; therefore, the procedure requires first accessing the client PC's desktop.</p><p><p><a href='attachments/dxf_issues/msvcp100.dll'>msvcp100.dll</a></p><p><a href='attachments/dxf_issues/msvcr100.dll'>msvcr100.dll</a></p><!--Label="key_prx_06"--><!--Label="dxf"-->
                         </main>
 
                     </div>
 
-                    <img src="images/donatoni_222.jpg" />
+                    <img src="images/donatoni_222.jpg">
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="visualization_issues_in_case_of_non-standard_screen_settings_setted.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="repetition_start_block.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
-                            <a rel="next prefetch" href="parametrix_is_not_launched_and_there_arent_any_issues_reported.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next prefetch" href="database_and_postgresql_service_errors.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
 
@@ -225,11 +240,11 @@
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                <a rel="prev" href="visualization_issues_in_case_of_non-standard_screen_settings_setted.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                <a rel="prev" href="repetition_start_block.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
 
-                    <a rel="next prefetch" href="parametrix_is_not_launched_and_there_arent_any_issues_reported.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next prefetch" href="database_and_postgresql_service_errors.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>

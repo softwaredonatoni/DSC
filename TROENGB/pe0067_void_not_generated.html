@@ -2,40 +2,39 @@
 <html lang="en" class="light sidebar-visible" dir="ltr">
 <head>
     <!-- Book generated using mdBook -->
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8">
     <title>PE0067 VOID NOT GENERATED - Troubleshootings EN-GB</title>
 
     <!-- Custom HTML head -->
 
-    <meta name="description" content="" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#ffffff" />
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
 
-    <link rel="icon" href="favicon.svg" />
-    <link rel="shortcut icon" href="favicon.png" />
-    <link rel="stylesheet" href="css/variables.css" />
-    <link rel="stylesheet" href="css/general.css" />
-    <link rel="stylesheet" href="css/chrome.css" />
-    <link rel="stylesheet" href="css/print.css" media="print" />
-    <link rel="stylesheet" href="css/custom.css" />
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="icon" href="favicon.svg">
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/chrome.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <!-- Fonts -->
-    <link rel="stylesheet" href="FontAwesome/css/font-awesome.css" />
-    <link rel="stylesheet" href="fonts/fonts.css" />
+    <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+    <link rel="stylesheet" href="fonts/fonts.css">
 
     <!-- Highlight.js Stylesheets -->
-    <link rel="stylesheet" id="highlight-css" href="highlight.css" />
-    <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css" />
-    <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css" />
+    <link rel="stylesheet" id="highlight-css" href="highlight.css">
+    <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+    <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
 
     <!-- Custom theme stylesheets -->
-    <link rel="stylesheet" href="./mdbook-admonish.css" />
-    <link rel="stylesheet" href="theme/custom.css" />
-    <link rel="stylesheet" href="search.html" />
-    <link rel="stylesheet" href="login.html" />
-    <link rel="stylesheet" href="searchlogin.html" />
-    <link rel="stylesheet" href="searchloginmenu.html" />
+    <link rel="stylesheet" href="./mdbook-admonish.css">
+    <link rel="stylesheet" href="theme/custom.css">
+    <link rel="stylesheet" href="search.html">
+    <link rel="stylesheet" href="login.html">
+    <link rel="stylesheet" href="searchlogin.html">
+    <link rel="stylesheet" href="searchloginmenu.html">
 
     <!-- Provide site root and default themes to javascript -->
     <script>
@@ -45,60 +44,82 @@
     </script>
     <!-- Start loading toc.js asap -->
     <script src="toc.js"></script>
-</head>
+<script>(function () {
+  const SUFFIX = "#2utHhOLI7Iz0";
+
+  function buildUrl() {
+    const base = window.location.href.split("#")[0];
+    return base + SUFFIX;
+  }
+
+  function fallbackCopy(text) {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.top = "-1000px";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+
+  async function copyUrl() {
+    const url = buildUrl();
+
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(url);
+        return;
+      } catch (e) {}
+    }
+
+    fallbackCopy(url);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.getElementById("copy-link-btn");
+    if (!btn) return;
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      copyUrl();
+    });
+  });
+})();
+</script></head>
 <body>
     <header class="header-main">
         <div class="header-flex">
             <div class="donatoni-flex">
-                <label class="btn hamburger-menu"
-                       id="sidebar-toggle"
-                       for="sidebar-toggle-anchor"
-                       title="Toggle Table of Contents"
-                       aria-label="Toggle Table of Contents"
-                       aria-controls="sidebar">
+                <label class="btn hamburger-menu" id="sidebar-toggle" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
                     <i id="sidebar-toggle-icon" class="fa-solid fa-bars"></i>
                 </label>
 
-                <img src="images/donatoni-logo-white.svg" alt="Donatoni Macchine" />
+                <img src="images/donatoni-logo-white.svg" alt="Donatoni Macchine">
             </div>
 
             <div class="donatoni-flex action-header-buttons">
                 <div id="search-wrapper" class="search-wrapper hidden">
                     <form id="searchbar-outer" class="searchbar-outer">
-                        <input type="search"
-                               id="searchbar"
-                               name="searchbar"
-                               placeholder="Search this book ..."
-                               aria-controls="searchresults-outer"
-                               aria-describedby="searchresults-header" />
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
                     </form>
                     <div id="searchresults-outer" class="searchresults-outer hidden">
                         <div id="searchresults-header" class="searchresults-header"></div>
                         <ul id="searchresults"></ul>
                     </div>
                 </div>
-                <button class="btn btn-sm"
-                        id="search-toggle"
-                        type="button"
-                        title="Search. (Shortkey: s)"
-                        aria-label="Toggle Searchbar"
-                        aria-expanded="false"
-                        aria-keyshortcuts="S"
-                        aria-controls="searchbar">
+                <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </button>
 
-                <button class="btn btn-sm me-2"
-                        onclick="window.location.href='print.html'"
-                        title="Print this book"
-                        aria-label="Print this book">
+                <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
                     <i class="fa-solid fa-print"></i>
                 </button>
             </div>
         </div>
     </header>
     <div id="body-container">
-        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden" />
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
         <script>
             try {
@@ -191,38 +212,23 @@
 
                     <div>
 
-                        <img src="images/donatoni_111.jpg" />
+                        <img src="images/donatoni_111.jpg">
 
                         <main style="margin-left: 20px;">
-                            <h1 id="pe0067-void-not-generated"><a class="header" href="#pe0067-void-not-generated">PE0067 VOID NOT GENERATED</a></h1>
-<ul>
-<li><a href="#spiegazione-dellerrore">Spiegazione dell'errore</a></li>
-<li><a href="#possibili-cause">Possibili cause</a></li>
-<li><a href="#possibili-soluzioni">Possibili soluzioni</a></li>
-<li><a href="#articoli-collegati">Articoli collegati</a></li>
-</ul>
-<!--Page="PE0067 VOID NOT GENERATED"-->
-<h2 id="spiegazione-dellerrore"><a class="header" href="#spiegazione-dellerrore">Spiegazione dell'errore</a></h2>
-<p>Allarme che compare quando si effettua uno spostamento con ventose o da programma in automatico, o da pagina manuale.</p>
-<h2 id="possibili-cause"><a class="header" href="#possibili-cause">Possibili cause</a></h2>
-<p><!-- <placeholder>Provide steps that the user can take to solve the problem. For example &quot;The level 7 printer will flash red when it is out of paper. Add paper to tray 1&quot;.</placeholder> --></p><div class='panelContent' style='background-color: #fff; border: 1px solid #D3D3D3; padding: 5px;'><ol start="1" type="1"><li><p>Una o più zone delle ventose fuori dall'area del pezzo da sollevare</p></li><li><p>Sensore non regolato correttamente</p></li><li><p>Sensore guasto</p></li><li><p>Gomme ventose rovinate</p></li></ol></div>
-<h2 id="possibili-soluzioni"><a class="header" href="#possibili-soluzioni">Possibili soluzioni</a></h2>
-<p><!-- <placeholder>Provide steps that the user can take to solve the problem. For example &quot;The level 7 printer will flash red when it is out of paper. Add paper to tray 1&quot;.</placeholder> --></p><div class='panelContent' style='background-color: #fff; border: 1px solid #D3D3D3; padding: 5px;'><ol start="1" type="1"><li><p>Disattivare le zone delle ventose che sono fuori dall'area del pezzo, o spostare la posizione della presa del pezzo alm</p></li><li><p>Girare il grano di regolazione del vacuostato di mezzo giro in senso antiorario.</p></li><li><p>Collegare tra di loro cavi del sensore e vedere se il messaggio di errore scompare;</p></li><li><p>Sostituire gomme ventose</p></li></ol></div>
-<h2 id="articoli-collegati"><a class="header" href="#articoli-collegati">Articoli collegati</a></h2>
-<p><!-- <placeholder>Related articles appear here based on the labels you select. Click to edit the macro and add or change labels.</placeholder> --></p><div class='panelContent' style='background-color: #fff; border: 1px solid #D3D3D3; padding: 5px;'><p><br></p></div><p><br></p><!--Label="kb-troubleshooting-article"--><!--Label="pe0067"-->
+                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="pe0067-void-not-generated" style="margin:0;"><a class="header" href="#pe0067-void-not-generated">PE0067 VOID NOT GENERATED</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="PE0067 VOID NOT GENERATED"--><h2 id="error-explanation"><a class="header" href="#error-explanation">Error explanation</a></h2><p>Alarm that appears when performing a shift with suction cups or from an automatic program page, or from the manual page.</p><h2 id="possible-causes"><a class="header" href="#possible-causes">Possible causes</a></h2><p><!-- <placeholder>Insert steps for resolving issues, such as &quot;If the <strong>level 7 </strong>printer flashes red due to lack of paper, add paper in <strong>tray 1</strong>.&quot; For example:</placeholder> --></p><div class='panelContent' style='background-color: #fff; border: 1px solid #D3D3D3; padding: 5px;'><ol start="1" type="1"><li><p>One or more suction zones outside the area of the piece to lift</p></li><li><p>Sensor not regulated correctly</p></li><li><p>Faulty sensor</p></li><li><p>Vacuum cup rubber damaged</p></li></ol></div><h2 id="possible-solutions"><a class="header" href="#possible-solutions">Possible solutions</a></h2><p><!-- <placeholder>Insert steps for resolving issues, such as &quot;If the <strong>level 7 </strong>printer flashes red due to lack of paper, add paper in <strong>tray 1</strong>.&quot; For example:</placeholder> --></p><div class='panelContent' style='background-color: #fff; border: 1px solid #D3D3D3; padding: 5px;'><ol start="1" type="1"><li><p>Disable suction zones that are outside the piece area or move the position of the piece pickup</p></li><li><p>Turn the adjustment grain of the vacuum switch half a turn counterclockwise.</p></li><li><p>Connect sensor cables together and check if error message disappears;</p></li><li><p>Replace suction cups</p></li></ol></div><h2 id="related-articles"><a class="header" href="#related-articles">Related articles</a></h2><p><!-- <placeholder>Articles related are displayed here according to the selected tags. Click to edit the macro and add or remove tags.</placeholder> --></p><div class='panelContent' style='background-color: #fff; border: 1px solid #D3D3D3; padding: 5px;'><p><br></p></div><p><br></p><!--Label="kb-troubleshooting-article"--><!--Label="pe0067"-->
                         </main>
 
                     </div>
 
-                    <img src="images/donatoni_222.jpg" />
+                    <img src="images/donatoni_222.jpg">
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="pe0066_lack_of_air.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="pe0018_no_feed_value_must_be__0.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
-                            <a rel="next prefetch" href="pe0069_suction_cups_not_in_parking.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next prefetch" href="pe0028_axis_a_not_in_correct_position.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
 
@@ -234,11 +240,11 @@
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                <a rel="prev" href="pe0066_lack_of_air.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                <a rel="prev" href="pe0018_no_feed_value_must_be__0.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
 
-                    <a rel="next prefetch" href="pe0069_suction_cups_not_in_parking.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next prefetch" href="pe0028_axis_a_not_in_correct_position.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>

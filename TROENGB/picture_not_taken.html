@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+<head>
+    <!-- Book generated using mdBook -->
+    <meta charset="UTF-8">
+    <title>PICTURE NOT TAKEN - Troubleshootings EN-GB</title>
+
+    <!-- Custom HTML head -->
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="icon" href="favicon.svg">
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/chrome.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Fonts -->
+    <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+    <link rel="stylesheet" href="fonts/fonts.css">
+
+    <!-- Highlight.js Stylesheets -->
+    <link rel="stylesheet" id="highlight-css" href="highlight.css">
+    <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+    <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+    <!-- Custom theme stylesheets -->
+    <link rel="stylesheet" href="./mdbook-admonish.css">
+    <link rel="stylesheet" href="theme/custom.css">
+    <link rel="stylesheet" href="search.html">
+    <link rel="stylesheet" href="login.html">
+    <link rel="stylesheet" href="searchlogin.html">
+    <link rel="stylesheet" href="searchloginmenu.html">
+
+    <!-- Provide site root and default themes to javascript -->
+    <script>
+      const path_to_root = "";
+      const default_light_theme = "light";
+      const default_dark_theme = "navy";
+    </script>
+    <!-- Start loading toc.js asap -->
+    <script src="toc.js"></script>
+<script>(function () {
+  const SUFFIX = "#2utHhOLI7Iz0";
+
+  function buildUrl() {
+    const base = window.location.href.split("#")[0];
+    return base + SUFFIX;
+  }
+
+  function fallbackCopy(text) {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.top = "-1000px";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+
+  async function copyUrl() {
+    const url = buildUrl();
+
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(url);
+        return;
+      } catch (e) {}
+    }
+
+    fallbackCopy(url);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.getElementById("copy-link-btn");
+    if (!btn) return;
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      copyUrl();
+    });
+  });
+})();
+</script></head>
+<body>
+    <header class="header-main">
+        <div class="header-flex">
+            <div class="donatoni-flex">
+                <label class="btn hamburger-menu" id="sidebar-toggle" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                    <i id="sidebar-toggle-icon" class="fa-solid fa-bars"></i>
+                </label>
+
+                <img src="images/donatoni-logo-white.svg" alt="Donatoni Macchine">
+            </div>
+
+            <div class="donatoni-flex action-header-buttons">
+                <div id="search-wrapper" class="search-wrapper hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults"></ul>
+                    </div>
+                </div>
+                <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+
+                <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
+                    <i class="fa-solid fa-print"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div id="body-container">
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem("mdbook-theme");
+                let sidebar = localStorage.getItem("mdbook-sidebar");
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-theme",
+                        theme.slice(1, theme.length - 1)
+                    );
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-sidebar",
+                        sidebar.slice(1, sidebar.length - 1)
+                    );
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
+                .matches
+                ? default_dark_theme
+                : default_light_theme;
+            let theme;
+            try {
+                theme = localStorage.getItem("mdbook-theme");
+            } catch (e) { }
+            if (theme === null || theme === undefined) {
+                theme = default_theme;
+            }
+            const html = document.documentElement;
+            html.classList.remove("light");
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try {
+                    sidebar = localStorage.getItem('mdbook-sidebar');
+                } catch (e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document
+                        .getElementById("sidebar-toggle")
+                        .setAttribute("aria-expanded", sidebar === "visible");
+                    document
+                        .getElementById("sidebar")
+                        .setAttribute("aria-hidden", sidebar !== "visible");
+                    Array.from(document.querySelectorAll("#sidebar a")).forEach(
+                        function (link) {
+                            link.setAttribute("tabIndex", sidebar === "visible" ? 0 : -1);
+                        }
+                    );
+                </script>
+
+                <div id="content" class="content">
+
+                    <div>
+
+                        <img src="images/donatoni_111.jpg">
+
+                        <main style="margin-left: 20px;">
+                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="picture-not-taken" style="margin:0;"><a class="header" href="#picture-not-taken">PICTURE NOT TAKEN</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="PICTURE NOT TAKEN"--><h2 local-id="7b81cd44beec">Error explanation</h2><p local-id="36e3e5690c87">The software appears to be starting but the photo does not get taken</p><h2 local-id="117cf6b6c08d">Possible causes</h2><p local-id="e2310a10e084">May be hardware or software. Follow procedures described below to identify cause and related solution.</p><h2 local-id="f53388eb785a">Useful tools:</h2><ul local-id="7b14a1595e43"><li local-id="cc2c84f55c8e"><p local-id="bbff175177f1">KillDTwain.exe: available at C:\\DTwain\\ closes all hanging program instances, including server instances.</p></li><li local-id="668a6eb83436"><p local-id="63b2a9ed1898">StartDTwainServer.bat: available at C:\\DTwain\\Utility\\, opens a new instance of the DTwain server.</p></li><li local-id="24b050899b4e"><p local-id="55c53bb1d7ef">DTwainWinDefenderExclusion.exe: located at C:\\DTwain\\Utility\\, adds the DTwain processes to Windows Defender exclusions.</p></li><li local-id="8fe3daeb9541"><p local-id="5d1820c9f9cf">Run OpenPort.Bat in directory C:\\DTwain\\Utility\\, adds rule for allowing DTwain connections to Windows Firewall exceptions</p></li></ul><h2 local-id="7d6a04ae891f">Possible solutions</h2><ol start="1" local-id="501129c5a368" type="1"><li local-id="bda73f4ab9b6"><p local-id="8daeb141d8ba">Identify the faulty program: DTwain or Parametrix? Opening DTwain alone does it take the photo? If yes then the issue is with Parametrix; otherwise the problem is indeed DTwain.</p></li><li local-id="3e5902624fc1"><p local-id="26f8d2531f3f">Check the status of connections: is the camera connected to PC (check in Computer)? Is the camera visible on the server? Is it connected? If not, ask to press emergency and re-enable commands. Now is the camera visible? If not, the issue may be hardware-related (broken Camera or server) or connection-related (machine network/cable).</p></li><li local-id="83468767ad43"><p local-id="6046822bdeed">If all hardware department is functioning check the software part: first open the day's log file where the problem occurred at path C:\\DTwain\\logs\\. Each line of the log file represents a message written by the program and is structured as follows:<br><br>Message Type | Date Time | Function that wrote the message | Message<br><br>Search for messages of type ERROR, read the message to try and understand the error.</p></li><li local-id="6a6d1d9e5dad"><p local-id="a59b2a17c8e9">Some messages are generated by the CANON software library and report a message of type: 'Error generated from SDK [...additional information...]: error number'; in this case, convert the error into hexadecimal notation and compare it with the list of errors available at the following link:  <p><a href='errori_sdk_canon.html'>Canon SDK Errors</a></p><p local-id="25db7fa8aeff"></p><p local-id="425d5434a278"><strong>COMMON ISSUES WITH PHOTO NOT TAKEN:</strong></p><p local-id="ce6c77c725a8"><strong>What follows must always be done AFTER completing the standard troubleshooting procedure.</strong></p><p local-id="f71f280622a9">Listed below are some known issues and related troubleshooting procedures:</p><ul local-id="473b8d10a54b"><li local-id="d1949fd44fb0"><p local-id="24bac1d42978"><strong>EDS_ERR_INVALID_HANDLE</strong> <strong>        </strong>0x00000061L (<strong>97</strong>) : invalid camera handle pointer. Normally it is sufficient to close DTwain, press emergency stop, re-enable commands. In case of Office PC-Machine PC configuration on the machine PC use KillDTwain.exe program and once commands are re-enabled restart server using StartDTwainServer.bat program located in C:\\DTwain\\Utility\\, running it as administrator. If error persists a system reboot may be required.</p></li><li local-id="42ce7f227b16"><p local-id="38c2d8d95ce4"><strong>EDS_ERR_DEVICE_BUSY               </strong> 0x00000081L (<strong>129</strong>): device is busy by another application. There may be another DTwain open, or another program (like Canon programs installed for settings adjustments or added by the customer). Try using KillDTwain and close any applications that use the camera. Try a couple of shots; if the issue persists press emergency and re-enable commands. If it still occurs rebooting PC may be necessary."</p></li><li local-id="ff7375e1d06d"><p local-id="cbc587255584"><strong>EDS_ERR_COMM_PORT_IS_IN_USE   </strong> 0x000000C0L (<strong>192</strong>): see previous.</p></li><li local-id="fba8e9a040dd"><p local-id="5ba78f0f3df7"><strong>EDS_ERR_TAKE_PICTURE_AF_NG       </strong> 0x00008D01L (<strong>36097</strong>): autofocus remained set to automatic and overstressed on the ring causing error. Physically set autofocus to manual on camera</p></li><li local-id="2e2b9f47ecb4"><p local-id="a6c11b03c90d"><strong>Camera Download Timeout Error:</strong> First check that the camera shutter opens normally; with the shutter closed, the camera detects darkness and takes many seconds to take the picture. If necessary adjust the shutter air so it opens faster or increase the shutter waiting time in settings>camera settings>shutter wait. By default this parameter is set at 2000 milliseconds; if needed increase it."<br>In case of particularly poor ambient light or dark slab, the default wait time to receive the photo (8 seconds) may not be sufficient. In this case there are different options: if the error occurs during installation and it is known that the environmental situation is not an isolated case but represents the standard working condition for the customer, camera shooting parameters can be adjusted via a dedicated procedure by increasing ISO and/or exposure compensation to reduce shooting times. If instead the case is isolated (dark slab, broken lamp) and default settings work well in 90% of cases, wait time may be extended: Open file C:\\DTwain\\DTwainLib.dll.config with text editor (Notepad), search for following block: </p>
+<pre><code>&lt;setting name="downloadPhotoTimeOut" serializeas="String"&gt;
+&lt;value&gt;8000&lt;/value&gt;
+]]&gt;
+</code></pre>
+<p local-id="a7e69f652548">change the value 8000 (waiting time in milliseconds) to a higher one. Increase by 1000, save, close the file, try opening DTwain and take the picture. Once found a value for which the shot occurs without problems increase further by some seconds the value to provide greater safety margin</p></li></ul></li></ol><h1 local-id="13ca51b65736"><em><strong>RESTORATION BACKUPS</strong></em></h1><p local-id="07379ee5e95d">In some cases it may be useful to restore DTwain to the state it was at the end of the last successful calibration. To do this simply unzip the backup.zip file located inside the folder C:\\DTwain\\BinFiles and copy the two files contained therein into the folder C:\\DTwain\\BinFiles, making sure first to delete (or for safety move to a different location) all files present in that folder except for the backup file.</p><p local-id="ffe34883d644">At next startup the program will be in the state it was at end of last calibration performed.</p><h2 local-id="79482be899a7"><em><strong>Related articles</strong></em></h2><p local-id="50cd6a760c6b">Articles related to selected labels are displayed here. Click to edit the macro and add or modify labels.</p><!--Label="kb-troubleshooting-article"--><!--Label="dtwain"--><!--Label="fotocamera"--><!--Label="key_dtw05"-->
+                        </main>
+
+                    </div>
+
+                    <img src="images/donatoni_222.jpg">
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="freeze_during_calibration_-_rectangle_selection_phase.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="freeze_during_automaticmanual_calibration_due_to_dllnotfoundexception.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+
+
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                <a rel="prev" href="freeze_during_calibration_-_rectangle_selection_phase.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="freeze_during_automaticmanual_calibration_due_to_dllnotfoundexception.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="mermaid.min.js"></script>
+        <script src="mermaid-init.js"></script>
+        <script src="hidemenu.js"></script>
+        <script src="imagemodal.js"></script>
+        <script src="login.js"></script>
+    </div>
+
+    <!-- Modale -->
+    <div id="modal" onclick="closeModal()">
+        <img id="modal-img" src="">
+    </div>;
+
+
+</body>
+</html>

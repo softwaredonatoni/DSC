@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+<head>
+    <!-- Book generated using mdBook -->
+    <meta charset="UTF-8">
+    <title>POSTGRESQL - UNREGISTERED SERVICE - Troubleshootings EN-GB</title>
+
+    <!-- Custom HTML head -->
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="icon" href="favicon.svg">
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/chrome.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Fonts -->
+    <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+    <link rel="stylesheet" href="fonts/fonts.css">
+
+    <!-- Highlight.js Stylesheets -->
+    <link rel="stylesheet" id="highlight-css" href="highlight.css">
+    <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+    <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+    <!-- Custom theme stylesheets -->
+    <link rel="stylesheet" href="./mdbook-admonish.css">
+    <link rel="stylesheet" href="theme/custom.css">
+    <link rel="stylesheet" href="search.html">
+    <link rel="stylesheet" href="login.html">
+    <link rel="stylesheet" href="searchlogin.html">
+    <link rel="stylesheet" href="searchloginmenu.html">
+
+    <!-- Provide site root and default themes to javascript -->
+    <script>
+      const path_to_root = "";
+      const default_light_theme = "light";
+      const default_dark_theme = "navy";
+    </script>
+    <!-- Start loading toc.js asap -->
+    <script src="toc.js"></script>
+<script>(function () {
+  const SUFFIX = "#2utHhOLI7Iz0";
+
+  function buildUrl() {
+    const base = window.location.href.split("#")[0];
+    return base + SUFFIX;
+  }
+
+  function fallbackCopy(text) {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.top = "-1000px";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+
+  async function copyUrl() {
+    const url = buildUrl();
+
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(url);
+        return;
+      } catch (e) {}
+    }
+
+    fallbackCopy(url);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.getElementById("copy-link-btn");
+    if (!btn) return;
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      copyUrl();
+    });
+  });
+})();
+</script></head>
+<body>
+    <header class="header-main">
+        <div class="header-flex">
+            <div class="donatoni-flex">
+                <label class="btn hamburger-menu" id="sidebar-toggle" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                    <i id="sidebar-toggle-icon" class="fa-solid fa-bars"></i>
+                </label>
+
+                <img src="images/donatoni-logo-white.svg" alt="Donatoni Macchine">
+            </div>
+
+            <div class="donatoni-flex action-header-buttons">
+                <div id="search-wrapper" class="search-wrapper hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults"></ul>
+                    </div>
+                </div>
+                <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+
+                <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
+                    <i class="fa-solid fa-print"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div id="body-container">
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem("mdbook-theme");
+                let sidebar = localStorage.getItem("mdbook-sidebar");
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-theme",
+                        theme.slice(1, theme.length - 1)
+                    );
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-sidebar",
+                        sidebar.slice(1, sidebar.length - 1)
+                    );
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
+                .matches
+                ? default_dark_theme
+                : default_light_theme;
+            let theme;
+            try {
+                theme = localStorage.getItem("mdbook-theme");
+            } catch (e) { }
+            if (theme === null || theme === undefined) {
+                theme = default_theme;
+            }
+            const html = document.documentElement;
+            html.classList.remove("light");
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try {
+                    sidebar = localStorage.getItem('mdbook-sidebar');
+                } catch (e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document
+                        .getElementById("sidebar-toggle")
+                        .setAttribute("aria-expanded", sidebar === "visible");
+                    document
+                        .getElementById("sidebar")
+                        .setAttribute("aria-hidden", sidebar !== "visible");
+                    Array.from(document.querySelectorAll("#sidebar a")).forEach(
+                        function (link) {
+                            link.setAttribute("tabIndex", sidebar === "visible" ? 0 : -1);
+                        }
+                    );
+                </script>
+
+                <div id="content" class="content">
+
+                    <div>
+
+                        <img src="images/donatoni_111.jpg">
+
+                        <main style="margin-left: 20px;">
+                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="postgresql---unregistered-service" style="margin:0;"><a class="header" href="#postgresql---unregistered-service">POSTGRESQL - UNREGISTERED SERVICE</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="POSTGRESQL - UNREGISTERED SERVICE"--><p local-id="dbeeb461-05c6-48b3-97b1-66b90774005d">On Windows this behavior usually indicates: (a) installation performed <strong>without registering the service</strong> ('not as service' option), (b) <strong>service registration error</strong> during setup, or (c) viewing 64-bit vs. 32-bit services / installed in a different context (less common). Direct diagnosis and recovery procedure.</p><h2 local-id="7b9bed34-db84-4ec3-a8d6-e74b38fdd2c7">Check if the service actually exists (even if you don't see it at first glance)</h2><p local-id="8d895620-145a-414d-b101-ecda51458c33">Open <strong>Command Prompt as Admin</strong> and run:</p>
+<pre><code>sc query type= service state= all | findstr /I postgres
+]]&gt;
+</code></pre>
+<p local-id="db322413-32a5-4c6e-9190-a982fed0fdf9">Service not registered.</p><p local-id="a2738ff9-470b-4374-8321-1a2ffdb22c56">Check also with the typical name:</p><ul local-id="1d6be186-2dfe-4be9-bd56-a61b364018c1"><li local-id="414b37ef-112a-4c43-a953-b7616ed7b884"><p local-id="b7ac8fe3-9436-4353-be6b-7849fd852852">postgresql-x64-9.6</p></li><li local-id="ee44f6ef-7b00-4a70-8b8d-c37de11d1b87"><p local-id="e39aeb81-9e74-4b12-94cf-9e5a6adb788f">postgresql-9.6</p></li><li local-id="3e000afa-c6f2-4e49-aa25-d7a2451cfb01"><p local-id="b19be4df-6501-4506-8285-5dc36f54a0d6">or a custom name chosen during installation</p></li></ul>
+<pre><code>sc query postgresql-x64-9.6
+]]&gt;
+</code></pre>
+<h2 local-id="6adf16e4-c6c4-48ee-a278-75d62ffa94e1">Check that the cluster (data directory) exists</h2><p local-id="bdff7e02-8f61-4c0c-b691-dadf5d9ac689">Default it is something like:</p><ul local-id="28a62465-362b-4b06-95ff-c8acd14eb026"><li local-id="5d4725e2-01e8-428a-885c-84c13e5329fa"><p local-id="e52241ba-c71b-4db7-8b89-097e4417c9ee">C:\\Program Files\\PostgreSQL\\9.6\\data</p></li></ul><p local-id="30c25bfb-6924-4fa2-ad60-37e80fd07de3">Check that it contains postgresql.conf, pg_hba.conf, base\\, global\\.</p><p local-id="00c2535a-3761-4823-9fab-7414ee688485">If folder <code>data</code> is empty or missing, installer may have completed the binaries but not initialized the cluster.</p><h2 local-id="0a9659a8-4b28-40b2-80fe-9e0b50932a9b">Record manually the service (most frequent practical solution)</h2><p local-id="7315c923-27e9-4d4e-85f5-81c56bd44e6b">Go to the bin folder:</p><ul local-id="1800089b-80f5-4ce8-b705-420e57f4c03f"><li local-id="bd21f1d0-5618-4c89-b059-89009c9ec279"><p local-id="52a03a39-e727-46c7-9b63-1751ee7b88fa"><code>C:\\Programmi\\PostgreSQL\\9.6\\bin</code></p></li></ul><p local-id="1b8a2cbf-cc95-4789-9511-2ed65ffdf189">Run as Administrator (always CMD Admin), adjusting path and service name:</p>
+<pre><code>cd "C:\Program Files\PostgreSQL\9.6\bin"
+pg_ctl register -N "postgresql-x64-9.6" -D "C:\Program Files\PostgreSQL\9.6\data"
+]]&gt;
+</code></pre>
+<p local-id="7e131897-c7e4-4563-94ce-24a5452e6eef">Then enable it:</p>
+<pre><code>net start postgresql-x64-9.6
+]]&gt;
+</code></pre>
+<p local-id="05c8f7ef-46d9-416e-b688-068f8065e9ce">If it starts, you'll see it in <code>services.msc</code>.</p><h2 local-id="05535965-5434-445f-84a7-19d157bb2b2b">4) If the cluster is not initialized, initialize it and then record</h2><p local-id="e68722d5-71b6-4b88-b5e2-9c1321a04a0d">Warning: select a data directory (e.g., <code>C:\\PostgreSQL\\data96</code>) and a user with permissions.</p><p local-id="57376fbf-44e9-409b-82ab-8945bb0ef39a">Example:</p>
+<pre><code>cd "C:\Program Files\PostgreSQL\9.6\bin"
+initdb -D "C:\PostgreSQL\data96" -U postgres -A md5 -E UTF8
+pg_ctl register -N "postgresql-x64-9.6" -D "C:\PostgreSQL\data96"
+net start postgresql-x64-9.6
+]]&gt;
+</code></pre>
+<h2 local-id="28b03cb7-e804-4673-ad76-2cab952aa02d">Typical causes when registration fails</h2><h3 local-id="d024a732-ccf0-4c95-882e-2baca6f9ffd6">Missing permissions / UAC</h3><p local-id="ba8c21df-551d-4ce8-b747-2cb150f145ad">Run registration as administrator. Launch all from <strong>Admin CMD</strong>.</p><h3 local-id="03c6ab28-08f4-4a0c-8150-6204c181a49a">Service username or incorrect password during setup</h3><p local-id="ce31f66f-207a-4a7d-940d-afdf468745cf">If during installation you selected a specific Windows account for the service and credentials are not valid, the service may fail to create or create but not start. In that case it is advisable:</p><ul local-id="f8bacf2d-1aff-4bc4-bac7-35fcc6e377ce"><li local-id="958679f7-e935-4721-8fc6-8217216160a9"><p local-id="40e98bcc-9fb7-4a29-96af-5476e920c3f7">uninstall PostgreSQL</p></li><li local-id="e8f7b871-a85a-4892-b1f6-1973d8ccdbbb"><p local-id="472d52b4-b805-443d-b745-8a6579a474fd">Delete the <code>data</code> directory (if not needed)</p></li><li local-id="2dbb161c-a52e-4115-b315-1a15065aa530"><p local-id="30a669b3-0db3-4529-b3de-439e842ff198">Reinstall choosing '<strong>Local System</strong>' or first creating user and checking data directory access/permissions</p></li></ul><h3 local-id="ae8a6197-963f-427d-b06e-43ff2814cccf">Antivirus/EDR blocks service creation</h3><p local-id="71632c76-7660-440a-94ec-33c3d359b82a">Check events in <strong>Event Viewer</strong>:</p><ul local-id="df7a1aae-d6a6-46e2-b54d-f9b42c44d481"><li local-id="8ec339f7-c050-4227-a997-e5c7fbdff603"><p local-id="1ea18b50-fcac-41fa-91a1-3bbda298e9c4">Windows Logs -> Application</p></li><li local-id="51175fc8-cf1e-4f03-a60d-82f4b2c43260"><p local-id="13ba0be4-6694-479c-8819-70b6dc4d711c">Windows Logs -> System<br>filter by postgres, pg_ctl, MsiInstaller, Service Control Manager.</p></li></ul><h2 local-id="8344dbc3-05b4-4235-9565-5d4ce58a2e2c">Quick final check</h2><p local-id="3a09c57a-99d9-474a-8b6f-9f1cf83bb46b">After startup:</p>
+<pre><code>sc query postgresql-x64-9.6
+]]&gt;
+</code></pre>
+<p local-id="2598b2e3-be93-4851-953d-ecf7509ec598">and test port (default 5432):</p>
+<pre><code>netstat -ano | findstr :5432
+]]&gt;
+</code></pre>
+<!--Label="postgresql_servizio_non_registrato"-->
+                        </main>
+
+                    </div>
+
+                    <img src="images/donatoni_222.jpg">
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="postgresql_-_postgresql_service_starts_and_stops_immediately.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="parametrix_fails_to_launch_without_displaying_errors.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+
+
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                <a rel="prev" href="postgresql_-_postgresql_service_starts_and_stops_immediately.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="parametrix_fails_to_launch_without_displaying_errors.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="mermaid.min.js"></script>
+        <script src="mermaid-init.js"></script>
+        <script src="hidemenu.js"></script>
+        <script src="imagemodal.js"></script>
+        <script src="login.js"></script>
+    </div>
+
+    <!-- Modale -->
+    <div id="modal" onclick="closeModal()">
+        <img id="modal-img" src="">
+    </div>;
+
+
+</body>
+</html>
