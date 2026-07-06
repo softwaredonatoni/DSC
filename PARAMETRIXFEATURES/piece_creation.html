@@ -2,40 +2,39 @@
 <html lang="en" class="light sidebar-visible" dir="ltr">
 <head>
     <!-- Book generated using mdBook -->
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8">
     <title>PIECE CREATION - PARAMETRIX FEATURES</title>
 
     <!-- Custom HTML head -->
 
-    <meta name="description" content="" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#ffffff" />
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
 
-    <link rel="icon" href="favicon.svg" />
-    <link rel="shortcut icon" href="favicon.png" />
-    <link rel="stylesheet" href="css/variables.css" />
-    <link rel="stylesheet" href="css/general.css" />
-    <link rel="stylesheet" href="css/chrome.css" />
-    <link rel="stylesheet" href="css/print.css" media="print" />
-    <link rel="stylesheet" href="css/custom.css" />
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="icon" href="favicon.svg">
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/chrome.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <!-- Fonts -->
-    <link rel="stylesheet" href="FontAwesome/css/font-awesome.css" />
-    <link rel="stylesheet" href="fonts/fonts.css" />
+    <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+    <link rel="stylesheet" href="fonts/fonts.css">
 
     <!-- Highlight.js Stylesheets -->
-    <link rel="stylesheet" id="highlight-css" href="highlight.css" />
-    <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css" />
-    <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css" />
+    <link rel="stylesheet" id="highlight-css" href="highlight.css">
+    <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+    <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
 
     <!-- Custom theme stylesheets -->
-    <link rel="stylesheet" href="./mdbook-admonish.css" />
-    <link rel="stylesheet" href="theme/custom.css" />
-    <link rel="stylesheet" href="search.html" />
-    <link rel="stylesheet" href="login.html" />
-    <link rel="stylesheet" href="searchlogin.html" />
-    <link rel="stylesheet" href="searchloginmenu.html" />
+    <link rel="stylesheet" href="./mdbook-admonish.css">
+    <link rel="stylesheet" href="theme/custom.css">
+    <link rel="stylesheet" href="search.html">
+    <link rel="stylesheet" href="login.html">
+    <link rel="stylesheet" href="searchlogin.html">
+    <link rel="stylesheet" href="searchloginmenu.html">
 
     <!-- Provide site root and default themes to javascript -->
     <script>
@@ -45,60 +44,82 @@
     </script>
     <!-- Start loading toc.js asap -->
     <script src="toc.js"></script>
-</head>
+<script>(function () {
+  const SUFFIX = "#2utHhOLI7Iz0";
+
+  function buildUrl() {
+    const base = window.location.href.split("#")[0];
+    return base + SUFFIX;
+  }
+
+  function fallbackCopy(text) {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.top = "-1000px";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+
+  async function copyUrl() {
+    const url = buildUrl();
+
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(url);
+        return;
+      } catch (e) {}
+    }
+
+    fallbackCopy(url);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.getElementById("copy-link-btn");
+    if (!btn) return;
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      copyUrl();
+    });
+  });
+})();
+</script></head>
 <body>
     <header class="header-main">
         <div class="header-flex">
             <div class="donatoni-flex">
-                <label class="btn hamburger-menu"
-                       id="sidebar-toggle"
-                       for="sidebar-toggle-anchor"
-                       title="Toggle Table of Contents"
-                       aria-label="Toggle Table of Contents"
-                       aria-controls="sidebar">
+                <label class="btn hamburger-menu" id="sidebar-toggle" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
                     <i id="sidebar-toggle-icon" class="fa-solid fa-bars"></i>
                 </label>
 
-                <img src="images/donatoni-logo-white.svg" alt="Donatoni Macchine" />
+                <img src="images/donatoni-logo-white.svg" alt="Donatoni Macchine">
             </div>
 
             <div class="donatoni-flex action-header-buttons">
                 <div id="search-wrapper" class="search-wrapper hidden">
                     <form id="searchbar-outer" class="searchbar-outer">
-                        <input type="search"
-                               id="searchbar"
-                               name="searchbar"
-                               placeholder="Search this book ..."
-                               aria-controls="searchresults-outer"
-                               aria-describedby="searchresults-header" />
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
                     </form>
                     <div id="searchresults-outer" class="searchresults-outer hidden">
                         <div id="searchresults-header" class="searchresults-header"></div>
                         <ul id="searchresults"></ul>
                     </div>
                 </div>
-                <button class="btn btn-sm"
-                        id="search-toggle"
-                        type="button"
-                        title="Search. (Shortkey: s)"
-                        aria-label="Toggle Searchbar"
-                        aria-expanded="false"
-                        aria-keyshortcuts="S"
-                        aria-controls="searchbar">
+                <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </button>
 
-                <button class="btn btn-sm me-2"
-                        onclick="window.location.href='print.html'"
-                        title="Print this book"
-                        aria-label="Print this book">
+                <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
                     <i class="fa-solid fa-print"></i>
                 </button>
             </div>
         </div>
     </header>
     <div id="body-container">
-        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden" />
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
         <script>
             try {
@@ -191,16 +212,16 @@
 
                     <div>
 
-                        <img src="images/donatoni_111.jpg" />
+                        <img src="images/donatoni_111.jpg">
 
                         <main style="margin-left: 20px;">
-                            <h1 id="piece-creation"><a class="header" href="#piece-creation">PIECE CREATION</a></h1><!--Page="PIECE CREATION"--><p local-id="6998be99-54c2-4261-9324-d08fe39817cf">Creazione dei pezzi in Parametrix, rettangoli, da dxf, da csv o da figure parametriche</p><div class="TextAlignCenter"><img src="attachments/piece_creation/PIECE_CREATION_8.png" alt="PIECE_CREATION_8.png" width="760" onclick="showModal(this.src)"></div><p>
+                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="piece-creation" style="margin:0;"><a class="header" href="#piece-creation">PIECE CREATION</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="PIECE CREATION"--><p local-id="6998be99-54c2-4261-9324-d08fe39817cf">Creazione dei pezzi in Parametrix, rettangoli, da dxf, da csv o da figure parametriche</p><div class="TextAlignCenter"><img src="attachments/piece_creation/PIECE_CREATION_8.png" alt="PIECE_CREATION_8.png" width="760" onclick="showModal(this.src)"></div><p>
 </p><p local-id="bafde19f-0244-449f-863c-fa0a3c7351e4"></p><h1 local-id="1b211812-5c96-4742-a20b-a34abd28e448">Importa DXF</h1><div class="TextAlignCenter"><video controls src="attachments/piece_creation/PIECE_CREATION_2_R.mp4" width="760" aria-label="attachments/piece_creation/PIECE_CREATION_2_R.mp4"></video></div><p local-id="f9ea053b-3865-436b-8a59-92366446e54a"></p><h1 local-id="d2bffe81-9ce4-4c14-ad2e-d541215a3e5e">Rettangoli</h1><div class="TextAlignCenter"><video controls src="attachments/piece_creation/PIECE_CREATION_1_R.mp4" width="760" aria-label="attachments/piece_creation/PIECE_CREATION_1_R.mp4"></video></div><p local-id="2fec5b70-3e46-4687-94df-658e01110b20"></p><h1 local-id="13ee3b0d-3f53-4004-8467-2bd1c67feb9a">Figure parametriche</h1><div class="TextAlignCenter"><video controls src="attachments/piece_creation/PIECE_CREATION_3_R.mp4" width="760" aria-label="attachments/piece_creation/PIECE_CREATION_3_R.mp4"></video></div><p local-id="722f004e-86df-4ba1-86dc-ec7c483e4a9d"></p><h1 local-id="c7877990-4ffd-4427-9bb4-27f472672bf5">Importazione CSV</h1><div class="TextAlignCenter"><video controls src="attachments/piece_creation/PIECE_CREATION_4_R.mp4" width="760" aria-label="attachments/piece_creation/PIECE_CREATION_4_R.mp4"></video></div><p local-id="9a433bbf-a861-42d5-8acb-1c25bfb8a8da"></p><h1 local-id="36195c79-ee00-46ed-89da-8d7e11893c79">Cronologia</h1><div class="TextAlignCenter"><video controls src="attachments/piece_creation/PIECE_CREATION_5_R.mp4" width="760" aria-label="attachments/piece_creation/PIECE_CREATION_5_R.mp4"></video></div><p local-id="f2637f0f-bed0-4afd-97b3-a2370a374526"></p><h1 local-id="ce5c2fa1-056e-4eb1-9f12-ad64be6e7b55">Preferiti</h1><div class="TextAlignCenter"><video controls src="attachments/piece_creation/PIECE_CREATION_6_R.mp4" width="760" aria-label="attachments/piece_creation/PIECE_CREATION_6_R.mp4"></video></div><p local-id="32286344-4b26-499c-8be3-5326e79b21ef"></p><h1 local-id="2c1c6e14-b08f-46f0-970b-30d6d9bef953">Pezzi commerciali</h1><div class="TextAlignCenter"><video controls src="attachments/piece_creation/PIECE_CREATION_7_R.mp4" width="760" aria-label="attachments/piece_creation/PIECE_CREATION_7_R.mp4"></video></div><p local-id="73af29f3-cb59-49ef-9621-f5212729a734"></p><!--Label="piece_creation"-->
                         </main>
 
                     </div>
 
-                    <img src="images/donatoni_222.jpg" />
+                    <img src="images/donatoni_222.jpg">
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
