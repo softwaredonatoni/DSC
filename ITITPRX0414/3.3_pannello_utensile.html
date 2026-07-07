@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+<head>
+    <!-- Book generated using mdBook -->
+    <meta charset="UTF-8">
+    <title>3.3 PANNELLO UTENSILE - IT-IT PARAMETRIX 4.14</title>
+
+    <!-- Custom HTML head -->
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="icon" href="favicon.svg">
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/chrome.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Fonts -->
+    <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+    <link rel="stylesheet" href="fonts/fonts.css">
+
+    <!-- Highlight.js Stylesheets -->
+    <link rel="stylesheet" id="highlight-css" href="highlight.css">
+    <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+    <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+    <!-- Custom theme stylesheets -->
+    <link rel="stylesheet" href="./mdbook-admonish.css">
+    <link rel="stylesheet" href="theme/custom.css">
+    <link rel="stylesheet" href="search.html">
+    <link rel="stylesheet" href="login.html">
+    <link rel="stylesheet" href="searchlogin.html">
+    <link rel="stylesheet" href="searchloginmenu.html">
+
+    <!-- Provide site root and default themes to javascript -->
+    <script>
+      const path_to_root = "";
+      const default_light_theme = "light";
+      const default_dark_theme = "navy";
+    </script>
+    <!-- Start loading toc.js asap -->
+    <script src="toc.js"></script>
+<script>(function () {
+  const SUFFIX = "#2utHhOLI7Iz0";
+
+  function buildUrl() {
+    const base = window.location.href.split("#")[0];
+    return base + SUFFIX;
+  }
+
+  function fallbackCopy(text) {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.top = "-1000px";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+
+  async function copyUrl() {
+    const url = buildUrl();
+
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(url);
+        return;
+      } catch (e) {}
+    }
+
+    fallbackCopy(url);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.getElementById("copy-link-btn");
+    if (!btn) return;
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      copyUrl();
+    });
+  });
+})();
+</script></head>
+<body>
+    <header class="header-main">
+        <div class="header-flex">
+            <div class="donatoni-flex">
+                <label class="btn hamburger-menu" id="sidebar-toggle" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                    <i id="sidebar-toggle-icon" class="fa-solid fa-bars"></i>
+                </label>
+
+                <img src="images/donatoni-logo-white.svg" alt="Donatoni Macchine">
+            </div>
+
+            <div class="donatoni-flex action-header-buttons">
+                <div id="search-wrapper" class="search-wrapper hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults"></ul>
+                    </div>
+                </div>
+                <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+
+                <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
+                    <i class="fa-solid fa-print"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div id="body-container">
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem("mdbook-theme");
+                let sidebar = localStorage.getItem("mdbook-sidebar");
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-theme",
+                        theme.slice(1, theme.length - 1)
+                    );
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-sidebar",
+                        sidebar.slice(1, sidebar.length - 1)
+                    );
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
+                .matches
+                ? default_dark_theme
+                : default_light_theme;
+            let theme;
+            try {
+                theme = localStorage.getItem("mdbook-theme");
+            } catch (e) { }
+            if (theme === null || theme === undefined) {
+                theme = default_theme;
+            }
+            const html = document.documentElement;
+            html.classList.remove("light");
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try {
+                    sidebar = localStorage.getItem('mdbook-sidebar');
+                } catch (e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document
+                        .getElementById("sidebar-toggle")
+                        .setAttribute("aria-expanded", sidebar === "visible");
+                    document
+                        .getElementById("sidebar")
+                        .setAttribute("aria-hidden", sidebar !== "visible");
+                    Array.from(document.querySelectorAll("#sidebar a")).forEach(
+                        function (link) {
+                            link.setAttribute("tabIndex", sidebar === "visible" ? 0 : -1);
+                        }
+                    );
+                </script>
+
+                <div id="content" class="content">
+
+                    <div>
+
+                        <img src="images/donatoni_111.jpg">
+
+                        <main style="margin-left: 20px;">
+                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="33-pannello-utensile" style="margin:0;"><a class="header" href="#33-pannello-utensile">3.3 PANNELLO UTENSILE</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="3.3 PANNELLO UTENSILE"--><p local-id="5ff9a4809257">La seguente schermata che consente all’operatore di gestire gli utensili della macchina.</p><div class="TextAlignCenter"><img src="attachments/3.3_pannello_utensile/11.00.png" alt="11.00.png" width="600" onclick="showModal(this.src)"></div><p local-id="6005a7234128"></p><p local-id="01e92aa352e7"></p><p>
+</p><p local-id="521c8fcb2454"></p><h1 local-id="ef7c7c38f990">Selezione tipologia utensile</h1><p local-id="d3285a669694">Ogni tipologia di utensile ha un’utensile selezionato, come visibile nella seguente immagine di esempio:</p><div class="TextAlignCenter"><img src="attachments/3.3_pannello_utensile/11.03.png" alt="11.03.png" width="671" onclick="showModal(this.src)"></div><table class="my-table2" data-table-width="1313" data-layout="align-start" ac:local-id="51044b5d-a49c-4213-be7e-daf60f20b7f9"><colgroup><col style="width: 196.0px;"><col style="width: 1117.0px;"></colgroup><tbody><tr ac:local-id="dc927bb23569"><td ac:local-id="45bb04dbc2ab"><div class="TextAlignCenter"><img src="attachments/3.3_pannello_utensile/10.02.png" alt="10.02.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="c72ab47edccc"><p local-id="2049ae499079"><strong>Disco</strong><br>Elenco dei dischi che possono essere montati sul mandrino principale della macchina.<br>”Disco 400” con diametro 400.0 mm è attualmente installato.</p></td></tr><tr ac:local-id="2dfb5639fd41"><td ac:local-id="16603fe7d9f8"><div class="TextAlignCenter"><img src="attachments/3.3_pannello_utensile/10.00.png" alt="10.00.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="b34c2d94d579"><p local-id="525d6cf3558d"><strong>Tools</strong><br>Elenco degli utensili (frese e foretti) che possono essere montati sul mandrino secondario della macchina.<br>“Fresa 26”<strong> </strong>con diametro 26.0 mm è attualmente installata.</p></td></tr></tbody></table><p local-id="80b9fbdef577">Lo sfondo della tipologia “Disco” appare di colore blu chiaro perché è la categoria di utensili attualmente selezionata.<br>È sufficiente cliccare il rettangolo della tipologia utensile desiderata, per aggiornare la sottostante lista degli utensili con quelli a disposizione per quella tipologia.<br>Come conseguenza del cambio di tipologia utensile, verrà automaticamente selezionato come mostrato nella precedente immagine di esempio.</p><p local-id="e807b21a0a35"></p><p local-id="7c572d5a67e4"></p><h1 local-id="a4bac2aa839e">Lista utensili presenti per tipologia di utensile selezionata</h1><p local-id="1b307bbc1baf">La lista utensili riportata come esempio nell’immagine successiva dispone di quattro dischi: “Disco 400“, “Disco 625“, “Disco 2755“ e “Disco 325“.  <br>Il primo disco della lista è quello attualmente montato in macchina, ciò è evidenziato dallo sfondo verde chiaro e dalla spunta verde.<br>Nella sezione di destra, vengono mostrati i parametri relativi all’utensile selezionato.</p><div class="TextAlignCenter"><img src="attachments/3.3_pannello_utensile/2._ListaUtensiliPresentiPerTipologiaScelta_D-20250828-112033.png" alt="2._ListaUtensiliPresentiPerTipologiaScelta_D-20250828-112033.png" width="400" onclick="showModal(this.src)"></div><p local-id="5e548eacfdbd"></p><h2 local-id="ff1fa35ff9ed">Elementi dell’elenco</h2><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="cff33aec-3ddc-48e2-b577-b6566bac1280"><colgroup><col style="width: 268.0px;"><col style="width: 1527.0px;"></colgroup><tbody><tr ac:local-id="d1856761ca54"><td ac:local-id="28b18d26d05c"><div class="TextAlignCenter"><img src="attachments/3.3_pannello_utensile/6.01.png" alt="6.01.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="fb06a7461107"><p local-id="cd45d758cad1"><strong>Tipologia utensile</strong><br>Raffigura la tipologia dell’utensile (disco, fresa, foretto).</p></td></tr><tr ac:local-id="2d50d75e1079"><td ac:local-id="02a790f8eb6c"><div class="TextAlignCenter"><img src="attachments/3.3_pannello_utensile/7.00.png" alt="7.00.png" width="93" onclick="showModal(this.src)"></div></td><td ac:local-id="4d879dc6b308"><p local-id="72f2d7839cde"><strong>Informazioni principali utensile</strong><br>Vengono visualizzate le informazioni principali dell’utensile: nome (in alto) e diametro (in basso).</p></td></tr><tr ac:local-id="c74507e19e52"><td ac:local-id="c2bac9946c6d"><div class="TextAlignCenter"><img src="attachments/3.3_pannello_utensile/0.08.png" alt="0.08.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="fc1a1a3c03b7"><p local-id="afd741b7347d"><strong>Forza utensile</strong><br>Permette all’operatore di indicare al programma quale utensile è attualmente montato in macchina.<br>Viene utilizzato nel caso in cui sia stato cambiato manualmente.</p></td></tr></tbody></table><p local-id="1d5514900a4e"></p><h2 local-id="85f4e4bae58f">Filtro di ricerca</h2><p local-id="5ab427ec6299">Nella parte inferiore della lista utensili è presente una barra di ricerca composta dai seguenti elementi:</p><div class="TextAlignCenter"><img src="attachments/3.3_pannello_utensile/7.01.png" alt="7.01.png" width="591" onclick="showModal(this.src)"></div><p local-id="dde660ac0cdb">Gli elementi che compongono il filtro di ricerca sono illustrati di seguito:</p><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="056d9314-4973-4182-a892-20c9fdcf6d09"><colgroup><col style="width: 269.0px;"><col style="width: 1527.0px;"></colgroup><tbody><tr ac:local-id="8f14dd3a58f0"><td ac:local-id="e62de681bc39"><div class="TextAlignCenter"><img src="attachments/3.3_pannello_utensile/Icona_cercaInfo_-_Copia-20250307-155417.png" alt="Icona_cercaInfo_-_Copia-20250307-155417.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="ae0816556cf6"><p local-id="50595e40259e"><strong>Pulsante ricerca per nome utensile</strong><br>Se questo pulsante viene premuto, verrà attivata la modalità di ricerca per nome utensile e verrà disabilitato il pulsante di ricerca per diametro.</p></td></tr><tr ac:local-id="c6d8c97f45a3"><td ac:local-id="d062eb2b79c1"><div class="TextAlignCenter"><img src="attachments/3.3_pannello_utensile/Icona_cercaInfo_-_Copia_(2)-20250307-155302.png" alt="Icona_cercaInfo_-_Copia_(2)-20250307-155302.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="5f7ef8e959a2"><p local-id="b349785f309f"><strong>Pulsante ricerca per diametro utensile</strong><br>Se questo pulsante viene premuto, verrà attivata la modalità di ricerca per diametro e verrà disabilitato il pulsante di ricerca per nome utensile</p></td></tr><tr ac:local-id="4df7ff568b95"><td ac:local-id="6bf1ebc67cc5"><div class="TextAlignCenter"><img src="attachments/3.3_pannello_utensile/pulsanteFiltro.png" alt="pulsanteFiltro.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="b4ecef69e440"><p local-id="703347421ae2"><strong>Pulsante per annullare il filtro applicato</strong><br>Diventa selezionabile soltanto se è stato precedentemente applicato un filtro, la sua pressione svuota la barra di ricerca del testo e ripristina la visuale con tutti gli utensili della tipologia attualmente selezionata.</p></td></tr></tbody></table><p local-id="41121e6d00fc"></p><h2 local-id="68d1f9b2bed3"> Barra inferiore</h2><p local-id="0a007dc6beaf">La barra inferiore della lista utensili offre funzionalità per aggiungere e rimuovere utensili dall’elenco.</p><div class="TextAlignCenter"><img src="attachments/3.3_pannello_utensile/7.02.png" alt="7.02.png" width="233" onclick="showModal(this.src)"></div><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="56898574-a9c4-4420-a1a5-944189e3e89e"><colgroup><col style="width: 268.0px;"><col style="width: 1530.0px;"></colgroup><tbody><tr ac:local-id="220cd7b2dd53"><td ac:local-id="a01d2f32eef3"><div class="TextAlignCenter"><img src="attachments/3.3_pannello_utensile/pulsantePiu.png" alt="pulsantePiu.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="3e3669b76edb"><p local-id="e61cef82ddad"><strong>Aggiungi utensile</strong><br>Con questo pulsante è possibile creare nuovi utensili, verrà aperta una finestra dedicata illustrata di seguito.</p></td></tr><tr ac:local-id="f55e77436354"><td ac:local-id="b1b9a0d10576"><div class="TextAlignCenter"><img src="attachments/3.3_pannello_utensile/pulsanteMenoEMenoDisattivo.png" alt="pulsanteMenoEMenoDisattivo.png" width="120" onclick="showModal(this.src)"></div></td><td ac:local-id="d0d89d3f22df"><p local-id="551fdfb4f77d"><strong>Elimina utensile</strong><br>Con questo pulsante è possibile eliminare l’utensile selezionato.</p>
+<div id="admonition-nota" class="admonition admonish-info" role="note" aria-labelledby="admonition-nota-title">
+<div class="admonition-title">
+<div id="admonition-nota-title">
+<p>NOTA</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-nota"></a>
+</div>
+<div>
+<p>Non è possibile rimuovere dall’elenco l’utensile attualmente montato in macchina (indicato con la spunta verde).</p>
+</div>
+</div>
+</td></tr><tr ac:local-id="880727bc0baf"><td ac:local-id="57c76593926e"><div class="TextAlignCenter"><img src="attachments/3.3_pannello_utensile/pulsanteCopiaUtensile.png" alt="pulsanteCopiaUtensile.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="aa759e3e3af1"><p local-id="6b41df71064f"><strong>Duplica utensile</strong><br>Permette di creare un nuovo utensile duplicando i parametri di quello attualmente selezionato.<br>Il nuovo utensile avrà lo stesso nome del precedente seguito dalla parola “Copy“.</p></td></tr></tbody></table><p local-id="0d93de9985bd"></p><h3 local-id="5791474dba1a">Aggiungi utensile</h3><p local-id="d09817f271df">Tramite questa finestra viene svolta la procedura di creazione di un nuovo utensile. I parametri richiesti cambiano in base alla tipologia dell’utensile che si desidera creare.<br>La seguente immagine mostra la finestra di creazione di un nuovo utensile per tipologia disponibile:</p><table class="my-table2" data-table-width="1314" data-layout="align-start" ac:local-id="ce43cc3a-9b74-49a9-a497-29dc25d59006"><colgroup><col style="width: 438.0px;"><col style="width: 438.0px;"><col style="width: 438.0px;"></colgroup><tbody><tr ac:local-id="be176494cd99"><td ac:local-id="1c9f2beabebc"><p local-id="834eb3a52c57" style="text-align: center;"><strong>Disco</strong></p></td><td ac:local-id="d36ada3031cc"><p local-id="30f525456e84" style="text-align: center;"><strong>Fresa</strong></p></td><td ac:local-id="dcc4460b0248"><p local-id="3f8f5050b826" style="text-align: center;"><strong>Foretto</strong></p></td></tr><tr ac:local-id="0e18d53afb20"><td ac:local-id="42f61c798770"><div class="TextAlignCenter"><img src="attachments/3.3_pannello_utensile/6.01.png" alt="6.01.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="da938f5407f4"><div class="TextAlignCenter"><img src="attachments/3.3_pannello_utensile/6.00.png" alt="6.00.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="134c058538ad"><div class="TextAlignCenter"><img src="attachments/3.3_pannello_utensile/6.02.png" alt="6.02.png" width="60" onclick="showModal(this.src)"></div></td></tr><tr ac:local-id="cd1647f58bc3"><td ac:local-id="b91706822518"><div class="TextAlignCenter"><img src="attachments/3.3_pannello_utensile/6.03.png" alt="6.03.png" width="234" onclick="showModal(this.src)"></div></td><td ac:local-id="d507a40a101f"><div class="TextAlignCenter"><img src="attachments/3.3_pannello_utensile/6.04.png" alt="6.04.png" width="234" onclick="showModal(this.src)"></div></td><td ac:local-id="b0a41696ebb7"><div class="TextAlignCenter"><img src="attachments/3.3_pannello_utensile/6.05.png" alt="6.05.png" width="234" onclick="showModal(this.src)"></div></td></tr></tbody></table><p local-id="c326974d9020"></p><p local-id="2f7fe9eb8b09"></p><h1 local-id="bc795099f8d8">Lista parametri per utensile selezionato</h1><p local-id="2739c960945f">In questa lista sono riportati tutti i parametri relativi all’utensile attualmente selezionato.<br>Ogni variazione della selezione dell’utensile attualmente selezionato permetterà all’operatore di visualizzare i valori aggiornati per l’utensile desiderato e di apportare eventualmente modifiche a ogni valore.<br>La lista dei parametri e i relativi valori verranno inoltre aggiornati quando viene selezionata una diversa tipologia di utensile (Disco / Tools), mostrando i valori dell’utensile selezionato per ciascuna categoria.</p><p local-id="9d9ad0f6f85e"></p><h2 local-id="acb322f40249">Parametri disco</h2><p local-id="3ef2ba4048bd">Di seguito vengono mostrati i parametri associati ad un disco.</p><div class="TextAlignCenter"><img src="attachments/3.3_pannello_utensile/8_disco-20250828-112311.png" alt="8_disco-20250828-112311.png" width="400" onclick="showModal(this.src)"></div><table class="my-table2" data-table-width="1312" data-layout="align-start" ac:local-id="e209c6ef-0dda-4a2b-8694-91d670f0a76b"><colgroup><col style="width: 198.0px;"><col style="width: 1114.0px;"></colgroup><tbody><tr ac:local-id="8af5dd41fc30"><td ac:local-id="2bcd00292c9a"><div class="TextAlignCenter"><img src="attachments/3.3_pannello_utensile/0.04.png" alt="0.04.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="a8228d212078"><p local-id="0a010d997fae"><strong>Nome</strong><br>Nome dell’utensile a cui sono associati i parametri attualmente visibili.</p></td></tr><tr ac:local-id="ab41fbea7797"><td ac:local-id="45040bb7a0ff"><div class="TextAlignCenter"><img src="attachments/3.3_pannello_utensile/0.03.png" alt="0.03.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="34de71de1e91"><p local-id="5b8a0a639313"><strong>Diametro</strong><br>Misura del diametro massimo dell’utensile.</p></td></tr><tr ac:local-id="0c68aebf9fa7"><td ac:local-id="a7c5fd15b274"><div class="TextAlignCenter"><img src="attachments/3.3_pannello_utensile/0.05.png" alt="0.05.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="d342d615b55c"><p local-id="6c1b8b518bca"><strong>Spessore disco</strong><br>Misura dello spessore del disco, da misurare sui denti.</p></td></tr><tr ac:local-id="d43b409b3c81"><td ac:local-id="445a0cfd1683"><div class="TextAlignCenter"><img src="attachments/3.3_pannello_utensile/0.00.png" alt="0.00.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="5ec2ac06a56d"><p local-id="f8097d43be9a"><strong>CRF - Centro Rotazione Flangia</strong><br>Distanza del filo interno del dente del disco dall’asse di rotazione C.</p></td></tr><tr ac:local-id="30f7604dce8f"><td ac:local-id="1d70c05712d7"><div class="TextAlignCenter"><img src="attachments/3.3_pannello_utensile/0.01.png" alt="0.01.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="8ee853c04162"><p local-id="e1c6a162596c"><strong>Quota svincolo</strong><br>Quota di sicurezza che la macchina tiene in considerazione per effettuare posizionamenti quando esegue programmi automatici.</p></td></tr><tr ac:local-id="4b7602d8a2bc"><td ac:local-id="c0db24695479"><div class="TextAlignCenter"><img src="attachments/3.3_pannello_utensile/0.07.png" alt="0.07.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="2d2384560c75"><p local-id="750381e51f8a"><strong>RPM</strong><br>Indica la velocità massima di rotazione del mandrino in giri al minuto. <br>Questo valore viene associato al 100% del potenziometro di comando disco.</p></td></tr><tr ac:local-id="4ab751df1121"><td ac:local-id="bc473f5694c8"><div class="TextAlignCenter"><img src="attachments/3.3_pannello_utensile/0.02.png" alt="0.02.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="e1d6d37c1644"><p local-id="1d6a4329bfaa"><strong>Acqua interna</strong><br>Permette di abilitare o disabilitare l’uso dell’acqua interna durante le lavorazioni. </p>
+<div id="admonition-nota-1" class="admonition admonish-info" role="note" aria-labelledby="admonition-nota-1-title">
+<div class="admonition-title">
+<div id="admonition-nota-1-title">
+<p>NOTA</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-nota-1"></a>
+</div>
+<div>
+<p>Per utensili di tipo disco sarà sempre disabilitata.</p>
+</div>
+</div>
+</td></tr><tr ac:local-id="fe0c97f7bf9c"><td ac:local-id="bbc527b16c39"><div class="TextAlignCenter"><img src="attachments/3.3_pannello_utensile/0.06.png" alt="0.06.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="c680311c0119"><p local-id="008d22e41213"><strong>Acqua esterna</strong><br>Permette di abilitare o disabilitare l’uso dell’acqua interna durante le lavorazioni.</p>
+<div id="admonition-nota-2" class="admonition admonish-info" role="note" aria-labelledby="admonition-nota-2-title">
+<div class="admonition-title">
+<div id="admonition-nota-2-title">
+<p>NOTA</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-nota-2"></a>
+</div>
+<div>
+<p>Per utensili di tipo disco sarà sempre abilitata.</p>
+</div>
+</div>
+</td></tr></tbody></table><p local-id="dd2b716cbdac"></p><h3 local-id="e07a7965e43b">Velocità rotazione disco</h3><p local-id="767a4e6c0720">Alla destra del parametro RPM è situato il seguente pulsante:</p><table class="my-table2" data-table-width="1313" data-layout="align-start" ac:local-id="cdc8f986-10d7-4517-9451-d09e4bb5090e"><colgroup><col style="width: 199.0px;"><col style="width: 1114.0px;"></colgroup><tbody><tr ac:local-id="c56b7c38b9da"><td ac:local-id="77d84f5bcc24"><div class="TextAlignCenter"><img src="attachments/3.3_pannello_utensile/infoOff.png" alt="infoOff.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="a89ffcf4c1b0"><p local-id="30db459d2a28"><strong>Informazioni RPM</strong><br>Consente di visualizzare la tabella con le conversioni da velocità in RPM.</p></td></tr></tbody></table><p local-id="7ae1272f1442">In questa finestra viene mostrata una tabella contenente le conversioni da velocità di rotazione ad RPM in base al diametro del disco selezionato.<br>Vengono evidenziati in verde i valori consigliati per il disco selezionato.</p><div class="TextAlignCenter"><img src="attachments/3.3_pannello_utensile/0.10.png" alt="0.10.png" width="328" onclick="showModal(this.src)"></div><p local-id="ded6c21ec26d"></p><h2 local-id="63ccb07e8a6a">Parametri fresa e foretto</h2><p local-id="b77a46593db3">Di seguito vengono mostrati parametri relativi ad utensili quali frese e foretti.</p><div class="TextAlignCenter"><img src="attachments/3.3_pannello_utensile/8_fresa_foretto-20250828-114715.png" alt="8_fresa_foretto-20250828-114715.png" width="400" onclick="showModal(this.src)"></div><table class="my-table2" data-table-width="1313" data-layout="align-start" ac:local-id="01511c3e-30a1-413b-86e8-efc4e1826277"><colgroup><col style="width: 195.0px;"><col style="width: 1118.0px;"></colgroup><tbody><tr ac:local-id="8c1812dee824"><td ac:local-id="75cb9686fb52"><div class="TextAlignCenter"><img src="attachments/3.3_pannello_utensile/0.09.png" alt="0.09.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="4e0cecffb0de"><p local-id="4bf427594146"><strong>Lunghezza utensile</strong><br>Indica la distanza della punta utensile ad un punto preso come riferimento.</p></td></tr></tbody></table><p local-id="3df95129d9ca"></p><p local-id="95bb15d05f26"></p><h1 local-id="76c510e37283">Tastatura utensile</h1><p local-id="1b337f3b2032">Se la macchina dispone dello strumento opzionale per la tastatura dell’utensile, è possibile attivare la procedura da questo pannello.<br>Permette di avviare un ciclo tramite cui è possibile calcolare il diametro, nel caso di disco, o la lunghezza, per fresature e foretti.</p><div class="TextAlignCenter"><img src="attachments/3.3_pannello_utensile/11.00.png" alt="11.00.png" width="800" onclick="showModal(this.src)"></div><p local-id="5b7bd3f84ad1"></p><h2 local-id="5769765a0eb5">Pulsanti </h2><p local-id="5e0eac9a8d8c">Nella parte destra del pannello è presente uno dei seguenti pulsanti.</p><table class="my-table2" data-table-width="1313" data-layout="align-start" ac:local-id="d7cf728c-6e1e-47f9-9ce9-ff9ba14694e7"><colgroup><col style="width: 208.0px;"><col style="width: 1105.0px;"></colgroup><tbody><tr ac:local-id="c4b7da72b810"><td ac:local-id="029dd64cc751"><div class="TextAlignCenter"><img src="attachments/3.3_pannello_utensile/1.0.png" alt="1.0.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="aa6af2bc4be1"><p local-id="def399b8c9fc"><strong>Avvia tastatura disco</strong><br>Permette di avviare il ciclo di tastatura per la misurazione del diametro del disco montato.</p></td></tr><tr ac:local-id="f19c180f4c84"><td ac:local-id="fe7653db0b85"><div class="TextAlignCenter"><img src="attachments/3.3_pannello_utensile/2.2.png" alt="2.2.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="7b3ae16fc3da"><p local-id="3ac6456a185c"><strong>Avvia tastatura utensile secondario</strong><br>Permette di avviare il ciclo di tastatura per la misurazione della lunghezza dell’utensile secondario montato.</p></td></tr></tbody></table>
+<div id="admonition-nota-3" class="admonition admonish-info" role="note" aria-labelledby="admonition-nota-3-title">
+<div class="admonition-title">
+<div id="admonition-nota-3-title">
+<p>NOTA</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-nota-3"></a>
+</div>
+<div>
+<p>Il pulsante per la tastatura del disco è disponibile solamente all’interno della sezione “Disco“ del pannello.
+<br>
+Il pulsante per la tastatura dell’utensile secondario è disponibile solamente all’interno della sezione “Tools“ del pannello.</p>
+</div>
+</div>
+<p local-id="3323c4ee23be"></p><h2 local-id="67808e285dd5">Procedura</h2><p local-id="16699bf67135">Per misurare il diametro del disco, oppure la lunghezza del foretto/fresa attualmente montato in macchina, premere il pulsante corrispondente nella sezione di destra del pannello.<br>Al termine del ciclo, il programma aggiorna automaticamente il dato corrispondente alla misura dell’utensile tastato.</p><div class="TextAlignCenter"><img src="attachments/3.3_pannello_utensile/11.01.png" alt="11.01.png" width="800" onclick="showModal(this.src)"></div><p local-id="4fdde22cef5d"></p><p local-id="b3afad3e33e9"></p><h1 local-id="cc4827cf8b08">Altri Pulsanti</h1><p local-id="209ec4a84b95">In basso a sinistra della schermata è presente il seguente pulsante:</p><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="fcd838c4-c237-419a-9043-3501003d8db7"><colgroup><col style="width: 270.0px;"><col style="width: 1525.0px;"></colgroup><tbody><tr ac:local-id="56d3bce71fbd"><td ac:local-id="482842679e49"><div class="TextAlignCenter"><img src="attachments/3.3_pannello_utensile/PulsanteAperturaParametriLastraRedone.png" alt="PulsanteAperturaParametriLastraRedone.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="b9e4b5e531b3"><p local-id="b2252b60ee07"><strong>Passa al pannello “Parametri di lavorazione della lastra“</strong><br>La pressione di questo pulsante permette il passaggio dal “Pannello Utensile“ al pannello “Parametri Lastra“.</p></td></tr></tbody></table><!--Label="tlp_cng"--><!--Label="tlp_crt"--><!--Label="tlp_rmv"--><!--Label="tlp"--><!--Label="tlp_dpl"--><!--Label="tlp_prb"-->
+                        </main>
+
+                    </div>
+
+                    <img src="images/donatoni_222.jpg">
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="3.2_nuova_lavorazione.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="3.3.1_tool_plus_(opzionale).html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+
+
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                <a rel="prev" href="3.2_nuova_lavorazione.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="3.3.1_tool_plus_(opzionale).html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="mermaid.min.js"></script>
+        <script src="mermaid-init.js"></script>
+        <script src="hidemenu.js"></script>
+        <script src="imagemodal.js"></script>
+        <script src="login.js"></script>
+    </div>
+
+    <!-- Modale -->
+    <div id="modal" onclick="closeModal()">
+        <img id="modal-img" src="">
+    </div>;
+
+
+</body>
+</html>

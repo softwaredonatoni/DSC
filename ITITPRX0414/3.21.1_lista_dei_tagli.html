@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+<head>
+    <!-- Book generated using mdBook -->
+    <meta charset="UTF-8">
+    <title>3.21.1 LISTA DEI TAGLI - IT-IT PARAMETRIX 4.14</title>
+
+    <!-- Custom HTML head -->
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="icon" href="favicon.svg">
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/chrome.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Fonts -->
+    <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+    <link rel="stylesheet" href="fonts/fonts.css">
+
+    <!-- Highlight.js Stylesheets -->
+    <link rel="stylesheet" id="highlight-css" href="highlight.css">
+    <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+    <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+    <!-- Custom theme stylesheets -->
+    <link rel="stylesheet" href="./mdbook-admonish.css">
+    <link rel="stylesheet" href="theme/custom.css">
+    <link rel="stylesheet" href="search.html">
+    <link rel="stylesheet" href="login.html">
+    <link rel="stylesheet" href="searchlogin.html">
+    <link rel="stylesheet" href="searchloginmenu.html">
+
+    <!-- Provide site root and default themes to javascript -->
+    <script>
+      const path_to_root = "";
+      const default_light_theme = "light";
+      const default_dark_theme = "navy";
+    </script>
+    <!-- Start loading toc.js asap -->
+    <script src="toc.js"></script>
+<script>(function () {
+  const SUFFIX = "#2utHhOLI7Iz0";
+
+  function buildUrl() {
+    const base = window.location.href.split("#")[0];
+    return base + SUFFIX;
+  }
+
+  function fallbackCopy(text) {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.top = "-1000px";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+
+  async function copyUrl() {
+    const url = buildUrl();
+
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(url);
+        return;
+      } catch (e) {}
+    }
+
+    fallbackCopy(url);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.getElementById("copy-link-btn");
+    if (!btn) return;
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      copyUrl();
+    });
+  });
+})();
+</script></head>
+<body>
+    <header class="header-main">
+        <div class="header-flex">
+            <div class="donatoni-flex">
+                <label class="btn hamburger-menu" id="sidebar-toggle" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                    <i id="sidebar-toggle-icon" class="fa-solid fa-bars"></i>
+                </label>
+
+                <img src="images/donatoni-logo-white.svg" alt="Donatoni Macchine">
+            </div>
+
+            <div class="donatoni-flex action-header-buttons">
+                <div id="search-wrapper" class="search-wrapper hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults"></ul>
+                    </div>
+                </div>
+                <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+
+                <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
+                    <i class="fa-solid fa-print"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div id="body-container">
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem("mdbook-theme");
+                let sidebar = localStorage.getItem("mdbook-sidebar");
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-theme",
+                        theme.slice(1, theme.length - 1)
+                    );
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-sidebar",
+                        sidebar.slice(1, sidebar.length - 1)
+                    );
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
+                .matches
+                ? default_dark_theme
+                : default_light_theme;
+            let theme;
+            try {
+                theme = localStorage.getItem("mdbook-theme");
+            } catch (e) { }
+            if (theme === null || theme === undefined) {
+                theme = default_theme;
+            }
+            const html = document.documentElement;
+            html.classList.remove("light");
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try {
+                    sidebar = localStorage.getItem('mdbook-sidebar');
+                } catch (e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document
+                        .getElementById("sidebar-toggle")
+                        .setAttribute("aria-expanded", sidebar === "visible");
+                    document
+                        .getElementById("sidebar")
+                        .setAttribute("aria-hidden", sidebar !== "visible");
+                    Array.from(document.querySelectorAll("#sidebar a")).forEach(
+                        function (link) {
+                            link.setAttribute("tabIndex", sidebar === "visible" ? 0 : -1);
+                        }
+                    );
+                </script>
+
+                <div id="content" class="content">
+
+                    <div>
+
+                        <img src="images/donatoni_111.jpg">
+
+                        <main style="margin-left: 20px;">
+                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="3211-lista-dei-tagli" style="margin:0;"><a class="header" href="#3211-lista-dei-tagli">3.21.1 LISTA DEI TAGLI</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="3.21.1 LISTA DEI TAGLI"--><p local-id="1577e493df1d">I tagli che la macchina deve eseguire sono riportati all’interno di questo elenco.</p><p local-id="e639e6af73f1">Utilizzando la lista dei tagli, l’operatore può:</p><ul local-id="c13971e0378a"><li local-id="7c54e247b9e5"><p local-id="c9253a7f58e5">Cambiare l’ordine di esecuzione dei tagli.</p></li><li local-id="2d0a2385388c"><p local-id="f824ea33b186">Modificare le caratteristiche di un taglio.</p></li><li local-id="80a43430e661"><p local-id="26b9ffb21f80">Inserire pause tra un taglio e l’altro.</p></li></ul><div class="TextAlignCenter"><img src="attachments/3.21.1_lista_dei_tagli/0.01.png" alt="0.01.png" width="250" onclick="showModal(this.src)"></div><p local-id="25c5d3dce263"></p><p local-id="ff6df2d7fbd2"></p><p>
+</p><p local-id="8f1183761e86"></p><h1 local-id="c6db8a2dca9c">Elementi della lista</h1><div class="TextAlignCenter"><img src="attachments/3.21.1_lista_dei_tagli/0.03-20250711-115626.png" alt="0.03-20250711-115626.png" width="454" onclick="showModal(this.src)"></div><table class="my-table2" data-table-width="1349" data-layout="align-start" ac:local-id="68ffff06-68b2-42ea-9b6b-d79fe20c84a9"><colgroup><col style="width: 243.0px;"><col style="width: 1106.0px;"></colgroup><tbody><tr ac:local-id="0efbda4238b2"><td ac:local-id="0d92756a0cec"><div class="TextAlignCenter"><img src="attachments/3.21.1_lista_dei_tagli/2.3-20250613-084005.png" alt="2.3-20250613-084005.png" width="119" onclick="showModal(this.src)"></div></td><td ac:local-id="fa4c159252f0"><p local-id="a13be4b9bc77"><strong>Attiva/Disattiva taglio</strong><br>Indica se il taglio deve essere attivato o disattivato per la lavorazione.<br>Premere sul pulsante ne cambia lo stato.</p></td></tr><tr ac:local-id="d6dcb9f195c4"><td ac:local-id="30084130dffa"><div class="TextAlignCenter"><img src="attachments/3.21.1_lista_dei_tagli/0.04.png" alt="0.04.png" width="121" onclick="showModal(this.src)"></div></td><td ac:local-id="00fff22c2e9c"><p local-id="72b7b93891b4"><strong>Tipologia di taglio</strong><br>Indica la tipologia del taglio (“Perimetro“, “Taglio interno“, “Fresa“, ecc…).</p></td></tr><tr ac:local-id="d18d603bde12"><td ac:local-id="359feceb156b"><div class="TextAlignCenter"><img src="attachments/3.21.1_lista_dei_tagli/0.05.png" alt="0.05.png" width="98" onclick="showModal(this.src)"></div></td><td ac:local-id="c9e1c676ba61"><p local-id="114315c16da4"><strong>Tipologia di lavorazione</strong><br>Indica la tipologia di lavorazione associata al taglio (“Lineare“, “Arco“, “Fresatura“, ecc…).</p></td></tr></tbody></table><p local-id="12a247f05e85"></p><h1 local-id="787cbfa55f56">Funzioni</h1><p local-id="812a01273592">La disposizione dei tagli nella lista di destra, indica l’ordine con il quale essi vengono tagliati.<br>Con i pulsanti sottostanti, è possibile modificare questo ordine, oppure inserire una pausa nell’esecuzione delle operazioni tra un taglio e l’altro.</p><table class="my-table2" data-table-width="1238" data-layout="align-start" ac:local-id="bc0aef00-3641-4f4c-b03f-4d589dcfa2e5"><colgroup><col style="width: 218.0px;"><col style="width: 1020.0px;"></colgroup><tbody><tr ac:local-id="3dee53887eb6"><td ac:local-id="4047846cfe61"><div class="TextAlignCenter"><img src="attachments/3.21.1_lista_dei_tagli/0.3-20250711-120847.png" alt="0.3-20250711-120847.png" width="119" onclick="showModal(this.src)"></div></td><td ac:local-id="68b1565eb8f2"><p local-id="e5a80b755614"><strong>Spostamento con frecce</strong><br>Permettono di spostare il taglio selezionato nella posizione superiore o inferiore.</p></td></tr><tr ac:local-id="b0f6a66ea59a"><td ac:local-id="311b859fc270"><div class="TextAlignCenter"><img src="attachments/3.21.1_lista_dei_tagli/0.8-20250704-141714.png" alt="0.8-20250704-141714.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="388fa8feeb6b"><p local-id="b4b168d4986c"><strong>Spostamento alla posizione desiderata</strong><br>Permette di spostare il taglio attualmente selezionato nella posizione indicata dalla casella di testo adiacente.</p></td></tr><tr ac:local-id="e939f5fc9990"><td ac:local-id="70d1603d50c8"><div class="TextAlignCenter"><img src="attachments/3.21.1_lista_dei_tagli/0.6-20250704-141441.png" alt="0.6-20250704-141441.png" width="119" onclick="showModal(this.src)"></div></td><td ac:local-id="42ca2964de3c"><p local-id="a906481e7cb1"><strong>Selezione dell’ordine dall’area di lavoro</strong><br>Permette di scegliere l’ordine dei tagli, direttamente dall’area di lavoro.</p></td></tr><tr ac:local-id="7ad8d201e2ea"><td ac:local-id="3f410ce5e140"><div class="TextAlignCenter"><img src="attachments/3.21.1_lista_dei_tagli/0.7-20250704-141511.png" alt="0.7-20250704-141511.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="09caaae81b23"><p local-id="ad044d58ac95"><strong>Pausa</strong><br>Permette di inserire una pausa nella posizione successiva al taglio selezionato.</p></td></tr><tr ac:local-id="d5e15b070c41"><td ac:local-id="0eeece767b18"><div class="TextAlignCenter"><img src="attachments/3.21.1_lista_dei_tagli/5.0-20250630-110817.png" alt="5.0-20250630-110817.png" width="119" onclick="showModal(this.src)"></div></td><td ac:local-id="d74503bb8dc8"><p local-id="e1d9133f04a1"><strong>Elimina taglio</strong><br>Permette di eliminare un taglio selezionandolo all’interno dell’elenco.</p></td></tr><tr ac:local-id="dafbaa367813"><td ac:local-id="2d36f8a42831"><div class="TextAlignCenter"><img src="attachments/3.21.1_lista_dei_tagli/7.1-20250711-120714.png" alt="7.1-20250711-120714.png" width="119" onclick="showModal(this.src)"></div></td><td ac:local-id="3412ecc9a5a6"><p local-id="61e80c00758b"><strong>Modifica taglio</strong><br>Permette di modificare alcune proprietà del taglio selezionato.</p></td></tr><tr ac:local-id="f92dc600db82"><td ac:local-id="49d2790e1353"><div class="TextAlignCenter"><img src="attachments/3.21.1_lista_dei_tagli/6.0-20250630-112345.png" alt="6.0-20250630-112345.png" width="121" onclick="showModal(this.src)"></div></td><td ac:local-id="9520599ac316"><p local-id="4c8cc8432d1f"><strong>Proprietà aggiuntive del pezzo</strong><br>Permette di modificare le proprietà aggiuntive del pezzo selezionato all’interno dell’area di lavoro.</p></td></tr></tbody></table><p local-id="b504c687e580">In fondo alla lista viene inoltre mostrato:</p><table class="my-table2" data-table-width="1349" data-layout="align-start" ac:local-id="1031a6da-98ca-4c60-ba07-7ab586758b88"><colgroup><col style="width: 288.0px;"><col style="width: 1061.0px;"></colgroup><tbody><tr ac:local-id="f2806b7d212e"><td ac:local-id="4e7f529f88b5"><div class="TextAlignCenter"><img src="attachments/3.21.1_lista_dei_tagli/0.02-20250711-111753.png" alt="0.02-20250711-111753.png" width="177" onclick="showModal(this.src)"></div></td><td ac:local-id="dfbf1e759989"><p local-id="bb1884dd5643"><strong>Stima tempo di taglio</strong><br>Anteprima del tempo stimato per eseguire il programma di taglio degli elementi dell’elenco.</p></td></tr></tbody></table>
+<div id="admonition-nota" class="admonition admonish-info" role="note" aria-labelledby="admonition-nota-title">
+<div class="admonition-title">
+<div id="admonition-nota-title">
+<p>NOTA</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-nota"></a>
+</div>
+<div>
+<p>La stima del tempo di taglio si aggiorna ogni volta che viene eseguita un’operazione sui tagli.</p>
+</div>
+</div>
+<p local-id="8260715f35e1"></p><h2 local-id="cdf83d16bf03">Spostamento con frecce</h2><p local-id="32dd82cf1b4c">Con questi pulsanti è possibile spostare il taglio selezionato nella posizione superiore o inferiore.<br>Nel seguente esempio si desidera spostare il taglio posto in quinta posizione e spostarlo in alto di una.</p><table class="my-table2" data-table-width="1352" data-layout="align-start" ac:local-id="cfdc9e20-a516-4dd7-b0e3-e2bdc750a485"><colgroup><col style="width: 676.0px;"><col style="width: 676.0px;"></colgroup><tbody><tr ac:local-id="0e0fafea3487"><td ac:local-id="a48ac48f11d3"><p local-id="75b54e82f5ae" style="text-align: center;"><strong>Prima dello spostamento</strong></p></td><td ac:local-id="281a62664590"><p local-id="c4b4bc1d1cc9" style="text-align: center;"><strong>Dopo lo spostamento</strong></p></td></tr><tr ac:local-id="33260b49fb14"><td ac:local-id="1fa0cc3749af"><div class="TextAlignCenter"><img src="attachments/3.21.1_lista_dei_tagli/0.06.png" alt="0.06.png" width="250" onclick="showModal(this.src)"></div></td><td ac:local-id="50eb9222f6c8"><div class="TextAlignCenter"><img src="attachments/3.21.1_lista_dei_tagli/0.07.png" alt="0.07.png" width="250" onclick="showModal(this.src)"></div></td></tr></tbody></table><p local-id="63f27f5a7a2d"></p><h2 local-id="127a7a20bdda">Spostamento alla posizione desiderata</h2><p local-id="0d7fbec597c5">Questa funzione permette di spostare l’elemento selezionato alla posizione della lista indicata nella casella di testo adiacente.<br>In questo esempio si desidera fare ricoprire la seconda posizione al quinto taglio dell’elenco. Sarà necessario inserire il valore “2“ nella casella e successivamente premere il pulsante.</p><table class="my-table2" data-table-width="1352" data-layout="align-start" ac:local-id="eb1caf46-2f18-4614-8f0f-e6bde24ea6da"><colgroup><col style="width: 676.0px;"><col style="width: 676.0px;"></colgroup><tbody><tr ac:local-id="ffafd1a12f48"><td ac:local-id="669368f2ccaa"><p local-id="761316afdb54" style="text-align: center;"><strong>Prima dello spostamento</strong></p></td><td ac:local-id="ecbc2106aa8a"><p local-id="e055e9a19a1e" style="text-align: center;"><strong>Dopo lo spostamento</strong></p></td></tr><tr ac:local-id="34772299f1ed"><td ac:local-id="d36f2eea2794"><div class="TextAlignCenter"><img src="attachments/3.21.1_lista_dei_tagli/0.06.png" alt="0.06.png" width="250" onclick="showModal(this.src)"></div></td><td ac:local-id="a585c48c31c5"><div class="TextAlignCenter"><img src="attachments/3.21.1_lista_dei_tagli/0.08.png" alt="0.08.png" width="250" onclick="showModal(this.src)"></div></td></tr></tbody></table><p local-id="7b46b760b4d0"></p><h2 local-id="de8c1b76cd61">Selezione dell’ordine dall’area di lavoro</h2><p local-id="93aa97520915">Tramite questa funzione è possibile scegliere l’ordine dei tagli, direttamente dall’area di lavoro.<br>Premendo il pulsante, il programma scrive su ciascun taglio un numero che indica la posizione che occupa nella lista.</p><div class="TextAlignCenter"><img src="attachments/3.21.1_lista_dei_tagli/0.09.png" alt="0.09.png" width="800" onclick="showModal(this.src)"></div><p local-id="ef2b2c985e85">Per cambiarne l’ordine, cliccare in sequenza all’interno del taglio che si desidera avere come primo, poi il secondo e cosi via.<br>Una volta finito, ripremere il pulsante per convalidare la scelta fatta.</p><p local-id="e66cf140c16a"></p><h2 local-id="d19c92f83dfc">Pausa</h2><p local-id="65965b77f1c7">È possibile inserire una pausa tra l’esecuzione di un taglio ed il successivo. <br>Il programma effettuerà tutti i tagli precedenti alla pausa, per poi fermare la macchina e attendere il comando di Start da parte dell’operatore.</p><div class="TextAlignCenter"><img src="attachments/3.21.1_lista_dei_tagli/0.10.png" alt="0.10.png" width="250" onclick="showModal(this.src)"></div><p local-id="38be78d30503">La pausa viene sempre inserita dopo l’esecuzione del taglio selezionato.<br>Può essere utilizzata, ad esempio, per cambiare utensile.</p><p local-id="21d799b1e45d"></p><h2 local-id="ca3be0e283c5">Elimina taglio</h2><p local-id="3cd6c1a6fbf5">Una volta premuto il pulsante, l’icona di una gomma viene affiancata a ciascuna voce dell’elenco.<br>Premere quindi un taglio per eliminarlo definitivamente.</p><div class="TextAlignCenter"><img src="attachments/3.21.1_lista_dei_tagli/0.11.png" alt="0.11.png" width="250" onclick="showModal(this.src)"></div><!--Label="cut_lst"--><!--Label="cut_lst_fnc"-->
+                        </main>
+
+                    </div>
+
+                    <img src="images/donatoni_222.jpg">
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="3.21_ottimizzazione_e_gestione_dei_tagli.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="3.21.1.1_modifica_taglio.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+
+
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                <a rel="prev" href="3.21_ottimizzazione_e_gestione_dei_tagli.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="3.21.1.1_modifica_taglio.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="mermaid.min.js"></script>
+        <script src="mermaid-init.js"></script>
+        <script src="hidemenu.js"></script>
+        <script src="imagemodal.js"></script>
+        <script src="login.js"></script>
+    </div>
+
+    <!-- Modale -->
+    <div id="modal" onclick="closeModal()">
+        <img id="modal-img" src="">
+    </div>;
+
+
+</body>
+</html>

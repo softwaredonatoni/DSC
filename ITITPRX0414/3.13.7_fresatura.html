@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+<head>
+    <!-- Book generated using mdBook -->
+    <meta charset="UTF-8">
+    <title>3.13.7 FRESATURA - IT-IT PARAMETRIX 4.14</title>
+
+    <!-- Custom HTML head -->
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="icon" href="favicon.svg">
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/chrome.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Fonts -->
+    <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+    <link rel="stylesheet" href="fonts/fonts.css">
+
+    <!-- Highlight.js Stylesheets -->
+    <link rel="stylesheet" id="highlight-css" href="highlight.css">
+    <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+    <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+    <!-- Custom theme stylesheets -->
+    <link rel="stylesheet" href="./mdbook-admonish.css">
+    <link rel="stylesheet" href="theme/custom.css">
+    <link rel="stylesheet" href="search.html">
+    <link rel="stylesheet" href="login.html">
+    <link rel="stylesheet" href="searchlogin.html">
+    <link rel="stylesheet" href="searchloginmenu.html">
+
+    <!-- Provide site root and default themes to javascript -->
+    <script>
+      const path_to_root = "";
+      const default_light_theme = "light";
+      const default_dark_theme = "navy";
+    </script>
+    <!-- Start loading toc.js asap -->
+    <script src="toc.js"></script>
+<script>(function () {
+  const SUFFIX = "#2utHhOLI7Iz0";
+
+  function buildUrl() {
+    const base = window.location.href.split("#")[0];
+    return base + SUFFIX;
+  }
+
+  function fallbackCopy(text) {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.top = "-1000px";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+
+  async function copyUrl() {
+    const url = buildUrl();
+
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(url);
+        return;
+      } catch (e) {}
+    }
+
+    fallbackCopy(url);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.getElementById("copy-link-btn");
+    if (!btn) return;
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      copyUrl();
+    });
+  });
+})();
+</script></head>
+<body>
+    <header class="header-main">
+        <div class="header-flex">
+            <div class="donatoni-flex">
+                <label class="btn hamburger-menu" id="sidebar-toggle" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                    <i id="sidebar-toggle-icon" class="fa-solid fa-bars"></i>
+                </label>
+
+                <img src="images/donatoni-logo-white.svg" alt="Donatoni Macchine">
+            </div>
+
+            <div class="donatoni-flex action-header-buttons">
+                <div id="search-wrapper" class="search-wrapper hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults"></ul>
+                    </div>
+                </div>
+                <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+
+                <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
+                    <i class="fa-solid fa-print"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div id="body-container">
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem("mdbook-theme");
+                let sidebar = localStorage.getItem("mdbook-sidebar");
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-theme",
+                        theme.slice(1, theme.length - 1)
+                    );
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-sidebar",
+                        sidebar.slice(1, sidebar.length - 1)
+                    );
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
+                .matches
+                ? default_dark_theme
+                : default_light_theme;
+            let theme;
+            try {
+                theme = localStorage.getItem("mdbook-theme");
+            } catch (e) { }
+            if (theme === null || theme === undefined) {
+                theme = default_theme;
+            }
+            const html = document.documentElement;
+            html.classList.remove("light");
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try {
+                    sidebar = localStorage.getItem('mdbook-sidebar');
+                } catch (e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document
+                        .getElementById("sidebar-toggle")
+                        .setAttribute("aria-expanded", sidebar === "visible");
+                    document
+                        .getElementById("sidebar")
+                        .setAttribute("aria-hidden", sidebar !== "visible");
+                    Array.from(document.querySelectorAll("#sidebar a")).forEach(
+                        function (link) {
+                            link.setAttribute("tabIndex", sidebar === "visible" ? 0 : -1);
+                        }
+                    );
+                </script>
+
+                <div id="content" class="content">
+
+                    <div>
+
+                        <img src="images/donatoni_111.jpg">
+
+                        <main style="margin-left: 20px;">
+                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="3137-fresatura" style="margin:0;"><a class="header" href="#3137-fresatura">3.13.7 FRESATURA</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="3.13.7 FRESATURA"--><p local-id="2e47c0afce81">La funzione ‘Fresatura’ permette di creare una fresatura sul pezzo, sul lato, sul bordo oppure sull'intero perimetro.<br>L’interfaccia per questa funzione assomiglia alla seguente immagine:</p><div class="TextAlignCenter"><img src="attachments/3.13.7_fresatura/{6A83EEC1-8199-469C-9A0E-53EE7C45B3BC}-20260615-145631.png" alt="{6A83EEC1-8199-469C-9A0E-53EE7C45B3BC}-20260615-145631.png" width="800" onclick="showModal(this.src)"></div><p local-id="6b1684794de9"></p><p>
+</p><p local-id="4e1946752dc5"></p><h1 local-id="b8e85cac9313">Parametri</h1>
+<div id="admonition-nota" class="admonition admonish-info" role="note" aria-labelledby="admonition-nota-title">
+<div class="admonition-title">
+<div id="admonition-nota-title">
+<p>NOTA</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-nota"></a>
+</div>
+<div>
+<p>Si deve scegliere una tra le seguenti modalità</p>
+</div>
+</div>
+<table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="dc331dda-11da-457c-a97e-83d231196f03"><colgroup><col style="width: 169.0px;"><col style="width: 1629.0px;"></colgroup><tbody><tr ac:local-id="a771b1d8385e"><td data-highlight-colour="#ffffff" ac:local-id="ebb4f6b9afe7"><p local-id="93a5a63e0447"><strong>Vertice</strong></p></td><td data-highlight-colour="#ffffff" ac:local-id="983875afb6ed"><p local-id="63695ca525fa">Toglie il materiale che il disco non può eliminare senza rovinare il pezzo. Serve solo a rifinire alcuni punti del pezzo.</p></td></tr><tr ac:local-id="fcea4c4170d4"><td data-highlight-colour="#ffffff" ac:local-id="780ebe5354ae"><p local-id="032b623726c8"><strong>Lato</strong></p></td><td data-highlight-colour="#ffffff" ac:local-id="4d6ccf6bc8c4"><p local-id="db86e9fa4822">L’utensile fresa si utilizza per tagliare un lato del pezzo. Non si affianca al taglio con il disco ma lo sostituisce completamente.</p></td></tr><tr ac:local-id="16075dab4d0a"><td data-highlight-colour="#ffffff" ac:local-id="298b5f406605"><p local-id="cfb2e8217486"><strong>Perimetro</strong></p></td><td data-highlight-colour="#ffffff" ac:local-id="b74f9cdf1829"><p local-id="2b5e47bfce87">Prevede di utilizzare l’utensile fresa invece dell’utensile disco per eseguire il taglio su tutto un poligono del pezzo. Sostituisce il disco come la modalità lato.</p></td></tr></tbody></table>
+<div id="admonition-nota-1" class="admonition admonish-info" role="note" aria-labelledby="admonition-nota-1-title">
+<div class="admonition-title">
+<div id="admonition-nota-1-title">
+<p>NOTA</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-nota-1"></a>
+</div>
+<div>
+<p>In ogni modalità, lo spessore del taglio equivale al diametro dell’utensile fresa montato. La variazione di questo elemento modifica automaticamente i tagli aggiornandoli con la nuova misura.
+<br>
+Per la modalità Vertice la variazione dello spessore del materiale oppure la variazione del diametro del disco, comportano un allungamento oppure un accorciamento del taglio, in modo tale da adeguarsi alle nuove misure scelte.
+<br>
+In caso la Fresa sia troppo grande per tagliare il lato selezionato verrà, visualizzato a video un messaggio di errore.</p>
+</div>
+</div>
+<table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="002450e2-39b5-4605-a52d-385e450b311e"><colgroup><col style="width: 230.0px;"><col style="width: 1568.0px;"></colgroup><tbody><tr ac:local-id="a011908779bf"><td ac:local-id="b3618a54dd45"><p local-id="744aed0685bb"><strong>Spessore</strong></p></td><td ac:local-id="d352f8105b9b"><p local-id="0807ec67818e">Viene mostrato lo spessore della lastra attualmente impostato in Parametrix, per aiutare l’operatore ad applicare la lavorazione.</p></td></tr><tr ac:local-id="7458da30f876"><td ac:local-id="ac41bc8e8d47"><div class="TextAlignCenter"><img src="attachments/3.13.7_fresatura/PenetrazioneFresatura-20260611-114150.png" alt="PenetrazioneFresatura-20260611-114150.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="1be9126397a8"><p local-id="ab79439c4384"><strong>Penetrazione</strong><br>Normalmente il valore di penetrazione coincide con lo spessore, in caso si voglia cambiare manualmente si prema il bottone mostrato a sinistra e apparirà la variabile modificabile. </p></td></tr><tr ac:local-id="17450b6e43d0"><td ac:local-id="e166fabb942b"><div class="TextAlignCenter"><img src="attachments/3.13.7_fresatura/{0F9B96F3-41AB-423E-A8F5-7613FB58F9C9}-20260611-121920.png" alt="{0F9B96F3-41AB-423E-A8F5-7613FB58F9C9}-20260611-121920.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="c45a5c50544b"><p local-id="ff1ad18d7545"><strong>Fresatura su angoli interni</strong><br>Applica la fresatura sugli angoli interni.</p></td></tr></tbody></table><p local-id="9c0d5633e05c"></p><p local-id="2af0d9defded"></p><h1 local-id="892ac3bc3b15">Esecuzione della lavorazione</h1>
+<div id="admonition-nota-2" class="admonition admonish-info" role="note" aria-labelledby="admonition-nota-2-title">
+<div class="admonition-title">
+<div id="admonition-nota-2-title">
+<p>NOTA</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-nota-2"></a>
+</div>
+<div>
+<p>È possibile applicare la lavorazione premendo il pulsante a sinistra del taglio opportuno nella lista dei poligoni.
+<br>
+Un’icona rossa con una 'X' indica che la lavorazione non può essere applicata al taglio desiderato.</p>
+</div>
+</div>
+<p local-id="4793bf75b724">Le conseguenze dell’applicazione di una fresatura variano in base alla modalità selezionata e presentano alcune differenze, descritte nei paragrafi seguenti.<br>La fresatura ha inizio dal punto di attacco indicato nella figura, identificabile con il cerchio colorato pieno posizionato sull'origine.</p><p local-id="b19f8eafb499">Ogni fresatura applicata a un pezzo viene inserita nella lista dei tagli associata a un poligono e rappresentata graficamente in colore azzurro.</p><ul local-id="c7d2624647af"><li local-id="5947e9432f63"><p local-id="d4a2e6a7df2b">Nella modalità <strong>Vertice</strong>, la fresatura viene allineata al vertice selezionato.</p></li><li local-id="1201136ccfec"><p local-id="d96869ce38c0">Nelle modalità <strong>Lato</strong> e <strong>Perimetro</strong>, vengono sostituiti rispettivamente <strong>uno</strong> o <strong>tutti</strong> i tagli del poligono.</p></li></ul><p local-id="ea51a14c1ea9"></p><h2 local-id="7218b5435a72"><strong>Esecuzione su un vertice</strong></h2><p local-id="053c2a750691">La fresatura viene applicata al vertice più vicino al punto selezionato di un taglio nell’anteprima.<br>L’applicazione avverrà tra due tagli consecutivi.</p><p local-id="b1a5dbf9afb2">Nella seguente immagine di esempio sono mostrate due lavorazioni di fresatura su vertice: la prima su un vertice superiore sinistro del poligono interno; la seconda su un vertice del poligono esterno.</p><div class="TextAlignCenter"><img src="attachments/3.13.7_fresatura/{E3AB9414-D311-47E1-8372-A3C8F997E2F4}-20260615-145724.png" alt="{E3AB9414-D311-47E1-8372-A3C8F997E2F4}-20260615-145724.png" width="800" onclick="showModal(this.src)"></div><p local-id="1058cf585b0c"></p><p local-id="a4b627901054"></p><h2 local-id="50791370115e"><strong>Esecuzione su un lato</strong></h2><p local-id="75d5ebcbbf5c">Selezionando un punto qualsiasi di un taglio sull’anteprima, la fresatura verrà applicata lungo l’intero lato corrispondente.</p><p local-id="558bc19aa4c8">Nell'immagine seguente sono mostrate due lavorazioni di fresatura su lato: la prima sul lato sinistro del poligono interno; la seconda su un lato inferiore del poligono esterno.</p><div class="TextAlignCenter"><img src="attachments/3.13.7_fresatura/{C8B86567-B354-45E6-B53A-DF6151361FC9}-20260616-071042.png" alt="{C8B86567-B354-45E6-B53A-DF6151361FC9}-20260616-071042.png" width="800" onclick="showModal(this.src)"></div><p local-id="6a4f794d07c9"></p><h2 local-id="ac6e3280dfa5"><strong>Esecuzione sul perimetro</strong></h2><p local-id="626fafac1f41">Indipendentemente dal punto o dal taglio selezionato, la fresatura verrà eseguita lungo l’intero perimetro del poligono selezionato.</p><div class="TextAlignCenter"><img src="attachments/3.13.7_fresatura/{E7147DCE-21C3-4934-9533-86B3F74D06D1}-20260616-072618.png" alt="{E7147DCE-21C3-4934-9533-86B3F74D06D1}-20260616-072618.png" width="800" onclick="showModal(this.src)"></div><p local-id="106819a6273e"></p><!--Label="mdf_mll"--><!--Label="mdf_mll_sid"--><!--Label="mdf_mll_ver"--><!--Label="mdf_mll_per"-->
+                        </main>
+
+                    </div>
+
+                    <img src="images/donatoni_222.jpg">
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="3.13.6_foro.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="3.13.8_ribasso.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+
+
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                <a rel="prev" href="3.13.6_foro.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="3.13.8_ribasso.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="mermaid.min.js"></script>
+        <script src="mermaid-init.js"></script>
+        <script src="hidemenu.js"></script>
+        <script src="imagemodal.js"></script>
+        <script src="login.js"></script>
+    </div>
+
+    <!-- Modale -->
+    <div id="modal" onclick="closeModal()">
+        <img id="modal-img" src="">
+    </div>;
+
+
+</body>
+</html>

@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+<head>
+    <!-- Book generated using mdBook -->
+    <meta charset="UTF-8">
+    <title>3.26 SCAN CNC (OPZIONALE) - IT-IT PARAMETRIX 4.14</title>
+
+    <!-- Custom HTML head -->
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="icon" href="favicon.svg">
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/chrome.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Fonts -->
+    <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+    <link rel="stylesheet" href="fonts/fonts.css">
+
+    <!-- Highlight.js Stylesheets -->
+    <link rel="stylesheet" id="highlight-css" href="highlight.css">
+    <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+    <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+    <!-- Custom theme stylesheets -->
+    <link rel="stylesheet" href="./mdbook-admonish.css">
+    <link rel="stylesheet" href="theme/custom.css">
+    <link rel="stylesheet" href="search.html">
+    <link rel="stylesheet" href="login.html">
+    <link rel="stylesheet" href="searchlogin.html">
+    <link rel="stylesheet" href="searchloginmenu.html">
+
+    <!-- Provide site root and default themes to javascript -->
+    <script>
+      const path_to_root = "";
+      const default_light_theme = "light";
+      const default_dark_theme = "navy";
+    </script>
+    <!-- Start loading toc.js asap -->
+    <script src="toc.js"></script>
+<script>(function () {
+  const SUFFIX = "#2utHhOLI7Iz0";
+
+  function buildUrl() {
+    const base = window.location.href.split("#")[0];
+    return base + SUFFIX;
+  }
+
+  function fallbackCopy(text) {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.top = "-1000px";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+
+  async function copyUrl() {
+    const url = buildUrl();
+
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(url);
+        return;
+      } catch (e) {}
+    }
+
+    fallbackCopy(url);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.getElementById("copy-link-btn");
+    if (!btn) return;
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      copyUrl();
+    });
+  });
+})();
+</script></head>
+<body>
+    <header class="header-main">
+        <div class="header-flex">
+            <div class="donatoni-flex">
+                <label class="btn hamburger-menu" id="sidebar-toggle" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                    <i id="sidebar-toggle-icon" class="fa-solid fa-bars"></i>
+                </label>
+
+                <img src="images/donatoni-logo-white.svg" alt="Donatoni Macchine">
+            </div>
+
+            <div class="donatoni-flex action-header-buttons">
+                <div id="search-wrapper" class="search-wrapper hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults"></ul>
+                    </div>
+                </div>
+                <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+
+                <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
+                    <i class="fa-solid fa-print"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div id="body-container">
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem("mdbook-theme");
+                let sidebar = localStorage.getItem("mdbook-sidebar");
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-theme",
+                        theme.slice(1, theme.length - 1)
+                    );
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-sidebar",
+                        sidebar.slice(1, sidebar.length - 1)
+                    );
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
+                .matches
+                ? default_dark_theme
+                : default_light_theme;
+            let theme;
+            try {
+                theme = localStorage.getItem("mdbook-theme");
+            } catch (e) { }
+            if (theme === null || theme === undefined) {
+                theme = default_theme;
+            }
+            const html = document.documentElement;
+            html.classList.remove("light");
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try {
+                    sidebar = localStorage.getItem('mdbook-sidebar');
+                } catch (e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document
+                        .getElementById("sidebar-toggle")
+                        .setAttribute("aria-expanded", sidebar === "visible");
+                    document
+                        .getElementById("sidebar")
+                        .setAttribute("aria-hidden", sidebar !== "visible");
+                    Array.from(document.querySelectorAll("#sidebar a")).forEach(
+                        function (link) {
+                            link.setAttribute("tabIndex", sidebar === "visible" ? 0 : -1);
+                        }
+                    );
+                </script>
+
+                <div id="content" class="content">
+
+                    <div>
+
+                        <img src="images/donatoni_111.jpg">
+
+                        <main style="margin-left: 20px;">
+                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="326-scan-cnc-opzionale" style="margin:0;"><a class="header" href="#326-scan-cnc-opzionale">3.26 SCAN CNC (OPZIONALE)</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="3.26 SCAN CNC (OPZIONALE)"--><layout><layout-section ac:type="fixed-width" ac:breakout-mode="default"><layout-cell><p local-id="e7580407aea3">Scan CNC è una funzionalità che consente di creare pezzi personalizzati a partire da una sagoma reale posizionata sul banco macchina. </p><div class="TextAlignCenter"><img src="attachments/3.26_scan_cnc_(opzionale)/3.26.Home.png" alt="3.26.Home.png" width="800" onclick="showModal(this.src)"></div><p>
+</p><p local-id="b4414297e2a2"></p><h1 local-id="0cdf2efca282">Pulsanti</h1><p local-id="c8429fcd0773">Per aprire Scan CNC, premere il pulsante dedicato nella barra superiore di Parametrix.</p><table class="my-table2" data-table-width="1011" data-layout="center" ac:local-id="291ad5bd-4c49-4410-a2a3-ae48bb4d1cd5"><colgroup><col style="width: 152.0px;"><col style="width: 858.0px;"></colgroup><tbody><tr ac:local-id="64ab25e1898c"><td ac:local-id="54c9b8d59650"><div class="TextAlignCenter"><img src="attachments/3.26_scan_cnc_(opzionale)/3.26.onoff.png" alt="3.26.onoff.png" width="120" onclick="showModal(this.src)"></div></td><td ac:local-id="d42c9ed1d0b9"><p local-id="441990d99697"><strong>Scan CNC</strong><br>Permette di accedere alla funzionalità Scan CNC.<br></p></td></tr></tbody></table>
+<div id="admonition-attenzione" class="admonition admonish-warning" role="note" aria-labelledby="admonition-attenzione-title">
+<div class="admonition-title">
+<div id="admonition-attenzione-title">
+<p>ATTENZIONE!</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-attenzione"></a>
+</div>
+<div>
+<p>Se sono presenti pezzi nell’area di lavoro, l’utente riceverà la richiesta di importarli come perimetri. Indipendentemente dalla scelta, i pezzi verranno rimossi dall’area di lavoro.</p>
+</div>
+</div>
+<p local-id="dec7cdcde382"></p><h1 local-id="cf9213b91253">Struttura della schermata</h1><p local-id="0f815a596570">La schermata di Scan CNC è suddivisa nelle macro aree che verranno descritte di seguito.</p><p local-id="52c06209ab7f"></p><h2 local-id="ebaf081ffbf9">Pannello laterale destro</h2><p local-id="aab72aa3b366">Il pannello destro illustrato di seguito, ospita tutti i controlli operativi.</p><div class="TextAlignCenter"><img src="attachments/3.26_scan_cnc_(opzionale)/3.26.rightbar.png" alt="3.26.rightbar.png" width="227" onclick="showModal(this.src)"></div><p local-id="ae1ee076654a"></p><h3 local-id="2f4053ef3966">Modalità di rilevamento punti</h3><p local-id="0705c9225a84">Questa sezione è visibile solo se si usa Parametrix su macchina. Permette di scegliere come vengono acquisiti i punti del perimetro.</p><div class="TextAlignCenter"><img src="attachments/3.26_scan_cnc_(opzionale)/3.26.modes.png" alt="3.26.modes.png" width="349" onclick="showModal(this.src)"></div><table class="my-table2" data-table-width="1011" data-layout="center" ac:local-id="40a33f8d4e13"><colgroup><col style="width: 152.0px;"><col style="width: 858.0px;"></colgroup><tbody><tr ac:local-id="83408097-0869-40cc-a40b-8870bd9303e8"><td ac:local-id="184595a4-8d24-49fd-a12e-26f6f173e3fd"><div class="TextAlignCenter"><img src="attachments/3.26_scan_cnc_(opzionale)/3.26.touch.png" alt="3.26.touch.png" width="120" onclick="showModal(this.src)"></div></td><td ac:local-id="73924c5f-46d6-4bd9-9180-6e1e32a09566"><p local-id="c8675b561a65"><strong>Touch</strong><br>I punti vengono inseriti toccando direttamente sull’area di lavoro.</p></td></tr><tr ac:local-id="15b7b3898426"><td ac:local-id="5725b1b6d902"><div class="TextAlignCenter"><img src="attachments/3.26_scan_cnc_(opzionale)/3.26.laser.png" alt="3.26.laser.png" width="120" onclick="showModal(this.src)"></div></td><td ac:local-id="027209fdbae2"><p local-id="257ac121b247"><strong>Laser a croce</strong><br>I punti vengono acquisiti dalla posizione del laser a croce della macchina.</p></td></tr><tr ac:local-id="c99d909d6c7c"><td ac:local-id="8e76bf661417"><div class="TextAlignCenter"><img src="attachments/3.26_scan_cnc_(opzionale)/3.26.tool.png" alt="3.26.tool.png" width="120" onclick="showModal(this.src)"></div></td><td ac:local-id="0cf4a95ae5df"><p local-id="0e1ce40bfdf9"><strong>Tool</strong><br>I punti vengono acquisiti dalla posizione dell'utensile principale della macchina.</p></td></tr><tr ac:local-id="9329693ff969"><td ac:local-id="1b315f66d78c"><div class="TextAlignCenter"><img src="attachments/3.26_scan_cnc_(opzionale)/3.26.toolplus.png" alt="3.26.toolplus.png" width="120" onclick="showModal(this.src)"></div></td><td ac:local-id="6949a1ad3ff0"><p local-id="79321a3ced06"><strong>Tool Plus</strong><br>I punti vengono acquisiti dalla posizione del secondo mandrino. Visibile solo se il secondo mandrino è configurato.</p></td></tr></tbody></table>
+<div id="admonition-nota" class="admonition admonish-info" role="note" aria-labelledby="admonition-nota-title">
+<div class="admonition-title">
+<div id="admonition-nota-title">
+<p>NOTA</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-nota"></a>
+</div>
+<div>
+<p>La selezione della modalità è mutualmente esclusiva.
+<br>
+La modalità impostata di default è
+<br>
+Touch
+<br>
+.</p>
+</div>
+</div>
+<p local-id="39873feddf25"></p><h3 local-id="882af00f2ff9">Elenco dei perimetri</h3><p local-id="fe4568003944">Mostra tutti i perimetri creati. Selezionando un perimetro dall’elenco, esso viene evidenziato nell’area di lavoro. Espandendo un perimetro si visualizzano le singole curve che lo compongono, anch'esse selezionabili singolarmente.</p><div class="TextAlignCenter"><img src="attachments/3.26_scan_cnc_(opzionale)/3.26.treeview.png" alt="3.26.treeview.png" width="283" onclick="showModal(this.src)"></div><table class="my-table2" data-table-width="1011" data-layout="center" ac:local-id="d055811cd943"><colgroup><col style="width: 151.0px;"><col style="width: 859.0px;"></colgroup><tbody><tr ac:local-id="32a16fc0-a73b-4569-88f6-f72b2c44f15c"><td ac:local-id="9def17f1-7f90-46a8-9f7a-49c4b68604b9"><div class="TextAlignCenter"><img src="attachments/3.26_scan_cnc_(opzionale)/3.26.perimeter.png" alt="3.26.perimeter.png" width="120" onclick="showModal(this.src)"></div></td><td ac:local-id="ad10b89c-5dd8-4f25-a7f6-70e8d6376ede"><p local-id="b34d7aef7204"><strong>Perimetro</strong><br>Riga principale del perimetro. Mostra il nome, stato perimetro aperto/chiuso.</p></td></tr><tr ac:local-id="1cba9cb37763"><td ac:local-id="0473f4a1ce77"><div class="TextAlignCenter"><img src="attachments/3.26_scan_cnc_(opzionale)/3.26.line.png" alt="3.26.line.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="c94d754f95f5"><p local-id="608b31450b5b"><strong>Linea</strong><br>Curva di tipo linea appartenente al perimetro. Selezionabile dalla lista.</p></td></tr><tr ac:local-id="de5f4683-25f4-4bd1-b87e-8b9d3770a5b9"><td ac:local-id="18a5a0e5-b137-417b-8a49-c5fb14824397"><div class="TextAlignCenter"><img src="attachments/3.26_scan_cnc_(opzionale)/3.26.arc.png" alt="3.26.arc.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="0ac61d1a-2f9d-4a33-857d-889cbb5c8999"><p local-id="1c07f1d19967"><strong>Arco</strong><br>Curva di tipo arco appartenente al perimetro. Selezionabile dalla lista.</p></td></tr></tbody></table><p local-id="7743eebc63c0">I pulsanti sottostanti permettono di interagire con i perimetri dell’elenco.</p><table class="my-table2" data-table-width="1011" data-layout="center" ac:local-id="0cb4f37a9148"><colgroup><col style="width: 151.0px;"><col style="width: 859.0px;"></colgroup><tbody><tr ac:local-id="bb01fdd5-e771-4586-a1f3-03dbefc56f6a"><td ac:local-id="072e1ab8-d088-45d6-b312-12c369900a24"><div class="TextAlignCenter"><img src="attachments/3.26_scan_cnc_(opzionale)/3.26.add_p.png" alt="3.26.add_p.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="70b0329c-7eec-42e5-9762-4050beb1ca9f"><p local-id="c0ba45f5de55"><strong>Aggiungi perimetro</strong><br>Crea un nuovo perimetro vuoto e lo aggiunge alla lista. Viene automaticamente selezionato.</p></td></tr><tr ac:local-id="19ea4bb4b3a8"><td ac:local-id="4946b95ae3f9"><div class="TextAlignCenter"><img src="attachments/3.26_scan_cnc_(opzionale)/3.26.delAll_p.png" alt="3.26.delAll_p.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="c6d4c5906a6e"><p local-id="f5e382db47d7"><strong>Elimina tutti i perimetri</strong><br>Rimuove tutti i perimetri dalla lista e dall'area di lavoro.</p></td></tr><tr ac:local-id="ab2a6038-2788-4790-98a4-f7e45033afac"><td ac:local-id="2744edda-abaf-45b0-aad8-fdc6ae3176a8"><div class="TextAlignCenter"><img src="attachments/3.26_scan_cnc_(opzionale)/3.26.del_p.png" alt="3.26.del_p.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="42f813de-131e-4cdb-85f4-93ff983bd4ca"><p local-id="9c973110650a"><strong>Elimina perimetro</strong><br>Rimuove il perimetro selezionato.</p></td></tr><tr ac:local-id="ef0df411-2545-472c-8d56-2067e2149144"><td ac:local-id="1858de79-ccdf-4ab5-a831-41a81c75d88e"><div class="TextAlignCenter"><img src="attachments/3.26_scan_cnc_(opzionale)/3.26.del_curve.png" alt="3.26.del_curve.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="d48cb788-7c63-4759-a9bb-77e9dc0aec93"><p local-id="801451d56473"><strong>Elimina curva</strong><br>Rimuove la curva selezionata. Solo se la curva è eliminabile.</p></td></tr></tbody></table><p local-id="4f3145a86e68"></p><h3 local-id="1e46b2a5d539">Modifica entità selezionata</h3><p local-id="5ef54d11aeca">Questa sezione mostra le coordinate del punto selezionato e permette di modificarne la posizione con precisione. Se è selezionata una curva, mostra invece la lunghezza e l'angolo della curva, modificabili direttamente.</p><div class="TextAlignCenter"><img src="attachments/3.26_scan_cnc_(opzionale)/3.26.single.png" alt="3.26.single.png" width="279" onclick="showModal(this.src)"></div><p local-id="51fc11d95ba6"></p><p local-id="8073584f331a">Nel caso in cui è selezionato un punto vengono mostrate le sue coordinate, non modificabili direttamente:</p><table class="my-table2" data-table-width="1011" data-layout="center" ac:local-id="510cee8b-c628-41fb-ae88-06da585f6898"><colgroup><col style="width: 126.0px;"><col style="width: 885.0px;"></colgroup><tbody><tr ac:local-id="1cad5da4-844a-4343-a76f-71cfccb48bb8"><td ac:local-id="5de218c7-f33f-41f9-9654-2d41a20719e2"><div class="TextAlignCenter"><img src="attachments/3.26_scan_cnc_(opzionale)/3.26.x.png" alt="3.26.x.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="96707751-5e37-4be7-b352-dce795f5e961"><p local-id="a207afec73ef"><strong>X</strong><br>Coordinata X del punto selezionato. </p></td></tr><tr ac:local-id="9cc9a517bea1"><td ac:local-id="b27cf34c7dc9"><div class="TextAlignCenter"><img src="attachments/3.26_scan_cnc_(opzionale)/3.26.y.png" alt="3.26.y.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="36e05373b380"><p local-id="6e9a98030fe8"><strong>Y</strong><br>Coordinata Y del punto selezionato.</p></td></tr></tbody></table>
+<div id="admonition-nota-1" class="admonition admonish-info" role="note" aria-labelledby="admonition-nota-1-title">
+<div class="admonition-title">
+<div id="admonition-nota-1-title">
+<p>NOTA</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-nota-1"></a>
+</div>
+<div>
+<p>In modalità macchina (Laser a croce, Tool, Tool Plus) le coordinate X e Y visualizzate nel pannello mostrano la posizione corrente della macchina in tempo reale, se nessun punto è selezionato.</p>
+</div>
+</div>
+<p local-id="6db148447ca6"></p><p local-id="f0f8876a9904">Quando è selezionata una curva vengono mostrate le seguenti quote modificabili:</p><table class="my-table2" data-table-width="1011" data-layout="center" ac:local-id="fae7f66a0ca0"><colgroup><col style="width: 126.0px;"><col style="width: 885.0px;"></colgroup><tbody><tr ac:local-id="04d80f21-a173-41d7-b940-0c33dcefa1fc"><td ac:local-id="e8838d6e-8f55-4f7e-94cf-c137f6587114"><div class="TextAlignCenter"><img src="attachments/3.26_scan_cnc_(opzionale)/3.26.length.png" alt="3.26.length.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="939fb9be-10bc-4717-b3f7-1f80bb027747"><p local-id="f564e3352088"><strong>Lunghezza</strong><br>Lunghezza della curva selezionata.<br>Modificando questo valore, verrà spostato il punto opposto a quello selezionato, in direzione della curva.</p></td></tr></tbody></table><p local-id="fd3a5d29cd12"></p><p local-id="83c73c749883">Le frecce spostano il punto selezionato (o il perimetro intero in modalità Sposta Perimetro) di un valore pari all'Offset impostato.</p><table class="my-table2" data-table-width="1011" data-layout="center" ac:local-id="a7c0c4cde2be"><colgroup><col style="width: 179.0px;"><col style="width: 831.0px;"></colgroup><tbody><tr ac:local-id="e91ff442-661d-4e64-abe8-a939cff78b8d"><td ac:local-id="ca1f6a8d-4c49-47e5-b8bd-109c6d800319"><div class="TextAlignCenter"><img src="attachments/3.26_scan_cnc_(opzionale)/3.26.moveOn.png" alt="3.26.moveOn.png" width="128" onclick="showModal(this.src)"></div></td><td ac:local-id="5551b0e4-e30e-457b-9d3e-4670bb9a3ea9"><p local-id="55e7d8a761bf"><strong>Movimento abilitato</strong><br>È possibile spostare lungo gli assi un punto o un perimento selezionato, cliccando i pulsanti freccia.</p></td></tr><tr ac:local-id="13ebb348-424d-41a9-a95a-bda0304e5b5b"><td ac:local-id="6c17af1d-58b8-4b05-8629-7bf823dc32b3"><div class="TextAlignCenter"><img src="attachments/3.26_scan_cnc_(opzionale)/3.26.moveOff.png" alt="3.26.moveOff.png" width="124" onclick="showModal(this.src)"></div></td><td ac:local-id="a6cb3f91-6e39-4734-819e-c8a16510527d"><p local-id="097b33f8ec4c"><strong>Movimento disabilitato</strong><br>Qualora nessun punto o perimetro fosse selezionato, i pulsanti freccia verranno disabilitati.</p></td></tr><tr ac:local-id="5055b6d0638e"><td ac:local-id="ced8b358e825"><div class="TextAlignCenter"><img src="attachments/3.26_scan_cnc_(opzionale)/3.26.moveOnMidP.png" alt="3.26.moveOnMidP.png" width="128" onclick="showModal(this.src)"></div></td><td ac:local-id="7b61de337c0f"><p local-id="ef80ed2c3001"><strong>Movimento punto medio arco</strong><br>Quando il punto selezionato è un punto medio di un arco, verranno abilitati solamente due pulsanti che permettono di muoverlo perpendicolarmente alla curva.</p>
+<div id="admonition-nota-2" class="admonition admonish-info" role="note" aria-labelledby="admonition-nota-2-title">
+<div class="admonition-title">
+<div id="admonition-nota-2-title">
+<p>NOTA</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-nota-2"></a>
+</div>
+<div>
+<p>Possono essere abilitate anche solo le frecce orizzontali, in relazione alla pendenza dell’arco.</p>
+</div>
+</div>
+</td></tr><tr ac:local-id="9d2e6d0438f9"><td ac:local-id="902a68da-732d-4db3-84d8-6ccd02bba5b3"><p local-id="625121a015a1"><strong>Offset</strong></p></td><td ac:local-id="aaef2f54-7562-4280-b4f5-482a68bc8326"><p local-id="d11518f3a5f4">Valore dello spostamento applicato ad ogni pressione delle frecce direzionali.</p></td></tr></tbody></table><p local-id="32da3d7da2cb"></p><h2 local-id="429c2f050d04">Area di lavoro centrale</h2><p local-id="409ffe6c4e7d">Di seguito verranno illustrate le funzionalità dell’area di lavoro centrale.</p><div class="TextAlignCenter"><img src="attachments/3.26_scan_cnc_(opzionale)/3.26.viewer.png" alt="3.26.viewer.png" width="800" onclick="showModal(this.src)"></div><p local-id="671f73f95d67"></p></layout-cell></layout-section><layout-section ac:type="two_equal" ac:breakout-mode="wide" ac:breakout-width="1800" ac:local-id="b5af7f02ae9d"><layout-cell ac:local-id="571d3946de53"><p local-id="724da5bd9046"><strong>Punto</strong></p><table class="my-table2" data-table-width="1166" data-layout="center" ac:local-id="807868d14aa6"><colgroup><col style="width: 98.0px;"><col style="width: 479.0px;"></colgroup><tbody><tr ac:local-id="f34d14e1-a936-46af-8f6b-5d95f1e80dd4"><td ac:local-id="90e30874-946b-4269-98c1-1a6e9a633ceb"><div class="TextAlignCenter"><img src="attachments/3.26_scan_cnc_(opzionale)/3.26.pDefault.png" alt="3.26.pDefault.png" width="50" onclick="showModal(this.src)"></div></td><td ac:local-id="2efb5afa-2414-41f8-8354-5b902d357452"><p local-id="b4681413b4a4"><strong>Default</strong><br>Stato base del punto del perimetro selezionato</p></td></tr><tr ac:local-id="4f209b17-2348-4865-bddb-f2aa4830e16b"><td ac:local-id="413d41b3-a353-4d1d-9886-0ff2815f3a33"><div class="TextAlignCenter"><img src="attachments/3.26_scan_cnc_(opzionale)/default_mid_point.png" alt="default_mid_point.png" width="50" onclick="showModal(this.src)"></div></td><td ac:local-id="9867b46d-08c6-40dd-a441-913df3f12246"><p local-id="0dea6eb40892"><strong>Default Punto medio arco</strong><br>Stato base del punto medio dell’arco</p></td></tr><tr ac:local-id="88998f57-318f-4e99-bf73-1acbd052e634"><td ac:local-id="b17b6d52-a95e-451c-adea-0fc16e16ea10"><div class="TextAlignCenter"><img src="attachments/3.26_scan_cnc_(opzionale)/3.26.pLast.png" alt="3.26.pLast.png" width="50" onclick="showModal(this.src)"></div></td><td ac:local-id="faa9fde5-670e-45ed-96c6-d2f108a2a55e"><p local-id="2afa6490e5ba"><strong>Ultimo punto perimetro aperto</strong><br>Stato base del punto dell’ultimo perimetro selezionato</p></td></tr><tr ac:local-id="8e638607-660a-4a32-9c92-e866e3e91f42"><td ac:local-id="4d84f818-339a-478d-bbf3-653ebc4e36f9"><div class="TextAlignCenter"><img src="attachments/3.26_scan_cnc_(opzionale)/3.26.pSelected.png" alt="3.26.pSelected.png" width="50" onclick="showModal(this.src)"></div></td><td ac:local-id="78c29254-7cb8-47f5-9130-ade22ea1770d"><p local-id="39093c8e7ea5"><strong>Selezionato</strong><br>Stato selezionato del punto</p></td></tr><tr ac:local-id="848354e4-1956-47a0-814c-f1d4778f4c26"><td ac:local-id="5cdb4cac-6a23-40b6-9912-ab43afbe014e"><div class="TextAlignCenter"><img src="attachments/3.26_scan_cnc_(opzionale)/3.26.pPreview.png" alt="3.26.pPreview.png" width="50" onclick="showModal(this.src)"></div></td><td ac:local-id="b156bfb5-48d2-444f-be40-75e8b24d10fa"><p local-id="496ed08c74c9"><strong>Anteprima</strong><br>Stato di anteprima del nuovo punto che sta per essere creato</p></td></tr><tr ac:local-id="7b90146e-5f66-479d-b70a-5507319837aa"><td ac:local-id="2813b6cd-1aee-4ed8-b693-c9b41bf1aa9a"><div class="TextAlignCenter"><img src="attachments/3.26_scan_cnc_(opzionale)/3.26.pSnap.png" alt="3.26.pSnap.png" width="50" onclick="showModal(this.src)"></div></td><td ac:local-id="020839ad-a35d-432d-a51d-4fb346c2ed6a"><p local-id="c66befb08666"><strong>Calamita </strong><br>Stato di spostamento del primo/ultimo punto se portati a contatto. Chiudendo il perimetro</p></td></tr><tr ac:local-id="68315600-ca5b-4a83-9dc1-415d98041070"><td ac:local-id="3d11e9db-973b-4130-ac03-3b76da2b8143"><div class="TextAlignCenter"><img src="attachments/3.26_scan_cnc_(opzionale)/3.26.pDeactive.png" alt="3.26.pDeactive.png" width="50" onclick="showModal(this.src)"></div></td><td ac:local-id="e130f094-2c7f-4822-957c-f4338ba30505"><p local-id="1c0b39a93354"><strong>Disattivato</strong><br>Stato punto di perimetro non selezionato</p></td></tr><tr ac:local-id="b320d994-122a-4ca8-8144-c0b831e2eebf"><td ac:local-id="ce7894f5-6251-455f-bc96-0e9af4c2fb23"><div class="TextAlignCenter"><img src="attachments/3.26_scan_cnc_(opzionale)/3.26.mpPreview.png" alt="3.26.mpPreview.png" width="50" onclick="showModal(this.src)"></div></td><td ac:local-id="03f8d930-5c62-4597-ade6-7fdc2cd87b94"><p local-id="041dee78f1fc"><strong>Anteprima punto medio arco</strong><br>Stato di anteprima del nuovo punto medio che sta per essere creato</p></td></tr></tbody></table></layout-cell><layout-cell ac:local-id="bb8081f22d93"><p local-id="724535971869"><strong>Curva</strong></p><table class="my-table2" data-table-width="1166" data-layout="center" ac:local-id="d2b3098cf99d"><colgroup><col style="width: 196.0px;"><col style="width: 381.0px;"></colgroup><tbody><tr ac:local-id="4729041d-7b15-4729-bf98-99fa96bf96f4"><td ac:local-id="c4581633-d855-4adf-8c18-ae59e5bb14e0"><div class="TextAlignCenter"><img src="attachments/3.26_scan_cnc_(opzionale)/3.26.cLine.png" alt="3.26.cLine.png" width="150" onclick="showModal(this.src)"></div></td><td ac:local-id="73bcd0ff-ed2f-46be-add5-7c2c6d5c9075"><p local-id="bb12521af245"><strong>Linea default</strong><br>Stato base della linea</p></td></tr><tr ac:local-id="28b680f3-537b-4b45-b07e-ff0f34b42ab5"><td ac:local-id="a8b23fa0-cb5b-4d27-a4a1-32dc0c3c9199"><div class="TextAlignCenter"><img src="attachments/3.26_scan_cnc_(opzionale)/3.26.cArc.png" alt="3.26.cArc.png" width="150" onclick="showModal(this.src)"></div></td><td ac:local-id="7a051834-6f5b-4939-883b-accf0ca344e7"><p local-id="cf4dfd176bd6"><strong>Arco default</strong><br>Stato base dell’arco</p></td></tr><tr ac:local-id="36b1607f-5fa8-4e31-a8fe-beefa3c7d6d6"><td ac:local-id="058139ef-66e2-4b5f-830a-692f8898e399"><div class="TextAlignCenter"><img src="attachments/3.26_scan_cnc_(opzionale)/3.26.cLast.png" alt="3.26.cLast.png" width="150" onclick="showModal(this.src)"></div></td><td ac:local-id="93f1666c-1556-4dfd-866f-1e9071d1edab"><p local-id="b72a883d336c"><strong>Ultima curva</strong><br>Stato dell’ultima curva del perimetro aperto</p></td></tr><tr ac:local-id="b54b0598-3fe2-43c4-a48e-aabe7558046e"><td ac:local-id="436fa5fa-d866-41f5-813a-fa98272a1faf"><div class="TextAlignCenter"><img src="attachments/3.26_scan_cnc_(opzionale)/3.26.cSelected.png" alt="3.26.cSelected.png" width="150" onclick="showModal(this.src)"></div></td><td ac:local-id="415d28a8-b2bb-4d87-b10b-e614c9b080ef"><p local-id="2d674970250a"><strong>Selezionata</strong><br>Stato curva selezionata</p></td></tr><tr ac:local-id="d1766a3e-b763-4ae7-bd8d-ac0d940f30fd"><td ac:local-id="fa23e474-a611-4f42-9e61-c7cf1b3a98a2"><div class="TextAlignCenter"><img src="attachments/3.26_scan_cnc_(opzionale)/3.26.cPreview.png" alt="3.26.cPreview.png" width="150" onclick="showModal(this.src)"></div></td><td ac:local-id="e0f0407c-a2e9-4326-be7e-5bdd7afe8bdd"><p local-id="5435264968cf"><strong>Anteprima</strong><br>Stato di anteprima della curva in creazione</p></td></tr><tr ac:local-id="139374d1-dba2-47f0-be0a-e3967dc8b776"><td ac:local-id="9e8c12ca-3a1f-461b-a244-549328778569"><div class="TextAlignCenter"><img src="attachments/3.26_scan_cnc_(opzionale)/3.26.cSnap.png" alt="3.26.cSnap.png" width="150" onclick="showModal(this.src)"></div></td><td ac:local-id="19ddf3e6-1eb3-4d8d-aa16-86ddff43a58d"><p local-id="aebbe397bf7d"><strong>Calamita </strong><br>Stato di anteprima ancoraggio della curva a contatto con altro estremo del perimetro aperto</p></td></tr><tr ac:local-id="ee034cfa-5c4b-4fef-b52c-94773c9fe407"><td ac:local-id="6164387e-6db2-4351-8bd3-763a2424a476"><div class="TextAlignCenter"><img src="attachments/3.26_scan_cnc_(opzionale)/3.26.cDeactive.png" alt="3.26.cDeactive.png" width="158" onclick="showModal(this.src)"></div><p local-id="47760d9b16e8"></p></td><td ac:local-id="b211b2ea-c8b1-471e-ab18-f11277322181"><p local-id="bd2ecf5f37f1"><strong>Disattivata</strong><br>Stato curva perimetro non selezionato</p></td></tr></tbody></table></layout-cell></layout-section><layout-section ac:type="fixed-width" ac:breakout-mode="default"><layout-cell><p local-id="9f8600324a80"></p><h2 local-id="3adee4481182">Barra inferiore</h2><p local-id="ab3503fe5c1c">La barra inferiore contiene i pulsanti per le azioni principali.</p><div class="TextAlignCenter"><img src="attachments/3.26_scan_cnc_(opzionale)/3.26.downbar.png" alt="3.26.downbar.png" width="800" onclick="showModal(this.src)"></div><p local-id="ad6cbea38566"></p><p local-id="a83f4855f764">I pulsanti che si trovano in basso a sinistra permettono di scegliere il tipo di curva da inserire al prossimo click per rilevamento punti.</p><table class="my-table2" data-table-width="1011" data-layout="center" ac:local-id="0034b2b4-16f4-48a2-9d06-310f7974e36b"><colgroup><col style="width: 150.0px;"><col style="width: 859.0px;"></colgroup><tbody><tr ac:local-id="3e471ecf-6bef-429e-9388-bb385702b493"><td ac:local-id="4f66cf6b-44c4-43dd-8ff9-740c821909d5"><div class="TextAlignCenter"><img src="attachments/3.26_scan_cnc_(opzionale)/3.26.lineMode.png" alt="3.26.lineMode.png" width="120" onclick="showModal(this.src)"></div></td><td ac:local-id="8b27f233-1f77-426f-9b23-9c2bc323f055"><p local-id="1a449125ac23"><strong>Linea</strong><br>Crea una linea tra due punti consecutivi.</p></td></tr><tr ac:local-id="04b80947-7607-48b8-8067-883611a31a88"><td ac:local-id="6c07609c-dee6-42a9-a4bc-78bbe923b70b"><div class="TextAlignCenter"><img src="attachments/3.26_scan_cnc_(opzionale)/3.26.arcMode.png" alt="3.26.arcMode.png" width="120" onclick="showModal(this.src)"></div></td><td ac:local-id="49b17053-670a-4858-bf93-72f7aa7c713b"><p local-id="8e2958b8f4b7"><strong>Arco</strong><br>Crea un arco tra tre punti: punto iniziale, punto intermedio, punto finale.</p></td></tr></tbody></table>
+<div id="admonition-nota-3" class="admonition admonish-info" role="note" aria-labelledby="admonition-nota-3-title">
+<div class="admonition-title">
+<div id="admonition-nota-3-title">
+<p>NOTA</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-nota-3"></a>
+</div>
+<div>
+<p>La selezione della modalità è mutualmente esclusiva.
+<br>
+La modalità impostata di default è
+<br>
+Linea
+<br>
+.</p>
+</div>
+</div>
+<p local-id="60e0ebb4a7f9">Per aggiungere un vertice al perimetro, è sufficiente premere su un punto dell’area di lavoro. Se si desidera utilizzare la macchina per rilevare i punti, è necessario utilizzare il seguente pulsante.</p><table class="my-table2" data-table-width="1011" data-layout="center" ac:local-id="f44d31a8-7c16-4234-b0f7-75137b29ceef"><colgroup><col style="width: 153.0px;"><col style="width: 856.0px;"></colgroup><tbody><tr ac:local-id="83005930-4177-41ff-a40a-be45d5ae094e"><td ac:local-id="8374f7c2-27f5-4121-b4b3-74601174b547"><div class="TextAlignCenter"><img src="attachments/3.26_scan_cnc_(opzionale)/detect_point.png" alt="detect_point.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="2d7246fb-1c81-4140-8d3b-67333f72dad6"><p local-id="5714b989f30b"><strong>Aggiungi punto</strong><br>Permette di aggiungere un vertice al perimetro nella posizione in cui si trova il punto di riferimento scelto della macchina.</p></td></tr></tbody></table><p local-id="7a1ea07a35aa"></p><p local-id="a9d3b934e26f">Al centro sono presenti pulsanti che consentono di modificare il perimetro selezionato.</p><table class="my-table2" data-table-width="1011" data-layout="center" ac:local-id="e83427b720dc"><colgroup><col style="width: 151.0px;"><col style="width: 859.0px;"></colgroup><tbody><tr ac:local-id="3ad6b1c8-7b4e-4999-8676-5650e1410c1f"><td ac:local-id="899320e7-fe89-441d-97b5-99f0f7ae0444"><div class="TextAlignCenter"><img src="attachments/3.26_scan_cnc_(opzionale)/3.26.move_p.png" alt="3.26.move_p.png" width="120" onclick="showModal(this.src)"></div></td><td ac:local-id="2b8ca225-d37c-401c-ade1-2f6ff41401f6"><p local-id="a57a498ee1d7"><strong>Sposta perimetro</strong><br>Permette di muovere il perimetro selezionato trascinandolo sul banco di lavoro o usando le frecce direzionali.</p></td></tr><tr ac:local-id="eb8affd5-d942-40e9-a791-40a33e6906c8"><td ac:local-id="6a230ad9-a03e-4d24-838f-380e1f5dfa8f"><div class="TextAlignCenter"><img src="attachments/3.26_scan_cnc_(opzionale)/3.26.eraser.png" alt="3.26.eraser.png" width="120" onclick="showModal(this.src)"></div></td><td ac:local-id="ab868011-0adc-421c-9565-3916456097de"><p local-id="a9d8e05ec21e"><strong>Gomma</strong><br>Attiva/disattiva la modalità di cancellazione. Cliccando su un punto o su una curva nell’area di lavoro, li elimina.</p></td></tr><tr ac:local-id="2458eddc-0284-45a5-bbd0-7faafcf8097c"><td ac:local-id="712d2370-1c96-47bb-9b43-fc5365696046"><div class="TextAlignCenter"><img src="attachments/3.26_scan_cnc_(opzionale)/3.26.close_p.png" alt="3.26.close_p.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="34e4cc74-32ae-43fb-ab03-a84d8f21f105"><p local-id="82aab9e252f1"><strong>Chiudi perimetro</strong><br>Chiude il perimetro selezionato aggiungendo una curva di chiusura tra l'ultimo e il primo punto. Se la modalità entità è Arco, la curva di chiusura sarà un arco.</p></td></tr><tr ac:local-id="76d192a5-4204-48e0-97b4-6de3c1e54da3"><td ac:local-id="9f694b65-30fc-4290-926f-6d80573b2215"><div class="TextAlignCenter"><img src="attachments/3.26_scan_cnc_(opzionale)/3.26.undo.png" alt="3.26.undo.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="e5d3821c-3d67-49b3-921d-b4d7dfe08de7"><p local-id="e1a54e37e8c9"><strong>Annulla ultima curva</strong><br>Rimuove l'ultima curva inserita nel perimetro selezionato.</p></td></tr><tr ac:local-id="d74d83cb-4e42-4c14-afbc-c69781f42cf1"><td ac:local-id="f98618ad-5df8-46a3-8dbf-54f9943d6c2c"><div class="TextAlignCenter"><img src="attachments/3.26_scan_cnc_(opzionale)/3.26.magnet.png" alt="3.26.magnet.png" width="120" onclick="showModal(this.src)"></div></td><td ac:local-id="7cfdc80a-c7c7-40af-a4a2-ddd7665b93ba"><p local-id="6db025f1f3bb"><strong>Magnete macchina</strong><br>Sposta il punto selezionato esattamente sulla posizione corrente della macchina.</p>
+<div id="admonition-nota-4" class="admonition admonish-info" role="note" aria-labelledby="admonition-nota-4-title">
+<div class="admonition-title">
+<div id="admonition-nota-4-title">
+<p>NOTA</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-nota-4"></a>
+</div>
+<div>
+<p>Magnete è disponibile solo in modalità macchina.</p>
+</div>
+</div>
+</td></tr></tbody></table><p local-id="cc0e377a187d"></p><p local-id="73e672610462">I pulsanti sul lato destro permettono di esportare i perimetri creati.</p><table class="my-table2" data-table-width="1011" data-layout="center" ac:local-id="0ae3f487-a317-46c7-b8b7-4c15f30bed08"><colgroup><col style="width: 126.0px;"><col style="width: 885.0px;"></colgroup><tbody><tr ac:local-id="0dcaf42a-4031-4ca1-a205-eda5bf8688e8"><td ac:local-id="4760286e-a597-44fc-ab29-522cb84b4f89"><div class="TextAlignCenter"><img src="attachments/3.26_scan_cnc_(opzionale)/3.26.save_as_dxf.png" alt="3.26.save_as_dxf.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="d4e9704c-9960-456f-8fac-1daf77bcbad7"><p local-id="03c2a1b0b8bb"><strong>Esporta DXF</strong><br>Esporta tutti i perimetri chiusi come file DXF.<br></p></td></tr><tr ac:local-id="b3b38642-e778-4f2c-bcdf-ec60e9a9b448"><td ac:local-id="dd54d21c-0db2-481b-b9c8-40d19683a6b4"><div class="TextAlignCenter"><img src="attachments/3.26_scan_cnc_(opzionale)/3.26.import_dgv.png" alt="3.26.import_dgv.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="58c3d4a5-188f-4769-8e0b-486e15499ed4"><p local-id="5fb5d9e76b94"><strong>Importa pezzi</strong><br>Converte i perimetri chiusi in pezzi per Parametrix e li aggiunge alla lista pezzi. </p></td></tr></tbody></table><p local-id="701553331e43"></p><p local-id="49f1931ba81a"></p><h1 local-id="935c331d2768">Utilizzo</h1><h2 local-id="a640d927022a">Inserimento punti e curve</h2><p local-id="add60d24b0db">L'inserimento avviene cliccando nell’area di lavoro (modalità touch) oppure premendo il pulsante <strong>aggiungi punto</strong> (modalità macchina). <br>Il tipo di curva creata dipende dalla modalità entità selezionata.</p><div class="TextAlignCenter"><img src="attachments/3.26_scan_cnc_(opzionale)/3.26.use.00.png" alt="3.26.use.00.png" width="800" onclick="showModal(this.src)"></div><p local-id="12eb72a19c5f"></p><p local-id="849d564758b6"><strong>Inserimento in modalità Linea</strong></p><p local-id="89940defdbd5">Ogni click nell’area di lavoro aggiunge un punto. Una linea viene creata automaticamente tra il punto precedente e il nuovo punto. L'anteprima della linea è visibile durante il movimento del mouse.</p><div class="TextAlignCenter"><img src="attachments/3.26_scan_cnc_(opzionale)/3.26.use.01.png" alt="3.26.use.01.png" width="800" onclick="showModal(this.src)"></div><p local-id="4c4203385bfc"></p><p local-id="b6bf32225805"><strong>Inserimento in modalità Arco</strong></p><p local-id="aae59540044a">L'arco richiede tre punti: un punto iniziale, uno intermedio e uno finale.<br>I primi due click definiscono rispettivamente il punto iniziale e quello intermedio, mentre il terzo click crea l’arco passante per i tre punti.<br>Durante l'inserimento viene mostrata l'anteprima dell'arco in corso di definizione.</p><div class="TextAlignCenter"><img src="attachments/3.26_scan_cnc_(opzionale)/3.26.use.02.png" alt="3.26.use.02.png" width="800" onclick="showModal(this.src)"></div>
+<div id="admonition-nota-5" class="admonition admonish-info" role="note" aria-labelledby="admonition-nota-5-title">
+<div class="admonition-title">
+<div id="admonition-nota-5-title">
+<p>NOTA</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-nota-5"></a>
+</div>
+<div>
+<p>Se il punto iniziale e il punto intermedio coincidono, l’inserimento del punto viene ignorato. L'arco diventa automaticamente una linea se i tre punti sono collineari.</p>
+</div>
+</div>
+<p local-id="394bdac56801"> </p><h2 local-id="d4a59050c45a">Selezione e modifica di punti e curve</h2><p local-id="e28721a1af5e">Cliccando su un punto o su una curva nell’area di lavoro si seleziona l'entità. È possibile modificare la posizione del punto selezionato trascinandolo, muovendolo tramite le frecce direzionali.</p><div class="TextAlignCenter"><img src="attachments/3.26_scan_cnc_(opzionale)/3.26.use.03.png" alt="3.26.use.03.png" width="800" onclick="showModal(this.src)"></div><p local-id="b9210621f1dc"><br><strong>Regole di selezione</strong></p><table class="my-table2" data-table-width="1011" data-layout="center" ac:local-id="4ec19542-e813-45bc-b893-b89afb9737ea"><colgroup><col style="width: 281.0px;"><col style="width: 730.0px;"></colgroup><tbody><tr ac:local-id="2680a7ca-fdb9-4ce8-bf10-62ad97b6299b"><td ac:local-id="6d5dad34-3612-4247-9195-78a4aca13a89"><p local-id="0d67dd59c4fe"><strong>Click su punto</strong></p></td><td ac:local-id="8b7c00b8-6fbd-461f-8ae4-2ca209181d5f"><p local-id="d8d141d7a5ea">Seleziona il punto cliccato. Se il perimetro a cui appartiene non è selezionato, seleziona prima il perimetro.</p></td></tr><tr ac:local-id="7228707c-ef01-4764-b304-cea3b4d94330"><td ac:local-id="e1fc5d97-2b7c-4b09-a37a-0a4ff58f9a6e"><p local-id="d5f592776e44"><strong>Click su curva</strong></p></td><td ac:local-id="06cec195-2243-4667-ab58-debd501e82fe"><p local-id="f99ea63ea1c7">Seleziona la curva e imposta automaticamente il punto finale come punto selezionato.</p></td></tr></tbody></table><p local-id="f0e8f7797fc8"> </p><h3 local-id="d7d8ac7fa27e">Modifica della lunghezza di una curva</h3><p local-id="03a8e0e5bee4">Selezionare una curva, quindi modificare il campo Lunghezza nel pannello destro. Il punto opposto a quello selezionato viene spostato nella direzione della curva stessa. La modifica è applicata in tempo reale durante la digitazione.</p><div class="TextAlignCenter"><img src="attachments/3.26_scan_cnc_(opzionale)/3.26.use.04.png" alt="3.26.use.04.png" width="800" onclick="showModal(this.src)"></div><p local-id="8cfdcf6c7f14">  </p><h3 local-id="cb9a09a7bc16">Spostamento tramite frecce direzionali</h3><p local-id="f73519386e65">Con un punto selezionato, i tasti freccia ne modificano la posizione in base al valore di offset impostato nel pannello destro. Se è attiva la modalità <strong>Sposta Perimetro</strong>, i tasti freccia traslano l’intero perimetro. Per il punto medio di un arco, i tasti freccia permettono di muoverlo perpendicolarmente alla curva.</p><div class="TextAlignCenter"><img src="attachments/3.26_scan_cnc_(opzionale)/3.26.use.05.png" alt="3.26.use.05.png" width="800" onclick="showModal(this.src)"></div><p local-id="4a1d1a5bce34"></p><p local-id="d02dfd8a0705"> </p><h2 local-id="ff216863142e">Eliminazione</h2><p local-id="dbaf43239510">È possibile eliminare singoli punti, singole curve o interi perimetri. Le operazioni di eliminazione seguono regole specifiche per mantenere la coerenza geometrica del perimetro.</p><div class="TextAlignCenter"><img src="attachments/3.26_scan_cnc_(opzionale)/3.26.use.06.png" alt="3.26.use.06.png" width="800" onclick="showModal(this.src)"></div><p local-id="793b60f07331"></p><p local-id="98a5fcb43b85"><strong>Eliminazione di un punto</strong></p><p local-id="58d630ddd9bd">Un punto si elimina tramite la modalità <strong>Gomma </strong>cliccando sul punto nell’area di lavoro. Le conseguenze dipendono dalla posizione del punto nel perimetro.</p><div class="TextAlignCenter"><img src="attachments/3.26_scan_cnc_(opzionale)/3.26.use.07.png" alt="3.26.use.07.png" width="800" onclick="showModal(this.src)"></div><table class="my-table2" data-table-width="1011" data-layout="center" ac:local-id="2d72eae2-6883-42b8-81c2-8af6be4c6361"><colgroup><col style="width: 302.0px;"><col style="width: 709.0px;"></colgroup><tbody><tr ac:local-id="4638a39b-9a0a-4a7c-90eb-20e70edc3ef9"><td ac:local-id="1b358c63-d125-44de-b536-ee7c932b8f90"><p local-id="9da737406505"><strong>Punto estremo (perimento aperto)</strong></p></td><td ac:local-id="a7cfb7cb-24f8-4827-960c-61855a26b3cc"><p local-id="6669838b2c5d">Elimina il punto su cui si è premuto e la curva corrispondente.</p></td></tr><tr ac:local-id="d8a94c83-8e27-4f87-b6ac-f52b627b8e6a"><td ac:local-id="c18e674c-bb20-4922-829b-1f653011737c"><p local-id="8f4e93fd5b64"><strong>Punto interno</strong></p></td><td ac:local-id="cd1094df-bf6b-458e-8c3d-f96105c2f7b2"><p local-id="83402cfb4253">Unifica le due curve adiacenti in una sola (la curva risultante è una linea tra i due estremi rimasti).</p></td></tr><tr ac:local-id="ce5c11e7-7571-45bc-bee9-599960286aab"><td ac:local-id="70797606-ca10-404d-88c4-9cb76109e612"><p local-id="e24330ccca79"><strong>Punto medio di arco</strong></p></td><td ac:local-id="a8765d76-ef6d-4297-9608-6f49adced88d"><p local-id="e75352bf9f4e">L'arco viene convertito in una linea tra il suo punto iniziale e il suo punto finale.</p></td></tr></tbody></table><p local-id="10fb422205f3"></p><p local-id="95faf7bc741e"><strong>Eliminazione di una curva</strong></p><p local-id="dede1c4b41f8">Una curva si elimina tramite la modalità <strong>Gomma</strong> cliccando sulla curva nell’area di lavoro, oppure dal pulsante Cestino nella lista del pannello destro. Le conseguenze dipendono dallo stato del perimetro.</p><div class="TextAlignCenter"><img src="attachments/3.26_scan_cnc_(opzionale)/3.26.use.08.png" alt="3.26.use.08.png" width="800" onclick="showModal(this.src)"></div><table class="my-table2" data-table-width="1011" data-layout="center" ac:local-id="d1230cf4-74aa-4969-bf7d-03dd2f53620d"><colgroup><col style="width: 192.0px;"><col style="width: 819.0px;"></colgroup><tbody><tr ac:local-id="6bcdd270-b961-4bad-b45b-b8741696d641"><td ac:local-id="3d60dad6-d79a-4b9d-b4e3-08e20e8109e6"><p local-id="b9eb52571d80"><strong>Perimetro chiuso</strong></p></td><td ac:local-id="31047210-27d5-40a0-b639-04254ac3d7ef"><p local-id="5d98b6b16826">La curva eliminata apre il perimetro.</p></td></tr><tr ac:local-id="25eac128-4ea3-421f-84cf-9d1806673706"><td ac:local-id="c2376ce1-232a-44ee-98ed-d9767e8bd9eb"><p local-id="55f6b3439fa4"><strong>Perimetro aperto</strong></p></td><td ac:local-id="5168f1f0-45da-43c9-bcee-66f30af8770d"><p local-id="c7b1232e8d3a">È possibile eliminare solo la prima o l'ultima curva.</p></td></tr></tbody></table><p local-id="d86c57b58caf"></p><p local-id="96d259febbf3"><strong>Eliminazione di un perimetro</strong></p><p local-id="6d3675537bb4">Un perimetro si elimina tramite il pulsante <strong>Cestino </strong>nella riga del perimetro nella lista del pannello destro. </p><p local-id="b5c81d31859a"> </p><h2 local-id="951d69bce038">Chiusura del perimetro</h2><p local-id="b60694ec32e7">Un perimetro chiuso è necessario per poter esportare pezzi Parametrix o file DXF. Un perimetro si considera chiuso quando l'ultimo punto coincide con il primo.</p><div class="TextAlignCenter"><img src="attachments/3.26_scan_cnc_(opzionale)/3.26.use.09.png" alt="3.26.use.09.png" width="800" onclick="showModal(this.src)"></div><table class="my-table2" data-table-width="1011" data-layout="center" ac:local-id="42eb8390-5c8f-4899-997a-92795b6e005b"><colgroup><col style="width: 230.0px;"><col style="width: 781.0px;"></colgroup><tbody><tr ac:local-id="9dc3c4d6-889b-4568-b296-a50e8504ab64"><td ac:local-id="c7947e99-cf90-42b0-8ad9-75af3e60fa24"><p local-id="13c71bea0083"><strong>Pulsante Chiudi perimetro</strong></p></td><td ac:local-id="efb065ad-8336-4451-a6ec-42363f4fca66"><p local-id="bca85f980478">Aggiunge automaticamente una curva di chiusura tra l'ultimo e il primo punto del perimetro. Se la modalità entità selezionata è <strong>Arco</strong>, la curva sarà un arco, altrimenti una linea.</p></td></tr><tr ac:local-id="4e6aa02f-18cb-42d2-8335-2f3dd1aad034"><td ac:local-id="588735b3-d7a2-4cc7-8a30-e7ec9e15a79a"><p local-id="3b99be544c77"><strong>Ancoraggio magnetico</strong></p></td><td ac:local-id="3060a1d8-7f50-4cde-8572-074dcfaf54de"><p local-id="8401f48e38a3">Trascinando l'ultimo punto del perimetro vicino al primo, o viceversa, i due punti si attraggono automaticamente chiudendo il perimetro.</p></td></tr></tbody></table>
+<div id="admonition-attenzione-1" class="admonition admonish-warning" role="note" aria-labelledby="admonition-attenzione-1-title">
+<div class="admonition-title">
+<div id="admonition-attenzione-1-title">
+<p>ATTENZIONE!</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-attenzione-1"></a>
+</div>
+<div>
+<p>Un perimetro aperto non può essere esportato come pezzo Parametrix né come file DXF.</p>
+</div>
+</div>
+<p local-id="3a35e51d15dc"> </p><h2 local-id="b4afd5c4a016">Esportazione DXF</h2><p local-id="cc98c5c14fbb">Permette di salvare i perimetri chiusi come file DXF nella cartella ‘DXF’ del progetto corrente. I perimetri aperti vengono ignorati.</p><p local-id="005dcb4a9aa8">Per esportare, premere il pulsante Esporta DXF nella barra inferiore. Al termine della procedura compare un messaggio con il nome del file generato.<br>Se non è presente alcun perimetro chiuso, verrà mostrato un avviso.</p>
+<div id="admonition-nota-6" class="admonition admonish-info" role="note" aria-labelledby="admonition-nota-6-title">
+<div class="admonition-title">
+<div id="admonition-nota-6-title">
+<p>NOTA</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-nota-6"></a>
+</div>
+<div>
+<p>Il nome del file DXF generato corrisponde al nome del file di lavoro attivo al momento dell'esportazione.</p>
+</div>
+</div>
+<div id="admonition-nota-7" class="admonition admonish-info" role="note" aria-labelledby="admonition-nota-7-title">
+<div class="admonition-title">
+<div id="admonition-nota-7-title">
+<p>NOTA</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-nota-7"></a>
+</div>
+<div>
+<p>In fase di esportazione DXF, vengono considerati tutti i perimetri chiusi presenti.</p>
+</div>
+</div>
+<p local-id="7ea238188ac3"> </p><h2 local-id="fff65a140bda">Importazione pezzi</h2><p local-id="7333b32bac08">Converte i perimetri chiusi in pezzi Parametrix e li aggiunge alla lista pezzi. I pezzi vengono posizionati sul banco nella stessa posizione in cui sono stati acquisiti.</p><div class="TextAlignCenter"><img src="attachments/3.26_scan_cnc_(opzionale)/3.26.use.10.png" alt="3.26.use.10.png" width="800" onclick="showModal(this.src)"></div>
+<div id="admonition-nota-8" class="admonition admonish-info" role="note" aria-labelledby="admonition-nota-8-title">
+<div class="admonition-title">
+<div id="admonition-nota-8-title">
+<p>NOTA</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-nota-8"></a>
+</div>
+<div>
+<p>Se due o più perimetri sono uno contenuto nell'altro, vengono raggruppati in un unico pezzo con tagli interni.
+<br>
+Il rilevamento avviene automaticamente.</p>
+</div>
+</div>
+<table class="my-table2" data-table-width="1011" data-layout="center" ac:local-id="eb703cb3-4bfc-4e40-98ee-729a75a6dca1"><colgroup><col style="width: 250.0px;"><col style="width: 760.0px;"></colgroup><tbody><tr ac:local-id="267640a1-c5f8-49ab-ae62-052ac440c44d"><td ac:local-id="c3c4c126-d994-4729-9f98-aaba2f247564"><p local-id="bfb4465ac703"><strong>Importazione rapida</strong></p></td><td ac:local-id="10f30006-6655-4ca1-8e27-2f9ada68e0de"><p local-id="13257946c9eb">I perimetri vengono convertiti direttamente in pezzi ed inseriti sull’area di lavoro.</p></td></tr><tr ac:local-id="3f986f1f-33b9-499f-ab4f-66eaea29a9cb"><td ac:local-id="71d5c7dc-12d9-465d-bd6b-53185f916292"><p local-id="bf178c8cc3ca"><strong>Importazione con anteprima</strong></p></td><td ac:local-id="fd48a7cd-7868-4d2a-aae0-d6792f6b83db"><p local-id="258471642d4d">Apre la finestra di anteprima importazione nella quale è possibile rivedere la gestione di importazione dei pezzi.</p></td></tr></tbody></table><div class="TextAlignCenter"><img src="attachments/3.26_scan_cnc_(opzionale)/3.26.use.11.png" alt="3.26.use.11.png" width="800" onclick="showModal(this.src)"></div>
+<div id="admonition-attenzione-2" class="admonition admonish-warning" role="note" aria-labelledby="admonition-attenzione-2-title">
+<div class="admonition-title">
+<div id="admonition-attenzione-2-title">
+<p>ATTENZIONE!</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-attenzione-2"></a>
+</div>
+<div>
+<p>La conferma dell’importazione comporta la perdita di tutti i perimetri disegnati.
+<br>
+È possibile recuperare solo i perimetri importati come pezzi, riaprendo la funzionalità con i pezzi importati nell’area di lavoro.</p>
+</div>
+</div>
+<p local-id="78394173a54a"></p><p local-id="76cc847a3824"></p><h3 local-id="0cd12ffd2f37">Finestra di anteprima importazione</h3><p local-id="565d1cb5a90a">Mostra la lista dei pezzi rilevati e l'anteprima grafica di un pezzo selezionato.</p><div class="TextAlignCenter"><img src="attachments/3.26_scan_cnc_(opzionale)/3.26.popup.png" alt="3.26.popup.png" width="800" onclick="showModal(this.src)"></div><p local-id="c85bcfc9abb5"></p><p local-id="3bd19db3ad3d"><strong>Lista pezzi</strong></p><p local-id="7f32e8240c26">Elenco di tutti i pezzi rilevati sul lato sinistro del pannello. Ogni riga mostra il nome del pezzo e il numero di copie. I pezzi selezionati saranno importati.</p><div class="TextAlignCenter"><img src="attachments/3.26_scan_cnc_(opzionale)/3.26.list.png" alt="3.26.list.png" width="308" onclick="showModal(this.src)"></div><p local-id="ae4f2788e7f6">Dove le icone indicano:</p><table class="my-table2" data-table-width="1011" data-layout="center" ac:local-id="89b6aee2012f"><colgroup><col style="width: 164.0px;"><col style="width: 846.0px;"></colgroup><tbody><tr ac:local-id="87c3a1ac-3feb-4664-b3bc-5bfb295332cd"><td ac:local-id="f0c6cb63-0649-42f2-9520-ad5d144b0c2e"><div class="TextAlignCenter"><img src="attachments/3.26_scan_cnc_(opzionale)/3.26.count_pezzo.png" alt="3.26.count_pezzo.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="093a0242-ac42-4e49-a417-4b6d7f46af7d"><p local-id="0e6c9f5d4b8d"><strong>Marca</strong><br>Nome del pezzo quando verrà importato nella lista pezzi di Parametrix</p></td></tr><tr ac:local-id="a95d10f9-dec9-4825-84d0-b160ed6e5cf0"><td ac:local-id="3ce133c8-e018-4242-b550-a7b2f1db7ef3"><div class="TextAlignCenter"><img src="attachments/3.26_scan_cnc_(opzionale)/3.26.name_pezzo.png" alt="3.26.name_pezzo.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="5f8586b3-2242-4c0f-ad05-8860050e8817"><p local-id="d0186846e462"><strong>N_ Pezzi</strong><br>Numero di pezzi che potranno essere lavorati da Parametrix</p></td></tr></tbody></table><p local-id="b7d5af915a54">Il pulsante sottostante permette di selezionare velocemente i pezzi dell’elenco.</p><table class="my-table2" data-table-width="1011" data-layout="center" ac:local-id="94ae58d6-f829-47c3-9b28-9b935674016d"><colgroup><col style="width: 163.0px;"><col style="width: 847.0px;"></colgroup><tbody><tr ac:local-id="3ffb5c5c-bd9b-4889-8810-ffe16c9c7490"><td ac:local-id="e5e6f1bd-ab78-4bb2-84be-df7168aaeb95"><div class="TextAlignCenter"><img src="attachments/3.26_scan_cnc_(opzionale)/CBMultiON.png" alt="CBMultiON.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="6b1405e9-d9b4-4f9e-952b-c04b419348c3"><p local-id="b29804b870fb"><strong>Seleziona/Deseleziona tutto</strong><br>Attiva o disattiva la selezione di tutti i pezzi nella lista quali importare.</p></td></tr></tbody></table>
+<div id="admonition-nota-9" class="admonition admonish-info" role="note" aria-labelledby="admonition-nota-9-title">
+<div class="admonition-title">
+<div id="admonition-nota-9-title">
+<p>NOTA</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-nota-9"></a>
+</div>
+<div>
+<p>Vengono importati solo i pezzi selezionati.</p>
+</div>
+</div>
+<p local-id="5ad583138d21"></p><p local-id="10273bc5fb9a"></p><p local-id="fcdc8f1e5c7c"><strong>Anteprima</strong></p><p local-id="c69bf65f69b8">Visualizzazione grafica del pezzo selezionato nella lista. Mostra il perimetro, i tagli e le quote del pezzo selezionato.</p><div class="TextAlignCenter"><img src="attachments/3.26_scan_cnc_(opzionale)/3.26.viewer.2.png" alt="3.26.viewer.2.png" width="578" onclick="showModal(this.src)"></div><p local-id="a2467ad0c642">L’anteprima può essere visualizzata nelle seguenti modalità:</p><table class="my-table2" data-table-width="1011" data-layout="center" ac:local-id="20b31aac90d7"><colgroup><col style="width: 165.0px;"><col style="width: 845.0px;"></colgroup><tbody><tr ac:local-id="07c9a9538c03"><td ac:local-id="390a6c2502bd"><div class="TextAlignCenter"><img src="attachments/3.26_scan_cnc_(opzionale)/3.26.cutview.png" alt="3.26.cutview.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="280ed478af16"><p local-id="8e3dbdd1c918"><strong>Taglio</strong><br>Imposta la visualizzazione dei tagli nell'anteprima.</p></td></tr><tr ac:local-id="d3de16a1a7e9"><td ac:local-id="ae120c6246ca"><div class="TextAlignCenter"><img src="attachments/3.26_scan_cnc_(opzionale)/3.26.measureview.png" alt="3.26.measureview.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="a4fb4f0cb43e"><p local-id="3981559388a1"><strong>Quote</strong><br>Imposta la visualizzazione delle quote nell'anteprima.</p></td></tr><tr ac:local-id="705ddceb1f98"><td ac:local-id="367e73295999"><div class="TextAlignCenter"><img src="attachments/3.26_scan_cnc_(opzionale)/3.26.ingombro.png" alt="3.26.ingombro.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="0f3ca991f74b"><p local-id="d4733ea4102c"><strong>Ingombro</strong><br>Imposta la visualizzazione del rettangolo ingombro nell'anteprima.</p></td></tr></tbody></table><p local-id="3d86f2b3cbc1"></p></layout-cell></layout-section></layout>
+                        </main>
+
+                    </div>
+
+                    <img src="images/donatoni_222.jpg">
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="3.25_etichettatura_(opzionale).html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="3.27_simulazione_taglio.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+
+
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                <a rel="prev" href="3.25_etichettatura_(opzionale).html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="3.27_simulazione_taglio.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="mermaid.min.js"></script>
+        <script src="mermaid-init.js"></script>
+        <script src="hidemenu.js"></script>
+        <script src="imagemodal.js"></script>
+        <script src="login.js"></script>
+    </div>
+
+    <!-- Modale -->
+    <div id="modal" onclick="closeModal()">
+        <img id="modal-img" src="">
+    </div>;
+
+
+</body>
+</html>
