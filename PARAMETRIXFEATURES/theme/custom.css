@@ -97,3 +97,1172 @@ main {
     .my-table2 tbody tr {
         background-color: #ffffff !important; /* righe bianche */
     }
+
+/* MANITIT-TECHNICAL-THEME:START */
+/* ========================================================================== 
+   Manuale macchina — interfaccia tecnica
+   Attiva su tutte le pagine di contenuto tramite imagemodal.js.
+   ========================================================================== */
+
+.maintenance-page {
+    --tech-ink: #12243a;
+    --tech-muted: #657386;
+    --tech-line: #cbd5df;
+    --tech-line-strong: #91a0b1;
+    --tech-surface: #ffffff;
+    --tech-surface-soft: #f4f7f9;
+    --tech-navy: #071a3d;
+    --tech-blue: #0b4e87;
+    --tech-cyan: #16b8c8;
+    --tech-safety: #ffb000;
+    --tech-danger: #d83b32;
+    color: var(--tech-ink);
+    background: #e9eef2;
+    font-family: "Sora", sans-serif;
+}
+
+.maintenance-page button,
+.maintenance-page input,
+.maintenance-page select,
+.maintenance-page textarea,
+.maintenance-page code,
+.maintenance-page pre,
+.maintenance-page kbd,
+.maintenance-page samp {
+    font-family: "Sora", sans-serif !important;
+}
+
+.navy .maintenance-page,
+.coal .maintenance-page,
+.ayu .maintenance-page {
+    --tech-ink: #e7edf4;
+    --tech-muted: #a8b5c3;
+    --tech-line: #39495c;
+    --tech-line-strong: #637489;
+    --tech-surface: #152235;
+    --tech-surface-soft: #101c2c;
+    --tech-navy: #071327;
+    --tech-blue: #4da5df;
+}
+
+.maintenance-page .page-wrapper,
+.maintenance-page .page {
+    background-color: #e9eef2;
+}
+
+.navy .maintenance-page .page-wrapper,
+.navy .maintenance-page .page,
+.coal .maintenance-page .page-wrapper,
+.coal .maintenance-page .page,
+.ayu .maintenance-page .page-wrapper,
+.ayu .maintenance-page .page {
+    background-color: #0d1725;
+}
+
+.maintenance-page .content {
+    background-image:
+        linear-gradient(rgba(7, 26, 61, 0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(7, 26, 61, 0.025) 1px, transparent 1px);
+    background-size: 24px 24px;
+}
+
+.maintenance-page .content > div > img:first-child {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    object-position: center;
+}
+
+.maintenance-page .maintenance-sheet {
+    box-sizing: border-box;
+    position: relative;
+    max-width: 1180px !important;
+    width: calc(100% - 6rem) !important;
+    margin: 4rem auto 6rem !important;
+    padding: 0 4.8rem 5.2rem;
+    overflow: hidden;
+    color: var(--tech-ink);
+    background: var(--tech-surface);
+    border: 1px solid var(--tech-line);
+    border-top: 5px solid var(--tech-blue);
+    box-shadow: 0 18px 45px rgba(21, 40, 62, 0.12);
+}
+
+.maintenance-page .maintenance-sheet::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 18rem;
+    height: 4px;
+    background: var(--tech-cyan);
+}
+
+.maintenance-page .maintenance-eyebrow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    margin: 0 -4.8rem;
+    padding: 1.2rem 4.8rem;
+    color: #dbe7f4;
+    background: var(--tech-navy);
+    font-family: "Sora", sans-serif;
+    font-size: 1.15rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.maintenance-page .maintenance-eyebrow > span:first-child::before {
+    content: "DOC / ";
+    color: var(--tech-cyan);
+}
+
+.maintenance-page .maintenance-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.7rem;
+    color: #d6f8ed;
+}
+
+.maintenance-page .maintenance-status i {
+    color: var(--tech-cyan);
+}
+
+.maintenance-page .maintenance-heading {
+    position: relative;
+    display: flex !important;
+    align-items: stretch !important;
+    gap: 1.6rem !important;
+    margin: 0 -4.8rem 3.4rem;
+    padding: 3.2rem 4.8rem 3.4rem;
+    background:
+        linear-gradient(90deg, rgba(11, 78, 135, 0.06), transparent 45%),
+        var(--tech-surface-soft);
+    border-bottom: 1px solid var(--tech-line);
+}
+
+.maintenance-page .maintenance-heading h1 {
+    flex: 1;
+    min-width: 0;
+    margin: 0 !important;
+}
+
+.maintenance-page .maintenance-heading h1 > a {
+    display: flex;
+    align-items: flex-start;
+    gap: 2rem;
+    color: var(--tech-ink) !important;
+}
+
+.maintenance-page .maintenance-code {
+    flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    min-height: 4.1rem;
+    padding: 0 1.2rem;
+    color: #ffffff;
+    background: var(--tech-blue);
+    border-left: 4px solid var(--tech-cyan);
+    font-family: "Sora", sans-serif;
+    font-size: 1.8rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    line-height: 1;
+}
+
+.maintenance-page .maintenance-name {
+    display: block;
+    padding-top: 0.15rem;
+    font-family: "Sora", sans-serif;
+    font-size: clamp(2.2rem, 3vw, 3.4rem);
+    font-weight: 650;
+    line-height: 1.18;
+    letter-spacing: -0.025em;
+}
+
+.maintenance-page #copy-link-btn {
+    flex: 0 0 4.6rem;
+    align-self: flex-start;
+    width: 4.6rem;
+    height: 4.6rem;
+    padding: 0 !important;
+    color: var(--tech-blue) !important;
+    background: var(--tech-surface) !important;
+    border: 1px solid var(--tech-line) !important;
+    border-radius: 2px;
+    transition: color 160ms ease, border-color 160ms ease, background 160ms ease;
+}
+
+.maintenance-page #copy-link-btn:hover,
+.maintenance-page #copy-link-btn:focus-visible {
+    color: #ffffff !important;
+    background: var(--tech-blue) !important;
+    border-color: var(--tech-blue) !important;
+    outline: 3px solid rgba(22, 184, 200, 0.28);
+}
+
+.maintenance-page #copy-link-btn.is-copied {
+    color: var(--tech-navy) !important;
+    background: var(--tech-cyan) !important;
+    border-color: var(--tech-cyan) !important;
+}
+
+.maintenance-page .maintenance-data-grid {
+    width: 100% !important;
+    margin: 0 0 4rem !important;
+    overflow: hidden;
+    border: 1px solid var(--tech-line-strong) !important;
+    border-radius: 0 !important;
+    box-shadow: 0 8px 22px rgba(21, 40, 62, 0.07);
+}
+
+.maintenance-page .maintenance-data-grid tbody {
+    display: table-row-group;
+}
+
+.maintenance-page .maintenance-data-grid tr {
+    background: var(--tech-surface) !important;
+}
+
+.maintenance-page .maintenance-data-grid tr:nth-child(n+2):nth-child(even) {
+    background: var(--tech-surface-soft) !important;
+}
+
+.maintenance-page .maintenance-data-grid td {
+    width: 50%;
+    padding: 1.6rem 1.8rem !important;
+    color: var(--tech-ink);
+    background: transparent !important;
+    border: 1px solid var(--tech-line) !important;
+    vertical-align: middle;
+}
+
+.maintenance-page .maintenance-data-grid td p {
+    margin: 0;
+    text-align: left;
+    line-height: 1.45;
+}
+
+.maintenance-page .maintenance-data-grid td strong {
+    color: var(--tech-blue);
+    font-family: "Sora", sans-serif;
+    font-size: 1.18rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.maintenance-page .maintenance-data-icon {
+    display: inline-grid;
+    place-items: center;
+    width: 3rem;
+    height: 3rem;
+    margin-right: 1.1rem;
+    color: var(--tech-blue);
+    background: rgba(11, 78, 135, 0.08);
+    border: 1px solid rgba(11, 78, 135, 0.2);
+    font-size: 1.35rem;
+    vertical-align: middle;
+}
+
+.maintenance-page .maintenance-data-layout {
+    display: grid;
+    grid-template-columns: 3rem minmax(0, 1fr);
+    align-items: start;
+    gap: 1.2rem;
+}
+
+.maintenance-page .maintenance-data-layout .maintenance-data-icon {
+    margin: 0;
+}
+
+.maintenance-page .maintenance-data-content {
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.65rem;
+}
+
+.maintenance-page .maintenance-data-grid td .maintenance-data-label {
+    display: block;
+    line-height: 1.25;
+}
+
+.maintenance-page .maintenance-data-value {
+    display: block;
+    color: var(--tech-ink);
+    font-family: "Sora", sans-serif;
+    font-size: 1.62rem;
+    font-weight: 600;
+    line-height: 1.35;
+    letter-spacing: -0.01em;
+}
+
+.maintenance-page .complexity-indicator {
+    display: flex;
+    width: 100%;
+    max-width: 24rem;
+    flex-direction: column;
+    gap: 0.7rem;
+}
+
+.maintenance-page .complexity-scale {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0.45rem;
+    width: 100%;
+}
+
+.maintenance-page .complexity-segment {
+    display: block;
+    height: 0.8rem;
+    background: #d8e0e7;
+    border: 1px solid #c3ced8;
+}
+
+.navy .maintenance-page .complexity-segment,
+.coal .maintenance-page .complexity-segment,
+.ayu .maintenance-page .complexity-segment {
+    background: #29394c;
+    border-color: #43556a;
+}
+
+.maintenance-page .complexity-segment.is-active {
+    background: var(--tech-blue);
+    border-color: var(--tech-blue);
+    box-shadow: inset 0 -2px 0 rgba(0, 0, 0, 0.18);
+}
+
+.maintenance-page .complexity-level-4 .complexity-segment.is-active {
+    background: #d47a00;
+    border-color: #b76a00;
+}
+
+.maintenance-page .complexity-level-5 .complexity-segment.is-active {
+    background: var(--tech-danger);
+    border-color: #b82d26;
+}
+
+.maintenance-page .complexity-readout {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.maintenance-page .complexity-level-name {
+    color: var(--tech-ink);
+    font-family: "Sora", sans-serif;
+    font-size: 1.55rem;
+    font-weight: 650;
+    line-height: 1.2;
+}
+
+.maintenance-page .complexity-score {
+    color: var(--tech-muted);
+    font-family: "Sora", sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+}
+
+/* La gravità delle schede PE usa una scala tecnica, non simboli a stella. */
+.maintenance-page .severity-indicator {
+    display: flex;
+    width: 100%;
+    max-width: 24rem;
+    flex-direction: column;
+    gap: 0.7rem;
+}
+
+.maintenance-page .severity-scale {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0.45rem;
+    width: 100%;
+}
+
+.maintenance-page .severity-segment {
+    display: block;
+    height: 0.8rem;
+    background: #d8e0e7;
+    border: 1px solid #c3ced8;
+}
+
+.navy .maintenance-page .severity-segment,
+.coal .maintenance-page .severity-segment,
+.ayu .maintenance-page .severity-segment {
+    background: #29394c;
+    border-color: #43556a;
+}
+
+.maintenance-page .severity-segment.is-active {
+    background: #16837a;
+    border-color: #116c65;
+    box-shadow: inset 0 -2px 0 rgba(0, 0, 0, 0.18);
+}
+
+.maintenance-page .severity-level-3 .severity-segment.is-active {
+    background: #c58a00;
+    border-color: #a97400;
+}
+
+.maintenance-page .severity-level-4 .severity-segment.is-active {
+    background: #d45f12;
+    border-color: #b84e0a;
+}
+
+.maintenance-page .severity-level-5 .severity-segment.is-active {
+    background: var(--tech-danger);
+    border-color: #b82d26;
+}
+
+.maintenance-page .severity-readout {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.maintenance-page .severity-level-name {
+    color: var(--tech-ink);
+    font-family: "Sora", sans-serif;
+    font-size: 1.55rem;
+    font-weight: 650;
+    line-height: 1.2;
+}
+
+.maintenance-page .severity-score {
+    color: var(--tech-muted);
+    font-family: "Sora", sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+}
+
+.maintenance-page .maintenance-data-grid .maintenance-safety-row td {
+    position: relative;
+    padding: 1.6rem 2rem 1.6rem 5.3rem !important;
+    color: #472f00;
+    background: #fff5d8 !important;
+    border-left: 6px solid var(--tech-safety) !important;
+}
+
+.maintenance-page .maintenance-data-grid .maintenance-safety-row td::before {
+    content: "!";
+    position: absolute;
+    top: 50%;
+    left: 1.8rem;
+    display: grid;
+    place-items: center;
+    width: 2.4rem;
+    height: 2.4rem;
+    transform: translateY(-50%);
+    color: #ffffff;
+    background: #b87300;
+    font-family: "Sora", sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    clip-path: polygon(50% 0, 100% 100%, 0 100%);
+    padding-top: 0.6rem;
+    box-sizing: border-box;
+}
+
+.maintenance-page .maintenance-data-grid .maintenance-safety-row p {
+    margin: 0;
+    color: #472f00;
+    font-family: "Sora", sans-serif;
+    font-size: 1.48rem;
+    font-weight: 550;
+    line-height: 1.5;
+    letter-spacing: -0.01em;
+    text-align: left !important;
+}
+
+.maintenance-page .maintenance-data-grid .maintenance-safety-row p:empty {
+    display: none;
+}
+
+.maintenance-page .maintenance-data-grid .maintenance-safety-row a {
+    color: #7a4800;
+    font-family: "Sora", sans-serif;
+    font-size: 1.42rem;
+    font-weight: 700;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.maintenance-page .maintenance-data-grid .inline-img {
+    height: 3.2rem;
+    margin: 0.7rem 0 0;
+    padding: 0.4rem;
+    background: #ffffff;
+    border: 1px solid var(--tech-line) !important;
+}
+
+.maintenance-page .maintenance-section-title {
+    display: flex;
+    align-items: center;
+    gap: 1.3rem;
+    margin: 4.5rem 0 2.2rem;
+    padding: 0 0 1rem;
+    color: var(--tech-ink);
+    border-bottom: 2px solid var(--tech-line);
+    font-family: "Sora", sans-serif;
+    font-size: 2.2rem;
+    font-weight: 650;
+    letter-spacing: -0.01em;
+}
+
+.maintenance-page .maintenance-section-title::before {
+    content: var(--section-number);
+    display: inline-grid;
+    place-items: center;
+    width: 3.6rem;
+    height: 3rem;
+    color: #ffffff;
+    background: var(--tech-blue);
+    font-family: "Sora", sans-serif;
+    font-size: 1.25rem;
+    letter-spacing: 0.06em;
+}
+
+.maintenance-page .maintenance-section-title::after {
+    content: "";
+    width: 6rem;
+    height: 2px;
+    margin-left: auto;
+    background: var(--tech-cyan);
+}
+
+.maintenance-page .maintenance-section-title .header {
+    color: var(--tech-ink) !important;
+}
+
+.maintenance-page .maintenance-sheet > p {
+    color: var(--tech-ink);
+    font-size: 1.62rem;
+    line-height: 1.7;
+    text-align: left;
+}
+
+/* Mantiene il testo del paragrafo sulla stessa riga del marcatore della lista. */
+.maintenance-page .maintenance-sheet li > p:first-child {
+    display: inline;
+    margin: 0;
+}
+
+.maintenance-page .maintenance-sheet li > p:first-child + ul,
+.maintenance-page .maintenance-sheet li > p:first-child + ol {
+    margin-top: 0.8rem;
+}
+
+.maintenance-page .procedure-steps {
+    list-style: none;
+    counter-reset: procedure-step;
+    margin: 2rem 0 3rem;
+    padding: 0;
+}
+
+.maintenance-page .procedure-steps > li {
+    position: relative;
+    counter-increment: procedure-step;
+    min-height: 3.8rem;
+    margin: 0 0 1rem;
+    padding: 1.5rem 1.8rem 1.5rem 6.2rem;
+    color: var(--tech-ink);
+    background: var(--tech-surface-soft);
+    border: 1px solid var(--tech-line);
+    border-left: 3px solid var(--tech-blue);
+}
+
+.maintenance-page .procedure-steps > li::before {
+    content: counter(procedure-step, decimal-leading-zero);
+    position: absolute;
+    top: 1.4rem;
+    left: 1.5rem;
+    display: grid;
+    place-items: center;
+    width: 3rem;
+    height: 3rem;
+    color: var(--tech-blue);
+    background: var(--tech-surface);
+    border: 1px solid var(--tech-line-strong);
+    font-family: "Sora", sans-serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+}
+
+.maintenance-page .procedure-steps > li p {
+    margin: 0;
+    text-align: left;
+}
+
+.maintenance-page .TextAlignCenter {
+    margin: 2.4rem 0 3.5rem;
+}
+
+.maintenance-page .technical-media {
+    box-sizing: border-box;
+    display: block;
+    max-width: 100%;
+    margin-inline: auto;
+    padding: 0.7rem;
+    background: var(--tech-surface-soft);
+    border: 1px solid var(--tech-line) !important;
+    border-radius: 0;
+    box-shadow: 0 10px 25px rgba(21, 40, 62, 0.1) !important;
+}
+
+.maintenance-page video.technical-media {
+    width: min(100%, 900px);
+    padding: 0;
+    background: #07111f;
+}
+
+.maintenance-page .content > img:last-of-type {
+    width: 100%;
+    max-height: none;
+    height: auto;
+    object-fit: contain;
+    opacity: 1;
+    border-top: 1px solid var(--tech-line);
+}
+
+/* I banner Donatoni devono essere sempre mostrati interamente, senza ritagli. */
+.maintenance-page img[src$="images/donatoni_111.jpg"],
+.maintenance-page img[src$="images/donatoni_222.jpg"] {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    max-height: none !important;
+    height: auto !important;
+    object-fit: contain !important;
+    object-position: center;
+    opacity: 1;
+}
+
+.maintenance-page .nav-wide-wrapper a,
+.maintenance-page .mobile-nav-chapters {
+    color: var(--tech-blue);
+}
+
+/* Indice generale: le famiglie macchina diventano moduli di archivio. */
+.technical-index .maintenance-sheet {
+    max-width: 1280px !important;
+}
+
+.technical-index .maintenance-sheet > ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 34rem), 1fr));
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.technical-index .maintenance-sheet > ul > li {
+    overflow: hidden;
+    background: var(--tech-surface-soft);
+    border: 1px solid var(--tech-line);
+    border-top: 3px solid var(--tech-blue);
+}
+
+.technical-index .maintenance-sheet > ul > li > a {
+    display: block;
+    padding: 1.5rem 1.8rem;
+    color: #ffffff;
+    background: var(--tech-navy);
+    font-family: "Sora", sans-serif;
+    font-size: 1.55rem;
+    font-weight: 650;
+    letter-spacing: 0.025em;
+    text-transform: uppercase;
+}
+
+.technical-index .maintenance-sheet > ul > li > a::before {
+    content: "AREA / ";
+    color: var(--tech-cyan);
+    font-family: "Sora", sans-serif;
+    font-size: 1.1rem;
+}
+
+.technical-index .maintenance-sheet > ul > li > ul {
+    margin: 0;
+    padding: 1rem 1.5rem 1.5rem;
+    list-style: none;
+}
+
+.technical-index .maintenance-sheet > ul > li > ul li {
+    border-bottom: 1px solid var(--tech-line);
+}
+
+.technical-index .maintenance-sheet > ul > li > ul li:last-child {
+    border-bottom: 0;
+}
+
+.technical-index .maintenance-sheet > ul > li > ul a {
+    display: block;
+    position: relative;
+    padding: 1rem 1rem 1rem 2.4rem;
+    color: var(--tech-ink);
+    font-size: 1.35rem;
+    line-height: 1.45;
+}
+
+.technical-index .maintenance-sheet > ul > li > ul a::before {
+    content: "";
+    position: absolute;
+    top: 1.55rem;
+    left: 0.7rem;
+    width: 0.7rem;
+    height: 0.7rem;
+    background: var(--tech-cyan);
+    border: 1px solid var(--tech-blue);
+}
+
+.technical-index .maintenance-sheet > ul > li > ul a:hover,
+.technical-index .maintenance-sheet > ul > li > ul a:focus-visible {
+    color: var(--tech-blue);
+    background: rgba(11, 78, 135, 0.06);
+    text-decoration: none;
+}
+
+/* Pagine introduttive delle aree macchina. */
+.technical-category .maintenance-code {
+    background: #075c69;
+}
+
+.technical-category .maintenance-sheet > p:first-of-type {
+    margin: 0 0 2.5rem;
+    padding: 1.5rem 1.8rem;
+    color: var(--tech-ink);
+    background: var(--tech-surface-soft);
+    border-left: 4px solid var(--tech-cyan);
+    font-size: 1.72rem;
+    font-weight: 500;
+}
+
+.technical-category .technical-media {
+    width: min(100%, 920px);
+}
+
+/* Sicurezza: priorità visiva distinta dal normale contenuto operativo. */
+.technical-safety .maintenance-sheet {
+    border-top-color: var(--tech-safety);
+}
+
+.technical-safety .maintenance-code {
+    color: #1e1a11;
+    background: var(--tech-safety);
+    border-left-color: var(--tech-danger);
+}
+
+.technical-safety .maintenance-heading {
+    background: linear-gradient(90deg, #fff4d1, var(--tech-surface-soft));
+}
+
+.navy .technical-safety .maintenance-heading,
+.coal .technical-safety .maintenance-heading,
+.ayu .technical-safety .maintenance-heading {
+    background: linear-gradient(90deg, rgba(255, 176, 0, 0.18), var(--tech-surface-soft));
+}
+
+.technical-safety .maintenance-sheet > p:first-of-type {
+    margin-top: 0;
+    padding: 1.7rem 2rem;
+    background: #fff5d8;
+    border: 1px solid #efc66a;
+    border-left: 6px solid var(--tech-safety);
+    color: #472f00;
+    font-weight: 600;
+}
+
+.technical-safety .maintenance-sheet > p > strong:only-child {
+    display: block;
+    padding: 1.5rem 1.8rem;
+    color: #7c1f19;
+    background: #fff0ee;
+    border-left: 5px solid var(--tech-danger);
+}
+
+.technical-safety .maintenance-sheet > p > em:only-child {
+    display: block;
+    padding: 1.6rem 1.8rem;
+    color: var(--tech-ink);
+    background: var(--tech-surface-soft);
+    border: 1px solid var(--tech-line);
+    font-style: normal;
+}
+
+.technical-safety .maintenance-sheet > ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
+    gap: 1rem;
+    margin: 2rem 0;
+    padding: 0;
+    list-style: none;
+}
+
+.technical-safety .maintenance-sheet > ul > li {
+    padding: 1.2rem 1.5rem;
+    background: var(--tech-surface-soft);
+    border: 1px solid var(--tech-line);
+}
+
+.technical-safety .maintenance-sheet > ul > li p {
+    margin: 0;
+    text-align: left;
+}
+
+/* Tabelle e liste presenti nei documenti di riferimento non-MN. */
+.maintenance-page .maintenance-sheet table:not(.maintenance-data-grid):not(.troubleshooting-data-grid) {
+    width: 100%;
+    margin: 2.5rem 0;
+    border: 1px solid var(--tech-line-strong);
+    box-shadow: 0 8px 22px rgba(21, 40, 62, 0.06);
+}
+
+.maintenance-page .maintenance-sheet table:not(.maintenance-data-grid):not(.troubleshooting-data-grid) th,
+.maintenance-page .maintenance-sheet table:not(.maintenance-data-grid):not(.troubleshooting-data-grid) td {
+    padding: 1.2rem 1.5rem;
+    color: var(--tech-ink);
+    border: 1px solid var(--tech-line);
+    text-align: left;
+}
+
+.maintenance-page .maintenance-sheet table:not(.maintenance-data-grid):not(.troubleshooting-data-grid) th,
+.maintenance-page .maintenance-sheet table:not(.maintenance-data-grid):not(.troubleshooting-data-grid) thead td {
+    color: #ffffff;
+    background: var(--tech-navy);
+    font-family: "Sora", sans-serif;
+    font-size: 1.2rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.maintenance-page .maintenance-sheet table:not(.maintenance-data-grid):not(.troubleshooting-data-grid) tr:nth-child(even) td {
+    background: var(--tech-surface-soft);
+}
+
+.technical-document .maintenance-sheet > ul:not(.procedure-steps),
+.technical-reference .maintenance-sheet > ul:not(.procedure-steps) {
+    margin: 2rem 0 3rem;
+    padding: 0;
+    list-style: none;
+}
+
+.technical-document .maintenance-sheet > ul:not(.procedure-steps) > li,
+.technical-reference .maintenance-sheet > ul:not(.procedure-steps) > li {
+    margin-bottom: 0.8rem;
+    padding: 1.1rem 1.4rem 1.1rem 3.6rem;
+    background: var(--tech-surface-soft);
+    border-left: 3px solid var(--tech-cyan);
+}
+
+.technical-document .maintenance-sheet > ul:not(.procedure-steps) > li::before,
+.technical-reference .maintenance-sheet > ul:not(.procedure-steps) > li::before {
+    content: "■";
+    display: inline-block;
+    width: 2rem;
+    margin-left: -2.1rem;
+    color: var(--tech-blue);
+    font-size: 0.8rem;
+}
+
+.technical-error .maintenance-code {
+    background: var(--tech-danger);
+}
+
+.technical-error .maintenance-sheet {
+    min-height: 44rem;
+}
+
+/* Troubleshooting PE: diagnostica coerente con le schede di manutenzione. */
+.technical-troubleshooting .maintenance-sheet {
+    border-top-color: #b93830;
+}
+
+.technical-troubleshooting .maintenance-code {
+    background: #9f2f29;
+    border-left-color: var(--tech-safety);
+}
+
+.technical-troubleshooting .maintenance-heading {
+    background:
+        linear-gradient(90deg, rgba(216, 59, 50, 0.1), transparent 48%),
+        var(--tech-surface-soft);
+}
+
+.technical-troubleshooting .maintenance-status i {
+    color: var(--tech-safety);
+}
+
+.troubleshooting-data-grid {
+    width: 100%;
+    margin: 0 0 3.5rem;
+    border: 1px solid var(--tech-line-strong);
+    box-shadow: 0 8px 22px rgba(21, 40, 62, 0.08);
+}
+
+.troubleshooting-data-grid th,
+.troubleshooting-data-grid td {
+    padding: 1.25rem 1.5rem;
+    border: 1px solid var(--tech-line);
+    text-align: left;
+    vertical-align: middle;
+}
+
+.troubleshooting-data-grid th {
+    width: 18%;
+    color: #dce8f5;
+    background: var(--tech-navy);
+    font-size: 1.12rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.troubleshooting-data-grid td {
+    width: 32%;
+    color: var(--tech-ink);
+    background: var(--tech-surface);
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.severity-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.7rem;
+    padding: 0.45rem 0.8rem;
+    color: #ffffff;
+    font-size: 1.12rem;
+    font-weight: 750;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+}
+
+.severity-badge::before {
+    content: "";
+    width: 0.7rem;
+    height: 0.7rem;
+    background: currentColor;
+    border-radius: 50%;
+}
+
+.severity-badge.severity-critical { background: #b82d26; }
+.severity-badge.severity-high { background: #d45f12; }
+.severity-badge.severity-warning { color: #352300; background: #ffb000; }
+.severity-badge.severity-info { background: #087c8b; }
+
+.troubleshooting-alert,
+.resolution-panel,
+.escalation-panel {
+    margin: 2rem 0 3rem;
+    padding: 1.6rem 1.9rem;
+    color: var(--tech-ink);
+    background: var(--tech-surface-soft);
+    border: 1px solid var(--tech-line);
+    border-left: 5px solid var(--tech-blue);
+}
+
+/* Il pannello esportato da Confluence per "Possibili soluzioni". */
+.technical-troubleshooting .resolution-panel-content {
+    margin: 2rem 0 3rem;
+    padding: 1.8rem !important;
+    color: var(--tech-ink);
+    background: var(--tech-surface-soft) !important;
+    border: 1px solid var(--tech-line) !important;
+    border-left: 5px solid var(--tech-blue) !important;
+}
+
+.technical-troubleshooting .resolution-panel-content > .procedure-steps {
+    margin: 0;
+}
+
+.technical-troubleshooting .resolution-panel-content .procedure-steps > li:last-child {
+    margin-bottom: 0;
+}
+
+.technical-troubleshooting .resolution-panel-content li > div {
+    margin-top: 1.2rem;
+}
+
+.technical-troubleshooting .troubleshooting-list {
+    list-style: none;
+    counter-reset: troubleshooting-item;
+    margin: 2rem 0 3rem;
+    padding: 0;
+}
+
+.technical-troubleshooting .troubleshooting-list > li {
+    position: relative;
+    counter-increment: troubleshooting-item;
+    min-height: 2.8rem;
+    margin: 0 0 0.8rem;
+    padding: 1.25rem 1.5rem 1.25rem 5.3rem;
+    color: var(--tech-ink);
+    background: var(--tech-surface-soft);
+    border: 1px solid var(--tech-line);
+    border-left: 3px solid #16837a;
+}
+
+.technical-troubleshooting .troubleshooting-list > li::before {
+    content: counter(troubleshooting-item, decimal-leading-zero);
+    position: absolute;
+    top: 1.05rem;
+    left: 1.25rem;
+    color: #16837a;
+    font-family: "Sora", sans-serif;
+    font-size: 1.12rem;
+    font-weight: 750;
+    letter-spacing: 0.04em;
+}
+
+.technical-troubleshooting .cause-list > li {
+    border-left-color: #d47a00;
+}
+
+.technical-troubleshooting .cause-list > li::before {
+    color: #b76500;
+}
+
+.troubleshooting-alert {
+    color: #472f00;
+    background: #fff5d8;
+    border-color: #efc66a;
+    border-left-color: var(--tech-safety);
+}
+
+.escalation-panel {
+    border-left-color: var(--tech-danger);
+}
+
+.troubleshooting-alert strong,
+.resolution-panel strong,
+.escalation-panel strong {
+    display: block;
+    margin-bottom: 0.55rem;
+    font-size: 1.15rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.cause-table td:first-child {
+    width: 7rem;
+    color: var(--tech-blue);
+    font-weight: 750;
+    text-align: center;
+}
+
+.verification-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(26rem, 1fr));
+    gap: 1rem;
+    margin: 2rem 0 3rem;
+    padding: 0;
+    list-style: none;
+}
+
+.verification-list > li {
+    position: relative;
+    padding: 1.3rem 1.5rem 1.3rem 4.2rem;
+    background: var(--tech-surface-soft);
+    border: 1px solid var(--tech-line);
+}
+
+.verification-list > li::before {
+    content: "✓";
+    position: absolute;
+    top: 1.15rem;
+    left: 1.3rem;
+    display: grid;
+    place-items: center;
+    width: 2.1rem;
+    height: 2.1rem;
+    color: #ffffff;
+    background: #14815a;
+    font-size: 1.2rem;
+    font-weight: 800;
+}
+
+@media only screen and (max-width: 760px) {
+    .troubleshooting-data-grid,
+    .troubleshooting-data-grid tbody,
+    .troubleshooting-data-grid tr,
+    .troubleshooting-data-grid th,
+    .troubleshooting-data-grid td {
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .troubleshooting-data-grid th {
+        border-bottom: 0;
+    }
+}
+
+@media only screen and (max-width: 760px) {
+    .maintenance-page .maintenance-sheet {
+        width: calc(100% - 2.4rem) !important;
+        margin: 2rem auto 4rem !important;
+        padding: 0 2rem 3.2rem;
+    }
+
+    .maintenance-page .maintenance-eyebrow,
+    .maintenance-page .maintenance-heading {
+        margin-inline: -2rem;
+        padding-inline: 2rem;
+    }
+
+    .maintenance-page .maintenance-status {
+        display: none;
+    }
+
+    .maintenance-page .maintenance-heading h1 > a {
+        flex-direction: column;
+        gap: 1.2rem;
+    }
+
+    .maintenance-page .maintenance-data-grid,
+    .maintenance-page .maintenance-data-grid tbody,
+    .maintenance-page .maintenance-data-grid tr,
+    .maintenance-page .maintenance-data-grid td {
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .maintenance-page .maintenance-data-grid td {
+        border-width: 0 0 1px !important;
+    }
+
+    .maintenance-page .maintenance-data-grid .maintenance-safety-row td {
+        border-left-width: 6px !important;
+    }
+
+    .technical-index .maintenance-sheet > ul {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media print {
+    .maintenance-page .header-main,
+    .maintenance-page .sidebar,
+    .maintenance-page .nav-wrapper,
+    .maintenance-page .nav-wide-wrapper,
+    .maintenance-page #copy-link-btn {
+        display: none !important;
+    }
+
+    .maintenance-page .maintenance-sheet {
+        width: 100% !important;
+        margin: 0 !important;
+        box-shadow: none;
+    }
+}
+/* MANITIT-TECHNICAL-THEME:END */
