@@ -770,85 +770,54 @@ main {
     color: var(--tech-blue);
 }
 
-/* Indice generale: le famiglie macchina diventano moduli di archivio. */
-.technical-index .maintenance-sheet {
-    max-width: 1280px !important;
-}
-
+/* Indice generale: elenco gerarchico semplice, senza etichette generate. */
 .technical-index .maintenance-sheet > ul {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 34rem), 1fr));
-    gap: 2rem;
     margin: 0;
     padding: 0;
     list-style: none;
 }
 
 .technical-index .maintenance-sheet > ul > li {
-    overflow: hidden;
-    background: var(--tech-surface-soft);
-    border: 1px solid var(--tech-line);
-    border-top: 3px solid var(--tech-blue);
+    margin: 0 0 1.4rem;
+    padding: 0 0 1.2rem;
+    border-bottom: 1px solid var(--tech-line);
 }
 
 .technical-index .maintenance-sheet > ul > li > a {
     display: block;
-    padding: 1.5rem 1.8rem;
-    color: #ffffff;
-    background: var(--tech-navy);
+    padding: 0.8rem 1.2rem;
+    color: var(--tech-blue);
+    background: transparent;
+    border-left: 3px solid var(--tech-cyan);
     font-family: "Sora", sans-serif;
     font-size: 1.55rem;
     font-weight: 650;
-    letter-spacing: 0.025em;
-    text-transform: uppercase;
-}
-
-.technical-index .maintenance-sheet > ul > li > a::before {
-    content: "AREA / ";
-    color: var(--tech-cyan);
-    font-family: "Sora", sans-serif;
-    font-size: 1.1rem;
 }
 
 .technical-index .maintenance-sheet > ul > li > ul {
-    margin: 0;
-    padding: 1rem 1.5rem 1.5rem;
-    list-style: none;
+    margin: 0.5rem 0 0;
+    padding: 0 0 0 3rem;
+    list-style: square;
 }
 
 .technical-index .maintenance-sheet > ul > li > ul li {
-    border-bottom: 1px solid var(--tech-line);
-}
-
-.technical-index .maintenance-sheet > ul > li > ul li:last-child {
-    border-bottom: 0;
+    margin: 0;
+    color: var(--tech-cyan);
 }
 
 .technical-index .maintenance-sheet > ul > li > ul a {
     display: block;
-    position: relative;
-    padding: 1rem 1rem 1rem 2.4rem;
+    padding: 0.65rem 0.4rem;
     color: var(--tech-ink);
     font-size: 1.35rem;
     line-height: 1.45;
 }
 
-.technical-index .maintenance-sheet > ul > li > ul a::before {
-    content: "";
-    position: absolute;
-    top: 1.55rem;
-    left: 0.7rem;
-    width: 0.7rem;
-    height: 0.7rem;
-    background: var(--tech-cyan);
-    border: 1px solid var(--tech-blue);
-}
-
 .technical-index .maintenance-sheet > ul > li > ul a:hover,
 .technical-index .maintenance-sheet > ul > li > ul a:focus-visible {
     color: var(--tech-blue);
-    background: rgba(11, 78, 135, 0.06);
-    text-decoration: none;
+    text-decoration: underline;
+    text-underline-offset: 3px;
 }
 
 /* Pagine introduttive delle aree macchina. */
@@ -1274,9 +1243,6 @@ main {
         border-left-width: 6px !important;
     }
 
-    .technical-index .maintenance-sheet > ul {
-        grid-template-columns: 1fr;
-    }
 }
 
 @media print {
