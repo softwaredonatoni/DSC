@@ -15,7 +15,7 @@ function showModal(src) {
  */
 document.addEventListener("DOMContentLoaded", function () {
     const currentPage = window.location.pathname.replace(/\\/g, "/").split("/").pop().toLowerCase();
-    if (currentPage === "print.html") return;
+    if (currentPage === "print.html" || currentPage === "searchloginmenu.html") return;
 
     const main = document.querySelector(".content main");
     const title = main ? main.querySelector("h1") : null;
