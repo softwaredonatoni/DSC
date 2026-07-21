@@ -217,15 +217,17 @@
                         <main style="margin-left: 20px;">
                             <div style="display:flex; align-items:center; gap:10px;"><h1 id="3133-add" style="margin:0;"><a class="header" href="#3133-add">3.13.3 ADD</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="3.13.3 ADD"--><p>Through this function it is possible to add a parallel cut to a cut already existing at the desired distance.<br>It is possible to apply this working both to linear cuts and on arc cuts.</p><div class="TextAlignCenter"><img src="attachments/3.13.3_add/6.1-20250630-064057.png" alt="6.1-20250630-064057.png" width="800" onclick="showModal(this.src)"></div><p></p><p>
 </p><p></p><h1 id="parameters"><a class="header" href="#parameters">Parameters</a></h1><p>To be able to add a cut, it is required to set the following parameter:</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="e36b17f4-8938-475b-adc1-0df746e10a3f"><colgroup><col style="width: 220.0px;"><col style="width: 1577.0px;"></colgroup><tbody><tr><td><p><strong>Distance</strong></p></td><td><p>Distance from the selected cut where to add the parallel cut.</p></td></tr></tbody></table><p></p><h1 id="execution-of-working"><a class="header" href="#execution-of-working">Execution of working</a></h1>
-<div id="admonition-info" class="admonition admonish-info" role="note" aria-labelledby="admonition-info-title">
+<div id="admonition-note" class="admonition admonish-info" role="note" aria-labelledby="admonition-note-title">
 <div class="admonition-title">
-<div id="admonition-info-title">
-<p>Info</p>
+<div id="admonition-note-title">
+<p>NOTE</p>
 </div>
-<a class="admonition-anchor-link" href="#admonition-info"></a>
+<a class="admonition-anchor-link" href="#admonition-note"></a>
 </div>
 <div>
-<p>NOTEIt is possible apply working pressing the button on the left of the appropriate cut in the list of polygons.An red icon with a 'X' indicates that the processing can not be applied to the desired cut.</p>
+<p>It is possible apply working pressing the button on the left of the appropriate cut in the list of polygons.
+<br>
+An red icon with a 'X' indicates that the processing can not be applied to the desired cut.</p>
 </div>
 </div>
 <p>Once the <strong>distance</strong> parameter is set, proceed with selecting the cut with respect to which create the new one.</p><p>The direction in which to add the new cut is calculated so as not to damage the piece: outward if you select an element of the external polygon, or inward of an internal polygon.<br>In the case the <strong>distance</strong> value is negative, the added cut is calculated in the direction of displacement opposite to the intended one.</p><p>In the following image is illustrated the result of the add of two cuts, carried out selecting the two straight edges that define the recess of the kitchen top.</p><div class="TextAlignCenter"><img src="attachments/3.13.3_add/6.2-20250630-064207.png" alt="6.2-20250630-064207.png" width="800" onclick="showModal(this.src)"></div><p>As shown, the new parallel cut is inserted in the <strong>Additional Workings</strong> section and replicates the features of the selected cut, such as direction and working type.</p><!--Label="mdf_add"-->

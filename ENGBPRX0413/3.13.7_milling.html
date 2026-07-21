@@ -217,18 +217,6 @@
                         <main style="margin-left: 20px;">
                             <div style="display:flex; align-items:center; gap:10px;"><h1 id="3137-milling" style="margin:0;"><a class="header" href="#3137-milling">3.13.7 MILLING</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="3.13.7 MILLING"--><p>The 'Milling' function allows to create a milling on the piece, on the side, on the edge or on the entire perimeter.<br>The interface for this function looks like the following image:</p><div class="TextAlignCenter"><img src="attachments/3.13.7_milling/4.0-20250701-120927.png" alt="4.0-20250701-120927.png" width="800" onclick="showModal(this.src)"></div><p></p><p>
 </p><p></p><h1 id="parameters"><a class="header" href="#parameters">Parameters</a></h1>
-<div id="admonition-info" class="admonition admonish-info" role="note" aria-labelledby="admonition-info-title">
-<div class="admonition-title">
-<div id="admonition-info-title">
-<p>Info</p>
-</div>
-<a class="admonition-anchor-link" href="#admonition-info"></a>
-</div>
-<div>
-<p>NOTEYou must choose one of the following modes</p>
-</div>
-</div>
-<table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="dc331dda-11da-457c-a97e-83d231196f03"><colgroup><col style="width: 169.0px;"><col style="width: 1629.0px;"></colgroup><tbody><tr><td data-highlight-colour="#ffffff"><p><strong>Corner</strong></p></td><td data-highlight-colour="#ffffff"><p>Removes the material that the disk can not eliminate without damaging the piece. It is only needed to refine some points of the piece.</p></td></tr><tr><td data-highlight-colour="#ffffff"><p><strong>Side</strong></p></td><td data-highlight-colour="#ffffff"><p>The milling tool is used to cut a side of the piece. It doesn’t flank the cut with the disk but completely replaces it.</p></td></tr><tr><td data-highlight-colour="#ffffff"><p><strong>Perimeter</strong></p></td><td data-highlight-colour="#ffffff"><p>It provides to use the milling tool instead of the disk tool to execute the cut on all a polygon of the piece. It replaces the disk as the side mode.</p></td></tr></tbody></table>
 <div id="admonition-note" class="admonition admonish-info" role="note" aria-labelledby="admonition-note-title">
 <div class="admonition-title">
 <div id="admonition-note-title">
@@ -237,19 +225,37 @@
 <a class="admonition-anchor-link" href="#admonition-note"></a>
 </div>
 <div>
-<p>In every mode, the cut thickness is equivalent to the diameter of the installed milling tool. The variation of this element automatically modifies the cuts updating them with the new measure.For the Vertex mode the thickness variation of the material or the diameter variation of the disk, involve a stretching or shortening of the cut, so as to adapt to the new chosen measurements. In case the milling cutter is too large to cut the selected side, an error message will be shown on the screen.</p>
+<p>You must choose one of the following modes</p>
+</div>
+</div>
+<table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="dc331dda-11da-457c-a97e-83d231196f03"><colgroup><col style="width: 169.0px;"><col style="width: 1629.0px;"></colgroup><tbody><tr><td data-highlight-colour="#ffffff"><p><strong>Corner</strong></p></td><td data-highlight-colour="#ffffff"><p>Removes the material that the disk can not eliminate without damaging the piece. It is only needed to refine some points of the piece.</p></td></tr><tr><td data-highlight-colour="#ffffff"><p><strong>Side</strong></p></td><td data-highlight-colour="#ffffff"><p>The milling tool is used to cut a side of the piece. It doesn’t flank the cut with the disk but completely replaces it.</p></td></tr><tr><td data-highlight-colour="#ffffff"><p><strong>Perimeter</strong></p></td><td data-highlight-colour="#ffffff"><p>It provides to use the milling tool instead of the disk tool to execute the cut on all a polygon of the piece. It replaces the disk as the side mode.</p></td></tr></tbody></table>
+<div id="admonition-note-1" class="admonition admonish-info" role="note" aria-labelledby="admonition-note-1-title">
+<div class="admonition-title">
+<div id="admonition-note-1-title">
+<p>NOTE</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-note-1"></a>
+</div>
+<div>
+<p>In every mode, the cut thickness is equivalent to the diameter of the installed milling tool. The variation of this element automatically modifies the cuts updating them with the new measure.
+<br>
+For the Vertex mode the thickness variation of the material or the diameter variation of the disk, involve a stretching or shortening of the cut, so as to adapt to the new chosen measurements.
+<br>
+In case the milling cutter is too large to cut the selected side, an error message will be shown on the screen.</p>
 </div>
 </div>
 <table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="002450e2-39b5-4605-a52d-385e450b311e"><colgroup><col style="width: 230.0px;"><col style="width: 1568.0px;"></colgroup><tbody><tr><td><p><strong>Thickness</strong></p></td><td><p>The slab thickness currently set in Parametrix is shown, to help the operator apply the processing.</p></td></tr><tr><td><p><strong>Penetration</strong></p></td><td><p>The operator can decide the penetration of the milling in the material.</p></td></tr></tbody></table><p></p><p></p><h1 id="execution-work"><a class="header" href="#execution-work">Execution work</a></h1>
-<div id="admonition-info-1" class="admonition admonish-info" role="note" aria-labelledby="admonition-info-1-title">
+<div id="admonition-note-2" class="admonition admonish-info" role="note" aria-labelledby="admonition-note-2-title">
 <div class="admonition-title">
-<div id="admonition-info-1-title">
-<p>Info</p>
+<div id="admonition-note-2-title">
+<p>NOTE</p>
 </div>
-<a class="admonition-anchor-link" href="#admonition-info-1"></a>
+<a class="admonition-anchor-link" href="#admonition-note-2"></a>
 </div>
 <div>
-<p>NOTEIt is possible to apply the working by pressing the button on the left of the cut in the polygons list.A red icon with an 'X' indicates that the process can not be applied to the desired cut.</p>
+<p>It is possible to apply the working by pressing the button on the left of the cut in the polygons list.
+<br>
+A red icon with an 'X' indicates that the process can not be applied to the desired cut.</p>
 </div>
 </div>
 <p>The consequences of applying a milling vary according to the selected mode and present some differences, described in the following paragraphs.</p><p>Each milling applied to a piece is inserted into the list of cuts associated with a polygon and represented graphically in blue color.</p><ul><li><p>In the <strong>Corner</strong> mode, the milling is aligned to the selected corner.</p></li><li><p>In the <strong>Side</strong> and <strong>Perimeter</strong> modes, <strong>one</strong> or <strong>all</strong> cuts of the polygon are replaced respectively.</p></li></ul><p></p><h2 id="execution-on-a-vertex"><a class="header" href="#execution-on-a-vertex"><strong>Execution on a vertex</strong></a></h2><p>The milling is applied to the closest vertex to the selected point of a cut in the preview.<br>The application will take place between two consecutive cuts.</p><p>In the following example image are showed two milling workings on vertex: the first on a top left corner of the interior polygon; the second on a vertex of the exterior polygon.</p><div class="TextAlignCenter"><img src="attachments/3.13.7_milling/4.1-20250701-121051.png" alt="4.1-20250701-121051.png" width="800" onclick="showModal(this.src)"></div><p></p><p></p><h2 id="execution-on-a-side"><a class="header" href="#execution-on-a-side"><strong>Execution on a side</strong></a></h2><p>Selecting any point of a cut on the preview, the milling will be applied along the entire corresponding side.</p><p>In the following image are shown two milling workings on side: the first on the left side of the internal polygon; the second on a bottom side of the external polygon.</p><div class="TextAlignCenter"><img src="attachments/3.13.7_milling/4.2-20250701-121216.png" alt="4.2-20250701-121216.png" width="800" onclick="showModal(this.src)"></div><p></p><h2 id="execution-on-perimeter"><a class="header" href="#execution-on-perimeter"><strong>Execution on perimeter</strong></a></h2><p>Regardless of the point or cut selected, the milling will be performed along the entire perimeter of the selected polygon.</p><div class="TextAlignCenter"><img src="attachments/3.13.7_milling/4.3_b-20250703-073209.png" alt="4.3_b-20250703-073209.png" width="800" onclick="showModal(this.src)"></div><p></p><!--Label="mdf_mll"--><!--Label="mdf_mll_sid"--><!--Label="mdf_mll_ver"--><!--Label="mdf_mll_per"-->
