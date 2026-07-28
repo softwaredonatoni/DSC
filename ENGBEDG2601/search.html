@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ricerca Pagina</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const parametro = window.location.hash.substring(1); // Prende il valore dopo #
+            const output = document.getElementById("parametro");
+
+            if (!parametro) {
+                output.textContent = "Nessun parametro passato.";
+                return;
+            }
+
+            output.textContent = `Parametro passato: ${parametro}`;
+
+            // Cerca tutte le corrispondenze nel body
+            const mappings = document.querySelectorAll("p#mapping");
+            for (const mapping of mappings) {
+                const [key, value] = mapping.textContent.split("=");
+                if (key === parametro) {
+                    window.location.href = value.trim(); // Reindirizza l'utente alla pagina corrispondente
+                    return;
+                }
+            }
+
+            var msg = `Nessuna pagina trovata con questa etichetta: ${parametro}`;
+
+            alert(msg);
+        });
+    </script>
+        <style>
+            p#mapping { display: none; }
+        </style>
+<script>(function () {
+  const SUFFIX = "#2utHhOLI7Iz0";
+
+  function buildUrl() {
+    const base = window.location.href.split("#")[0];
+    return base + SUFFIX;
+  }
+
+  function fallbackCopy(text) {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.top = "-1000px";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+
+  async function copyUrl() {
+    const url = buildUrl();
+
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(url);
+        return;
+      } catch (e) {}
+    }
+
+    fallbackCopy(url);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.getElementById("copy-link-btn");
+    if (!btn) return;
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      copyUrl();
+    });
+  });
+})();
+</script></head>
+<body>
+    <h1>Ricerca della Pagina</h1>
+    <p id="parametro">Attendi mentre cerchiamo la pagina corrispondente...</p>
+    
+    <!-- Mappatura parametri-pagine -->
+<p id="mapping">edg_pre=1_preliminary_notes.html</p>
+<p id="mapping">edg_sft=2_d-edge.html</p>
+<p id="mapping">edg_hom=2.1_home_page.html</p>
+<p id="mapping">edg_hom_grp=2.1.1_user_groups_and_elements_management.html</p>
+<p id="mapping">edg_lrm=2.2_alarms_page.html</p>
+<p id="mapping">edg_rcp=2.3_recipes_page.html</p>
+<p id="mapping">edg_wrk=2.3.1_workings.html</p>
+<p id="mapping">edg_wrk_tcl=2.3.1.1_calibrate_top.html</p>
+<p id="mapping">edg_wrk_tcp=2.3.1.2_calibrate_top_polishing.html</p>
+<p id="mapping">edg_wrk_src=2.3.1.3_side_rectify.html</p>
+<p id="mapping">edg_wrk_spl=2.3.1.4_side_polishing.html</p>
+<p id="mapping">edg_wrk_tch=2.3.1.5_top_bevelling.html</p>
+<p id="mapping">edg_wrk_bch=2.3.1.6_bottom_chamfer.html</p>
+<p id="mapping">edg_wrk_tct=2.3.1.7_top_cut.html</p>
+<p id="mapping">edg_wrk_bct=2.3.1.8_lower_cut.html</p>
+<p id="mapping">edg_wrk_sct=2.3.1.9_side_cut.html</p>
+<p id="mapping">edg_wrk_mpc=2.3.1.10_manual_positioning_cut.html</p>
+<p id="mapping">edg_wrk_bsh=2.3.1.11_bush-hammering.html</p>
+<p id="mapping">edg_wrk_tpl=2.3.1.12_top_polishing.html</p>
+<p id="mapping">edg_crt=2.3.2_corrections.html</p>
+<p id="mapping">edg_stc=2.4_statistics_page.html</p>
+<p id="mapping">edg_stn=2.5_settings_page.html</p>
+</body>
+</html>
