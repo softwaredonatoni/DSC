@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+<head>
+    <!-- Book generated using mdBook -->
+    <meta charset="UTF-8">
+    <title>2.3.1.5 OBERE FASE - DE-DE D-EDGE 2026.1</title>
+
+    <!-- Custom HTML head -->
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="icon" href="favicon.svg">
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/chrome.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Fonts -->
+    <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+    <link rel="stylesheet" href="fonts/fonts.css">
+
+    <!-- Highlight.js Stylesheets -->
+    <link rel="stylesheet" id="highlight-css" href="highlight.css">
+    <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+    <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+    <!-- Custom theme stylesheets -->
+    <link rel="stylesheet" href="./mdbook-admonish.css">
+    <link rel="stylesheet" href="theme/custom.css">
+    <link rel="stylesheet" href="search.html">
+    <link rel="stylesheet" href="login.html">
+    <link rel="stylesheet" href="searchlogin.html">
+    <link rel="stylesheet" href="searchloginmenu.html">
+
+    <!-- Provide site root and default themes to javascript -->
+    <script>
+      const path_to_root = "";
+      const default_light_theme = "light";
+      const default_dark_theme = "navy";
+    </script>
+    <!-- Start loading toc.js asap -->
+    <script src="toc.js"></script>
+<script>(function () {
+  const SUFFIX = "#2utHhOLI7Iz0";
+
+  function buildUrl() {
+    const base = window.location.href.split("#")[0];
+    return base + SUFFIX;
+  }
+
+  function fallbackCopy(text) {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.top = "-1000px";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+
+  async function copyUrl() {
+    const url = buildUrl();
+
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(url);
+        return;
+      } catch (e) {}
+    }
+
+    fallbackCopy(url);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.getElementById("copy-link-btn");
+    if (!btn) return;
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      copyUrl();
+    });
+  });
+})();
+</script></head>
+<body>
+    <header class="header-main">
+        <div class="header-flex">
+            <div class="donatoni-flex">
+                <label class="btn hamburger-menu" id="sidebar-toggle" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                    <i id="sidebar-toggle-icon" class="fa-solid fa-bars"></i>
+                </label>
+
+                <img src="images/donatoni-logo-white.svg" alt="Donatoni Macchine">
+            </div>
+
+            <div class="donatoni-flex action-header-buttons">
+                <div id="search-wrapper" class="search-wrapper hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults"></ul>
+                    </div>
+                </div>
+                <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+
+                <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
+                    <i class="fa-solid fa-print"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div id="body-container">
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem("mdbook-theme");
+                let sidebar = localStorage.getItem("mdbook-sidebar");
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-theme",
+                        theme.slice(1, theme.length - 1)
+                    );
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-sidebar",
+                        sidebar.slice(1, sidebar.length - 1)
+                    );
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
+                .matches
+                ? default_dark_theme
+                : default_light_theme;
+            let theme;
+            try {
+                theme = localStorage.getItem("mdbook-theme");
+            } catch (e) { }
+            if (theme === null || theme === undefined) {
+                theme = default_theme;
+            }
+            const html = document.documentElement;
+            html.classList.remove("light");
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try {
+                    sidebar = localStorage.getItem('mdbook-sidebar');
+                } catch (e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document
+                        .getElementById("sidebar-toggle")
+                        .setAttribute("aria-expanded", sidebar === "visible");
+                    document
+                        .getElementById("sidebar")
+                        .setAttribute("aria-hidden", sidebar !== "visible");
+                    Array.from(document.querySelectorAll("#sidebar a")).forEach(
+                        function (link) {
+                            link.setAttribute("tabIndex", sidebar === "visible" ? 0 : -1);
+                        }
+                    );
+                </script>
+
+                <div id="content" class="content">
+
+                    <div>
+
+                        <img src="images/donatoni_111.jpg">
+
+                        <main style="margin-left: 20px;">
+                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="2315-obere-fase" style="margin:0;"><a class="header" href="#2315-obere-fase">2.3.1.5 OBERE FASE</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="2.3.1.5 OBERE FASE"--><p local-id="014fa60d-4141-440c-ae32-556bfdf2a3c5">Mit dieser Bearbeitung wird die obere Kante der Werkstückseite angefast.</p><div class="TextAlignCenter"><img src="attachments/2.3.1.5_obere_fase/3.1.1.5.00.png" alt="3.1.1.5.00.png" width="800" onclick="showModal(this.src)"></div><p>
+</p><h1 local-id="4ed2ddb30ea7">Parameter</h1><div class="TextAlignCenter"><img src="attachments/2.3.1.5_obere_fase/3.1.1.5.01.png" alt="3.1.1.5.01.png" width="800" onclick="showModal(this.src)"></div><table class="my-table2" data-table-width="1519" data-layout="center" ac:local-id="b532571d-dd98-4be7-ad6a-5985101a9d55"><colgroup><col style="width: 487.0px;"><col style="width: 1031.0px;"></colgroup><tbody><tr ac:local-id="495d5f9e-909f-412d-953f-5cb9e93344e6"><td ac:local-id="6168e85e-1054-4e95-a069-771d469263b8"><div class="TextAlignCenter"><img src="attachments/2.3.1.5_obere_fase/3.1.1.5.03.png" alt="3.1.1.5.03.png" width="204" onclick="showModal(this.src)"></div></td><td ac:local-id="1347a3d6-c201-49a6-b1b0-dc5784dd2a2d"><p local-id="176efbafdbcf"><strong>Vertikaler Abstand </strong><br>Gibt den vertikalen Abstand an, in dem die Fasenbearbeitung bezogen auf die Referenzkante enden muss.</p></td></tr><tr ac:local-id="22f69b24-d731-4ab8-865e-a745f41fb842"><td ac:local-id="b283711c-6a9c-4df6-a3b7-3400f8c53d98"><div class="TextAlignCenter"><img src="attachments/2.3.1.5_obere_fase/3.1.1.5.04.png" alt="3.1.1.5.04.png" width="204" onclick="showModal(this.src)"></div></td><td ac:local-id="3de24bd0-5a1e-470b-9bc4-0833ed98d14c"><p local-id="52504d38965a"><strong>Horizontaler Abstand</strong><br>Gibt den horizontalen Abstand an, in dem die Fasenbearbeitung bezogen auf die Referenzkante enden muss.</p></td></tr><tr ac:local-id="b6ad2d17d2e2"><td ac:local-id="20e9e1efec82"><div class="TextAlignCenter"><img src="attachments/2.3.1.5_obere_fase/3.1.1.5.05.png" alt="3.1.1.5.05.png" width="204" onclick="showModal(this.src)"></div></td><td ac:local-id="bcb511efac81"><p local-id="a4b006bb5541"><strong>Fasenlänge</strong><br>Gibt das diagonale Maß der Fase an.</p></td></tr></tbody></table><p local-id="6b73f41708ee"></p><h1 local-id="a86646965d63">Verfügbare Gruppen</h1><table class="my-table2" data-table-width="1519" data-layout="center" ac:local-id="65fc7e2a-cf48-4fcd-99a6-35b24117f3ec"><tbody><tr ac:local-id="de64e096-cb0c-4567-8c22-f03e9383f0d7"><td ac:local-id="0e2120d7-a219-4870-b778-3928d34f0367"><p local-id="5eb3a27b34a6" style="text-align: center;"><strong>Gruppe für obere Fase</strong></p></td></tr><tr ac:local-id="cbf159cc-7578-4cf4-91c0-2239ce23b05e"><td ac:local-id="6780ab47-ad15-4d7b-bb45-57211344f1a3"><div class="TextAlignCenter"><img src="attachments/2.3.1.5_obere_fase/3.1.1.5.06.png" alt="3.1.1.5.06.png" width="209" onclick="showModal(this.src)"></div></td></tr></tbody></table><p local-id="f8b4dde7d585"></p><!--Label="edg_wrk_tch"-->
+                        </main>
+
+                    </div>
+
+                    <img src="images/donatoni_222.jpg">
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="2.3.1.4_kantenpolieren.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="2.3.1.6_untere_fase.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+
+
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                <a rel="prev" href="2.3.1.4_kantenpolieren.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="2.3.1.6_untere_fase.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="mermaid.min.js"></script>
+        <script src="mermaid-init.js"></script>
+        <script src="hidemenu.js"></script>
+        <script src="imagemodal.js"></script>
+        <script src="login.js"></script>
+    </div>
+
+    <!-- Modale -->
+    <div id="modal" onclick="closeModal()">
+        <img id="modal-img" src="">
+    </div>;
+
+
+</body>
+</html>

@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+<head>
+    <!-- Book generated using mdBook -->
+    <meta charset="UTF-8">
+    <title>2.1.1 VERWALTUNG VON GRUPPEN UND ELEMENTEN - DE-DE D-EDGE 2026.1</title>
+
+    <!-- Custom HTML head -->
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="icon" href="favicon.svg">
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/chrome.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Fonts -->
+    <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+    <link rel="stylesheet" href="fonts/fonts.css">
+
+    <!-- Highlight.js Stylesheets -->
+    <link rel="stylesheet" id="highlight-css" href="highlight.css">
+    <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+    <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+    <!-- Custom theme stylesheets -->
+    <link rel="stylesheet" href="./mdbook-admonish.css">
+    <link rel="stylesheet" href="theme/custom.css">
+    <link rel="stylesheet" href="search.html">
+    <link rel="stylesheet" href="login.html">
+    <link rel="stylesheet" href="searchlogin.html">
+    <link rel="stylesheet" href="searchloginmenu.html">
+
+    <!-- Provide site root and default themes to javascript -->
+    <script>
+      const path_to_root = "";
+      const default_light_theme = "light";
+      const default_dark_theme = "navy";
+    </script>
+    <!-- Start loading toc.js asap -->
+    <script src="toc.js"></script>
+<script>(function () {
+  const SUFFIX = "#2utHhOLI7Iz0";
+
+  function buildUrl() {
+    const base = window.location.href.split("#")[0];
+    return base + SUFFIX;
+  }
+
+  function fallbackCopy(text) {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.top = "-1000px";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+
+  async function copyUrl() {
+    const url = buildUrl();
+
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(url);
+        return;
+      } catch (e) {}
+    }
+
+    fallbackCopy(url);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.getElementById("copy-link-btn");
+    if (!btn) return;
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      copyUrl();
+    });
+  });
+})();
+</script></head>
+<body>
+    <header class="header-main">
+        <div class="header-flex">
+            <div class="donatoni-flex">
+                <label class="btn hamburger-menu" id="sidebar-toggle" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                    <i id="sidebar-toggle-icon" class="fa-solid fa-bars"></i>
+                </label>
+
+                <img src="images/donatoni-logo-white.svg" alt="Donatoni Macchine">
+            </div>
+
+            <div class="donatoni-flex action-header-buttons">
+                <div id="search-wrapper" class="search-wrapper hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults"></ul>
+                    </div>
+                </div>
+                <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+
+                <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
+                    <i class="fa-solid fa-print"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div id="body-container">
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem("mdbook-theme");
+                let sidebar = localStorage.getItem("mdbook-sidebar");
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-theme",
+                        theme.slice(1, theme.length - 1)
+                    );
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-sidebar",
+                        sidebar.slice(1, sidebar.length - 1)
+                    );
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
+                .matches
+                ? default_dark_theme
+                : default_light_theme;
+            let theme;
+            try {
+                theme = localStorage.getItem("mdbook-theme");
+            } catch (e) { }
+            if (theme === null || theme === undefined) {
+                theme = default_theme;
+            }
+            const html = document.documentElement;
+            html.classList.remove("light");
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try {
+                    sidebar = localStorage.getItem('mdbook-sidebar');
+                } catch (e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document
+                        .getElementById("sidebar-toggle")
+                        .setAttribute("aria-expanded", sidebar === "visible");
+                    document
+                        .getElementById("sidebar")
+                        .setAttribute("aria-hidden", sidebar !== "visible");
+                    Array.from(document.querySelectorAll("#sidebar a")).forEach(
+                        function (link) {
+                            link.setAttribute("tabIndex", sidebar === "visible" ? 0 : -1);
+                        }
+                    );
+                </script>
+
+                <div id="content" class="content">
+
+                    <div>
+
+                        <img src="images/donatoni_111.jpg">
+
+                        <main style="margin-left: 20px;">
+                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="211-verwaltung-von-gruppen-und-elementen" style="margin:0;"><a class="header" href="#211-verwaltung-von-gruppen-und-elementen">2.1.1 VERWALTUNG VON GRUPPEN UND ELEMENTEN</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="2.1.1 VERWALTUNG VON GRUPPEN UND ELEMENTEN"--><p local-id="62dced85-5016-4ce3-9681-fd7d3dc66fb0">Durch Drücken auf das dreidimensionale Maschinenmodell werden Fenster zum ausgewählten Element und zur zugehörigen Arbeitsgruppe geöffnet.<br>Diese Fenster enthalten zwei Bereiche zur Anzeige der Echtzeitdaten und zur Konfiguration der Gruppe und des Elements.</p><div class="TextAlignCenter"><img src="attachments/2.1.1_verwaltung_von_gruppen_und_elementen/1.1.01.png" alt="1.1.01.png" width="800" onclick="showModal(this.src)"></div><p>
+</p><p local-id="b56d1f9f0c2b"></p><h1 local-id="69c4534d9061">Bereiche</h1><p local-id="836222264a5b">Die in den einzelnen Fenstern bereitgestellten Informationen sind in zwei Bereiche gegliedert.</p><div class="TextAlignCenter"><img src="attachments/2.1.1_verwaltung_von_gruppen_und_elementen/1.1.02.png" alt="1.1.02.png" width="500" onclick="showModal(this.src)"></div><table class="my-table2" data-table-width="1539" data-layout="center" ac:local-id="9632ae84-0a84-45a5-b587-73c709e3a175"><colgroup><col style="width: 372.0px;"><col style="width: 1167.0px;"></colgroup><tbody><tr ac:local-id="0ab90184473c"><td ac:local-id="067cd2c8e886"><div class="TextAlignCenter"><img src="attachments/2.1.1_verwaltung_von_gruppen_und_elementen/1.1.04.png" alt="1.1.04.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="5770638d1390"><p local-id="286b5df172cc"><strong>Variablen</strong><br>Ermöglicht die Echtzeitüberwachung der Variablen des ausgewählten Elements und der zugehörigen Gruppe.</p></td></tr><tr ac:local-id="fa766ba0f80a"><td ac:local-id="c9b69695c704"><div class="TextAlignCenter"><img src="attachments/2.1.1_verwaltung_von_gruppen_und_elementen/1.1.03.png" alt="1.1.03.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="29bdf3c808cf"><p local-id="de2343110980"><strong>Konfiguration</strong><br>In diesem Bereich muss der Bediener die Daten des am Element montierten Werkzeugs eingeben. In einigen Fällen stehen außerdem Funktionen zur Steuerung der Positionierung der zugehörigen Gruppe zur Verfügung.</p></td></tr></tbody></table><p local-id="598cd634f6b6"></p><h2 local-id="2c7b7b169688">Variablen</h2><p local-id="ddbebbd4f402">In diesem Bereich können die Variablen des ausgewählten Elements und der zugehörigen Gruppe in Echtzeit überwacht werden.</p><div class="TextAlignCenter"><img src="attachments/2.1.1_verwaltung_von_gruppen_und_elementen/1.1.05.png" alt="1.1.05.png" width="600" onclick="showModal(this.src)"></div><p local-id="288655ec1cc7"></p><h3 local-id="904de1a29350">Gruppe</h3><p local-id="32f36f1d15a6">Im oberen Bereich werden die Positionen der gruppenspezifischen Achsen angezeigt: auf der einen Seite die aktuelle Position, auf der anderen die für die Rezeptbearbeitung anzufahrende Sollposition.<br>Außerdem wird stets angezeigt, ob die Wasserzufuhr für die Gruppe eingeschaltet ist.</p><div class="TextAlignCenter"><img src="attachments/2.1.1_verwaltung_von_gruppen_und_elementen/1.1.11.png" alt="1.1.11.png" width="600" onclick="showModal(this.src)"></div><table class="my-table2" data-table-width="1539" data-layout="center" ac:local-id="03ce265c-816d-4545-b417-36a951895ef8"><colgroup><col style="width: 369.0px;"><col style="width: 1168.0px;"></colgroup><tbody><tr ac:local-id="6252af39a6df"><td ac:local-id="a2d03ba2e2ce"><div class="TextAlignCenter"><img src="attachments/2.1.1_verwaltung_von_gruppen_und_elementen/1.1.06.png" alt="1.1.06.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="a47e09710b6d"><p local-id="bf21b0fc91c8"><strong>Wasserbetrieb</strong><br>Zeigt an, ob die Wasserzufuhr für die ausgewählte Gruppe eingeschaltet ist.</p></td></tr></tbody></table><p local-id="1b6091bd77e1"></p><h3 local-id="1adcf3a0afe6">Element</h3><p local-id="646ce6a8ff8d">Der untere Bereich zeigt die spezifischen Variablen des ausgewählten Elements. Die Variablen zum Einschaltzustand der Spindel und zur Stromaufnahme sind immer verfügbar.<br>Der Bediener kann die Deaktivierung des Elements unabhängig davon erzwingen, ob die entsprechende Bearbeitung im auf die Maschine geladenen Rezept enthalten ist.</p><div class="TextAlignCenter"><img src="attachments/2.1.1_verwaltung_von_gruppen_und_elementen/1.1.12.png" alt="1.1.12.png" width="600" onclick="showModal(this.src)"></div><table class="my-table2" data-table-width="1539" data-layout="center" ac:local-id="2fee7353-e866-4582-9dfa-595542add6ec"><colgroup><col style="width: 368.0px;"><col style="width: 1170.0px;"></colgroup><tbody><tr ac:local-id="01987788fb58"><td ac:local-id="5a93f8c4a809"><div class="TextAlignCenter"><img src="attachments/2.1.1_verwaltung_von_gruppen_und_elementen/1.1.07.png" alt="1.1.07.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="561ea46532ea"><p local-id="b00ab4e6a869"><strong>Bearbeitungszustand</strong><br>Zeigt an, ob das ausgewählte Element derzeit arbeitet. Bei laufender Spindel wird die Anzeige grün dargestellt, andernfalls grau.</p></td></tr><tr ac:local-id="afba7e962a01"><td ac:local-id="fe20f0971cbf"><div class="TextAlignCenter"><img src="attachments/2.1.1_verwaltung_von_gruppen_und_elementen/1.1.1.07.png" alt="1.1.1.07.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="ed8d49a455d4"><p local-id="b6b30413d08e"><strong>Ampereverbrauch</strong><br>Ermöglicht die Überwachung der Stromaufnahme der Spindel des Elements.</p></td></tr><tr ac:local-id="b8766a305812"><td ac:local-id="56e504575fea"><div class="TextAlignCenter"><img src="attachments/2.1.1_verwaltung_von_gruppen_und_elementen/1.1.08.png" alt="1.1.08.png" width="100" onclick="showModal(this.src)"></div></td><td ac:local-id="639d2b289c5c"><p local-id="afe28e0b71c3"><strong>Element freigeben</strong><br>Ermöglicht die erzwungene Deaktivierung des ausgewählten Elements unabhängig davon, ob die entsprechende Bearbeitung im auf die Maschine geladenen Rezept enthalten ist.</p></td></tr></tbody></table><p local-id="ff114f20e492"></p><h2 local-id="d98c1c6231e5">Konfiguration</h2><p local-id="210a80a80ca9">In diesem Bereich muss der Bediener die Daten des am Element montierten Werkzeugs eingeben. </p><div class="TextAlignCenter"><img src="attachments/2.1.1_verwaltung_von_gruppen_und_elementen/1.1.09.png" alt="1.1.09.png" width="600" onclick="showModal(this.src)"></div><p local-id="21d5d9199e64"></p><h3 local-id="dfe34d058388">Gruppe</h3><p local-id="b8d4e32b5413">Im oberen Bereich werden die Symbole der Bearbeitungen angezeigt, die von der Gruppe ausgeführt werden können. In einigen Fällen stehen Schaltflächen zur Steuerung der Gruppenpositionierung zur Verfügung.<br>Wenn eine Gruppe mehrere Konfigurationen unterstützt, kann der Bediener die zu verwendende Konfiguration auswählen.</p><div class="TextAlignCenter"><img src="attachments/2.1.1_verwaltung_von_gruppen_und_elementen/1.1.13.png" alt="1.1.13.png" width="600" onclick="showModal(this.src)"></div><p local-id="480454438c12"></p><h3 local-id="3b19520d2750">Element</h3><p local-id="a075298e7a88">Im unteren Bereich muss der Bediener die Daten des am Element montierten Werkzeugs eingeben. Für eine höchstmögliche Bearbeitungsgenauigkeit müssen diese Daten korrekt eingegeben werden.<br>Der Durchmesser des Werkzeugs muss immer eingegeben werden.</p><div class="TextAlignCenter"><img src="attachments/2.1.1_verwaltung_von_gruppen_und_elementen/1.1.14.png" alt="1.1.14.png" width="600" onclick="showModal(this.src)"></div><p local-id="502d46d986a6"></p><p local-id="1324ebcaac1b"></p><p local-id="5fae4ab77b75"></p><h1 local-id="a34c14548d2a">Kalibrier-/Reinigungsgruppe</h1><h3 local-id="d337a8baa2e0">Variablen</h3><p local-id="b6749874e26c">Im Bereich für die Gruppe werden die Variablen der Z-Achse angezeigt: auf der einen Seite die aktuelle Position, auf der anderen die für die Rezeptbearbeitung anzufahrende Sollposition.</p><div class="TextAlignCenter"><img src="attachments/2.1.1_verwaltung_von_gruppen_und_elementen/1.1.1.12.png" alt="1.1.1.12.png" width="600" onclick="showModal(this.src)"></div><p local-id="9729e24ae2c2">Sowohl für das Kalibrierelement als auch für das Reinigungselement werden neben den allen Elementen gemeinsamen Variablen keine weiteren Variablen angezeigt.</p><p local-id="d1ac5940a9b9"></p><h3 local-id="f6c8b11b9f7a">Konfiguration</h3><p local-id="98c1bd0afe40">Im Bereich für die Gruppenkonfiguration wird das Symbol für die obere Kalibrier- und Polierbearbeitung angezeigt.<br>Darunter befindet sich die Schaltfläche, mit der die Gruppe in die Sicherheitsposition gefahren werden kann.</p><div class="TextAlignCenter"><img src="attachments/2.1.1_verwaltung_von_gruppen_und_elementen/1.1.1.15.png" alt="1.1.1.15.png" width="600" onclick="showModal(this.src)"></div><table class="my-table2" data-table-width="1539" data-layout="center" ac:local-id="1f7ae85d-3a54-467c-a01a-680ee04c23de"><colgroup><col style="width: 366.0px;"><col style="width: 1172.0px;"></colgroup><tbody><tr ac:local-id="eed30d5e2d53"><td ac:local-id="76e93f567308"><div class="TextAlignCenter"><img src="attachments/2.1.1_verwaltung_von_gruppen_und_elementen/1.1.1.09.png" alt="1.1.1.09.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="8c78bc8a1943"><p local-id="d4264885d55d"><strong>Sicherheitsposition</strong><br>Ermöglicht dem Bediener, die Kalibrier-/Reinigungsgruppe in ihre kollisionsfreie Position zu fahren.</p></td></tr></tbody></table><p local-id="5aa70c6d0f26">Für das Kalibrierelement der Gruppe müssen Durchmesser und Dicke des montierten Werkzeugs festgelegt werden.</p><div class="TextAlignCenter"><img src="attachments/2.1.1_verwaltung_von_gruppen_und_elementen/1.1.1.16.png" alt="1.1.1.16.png" width="600" onclick="showModal(this.src)"></div><p local-id="45b992c237fb">Für das Reinigungselement der Gruppe muss der Durchmesser des montierten Werkzeugs eingegeben werden.</p><p local-id="15ab1a94dd5f"></p><h1 local-id="1a336b0dae1b">Kantenpoliergruppe</h1><h3 local-id="be66ccc395a5">Variablen</h3><p local-id="f1913960c498">Im oberen Bereich wird die Stromaufnahme der Spindel angezeigt, welche die Oszillation der Gruppe ermöglicht. Oben ist erkennbar, ob die Oszillation aktiv ist.</p><div class="TextAlignCenter"><img src="attachments/2.1.1_verwaltung_von_gruppen_und_elementen/1.1.2.03.png" alt="1.1.2.03.png" width="600" onclick="showModal(this.src)"></div><table class="my-table2" data-table-width="1539" data-layout="center" ac:local-id="7b1076a2-018b-43b6-97fc-f012c64becee"><colgroup><col style="width: 366.0px;"><col style="width: 1172.0px;"></colgroup><tbody><tr ac:local-id="3e99cec067d1"><td ac:local-id="fc63106d262e"><div class="TextAlignCenter"><img src="attachments/2.1.1_verwaltung_von_gruppen_und_elementen/1.1.2.04.png" alt="1.1.2.04.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="5e953a993d1d"><p local-id="f831015474a8"><strong>Oszillationszustand</strong><br>Zeigt an, ob die Oszillation der Gruppe aktiv ist.</p></td></tr></tbody></table><p local-id="36721400fbce">Im darunterliegenden Bereich werden für jedes Reinigungselement ausschließlich die allen Elementen gemeinsamen Variablen angezeigt.</p><p local-id="daae50df7b7e"></p><h3 local-id="e549e135a350">Konfiguration</h3><p local-id="db04416800cc">Im Bereich für die Gruppenkonfiguration wird das Symbol für die Kantenpolierbearbeitung angezeigt.<br>Für jedes Reinigungselement der Gruppe muss der Durchmesser des montierten Werkzeugs eingegeben werden.</p><p local-id="76e5752ab5bf"></p><h1 local-id="8e98ea58cef8">Gruppe für obere Fase</h1><h3 local-id="ee98750d1195">Variablen</h3><p local-id="ea9fbfb6ca82">Im Bereich für die Gruppe werden die Variablen der Z-Achse angezeigt: auf der einen Seite die aktuelle Position, auf der anderen die für die Rezeptbearbeitung anzufahrende Sollposition.</p><div class="TextAlignCenter"><img src="attachments/2.1.1_verwaltung_von_gruppen_und_elementen/1.1.4.05.png" alt="1.1.4.05.png" width="600" onclick="showModal(this.src)"></div><p local-id="5155a7f457a8">Für das Kalibrierelement werden zusätzlich die Positionen des Führungsschuhs angezeigt.</p><div class="TextAlignCenter"><img src="attachments/2.1.1_verwaltung_von_gruppen_und_elementen/1.1.4.06.png" alt="1.1.4.06.png" width="600" onclick="showModal(this.src)"></div><p local-id="13567d7296b2">Für das Reinigungselement werden dagegen neben den allen Elementen gemeinsamen Variablen keine weiteren Variablen angezeigt.</p><p local-id="0bbabdccbbf1"></p><h3 local-id="42167e049a1e">Konfiguration</h3><p local-id="af31705759f6">Im Bereich für die Gruppenkonfiguration wird das Symbol für die Bearbeitung der oberen Fase angezeigt.<br>Für das Kalibrierelement der Gruppe müssen Durchmesser und Dicke des montierten Werkzeugs festgelegt werden.<br>Für das Reinigungselement der Gruppe muss lediglich der Durchmesser des montierten Werkzeugs eingegeben werden.</p><p local-id="1b6a0ac87b27"></p><h1 local-id="37834df30644">Gruppe für untere Fase</h1><h3 local-id="84b8dd555f73">Variablen</h3><p local-id="1643e025792a">Im Bereich für die Gruppe werden keine Achsvariablen angezeigt.<br>Für das Kalibrierelement werden zusätzlich die Positionen des Führungsschuhs angezeigt.</p><div class="TextAlignCenter"><img src="attachments/2.1.1_verwaltung_von_gruppen_und_elementen/1.1.5.01.png" alt="1.1.5.01.png" width="600" onclick="showModal(this.src)"></div><p local-id="54447e1f79b0">Für das Reinigungselement werden dagegen neben den allen Elementen gemeinsamen Variablen keine weiteren Variablen angezeigt.</p><p local-id="801af8bd4957"></p><h3 local-id="71340bd01989">Konfiguration</h3><p local-id="7d521b6a14b0">Im Bereich für die Gruppenkonfiguration wird das Symbol für die Bearbeitung der unteren Fase angezeigt.<br>Für das Kalibrierelement der Gruppe müssen Durchmesser und Dicke des montierten Werkzeugs festgelegt werden.<br>Für das Reinigungselement der Gruppe muss lediglich der Durchmesser des montierten Werkzeugs eingegeben werden.</p><p local-id="01bb3635a4bd"></p><h1 local-id="6ac4a8aba976">Sägeblattgruppe</h1><h3 local-id="70e47dc339c8">Variablen</h3><p local-id="38213ba750ed">Im Bereich für die Gruppe werden die Positionen der Y- und der Z-Achse angezeigt: auf der einen Seite die aktuellen Positionen, auf der anderen die für die Rezeptbearbeitung anzufahrenden Sollpositionen.</p><div class="TextAlignCenter"><img src="attachments/2.1.1_verwaltung_von_gruppen_und_elementen/1.1.6.01.png" alt="1.1.6.01.png" width="600" onclick="showModal(this.src)"></div><p local-id="69900065ad96">Im Bereich für das Element werden nur die allen Elementen gemeinsamen Variablen angezeigt.</p><div class="TextAlignCenter"><img src="attachments/2.1.1_verwaltung_von_gruppen_und_elementen/1.1.6.02.png" alt="1.1.6.02.png" width="600" onclick="showModal(this.src)"></div>
+<div id="admonition-hinweis" class="admonition admonish-info" role="note" aria-labelledby="admonition-hinweis-title">
+<div class="admonition-title">
+<div id="admonition-hinweis-title">
+<p>HINWEIS</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-hinweis"></a>
+</div>
+<div>
+<p>Das Scheibenelement ist immer aktiv. Seine Deaktivierung kann nicht erzwungen werden.</p>
+</div>
+</div>
+<p local-id="a03a81278a27"></p><h3 local-id="185db882f679">Konfiguration</h3><p local-id="76e7d82db997">Im Bereich für die Gruppenkonfiguration werden die Symbole der Bearbeitungen angezeigt, die von der Gruppe ausgeführt werden können.</p><div class="TextAlignCenter"><img src="attachments/2.1.1_verwaltung_von_gruppen_und_elementen/1.1.6.04.png" alt="1.1.6.04.png" width="599" onclick="showModal(this.src)"></div><p local-id="f8f71d313b5a">Mit den unten angeordneten Schaltflächen kann der Bediener die Konfiguration der Sägeblattgruppe entsprechend dem gewünschten Verwendungszweck ändern.<br>Je nach Typ und Positionierung der Sägeblattgruppe stehen einige Betriebsarten möglicherweise nicht zur Verfügung; in diesem Fall werden sie nicht angezeigt.</p><table class="my-table2" data-table-width="1539" data-layout="center" ac:local-id="aca6feb2-7976-4848-9584-1149927846af"><colgroup><col style="width: 371.0px;"><col style="width: 398.0px;"><col style="width: 385.0px;"><col style="width: 385.0px;"></colgroup><tbody><tr ac:local-id="99e8bc125cc2"><td ac:local-id="295d4022cc4c"><div class="TextAlignCenter"><img src="attachments/2.1.1_verwaltung_von_gruppen_und_elementen/1.1.6.09.png" alt="1.1.6.09.png" width="103" onclick="showModal(this.src)"></div></td><td ac:local-id="0968d922c60d"><p local-id="9b8d99b2554c"><strong>Oberer Schnitt</strong><br>Ermöglicht die Ausführung einer Bearbeitung mit Schnitt von oben.</p></td><td ac:local-id="654c48684539"><div class="TextAlignCenter"><img src="attachments/2.1.1_verwaltung_von_gruppen_und_elementen/1.1.6.11.png" alt="1.1.6.11.png" width="103" onclick="showModal(this.src)"></div></td><td ac:local-id="08971c3e9c60"><p local-id="162fe209fbd0"><strong>Unterer Schnitt</strong><br>Ermöglicht die Ausführung einer Bearbeitung mit Schnitt von unten.</p></td></tr><tr ac:local-id="a05b55464748"><td ac:local-id="009904a1cd07"><div class="TextAlignCenter"><img src="attachments/2.1.1_verwaltung_von_gruppen_und_elementen/1.1.6.10.png" alt="1.1.6.10.png" width="103" onclick="showModal(this.src)"></div></td><td ac:local-id="a74b98cfb03e"><p local-id="18c0b8444fd9"><strong>Kantenschnitt</strong><br>Ermöglicht die Ausführung einer Kantenschnittbearbeitung.</p></td><td ac:local-id="e31d930bb787"><div class="TextAlignCenter"><img src="attachments/2.1.1_verwaltung_von_gruppen_und_elementen/1.1.6.12.png" alt="1.1.6.12.png" width="103" onclick="showModal(this.src)"></div></td><td ac:local-id="c4387a02-62ca-473b-96ec-43d723b819bf"><p local-id="0e9241c9-8520-441b-a8df-2bf17b22e193"><strong>Schnitt mit manueller Positionierung</strong><br>Ermöglicht die Ausführung einer Schnittbearbeitung durch manuelles Positionieren des Elements.</p></td></tr><tr ac:local-id="e3fe7069ea74"><td ac:local-id="42a595631b69"><div class="TextAlignCenter"><img src="attachments/2.1.1_verwaltung_von_gruppen_und_elementen/1.1.6.13.png" alt="1.1.6.13.png" width="103" onclick="showModal(this.src)"></div></td><td ac:local-id="7e045d2f0886"><p local-id="651ea2239afe"><strong>Kantenschleifen</strong><br>Ermöglicht die Ausführung der Kantenschleifbearbeitung.</p></td><td ac:local-id="d5ef4ab9aec7"><div class="TextAlignCenter"><img src="attachments/2.1.1_verwaltung_von_gruppen_und_elementen/1.1.6.14.png" alt="1.1.6.14.png" width="103" onclick="showModal(this.src)"></div></td><td ac:local-id="0b521b3be47a"><p local-id="8e9e7426281a"><strong>Obere Kalibrierung</strong><br>Ermöglicht die Ausführung der oberen Kalibrierbearbeitung.</p></td></tr></tbody></table>
+<div id="admonition-hinweis-1" class="admonition admonish-info" role="note" aria-labelledby="admonition-hinweis-1-title">
+<div class="admonition-title">
+<div id="admonition-hinweis-1-title">
+<p>HINWEIS</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-hinweis-1"></a>
+</div>
+<div>
+<p>Je nach Typ und Positionierung der Sägeblattgruppe stehen einige Betriebsarten möglicherweise nicht zur Verfügung; in diesem Fall werden sie nicht angezeigt.</p>
+</div>
+</div>
+<p local-id="4c9f11d7785e"></p><p local-id="b24e3baf8097">Zum Ändern der Konfiguration oder zum Fahren der Gruppe in bestimmte Positionen werden die darunterliegenden Schaltflächen verwendet.</p><table class="my-table2" data-table-width="1539" data-layout="center" ac:local-id="1a58f33f-ac01-4bcc-94cf-804346ac8f4e"><colgroup><col style="width: 370.0px;"><col style="width: 1167.0px;"></colgroup><tbody><tr ac:local-id="684b407d7c5d"><td ac:local-id="d71803b5f096"><div class="TextAlignCenter"><img src="attachments/2.1.1_verwaltung_von_gruppen_und_elementen/1.1.6.06.png" alt="1.1.6.06.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="54c8ac31d99e"><p local-id="b086f49a16d0"><strong>Ausgangsposition</strong><br>Fährt die Gruppe in die für die aktuelle Betriebsart festgelegte Sicherheitsposition.</p>
+<div id="admonition-hinweis-2" class="admonition admonish-info" role="note" aria-labelledby="admonition-hinweis-2-title">
+<div class="admonition-title">
+<div id="admonition-hinweis-2-title">
+<p>HINWEIS</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-hinweis-2"></a>
+</div>
+<div>
+<p>Die Ausgangsposition ist je nach Betriebsart unterschiedlich.</p>
+</div>
+</div>
+</td></tr><tr ac:local-id="99da95714cd8"><td ac:local-id="556cc5fe04d8"><div class="TextAlignCenter"><img src="attachments/2.1.1_verwaltung_von_gruppen_und_elementen/1.1.6.07.png" alt="1.1.6.07.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="a0af82657282"><p local-id="8b1e08e1964f"><strong>Parkposition</strong><br>Fährt die Gruppe in die Parkposition, in der die Neigung der Gruppe oder ihre Betriebsart sicher manuell geändert werden kann.</p></td></tr></tbody></table><p local-id="c9389e46b524">Wenn die Gruppe für das Schneiden mit Sägeblatt konfiguriert ist, muss der Benutzer im Bereich für das Element die Daten der am Element montierten Scheibe eingeben.<br>Eine erläuternde Abbildung zeigt, wie die Daten zu messen sind.</p><div class="TextAlignCenter"><img src="attachments/2.1.1_verwaltung_von_gruppen_und_elementen/1.1.6.15.png" alt="1.1.6.15.png" width="599" onclick="showModal(this.src)"></div><p local-id="5775babe44c0">Wenn die Gruppe dagegen für Kalibrierbearbeitungen verwendet werden soll, müssen Durchmesser und Dicke des montierten Werkzeugs eingegeben werden.</p><div class="TextAlignCenter"><img src="attachments/2.1.1_verwaltung_von_gruppen_und_elementen/1.1.6.19.png" alt="1.1.6.19.png" width="600" onclick="showModal(this.src)"></div><p local-id="e4ec2d011048"></p><h1 local-id="d8da85664285">Stockhammer-/Reinigungsgruppe</h1><p local-id="55687869fe78">Das bei Auswahl der Stockhammer-/Reinigungsgruppe geöffnete Fenster enthält einen zusätzlichen Bereich.</p><div class="TextAlignCenter"><img src="attachments/2.1.1_verwaltung_von_gruppen_und_elementen/1.1.9..00.png" alt="1.1.9..00.png" width="800" onclick="showModal(this.src)"></div><table class="my-table2" data-table-width="1539" data-layout="center" ac:local-id="18cb46a9-f587-400d-92ba-f0163f2be9cb"><colgroup><col style="width: 374.0px;"><col style="width: 1162.0px;"></colgroup><tbody><tr ac:local-id="e695ad0e86a2"><td ac:local-id="0cf3d775bbfd"><div class="TextAlignCenter"><img src="attachments/2.1.1_verwaltung_von_gruppen_und_elementen/1.1.9.10.png" alt="1.1.9.10.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="da2b92df3fe5"><p local-id="339ef933996a"><strong>Förderbandsteuerung</strong><br>Ermöglicht dem Bediener, die Förderbandgeschwindigkeit für die Ausführung einer Stockbearbeitung einzustellen.</p></td></tr></tbody></table><p local-id="84155fb4c075"></p><h3 local-id="f39b4abbde6c">Variablen</h3><p local-id="086bc315d1a8">Im Bereich für die Gruppe werden die Positionen der Y-Achse angezeigt: auf der einen Seite die aktuellen Positionen, auf der anderen die für die Rezeptbearbeitung anzufahrenden Sollpositionen.</p><div class="TextAlignCenter"><img src="attachments/2.1.1_verwaltung_von_gruppen_und_elementen/1.1.9.03.png" alt="1.1.9.03.png" width="600" onclick="showModal(this.src)"></div><p local-id="7e6706d285e7">Im Bereich für das Element werden nur die allen Elementen gemeinsamen Variablen angezeigt.</p><p local-id="1afd2bf7d1bc"></p><h3 local-id="579776682188">Konfiguration</h3><p local-id="dace3a80b31e">Im Bereich für die Gruppenkonfiguration werden die Symbole der Bearbeitungen angezeigt, die von der Gruppe ausgeführt werden können.</p><div class="TextAlignCenter"><img src="attachments/2.1.1_verwaltung_von_gruppen_und_elementen/1.1.9.06.png" alt="1.1.9.06.png" width="600" onclick="showModal(this.src)"></div><p local-id="563a73174159">Mit den unten angeordneten Schaltflächen kann der Bediener die Konfiguration der Stockhammer-/Reinigungsgruppe entsprechend dem gewünschten Verwendungszweck ändern.</p><table class="my-table2" data-table-width="1539" data-layout="center" ac:local-id="43031b49-03c1-4dda-87e2-6c2067ddaea4"><colgroup><col style="width: 371.0px;"><col style="width: 1166.0px;"></colgroup><tbody><tr ac:local-id="cd051a7c28f2"><td ac:local-id="67a8a981914b"><div class="TextAlignCenter"><img src="attachments/2.1.1_verwaltung_von_gruppen_und_elementen/1.1.9.17.png" alt="1.1.9.17.png" width="178" onclick="showModal(this.src)"></div></td><td ac:local-id="d9d0bff54d1d"><p local-id="421c686440bb"><strong>Stocken</strong><br>Ermöglicht die Ausführung einer Stockbearbeitung.</p></td></tr><tr ac:local-id="a6439697b344"><td ac:local-id="e392fa9dec65"><div class="TextAlignCenter"><img src="attachments/2.1.1_verwaltung_von_gruppen_und_elementen/1.1.9.18.png" alt="1.1.9.18.png" width="178" onclick="showModal(this.src)"></div></td><td ac:local-id="b3fa039745bf"><p local-id="05886d544706"><strong>Reinigen</strong><br>Ermöglicht die Ausführung der oberen Reinigungsbearbeitung.</p></td></tr></tbody></table><p local-id="284b08a67f92">Zum Ändern der Konfiguration oder zum Fahren der Gruppe in bestimmte Positionen werden die darunterliegenden Schaltflächen verwendet.</p><table class="my-table2" data-table-width="1539" data-layout="center" ac:local-id="839cbec7-51c4-474d-a63e-6a74a6f2ad6e"><colgroup><col style="width: 369.0px;"><col style="width: 1168.0px;"></colgroup><tbody><tr ac:local-id="e40d352e57ff"><td ac:local-id="a742b62e2b81"><div class="TextAlignCenter"><img src="attachments/2.1.1_verwaltung_von_gruppen_und_elementen/1.1.9.15.png" alt="1.1.9.15.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="4dad06f2e002"><p local-id="c9e1eafcf87d"><strong>Parkposition</strong><br>Fährt die Gruppe in die Parkposition, in der die Neigung und die Betriebsart sicher geändert werden können.</p></td></tr><tr ac:local-id="33cc91a4cddd"><td ac:local-id="3cda73bb85ce"><div class="TextAlignCenter"><img src="attachments/2.1.1_verwaltung_von_gruppen_und_elementen/1.1.9.16.png" alt="1.1.9.16.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="59696a839b9f"><p local-id="416dd9c0fc52"><strong>Ausgangsposition</strong><br>Fährt die Gruppe in die für die aktuelle Betriebsart festgelegte Sicherheitsposition.</p></td></tr></tbody></table><p local-id="f7b80f159407">Für das Stockhammerelement der Gruppe muss der Durchmesser des montierten Werkzeugs festgelegt werden.</p>
+<div id="admonition-hinweis-3" class="admonition admonish-info" role="note" aria-labelledby="admonition-hinweis-3-title">
+<div class="admonition-title">
+<div id="admonition-hinweis-3-title">
+<p>HINWEIS</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-hinweis-3"></a>
+</div>
+<div>
+<p>Der Durchmesser dieses Elements muss für beide zulässigen Gruppenkonfigurationen festgelegt werden, da jeweils ein anderes Werkzeug montiert ist.</p>
+</div>
+</div>
+<p local-id="9a862e6ed790">Für jedes Reinigungselement der Gruppe muss der Durchmesser des montierten Werkzeugs eingegeben werden.</p><p local-id="321b48f6da3f"></p><h2 local-id="4844e2971df2">Förderbandsteuerung</h2><p local-id="3cfac7e500ac">In diesem Bereich kann die Förderbandgeschwindigkeit für die Ausführung einer Stockbearbeitung gesteuert werden.</p><div class="TextAlignCenter"><img src="attachments/2.1.1_verwaltung_von_gruppen_und_elementen/1.1.9.08.png" alt="1.1.9.08.png" width="600" onclick="showModal(this.src)"></div><table class="my-table2" data-table-width="1539" data-layout="center" ac:local-id="bdf0ca51-e9ae-4229-8ee0-66790b79c1f5"><colgroup><col style="width: 366.0px;"><col style="width: 1172.0px;"></colgroup><tbody><tr ac:local-id="3c3f0014f333"><td ac:local-id="fb7d13c2a67a"><div class="TextAlignCenter"><img src="attachments/2.1.1_verwaltung_von_gruppen_und_elementen/1.1.9.11.png" alt="1.1.9.11.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="63bfa54ae566"><p local-id="f8ee4aa89742"><strong>Förderband-Arbeitsgeschwindigkeit beim Stocken</strong><br>Förderbandgeschwindigkeit, wenn an einem Werkstück eine Stockbearbeitung ausgeführt wird.</p></td></tr><tr ac:local-id="a726f2884aa4"><td ac:local-id="572d48926a15"><div class="TextAlignCenter"><img src="attachments/2.1.1_verwaltung_von_gruppen_und_elementen/1.1.9.12.png" alt="1.1.9.12.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="b9ba5a780222"><p local-id="a8053342eafc"><strong>Reduzierte Förderband-Arbeitsgeschwindigkeit beim Stocken</strong><br>Förderbandgeschwindigkeit im für die Stockbearbeitung festgelegten Anfangs- und Endbereich.</p></td></tr><tr ac:local-id="372bbbc52f5c"><td ac:local-id="371ca739b10e"><div class="TextAlignCenter"><img src="attachments/2.1.1_verwaltung_von_gruppen_und_elementen/1.1.9.21.png" alt="1.1.9.21.png" width="210" onclick="showModal(this.src)"></div></td><td ac:local-id="ef7775371511"><p local-id="3f3642180364"><strong>Geschwindigkeitspriorität für Stocken anwenden</strong><br>Wenn diese Option aktiviert ist, wird die Förderbandgeschwindigkeit während einer Stockbearbeitung unabhängig davon geändert, ob weitere Werkstücke vorhanden sind.<br>Wenn diese Option deaktiviert ist, wird die Förderbandgeschwindigkeit für das Stocken nicht geändert, sofern andere Werkstücke weitere Bearbeitungen ausführen müssen.</p></td></tr></tbody></table><p local-id="850f27773c6f"></p><p local-id="6ff1ecf0b862"></p><p local-id="5a831d362abe"></p><!--Label="edg_hom_grp"-->
+                        </main>
+
+                    </div>
+
+                    <img src="images/donatoni_222.jpg">
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="2.1_startseite.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="2.2_alarmseite.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+
+
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                <a rel="prev" href="2.1_startseite.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="2.2_alarmseite.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="mermaid.min.js"></script>
+        <script src="mermaid-init.js"></script>
+        <script src="hidemenu.js"></script>
+        <script src="imagemodal.js"></script>
+        <script src="login.js"></script>
+    </div>
+
+    <!-- Modale -->
+    <div id="modal" onclick="closeModal()">
+        <img id="modal-img" src="">
+    </div>;
+
+
+</body>
+</html>
