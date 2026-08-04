@@ -382,23 +382,13 @@ aria-label="Show hidden lines"></button>';
     }
 
     function get_theme() {
-        const theme = get_saved_theme();
-        if (theme === null || theme === undefined || !themeIds.includes(theme)) {
-            if (typeof default_dark_theme === "undefined") {
-                // A customized index.hbs might not define this, so fall back to
-                // old behavior of determining the default on page load.
-                return default_theme;
-            }
-            return window.matchMedia("(prefers-color-scheme: dark)").matches
-                ? default_dark_theme
-                : default_light_theme;
-        } else {
-            return theme;
-        }
+        return "light";
     }
 
     let previousTheme = default_theme;
     function set_theme(theme, store = true) {
+        theme = "light";
+        store = false;
         let ace_theme;
 
         if (theme === "coal" || theme === "navy") {

@@ -40,7 +40,7 @@
     <script>
       const path_to_root = "";
       const default_light_theme = "light";
-      const default_dark_theme = "navy";
+      const default_dark_theme = "light";
     </script>
     <!-- Start loading toc.js asap -->
     <script src="toc.js"></script>
@@ -86,8 +86,10 @@
     });
   });
 })();
-</script></head>
-<body>
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-troubleshooting technical-troubleshooting-emergency" data-technical-styler-flow="html">
     <header class="header-main">
         <div class="header-flex">
             <div class="donatoni-flex">
@@ -110,6 +112,15 @@
                 </div>
                 <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                     <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
                 </button>
 
                 <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
@@ -144,17 +155,8 @@
 
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script>
-            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
-                .matches
-                ? default_dark_theme
-                : default_light_theme;
-            let theme;
-            try {
-                theme = localStorage.getItem("mdbook-theme");
-            } catch (e) { }
-            if (theme === null || theme === undefined) {
-                theme = default_theme;
-            }
+            const default_theme = "light";
+            let theme = default_theme;
             const html = document.documentElement;
             html.classList.remove("light");
             html.classList.add(theme);
@@ -214,8 +216,8 @@
 
                         <img src="images/donatoni_111.jpg">
 
-                        <main style="margin-left: 20px;">
-                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="pe0009-rich-collision-quote" style="margin:0;"><a class="header" href="#pe0009-rich-collision-quote">PE0009 RICH. COLLISION QUOTE</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="PE0009 RICH. COLLISION QUOTE"--><h2 id="error-explanation"><a class="header" href="#error-explanation">Error explanation</a></h2><p>This error message appears every time you command the machine in MDI mode to position itself at a height outside the software travel limits of the machine;</p><h2 id="possible-causes"><a class="header" href="#possible-causes">Possible causes</a></h2><p><!-- <placeholder>Insert steps that the user may follow to resolve the issue, for example &quot;The level 7 printer flashes red if out of paper; add paper in tray 1&quot;.</placeholder> --></p><div class='panelContent' style='background-color: #fff; border: 1px solid #D3D3D3; padding: 5px;'><p><!-- <placeholder>You might wish to employ a panel to emphasize key <structured-macro ac:name="anchor" ac:schema-version="1" ac:macro-id="bbabadcb-55c3-4cf0-8c0c-bdefc373bb8f"></structured-macro>steps.</placeholder> --></p><ol start="1" type="1"><li><p>Set bench quote very high;</p></li><li><p>Machine commanded in MDI to go to a point it cannot reach with its travels.<br><br></p></li></ol></div><h2 id="possible-solutions"><a class="header" href="#possible-solutions">Possible solutions</a></h2><p><!-- <placeholder>Insert steps that the user may follow to resolve the issue, for example &quot;The level 7 printer flashes red if out of paper; add paper in tray 1&quot;.</placeholder> --></p><div class='panelContent' style='background-color: #fff; border: 1px solid #D3D3D3; padding: 5px;'><p>Once the error appears, press the reset button on the console and verify the actual bench quote using the console's manual commands (check diameter value disk etc., also pay attention to ASSE A inclination)</p><ol start="1" type="1"><li><p>Check if the machine can actually reach the target quotes that are set;</p></li><li><p>Related articles</p></li></ol></div><h2 id="articles-related-are-displayed-here-according-to-selected-tags-click-to-edit-the-macro-and-add-or-modify-tags---"><a class="header" href="#articles-related-are-displayed-here-according-to-selected-tags-click-to-edit-the-macro-and-add-or-modify-tags---"><!-- <placeholder>Articles related are displayed here according to selected tags. Click to edit the macro and add or modify tags.</placeholder> --></a></h2><p>Related problems</p><div class='panelContent' style='background-color: #fff; border: 1px solid #D3D3D3; padding: 5px;'><p><br></p></div><p><br></p><!--Label="manuale"--><!--Label="pe0009"-->
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Technical troubleshooting sheet</span><span class="maintenance-status"><i class="fa-solid fa-screwdriver-wrench" aria-hidden="true"></i> Emergency diagnostic procedure</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="pe0009-rich-collision-quote" style="margin:0;" class="maintenance-main-title"><a class="header" href="#pe0009-rich-collision-quote"><span class="maintenance-code">PE0009</span><span class="maintenance-name">RICH. COLLISION QUOTE</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document PE0009" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="PE0009 RICH. COLLISION QUOTE"--><h2 id="error-explanation" class="maintenance-section-title" data-section-number="01"><a class="header" href="#error-explanation">Error explanation</a></h2><p>This error message appears every time you command the machine in MDI mode to position itself at a height outside the software travel limits of the machine;</p><h2 id="possible-causes" class="maintenance-section-title" data-section-number="02"><a class="header" href="#possible-causes">Possible causes</a></h2><p><!-- <placeholder>Insert steps that the user may follow to resolve the issue, for example &quot;The level 7 printer flashes red if out of paper; add paper in tray 1&quot;.</placeholder> --></p><div class='panelContent' style='background-color: #fff; border: 1px solid #D3D3D3; padding: 5px;'><p><!-- <placeholder>You might wish to employ a panel to emphasize key <structured-macro ac:name="anchor" ac:schema-version="1" ac:macro-id="bbabadcb-55c3-4cf0-8c0c-bdefc373bb8f"></structured-macro>steps.</placeholder> --></p><ol start="1" type="1"><li><p>Set bench quote very high;</p></li><li><p>Machine commanded in MDI to go to a point it cannot reach with its travels.<br><br></p></li></ol></div><h2 id="possible-solutions" class="maintenance-section-title" data-section-number="03"><a class="header" href="#possible-solutions">Possible solutions</a></h2><p><!-- <placeholder>Insert steps that the user may follow to resolve the issue, for example &quot;The level 7 printer flashes red if out of paper; add paper in tray 1&quot;.</placeholder> --></p><div class='panelContent resolution-panel-content' style='background-color: #fff; border: 1px solid #D3D3D3; padding: 5px;'><p>Once the error appears, press the reset button on the console and verify the actual bench quote using the console's manual commands (check diameter value disk etc., also pay attention to ASSE A inclination)</p><ol start="1" type="1" class="procedure-steps"><li><p>Check if the machine can actually reach the target quotes that are set;</p></li><li><p>Related articles</p></li></ol></div><h2 id="articles-related-are-displayed-here-according-to-selected-tags-click-to-edit-the-macro-and-add-or-modify-tags---" class="maintenance-section-title" data-section-number="04"><a class="header" href="#articles-related-are-displayed-here-according-to-selected-tags-click-to-edit-the-macro-and-add-or-modify-tags---"><!-- <placeholder>Articles related are displayed here according to selected tags. Click to edit the macro and add or modify tags.</placeholder> --></a></h2><p>Related problems</p><div class='panelContent' style='background-color: #fff; border: 1px solid #D3D3D3; padding: 5px;'><p><br></p></div><p><br></p><!--Label="manuale"--><!--Label="pe0009"-->
                         </main>
 
                     </div>
@@ -277,5 +279,12 @@
     </div>;
 
 
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
 </body>
 </html>

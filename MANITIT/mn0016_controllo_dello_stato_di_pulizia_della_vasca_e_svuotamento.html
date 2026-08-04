@@ -40,7 +40,7 @@
     <script>
       const path_to_root = "";
       const default_light_theme = "light";
-      const default_dark_theme = "navy";
+      const default_dark_theme = "light";
     </script>
     <!-- Start loading toc.js asap -->
     <script src="toc.js"></script>
@@ -86,8 +86,10 @@
     });
   });
 })();
-</script></head>
-<body>
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-maintenance" data-technical-styler-flow="html">
     <header class="header-main">
         <div class="header-flex">
             <div class="donatoni-flex">
@@ -110,6 +112,15 @@
                 </div>
                 <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                     <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
                 </button>
 
                 <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
@@ -144,17 +155,8 @@
 
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script>
-            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
-                .matches
-                ? default_dark_theme
-                : default_light_theme;
-            let theme;
-            try {
-                theme = localStorage.getItem("mdbook-theme");
-            } catch (e) { }
-            if (theme === null || theme === undefined) {
-                theme = default_theme;
-            }
+            const default_theme = "light";
+            let theme = default_theme;
             const html = document.documentElement;
             html.classList.remove("light");
             html.classList.add(theme);
@@ -214,8 +216,8 @@
 
                         <img src="images/donatoni_111.jpg">
 
-                        <main style="margin-left: 20px;">
-                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="mn0016-controllo-dello-stato-di-pulizia-della-vasca-e-svuotamento" style="margin:0;"><a class="header" href="#mn0016-controllo-dello-stato-di-pulizia-della-vasca-e-svuotamento">MN0016 CONTROLLO DELLO STATO DI PULIZIA DELLA VASCA e SVUOTAMENTO</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="MN0016 CONTROLLO DELLO STATO DI PULIZIA DELLA VASCA e SVUOTAMENTO"--><table class="my-table2" data-table-width="760" data-layout="default" ac:local-id="85e18120-421b-48c4-b375-dfbfdc4e6731"><tbody><tr ac:local-id="23d129bea8fd"><td data-highlight-colour="#f4f5f7" colspan="2" ac:local-id="24e036354bf2"><p local-id="37bd7352bec4" style="text-align: center;">⚠️ Prima di procedere leggere attentamente le <p><a href='istruzioni_di_sicurezza.html'>ISTRUZIONI DI SICUREZZA</a></p></td></tr><tr ac:local-id="e68078630422"><td data-highlight-colour="#f4f5f7" ac:local-id="4ee1eec3b398"><p local-id="9dd8b21aca4e">⏲️ <strong>Intervallo</strong>: legato al consumo di abrasivo</p></td><td data-highlight-colour="#f4f5f7" ac:local-id="3a82a0d04555"><p local-id="41a7ecc57aba">🎚️ <strong>Complessità operazione</strong>: ⭐☆☆☆☆ </p></td></tr><tr ac:local-id="496bd8740c61"><td data-highlight-colour="#f4f5f7" ac:local-id="3704e3d16563"><p local-id="c82a1e4de3d9">🧑‍🏭 <strong>Figura autorizzata</strong>: Operatore macchina</p></td><td data-highlight-colour="#f4f5f7" ac:local-id="4a097113c26c"><p local-id="58f13c51f6c3">🧤 <strong>DPI previsti</strong>:   <div><img src="attachments/mn0016_controllo_dello_stato_di_pulizia_della_vasca_e_svuotamento/image-20240327-084216.png" alt="image-20240327-084216.png" onclick="showModal(this.src)" class="inline-img"></div> </td></tr></tbody></table><h2 local-id="977888ff446d">Procedura</h2><ul local-id="d1494a7acbd9"><li local-id="c4f78a9382e9"><p local-id="0dd6c539f160">Verificare che il ponte e gli altri elementi della macchina non entrino in contatto con le parti da movimentare</p></li><li local-id="f56101d244c0"><p local-id="351dd6c70840">Aprire il rubinetto di scarico per svuotare la vasca<br></p><div class="TextAlignCenter"><img src="attachments/mn0016_controllo_dello_stato_di_pulizia_della_vasca_e_svuotamento/image-20260626-141452.png" alt="image-20260626-141452.png" width="300" onclick="showModal(this.src)"></div></li><li local-id="d95c71ede6e6"><p local-id="46d9fcfcadd0">Sollevare il telaio lame utilizzando gli appositi supporti (Peso del telaio = 750Kg)<br></p><div class="TextAlignCenter"><img src="attachments/mn0016_controllo_dello_stato_di_pulizia_della_vasca_e_svuotamento/image-20260626-141252.png" alt="image-20260626-141252.png" width="400" onclick="showModal(this.src)"></div></li><li local-id="ffde1fde0fbb"><p local-id="d8e581014d43">Togliere le griglie di recupero pezzi</p></li><li local-id="4f8feb081ea5"><p local-id="798eadbc33f4">(OPZIONALE) Sollevare le vasche di raccolta abrasivo e svuotarle. Procedere poi con la loro pulizia e verifica di integrità<br></p><div class="TextAlignCenter"><img src="attachments/mn0016_controllo_dello_stato_di_pulizia_della_vasca_e_svuotamento/image-20260626-141642.png" alt="image-20260626-141642.png" width="350" onclick="showModal(this.src)"></div></li><li local-id="5eeca505fb43"><p local-id="ace3aff7f873">Pulire bene la vasca rimuovendo i residui di abrasivo </p></li><li local-id="f51e31f52d5d"><p local-id="0ae4eea1670d">Riposizionare le vasche di raccolta abrasivo, le griglie e il piano lame</p></li></ul><p local-id="21c6bbebdbdb"></p><!--Label="mn0016"-->
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Technical maintenance sheet</span><span class="maintenance-status"><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Controlled procedure</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="mn0016-controllo-dello-stato-di-pulizia-della-vasca-e-svuotamento" style="margin:0;" class="maintenance-main-title"><a class="header" href="#mn0016-controllo-dello-stato-di-pulizia-della-vasca-e-svuotamento"><span class="maintenance-code">MN0016</span><span class="maintenance-name">CONTROLLO DELLO STATO DI PULIZIA DELLA VASCA e SVUOTAMENTO</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document MN0016" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="MN0016 CONTROLLO DELLO STATO DI PULIZIA DELLA VASCA e SVUOTAMENTO"--><table class="my-table2 maintenance-data-grid" data-table-width="760" data-layout="default" ac:local-id="85e18120-421b-48c4-b375-dfbfdc4e6731" aria-label="Technical data for document MN0016"><tbody><tr ac:local-id="23d129bea8fd" class="maintenance-safety-row"><td data-highlight-colour="#f4f5f7" colspan="2" ac:local-id="24e036354bf2"><p local-id="37bd7352bec4" style="text-align: center;">Prima di procedere leggere attentamente le <p><a href='istruzioni_di_sicurezza.html'>ISTRUZIONI DI SICUREZZA</a></p></td></tr><tr ac:local-id="e68078630422"><td data-highlight-colour="#f4f5f7" ac:local-id="4ee1eec3b398"><p local-id="9dd8b21aca4e" class="maintenance-data-layout"><i class="maintenance-data-icon fa-solid fa-clock" aria-hidden="true"></i><span class="maintenance-data-content"><strong class="maintenance-data-label">Intervallo</strong><span class="maintenance-data-value">legato al consumo di abrasivo</span></span></p></td><td data-highlight-colour="#f4f5f7" ac:local-id="3a82a0d04555"><p local-id="41a7ecc57aba" class="maintenance-data-layout"><i class="maintenance-data-icon fa-solid fa-gauge-high" aria-hidden="true"></i><span class="maintenance-data-content"><strong class="maintenance-data-label">Complessità operazione</strong><span class="complexity-indicator complexity-level-1" aria-label="Complexity Low, level 1 of 5"><span class="complexity-scale" aria-hidden="true"><i class="complexity-segment is-active"></i><i class="complexity-segment"></i><i class="complexity-segment"></i><i class="complexity-segment"></i><i class="complexity-segment"></i></span><span class="complexity-readout"><span class="complexity-level-name">Low</span><span class="complexity-score">01 / 05</span></span></span></span></p></td></tr><tr ac:local-id="496bd8740c61"><td data-highlight-colour="#f4f5f7" ac:local-id="3704e3d16563"><p local-id="c82a1e4de3d9" class="maintenance-data-layout"><i class="maintenance-data-icon fa-solid fa-user-gear" aria-hidden="true"></i><span class="maintenance-data-content"><strong class="maintenance-data-label">Figura autorizzata</strong><span class="maintenance-data-value">Operatore macchina</span></span></p></td><td data-highlight-colour="#f4f5f7" ac:local-id="4a097113c26c"><p local-id="58f13c51f6c3"><i class="maintenance-data-icon fa-solid fa-shield-halved" aria-hidden="true"></i><strong>DPI previsti</strong>:   <div><img src="attachments/mn0016_controllo_dello_stato_di_pulizia_della_vasca_e_svuotamento/image-20240327-084216.png" alt="image-20240327-084216.png" onclick="showModal(this.src)" class="inline-img"></div> </td></tr></tbody></table><h2 local-id="977888ff446d" class="maintenance-section-title" data-section-number="01">Procedura</h2><ul local-id="d1494a7acbd9" class="procedure-steps"><li local-id="c4f78a9382e9"><p local-id="0dd6c539f160">Verificare che il ponte e gli altri elementi della macchina non entrino in contatto con le parti da movimentare</p></li><li local-id="f56101d244c0"><p local-id="351dd6c70840">Aprire il rubinetto di scarico per svuotare la vasca<br></p><div class="TextAlignCenter"><img src="attachments/mn0016_controllo_dello_stato_di_pulizia_della_vasca_e_svuotamento/image-20260626-141452.png" alt="image-20260626-141452.png" width="300" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></li><li local-id="d95c71ede6e6"><p local-id="46d9fcfcadd0">Sollevare il telaio lame utilizzando gli appositi supporti (Peso del telaio = 750Kg)<br></p><div class="TextAlignCenter"><img src="attachments/mn0016_controllo_dello_stato_di_pulizia_della_vasca_e_svuotamento/image-20260626-141252.png" alt="image-20260626-141252.png" width="400" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></li><li local-id="ffde1fde0fbb"><p local-id="d8e581014d43">Togliere le griglie di recupero pezzi</p></li><li local-id="4f8feb081ea5"><p local-id="798eadbc33f4">(OPZIONALE) Sollevare le vasche di raccolta abrasivo e svuotarle. Procedere poi con la loro pulizia e verifica di integrità<br></p><div class="TextAlignCenter"><img src="attachments/mn0016_controllo_dello_stato_di_pulizia_della_vasca_e_svuotamento/image-20260626-141642.png" alt="image-20260626-141642.png" width="350" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></li><li local-id="5eeca505fb43"><p local-id="ace3aff7f873">Pulire bene la vasca rimuovendo i residui di abrasivo </p></li><li local-id="f51e31f52d5d"><p local-id="0ae4eea1670d">Riposizionare le vasche di raccolta abrasivo, le griglie e il piano lame</p></li></ul><p local-id="21c6bbebdbdb"></p><!--Label="mn0016"-->
                         </main>
 
                     </div>
@@ -277,5 +279,12 @@
     </div>;
 
 
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
 </body>
 </html>

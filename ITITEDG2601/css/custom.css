@@ -307,3 +307,7 @@ body {
         min-width: 80vw;
     }
 }
+
+.action-header-buttons #keyboard-toggle.active i {
+    color: var(--color-accent);
+}

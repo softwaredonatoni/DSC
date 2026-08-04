@@ -40,7 +40,7 @@
     <script>
       const path_to_root = "";
       const default_light_theme = "light";
-      const default_dark_theme = "navy";
+      const default_dark_theme = "light";
     </script>
     <!-- Start loading toc.js asap -->
     <script src="toc.js"></script>
@@ -86,8 +86,10 @@
     });
   });
 })();
-</script></head>
-<body>
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-troubleshooting technical-troubleshooting-emergency" data-technical-styler-flow="html">
     <header class="header-main">
         <div class="header-flex">
             <div class="donatoni-flex">
@@ -110,6 +112,15 @@
                 </div>
                 <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                     <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
                 </button>
 
                 <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
@@ -144,17 +155,8 @@
 
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script>
-            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
-                .matches
-                ? default_dark_theme
-                : default_light_theme;
-            let theme;
-            try {
-                theme = localStorage.getItem("mdbook-theme");
-            } catch (e) { }
-            if (theme === null || theme === undefined) {
-                theme = default_theme;
-            }
+            const default_theme = "light";
+            let theme = default_theme;
             const html = document.documentElement;
             html.classList.remove("light");
             html.classList.add(theme);
@@ -214,8 +216,8 @@
 
                         <img src="images/donatoni_111.jpg">
 
-                        <main style="margin-left: 20px;">
-                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="pe0027-lack-of-internal-water" style="margin:0;"><a class="header" href="#pe0027-lack-of-internal-water">PE0027 LACK OF INTERNAL WATER</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="PE0027 LACK OF INTERNAL WATER"--><h2 local-id="16ae2f335d1e">Error explanation</h2><p local-id="166fcc0b3cd7">This alarm is related to the lack of the input signal from the internal water pressure switch during an automatic cycle.</p><p local-id="4b5394e9ebf9">The pressure switches are located in this position and are of two types:</p><div class="TextAlignLeft"><img src="attachments/pe0027_lack_of_internal_water/IMG_0002.JPG" alt="IMG_0002.JPG" width="224" onclick="showModal(this.src)"></div><hr local-id="672b3a18b2cf"><p local-id="cbff1748d8a5" style="text-align: center;"><br></p><div class="TextAlignLeft"><img src="attachments/pe0027_lack_of_internal_water/IMG_0005.JPG" alt="IMG_0005.JPG" width="374" onclick="showModal(this.src)"></div><div class="TextAlignLeft"><img src="attachments/pe0027_lack_of_internal_water/IMG_0004.JPG" alt="IMG_0004.JPG" width="374" onclick="showModal(this.src)"></div><hr local-id="2b82d1b2fa78"><p local-id="f2226fd952f7" style="text-align: center;"><br></p><h2 local-id="b7c63f51731c">Possible causes</h2><p local-id="e65ef8f78938"><!-- <placeholder>Provide steps that the user can take to solve the problem. For example 'The level 7 printer will flash red when it is out of paper. Add paper to tray 1'.</placeholder> --></p><div class='panelContent' style='background-color: #fff; border: 1px solid #D3D3D3; padding: 5px;'><p local-id="712035641ea5">There are several possibilities:<br></p><ol start="1" local-id="823d69790303" type="1"><li local-id="534bf8962a9d"><p local-id="8e5601e8e4bd">Actual lack of water;</p></li><li local-id="fb4418bd3247"><p local-id="a9db2e401d5f">Pressure switch set for excessively high water pressure;</p></li><li local-id="d90f8b1f33dd"><p local-id="62c0bf3773dc">Faulty pressure switch;</p></li><li local-id="5b2794d7e57d"><p local-id="ef19628db982">Fault in the connections between the pressure switch and the electrical cabinet.</p></li></ol></div><h2 local-id="06a2d071d61f">Possible solutions</h2><p local-id="3e0d2f57d125"><!-- <placeholder>You may want to use a panel to highlight important steps.</placeholder> --></p><div class='panelContent' style='background-color: #fff; border: 1px solid #D3D3D3; padding: 5px;'><p local-id="277ea575b353">Check the reasons for the lack of water, for example whether it is only a pressure drop.</p><ol start="1" local-id="2076e6e252de" type="1"><li local-id="6a7bb130808e"><p local-id="ca8cf9764c2a">Adjust the pressure switch to the desired pressure. To adjust the pressure switches, follow the adjustment procedure according to the type of pressure switch: <a href="https://donatonigroup.atlassian.net/wiki/download/attachments/44401172/Regolazione_pressostati_ita.pdf?version=1&modificationDate=1715760884032&cacheVersion=1&api=v2">EUROSWITCH</a> or <a href="https://donatonigroup.atlassian.net/wiki/download/attachments/44401172/Regolazione_pressostati_IFS_ita.pdf?version=1&modificationDate=1715760885355&cacheVersion=1&api=v2">IFS</a> (<a href="https://donatonigroup.atlassian.net/wiki/download/attachments/44401172/Pressostato_IFM_PK5524.pdf?version=1&modificationDate=1715760885669&cacheVersion=1&api=v2">IFS technical data sheet</a>);</p></li><li local-id="3c0ae000cba6"><p local-id="715d816df89c">Replace the pressure switch, preferably with one of the same type;</p></li><li local-id="43a46866b23f"><p local-id="4da198127fce">Check the pressure switch connection circuit by following the <p><a href='schema_elettrico_jet.html'>WIRING DIAGRAM</a></p></li><li local-id="35a1c43c3a21"><p local-id="d8d94d07f24b">Related articles</p></li></ol></div><h2 local-id="7145f16715b8"><!-- <placeholder>Related articles appear here based on the labels you select. Click to edit the macro and add or change labels.</placeholder> --></h2><p local-id="e820da8b7387">Related issues</p><div class='panelContent' style='background-color: #fff; border: 1px solid #D3D3D3; padding: 5px;'><p><br></p></div><p><br></p><!--Label="pressostato"--><!--Label="elettrovalvola"--><!--Label="carro"--><!--Label="pe0027"-->
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Technical troubleshooting sheet</span><span class="maintenance-status"><i class="fa-solid fa-screwdriver-wrench" aria-hidden="true"></i> Emergency diagnostic procedure</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="pe0027-lack-of-internal-water" style="margin:0;" class="maintenance-main-title"><a class="header" href="#pe0027-lack-of-internal-water"><span class="maintenance-code">PE0027</span><span class="maintenance-name">LACK OF INTERNAL WATER</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document PE0027" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="PE0027 LACK OF INTERNAL WATER"--><h2 local-id="16ae2f335d1e" class="maintenance-section-title" data-section-number="01">Error explanation</h2><p local-id="166fcc0b3cd7">This alarm is related to the lack of the input signal from the internal water pressure switch during an automatic cycle.</p><p local-id="4b5394e9ebf9">The pressure switches are located in this position and are of two types:</p><div class="TextAlignLeft"><img src="attachments/pe0027_lack_of_internal_water/IMG_0002.JPG" alt="IMG_0002.JPG" width="224" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><hr local-id="672b3a18b2cf"><p local-id="cbff1748d8a5" style="text-align: center;"><br></p><div class="TextAlignLeft"><img src="attachments/pe0027_lack_of_internal_water/IMG_0005.JPG" alt="IMG_0005.JPG" width="374" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><div class="TextAlignLeft"><img src="attachments/pe0027_lack_of_internal_water/IMG_0004.JPG" alt="IMG_0004.JPG" width="374" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><hr local-id="2b82d1b2fa78"><p local-id="f2226fd952f7" style="text-align: center;"><br></p><h2 local-id="b7c63f51731c" class="maintenance-section-title" data-section-number="02">Possible causes</h2><p local-id="e65ef8f78938"><!-- <placeholder>Provide steps that the user can take to solve the problem. For example 'The level 7 printer will flash red when it is out of paper. Add paper to tray 1'.</placeholder> --></p><div class='panelContent' style='background-color: #fff; border: 1px solid #D3D3D3; padding: 5px;'><p local-id="712035641ea5">There are several possibilities:<br></p><ol start="1" local-id="823d69790303" type="1"><li local-id="534bf8962a9d"><p local-id="8e5601e8e4bd">Actual lack of water;</p></li><li local-id="fb4418bd3247"><p local-id="a9db2e401d5f">Pressure switch set for excessively high water pressure;</p></li><li local-id="d90f8b1f33dd"><p local-id="62c0bf3773dc">Faulty pressure switch;</p></li><li local-id="5b2794d7e57d"><p local-id="ef19628db982">Fault in the connections between the pressure switch and the electrical cabinet.</p></li></ol></div><h2 local-id="06a2d071d61f" class="maintenance-section-title" data-section-number="03">Possible solutions</h2><p local-id="3e0d2f57d125"><!-- <placeholder>You may want to use a panel to highlight important steps.</placeholder> --></p><div class='panelContent resolution-panel-content' style='background-color: #fff; border: 1px solid #D3D3D3; padding: 5px;'><p local-id="277ea575b353">Check the reasons for the lack of water, for example whether it is only a pressure drop.</p><ol start="1" local-id="2076e6e252de" type="1" class="procedure-steps"><li local-id="6a7bb130808e"><p local-id="ca8cf9764c2a">Adjust the pressure switch to the desired pressure. To adjust the pressure switches, follow the adjustment procedure according to the type of pressure switch: <a href="https://donatonigroup.atlassian.net/wiki/download/attachments/44401172/Regolazione_pressostati_ita.pdf?version=1&modificationDate=1715760884032&cacheVersion=1&api=v2">EUROSWITCH</a> or <a href="https://donatonigroup.atlassian.net/wiki/download/attachments/44401172/Regolazione_pressostati_IFS_ita.pdf?version=1&modificationDate=1715760885355&cacheVersion=1&api=v2">IFS</a> (<a href="https://donatonigroup.atlassian.net/wiki/download/attachments/44401172/Pressostato_IFM_PK5524.pdf?version=1&modificationDate=1715760885669&cacheVersion=1&api=v2">IFS technical data sheet</a>);</p></li><li local-id="3c0ae000cba6"><p local-id="715d816df89c">Replace the pressure switch, preferably with one of the same type;</p></li><li local-id="43a46866b23f"><p local-id="4da198127fce">Check the pressure switch connection circuit by following the <p><a href='schema_elettrico_jet.html'>WIRING DIAGRAM</a></p></li><li local-id="35a1c43c3a21"><p local-id="d8d94d07f24b">Related articles</p></li></ol></div><h2 local-id="7145f16715b8" class="maintenance-section-title" data-section-number="04"><!-- <placeholder>Related articles appear here based on the labels you select. Click to edit the macro and add or change labels.</placeholder> --></h2><p local-id="e820da8b7387">Related issues</p><div class='panelContent' style='background-color: #fff; border: 1px solid #D3D3D3; padding: 5px;'><p><br></p></div><p><br></p><!--Label="pressostato"--><!--Label="elettrovalvola"--><!--Label="carro"--><!--Label="pe0027"-->
                         </main>
 
                     </div>
@@ -277,5 +279,12 @@
     </div>;
 
 
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
 </body>
 </html>

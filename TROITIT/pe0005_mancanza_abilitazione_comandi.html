@@ -40,7 +40,7 @@
     <script>
       const path_to_root = "";
       const default_light_theme = "light";
-      const default_dark_theme = "navy";
+      const default_dark_theme = "light";
     </script>
     <!-- Start loading toc.js asap -->
     <script src="toc.js"></script>
@@ -86,8 +86,10 @@
     });
   });
 })();
-</script></head>
-<body>
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-troubleshooting technical-troubleshooting-emergency" data-technical-styler-flow="html">
     <header class="header-main">
         <div class="header-flex">
             <div class="donatoni-flex">
@@ -110,6 +112,15 @@
                 </div>
                 <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                     <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
                 </button>
 
                 <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
@@ -144,17 +155,8 @@
 
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script>
-            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
-                .matches
-                ? default_dark_theme
-                : default_light_theme;
-            let theme;
-            try {
-                theme = localStorage.getItem("mdbook-theme");
-            } catch (e) { }
-            if (theme === null || theme === undefined) {
-                theme = default_theme;
-            }
+            const default_theme = "light";
+            let theme = default_theme;
             const html = document.documentElement;
             html.classList.remove("light");
             html.classList.add(theme);
@@ -214,8 +216,8 @@
 
                         <img src="images/donatoni_111.jpg">
 
-                        <main style="margin-left: 20px;">
-                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="pe0005-mancanza-abilitazione-comandi" style="margin:0;"><a class="header" href="#pe0005-mancanza-abilitazione-comandi">PE0005 MANCANZA ABILITAZIONE COMANDI</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="PE0005 MANCANZA ABILITAZIONE COMANDI"--><table class="my-table2" data-table-width="760" data-layout="default" ac:local-id="85e18120-421b-48c4-b375-dfbfdc4e6731"><colgroup><col style="width: 380.0px;"><col style="width: 380.0px;"></colgroup><tbody><tr ac:local-id="d27db23b-3173-48a8-a36c-603ba68fb48b"><td data-highlight-colour="#f4f5f7" colspan="2" ac:local-id="897ff47f-9b75-4c1e-b35e-b197961c2d87"><p local-id="bf123cee833d" style="text-align: center;">⚠️ Prima di procedere leggere attentamente le <p><a href='istruzioni_di_sicurezza.html'>ISTRUZIONI DI SICUREZZA</a></p></td></tr><tr ac:local-id="071fa0b3-fefd-46c1-aaa0-52452a5912fb"><td data-highlight-colour="#f4f5f7" ac:local-id="b890fbf8-07d9-4b50-be0a-202ab486dc97"><p local-id="f14f79f388bf">⏲️ <strong>Descrizione</strong>: Mancanza abilitazione comandi macchina</p></td><td data-highlight-colour="#f4f5f7" ac:local-id="fb268e78-a397-434a-935a-a13d2b0fa60e"><p local-id="3b66bdf6330f">🎚️ <strong>Gravità</strong>: ⭐☆☆☆☆ </p></td></tr><tr ac:local-id="28b41260-ba19-4778-9ac0-fe3bd5b34640"><td data-highlight-colour="#f4f5f7" ac:local-id="b60aa900-dfdd-4975-9977-387e1853c7f7"><p local-id="e66249623cbc">🧑‍🏭 <strong>Figura autorizzata</strong>: Operatore macchina</p></td><td data-highlight-colour="#f4f5f7" ac:local-id="d62d4b75-bc49-4aed-8002-856253b608fc"><p local-id="2f2d4748656c">🧤 <strong>DPI previsti</strong>:   <div><img src="attachments/pe0005_mancanza_abilitazione_comandi/5c50dea6-c18e-4b4c-af4e-4a88d2222111.png" alt="image-20240327-084216.png" onclick="showModal(this.src)" class="inline-img"></div> </td></tr></tbody></table><h2 local-id="6f5651095862">Descrizione</h2><p local-id="dbab40a73008">Viene visualizzato all'accensione della macchina o successivamente al rilascio del fungo di emergenza. </p><h2 local-id="6186578e2836">Sintomi</h2><p local-id="c4ac8f659002">…..</p><h2 local-id="553afe3563cb">Possibili cause</h2><div class='panelContent' style='background-color: #fff; border: 1px solid #D3D3D3; padding: 5px;'><ol start="1" local-id="b2c20c83d212" type="1"><li local-id="ef9d1c61d453"><p local-id="bd2e2aeaad38">Il pulsante di abilitazione comandi (RESET) non è stato premuto;</p></li><li local-id="17e77357ab17"><p local-id="6344b8dc50c3">Malfunzionamento del pulsante abilitazione comandi (RESET) sul quadro elettrico;</p></li><li local-id="9015e133d8f2"><p local-id="2b73781a8a5d">Malfunzionamento centralina di sicurezza Pilz.</p></li></ol></div><h2 local-id="efd5d30e9696">Possibili soluzioni</h2><div class='panelContent' style='background-color: #fff; border: 1px solid #D3D3D3; padding: 5px;'><ol start="1" local-id="c75db03acc1c" type="1"><li local-id="a62f5e1b4fed"><p local-id="dd8c187d57da">Premere il pulsante reset sul quadro elettrico</p><div class="TextAlignCenter"><img src="attachments/pe0005_mancanza_abilitazione_comandi/IMG_7648.JPG" alt="IMG_7648.JPG" width="204" onclick="showModal(this.src)"></div><p local-id="62fe4d4b648a"></p></li><li local-id="2a041aed2a14"><p local-id="2e7b899466f3">Controllare contatti del pulsante di abilitazione comandi ovvero quando tengo premuto il pulsante il contatto deve chiudersi e deve apparire sulla centralina il led di start verde in caso sostituire i contatti del pulsante;</p><div class="TextAlignCenter"><img src="attachments/pe0005_mancanza_abilitazione_comandi/IMG_20181112_110817.jpg" alt="IMG_20181112_110817.jpg" width="176" onclick="showModal(this.src)"></div><p local-id="ef45caa70250"></p><div class="TextAlignCenter"><img src="attachments/pe0005_mancanza_abilitazione_comandi/IMG_7649.JPG" alt="IMG_7649.JPG" width="217" onclick="showModal(this.src)"></div></li></ol><p local-id="1795e657febd"></p></div><!--Label="sicurezza"--><!--Label="pe0005"-->
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Technical troubleshooting sheet</span><span class="maintenance-status"><i class="fa-solid fa-screwdriver-wrench" aria-hidden="true"></i> Emergency diagnostic procedure</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="pe0005-mancanza-abilitazione-comandi" style="margin:0;" class="maintenance-main-title"><a class="header" href="#pe0005-mancanza-abilitazione-comandi"><span class="maintenance-code">PE0005</span><span class="maintenance-name">MANCANZA ABILITAZIONE COMANDI</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document PE0005" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="PE0005 MANCANZA ABILITAZIONE COMANDI"--><table class="my-table2 troubleshooting-template-grid maintenance-data-grid" data-table-width="760" data-layout="default" ac:local-id="85e18120-421b-48c4-b375-dfbfdc4e6731" aria-label="Technical data for document PE0005"><colgroup><col style="width: 380.0px;"><col style="width: 380.0px;"></colgroup><tbody><tr ac:local-id="d27db23b-3173-48a8-a36c-603ba68fb48b" class="maintenance-safety-row"><td data-highlight-colour="#f4f5f7" colspan="2" ac:local-id="897ff47f-9b75-4c1e-b35e-b197961c2d87"><p local-id="bf123cee833d" style="text-align: center;">Prima di procedere leggere attentamente le <p><a href='istruzioni_di_sicurezza.html'>ISTRUZIONI DI SICUREZZA</a></p></td></tr><tr ac:local-id="071fa0b3-fefd-46c1-aaa0-52452a5912fb"><td data-highlight-colour="#f4f5f7" ac:local-id="b890fbf8-07d9-4b50-be0a-202ab486dc97"><p local-id="f14f79f388bf" class="maintenance-data-layout"><i class="maintenance-data-icon fa-solid fa-file-lines" aria-hidden="true"></i><span class="maintenance-data-content"><strong class="maintenance-data-label">Descrizione</strong><span class="maintenance-data-value">Mancanza abilitazione comandi macchina</span></span></p></td><td data-highlight-colour="#f4f5f7" ac:local-id="fb268e78-a397-434a-935a-a13d2b0fa60e"><p local-id="3b66bdf6330f" class="maintenance-data-layout"><i class="maintenance-data-icon fa-solid fa-triangle-exclamation" aria-hidden="true"></i><span class="maintenance-data-content"><strong class="maintenance-data-label">Gravità</strong><span class="severity-indicator severity-level-1" aria-label="Severity Low, level 1 of 5"><span class="severity-scale" aria-hidden="true"><i class="severity-segment is-active"></i><i class="severity-segment"></i><i class="severity-segment"></i><i class="severity-segment"></i><i class="severity-segment"></i></span><span class="severity-readout"><span class="severity-level-name">Low</span><span class="severity-score">01 / 05</span></span></span></span></p></td></tr><tr ac:local-id="28b41260-ba19-4778-9ac0-fe3bd5b34640"><td data-highlight-colour="#f4f5f7" ac:local-id="b60aa900-dfdd-4975-9977-387e1853c7f7"><p local-id="e66249623cbc" class="maintenance-data-layout"><i class="maintenance-data-icon fa-solid fa-user-gear" aria-hidden="true"></i><span class="maintenance-data-content"><strong class="maintenance-data-label">Figura autorizzata</strong><span class="maintenance-data-value">Operatore macchina</span></span></p></td><td data-highlight-colour="#f4f5f7" ac:local-id="d62d4b75-bc49-4aed-8002-856253b608fc"><p local-id="2f2d4748656c"><i class="maintenance-data-icon fa-solid fa-shield-halved" aria-hidden="true"></i><strong>DPI previsti</strong>:   <div><img src="attachments/pe0005_mancanza_abilitazione_comandi/5c50dea6-c18e-4b4c-af4e-4a88d2222111.png" alt="image-20240327-084216.png" onclick="showModal(this.src)" class="inline-img"></div> </td></tr></tbody></table><h2 local-id="6f5651095862" class="maintenance-section-title" data-section-number="01">Descrizione</h2><p local-id="dbab40a73008">Viene visualizzato all'accensione della macchina o successivamente al rilascio del fungo di emergenza. </p><h2 local-id="6186578e2836" class="maintenance-section-title" data-section-number="02">Sintomi</h2><p local-id="c4ac8f659002">…..</p><h2 local-id="553afe3563cb" class="maintenance-section-title" data-section-number="03">Possibili cause</h2><div class='panelContent' style='background-color: #fff; border: 1px solid #D3D3D3; padding: 5px;'><ol start="1" local-id="b2c20c83d212" type="1"><li local-id="ef9d1c61d453"><p local-id="bd2e2aeaad38">Il pulsante di abilitazione comandi (RESET) non è stato premuto;</p></li><li local-id="17e77357ab17"><p local-id="6344b8dc50c3">Malfunzionamento del pulsante abilitazione comandi (RESET) sul quadro elettrico;</p></li><li local-id="9015e133d8f2"><p local-id="2b73781a8a5d">Malfunzionamento centralina di sicurezza Pilz.</p></li></ol></div><h2 local-id="efd5d30e9696" class="maintenance-section-title" data-section-number="04">Possibili soluzioni</h2><div class='panelContent resolution-panel-content' style='background-color: #fff; border: 1px solid #D3D3D3; padding: 5px;'><ol start="1" local-id="c75db03acc1c" type="1" class="procedure-steps"><li local-id="a62f5e1b4fed"><p local-id="dd8c187d57da">Premere il pulsante reset sul quadro elettrico</p><div class="TextAlignCenter"><img src="attachments/pe0005_mancanza_abilitazione_comandi/IMG_7648.JPG" alt="IMG_7648.JPG" width="204" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="62fe4d4b648a"></p></li><li local-id="2a041aed2a14"><p local-id="2e7b899466f3">Controllare contatti del pulsante di abilitazione comandi ovvero quando tengo premuto il pulsante il contatto deve chiudersi e deve apparire sulla centralina il led di start verde in caso sostituire i contatti del pulsante;</p><div class="TextAlignCenter"><img src="attachments/pe0005_mancanza_abilitazione_comandi/IMG_20181112_110817.jpg" alt="IMG_20181112_110817.jpg" width="176" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="ef45caa70250"></p><div class="TextAlignCenter"><img src="attachments/pe0005_mancanza_abilitazione_comandi/IMG_7649.JPG" alt="IMG_7649.JPG" width="217" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></li></ol><p local-id="1795e657febd"></p></div><!--Label="sicurezza"--><!--Label="pe0005"-->
                         </main>
 
                     </div>
@@ -277,5 +279,12 @@
     </div>;
 
 
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
 </body>
 </html>

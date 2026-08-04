@@ -40,7 +40,7 @@
     <script>
       const path_to_root = "";
       const default_light_theme = "light";
-      const default_dark_theme = "navy";
+      const default_dark_theme = "light";
     </script>
     <!-- Start loading toc.js asap -->
     <script src="toc.js"></script>
@@ -86,8 +86,10 @@
     });
   });
 })();
-</script></head>
-<body>
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-document" data-technical-styler-flow="html">
     <header class="header-main">
         <div class="header-flex">
             <div class="donatoni-flex">
@@ -110,6 +112,15 @@
                 </div>
                 <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                     <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
                 </button>
 
                 <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
@@ -144,17 +155,8 @@
 
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script>
-            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
-                .matches
-                ? default_dark_theme
-                : default_light_theme;
-            let theme;
-            try {
-                theme = localStorage.getItem("mdbook-theme");
-            } catch (e) { }
-            if (theme === null || theme === undefined) {
-                theme = default_theme;
-            }
+            const default_theme = "light";
+            let theme = default_theme;
             const html = document.documentElement;
             html.classList.remove("light");
             html.classList.add(theme);
@@ -214,9 +216,9 @@
 
                         <img src="images/donatoni_111.jpg">
 
-                        <main style="margin-left: 20px;">
-                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="39-management-of-the-bench-viewing" style="margin:0;"><a class="header" href="#39-management-of-the-bench-viewing">3.9 MANAGEMENT OF THE BENCH VIEWING</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="3.9 MANAGEMENT OF THE BENCH VIEWING"--><p>This function opens a panel with tools to resize the working area.</p><div class="TextAlignCenter"><img src="attachments/3.9_management_of_the_bench_viewing/2.0.png" alt="2.0.png" width="582" onclick="showModal(this.src)"></div><p></p><p>
-</p><p></p><h1 id="buttons"><a class="header" href="#buttons">Buttons</a></h1><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="72ae8552-e87a-4e25-975d-219baa20120d"><colgroup><col style="width: 297.0px;"><col style="width: 1500.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/3.9_management_of_the_bench_viewing/1.1c.png" alt="1.1c.png" width="120" onclick="showModal(this.src)"></div></td><td><p><strong>Ruler</strong><br>Allows to measure the distance between two points on the working area. </p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.9_management_of_the_bench_viewing/1.2-20250611-122127.png" alt="1.2-20250611-122127.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Zoom _</strong><br>It is used to increase the dimensions of the working area.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.9_management_of_the_bench_viewing/1.3-20250611-122155.png" alt="1.3-20250611-122155.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Zoom -</strong><br>It serves to decrease the dimensions of the working area.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.9_management_of_the_bench_viewing/1.4-20250611-122225.png" alt="1.4-20250611-122225.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Restore Zoom</strong><br>It serves to restore the initial dimensions of the working area.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.9_management_of_the_bench_viewing/1.5c.png" alt="1.5c.png" width="120" onclick="showModal(this.src)"></div></td><td><p><strong>Move view</strong><br>It is used to move the working area with all pieces above.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.9_management_of_the_bench_viewing/1.6c-20250613-063259.png" alt="1.6c-20250613-063259.png" width="120" onclick="showModal(this.src)"></div></td><td><p><strong>Show / Hide background color</strong><br>Enable or disable the background color on the work area.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.9_management_of_the_bench_viewing/1.16-20250612-135854.png" alt="1.16-20250612-135854.png" width="120" onclick="showModal(this.src)"></div></td><td><p><strong>Show / Hide pieces name</strong><br>Enable or disable the viewing of the name of the pieces on the work area.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.9_management_of_the_bench_viewing/1.8c-20250613-063409.png" alt="1.8c-20250613-063409.png" width="120" onclick="showModal(this.src)"></div></td><td><p><strong>Show / Hide right angles</strong><br>Enable or disable the viewing of the right angles of the pieces on the work area.</p></td></tr></tbody></table><p></p><h1 id="ruler"><a class="header" href="#ruler">Ruler</a></h1><p>To use this function the operator will have to indicate two points on the work area. These will be represented as two yellow crosses.</p><div class="TextAlignCenter"><img src="attachments/3.9_management_of_the_bench_viewing/2.04.png" alt="2.04.png" width="800" onclick="showModal(this.src)"></div><p>Under the ruler button, a small panel will appear showing the distance between the two points.</p><div class="TextAlignCenter"><img src="attachments/3.9_management_of_the_bench_viewing/2.05.png" alt="2.05.png" width="200" onclick="showModal(this.src)"></div><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="77dce016-eab6-443d-861e-1648a03185d5"><colgroup><col style="width: 292.0px;"><col style="width: 1507.0px;"></colgroup><tbody><tr><td><p><strong>Horizontal</strong></p></td><td><p>Horizontal distance between the first and the second point.</p></td></tr><tr><td><p><strong>Vertical</strong></p></td><td><p>Vertical distance between the first and the second point.</p></td></tr><tr><td><p><strong>Total</strong></p></td><td><p>Total distance between the first and the second point.</p></td></tr><tr><td><p><strong>X</strong></p></td><td><p>Horizontal mouse position in real time.</p></td></tr><tr><td><p><strong>Y</strong></p></td><td><p>Vertical position of the mouse in real time.</p></td></tr></tbody></table><!--Label="vsb"-->
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Machine technical documentation</span><span class="maintenance-status"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Operational document</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="39-management-of-the-bench-viewing" style="margin:0;" class="maintenance-main-title"><a class="header" href="#39-management-of-the-bench-viewing"><span class="maintenance-code">DOC</span><span class="maintenance-name">3.9 MANAGEMENT OF THE BENCH VIEWING</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document DOC" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="3.9 MANAGEMENT OF THE BENCH VIEWING"--><p>This function opens a panel with tools to resize the working area.</p><div class="TextAlignCenter"><img src="attachments/3.9_management_of_the_bench_viewing/2.0.png" alt="2.0.png" width="582" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><p>
+</p><p></p><h1 id="buttons"><a class="header" href="#buttons">Buttons</a></h1><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="72ae8552-e87a-4e25-975d-219baa20120d"><colgroup><col style="width: 297.0px;"><col style="width: 1500.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/3.9_management_of_the_bench_viewing/1.1c.png" alt="1.1c.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Ruler</strong><br>Allows to measure the distance between two points on the working area. </p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.9_management_of_the_bench_viewing/1.2-20250611-122127.png" alt="1.2-20250611-122127.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Zoom _</strong><br>It is used to increase the dimensions of the working area.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.9_management_of_the_bench_viewing/1.3-20250611-122155.png" alt="1.3-20250611-122155.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Zoom -</strong><br>It serves to decrease the dimensions of the working area.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.9_management_of_the_bench_viewing/1.4-20250611-122225.png" alt="1.4-20250611-122225.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Restore Zoom</strong><br>It serves to restore the initial dimensions of the working area.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.9_management_of_the_bench_viewing/1.5c.png" alt="1.5c.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Move view</strong><br>It is used to move the working area with all pieces above.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.9_management_of_the_bench_viewing/1.6c-20250613-063259.png" alt="1.6c-20250613-063259.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Show / Hide background color</strong><br>Enable or disable the background color on the work area.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.9_management_of_the_bench_viewing/1.16-20250612-135854.png" alt="1.16-20250612-135854.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Show / Hide pieces name</strong><br>Enable or disable the viewing of the name of the pieces on the work area.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.9_management_of_the_bench_viewing/1.8c-20250613-063409.png" alt="1.8c-20250613-063409.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Show / Hide right angles</strong><br>Enable or disable the viewing of the right angles of the pieces on the work area.</p></td></tr></tbody></table><p></p><h1 id="ruler"><a class="header" href="#ruler">Ruler</a></h1><p>To use this function the operator will have to indicate two points on the work area. These will be represented as two yellow crosses.</p><div class="TextAlignCenter"><img src="attachments/3.9_management_of_the_bench_viewing/2.04.png" alt="2.04.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p>Under the ruler button, a small panel will appear showing the distance between the two points.</p><div class="TextAlignCenter"><img src="attachments/3.9_management_of_the_bench_viewing/2.05.png" alt="2.05.png" width="200" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="77dce016-eab6-443d-861e-1648a03185d5"><colgroup><col style="width: 292.0px;"><col style="width: 1507.0px;"></colgroup><tbody><tr><td><p><strong>Horizontal</strong></p></td><td><p>Horizontal distance between the first and the second point.</p></td></tr><tr><td><p><strong>Vertical</strong></p></td><td><p>Vertical distance between the first and the second point.</p></td></tr><tr><td><p><strong>Total</strong></p></td><td><p>Total distance between the first and the second point.</p></td></tr><tr><td><p><strong>X</strong></p></td><td><p>Horizontal mouse position in real time.</p></td></tr><tr><td><p><strong>Y</strong></p></td><td><p>Vertical position of the mouse in real time.</p></td></tr></tbody></table><!--Label="vsb"-->
                         </main>
 
                     </div>
@@ -278,5 +280,12 @@
     </div>;
 
 
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
 </body>
 </html>

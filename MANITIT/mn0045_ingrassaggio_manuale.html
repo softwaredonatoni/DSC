@@ -40,7 +40,7 @@
     <script>
       const path_to_root = "";
       const default_light_theme = "light";
-      const default_dark_theme = "navy";
+      const default_dark_theme = "light";
     </script>
     <!-- Start loading toc.js asap -->
     <script src="toc.js"></script>
@@ -86,8 +86,10 @@
     });
   });
 })();
-</script></head>
-<body>
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-maintenance" data-technical-styler-flow="html">
     <header class="header-main">
         <div class="header-flex">
             <div class="donatoni-flex">
@@ -110,6 +112,15 @@
                 </div>
                 <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                     <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
                 </button>
 
                 <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
@@ -144,17 +155,8 @@
 
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script>
-            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
-                .matches
-                ? default_dark_theme
-                : default_light_theme;
-            let theme;
-            try {
-                theme = localStorage.getItem("mdbook-theme");
-            } catch (e) { }
-            if (theme === null || theme === undefined) {
-                theme = default_theme;
-            }
+            const default_theme = "light";
+            let theme = default_theme;
             const html = document.documentElement;
             html.classList.remove("light");
             html.classList.add(theme);
@@ -214,8 +216,8 @@
 
                         <img src="images/donatoni_111.jpg">
 
-                        <main style="margin-left: 20px;">
-                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="mn0045-ingrassaggio-manuale" style="margin:0;"><a class="header" href="#mn0045-ingrassaggio-manuale">MN0045 INGRASSAGGIO MANUALE</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="MN0045 INGRASSAGGIO MANUALE"--><table class="my-table2" data-table-width="760" data-layout="default" ac:local-id="85e18120-421b-48c4-b375-dfbfdc4e6731"><tbody><tr ac:local-id="5bce18c5913a"><td data-highlight-colour="#f4f5f7" colspan="2" ac:local-id="e09852dfe6e7"><p local-id="dbe3cde23776" style="text-align: center;">⚠️ Prima di procedere leggere attentamente le <p><a href='istruzioni_di_sicurezza.html'>ISTRUZIONI DI SICUREZZA</a></p></td></tr><tr ac:local-id="83f5ba1ceb80"><td data-highlight-colour="#f4f5f7" ac:local-id="c2a18bc56b5c"><p local-id="ec3e84f499cc">⏲️ <strong>Intervallo</strong>: ogni 300 ore di lavoro</p></td><td data-highlight-colour="#f4f5f7" ac:local-id="91e11811cf2e"><p local-id="089d5a33e540">🎚️ <strong>Complessità operazione</strong>: ⭐☆☆☆☆ </p></td></tr><tr ac:local-id="58c2a88ab110"><td data-highlight-colour="#f4f5f7" ac:local-id="99b58380f149"><p local-id="af2c7aed2f4e">🧑‍🏭 <strong>Figura autorizzata</strong>: Operatore macchina</p></td><td data-highlight-colour="#f4f5f7" ac:local-id="19b3517de612"><p local-id="4801ff2f90ff">🧤 <strong>DPI previsti</strong>:   <div><img src="attachments/mn0045_ingrassaggio_manuale/image-20240327-084216.png" alt="image-20240327-084216.png" onclick="showModal(this.src)" class="inline-img"></div> </td></tr></tbody></table><p local-id="31cc65589d24">Provvedere tramite apposita pistola ad ingrassare i diversi punti elencati di seguito con con 1cm<sup>3</sup> di grasso EP1:</p><h3 local-id="7d1249d04c02">Guide lineari del mandrino laterale TOOL_ </h3><div class="TextAlignCenter"><img src="attachments/mn0045_ingrassaggio_manuale/image-20260626-074531.png" alt="image-20260626-074531.png" width="350" onclick="showModal(this.src)"></div><h3 local-id="88b7ecc5e9f0">Guide lineari del tastatore lastra</h3><div class="TextAlignCenter"><img src="attachments/mn0045_ingrassaggio_manuale/image-20260626-074623.png" alt="image-20260626-074623.png" width="350" onclick="showModal(this.src)"></div><h3 local-id="b11eb2513e3f">Passaggio riduttore asse A</h3><div class="TextAlignCenter"><img src="attachments/mn0045_ingrassaggio_manuale/image-20260626-114912.png" alt="image-20260626-114912.png" width="350" onclick="showModal(this.src)"></div><h2 local-id="635eba1c98c5">Tabella comparativa dei lubrificanti</h2><div class="TextAlignCenter"><img src="attachments/mn0045_ingrassaggio_manuale/image-20260626-121030.png" alt="image-20260626-121030.png" width="632" onclick="showModal(this.src)"></div><p local-id="30174ede10a6"></p><p local-id="d27ca56a35e4"></p><p local-id="80dff70c9c66"></p><!--Label="mn0040"-->
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Technical maintenance sheet</span><span class="maintenance-status"><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Controlled procedure</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="mn0045-ingrassaggio-manuale" style="margin:0;" class="maintenance-main-title"><a class="header" href="#mn0045-ingrassaggio-manuale"><span class="maintenance-code">MN0045</span><span class="maintenance-name">INGRASSAGGIO MANUALE</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document MN0045" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="MN0045 INGRASSAGGIO MANUALE"--><table class="my-table2 maintenance-data-grid" data-table-width="760" data-layout="default" ac:local-id="85e18120-421b-48c4-b375-dfbfdc4e6731" aria-label="Technical data for document MN0045"><tbody><tr ac:local-id="5bce18c5913a" class="maintenance-safety-row"><td data-highlight-colour="#f4f5f7" colspan="2" ac:local-id="e09852dfe6e7"><p local-id="dbe3cde23776" style="text-align: center;">Prima di procedere leggere attentamente le <p><a href='istruzioni_di_sicurezza.html'>ISTRUZIONI DI SICUREZZA</a></p></td></tr><tr ac:local-id="83f5ba1ceb80"><td data-highlight-colour="#f4f5f7" ac:local-id="c2a18bc56b5c"><p local-id="ec3e84f499cc" class="maintenance-data-layout"><i class="maintenance-data-icon fa-solid fa-clock" aria-hidden="true"></i><span class="maintenance-data-content"><strong class="maintenance-data-label">Intervallo</strong><span class="maintenance-data-value">ogni 300 ore di lavoro</span></span></p></td><td data-highlight-colour="#f4f5f7" ac:local-id="91e11811cf2e"><p local-id="089d5a33e540" class="maintenance-data-layout"><i class="maintenance-data-icon fa-solid fa-gauge-high" aria-hidden="true"></i><span class="maintenance-data-content"><strong class="maintenance-data-label">Complessità operazione</strong><span class="complexity-indicator complexity-level-1" aria-label="Complexity Low, level 1 of 5"><span class="complexity-scale" aria-hidden="true"><i class="complexity-segment is-active"></i><i class="complexity-segment"></i><i class="complexity-segment"></i><i class="complexity-segment"></i><i class="complexity-segment"></i></span><span class="complexity-readout"><span class="complexity-level-name">Low</span><span class="complexity-score">01 / 05</span></span></span></span></p></td></tr><tr ac:local-id="58c2a88ab110"><td data-highlight-colour="#f4f5f7" ac:local-id="99b58380f149"><p local-id="af2c7aed2f4e" class="maintenance-data-layout"><i class="maintenance-data-icon fa-solid fa-user-gear" aria-hidden="true"></i><span class="maintenance-data-content"><strong class="maintenance-data-label">Figura autorizzata</strong><span class="maintenance-data-value">Operatore macchina</span></span></p></td><td data-highlight-colour="#f4f5f7" ac:local-id="19b3517de612"><p local-id="4801ff2f90ff"><i class="maintenance-data-icon fa-solid fa-shield-halved" aria-hidden="true"></i><strong>DPI previsti</strong>:   <div><img src="attachments/mn0045_ingrassaggio_manuale/image-20240327-084216.png" alt="image-20240327-084216.png" onclick="showModal(this.src)" class="inline-img"></div> </td></tr></tbody></table><p local-id="31cc65589d24">Provvedere tramite apposita pistola ad ingrassare i diversi punti elencati di seguito con con 1cm<sup>3</sup> di grasso EP1:</p><h3 local-id="7d1249d04c02">Guide lineari del mandrino laterale TOOL_ </h3><div class="TextAlignCenter"><img src="attachments/mn0045_ingrassaggio_manuale/image-20260626-074531.png" alt="image-20260626-074531.png" width="350" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><h3 local-id="88b7ecc5e9f0">Guide lineari del tastatore lastra</h3><div class="TextAlignCenter"><img src="attachments/mn0045_ingrassaggio_manuale/image-20260626-074623.png" alt="image-20260626-074623.png" width="350" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><h3 local-id="b11eb2513e3f">Passaggio riduttore asse A</h3><div class="TextAlignCenter"><img src="attachments/mn0045_ingrassaggio_manuale/image-20260626-114912.png" alt="image-20260626-114912.png" width="350" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><h2 local-id="635eba1c98c5" class="maintenance-section-title" data-section-number="01">Tabella comparativa dei lubrificanti</h2><div class="TextAlignCenter"><img src="attachments/mn0045_ingrassaggio_manuale/image-20260626-121030.png" alt="image-20260626-121030.png" width="632" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="30174ede10a6"></p><p local-id="d27ca56a35e4"></p><p local-id="80dff70c9c66"></p><!--Label="mn0040"-->
                         </main>
 
                     </div>
@@ -277,5 +279,12 @@
     </div>;
 
 
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
 </body>
 </html>

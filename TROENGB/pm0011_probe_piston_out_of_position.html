@@ -40,7 +40,7 @@
     <script>
       const path_to_root = "";
       const default_light_theme = "light";
-      const default_dark_theme = "navy";
+      const default_dark_theme = "light";
     </script>
     <!-- Start loading toc.js asap -->
     <script src="toc.js"></script>
@@ -86,8 +86,10 @@
     });
   });
 })();
-</script></head>
-<body>
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-troubleshooting technical-troubleshooting-message" data-technical-styler-flow="html">
     <header class="header-main">
         <div class="header-flex">
             <div class="donatoni-flex">
@@ -110,6 +112,15 @@
                 </div>
                 <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                     <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
                 </button>
 
                 <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
@@ -144,17 +155,8 @@
 
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script>
-            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
-                .matches
-                ? default_dark_theme
-                : default_light_theme;
-            let theme;
-            try {
-                theme = localStorage.getItem("mdbook-theme");
-            } catch (e) { }
-            if (theme === null || theme === undefined) {
-                theme = default_theme;
-            }
+            const default_theme = "light";
+            let theme = default_theme;
             const html = document.documentElement;
             html.classList.remove("light");
             html.classList.add(theme);
@@ -214,8 +216,8 @@
 
                         <img src="images/donatoni_111.jpg">
 
-                        <main style="margin-left: 20px;">
-                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="pm0011-probe-piston-out-of-position" style="margin:0;"><a class="header" href="#pm0011-probe-piston-out-of-position">PM0011 PROBE PISTON OUT OF POSITION</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="PM0011 PROBE PISTON OUT OF POSITION"--><h2 id="error-explanation"><a class="header" href="#error-explanation">Error explanation</a></h2><p>A block is inserted if the probe piston is not in parking position.</p><p>All axes are set to 'hold'</p><h2 id="possible-causes"><a class="header" href="#possible-causes">Possible causes</a></h2><div class='panelContent' style='background-color: #fff; border: 1px solid #D3D3D3; padding: 5px;'><ol start="1" type="1"><li><p>Position of piston slightly beyond threshold</p></li><li><p>Probe piston faulty</p></li><li><p>Wiring error</p></li></ol></div><h2 id="possible-solutions"><a class="header" href="#possible-solutions">Possible solutions</a></h2><div class='panelContent' style='background-color: #fff; border: 1px solid #D3D3D3; padding: 5px;'><p>Check value IW40 related to slab probe position.<br></p><ol start="1" type="1"><li><p>If the read value is less than 100 probably the threshold value is too low. In this case, in the KvIsoGui interface open EditorShared - Parameters - Sheet Probe and modify the value 'Parking position' = 100</p></li><li><p>If the read value is greater than 100 check the real position of the probe and proceed with electrical checks according to the machine's electrical diagram.</p></li><li><p>If the defect cannot be found it is possible to disable slab probe to remove alarm (with disabled slab probe the probing result, if performed, is fixed at 30mm)</p></li></ol></div><h2 id="related-items"><a class="header" href="#related-items">Related items</a></h2><p><!-- <placeholder>Articles related to your selection are displayed below. Click to edit the macro and add or remove labels.</placeholder> --></p><div class='panelContent' style='background-color: #fff; border: 1px solid #D3D3D3; padding: 5px;'><p><br></p></div><p><br></p><!--Label="kb-troubleshooting-article"--><!--Label="tastatore"--><!--Label="pm0011"-->
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Technical troubleshooting sheet</span><span class="maintenance-status"><i class="fa-solid fa-screwdriver-wrench" aria-hidden="true"></i> Message diagnostic procedure</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="pm0011-probe-piston-out-of-position" style="margin:0;" class="maintenance-main-title"><a class="header" href="#pm0011-probe-piston-out-of-position"><span class="maintenance-code">PM0011</span><span class="maintenance-name">PROBE PISTON OUT OF POSITION</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document PM0011" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="PM0011 PROBE PISTON OUT OF POSITION"--><h2 id="error-explanation" class="maintenance-section-title" data-section-number="01"><a class="header" href="#error-explanation">Error explanation</a></h2><p>A block is inserted if the probe piston is not in parking position.</p><p>All axes are set to 'hold'</p><h2 id="possible-causes" class="maintenance-section-title" data-section-number="02"><a class="header" href="#possible-causes">Possible causes</a></h2><div class='panelContent' style='background-color: #fff; border: 1px solid #D3D3D3; padding: 5px;'><ol start="1" type="1"><li><p>Position of piston slightly beyond threshold</p></li><li><p>Probe piston faulty</p></li><li><p>Wiring error</p></li></ol></div><h2 id="possible-solutions" class="maintenance-section-title" data-section-number="03"><a class="header" href="#possible-solutions">Possible solutions</a></h2><div class='panelContent resolution-panel-content' style='background-color: #fff; border: 1px solid #D3D3D3; padding: 5px;'><p>Check value IW40 related to slab probe position.<br></p><ol start="1" type="1" class="procedure-steps"><li><p>If the read value is less than 100 probably the threshold value is too low. In this case, in the KvIsoGui interface open EditorShared - Parameters - Sheet Probe and modify the value 'Parking position' = 100</p></li><li><p>If the read value is greater than 100 check the real position of the probe and proceed with electrical checks according to the machine's electrical diagram.</p></li><li><p>If the defect cannot be found it is possible to disable slab probe to remove alarm (with disabled slab probe the probing result, if performed, is fixed at 30mm)</p></li></ol></div><h2 id="related-items" class="maintenance-section-title" data-section-number="04"><a class="header" href="#related-items">Related items</a></h2><p><!-- <placeholder>Articles related to your selection are displayed below. Click to edit the macro and add or remove labels.</placeholder> --></p><div class='panelContent' style='background-color: #fff; border: 1px solid #D3D3D3; padding: 5px;'><p><br></p></div><p><br></p><!--Label="kb-troubleshooting-article"--><!--Label="tastatore"--><!--Label="pm0011"-->
                         </main>
 
                     </div>
@@ -270,5 +272,12 @@
     </div>;
 
 
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
 </body>
 </html>

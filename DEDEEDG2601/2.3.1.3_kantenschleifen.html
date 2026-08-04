@@ -40,7 +40,7 @@
     <script>
       const path_to_root = "";
       const default_light_theme = "light";
-      const default_dark_theme = "navy";
+      const default_dark_theme = "light";
     </script>
     <!-- Start loading toc.js asap -->
     <script src="toc.js"></script>
@@ -86,8 +86,10 @@
     });
   });
 })();
-</script></head>
-<body>
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-document" data-technical-styler-flow="html">
     <header class="header-main">
         <div class="header-flex">
             <div class="donatoni-flex">
@@ -110,6 +112,15 @@
                 </div>
                 <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                     <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
                 </button>
 
                 <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
@@ -144,17 +155,8 @@
 
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script>
-            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
-                .matches
-                ? default_dark_theme
-                : default_light_theme;
-            let theme;
-            try {
-                theme = localStorage.getItem("mdbook-theme");
-            } catch (e) { }
-            if (theme === null || theme === undefined) {
-                theme = default_theme;
-            }
+            const default_theme = "light";
+            let theme = default_theme;
             const html = document.documentElement;
             html.classList.remove("light");
             html.classList.add(theme);
@@ -214,9 +216,9 @@
 
                         <img src="images/donatoni_111.jpg">
 
-                        <main style="margin-left: 20px;">
-                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="2313-kantenschleifen" style="margin:0;"><a class="header" href="#2313-kantenschleifen">2.3.1.3 KANTENSCHLEIFEN</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="2.3.1.3 KANTENSCHLEIFEN"--><p local-id="6b6f56e0-d912-42e9-95b5-1ea497df0f5c">Mit dieser Bearbeitung wird Material von der Werkstückkante abgetragen. </p><div class="TextAlignCenter"><img src="attachments/2.3.1.3_kantenschleifen/3.1.1.3.05.png" alt="3.1.1.3.05.png" width="800" onclick="showModal(this.src)"></div><p>
-</p><p local-id="eb9c96e4c9f2"></p><h1 local-id="d60271cdd4b4">Parameter</h1><div class="TextAlignCenter"><img src="attachments/2.3.1.3_kantenschleifen/3.1.1.3.06.png" alt="3.1.1.3.06.png" width="800" onclick="showModal(this.src)"></div>
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Machine technical documentation</span><span class="maintenance-status"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Operational document</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="2313-kantenschleifen" style="margin:0;" class="maintenance-main-title"><a class="header" href="#2313-kantenschleifen"><span class="maintenance-code">DOC</span><span class="maintenance-name">2.3.1.3 KANTENSCHLEIFEN</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document DOC" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="2.3.1.3 KANTENSCHLEIFEN"--><p local-id="6b6f56e0-d912-42e9-95b5-1ea497df0f5c">Mit dieser Bearbeitung wird Material von der Werkstückkante abgetragen. </p><div class="TextAlignCenter"><img src="attachments/2.3.1.3_kantenschleifen/3.1.1.3.05.png" alt="3.1.1.3.05.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p>
+</p><p local-id="eb9c96e4c9f2"></p><h1 local-id="d60271cdd4b4">Parameter</h1><div class="TextAlignCenter"><img src="attachments/2.3.1.3_kantenschleifen/3.1.1.3.06.png" alt="3.1.1.3.06.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div>
 <div id="admonition-hinweis" class="admonition admonish-info" role="note" aria-labelledby="admonition-hinweis-title">
 <div class="admonition-title">
 <div id="admonition-hinweis-title">
@@ -239,7 +241,7 @@
 <p>Diese Bearbeitung kann nur als durchgehende Bearbeitung ausgeführt werden.</p>
 </div>
 </div>
-<p local-id="f4d21784da3f"></p><h1 local-id="e89ddd543f99">Verfügbare Gruppen</h1><p local-id="5177bce4240b">Diese Bearbeitung kann von der Sägeblatt-/Schleifgruppe ausgeführt werden.</p><table class="my-table2" data-table-width="1539" data-layout="center" ac:local-id="353bed3d-9904-41a1-81a2-0eb12e57170b"><tbody><tr ac:local-id="5dee9209-815c-4246-847e-6c962714b441"><td ac:local-id="f246d4be-7926-45e7-8814-67f49b681adc"><p local-id="dc99d9e0d7bb" style="text-align: center;"><strong>Sägeblatt-/Schleifgruppe</strong></p></td></tr><tr ac:local-id="bb34f597-c7cf-4e81-a53d-90f50fd6eb3c"><td ac:local-id="8fb947a3-1d1a-4188-8982-730595fb551a"><div class="TextAlignCenter"><img src="attachments/2.3.1.3_kantenschleifen/3.1.1.3.03.png" alt="3.1.1.3.03.png" width="209" onclick="showModal(this.src)"></div></td></tr></tbody></table><p local-id="4c91bfd75fdf"></p><!--Label="edg_wrk_src"-->
+<p local-id="f4d21784da3f"></p><h1 local-id="e89ddd543f99">Verfügbare Gruppen</h1><p local-id="5177bce4240b">Diese Bearbeitung kann von der Sägeblatt-/Schleifgruppe ausgeführt werden.</p><table class="my-table2" data-table-width="1539" data-layout="center" ac:local-id="353bed3d-9904-41a1-81a2-0eb12e57170b"><tbody><tr ac:local-id="5dee9209-815c-4246-847e-6c962714b441"><td ac:local-id="f246d4be-7926-45e7-8814-67f49b681adc"><p local-id="dc99d9e0d7bb" style="text-align: center;"><strong>Sägeblatt-/Schleifgruppe</strong></p></td></tr><tr ac:local-id="bb34f597-c7cf-4e81-a53d-90f50fd6eb3c"><td ac:local-id="8fb947a3-1d1a-4188-8982-730595fb551a"><div class="TextAlignCenter"><img src="attachments/2.3.1.3_kantenschleifen/3.1.1.3.03.png" alt="3.1.1.3.03.png" width="209" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td></tr></tbody></table><p local-id="4c91bfd75fdf"></p><!--Label="edg_wrk_src"-->
                         </main>
 
                     </div>
@@ -301,5 +303,12 @@
     </div>;
 
 
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
 </body>
 </html>

@@ -40,7 +40,7 @@
     <script>
       const path_to_root = "";
       const default_light_theme = "light";
-      const default_dark_theme = "navy";
+      const default_dark_theme = "light";
     </script>
     <!-- Start loading toc.js asap -->
     <script src="toc.js"></script>
@@ -86,8 +86,10 @@
     });
   });
 })();
-</script></head>
-<body>
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-document" data-technical-styler-flow="html">
     <header class="header-main">
         <div class="header-flex">
             <div class="donatoni-flex">
@@ -110,6 +112,15 @@
                 </div>
                 <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                     <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
                 </button>
 
                 <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
@@ -144,17 +155,8 @@
 
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script>
-            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
-                .matches
-                ? default_dark_theme
-                : default_light_theme;
-            let theme;
-            try {
-                theme = localStorage.getItem("mdbook-theme");
-            } catch (e) { }
-            if (theme === null || theme === undefined) {
-                theme = default_theme;
-            }
+            const default_theme = "light";
+            let theme = default_theme;
             const html = document.documentElement;
             html.classList.remove("light");
             html.classList.add(theme);
@@ -214,9 +216,9 @@
 
                         <img src="images/donatoni_111.jpg">
 
-                        <main style="margin-left: 20px;">
-                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="42-tool-panel" style="margin:0;"><a class="header" href="#42-tool-panel">4.2 TOOL PANEL</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="4.2 TOOL PANEL"--><p>This panel allows the operator to manage the machine's disks.</p><div class="TextAlignCenter"><img src="attachments/4.2_tool_panel/0.00.png" alt="0.00.png" width="800" onclick="showModal(this.src)"></div><p></p><p>
-</p><p></p><h1 id="parameters"><a class="header" href="#parameters">Parameters</a></h1><p>The parameters of the selected disk set are shown in this section.<br>On the left you can find the general parameters of the disk set, while on the right the specific parameters for the disk associated with each probe.<br>For SX5 or SX6 machines 5 and 6 disks will be shown in the right section.</p><div class="TextAlignCenter"><img src="attachments/4.2_tool_panel/0.01.png" alt="0.01.png" width="600" onclick="showModal(this.src)"></div><p></p><h2 id="general-parameters-disk-set"><a class="header" href="#general-parameters-disk-set">General parameters disk set</a></h2><p>The parameters of the left section are listed, referring to the selected set of disks.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="6fe725f1-84f3-4721-84f5-b2b17378c080"><colgroup><col style="width: 318.0px;"><col style="width: 1481.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/4.2_tool_panel/0.14.png" alt="0.14.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Name</strong><br>Name of the disks set.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/4.2_tool_panel/0.10.png" alt="0.10.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Radius</strong><br>Radius of the set discs.</p>
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Machine technical documentation</span><span class="maintenance-status"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Operational document</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="42-tool-panel" style="margin:0;" class="maintenance-main-title"><a class="header" href="#42-tool-panel"><span class="maintenance-code">DOC</span><span class="maintenance-name">4.2 TOOL PANEL</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document DOC" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="4.2 TOOL PANEL"--><p>This panel allows the operator to manage the machine's disks.</p><div class="TextAlignCenter"><img src="attachments/4.2_tool_panel/0.00.png" alt="0.00.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><p>
+</p><p></p><h1 id="parameters"><a class="header" href="#parameters">Parameters</a></h1><p>The parameters of the selected disk set are shown in this section.<br>On the left you can find the general parameters of the disk set, while on the right the specific parameters for the disk associated with each probe.<br>For SX5 or SX6 machines 5 and 6 disks will be shown in the right section.</p><div class="TextAlignCenter"><img src="attachments/4.2_tool_panel/0.01.png" alt="0.01.png" width="600" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><h2 id="general-parameters-disk-set" class="maintenance-section-title" data-section-number="01"><a class="header" href="#general-parameters-disk-set">General parameters disk set</a></h2><p>The parameters of the left section are listed, referring to the selected set of disks.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="6fe725f1-84f3-4721-84f5-b2b17378c080"><colgroup><col style="width: 318.0px;"><col style="width: 1481.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/4.2_tool_panel/0.14.png" alt="0.14.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Name</strong><br>Name of the disks set.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/4.2_tool_panel/0.10.png" alt="0.10.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Radius</strong><br>Radius of the set discs.</p>
 <div id="admonition-note" class="admonition admonish-info" role="note" aria-labelledby="admonition-note-title">
 <div class="admonition-title">
 <div id="admonition-note-title">
@@ -228,7 +230,7 @@
 <p>All the discs of the set must have the same diameter.</p>
 </div>
 </div>
-</td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/4.2_tool_panel/0.12.png" alt="0.12.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Disk thickness</strong><br>Average thickness of the set’s disks.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/4.2_tool_panel/0.13.png" alt="0.13.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>RPM</strong><br>Rotations per minute of the motors on which the disks are mounted.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/4.2_tool_panel/0.11.png" alt="0.11.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Junction Quote</strong><br>Junction quote of the disk set.</p></td></tr></tbody></table><p>There are also the following buttons:</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="b1578115-1e82-4f50-b9d4-8017ad2877a8"><colgroup><col style="width: 317.0px;"><col style="width: 1481.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/4.2_tool_panel/0.15.png" alt="0.15.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Recalculates thickness</strong><br>Allows to recalculate the average thickness of the disks.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/4.2_tool_panel/infoOff.png" alt="infoOff.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>RPM Information</strong><br>Opens a table containing values of RPM recommended for the use of the machine.</p></td></tr></tbody></table><p></p><h2 id="single-disk-parameters"><a class="header" href="#single-disk-parameters">Single disk parameters</a></h2><p>Each of these elements shows the parameters of the disk mounted on the probe to which they refer.</p><div class="TextAlignCenter"><img src="attachments/4.2_tool_panel/0.02.png" alt="0.02.png" width="300" onclick="showModal(this.src)"></div><p>For each disk is possible set radius and thickness. The operator can decide if activate or not the disk using the button next.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="7f0c88d7-05de-43a3-95fe-e05d0045eb89"><colgroup><col style="width: 311.0px;"><col style="width: 1488.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/4.2_tool_panel/0.05.png" alt="0.05.png" width="120" onclick="showModal(this.src)"></div></td><td><p><strong>Enable/Disable disk</strong><br>Allows to indicate if use or not the disk mounted on the corresponding attestator.</p></td></tr></tbody></table><p></p><h1 id="buttons"><a class="header" href="#buttons">Buttons</a></h1><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="08a31198-4336-4c3d-a99e-3f834a8f2770"><colgroup><col style="width: 310.0px;"><col style="width: 1490.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/4.2_tool_panel/0.09.png" alt="0.09.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Prob disk</strong><br>Start a disk probe cycle.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/4.2_tool_panel/0.06.png" alt="0.06.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Compensation</strong><br>Allows to access the window for manual compensations.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/4.2_tool_panel/0.07.png" alt="0.07.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Complete data</strong><br>Allows access to the window for editing the disks’ data.</p></td></tr></tbody></table><p></p><h2 id="complete-data"><a class="header" href="#complete-data">Complete data</a></h2><p>In this window the operator can change all data concerning the set of disks mounted on the machine.<br>In particular, it is possible to set the radius, the thickness of the teeth and the core of each disk.</p><div class="TextAlignCenter"><img src="attachments/4.2_tool_panel/0.08.png" alt="0.08.png" width="600" onclick="showModal(this.src)"></div><p>In particular:</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="b090265f-7f3f-47ce-b522-5e765460ba5a"><colgroup><col style="width: 301.0px;"><col style="width: 1498.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/4.2_tool_panel/0.17.png" alt="0.17.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Disk thickness</strong><br>Measurement thickness of the disk's teeth.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/4.2_tool_panel/0.16.png" alt="0.16.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Core thickness</strong><br>Measure of the disk's core thickness.</p></td></tr></tbody></table><!--Label="psx_tlp"-->
+</td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/4.2_tool_panel/0.12.png" alt="0.12.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Disk thickness</strong><br>Average thickness of the set’s disks.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/4.2_tool_panel/0.13.png" alt="0.13.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>RPM</strong><br>Rotations per minute of the motors on which the disks are mounted.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/4.2_tool_panel/0.11.png" alt="0.11.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Junction Quote</strong><br>Junction quote of the disk set.</p></td></tr></tbody></table><p>There are also the following buttons:</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="b1578115-1e82-4f50-b9d4-8017ad2877a8"><colgroup><col style="width: 317.0px;"><col style="width: 1481.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/4.2_tool_panel/0.15.png" alt="0.15.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Recalculates thickness</strong><br>Allows to recalculate the average thickness of the disks.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/4.2_tool_panel/infoOff.png" alt="infoOff.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>RPM Information</strong><br>Opens a table containing values of RPM recommended for the use of the machine.</p></td></tr></tbody></table><p></p><h2 id="single-disk-parameters" class="maintenance-section-title" data-section-number="02"><a class="header" href="#single-disk-parameters">Single disk parameters</a></h2><p>Each of these elements shows the parameters of the disk mounted on the probe to which they refer.</p><div class="TextAlignCenter"><img src="attachments/4.2_tool_panel/0.02.png" alt="0.02.png" width="300" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p>For each disk is possible set radius and thickness. The operator can decide if activate or not the disk using the button next.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="7f0c88d7-05de-43a3-95fe-e05d0045eb89"><colgroup><col style="width: 311.0px;"><col style="width: 1488.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/4.2_tool_panel/0.05.png" alt="0.05.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Enable/Disable disk</strong><br>Allows to indicate if use or not the disk mounted on the corresponding attestator.</p></td></tr></tbody></table><p></p><h1 id="buttons"><a class="header" href="#buttons">Buttons</a></h1><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="08a31198-4336-4c3d-a99e-3f834a8f2770"><colgroup><col style="width: 310.0px;"><col style="width: 1490.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/4.2_tool_panel/0.09.png" alt="0.09.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Prob disk</strong><br>Start a disk probe cycle.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/4.2_tool_panel/0.06.png" alt="0.06.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Compensation</strong><br>Allows to access the window for manual compensations.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/4.2_tool_panel/0.07.png" alt="0.07.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Complete data</strong><br>Allows access to the window for editing the disks’ data.</p></td></tr></tbody></table><p></p><h2 id="complete-data" class="maintenance-section-title" data-section-number="03"><a class="header" href="#complete-data">Complete data</a></h2><p>In this window the operator can change all data concerning the set of disks mounted on the machine.<br>In particular, it is possible to set the radius, the thickness of the teeth and the core of each disk.</p><div class="TextAlignCenter"><img src="attachments/4.2_tool_panel/0.08.png" alt="0.08.png" width="600" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p>In particular:</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="b090265f-7f3f-47ce-b522-5e765460ba5a"><colgroup><col style="width: 301.0px;"><col style="width: 1498.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/4.2_tool_panel/0.17.png" alt="0.17.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Disk thickness</strong><br>Measurement thickness of the disk's teeth.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/4.2_tool_panel/0.16.png" alt="0.16.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Core thickness</strong><br>Measure of the disk's core thickness.</p></td></tr></tbody></table><!--Label="psx_tlp"-->
                         </main>
 
                     </div>
@@ -290,5 +292,12 @@
     </div>;
 
 
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
 </body>
 </html>

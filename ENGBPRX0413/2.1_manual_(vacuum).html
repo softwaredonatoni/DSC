@@ -40,7 +40,7 @@
     <script>
       const path_to_root = "";
       const default_light_theme = "light";
-      const default_dark_theme = "navy";
+      const default_dark_theme = "light";
     </script>
     <!-- Start loading toc.js asap -->
     <script src="toc.js"></script>
@@ -86,8 +86,10 @@
     });
   });
 })();
-</script></head>
-<body>
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-document" data-technical-styler-flow="html">
     <header class="header-main">
         <div class="header-flex">
             <div class="donatoni-flex">
@@ -110,6 +112,15 @@
                 </div>
                 <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                     <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
                 </button>
 
                 <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
@@ -144,17 +155,8 @@
 
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script>
-            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
-                .matches
-                ? default_dark_theme
-                : default_light_theme;
-            let theme;
-            try {
-                theme = localStorage.getItem("mdbook-theme");
-            } catch (e) { }
-            if (theme === null || theme === undefined) {
-                theme = default_theme;
-            }
+            const default_theme = "light";
+            let theme = default_theme;
             const html = document.documentElement;
             html.classList.remove("light");
             html.classList.add(theme);
@@ -214,9 +216,9 @@
 
                         <img src="images/donatoni_111.jpg">
 
-                        <main style="margin-left: 20px;">
-                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="21-manual-vacuum" style="margin:0;"><a class="header" href="#21-manual-vacuum">2.1 MANUAL (VACUUM)</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="2.1 MANUAL (VACUUM)"--><p>Is possible use vacuum in manual to move pieces from a work zone to another.</p><div class="TextAlignCenter"><img src="attachments/2.1_manual_(vacuum)/0_0_Ventose_C.png" alt="0_0_Ventose_C.png" width="800" onclick="showModal(this.src)"></div><p></p><p>
-</p><p></p><h2 id="suction-cups-buttons"><a class="header" href="#suction-cups-buttons">Suction cups buttons</a></h2><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="ada2e4e9-da09-4c33-abee-f3cc36949e35"><colgroup><col style="width: 437.0px;"><col style="width: 1363.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/2.1_manual_(vacuum)/Test_-_png_-_20.png" alt="Test_-_png_-_20.png" width="271" onclick="showModal(this.src)"></div></td><td><p><strong>Enable / disable suction cups</strong><br>The screen shows the vacuum cups group viewed from above in the various zones in which is divided. Pressing on the interested area, its state is changed.<br>If green means that the area is ready to perform the vacuum.<br>If red indicates that the zone is prepared for the blow.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.1_manual_(vacuum)/1.3.png" alt="1.3.png" width="167" onclick="showModal(this.src)"></div></td><td><p><strong>SUCTION CUPS: LIFT - Suction cups parking</strong><br>At pressure of the button, the suction cups are made to re-enter so as to bring them in the rest/parking area.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.1_manual_(vacuum)/2.3.png" alt="2.3.png" width="167" onclick="showModal(this.src)"></div></td><td><p><strong>SUCTION CUPS: LOWER - Prepare suction cups</strong><br>Upon pressing the button, the vacuum cups are lowered from the parking area to the end stop. It is important that the vacuum cups have the necessary space to fully escape.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.1_manual_(vacuum)/4.3.png" alt="4.3.png" width="167" onclick="showModal(this.src)"></div></td><td><p><strong>LIFT PIECE: RELEASE - Unload piece</strong><br>At the press of the button the Z axis is lowered until the material contacts the workbench, the vacuum pump is switched off and the blower is switched on from all the suction cups to detach the piece. After a timeout, the axis is raised to the safety level.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.1_manual_(vacuum)/3.3.png" alt="3.3.png" width="167" onclick="showModal(this.src)"></div></td><td><p><strong>LIFT PIECE: START - Piece lifting</strong><br>With this command the vacuum cups are brought to contact with the material, the vacuum pump is turned on in the areas marked in green and the blow in the areas marked in red, and when the vacuum switch signals that the vacuum has been generated, the axis is lifted to the position set for the handling.</p>
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Machine technical documentation</span><span class="maintenance-status"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Operational document</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="21-manual-vacuum" style="margin:0;" class="maintenance-main-title"><a class="header" href="#21-manual-vacuum"><span class="maintenance-code">DOC</span><span class="maintenance-name">2.1 MANUAL (VACUUM)</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document DOC" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="2.1 MANUAL (VACUUM)"--><p>Is possible use vacuum in manual to move pieces from a work zone to another.</p><div class="TextAlignCenter"><img src="attachments/2.1_manual_(vacuum)/0_0_Ventose_C.png" alt="0_0_Ventose_C.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><p>
+</p><p></p><h2 id="suction-cups-buttons" class="maintenance-section-title" data-section-number="01"><a class="header" href="#suction-cups-buttons">Suction cups buttons</a></h2><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="ada2e4e9-da09-4c33-abee-f3cc36949e35"><colgroup><col style="width: 437.0px;"><col style="width: 1363.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/2.1_manual_(vacuum)/Test_-_png_-_20.png" alt="Test_-_png_-_20.png" width="271" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Enable / disable suction cups</strong><br>The screen shows the vacuum cups group viewed from above in the various zones in which is divided. Pressing on the interested area, its state is changed.<br>If green means that the area is ready to perform the vacuum.<br>If red indicates that the zone is prepared for the blow.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.1_manual_(vacuum)/1.3.png" alt="1.3.png" width="167" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>SUCTION CUPS: LIFT - Suction cups parking</strong><br>At pressure of the button, the suction cups are made to re-enter so as to bring them in the rest/parking area.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.1_manual_(vacuum)/2.3.png" alt="2.3.png" width="167" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>SUCTION CUPS: LOWER - Prepare suction cups</strong><br>Upon pressing the button, the vacuum cups are lowered from the parking area to the end stop. It is important that the vacuum cups have the necessary space to fully escape.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.1_manual_(vacuum)/4.3.png" alt="4.3.png" width="167" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>LIFT PIECE: RELEASE - Unload piece</strong><br>At the press of the button the Z axis is lowered until the material contacts the workbench, the vacuum pump is switched off and the blower is switched on from all the suction cups to detach the piece. After a timeout, the axis is raised to the safety level.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.1_manual_(vacuum)/3.3.png" alt="3.3.png" width="167" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>LIFT PIECE: START - Piece lifting</strong><br>With this command the vacuum cups are brought to contact with the material, the vacuum pump is turned on in the areas marked in green and the blow in the areas marked in red, and when the vacuum switch signals that the vacuum has been generated, the axis is lifted to the position set for the handling.</p>
 <div id="admonition-warning" class="admonition admonish-warning" role="note" aria-labelledby="admonition-warning-title">
 <div class="admonition-title">
 <div id="admonition-warning-title">
@@ -228,7 +230,7 @@
 <p>Pay attention to the active suction cups making in way to use the greatest possible area to lift the piece.</p>
 </div>
 </div>
-</td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.1_manual_(vacuum)/5.2_off.png" alt="5.2_off.png" width="131" onclick="showModal(this.src)"></div><div class="TextAlignCenter"><img src="attachments/2.1_manual_(vacuum)/5.2_on.png" alt="5.2_on.png" width="131" onclick="showModal(this.src)"></div></td><td><p><strong>BLOW - Command Blow</strong><br>The button turns on or off the blow from the vacuum that are not predisposed for the vacuum. The indicator signals if the blow is on (green) or off (red).</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.1_manual_(vacuum)/6.2_off.png" alt="6.2_off.png" width="131" onclick="showModal(this.src)"></div><div class="TextAlignCenter"><img src="attachments/2.1_manual_(vacuum)/6.2_on.png" alt="6.2_on.png" width="131" onclick="showModal(this.src)"></div></td><td><p><strong>VACUUM - Command vacuum pump</strong><br>This button turns on and off the vacuum pump. The indicator signals if the pump is on (green) or off (red).</p></td></tr></tbody></table><p></p><h2 id="safety-conditions"><a class="header" href="#safety-conditions">Safety conditions</a></h2><p>Pay particular attention to the suction cups active during the lifting, ensuring that the areas used are sufficient to lift the piece that is the object of handling. Try to always use the largest area of vacuum available to perform the piece grip and check that there are no defects and breaks on the material that may create dangers or problems to the functioning of the machine.<br>Once vacuum pump is on, its shutoff is allowed only through the automatic functions prepared for this purpose. Pressing the reset button or the emergency button has no effect on the vacuum pump which will continue to function. The pump can be forced off by using the specific button inside the 'Additional Commands' page.<br>In automatic procedures, before the piece lifting, the vacuum state is checked through a specific sensor: if a sufficient vacuum value is not detected, the 'lack of vacuum' alarm appears. The pump will continue to remain active until the vacuum sensor detects a correct value, or if it will be disabled from the 'Additional Commands' page.</p>
+</td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.1_manual_(vacuum)/5.2_off.png" alt="5.2_off.png" width="131" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><div class="TextAlignCenter"><img src="attachments/2.1_manual_(vacuum)/5.2_on.png" alt="5.2_on.png" width="131" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>BLOW - Command Blow</strong><br>The button turns on or off the blow from the vacuum that are not predisposed for the vacuum. The indicator signals if the blow is on (green) or off (red).</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.1_manual_(vacuum)/6.2_off.png" alt="6.2_off.png" width="131" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><div class="TextAlignCenter"><img src="attachments/2.1_manual_(vacuum)/6.2_on.png" alt="6.2_on.png" width="131" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>VACUUM - Command vacuum pump</strong><br>This button turns on and off the vacuum pump. The indicator signals if the pump is on (green) or off (red).</p></td></tr></tbody></table><p></p><h2 id="safety-conditions" class="maintenance-section-title" data-section-number="02"><a class="header" href="#safety-conditions">Safety conditions</a></h2><p>Pay particular attention to the suction cups active during the lifting, ensuring that the areas used are sufficient to lift the piece that is the object of handling. Try to always use the largest area of vacuum available to perform the piece grip and check that there are no defects and breaks on the material that may create dangers or problems to the functioning of the machine.<br>Once vacuum pump is on, its shutoff is allowed only through the automatic functions prepared for this purpose. Pressing the reset button or the emergency button has no effect on the vacuum pump which will continue to function. The pump can be forced off by using the specific button inside the 'Additional Commands' page.<br>In automatic procedures, before the piece lifting, the vacuum state is checked through a specific sensor: if a sufficient vacuum value is not detected, the 'lack of vacuum' alarm appears. The pump will continue to remain active until the vacuum sensor detects a correct value, or if it will be disabled from the 'Additional Commands' page.</p>
 <div id="admonition-warning-1" class="admonition admonish-warning" role="note" aria-labelledby="admonition-warning-1-title">
 <div class="admonition-title">
 <div id="admonition-warning-1-title">
@@ -302,5 +304,12 @@
     </div>;
 
 
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
 </body>
 </html>

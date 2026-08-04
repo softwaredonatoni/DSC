@@ -40,7 +40,7 @@
     <script>
       const path_to_root = "";
       const default_light_theme = "light";
-      const default_dark_theme = "navy";
+      const default_dark_theme = "light";
     </script>
     <!-- Start loading toc.js asap -->
     <script src="toc.js"></script>
@@ -213,8 +213,10 @@
         height:40px;
       }
     }
-  </style></head>
-<body>
+  </style>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-document" data-technical-styler-flow="html">
     <header class="header-main">
         <div class="header-flex">
             <div class="donatoni-flex">
@@ -237,6 +239,15 @@
                 </div>
                 <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                     <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
                 </button>
 
                 <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
@@ -271,17 +282,8 @@
 
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script>
-            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
-                .matches
-                ? default_dark_theme
-                : default_light_theme;
-            let theme;
-            try {
-                theme = localStorage.getItem("mdbook-theme");
-            } catch (e) { }
-            if (theme === null || theme === undefined) {
-                theme = default_theme;
-            }
+            const default_theme = "light";
+            let theme = default_theme;
             const html = document.documentElement;
             html.classList.remove("light");
             html.classList.add(theme);
@@ -341,29 +343,53 @@
 
                         <img src="images/donatoni_111.jpg">
 
-                        <main style="margin-left: 20px;">
-                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="dmes" style="margin:0;"><a class="header" href="#dmes">DMES</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="DMES"--><article class="card">
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Machine technical documentation</span><span class="maintenance-status"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Operational document</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="dmes" style="margin:0;" class="maintenance-main-title"><a class="header" href="#dmes"><span class="maintenance-code">DOC</span><span class="maintenance-name">DMES</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document DOC" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="DMES"--><section class="grid"><article class="card">
                             <div class="card-header">
                               <div class="title">
                                 <a href="https://softwaredonatoni.github.io/DSC/DP/index.html#2utHhOLI7Iz0" target="_blank" rel="noopener noreferrer">
-                                  DMES Packages
+                                  Manuale D-Mes 2.0.3.0  Italiano
                                 </a>
                               </div>
-                              
+                              <div class="badge">
+                                <img src="attachments/dmes/image-20260127-124829.png" alt="" class="technical-media" loading="lazy">
+                              </div>
                             </div>
                             
                             
                             <div class="media">
                               <a href="https://softwaredonatoni.github.io/DSC/DP/index.html#2utHhOLI7Iz0" target="_blank" rel="noopener noreferrer">
-                                <img src="attachments/dmes/image-20260128-091704.png" alt="">
+                                <img src="attachments/dmes/image-20260128-091704.png" alt="" class="technical-media" loading="lazy">
                               </a>
                             </div>
                             
                             <div class="desc">
-                              Questo spazio contiene la lista di pacchetti e configurazioni disponibili per il DMES
+                              Questo spazio contiene la lista di pacchetti e configurazioni disponibili per il DMES in italiano
+                            </div>
+                        </article><article class="card">
+                            <div class="card-header">
+                              <div class="title">
+                                <a href="https://softwaredonatoni.github.io/DSC/DP/index.html#2utHhOLI7Iz0" target="_blank" rel="noopener noreferrer">
+                                  Manuale D-Mes 2.0.3.0  Inglese
+                                </a>
+                              </div>
+                              <div class="badge">
+                                <img src="attachments/dmes/image-20260127-125200.png" alt="" class="technical-media" loading="lazy">
+                              </div>
+                            </div>
+                            
+                            
+                            <div class="media">
+                              <a href="https://softwaredonatoni.github.io/DSC/DP/index.html#2utHhOLI7Iz0" target="_blank" rel="noopener noreferrer">
+                                <img src="attachments/dmes/image-20260128-091704.png" alt="" class="technical-media" loading="lazy">
+                              </a>
+                            </div>
+                            
+                            <div class="desc">
+                              Questo spazio contiene la lista di pacchetti e configurazioni disponibili per il DMES in inglese
                             </div>
                         </article>
-                        </main>
+                        </section></main>
 
                     </div>
 
@@ -375,6 +401,9 @@
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
+                            <a rel="next prefetch" href="dcontour.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
 
                         <div style="clear: both"></div>
                     </nav>
@@ -386,6 +415,10 @@
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                 <a rel="prev" href="parametrix.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="dcontour.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
                     </a>
             </nav>
 
@@ -417,5 +450,12 @@
     </div>;
 
 
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
 </body>
 </html>

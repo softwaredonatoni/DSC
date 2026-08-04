@@ -40,7 +40,7 @@
     <script>
       const path_to_root = "";
       const default_light_theme = "light";
-      const default_dark_theme = "navy";
+      const default_dark_theme = "light";
     </script>
     <!-- Start loading toc.js asap -->
     <script src="toc.js"></script>
@@ -86,8 +86,10 @@
     });
   });
 })();
-</script></head>
-<body>
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-document" data-technical-styler-flow="html">
     <header class="header-main">
         <div class="header-flex">
             <div class="donatoni-flex">
@@ -110,6 +112,15 @@
                 </div>
                 <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                     <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
                 </button>
 
                 <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
@@ -144,17 +155,8 @@
 
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script>
-            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
-                .matches
-                ? default_dark_theme
-                : default_light_theme;
-            let theme;
-            try {
-                theme = localStorage.getItem("mdbook-theme");
-            } catch (e) { }
-            if (theme === null || theme === undefined) {
-                theme = default_theme;
-            }
+            const default_theme = "light";
+            let theme = default_theme;
             const html = document.documentElement;
             html.classList.remove("light");
             html.classList.add(theme);
@@ -214,9 +216,9 @@
 
                         <img src="images/donatoni_111.jpg">
 
-                        <main style="margin-left: 20px;">
-                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="3112-creazione-di-rettangoli" style="margin:0;"><a class="header" href="#3112-creazione-di-rettangoli">3.11.2 CREAZIONE DI RETTANGOLI</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="3.11.2 CREAZIONE DI RETTANGOLI"--><p>È possibile costruire pezzi rettangolari inserendo le misure di larghezza ed altezza e disporli sulla lista di pezzi da lavorare. </p><p>Il programma permette anche di associare ad ogni pezzo una marca (o etichetta) identificativa, e di impostare il numero di ripetizione di rettangoli con uguali dimensioni.</p><div class="TextAlignCenter"><img src="attachments/3.11.2_creazione_di_rettangoli/schermata_rettangoli_pulita.png" alt="schermata_rettangoli_pulita.png" width="800" onclick="showModal(this.src)"></div><p></p><p>
-</p><p></p><h1 id="descrizione-dei-parametri"><a class="header" href="#descrizione-dei-parametri">Descrizione dei parametri</a></h1><p>Per la creazione dei pezzi rettangolari vengono richiesti i seguenti dati:</p><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="bce60155-f4bf-44ac-8cca-2116cd4a9dc5"><colgroup><col style="width: 570.0px;"><col style="width: 1216.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/3.11.2_creazione_di_rettangoli/casella_numero_pezzi.png" alt="casella_numero_pezzi.png" width="282" onclick="showModal(this.src)"></div></td><td><p><strong>Numero dei pezzi</strong><br>Numero di copie del pezzo aventi le stesse misure.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.11.2_creazione_di_rettangoli/casella_larghezza.png" alt="casella_larghezza.png" width="282" onclick="showModal(this.src)"></div></td><td><p><strong>Larghezza</strong><br>Larghezza del rettangolo. Viene misurata con l’unità di misura riportata alla sua destra.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.11.2_creazione_di_rettangoli/casella_altezza.png" alt="casella_altezza.png" width="282" onclick="showModal(this.src)"></div></td><td><p><strong>Altezza</strong><br>Altezza del rettangolo. Viene misurata con l’unità di misura riportata alla sua destra.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.11.2_creazione_di_rettangoli/casella_etichetta_pulita.png" alt="casella_etichetta_pulita.png" width="282" onclick="showModal(this.src)"></div></td><td><p><strong>Marca</strong><br>Etichetta che viene aggiunta al pezzo per identificarlo. È un parametro opzionale, in quanto non fondamentale per la creazione del pezzo.</p></td></tr></tbody></table><p></p><h2 id="pulsanti-aggiuntivi"><a class="header" href="#pulsanti-aggiuntivi">Pulsanti aggiuntivi</a></h2><p>I seguenti pulsanti laterali, consentono inoltre di svolgere delle azioni aggiuntive.</p><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="ec815152-e5cc-48b2-a7dc-3807f44bc0df"><colgroup><col style="width: 155.0px;"><col style="width: 1643.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/3.11.2_creazione_di_rettangoli/singleImportPiece2.png" alt="singleImportPiece2.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Importazione singola</strong><br>Se questo pulsante è abilitato, rende possibile la creazione di più pezzi distinti in quantità singola anziché un solo pezzo con più copie.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.11.2_creazione_di_rettangoli/10160d16-ab01-44d2-b61d-ea60115e49ea.png" alt="10160d16-ab01-44d2-b61d-ea60115e49ea.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Dynamic Tag Top</strong><br>Assegna ad un lato del rettangolo il Dynamic Tag Top. </p></td></tr></tbody></table><p>Per attivare la funzionalità relativa a ciascun pulsante, è necessario premerlo. In questo caso, verrà evidenziato con un colore verde chiaro.</p>
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Machine technical documentation</span><span class="maintenance-status"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Operational document</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="3112-creazione-di-rettangoli" style="margin:0;" class="maintenance-main-title"><a class="header" href="#3112-creazione-di-rettangoli"><span class="maintenance-code">DOC</span><span class="maintenance-name">3.11.2 CREAZIONE DI RETTANGOLI</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document DOC" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="3.11.2 CREAZIONE DI RETTANGOLI"--><p>È possibile costruire pezzi rettangolari inserendo le misure di larghezza ed altezza e disporli sulla lista di pezzi da lavorare. </p><p>Il programma permette anche di associare ad ogni pezzo una marca (o etichetta) identificativa, e di impostare il numero di ripetizione di rettangoli con uguali dimensioni.</p><div class="TextAlignCenter"><img src="attachments/3.11.2_creazione_di_rettangoli/schermata_rettangoli_pulita.png" alt="schermata_rettangoli_pulita.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><p>
+</p><p></p><h1 id="descrizione-dei-parametri"><a class="header" href="#descrizione-dei-parametri">Descrizione dei parametri</a></h1><p>Per la creazione dei pezzi rettangolari vengono richiesti i seguenti dati:</p><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="bce60155-f4bf-44ac-8cca-2116cd4a9dc5"><colgroup><col style="width: 570.0px;"><col style="width: 1216.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/3.11.2_creazione_di_rettangoli/casella_numero_pezzi.png" alt="casella_numero_pezzi.png" width="282" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Numero dei pezzi</strong><br>Numero di copie del pezzo aventi le stesse misure.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.11.2_creazione_di_rettangoli/casella_larghezza.png" alt="casella_larghezza.png" width="282" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Larghezza</strong><br>Larghezza del rettangolo. Viene misurata con l’unità di misura riportata alla sua destra.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.11.2_creazione_di_rettangoli/casella_altezza.png" alt="casella_altezza.png" width="282" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Altezza</strong><br>Altezza del rettangolo. Viene misurata con l’unità di misura riportata alla sua destra.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.11.2_creazione_di_rettangoli/casella_etichetta_pulita.png" alt="casella_etichetta_pulita.png" width="282" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Marca</strong><br>Etichetta che viene aggiunta al pezzo per identificarlo. È un parametro opzionale, in quanto non fondamentale per la creazione del pezzo.</p></td></tr></tbody></table><p></p><h2 id="pulsanti-aggiuntivi" class="maintenance-section-title" data-section-number="01"><a class="header" href="#pulsanti-aggiuntivi">Pulsanti aggiuntivi</a></h2><p>I seguenti pulsanti laterali, consentono inoltre di svolgere delle azioni aggiuntive.</p><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="ec815152-e5cc-48b2-a7dc-3807f44bc0df"><colgroup><col style="width: 155.0px;"><col style="width: 1643.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/3.11.2_creazione_di_rettangoli/singleImportPiece2.png" alt="singleImportPiece2.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Importazione singola</strong><br>Se questo pulsante è abilitato, rende possibile la creazione di più pezzi distinti in quantità singola anziché un solo pezzo con più copie.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.11.2_creazione_di_rettangoli/10160d16-ab01-44d2-b61d-ea60115e49ea.png" alt="10160d16-ab01-44d2-b61d-ea60115e49ea.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Dynamic Tag Top</strong><br>Assegna ad un lato del rettangolo il Dynamic Tag Top. </p></td></tr></tbody></table><p>Per attivare la funzionalità relativa a ciascun pulsante, è necessario premerlo. In questo caso, verrà evidenziato con un colore verde chiaro.</p>
 <div id="admonition-nota" class="admonition admonish-info" role="note" aria-labelledby="admonition-nota-title">
 <div class="admonition-title">
 <div id="admonition-nota-title">
@@ -290,5 +292,12 @@
     </div>;
 
 
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
 </body>
 </html>

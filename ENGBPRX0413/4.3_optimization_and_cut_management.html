@@ -40,7 +40,7 @@
     <script>
       const path_to_root = "";
       const default_light_theme = "light";
-      const default_dark_theme = "navy";
+      const default_dark_theme = "light";
     </script>
     <!-- Start loading toc.js asap -->
     <script src="toc.js"></script>
@@ -86,8 +86,10 @@
     });
   });
 })();
-</script></head>
-<body>
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-document" data-technical-styler-flow="html">
     <header class="header-main">
         <div class="header-flex">
             <div class="donatoni-flex">
@@ -110,6 +112,15 @@
                 </div>
                 <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                     <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
                 </button>
 
                 <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
@@ -144,17 +155,8 @@
 
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script>
-            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
-                .matches
-                ? default_dark_theme
-                : default_light_theme;
-            let theme;
-            try {
-                theme = localStorage.getItem("mdbook-theme");
-            } catch (e) { }
-            if (theme === null || theme === undefined) {
-                theme = default_theme;
-            }
+            const default_theme = "light";
+            let theme = default_theme;
             const html = document.documentElement;
             html.classList.remove("light");
             html.classList.add(theme);
@@ -214,9 +216,9 @@
 
                         <img src="images/donatoni_111.jpg">
 
-                        <main style="margin-left: 20px;">
-                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="43-optimization-and-cut-management" style="margin:0;"><a class="header" href="#43-optimization-and-cut-management">4.3 OPTIMIZATION AND CUT MANAGEMENT</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="4.3 OPTIMIZATION AND CUT MANAGEMENT"--><p>Through the second button in top right, you access to the screen of optimization and management of cuts.</p><div class="TextAlignCenter"><img src="attachments/4.3_optimization_and_cut_management/0.png" alt="0.png" width="800" onclick="showModal(this.src)"></div><p></p><p>
-</p><p></p><h1 id="list-of-cuts"><a class="header" href="#list-of-cuts">List of cuts</a></h1><p>The cuts that the machine must execute are reported inside this list.</p><p>Using the cuts list, the operator can:</p><ul><li><p>Change the execution order of the cuts.</p></li><li><p>Modify the characteristics of a cut.</p></li><li><p>Insert pause between a cut and the other.</p></li></ul><p></p><h2 id="list-elements"><a class="header" href="#list-elements">List elements</a></h2><p></p><div class="TextAlignCenter"><img src="attachments/4.3_optimization_and_cut_management/1.3.1-20250808-123320.png" alt="1.3.1-20250808-123320.png" width="278" onclick="showModal(this.src)"></div><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="68ffff06-68b2-42ea-9b6b-d79fe20c84a9"><colgroup><col style="width: 326.0px;"><col style="width: 1471.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/4.3_optimization_and_cut_management/2.3-20250613-084005.png" alt="2.3-20250613-084005.png" width="119" onclick="showModal(this.src)"></div></td><td><p><strong>Activate/Deactivate cut</strong><br>Indicate if the cut must be activated or deactivated for the working.<br>Pressing on the button changes its state.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/4.3_optimization_and_cut_management/0.04.png" alt="0.04.png" width="145" onclick="showModal(this.src)"></div></td><td><p><strong>Type cutting</strong><br>Indicate the cut type ('Perimeter', 'Internal Cut', 'Milling', etc…).</p></td></tr></tbody></table><p></p><h2 id="functions"><a class="header" href="#functions">Functions</a></h2><p>The arrangement of the cuts in the right list, indicates the order with which they are cut.<br>With the buttons below, it is possible to modify this order, or insert a pause in the execution of operations between a cut and another.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="18b644c5-615c-446b-8842-a141c7b1d099"><colgroup><col style="width: 324.0px;"><col style="width: 1474.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/4.3_optimization_and_cut_management/1.2.1_Off-20250808-112542.png" alt="1.2.1_Off-20250808-112542.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Modify cut</strong><br>It allows to modify some properties of the selected cut.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/4.3_optimization_and_cut_management/1.2.2-20250808-112638.png" alt="1.2.2-20250808-112638.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Insert Pause</strong><br>It is possible to enter a pause between the execution of the selected cut and the next. <br>The program will execute all the previous cuts to the pause, then stop the machine and wait the command of Start by the operator.<br>It can be used, for example, to change tool.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/4.3_optimization_and_cut_management/1.2.3_Off_On-20250808-112745.png" alt="1.2.3_Off_On-20250808-112745.png" width="119" onclick="showModal(this.src)"></div></td><td><p><strong>Delete Cut</strong><br>Activating this function, beside each item in the cuts list will be showed a rubber shape icon.<br>Pressing that icon, the user can permanently remove the corresponding cut from the list.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/4.3_optimization_and_cut_management/1.2.4-20250303-082728.png" alt="1.2.4-20250303-082728.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Cutting optimization</strong><br>To be used to improve the combination of the machine's spindles during the cutting phase.<br>It is necessary to indicate the mode in the text box and press the button to apply the optimizations.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/4.3_optimization_and_cut_management/1.2.5_Off_On-20250808-113304.png" alt="1.2.5_Off_On-20250808-113304.png" width="121" onclick="showModal(this.src)"></div></td><td><p><strong>Additional piece properties</strong><br>Allows to modify the additional properties of the selected piece inside the working area.</p></td></tr></tbody></table><p></p><!--Label="psx_ptm"-->
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Machine technical documentation</span><span class="maintenance-status"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Operational document</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="43-optimization-and-cut-management" style="margin:0;" class="maintenance-main-title"><a class="header" href="#43-optimization-and-cut-management"><span class="maintenance-code">DOC</span><span class="maintenance-name">4.3 OPTIMIZATION AND CUT MANAGEMENT</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document DOC" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="4.3 OPTIMIZATION AND CUT MANAGEMENT"--><p>Through the second button in top right, you access to the screen of optimization and management of cuts.</p><div class="TextAlignCenter"><img src="attachments/4.3_optimization_and_cut_management/0.png" alt="0.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><p>
+</p><p></p><h1 id="list-of-cuts"><a class="header" href="#list-of-cuts">List of cuts</a></h1><p>The cuts that the machine must execute are reported inside this list.</p><p>Using the cuts list, the operator can:</p><ul><li><p>Change the execution order of the cuts.</p></li><li><p>Modify the characteristics of a cut.</p></li><li><p>Insert pause between a cut and the other.</p></li></ul><p></p><h2 id="list-elements" class="maintenance-section-title" data-section-number="01"><a class="header" href="#list-elements">List elements</a></h2><p></p><div class="TextAlignCenter"><img src="attachments/4.3_optimization_and_cut_management/1.3.1-20250808-123320.png" alt="1.3.1-20250808-123320.png" width="278" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="68ffff06-68b2-42ea-9b6b-d79fe20c84a9"><colgroup><col style="width: 326.0px;"><col style="width: 1471.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/4.3_optimization_and_cut_management/2.3-20250613-084005.png" alt="2.3-20250613-084005.png" width="119" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Activate/Deactivate cut</strong><br>Indicate if the cut must be activated or deactivated for the working.<br>Pressing on the button changes its state.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/4.3_optimization_and_cut_management/0.04.png" alt="0.04.png" width="145" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Type cutting</strong><br>Indicate the cut type ('Perimeter', 'Internal Cut', 'Milling', etc…).</p></td></tr></tbody></table><p></p><h2 id="functions" class="maintenance-section-title" data-section-number="02"><a class="header" href="#functions">Functions</a></h2><p>The arrangement of the cuts in the right list, indicates the order with which they are cut.<br>With the buttons below, it is possible to modify this order, or insert a pause in the execution of operations between a cut and another.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="18b644c5-615c-446b-8842-a141c7b1d099"><colgroup><col style="width: 324.0px;"><col style="width: 1474.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/4.3_optimization_and_cut_management/1.2.1_Off-20250808-112542.png" alt="1.2.1_Off-20250808-112542.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Modify cut</strong><br>It allows to modify some properties of the selected cut.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/4.3_optimization_and_cut_management/1.2.2-20250808-112638.png" alt="1.2.2-20250808-112638.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Insert Pause</strong><br>It is possible to enter a pause between the execution of the selected cut and the next. <br>The program will execute all the previous cuts to the pause, then stop the machine and wait the command of Start by the operator.<br>It can be used, for example, to change tool.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/4.3_optimization_and_cut_management/1.2.3_Off_On-20250808-112745.png" alt="1.2.3_Off_On-20250808-112745.png" width="119" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Delete Cut</strong><br>Activating this function, beside each item in the cuts list will be showed a rubber shape icon.<br>Pressing that icon, the user can permanently remove the corresponding cut from the list.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/4.3_optimization_and_cut_management/1.2.4-20250303-082728.png" alt="1.2.4-20250303-082728.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Cutting optimization</strong><br>To be used to improve the combination of the machine's spindles during the cutting phase.<br>It is necessary to indicate the mode in the text box and press the button to apply the optimizations.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/4.3_optimization_and_cut_management/1.2.5_Off_On-20250808-113304.png" alt="1.2.5_Off_On-20250808-113304.png" width="121" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Additional piece properties</strong><br>Allows to modify the additional properties of the selected piece inside the working area.</p></td></tr></tbody></table><p></p><!--Label="psx_ptm"-->
                         </main>
 
                     </div>
@@ -278,5 +280,12 @@
     </div>;
 
 
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
 </body>
 </html>

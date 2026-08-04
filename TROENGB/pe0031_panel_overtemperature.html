@@ -40,7 +40,7 @@
     <script>
       const path_to_root = "";
       const default_light_theme = "light";
-      const default_dark_theme = "navy";
+      const default_dark_theme = "light";
     </script>
     <!-- Start loading toc.js asap -->
     <script src="toc.js"></script>
@@ -86,8 +86,10 @@
     });
   });
 })();
-</script></head>
-<body>
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-troubleshooting technical-troubleshooting-emergency" data-technical-styler-flow="html">
     <header class="header-main">
         <div class="header-flex">
             <div class="donatoni-flex">
@@ -110,6 +112,15 @@
                 </div>
                 <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                     <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
                 </button>
 
                 <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
@@ -144,17 +155,8 @@
 
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script>
-            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
-                .matches
-                ? default_dark_theme
-                : default_light_theme;
-            let theme;
-            try {
-                theme = localStorage.getItem("mdbook-theme");
-            } catch (e) { }
-            if (theme === null || theme === undefined) {
-                theme = default_theme;
-            }
+            const default_theme = "light";
+            let theme = default_theme;
             const html = document.documentElement;
             html.classList.remove("light");
             html.classList.add(theme);
@@ -214,8 +216,8 @@
 
                         <img src="images/donatoni_111.jpg">
 
-                        <main style="margin-left: 20px;">
-                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="pe0031-panel-overtemperature" style="margin:0;"><a class="header" href="#pe0031-panel-overtemperature">PE0031 PANEL OVERTEMPERATURE</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="PE0031 PANEL OVERTEMPERATURE"--><h2 local-id="404cbfa8a09b">Error explanation</h2><p local-id="3da4d9cf49f8">This error appears when the thermostat inside the electrical panel detects a temperature higher than the maximum set temperature which is usually 45°C</p><h2 local-id="fdca73dc6058">Possible causes</h2><div class='panelContent' style='background-color: #fff; border: 1px solid #D3D3D3; padding: 5px;'><ol start="1" local-id="459eda4d6978" type="1"><li local-id="418d309b8016"><p local-id="2b2b32ddb114">Air conditioner or panel fan faulty;</p></li><li local-id="f5f50b777231"><p local-id="669df0d16e35">Thermostat incorrectly adjusted;</p></li></ol></div><h2 local-id="8894f0b97aca">Possible solutions</h2><div class='panelContent' style='background-color: #fff; border: 1px solid #D3D3D3; padding: 5px;'><ol start="1" local-id="a6a3eb6d30b0" type="1"><li local-id="d628a8cf9a2b"><p local-id="227feecda239">Check that the recirculation fan is working properly.</p></li><li local-id="20f5c4358bdb"><p local-id="253155da385f">Check that the overheating thermostat inside the panel is set to 45 degrees (check the wiring diagram). If it's already set to the correct temperature, check that it opens and closes the contact.</p></li></ol></div><h2 local-id="f77515630d79">Related articles</h2><p local-id="c6c4612050be"><!-- <placeholder ac:local-id="c2b169506378">Related articles appear here based on the labels you select. Click to edit the macro and add or change labels.</placeholder> --></p><div class='panelContent' style='background-color: #fff; border: 1px solid #D3D3D3; padding: 5px;'><p><br></p></div><!--Label="kb-troubleshooting-article"--><!--Label="quadro"--><!--Label="pe0031"-->
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Technical troubleshooting sheet</span><span class="maintenance-status"><i class="fa-solid fa-screwdriver-wrench" aria-hidden="true"></i> Emergency diagnostic procedure</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="pe0031-panel-overtemperature" style="margin:0;" class="maintenance-main-title"><a class="header" href="#pe0031-panel-overtemperature"><span class="maintenance-code">PE0031</span><span class="maintenance-name">PANEL OVERTEMPERATURE</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document PE0031" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="PE0031 PANEL OVERTEMPERATURE"--><h2 local-id="404cbfa8a09b" class="maintenance-section-title" data-section-number="01">Error explanation</h2><p local-id="3da4d9cf49f8">This error appears when the thermostat inside the electrical panel detects a temperature higher than the maximum set temperature which is usually 45°C</p><h2 local-id="fdca73dc6058" class="maintenance-section-title" data-section-number="02">Possible causes</h2><div class='panelContent' style='background-color: #fff; border: 1px solid #D3D3D3; padding: 5px;'><ol start="1" local-id="459eda4d6978" type="1"><li local-id="418d309b8016"><p local-id="2b2b32ddb114">Air conditioner or panel fan faulty;</p></li><li local-id="f5f50b777231"><p local-id="669df0d16e35">Thermostat incorrectly adjusted;</p></li></ol></div><h2 local-id="8894f0b97aca" class="maintenance-section-title" data-section-number="03">Possible solutions</h2><div class='panelContent resolution-panel-content' style='background-color: #fff; border: 1px solid #D3D3D3; padding: 5px;'><ol start="1" local-id="a6a3eb6d30b0" type="1" class="procedure-steps"><li local-id="d628a8cf9a2b"><p local-id="227feecda239">Check that the recirculation fan is working properly.</p></li><li local-id="20f5c4358bdb"><p local-id="253155da385f">Check that the overheating thermostat inside the panel is set to 45 degrees (check the wiring diagram). If it's already set to the correct temperature, check that it opens and closes the contact.</p></li></ol></div><h2 local-id="f77515630d79" class="maintenance-section-title" data-section-number="04">Related articles</h2><p local-id="c6c4612050be"><!-- <placeholder ac:local-id="c2b169506378">Related articles appear here based on the labels you select. Click to edit the macro and add or change labels.</placeholder> --></p><div class='panelContent' style='background-color: #fff; border: 1px solid #D3D3D3; padding: 5px;'><p><br></p></div><!--Label="kb-troubleshooting-article"--><!--Label="quadro"--><!--Label="pe0031"-->
                         </main>
 
                     </div>
@@ -277,5 +279,12 @@
     </div>;
 
 
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
 </body>
 </html>

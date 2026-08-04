@@ -40,7 +40,7 @@
     <script>
       const path_to_root = "";
       const default_light_theme = "light";
-      const default_dark_theme = "navy";
+      const default_dark_theme = "light";
     </script>
     <!-- Start loading toc.js asap -->
     <script src="toc.js"></script>
@@ -86,8 +86,10 @@
     });
   });
 })();
-</script></head>
-<body>
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-troubleshooting technical-troubleshooting-emergency" data-technical-styler-flow="html">
     <header class="header-main">
         <div class="header-flex">
             <div class="donatoni-flex">
@@ -110,6 +112,15 @@
                 </div>
                 <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                     <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
                 </button>
 
                 <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
@@ -144,17 +155,8 @@
 
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script>
-            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
-                .matches
-                ? default_dark_theme
-                : default_light_theme;
-            let theme;
-            try {
-                theme = localStorage.getItem("mdbook-theme");
-            } catch (e) { }
-            if (theme === null || theme === undefined) {
-                theme = default_theme;
-            }
+            const default_theme = "light";
+            let theme = default_theme;
             const html = document.documentElement;
             html.classList.remove("light");
             html.classList.add(theme);
@@ -214,8 +216,8 @@
 
                         <img src="images/donatoni_111.jpg">
 
-                        <main style="margin-left: 20px;">
-                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="pe0019-error-on-actuators" style="margin:0;"><a class="header" href="#pe0019-error-on-actuators">PE0019 ERROR ON ACTUATORS</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="PE0019 ERROR ON ACTUATORS"--><h2 id="error-explanation"><a class="header" href="#error-explanation">Error explanation</a></h2><p>Generic error on drives; in case of Jet and Spin machines the issue will be with the drive used as Feeder:</p><h2 id="possible-causes"><a class="header" href="#possible-causes">Possible causes</a></h2><p><!-- <placeholder>Insert steps for resolving issues, such as &quot;The level 7 printer flashes red if out of paper; add paper in tray 1&quot;.</placeholder> --></p><div class='panelContent' style='background-color: #fff; border: 1px solid #D3D3D3; padding: 5px;'><p>The causes are multiple and depend on the error message displayed during activation:<br></p><ol start="1" type="1"><li><p>If the mounted feeder is new, there may be incorrect configuration parameters (Error messages F09, F21 on the feeder's display);</p></li><li><p>Feeder is faulty;</p></li></ol></div><h2 id="possible-solutions"><a class="header" href="#possible-solutions">Possible solutions</a></h2><p><!-- <placeholder>Insert steps for resolving issues, such as &quot;The level 7 printer flashes red if out of paper; add paper in tray 1&quot;.</placeholder> --></p><div class='panelContent' style='background-color: #fff; border: 1px solid #D3D3D3; padding: 5px;'><p>You can choose to use a <!-- <placeholder>panel </placeholder> -->to emphasize key steps.</p><ol start="1" type="1"><li><p>Connect to the power supply using the COM cable and repeat the <p><a href='configurazione_alimentatore_per_jet.html'>power supply configuration procedure for ED3 motors</a></p></li><li><p>Check the error message on the power supply display (F07, F09, F21), try restarting the machine and check whether the error appears again, and assess whether it is a problem related to one of the motors;<br><br></p></li></ol></div><h2 id="related-articles"><a class="header" href="#related-articles">Related articles</a></h2><p><!-- <placeholder>Articles related are displayed here according to the selected tags. Click to edit the macro and add or remove tags.</placeholder> --></p><div class='panelContent' style='background-color: #fff; border: 1px solid #D3D3D3; padding: 5px;'><p><br></p></div><p><br></p><!--Label="asse"--><!--Label="dive"--><!--Label="motore"--><!--Label="azionamento"--><!--Label="pe0019"-->
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Technical troubleshooting sheet</span><span class="maintenance-status"><i class="fa-solid fa-screwdriver-wrench" aria-hidden="true"></i> Emergency diagnostic procedure</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="pe0019-error-on-actuators" style="margin:0;" class="maintenance-main-title"><a class="header" href="#pe0019-error-on-actuators"><span class="maintenance-code">PE0019</span><span class="maintenance-name">ERROR ON ACTUATORS</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document PE0019" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="PE0019 ERROR ON ACTUATORS"--><h2 id="error-explanation" class="maintenance-section-title" data-section-number="01"><a class="header" href="#error-explanation">Error explanation</a></h2><p>Generic error on drives; in case of Jet and Spin machines the issue will be with the drive used as Feeder:</p><h2 id="possible-causes" class="maintenance-section-title" data-section-number="02"><a class="header" href="#possible-causes">Possible causes</a></h2><p><!-- <placeholder>Insert steps for resolving issues, such as &quot;The level 7 printer flashes red if out of paper; add paper in tray 1&quot;.</placeholder> --></p><div class='panelContent' style='background-color: #fff; border: 1px solid #D3D3D3; padding: 5px;'><p>The causes are multiple and depend on the error message displayed during activation:<br></p><ol start="1" type="1"><li><p>If the mounted feeder is new, there may be incorrect configuration parameters (Error messages F09, F21 on the feeder's display);</p></li><li><p>Feeder is faulty;</p></li></ol></div><h2 id="possible-solutions" class="maintenance-section-title" data-section-number="03"><a class="header" href="#possible-solutions">Possible solutions</a></h2><p><!-- <placeholder>Insert steps for resolving issues, such as &quot;The level 7 printer flashes red if out of paper; add paper in tray 1&quot;.</placeholder> --></p><div class='panelContent resolution-panel-content' style='background-color: #fff; border: 1px solid #D3D3D3; padding: 5px;'><p>You can choose to use a <!-- <placeholder>panel </placeholder> -->to emphasize key steps.</p><ol start="1" type="1" class="procedure-steps"><li><p>Connect to the power supply using the COM cable and repeat the <p><a href='configurazione_alimentatore_per_jet.html'>power supply configuration procedure for ED3 motors</a></p></li><li><p>Check the error message on the power supply display (F07, F09, F21), try restarting the machine and check whether the error appears again, and assess whether it is a problem related to one of the motors;<br><br></p></li></ol></div><h2 id="related-articles" class="maintenance-section-title" data-section-number="04"><a class="header" href="#related-articles">Related articles</a></h2><p><!-- <placeholder>Articles related are displayed here according to the selected tags. Click to edit the macro and add or remove tags.</placeholder> --></p><div class='panelContent' style='background-color: #fff; border: 1px solid #D3D3D3; padding: 5px;'><p><br></p></div><p><br></p><!--Label="asse"--><!--Label="dive"--><!--Label="motore"--><!--Label="azionamento"--><!--Label="pe0019"-->
                         </main>
 
                     </div>
@@ -277,5 +279,12 @@
     </div>;
 
 
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
 </body>
 </html>

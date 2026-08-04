@@ -40,7 +40,7 @@
     <script>
       const path_to_root = "";
       const default_light_theme = "light";
-      const default_dark_theme = "navy";
+      const default_dark_theme = "light";
     </script>
     <!-- Start loading toc.js asap -->
     <script src="toc.js"></script>
@@ -86,8 +86,10 @@
     });
   });
 })();
-</script></head>
-<body>
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-troubleshooting technical-troubleshooting-emergency" data-technical-styler-flow="html">
     <header class="header-main">
         <div class="header-flex">
             <div class="donatoni-flex">
@@ -110,6 +112,15 @@
                 </div>
                 <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                     <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
                 </button>
 
                 <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
@@ -144,17 +155,8 @@
 
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script>
-            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
-                .matches
-                ? default_dark_theme
-                : default_light_theme;
-            let theme;
-            try {
-                theme = localStorage.getItem("mdbook-theme");
-            } catch (e) { }
-            if (theme === null || theme === undefined) {
-                theme = default_theme;
-            }
+            const default_theme = "light";
+            let theme = default_theme;
             const html = document.documentElement;
             html.classList.remove("light");
             html.classList.add(theme);
@@ -214,8 +216,8 @@
 
                         <img src="images/donatoni_111.jpg">
 
-                        <main style="margin-left: 20px;">
-                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="pe0070-ventose-giÀ-a-contatto-errore" style="margin:0;"><a class="header" href="#pe0070-ventose-giÀ-a-contatto-errore">PE0070 VENTOSE GIÀ A CONTATTO (ERRORE)</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="PE0070 VENTOSE GIÀ A CONTATTO (ERRORE)"--><table class="my-table2" data-table-width="760" data-layout="default" ac:local-id="85e18120-421b-48c4-b375-dfbfdc4e6731"><colgroup><col style="width: 380.0px;"><col style="width: 380.0px;"></colgroup><tbody><tr ac:local-id="e5bc9cca-530d-4391-8abf-90ec0810f1c7"><td data-highlight-colour="#f4f5f7" colspan="2" ac:local-id="cf941d5e-1dd1-40a6-8da8-24b317c57201"><p local-id="194b1074a224" style="text-align: center;">⚠️ Prima di procedere leggere attentamente le <p><a href='istruzioni_di_sicurezza.html'>ISTRUZIONI DI SICUREZZA</a></p></td></tr><tr ac:local-id="bcbfbc33-cfbc-4c1e-b948-a02096c31882"><td data-highlight-colour="#f4f5f7" ac:local-id="85460c21-69fb-4097-9b48-f9dea0b46237"><p local-id="9419f9b51570">⏲️ <strong>Descrizione</strong>: Ventose già a contatto con pezzo</p></td><td data-highlight-colour="#f4f5f7" ac:local-id="8c2f9d95-c344-4062-99e0-b827231273ba"><p local-id="b7badccffd9d">🎚️ <strong>Gravità</strong>: ⭐☆☆☆☆ </p></td></tr><tr ac:local-id="d861c5f6-7a10-4077-8140-92d3b98189c7"><td data-highlight-colour="#f4f5f7" ac:local-id="9ed7b73b-9587-4bc0-9bf8-8b6aa4849e78"><p local-id="42802ec1df4f">🧑‍🏭 <strong>Figura autorizzata</strong>: Operatore macchina</p></td><td data-highlight-colour="#f4f5f7" ac:local-id="0e4b76a9-134c-486f-b921-7be7cc01f57c"><p local-id="79bf6046f066">🧤 <strong>DPI previsti</strong>:   <div><img src="attachments/pe0070_ventose_già_a_contatto_(errore)/5c50dea6-c18e-4b4c-af4e-4a88d2222111.png" alt="image-20240327-084216.png" onclick="showModal(this.src)" class="inline-img"></div> </td></tr></tbody></table><h2 local-id="6806ed909efc">Descrizione</h2><p local-id="d7c4ec4de50c">Questo errore compare generalmente quando le ventose sono appoggiate su un pezzo.</p><h2 local-id="6186578e2836">Sintomi</h2><p local-id="687710cf8e66">…..</p><h2 local-id="ac8dc9fd1852">Possibili cause</h2><div class='panelContent' style='background-color: #fff; border: 1px solid #D3D3D3; padding: 5px;'><ol start="1" local-id="7e57050ede73" type="1"><li local-id="26760f2f1621"><p local-id="7ff3cbc2f110">Ventose appoggiate sul pezzo;</p></li><li local-id="b2cfd2efb968"><p local-id="fb2e18130bec">Sensori non regolati correttamente;</p></li><li local-id="52931519edbc"><p local-id="82d947f603c8">Sensori guasti.</p></li></ol></div><h2 local-id="696c3b117d3c">Possibili soluzioni</h2><div class='panelContent' style='background-color: #fff; border: 1px solid #D3D3D3; padding: 5px;'><ol start="1" local-id="2c1f0f27b427" type="1"><li local-id="6515d46aace4"><p local-id="d961fa509bc2">Alzarsi con l'asse Z per staccarsi dal pezzo, Premere il pulsante per alzare le ventose</p></li><li local-id="126b0b41c2e4"><p local-id="32ad101a1ac3">Fare scendere le ventose tramite l'apposito pulsante; aprire i carter d'acciaio di protezione presenti sui braccetti delle ventose e controllare che i led dei sensori bassi siano accesi</p></li></ol></div><!--Label="kb-troubleshooting-article"--><!--Label="pe0070"-->
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Technical troubleshooting sheet</span><span class="maintenance-status"><i class="fa-solid fa-screwdriver-wrench" aria-hidden="true"></i> Emergency diagnostic procedure</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="pe0070-ventose-giÀ-a-contatto-errore" style="margin:0;" class="maintenance-main-title"><a class="header" href="#pe0070-ventose-giÀ-a-contatto-errore"><span class="maintenance-code">PE0070</span><span class="maintenance-name">VENTOSE GIÀ A CONTATTO (ERRORE)</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document PE0070" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="PE0070 VENTOSE GIÀ A CONTATTO (ERRORE)"--><table class="my-table2 troubleshooting-template-grid maintenance-data-grid" data-table-width="760" data-layout="default" ac:local-id="85e18120-421b-48c4-b375-dfbfdc4e6731" aria-label="Technical data for document PE0070"><colgroup><col style="width: 380.0px;"><col style="width: 380.0px;"></colgroup><tbody><tr ac:local-id="e5bc9cca-530d-4391-8abf-90ec0810f1c7" class="maintenance-safety-row"><td data-highlight-colour="#f4f5f7" colspan="2" ac:local-id="cf941d5e-1dd1-40a6-8da8-24b317c57201"><p local-id="194b1074a224" style="text-align: center;">Prima di procedere leggere attentamente le <p><a href='istruzioni_di_sicurezza.html'>ISTRUZIONI DI SICUREZZA</a></p></td></tr><tr ac:local-id="bcbfbc33-cfbc-4c1e-b948-a02096c31882"><td data-highlight-colour="#f4f5f7" ac:local-id="85460c21-69fb-4097-9b48-f9dea0b46237"><p local-id="9419f9b51570" class="maintenance-data-layout"><i class="maintenance-data-icon fa-solid fa-file-lines" aria-hidden="true"></i><span class="maintenance-data-content"><strong class="maintenance-data-label">Descrizione</strong><span class="maintenance-data-value">Ventose già a contatto con pezzo</span></span></p></td><td data-highlight-colour="#f4f5f7" ac:local-id="8c2f9d95-c344-4062-99e0-b827231273ba"><p local-id="b7badccffd9d" class="maintenance-data-layout"><i class="maintenance-data-icon fa-solid fa-triangle-exclamation" aria-hidden="true"></i><span class="maintenance-data-content"><strong class="maintenance-data-label">Gravità</strong><span class="severity-indicator severity-level-1" aria-label="Severity Low, level 1 of 5"><span class="severity-scale" aria-hidden="true"><i class="severity-segment is-active"></i><i class="severity-segment"></i><i class="severity-segment"></i><i class="severity-segment"></i><i class="severity-segment"></i></span><span class="severity-readout"><span class="severity-level-name">Low</span><span class="severity-score">01 / 05</span></span></span></span></p></td></tr><tr ac:local-id="d861c5f6-7a10-4077-8140-92d3b98189c7"><td data-highlight-colour="#f4f5f7" ac:local-id="9ed7b73b-9587-4bc0-9bf8-8b6aa4849e78"><p local-id="42802ec1df4f" class="maintenance-data-layout"><i class="maintenance-data-icon fa-solid fa-user-gear" aria-hidden="true"></i><span class="maintenance-data-content"><strong class="maintenance-data-label">Figura autorizzata</strong><span class="maintenance-data-value">Operatore macchina</span></span></p></td><td data-highlight-colour="#f4f5f7" ac:local-id="0e4b76a9-134c-486f-b921-7be7cc01f57c"><p local-id="79bf6046f066"><i class="maintenance-data-icon fa-solid fa-shield-halved" aria-hidden="true"></i><strong>DPI previsti</strong>:   <div><img src="attachments/pe0070_ventose_già_a_contatto_(errore)/5c50dea6-c18e-4b4c-af4e-4a88d2222111.png" alt="image-20240327-084216.png" onclick="showModal(this.src)" class="inline-img"></div> </td></tr></tbody></table><h2 local-id="6806ed909efc" class="maintenance-section-title" data-section-number="01">Descrizione</h2><p local-id="d7c4ec4de50c">Questo errore compare generalmente quando le ventose sono appoggiate su un pezzo.</p><h2 local-id="6186578e2836" class="maintenance-section-title" data-section-number="02">Sintomi</h2><p local-id="687710cf8e66">…..</p><h2 local-id="ac8dc9fd1852" class="maintenance-section-title" data-section-number="03">Possibili cause</h2><div class='panelContent' style='background-color: #fff; border: 1px solid #D3D3D3; padding: 5px;'><ol start="1" local-id="7e57050ede73" type="1"><li local-id="26760f2f1621"><p local-id="7ff3cbc2f110">Ventose appoggiate sul pezzo;</p></li><li local-id="b2cfd2efb968"><p local-id="fb2e18130bec">Sensori non regolati correttamente;</p></li><li local-id="52931519edbc"><p local-id="82d947f603c8">Sensori guasti.</p></li></ol></div><h2 local-id="696c3b117d3c" class="maintenance-section-title" data-section-number="04">Possibili soluzioni</h2><div class='panelContent resolution-panel-content' style='background-color: #fff; border: 1px solid #D3D3D3; padding: 5px;'><ol start="1" local-id="2c1f0f27b427" type="1" class="procedure-steps"><li local-id="6515d46aace4"><p local-id="d961fa509bc2">Alzarsi con l'asse Z per staccarsi dal pezzo, Premere il pulsante per alzare le ventose</p></li><li local-id="126b0b41c2e4"><p local-id="32ad101a1ac3">Fare scendere le ventose tramite l'apposito pulsante; aprire i carter d'acciaio di protezione presenti sui braccetti delle ventose e controllare che i led dei sensori bassi siano accesi</p></li></ol></div><!--Label="kb-troubleshooting-article"--><!--Label="pe0070"-->
                         </main>
 
                     </div>
@@ -277,5 +279,12 @@
     </div>;
 
 
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
 </body>
 </html>

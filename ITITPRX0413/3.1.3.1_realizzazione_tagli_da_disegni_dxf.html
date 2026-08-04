@@ -40,7 +40,7 @@
     <script>
       const path_to_root = "";
       const default_light_theme = "light";
-      const default_dark_theme = "navy";
+      const default_dark_theme = "light";
     </script>
     <!-- Start loading toc.js asap -->
     <script src="toc.js"></script>
@@ -86,8 +86,10 @@
     });
   });
 })();
-</script></head>
-<body>
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-document" data-technical-styler-flow="html">
     <header class="header-main">
         <div class="header-flex">
             <div class="donatoni-flex">
@@ -110,6 +112,15 @@
                 </div>
                 <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                     <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
                 </button>
 
                 <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
@@ -144,17 +155,8 @@
 
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script>
-            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
-                .matches
-                ? default_dark_theme
-                : default_light_theme;
-            let theme;
-            try {
-                theme = localStorage.getItem("mdbook-theme");
-            } catch (e) { }
-            if (theme === null || theme === undefined) {
-                theme = default_theme;
-            }
+            const default_theme = "light";
+            let theme = default_theme;
             const html = document.documentElement;
             html.classList.remove("light");
             html.classList.add(theme);
@@ -214,8 +216,8 @@
 
                         <img src="images/donatoni_111.jpg">
 
-                        <main style="margin-left: 20px;">
-                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="3131-realizzazione-tagli-da-disegni-dxf" style="margin:0;"><a class="header" href="#3131-realizzazione-tagli-da-disegni-dxf">3.1.3.1 REALIZZAZIONE TAGLI DA DISEGNI DXF</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="3.1.3.1 REALIZZAZIONE TAGLI DA DISEGNI DXF"--><p>La macchina può eseguire tagli, fresature e fori tramite disegni creati con software CAD e salvati in formato “.dxf“ con il riconoscimento automatico di alcune lavorazioni utili per semplificare e rendere più veloce il lavoro all’operatore bordo macchina.</p>
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Machine technical documentation</span><span class="maintenance-status"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Operational document</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="3131-realizzazione-tagli-da-disegni-dxf" style="margin:0;" class="maintenance-main-title"><a class="header" href="#3131-realizzazione-tagli-da-disegni-dxf"><span class="maintenance-code">DOC</span><span class="maintenance-name">3.1.3.1 REALIZZAZIONE TAGLI DA DISEGNI DXF</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document DOC" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="3.1.3.1 REALIZZAZIONE TAGLI DA DISEGNI DXF"--><p>La macchina può eseguire tagli, fresature e fori tramite disegni creati con software CAD e salvati in formato “.dxf“ con il riconoscimento automatico di alcune lavorazioni utili per semplificare e rendere più veloce il lavoro all’operatore bordo macchina.</p>
 <div id="admonition-nota" class="admonition admonish-info" role="note" aria-labelledby="admonition-nota-title">
 <div class="admonition-title">
 <div id="admonition-nota-title">
@@ -231,8 +233,8 @@ Tutti i pezzi disegnati devono essere chiusi e convertiti in polilinee formando 
 Qualora si desideri inserire la marca del pezzo per l’identificazione dovrà essere inserita all’interno del poligono.</p>
 </div>
 </div>
-<div class="TextAlignCenter"><img src="attachments/3.1.3.1_realizzazione_tagli_da_disegni_dxf/0.0.png" alt="0.0.png" width="600" onclick="showModal(this.src)"></div><p></p><p>
-</p><h1 id="impostazioni-parametrix-per-il-riconoscimento-dei-layer-importati"><a class="header" href="#impostazioni-parametrix-per-il-riconoscimento-dei-layer-importati">Impostazioni Parametrix per il riconoscimento dei layer importati</a></h1><p>Per accedere alla finestra dedicata alle impostazioni di personalizzazione relative all’importazione dei file DXF, premere il pulsante dei Parametri Utente che si trova sulla barra superiore di Parametrix.<br>Da qui, spostarsi nella sezione dedicata alla gestione dei nomi dei Layer.</p><p>Per ogni tipologia di funzione elencata, l’utente può assegnare un nome (corrispondente al nome del Layer impostato nel software CAD utilizzato) e assegnare alcuni parametri relativi ai valori di default per alcune lavorazioni.</p><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="e4ea2044-658d-4187-bdac-59c197e7ac76"><tbody><tr><td data-highlight-colour="#ffffff"><p style="text-align: center;"><strong>Funzione</strong></p></td><td data-highlight-colour="#ffffff"><p style="text-align: center;"><strong>Nome Layer</strong></p></td></tr><tr><td data-highlight-colour="#ffffff"><p>Tagli inclinati</p></td><td data-highlight-colour="#ffffff"><p>Inclinato</p></td></tr><tr><td data-highlight-colour="#ffffff"><p>Alzata</p></td><td data-highlight-colour="#ffffff"><p>Alzata</p></td></tr><tr><td data-highlight-colour="#ffffff"><p>Rivestimento</p></td><td data-highlight-colour="#ffffff"><p>Rivestimento</p></td></tr><tr><td data-highlight-colour="#ffffff"><p>Offset</p></td><td data-highlight-colour="#ffffff"><p>Offset</p></td></tr><tr><td data-highlight-colour="#ffffff"><p>Tagli sotto il materiale</p></td><td data-highlight-colour="#ffffff"><p>Sotto</p></td></tr><tr><td data-highlight-colour="#ffffff"><p>Gocciolatoio</p></td><td data-highlight-colour="#ffffff"><p>Gocciola</p></td></tr><tr><td data-highlight-colour="#ffffff"><p>Fresatura</p></td><td data-highlight-colour="#ffffff"><p>Fresatura</p></td></tr><tr><td data-highlight-colour="#ffffff"><p>Ribasso</p></td><td data-highlight-colour="#ffffff"><p>Ribasso</p></td></tr><tr><td data-highlight-colour="#ffffff"><p>Foratura</p></td><td data-highlight-colour="#ffffff"><p>Foratura</p></td></tr><tr><td data-highlight-colour="#ffffff"><p>Taglio aggiunto</p></td><td data-highlight-colour="#ffffff"><p>Aggiunto</p></td></tr><tr><td data-highlight-colour="#ffffff"><p>Foro di ancoraggio</p></td><td data-highlight-colour="#ffffff"><p>Keil</p></td></tr><tr><td data-highlight-colour="#ffffff"><p>Smusso</p></td><td data-highlight-colour="#ffffff"><p>Smusso</p></td></tr><tr><td data-highlight-colour="#ffffff"><p>Becco</p></td><td data-highlight-colour="#ffffff"><p>Becco</p></td></tr><tr><td data-highlight-colour="#ffffff"><p>Disattiva</p></td><td data-highlight-colour="#ffffff"><p>Disattiva</p></td></tr><tr><td data-highlight-colour="#ffffff"><p>Rimuovi</p></td><td data-highlight-colour="#ffffff"><p>Rimuovi</p></td></tr></tbody></table><p></p><h1 id="pulsanti"><a class="header" href="#pulsanti">Pulsanti</a></h1><p>I pulsanti a sinistra di ogni lavorazione permettono di:</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="9c5ac8e5-ae22-44e8-9a43-2570c039f23a" data-table-display-mode="default"><colgroup><col style="width: 193.0px;"><col style="width: 1606.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/3.1.3.1_realizzazione_tagli_da_disegni_dxf/0.1.png" alt="0.1.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Finestra informativa</strong><br>Mostra una rappresentazione grafica delle informazioni richieste per creare un Layer associato alla lavorazione.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.1.3.1_realizzazione_tagli_da_disegni_dxf/0.2.png" alt="0.2.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Scarica esempio</strong><br>Permette di scaricare un file DXF contenente un esempio di Layer associato alla lavorazione.</p></td></tr></tbody></table><p></p><p></p><h1 id="modalità-taglio-inclinato"><a class="header" href="#modalità-taglio-inclinato">Modalità Taglio Inclinato</a></h1><p>Per poter inserire in automatico un taglio inclinato è necessario osservare alcune convenzioni:</p><ul><li><p>I tagli inclinati si possono inserire solamente sui lati dei pezzi; qualora il taglio inclinato non valga per tutto il tratto lo si può dividere in più parti.</p></li><li><p>Può essere applicato il taglio inclinato su archi esterni (Es: tavolo circolare, oppure su copertine curve solamente per quanto riguarda il taglio esterno).</p></li><li><p>Per quanto riguarda gli archi interni (es: copertine in curva) il taglio viene effettuato a passate; il taglio sarà effettuato inclinando il disco automaticamente, evitando problemi di collisione con il materiale.</p></li></ul><p>La procedura per chi utilizza sistemi CAD, prevede la creazione di un Layer che abbia le seguenti proprietà:</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="21f548b7-1105-4b01-9b59-5a113f8e7d77"><colgroup><col style="width: 385.0px;"><col style="width: 1413.0px;"></colgroup><tbody><tr><td><p><strong>Nome del Layer</strong></p></td><td><p>Inclinato _ (seguita dal numero che identifica i gradi di inclinazione desiderato).</p>
+<div class="TextAlignCenter"><img src="attachments/3.1.3.1_realizzazione_tagli_da_disegni_dxf/0.0.png" alt="0.0.png" width="600" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><p>
+</p><h1 id="impostazioni-parametrix-per-il-riconoscimento-dei-layer-importati"><a class="header" href="#impostazioni-parametrix-per-il-riconoscimento-dei-layer-importati">Impostazioni Parametrix per il riconoscimento dei layer importati</a></h1><p>Per accedere alla finestra dedicata alle impostazioni di personalizzazione relative all’importazione dei file DXF, premere il pulsante dei Parametri Utente che si trova sulla barra superiore di Parametrix.<br>Da qui, spostarsi nella sezione dedicata alla gestione dei nomi dei Layer.</p><p>Per ogni tipologia di funzione elencata, l’utente può assegnare un nome (corrispondente al nome del Layer impostato nel software CAD utilizzato) e assegnare alcuni parametri relativi ai valori di default per alcune lavorazioni.</p><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="e4ea2044-658d-4187-bdac-59c197e7ac76"><tbody><tr><td data-highlight-colour="#ffffff"><p style="text-align: center;"><strong>Funzione</strong></p></td><td data-highlight-colour="#ffffff"><p style="text-align: center;"><strong>Nome Layer</strong></p></td></tr><tr><td data-highlight-colour="#ffffff"><p>Tagli inclinati</p></td><td data-highlight-colour="#ffffff"><p>Inclinato</p></td></tr><tr><td data-highlight-colour="#ffffff"><p>Alzata</p></td><td data-highlight-colour="#ffffff"><p>Alzata</p></td></tr><tr><td data-highlight-colour="#ffffff"><p>Rivestimento</p></td><td data-highlight-colour="#ffffff"><p>Rivestimento</p></td></tr><tr><td data-highlight-colour="#ffffff"><p>Offset</p></td><td data-highlight-colour="#ffffff"><p>Offset</p></td></tr><tr><td data-highlight-colour="#ffffff"><p>Tagli sotto il materiale</p></td><td data-highlight-colour="#ffffff"><p>Sotto</p></td></tr><tr><td data-highlight-colour="#ffffff"><p>Gocciolatoio</p></td><td data-highlight-colour="#ffffff"><p>Gocciola</p></td></tr><tr><td data-highlight-colour="#ffffff"><p>Fresatura</p></td><td data-highlight-colour="#ffffff"><p>Fresatura</p></td></tr><tr><td data-highlight-colour="#ffffff"><p>Ribasso</p></td><td data-highlight-colour="#ffffff"><p>Ribasso</p></td></tr><tr><td data-highlight-colour="#ffffff"><p>Foratura</p></td><td data-highlight-colour="#ffffff"><p>Foratura</p></td></tr><tr><td data-highlight-colour="#ffffff"><p>Taglio aggiunto</p></td><td data-highlight-colour="#ffffff"><p>Aggiunto</p></td></tr><tr><td data-highlight-colour="#ffffff"><p>Foro di ancoraggio</p></td><td data-highlight-colour="#ffffff"><p>Keil</p></td></tr><tr><td data-highlight-colour="#ffffff"><p>Smusso</p></td><td data-highlight-colour="#ffffff"><p>Smusso</p></td></tr><tr><td data-highlight-colour="#ffffff"><p>Becco</p></td><td data-highlight-colour="#ffffff"><p>Becco</p></td></tr><tr><td data-highlight-colour="#ffffff"><p>Disattiva</p></td><td data-highlight-colour="#ffffff"><p>Disattiva</p></td></tr><tr><td data-highlight-colour="#ffffff"><p>Rimuovi</p></td><td data-highlight-colour="#ffffff"><p>Rimuovi</p></td></tr></tbody></table><p></p><h1 id="pulsanti"><a class="header" href="#pulsanti">Pulsanti</a></h1><p>I pulsanti a sinistra di ogni lavorazione permettono di:</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="9c5ac8e5-ae22-44e8-9a43-2570c039f23a" data-table-display-mode="default"><colgroup><col style="width: 193.0px;"><col style="width: 1606.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/3.1.3.1_realizzazione_tagli_da_disegni_dxf/0.1.png" alt="0.1.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Finestra informativa</strong><br>Mostra una rappresentazione grafica delle informazioni richieste per creare un Layer associato alla lavorazione.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.1.3.1_realizzazione_tagli_da_disegni_dxf/0.2.png" alt="0.2.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Scarica esempio</strong><br>Permette di scaricare un file DXF contenente un esempio di Layer associato alla lavorazione.</p></td></tr></tbody></table><p></p><p></p><h1 id="modalità-taglio-inclinato"><a class="header" href="#modalità-taglio-inclinato">Modalità Taglio Inclinato</a></h1><p>Per poter inserire in automatico un taglio inclinato è necessario osservare alcune convenzioni:</p><ul><li><p>I tagli inclinati si possono inserire solamente sui lati dei pezzi; qualora il taglio inclinato non valga per tutto il tratto lo si può dividere in più parti.</p></li><li><p>Può essere applicato il taglio inclinato su archi esterni (Es: tavolo circolare, oppure su copertine curve solamente per quanto riguarda il taglio esterno).</p></li><li><p>Per quanto riguarda gli archi interni (es: copertine in curva) il taglio viene effettuato a passate; il taglio sarà effettuato inclinando il disco automaticamente, evitando problemi di collisione con il materiale.</p></li></ul><p>La procedura per chi utilizza sistemi CAD, prevede la creazione di un Layer che abbia le seguenti proprietà:</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="21f548b7-1105-4b01-9b59-5a113f8e7d77"><colgroup><col style="width: 385.0px;"><col style="width: 1413.0px;"></colgroup><tbody><tr><td><p><strong>Nome del Layer</strong></p></td><td><p>Inclinato _ (seguita dal numero che identifica i gradi di inclinazione desiderato).</p>
 <div id="admonition-nota-1" class="admonition admonish-info" role="note" aria-labelledby="admonition-nota-1-title">
 <div class="admonition-title">
 <div id="admonition-nota-1-title">
@@ -523,5 +525,12 @@ A: gradi sessagesimali</p>
     </div>;
 
 
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
 </body>
 </html>

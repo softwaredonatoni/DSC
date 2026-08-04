@@ -40,7 +40,7 @@
     <script>
       const path_to_root = "";
       const default_light_theme = "light";
-      const default_dark_theme = "navy";
+      const default_dark_theme = "light";
     </script>
     <!-- Start loading toc.js asap -->
     <script src="toc.js"></script>
@@ -86,8 +86,10 @@
     });
   });
 })();
-</script></head>
-<body>
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css">
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css">
+</head>
+<body class="maintenance-page technical-maintenance" data-technical-styler-flow="html">
     <header class="header-main">
         <div class="header-flex">
             <div class="donatoni-flex">
@@ -110,6 +112,9 @@
                 </div>
                 <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                     <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button class="btn btn-sm" id="keyboard-toggle" type="button" title="Virtual Keyboard" aria-label="Activate/Deactivate Virtual Keyboard" aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
                 </button>
 
                 <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
@@ -144,17 +149,8 @@
 
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script>
-            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
-                .matches
-                ? default_dark_theme
-                : default_light_theme;
-            let theme;
-            try {
-                theme = localStorage.getItem("mdbook-theme");
-            } catch (e) { }
-            if (theme === null || theme === undefined) {
-                theme = default_theme;
-            }
+            const default_theme = "light";
+            let theme = default_theme;
             const html = document.documentElement;
             html.classList.remove("light");
             html.classList.add(theme);
@@ -214,8 +210,8 @@
 
                         <img src="images/donatoni_111.jpg">
 
-                        <main style="margin-left: 20px;">
-                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="mn0002-manutenzione-mensile-pompa-del-vuoto" style="margin:0;"><a class="header" href="#mn0002-manutenzione-mensile-pompa-del-vuoto">MN0002 MANUTENZIONE MENSILE POMPA DEL VUOTO</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="MN0002 MANUTENZIONE MENSILE POMPA DEL VUOTO"--><layout><layout-section ac:type="fixed-width" ac:breakout-mode="default"><layout-cell><table class="my-table2" data-table-width="760" data-layout="center" ac:local-id="85e18120-421b-48c4-b375-dfbfdc4e6731"><tbody><tr><td data-highlight-colour="#f4f5f7" colspan="2"><p style="text-align: center;">⚠️ Prima di procedere leggere attentamente le <p><a href='istruzioni_di_sicurezza.html'>ISTRUZIONI DI SICUREZZA</a></p></td></tr><tr><td data-highlight-colour="#f4f5f7"><p>⏲️ <strong>Intervallo</strong>: ogni settimana; ogni mese</p></td><td data-highlight-colour="#f4f5f7"><p>🎚️ <strong>Complessità operazione</strong>: ⭐☆☆☆☆ </p></td></tr><tr><td data-highlight-colour="#f4f5f7"><p>🧑‍🏭 <strong>Figura autorizzata</strong>: Operatore macchina</p></td><td data-highlight-colour="#f4f5f7"><p>🧤 <strong>DPI previsti</strong>:   <div><img src="attachments/mn0002_manutenzione_mensile_pompa_del_vuoto/image-20240327-084216.png" alt="image-20240327-084216.png" onclick="showModal(this.src)" class="inline-img" id="a2372503-420e-48f2-91c7-86ad5df99b36" contextid="183010144"></div> </td></tr></tbody></table></layout-cell></layout-section><layout-section ac:type="single" ac:breakout-mode="wide" ac:breakout-width="760"><layout-cell><h2 id="video"><a class="header" href="#video">Video</a></h2><div class="TextAlignCenter"><video controls src="attachments/mn0002_manutenzione_mensile_pompa_del_vuoto/VacuumPumpMaintenance.mp4" width="760" aria-label="attachments/mn0002_manutenzione_mensile_pompa_del_vuoto/VacuumPumpMaintenance.mp4"></video></div></layout-cell></layout-section><layout-section ac:type="fixed-width" ac:breakout-mode="default"><layout-cell><h2 id="procedura"><a class="header" href="#procedura">Procedura</a></h2><p>Il mantenimento in buono stato della pompa vuoto dipende dal livello di pulizia dell’acqua dell’impianto idrico. E’ a carico dell’acquirente assicurarsi che le caratteristiche dell’acqua utilizzata siano conformi a quanto previsto dal manuale uso e manutenzione del produttore della pompa .</p><h3 id="ogni-settimana"><a class="header" href="#ogni-settimana">Ogni settimana:</a></h3><ul><li><p>Verificare che il livello dell’acqua nella vasca arrivi al livello del tubo di scolo di “troppo pieno”</p></li><li><p>In caso di utilizzo sporadico del sistema del vuoto azionare settimanalmente la pompa del vuoto attraverso il comando di attivazione vuoto (fare riferimento alla sez. B del manuale “Istruzione per l’uso” abbinato al presente manuale)</p></li></ul><h3 id="ogni-mese"><a class="header" href="#ogni-mese">Ogni mese:</a></h3><ul><li><p> Effettuare una accurata pulizia della vasca rimuovendo gli eventuali depositi di sedimento accumulati sul fondo</p></li></ul><p> </p><p>Per indicazioni più dettagliate sulla manutenzione della pompa vuoto fare riferimento al manuale uso e manutenzione <p><a href='attachments/mn0002_manutenzione_mensile_pompa_del_vuoto/120113044828_Manuale_Vuoto_Italiano.pdf'>120113044828_Manuale_Vuoto_Italiano.pdf</a></p> <p> </p><p> </p><p></p></layout-cell></layout-section></layout><!--Label="mn0002"-->
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Technical maintenance sheet</span><span class="maintenance-status"><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Controlled procedure</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="mn0002-manutenzione-mensile-pompa-del-vuoto" style="margin:0;" class="maintenance-main-title"><a class="header" href="#mn0002-manutenzione-mensile-pompa-del-vuoto"><span class="maintenance-code">MN0002</span><span class="maintenance-name">MANUTENZIONE MENSILE POMPA DEL VUOTO</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document MN0002" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="MN0002 MANUTENZIONE MENSILE POMPA DEL VUOTO"--><layout><layout-section ac:type="fixed-width" ac:breakout-mode="default"><layout-cell><table class="my-table2 maintenance-data-grid" data-table-width="760" data-layout="center" ac:local-id="85e18120-421b-48c4-b375-dfbfdc4e6731" aria-label="Technical data for document MN0002"><tbody><tr class="maintenance-safety-row"><td data-highlight-colour="#f4f5f7" colspan="2"><p style="text-align: center;">Prima di procedere leggere attentamente le <p><a href='istruzioni_di_sicurezza.html'>ISTRUZIONI DI SICUREZZA</a></p></td></tr><tr><td data-highlight-colour="#f4f5f7"><p class="maintenance-data-layout"><i class="maintenance-data-icon fa-solid fa-clock" aria-hidden="true"></i><span class="maintenance-data-content"><strong class="maintenance-data-label">Intervallo</strong><span class="maintenance-data-value">ogni settimana; ogni mese</span></span></p></td><td data-highlight-colour="#f4f5f7"><p class="maintenance-data-layout"><i class="maintenance-data-icon fa-solid fa-gauge-high" aria-hidden="true"></i><span class="maintenance-data-content"><strong class="maintenance-data-label">Complessità operazione</strong><span class="complexity-indicator complexity-level-1" aria-label="Complexity Low, level 1 of 5"><span class="complexity-scale" aria-hidden="true"><i class="complexity-segment is-active"></i><i class="complexity-segment"></i><i class="complexity-segment"></i><i class="complexity-segment"></i><i class="complexity-segment"></i></span><span class="complexity-readout"><span class="complexity-level-name">Low</span><span class="complexity-score">01 / 05</span></span></span></span></p></td></tr><tr><td data-highlight-colour="#f4f5f7"><p class="maintenance-data-layout"><i class="maintenance-data-icon fa-solid fa-user-gear" aria-hidden="true"></i><span class="maintenance-data-content"><strong class="maintenance-data-label">Figura autorizzata</strong><span class="maintenance-data-value">Operatore macchina</span></span></p></td><td data-highlight-colour="#f4f5f7"><p><i class="maintenance-data-icon fa-solid fa-shield-halved" aria-hidden="true"></i><strong>DPI previsti</strong>:   <div><img src="attachments/mn0002_manutenzione_mensile_pompa_del_vuoto/image-20240327-084216.png" alt="image-20240327-084216.png" onclick="showModal(this.src)" class="inline-img" id="a2372503-420e-48f2-91c7-86ad5df99b36" contextid="183010144"></div> </td></tr></tbody></table></layout-cell></layout-section><layout-section ac:type="single" ac:breakout-mode="wide" ac:breakout-width="760"><layout-cell><h2 id="video" class="maintenance-section-title" data-section-number="01"><a class="header" href="#video">Video</a></h2><div class="TextAlignCenter"><video controls src="attachments/mn0002_manutenzione_mensile_pompa_del_vuoto/VacuumPumpMaintenance.mp4" width="760" aria-label="attachments/mn0002_manutenzione_mensile_pompa_del_vuoto/VacuumPumpMaintenance.mp4" class="technical-media"></video></div></layout-cell></layout-section><layout-section ac:type="fixed-width" ac:breakout-mode="default"><layout-cell><h2 id="procedura" class="maintenance-section-title" data-section-number="02"><a class="header" href="#procedura">Procedura</a></h2><p>Il mantenimento in buono stato della pompa vuoto dipende dal livello di pulizia dell’acqua dell’impianto idrico. E’ a carico dell’acquirente assicurarsi che le caratteristiche dell’acqua utilizzata siano conformi a quanto previsto dal manuale uso e manutenzione del produttore della pompa .</p><h3 id="ogni-settimana"><a class="header" href="#ogni-settimana">Ogni settimana:</a></h3><ul class="procedure-steps"><li><p>Verificare che il livello dell’acqua nella vasca arrivi al livello del tubo di scolo di “troppo pieno”</p></li><li><p>In caso di utilizzo sporadico del sistema del vuoto azionare settimanalmente la pompa del vuoto attraverso il comando di attivazione vuoto (fare riferimento alla sez. B del manuale “Istruzione per l’uso” abbinato al presente manuale)</p></li></ul><h3 id="ogni-mese"><a class="header" href="#ogni-mese">Ogni mese:</a></h3><ul class="procedure-steps"><li><p> Effettuare una accurata pulizia della vasca rimuovendo gli eventuali depositi di sedimento accumulati sul fondo</p></li></ul><p> </p><p>Per indicazioni più dettagliate sulla manutenzione della pompa vuoto fare riferimento al manuale uso e manutenzione <p><a href='attachments/mn0002_manutenzione_mensile_pompa_del_vuoto/120113044828_Manuale_Vuoto_Italiano.pdf'>120113044828_Manuale_Vuoto_Italiano.pdf</a></p> <p> </p><p> </p><p></p></layout-cell></layout-section></layout><!--Label="mn0002"-->
                         </main>
 
                     </div>
@@ -277,5 +273,12 @@
     </div>;
 
 
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
 </body>
 </html>

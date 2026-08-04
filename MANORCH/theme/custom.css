@@ -82,6 +82,7 @@ main {
 
 
     .my-table2 th {
+        color: #212529 !important;
         padding: 10px !important;
         border: 1px solid #ccc !important;
         text-align: left !important;

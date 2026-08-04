@@ -40,7 +40,7 @@
     <script>
       const path_to_root = "";
       const default_light_theme = "light";
-      const default_dark_theme = "navy";
+      const default_dark_theme = "light";
     </script>
     <!-- Start loading toc.js asap -->
     <script src="toc.js"></script>
@@ -86,8 +86,10 @@
     });
   });
 })();
-</script></head>
-<body>
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-document" data-technical-styler-flow="html">
     <header class="header-main">
         <div class="header-flex">
             <div class="donatoni-flex">
@@ -110,6 +112,15 @@
                 </div>
                 <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                     <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
                 </button>
 
                 <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
@@ -144,17 +155,8 @@
 
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script>
-            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
-                .matches
-                ? default_dark_theme
-                : default_light_theme;
-            let theme;
-            try {
-                theme = localStorage.getItem("mdbook-theme");
-            } catch (e) { }
-            if (theme === null || theme === undefined) {
-                theme = default_theme;
-            }
+            const default_theme = "light";
+            let theme = default_theme;
             const html = document.documentElement;
             html.classList.remove("light");
             html.classList.add(theme);
@@ -214,9 +216,9 @@
 
                         <img src="images/donatoni_111.jpg">
 
-                        <main style="margin-left: 20px;">
-                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="31319-ingombro-massimo-opzionale" style="margin:0;"><a class="header" href="#31319-ingombro-massimo-opzionale">3.13.19 INGOMBRO MASSIMO (OPZIONALE)</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="3.13.19 INGOMBRO MASSIMO (OPZIONALE)"--><p>Questa funzionalità consente di convertire un qualsiasi pezzo nella sua forma rettangolare di ingombro massimo, ovvero il rettangolo più piccolo in grado di contenerlo interamente.<br>L’interfaccia per questa funzione assomiglia alla seguente immagine:</p><div class="TextAlignCenter"><img src="attachments/3.13.19_ingombro_massimo_(opzionale)/2.2-20250630-112112.png" alt="2.2-20250630-112112.png" width="800" onclick="showModal(this.src)"></div><p></p><p>
-</p><p></p><h1 id="parametri"><a class="header" href="#parametri">Parametri</a></h1><p>È possibile attivare il seguente parametro cliccando sulla checkbox alla sua destra.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="3599a134-4dec-467c-b36f-8a2849ec403f"><colgroup><col style="width: 255.0px;"><col style="width: 1542.0px;"></colgroup><tbody><tr><td><p><strong>Trova minimo</strong></p></td><td><p>Questa funzione consente di calcolare l’ingombro minimo del pezzo sulla superficie della lastra, ottimizzandone il posizionamento.</p></td></tr></tbody></table><h1 id="esecuzione-della-lavorazione"><a class="header" href="#esecuzione-della-lavorazione">Esecuzione della lavorazione</a></h1><h2 id="parametro-disattivato"><a class="header" href="#parametro-disattivato">Parametro disattivato</a></h2><p>Cliccando sul tasto ‘OK’, il pezzo verrà convertito nella sua versione rettangolare.</p><div class="TextAlignCenter"><img src="attachments/3.13.19_ingombro_massimo_(opzionale)/2.0-20250630-112001.png" alt="2.0-20250630-112001.png" width="800" onclick="showModal(this.src)"></div><p></p><h2 id="parametro-attivato"><a class="header" href="#parametro-attivato">Parametro attivato</a></h2><p>Cliccando sulla checkbox e successivamente sul tasto ‘OK’ verrà effettuata la lavorazione sul pezzo:</p><div class="TextAlignCenter"><img src="attachments/3.13.19_ingombro_massimo_(opzionale)/2.1-20250630-112041.png" alt="2.1-20250630-112041.png" width="800" onclick="showModal(this.src)"></div><p></p><!--Label="mdr_max"-->
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Machine technical documentation</span><span class="maintenance-status"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Operational document</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="31319-ingombro-massimo-opzionale" style="margin:0;" class="maintenance-main-title"><a class="header" href="#31319-ingombro-massimo-opzionale"><span class="maintenance-code">DOC</span><span class="maintenance-name">3.13.19 INGOMBRO MASSIMO (OPZIONALE)</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document DOC" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="3.13.19 INGOMBRO MASSIMO (OPZIONALE)"--><p>Questa funzionalità consente di convertire un qualsiasi pezzo nella sua forma rettangolare di ingombro massimo, ovvero il rettangolo più piccolo in grado di contenerlo interamente.<br>L’interfaccia per questa funzione assomiglia alla seguente immagine:</p><div class="TextAlignCenter"><img src="attachments/3.13.19_ingombro_massimo_(opzionale)/2.2-20250630-112112.png" alt="2.2-20250630-112112.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><p>
+</p><p></p><h1 id="parametri"><a class="header" href="#parametri">Parametri</a></h1><p>È possibile attivare il seguente parametro cliccando sulla checkbox alla sua destra.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="3599a134-4dec-467c-b36f-8a2849ec403f"><colgroup><col style="width: 255.0px;"><col style="width: 1542.0px;"></colgroup><tbody><tr><td><p><strong>Trova minimo</strong></p></td><td><p>Questa funzione consente di calcolare l’ingombro minimo del pezzo sulla superficie della lastra, ottimizzandone il posizionamento.</p></td></tr></tbody></table><h1 id="esecuzione-della-lavorazione"><a class="header" href="#esecuzione-della-lavorazione">Esecuzione della lavorazione</a></h1><h2 id="parametro-disattivato" class="maintenance-section-title" data-section-number="01"><a class="header" href="#parametro-disattivato">Parametro disattivato</a></h2><p>Cliccando sul tasto ‘OK’, il pezzo verrà convertito nella sua versione rettangolare.</p><div class="TextAlignCenter"><img src="attachments/3.13.19_ingombro_massimo_(opzionale)/2.0-20250630-112001.png" alt="2.0-20250630-112001.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><h2 id="parametro-attivato" class="maintenance-section-title" data-section-number="02"><a class="header" href="#parametro-attivato">Parametro attivato</a></h2><p>Cliccando sulla checkbox e successivamente sul tasto ‘OK’ verrà effettuata la lavorazione sul pezzo:</p><div class="TextAlignCenter"><img src="attachments/3.13.19_ingombro_massimo_(opzionale)/2.1-20250630-112041.png" alt="2.1-20250630-112041.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><!--Label="mdr_max"-->
                         </main>
 
                     </div>
@@ -278,5 +280,12 @@
     </div>;
 
 
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
 </body>
 </html>

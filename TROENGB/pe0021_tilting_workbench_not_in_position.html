@@ -40,7 +40,7 @@
     <script>
       const path_to_root = "";
       const default_light_theme = "light";
-      const default_dark_theme = "navy";
+      const default_dark_theme = "light";
     </script>
     <!-- Start loading toc.js asap -->
     <script src="toc.js"></script>
@@ -86,8 +86,10 @@
     });
   });
 })();
-</script></head>
-<body>
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-troubleshooting technical-troubleshooting-emergency" data-technical-styler-flow="html">
     <header class="header-main">
         <div class="header-flex">
             <div class="donatoni-flex">
@@ -110,6 +112,15 @@
                 </div>
                 <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                     <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
                 </button>
 
                 <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
@@ -144,17 +155,8 @@
 
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script>
-            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
-                .matches
-                ? default_dark_theme
-                : default_light_theme;
-            let theme;
-            try {
-                theme = localStorage.getItem("mdbook-theme");
-            } catch (e) { }
-            if (theme === null || theme === undefined) {
-                theme = default_theme;
-            }
+            const default_theme = "light";
+            let theme = default_theme;
             const html = document.documentElement;
             html.classList.remove("light");
             html.classList.add(theme);
@@ -214,8 +216,8 @@
 
                         <img src="images/donatoni_111.jpg">
 
-                        <main style="margin-left: 20px;">
-                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="pe0021-tilting-workbench-not-in-position" style="margin:0;"><a class="header" href="#pe0021-tilting-workbench-not-in-position">PE0021 TILTING WORKBENCH NOT IN POSITION</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="PE0021 TILTING WORKBENCH NOT IN POSITION"--><h2 local-id="a9010ab161ea">Error explanation</h2><p local-id="f50b52fcba3c">The foldable bench is outside its parking position.</p><div class="TextAlignCenter"><img src="attachments/pe0021_tilting_workbench_not_in_position/IMG_0020.JPG" alt="IMG_0020.JPG" width="224" onclick="showModal(this.src)"></div><hr local-id="4069a5f4a405"><div class="TextAlignCenter"><img src="attachments/pe0021_tilting_workbench_not_in_position/IMG_0018.JPG" alt="IMG_0018.JPG" width="224" onclick="showModal(this.src)"></div><hr local-id="b633e33fe984"><h2 local-id="330aad86d358">Possible causes</h2><p local-id="03bff8548e97">Possible causes of this alarm are numerous, both mechanical and electrical in nature:</p><div class='panelContent' style='background-color: #fff; border: 1px solid #D3D3D3; padding: 5px;'><p local-id="f8aaec513408">For the machine the bench is not in parking position reasons may be:<br></p><ol start="1" local-id="aca883d6ef1e" type="1"><li local-id="0b285edc9fd5"><p local-id="991cd2ab5d26">The bench is tilted and does not reach the end stop;</p></li><li local-id="fe28df3a09c8"><p local-id="1338242c1a39">The bench is in parking position but does not reach the limit switch;</p></li><li local-id="060d31fc4b3a"><p local-id="00d696e0b44a">End of bench travel fault;</p></li><li local-id="792ff2006099"><p local-id="7c29090940cb">Connection between workbench end-of-travel and electrical panel faulty.</p></li><li local-id="6cb0a447b9d9"><p local-id="a922c12972ad">The bench for some mechanical reason such as broken pipes, missing oil, broken pump cannot be returned to parking</p></li></ol></div><h2 local-id="0da94900eab0">Possible solutions</h2><p local-id="a193a2cf71a8">!ATTENTION! With the alarm active, machine movement is not possible; if the machine is not in parking mode, we will be in a locked condition. In Parametrix enter the first 'Lock' and press the button 'Wrench_Screwdriver' to disable the bench (If old Parametrix version go into KvIsoGui.exe, access restricted area with password: 'esagv' and disable the optional 'Bench')</p><p local-id="4f074260e528"><div><img src="attachments/pe0021_tilting_workbench_not_in_position/Immagine1.png" alt="Immagine1.png" onclick="showModal(this.src)"></div><hr local-id="c0b9808014ce"><p local-id="bdac272ee050"><br></p><div class='panelContent' style='background-color: #fff; border: 1px solid #D3D3D3; padding: 5px;'><p local-id="407e1b13922b">Ensuring that the machine is in parking position perform the following procedures:<br></p><ol start="1" local-id="ba8108882c65" type="1"><li local-id="be5c06924bfc"><p local-id="5bf2230f1e3e">Use the dedicated selector on the console to position the bench in parking;</p></li><li local-id="87746bc8e229"><p local-id="064cc1fccb91">Check if the bench physically touches or not the sensor when parked; if it does not touch, check whether the bench stops on the bolts; if affirmative, adjust the sensor so that it touches the bench.</p></li><li local-id="4495b1bacbfd"><p local-id="376cff3d376b">Open KvIsoGui.exe press the button 'Menu' open 'Monitor I/O' check by pressing the limit switch if the input related to it works (FC_SUPP_LOW AT %IW4.13; * IW4.13 LOW BENCH LIMIT SWITCH)</p><ol start="1" local-id="2a6c73c58239" type="a"><li local-id="37011d668125"><p local-id="0c0abb2f8fdf">If the input does not change state, check with a tester if the limit switch works correctly (for example, when placing the dots on the NO terminals while pressing the limit switch I must close the contact)</p></li><li local-id="ace2f80a160d"><p local-id="18f0c00a9487">If the limit switch works correctly, the connections must be checked; follow the <p><a href='schema_elettrico_jet.html'>Schema elettrico</a></p></li></ol></li><li local-id="fda2556ae144"><p local-id="3938638c3bbd">Check that the pump is operating correctly and verify that the system is not actually faulty;</p></li></ol></div><h2 local-id="e95f9b0fa643">NB: Remember to re-enable the table</h2><h2 local-id="0ff115314721">Related articles</h2><div class='panelContent' style='background-color: #fff; border: 1px solid #D3D3D3; padding: 5px;'><p><br></p></div><!--Label="elettrico"--><!--Label="banco"--><!--Label="pe0021"-->
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Technical troubleshooting sheet</span><span class="maintenance-status"><i class="fa-solid fa-screwdriver-wrench" aria-hidden="true"></i> Emergency diagnostic procedure</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="pe0021-tilting-workbench-not-in-position" style="margin:0;" class="maintenance-main-title"><a class="header" href="#pe0021-tilting-workbench-not-in-position"><span class="maintenance-code">PE0021</span><span class="maintenance-name">TILTING WORKBENCH NOT IN POSITION</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document PE0021" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="PE0021 TILTING WORKBENCH NOT IN POSITION"--><h2 local-id="a9010ab161ea" class="maintenance-section-title" data-section-number="01">Error explanation</h2><p local-id="f50b52fcba3c">The foldable bench is outside its parking position.</p><div class="TextAlignCenter"><img src="attachments/pe0021_tilting_workbench_not_in_position/IMG_0020.JPG" alt="IMG_0020.JPG" width="224" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><hr local-id="4069a5f4a405"><div class="TextAlignCenter"><img src="attachments/pe0021_tilting_workbench_not_in_position/IMG_0018.JPG" alt="IMG_0018.JPG" width="224" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><hr local-id="b633e33fe984"><h2 local-id="330aad86d358" class="maintenance-section-title" data-section-number="02">Possible causes</h2><p local-id="03bff8548e97">Possible causes of this alarm are numerous, both mechanical and electrical in nature:</p><div class='panelContent' style='background-color: #fff; border: 1px solid #D3D3D3; padding: 5px;'><p local-id="f8aaec513408">For the machine the bench is not in parking position reasons may be:<br></p><ol start="1" local-id="aca883d6ef1e" type="1"><li local-id="0b285edc9fd5"><p local-id="991cd2ab5d26">The bench is tilted and does not reach the end stop;</p></li><li local-id="fe28df3a09c8"><p local-id="1338242c1a39">The bench is in parking position but does not reach the limit switch;</p></li><li local-id="060d31fc4b3a"><p local-id="00d696e0b44a">End of bench travel fault;</p></li><li local-id="792ff2006099"><p local-id="7c29090940cb">Connection between workbench end-of-travel and electrical panel faulty.</p></li><li local-id="6cb0a447b9d9"><p local-id="a922c12972ad">The bench for some mechanical reason such as broken pipes, missing oil, broken pump cannot be returned to parking</p></li></ol></div><h2 local-id="0da94900eab0" class="maintenance-section-title" data-section-number="03">Possible solutions</h2><p local-id="a193a2cf71a8">!ATTENTION! With the alarm active, machine movement is not possible; if the machine is not in parking mode, we will be in a locked condition. In Parametrix enter the first 'Lock' and press the button 'Wrench_Screwdriver' to disable the bench (If old Parametrix version go into KvIsoGui.exe, access restricted area with password: 'esagv' and disable the optional 'Bench')</p><p local-id="4f074260e528"><div><img src="attachments/pe0021_tilting_workbench_not_in_position/Immagine1.png" alt="Immagine1.png" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><hr local-id="c0b9808014ce"><p local-id="bdac272ee050"><br></p><div class='panelContent resolution-panel-content' style='background-color: #fff; border: 1px solid #D3D3D3; padding: 5px;'><p local-id="407e1b13922b">Ensuring that the machine is in parking position perform the following procedures:<br></p><ol start="1" local-id="ba8108882c65" type="1" class="procedure-steps"><li local-id="be5c06924bfc"><p local-id="5bf2230f1e3e">Use the dedicated selector on the console to position the bench in parking;</p></li><li local-id="87746bc8e229"><p local-id="064cc1fccb91">Check if the bench physically touches or not the sensor when parked; if it does not touch, check whether the bench stops on the bolts; if affirmative, adjust the sensor so that it touches the bench.</p></li><li local-id="4495b1bacbfd"><p local-id="376cff3d376b">Open KvIsoGui.exe press the button 'Menu' open 'Monitor I/O' check by pressing the limit switch if the input related to it works (FC_SUPP_LOW AT %IW4.13; * IW4.13 LOW BENCH LIMIT SWITCH)</p><ol start="1" local-id="2a6c73c58239" type="a"><li local-id="37011d668125"><p local-id="0c0abb2f8fdf">If the input does not change state, check with a tester if the limit switch works correctly (for example, when placing the dots on the NO terminals while pressing the limit switch I must close the contact)</p></li><li local-id="ace2f80a160d"><p local-id="18f0c00a9487">If the limit switch works correctly, the connections must be checked; follow the <p><a href='schema_elettrico_jet.html'>Schema elettrico</a></p></li></ol></li><li local-id="fda2556ae144"><p local-id="3938638c3bbd">Check that the pump is operating correctly and verify that the system is not actually faulty;</p></li></ol></div><h2 local-id="e95f9b0fa643" class="maintenance-section-title" data-section-number="04">NB: Remember to re-enable the table</h2><h2 local-id="0ff115314721" class="maintenance-section-title" data-section-number="05">Related articles</h2><div class='panelContent' style='background-color: #fff; border: 1px solid #D3D3D3; padding: 5px;'><p><br></p></div><!--Label="elettrico"--><!--Label="banco"--><!--Label="pe0021"-->
                         </main>
 
                     </div>
@@ -277,5 +279,12 @@
     </div>;
 
 
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
 </body>
 </html>

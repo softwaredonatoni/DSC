@@ -82,6 +82,7 @@ main {
 
 
     .my-table2 th {
+        color: #212529 !important;
         padding: 10px !important;
         border: 1px solid #ccc !important;
         text-align: left !important;
@@ -121,16 +122,16 @@ main {
     font-family: "Sora", sans-serif;
 }
 
-.maintenance-page button,
-.maintenance-page input,
-.maintenance-page select,
-.maintenance-page textarea,
-.maintenance-page code,
-.maintenance-page pre,
-.maintenance-page kbd,
-.maintenance-page samp {
-    font-family: "Sora", sans-serif !important;
-}
+    .maintenance-page button,
+    .maintenance-page input,
+    .maintenance-page select,
+    .maintenance-page textarea,
+    .maintenance-page code,
+    .maintenance-page pre,
+    .maintenance-page kbd,
+    .maintenance-page samp {
+        font-family: "Sora", sans-serif !important;
+    }
 
 .navy .maintenance-page,
 .coal .maintenance-page,
@@ -160,19 +161,17 @@ main {
 }
 
 .maintenance-page .content {
-    background-image:
-        linear-gradient(rgba(7, 26, 61, 0.025) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(7, 26, 61, 0.025) 1px, transparent 1px);
+    background-image: linear-gradient(rgba(7, 26, 61, 0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(7, 26, 61, 0.025) 1px, transparent 1px);
     background-size: 24px 24px;
 }
 
-.maintenance-page .content > div > img:first-child {
-    display: block;
-    width: 100%;
-    height: auto;
-    object-fit: contain;
-    object-position: center;
-}
+    .maintenance-page .content > div > img:first-child {
+        display: block;
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+        object-position: center;
+    }
 
 .maintenance-page .maintenance-sheet {
     box-sizing: border-box;
@@ -189,15 +188,15 @@ main {
     box-shadow: 0 18px 45px rgba(21, 40, 62, 0.12);
 }
 
-.maintenance-page .maintenance-sheet::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 18rem;
-    height: 4px;
-    background: var(--tech-cyan);
-}
+    .maintenance-page .maintenance-sheet::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 18rem;
+        height: 4px;
+        background: var(--tech-cyan);
+    }
 
 .maintenance-page .maintenance-eyebrow {
     display: flex;
@@ -215,10 +214,10 @@ main {
     text-transform: uppercase;
 }
 
-.maintenance-page .maintenance-eyebrow > span:first-child::before {
-    content: "DOC / ";
-    color: var(--tech-cyan);
-}
+    .maintenance-page .maintenance-eyebrow > span:first-child::before {
+        content: "DOC / ";
+        color: var(--tech-cyan);
+    }
 
 .maintenance-page .maintenance-status {
     display: inline-flex;
@@ -227,9 +226,9 @@ main {
     color: #d6f8ed;
 }
 
-.maintenance-page .maintenance-status i {
-    color: var(--tech-cyan);
-}
+    .maintenance-page .maintenance-status i {
+        color: var(--tech-cyan);
+    }
 
 .maintenance-page .maintenance-heading {
     position: relative;
@@ -238,44 +237,42 @@ main {
     gap: 1.6rem !important;
     margin: 0 -4.8rem 3.4rem;
     padding: 3.2rem 4.8rem 3.4rem;
-    background:
-        linear-gradient(90deg, rgba(11, 78, 135, 0.06), transparent 45%),
-        var(--tech-surface-soft);
+    background: linear-gradient(90deg, rgba(11, 78, 135, 0.06), transparent 45%), var(--tech-surface-soft);
     border-bottom: 1px solid var(--tech-line);
 }
 
-.maintenance-page .maintenance-heading h1 {
-    flex: 1;
-    min-width: 0;
-    margin: 0 !important;
-}
+    .maintenance-page .maintenance-heading h1 {
+        flex: 1;
+        min-width: 0;
+        margin: 0 !important;
+    }
 
-/* L'H1 riprende la scansione tecnica degli H2 con linea e accento terminale. */
-.maintenance-page .maintenance-heading .maintenance-main-title {
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-    padding: 0 0 1.2rem;
-    border-bottom: 2px solid var(--tech-line);
-}
+    /* L'H1 riprende la scansione tecnica degli H2 con linea e accento terminale. */
+    .maintenance-page .maintenance-heading .maintenance-main-title {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        padding: 0 0 1.2rem;
+        border-bottom: 2px solid var(--tech-line);
+    }
 
-.maintenance-page .maintenance-heading .maintenance-main-title::after {
-    content: "";
-    flex: 0 0 7rem;
-    width: 7rem;
-    height: 2px;
-    margin-left: auto;
-    background: var(--tech-cyan);
-}
+        .maintenance-page .maintenance-heading .maintenance-main-title::after {
+            content: "";
+            flex: 0 0 7rem;
+            width: 7rem;
+            height: 2px;
+            margin-left: auto;
+            background: var(--tech-cyan);
+        }
 
-.maintenance-page .maintenance-heading h1 > a {
-    display: flex;
-    flex: 1 1 auto;
-    align-items: flex-start;
-    gap: 2rem;
-    min-width: 0;
-    color: var(--tech-ink) !important;
-}
+    .maintenance-page .maintenance-heading h1 > a {
+        display: flex;
+        flex: 1 1 auto;
+        align-items: flex-start;
+        gap: 2rem;
+        min-width: 0;
+        color: var(--tech-ink) !important;
+    }
 
 .maintenance-page .maintenance-code {
     flex: 0 0 auto;
@@ -316,19 +313,19 @@ main {
     transition: color 160ms ease, border-color 160ms ease, background 160ms ease;
 }
 
-.maintenance-page #copy-link-btn:hover,
-.maintenance-page #copy-link-btn:focus-visible {
-    color: #ffffff !important;
-    background: var(--tech-blue) !important;
-    border-color: var(--tech-blue) !important;
-    outline: 3px solid rgba(22, 184, 200, 0.28);
-}
+    .maintenance-page #copy-link-btn:hover,
+    .maintenance-page #copy-link-btn:focus-visible {
+        color: #ffffff !important;
+        background: var(--tech-blue) !important;
+        border-color: var(--tech-blue) !important;
+        outline: 3px solid rgba(22, 184, 200, 0.28);
+    }
 
-.maintenance-page #copy-link-btn.is-copied {
-    color: var(--tech-navy) !important;
-    background: var(--tech-cyan) !important;
-    border-color: var(--tech-cyan) !important;
-}
+    .maintenance-page #copy-link-btn.is-copied {
+        color: var(--tech-navy) !important;
+        background: var(--tech-cyan) !important;
+        border-color: var(--tech-cyan) !important;
+    }
 
 .maintenance-page .maintenance-data-grid {
     width: 100% !important;
@@ -339,40 +336,40 @@ main {
     box-shadow: 0 8px 22px rgba(21, 40, 62, 0.07);
 }
 
-.maintenance-page .maintenance-data-grid tbody {
-    display: table-row-group;
-}
+    .maintenance-page .maintenance-data-grid tbody {
+        display: table-row-group;
+    }
 
-.maintenance-page .maintenance-data-grid tr {
-    background: var(--tech-surface) !important;
-}
+    .maintenance-page .maintenance-data-grid tr {
+        background: var(--tech-surface) !important;
+    }
 
-.maintenance-page .maintenance-data-grid tr:nth-child(n+2):nth-child(even) {
-    background: var(--tech-surface-soft) !important;
-}
+        .maintenance-page .maintenance-data-grid tr:nth-child(n+2):nth-child(even) {
+            background: var(--tech-surface-soft) !important;
+        }
 
-.maintenance-page .maintenance-data-grid td {
-    width: 50%;
-    padding: 1.6rem 1.8rem !important;
-    color: var(--tech-ink);
-    background: transparent !important;
-    border: 1px solid var(--tech-line) !important;
-    vertical-align: middle;
-}
+    .maintenance-page .maintenance-data-grid td {
+        width: 50%;
+        padding: 1.6rem 1.8rem !important;
+        color: var(--tech-ink);
+        background: transparent !important;
+        border: 1px solid var(--tech-line) !important;
+        vertical-align: middle;
+    }
 
-.maintenance-page .maintenance-data-grid td p {
-    margin: 0;
-    text-align: left;
-    line-height: 1.45;
-}
+        .maintenance-page .maintenance-data-grid td p {
+            margin: 0;
+            text-align: left;
+            line-height: 1.45;
+        }
 
-.maintenance-page .maintenance-data-grid td strong {
-    color: var(--tech-blue);
-    font-family: "Sora", sans-serif;
-    font-size: 1.18rem;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-}
+        .maintenance-page .maintenance-data-grid td strong {
+            color: var(--tech-blue);
+            font-family: "Sora", sans-serif;
+            font-size: 1.18rem;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
 
 .maintenance-page .maintenance-data-icon {
     display: inline-grid;
@@ -394,9 +391,9 @@ main {
     gap: 1.2rem;
 }
 
-.maintenance-page .maintenance-data-layout .maintenance-data-icon {
-    margin: 0;
-}
+    .maintenance-page .maintenance-data-layout .maintenance-data-icon {
+        margin: 0;
+    }
 
 .maintenance-page .maintenance-data-content {
     display: flex;
@@ -571,25 +568,25 @@ main {
     border-left: 6px solid var(--tech-safety) !important;
 }
 
-.maintenance-page .maintenance-data-grid .maintenance-safety-row td::before {
-    content: "!";
-    position: absolute;
-    top: 50%;
-    left: 1.8rem;
-    display: grid;
-    place-items: center;
-    width: 2.4rem;
-    height: 2.4rem;
-    transform: translateY(-50%);
-    color: #ffffff;
-    background: #b87300;
-    font-family: "Sora", sans-serif;
-    font-size: 1.5rem;
-    font-weight: 700;
-    clip-path: polygon(50% 0, 100% 100%, 0 100%);
-    padding-top: 0.6rem;
-    box-sizing: border-box;
-}
+    .maintenance-page .maintenance-data-grid .maintenance-safety-row td::before {
+        content: "!";
+        position: absolute;
+        top: 50%;
+        left: 1.8rem;
+        display: grid;
+        place-items: center;
+        width: 2.4rem;
+        height: 2.4rem;
+        transform: translateY(-50%);
+        color: #ffffff;
+        background: #b87300;
+        font-family: "Sora", sans-serif;
+        font-size: 1.5rem;
+        font-weight: 700;
+        clip-path: polygon(50% 0, 100% 100%, 0 100%);
+        padding-top: 0.6rem;
+        box-sizing: border-box;
+    }
 
 .maintenance-page .maintenance-data-grid .maintenance-safety-row p {
     margin: 0;
@@ -602,9 +599,9 @@ main {
     text-align: left !important;
 }
 
-.maintenance-page .maintenance-data-grid .maintenance-safety-row p:empty {
-    display: none;
-}
+    .maintenance-page .maintenance-data-grid .maintenance-safety-row p:empty {
+        display: none;
+    }
 
 .maintenance-page .maintenance-data-grid .maintenance-safety-row a {
     color: #7a4800;
@@ -637,30 +634,34 @@ main {
     letter-spacing: -0.01em;
 }
 
-.maintenance-page .maintenance-section-title::before {
-    content: var(--section-number);
-    display: inline-grid;
-    place-items: center;
-    width: 3.6rem;
-    height: 3rem;
-    color: #ffffff;
-    background: var(--tech-blue);
-    font-family: "Sora", sans-serif;
-    font-size: 1.25rem;
-    letter-spacing: 0.06em;
-}
+    .maintenance-page .maintenance-section-title::before {
+        content: var(--section-number);
+        display: inline-grid;
+        place-items: center;
+        width: 3.6rem;
+        height: 3rem;
+        color: #ffffff;
+        background: var(--tech-blue);
+        font-family: "Sora", sans-serif;
+        font-size: 1.25rem;
+        letter-spacing: 0.06em;
+    }
 
-.maintenance-page .maintenance-section-title::after {
-    content: "";
-    width: 6rem;
-    height: 2px;
-    margin-left: auto;
-    background: var(--tech-cyan);
-}
+    .maintenance-page .maintenance-section-title[data-section-number]::before {
+        content: attr(data-section-number);
+    }
 
-.maintenance-page .maintenance-section-title .header {
-    color: var(--tech-ink) !important;
-}
+    .maintenance-page .maintenance-section-title::after {
+        content: "";
+        width: 6rem;
+        height: 2px;
+        margin-left: auto;
+        background: var(--tech-cyan);
+    }
+
+    .maintenance-page .maintenance-section-title .header {
+        color: var(--tech-ink) !important;
+    }
 
 .maintenance-page .maintenance-sheet > p {
     color: var(--tech-ink);
@@ -675,10 +676,10 @@ main {
     margin: 0;
 }
 
-.maintenance-page .maintenance-sheet li > p:first-child + ul,
-.maintenance-page .maintenance-sheet li > p:first-child + ol {
-    margin-top: 0.8rem;
-}
+    .maintenance-page .maintenance-sheet li > p:first-child + ul,
+    .maintenance-page .maintenance-sheet li > p:first-child + ol {
+        margin-top: 0.8rem;
+    }
 
 .maintenance-page .procedure-steps {
     list-style: none;
@@ -687,39 +688,39 @@ main {
     padding: 0;
 }
 
-.maintenance-page .procedure-steps > li {
-    position: relative;
-    counter-increment: procedure-step;
-    min-height: 3.8rem;
-    margin: 0 0 1rem;
-    padding: 1.5rem 1.8rem 1.5rem 6.2rem;
-    color: var(--tech-ink);
-    background: var(--tech-surface-soft);
-    border: 1px solid var(--tech-line);
-    border-left: 3px solid var(--tech-blue);
-}
+    .maintenance-page .procedure-steps > li {
+        position: relative;
+        counter-increment: procedure-step;
+        min-height: 3.8rem;
+        margin: 0 0 1rem;
+        padding: 1.5rem 1.8rem 1.5rem 6.2rem;
+        color: var(--tech-ink);
+        background: var(--tech-surface-soft);
+        border: 1px solid var(--tech-line);
+        border-left: 3px solid var(--tech-blue);
+    }
 
-.maintenance-page .procedure-steps > li::before {
-    content: counter(procedure-step, decimal-leading-zero);
-    position: absolute;
-    top: 1.4rem;
-    left: 1.5rem;
-    display: grid;
-    place-items: center;
-    width: 3rem;
-    height: 3rem;
-    color: var(--tech-blue);
-    background: var(--tech-surface);
-    border: 1px solid var(--tech-line-strong);
-    font-family: "Sora", sans-serif;
-    font-size: 1.15rem;
-    font-weight: 700;
-}
+        .maintenance-page .procedure-steps > li::before {
+            content: counter(procedure-step, decimal-leading-zero);
+            position: absolute;
+            top: 1.4rem;
+            left: 1.5rem;
+            display: grid;
+            place-items: center;
+            width: 3rem;
+            height: 3rem;
+            color: var(--tech-blue);
+            background: var(--tech-surface);
+            border: 1px solid var(--tech-line-strong);
+            font-family: "Sora", sans-serif;
+            font-size: 1.15rem;
+            font-weight: 700;
+        }
 
-.maintenance-page .procedure-steps > li p {
-    margin: 0;
-    text-align: left;
-}
+        .maintenance-page .procedure-steps > li p {
+            margin: 0;
+            text-align: left;
+        }
 
 .maintenance-page .TextAlignCenter {
     margin: 2.4rem 0 3.5rem;
@@ -777,48 +778,48 @@ main {
     list-style: none;
 }
 
-.technical-index .maintenance-sheet > ul > li {
-    margin: 0 0 1.4rem;
-    padding: 0 0 1.2rem;
-    border-bottom: 1px solid var(--tech-line);
-}
+    .technical-index .maintenance-sheet > ul > li {
+        margin: 0 0 1.4rem;
+        padding: 0 0 1.2rem;
+        border-bottom: 1px solid var(--tech-line);
+    }
 
-.technical-index .maintenance-sheet > ul > li > a {
-    display: block;
-    padding: 0.8rem 1.2rem;
-    color: var(--tech-blue);
-    background: transparent;
-    border-left: 3px solid var(--tech-cyan);
-    font-family: "Sora", sans-serif;
-    font-size: 1.55rem;
-    font-weight: 650;
-}
+        .technical-index .maintenance-sheet > ul > li > a {
+            display: block;
+            padding: 0.8rem 1.2rem;
+            color: var(--tech-blue);
+            background: transparent;
+            border-left: 3px solid var(--tech-cyan);
+            font-family: "Sora", sans-serif;
+            font-size: 1.55rem;
+            font-weight: 650;
+        }
 
-.technical-index .maintenance-sheet > ul > li > ul {
-    margin: 0.5rem 0 0;
-    padding: 0 0 0 3rem;
-    list-style: square;
-}
+        .technical-index .maintenance-sheet > ul > li > ul {
+            margin: 0.5rem 0 0;
+            padding: 0 0 0 3rem;
+            list-style: square;
+        }
 
-.technical-index .maintenance-sheet > ul > li > ul li {
-    margin: 0;
-    color: var(--tech-cyan);
-}
+            .technical-index .maintenance-sheet > ul > li > ul li {
+                margin: 0;
+                color: var(--tech-cyan);
+            }
 
-.technical-index .maintenance-sheet > ul > li > ul a {
-    display: block;
-    padding: 0.65rem 0.4rem;
-    color: var(--tech-ink);
-    font-size: 1.35rem;
-    line-height: 1.45;
-}
+            .technical-index .maintenance-sheet > ul > li > ul a {
+                display: block;
+                padding: 0.65rem 0.4rem;
+                color: var(--tech-ink);
+                font-size: 1.35rem;
+                line-height: 1.45;
+            }
 
-.technical-index .maintenance-sheet > ul > li > ul a:hover,
-.technical-index .maintenance-sheet > ul > li > ul a:focus-visible {
-    color: var(--tech-blue);
-    text-decoration: underline;
-    text-underline-offset: 3px;
-}
+                .technical-index .maintenance-sheet > ul > li > ul a:hover,
+                .technical-index .maintenance-sheet > ul > li > ul a:focus-visible {
+                    color: var(--tech-blue);
+                    text-decoration: underline;
+                    text-underline-offset: 3px;
+                }
 
 /* Pagine introduttive delle aree macchina. */
 .technical-category .maintenance-code {
@@ -896,16 +897,16 @@ main {
     list-style: none;
 }
 
-.technical-safety .maintenance-sheet > ul > li {
-    padding: 1.2rem 1.5rem;
-    background: var(--tech-surface-soft);
-    border: 1px solid var(--tech-line);
-}
+    .technical-safety .maintenance-sheet > ul > li {
+        padding: 1.2rem 1.5rem;
+        background: var(--tech-surface-soft);
+        border: 1px solid var(--tech-line);
+    }
 
-.technical-safety .maintenance-sheet > ul > li p {
-    margin: 0;
-    text-align: left;
-}
+        .technical-safety .maintenance-sheet > ul > li p {
+            margin: 0;
+            text-align: left;
+        }
 
 /* Tabelle e liste presenti nei documenti di riferimento non-MN. */
 .maintenance-page .maintenance-sheet table:not(.maintenance-data-grid):not(.troubleshooting-data-grid) {
@@ -915,27 +916,27 @@ main {
     box-shadow: 0 8px 22px rgba(21, 40, 62, 0.06);
 }
 
-.maintenance-page .maintenance-sheet table:not(.maintenance-data-grid):not(.troubleshooting-data-grid) th,
-.maintenance-page .maintenance-sheet table:not(.maintenance-data-grid):not(.troubleshooting-data-grid) td {
-    padding: 1.2rem 1.5rem;
-    color: var(--tech-ink);
-    border: 1px solid var(--tech-line);
-    text-align: left;
-}
+    .maintenance-page .maintenance-sheet table:not(.maintenance-data-grid):not(.troubleshooting-data-grid) th,
+    .maintenance-page .maintenance-sheet table:not(.maintenance-data-grid):not(.troubleshooting-data-grid) td {
+        padding: 1.2rem 1.5rem;
+        color: var(--tech-ink);
+        border: 1px solid var(--tech-line);
+        text-align: left;
+    }
 
-.maintenance-page .maintenance-sheet table:not(.maintenance-data-grid):not(.troubleshooting-data-grid) th,
-.maintenance-page .maintenance-sheet table:not(.maintenance-data-grid):not(.troubleshooting-data-grid) thead td {
-    color: #ffffff;
-    background: var(--tech-navy);
-    font-family: "Sora", sans-serif;
-    font-size: 1.2rem;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-}
+    .maintenance-page .maintenance-sheet table:not(.maintenance-data-grid):not(.troubleshooting-data-grid) th,
+    .maintenance-page .maintenance-sheet table:not(.maintenance-data-grid):not(.troubleshooting-data-grid) thead td {
+        color: #ffffff;
+        background: var(--tech-navy);
+        font-family: "Sora", sans-serif;
+        font-size: 1.2rem;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+    }
 
-.maintenance-page .maintenance-sheet table:not(.maintenance-data-grid):not(.troubleshooting-data-grid) tr:nth-child(even) td {
-    background: var(--tech-surface-soft);
-}
+    .maintenance-page .maintenance-sheet table:not(.maintenance-data-grid):not(.troubleshooting-data-grid) tr:nth-child(even) td {
+        background: var(--tech-surface-soft);
+    }
 
 .technical-document .maintenance-sheet > ul:not(.procedure-steps),
 .technical-reference .maintenance-sheet > ul:not(.procedure-steps) {
@@ -944,23 +945,23 @@ main {
     list-style: none;
 }
 
-.technical-document .maintenance-sheet > ul:not(.procedure-steps) > li,
-.technical-reference .maintenance-sheet > ul:not(.procedure-steps) > li {
-    margin-bottom: 0.8rem;
-    padding: 1.1rem 1.4rem 1.1rem 3.6rem;
-    background: var(--tech-surface-soft);
-    border-left: 3px solid var(--tech-cyan);
-}
+    .technical-document .maintenance-sheet > ul:not(.procedure-steps) > li,
+    .technical-reference .maintenance-sheet > ul:not(.procedure-steps) > li {
+        margin-bottom: 0.8rem;
+        padding: 1.1rem 1.4rem 1.1rem 3.6rem;
+        background: var(--tech-surface-soft);
+        border-left: 3px solid var(--tech-cyan);
+    }
 
-.technical-document .maintenance-sheet > ul:not(.procedure-steps) > li::before,
-.technical-reference .maintenance-sheet > ul:not(.procedure-steps) > li::before {
-    content: "■";
-    display: inline-block;
-    width: 2rem;
-    margin-left: -2.1rem;
-    color: var(--tech-blue);
-    font-size: 0.8rem;
-}
+        .technical-document .maintenance-sheet > ul:not(.procedure-steps) > li::before,
+        .technical-reference .maintenance-sheet > ul:not(.procedure-steps) > li::before {
+            content: "■";
+            display: inline-block;
+            width: 2rem;
+            margin-left: -2.1rem;
+            color: var(--tech-blue);
+            font-size: 0.8rem;
+        }
 
 .technical-error .maintenance-code {
     background: var(--tech-danger);
@@ -970,7 +971,7 @@ main {
     min-height: 44rem;
 }
 
-/* Troubleshooting PE: diagnostica coerente con le schede di manutenzione. */
+/* Troubleshooting PE e PM: diagnostica coerente con le schede di manutenzione. */
 .technical-troubleshooting .maintenance-sheet {
     border-top-color: #b93830;
 }
@@ -981,9 +982,7 @@ main {
 }
 
 .technical-troubleshooting .maintenance-heading {
-    background:
-        linear-gradient(90deg, rgba(216, 59, 50, 0.1), transparent 48%),
-        var(--tech-surface-soft);
+    background: linear-gradient(90deg, rgba(216, 59, 50, 0.1), transparent 48%), var(--tech-surface-soft);
 }
 
 .technical-troubleshooting .maintenance-status i {
@@ -997,31 +996,31 @@ main {
     box-shadow: 0 8px 22px rgba(21, 40, 62, 0.08);
 }
 
-.troubleshooting-data-grid th,
-.troubleshooting-data-grid td {
-    padding: 1.25rem 1.5rem;
-    border: 1px solid var(--tech-line);
-    text-align: left;
-    vertical-align: middle;
-}
+    .troubleshooting-data-grid th,
+    .troubleshooting-data-grid td {
+        padding: 1.25rem 1.5rem;
+        border: 1px solid var(--tech-line);
+        text-align: left;
+        vertical-align: middle;
+    }
 
-.troubleshooting-data-grid th {
-    width: 18%;
-    color: #dce8f5;
-    background: var(--tech-navy);
-    font-size: 1.12rem;
-    font-weight: 700;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-}
+    .troubleshooting-data-grid th {
+        width: 18%;
+        color: #dce8f5;
+        background: var(--tech-navy);
+        font-size: 1.12rem;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+    }
 
-.troubleshooting-data-grid td {
-    width: 32%;
-    color: var(--tech-ink);
-    background: var(--tech-surface);
-    font-size: 1.5rem;
-    font-weight: 600;
-}
+    .troubleshooting-data-grid td {
+        width: 32%;
+        color: var(--tech-ink);
+        background: var(--tech-surface);
+        font-size: 1.5rem;
+        font-weight: 600;
+    }
 
 .severity-badge {
     display: inline-flex;
@@ -1035,18 +1034,30 @@ main {
     text-transform: uppercase;
 }
 
-.severity-badge::before {
-    content: "";
-    width: 0.7rem;
-    height: 0.7rem;
-    background: currentColor;
-    border-radius: 50%;
-}
+    .severity-badge::before {
+        content: "";
+        width: 0.7rem;
+        height: 0.7rem;
+        background: currentColor;
+        border-radius: 50%;
+    }
 
-.severity-badge.severity-critical { background: #b82d26; }
-.severity-badge.severity-high { background: #d45f12; }
-.severity-badge.severity-warning { color: #352300; background: #ffb000; }
-.severity-badge.severity-info { background: #087c8b; }
+    .severity-badge.severity-critical {
+        background: #b82d26;
+    }
+
+    .severity-badge.severity-high {
+        background: #d45f12;
+    }
+
+    .severity-badge.severity-warning {
+        color: #352300;
+        background: #ffb000;
+    }
+
+    .severity-badge.severity-info {
+        background: #087c8b;
+    }
 
 .troubleshooting-alert,
 .resolution-panel,
@@ -1069,17 +1080,17 @@ main {
     border-left: 5px solid var(--tech-blue) !important;
 }
 
-.technical-troubleshooting .resolution-panel-content > .procedure-steps {
-    margin: 0;
-}
+    .technical-troubleshooting .resolution-panel-content > .procedure-steps {
+        margin: 0;
+    }
 
-.technical-troubleshooting .resolution-panel-content .procedure-steps > li:last-child {
-    margin-bottom: 0;
-}
+    .technical-troubleshooting .resolution-panel-content .procedure-steps > li:last-child {
+        margin-bottom: 0;
+    }
 
-.technical-troubleshooting .resolution-panel-content li > div {
-    margin-top: 1.2rem;
-}
+    .technical-troubleshooting .resolution-panel-content li > div {
+        margin-top: 1.2rem;
+    }
 
 .technical-troubleshooting .troubleshooting-list {
     list-style: none;
@@ -1088,37 +1099,37 @@ main {
     padding: 0;
 }
 
-.technical-troubleshooting .troubleshooting-list > li {
-    position: relative;
-    counter-increment: troubleshooting-item;
-    min-height: 2.8rem;
-    margin: 0 0 0.8rem;
-    padding: 1.25rem 1.5rem 1.25rem 5.3rem;
-    color: var(--tech-ink);
-    background: var(--tech-surface-soft);
-    border: 1px solid var(--tech-line);
-    border-left: 3px solid #16837a;
-}
+    .technical-troubleshooting .troubleshooting-list > li {
+        position: relative;
+        counter-increment: troubleshooting-item;
+        min-height: 2.8rem;
+        margin: 0 0 0.8rem;
+        padding: 1.25rem 1.5rem 1.25rem 5.3rem;
+        color: var(--tech-ink);
+        background: var(--tech-surface-soft);
+        border: 1px solid var(--tech-line);
+        border-left: 3px solid #16837a;
+    }
 
-.technical-troubleshooting .troubleshooting-list > li::before {
-    content: counter(troubleshooting-item, decimal-leading-zero);
-    position: absolute;
-    top: 1.05rem;
-    left: 1.25rem;
-    color: #16837a;
-    font-family: "Sora", sans-serif;
-    font-size: 1.12rem;
-    font-weight: 750;
-    letter-spacing: 0.04em;
-}
+        .technical-troubleshooting .troubleshooting-list > li::before {
+            content: counter(troubleshooting-item, decimal-leading-zero);
+            position: absolute;
+            top: 1.05rem;
+            left: 1.25rem;
+            color: #16837a;
+            font-family: "Sora", sans-serif;
+            font-size: 1.12rem;
+            font-weight: 750;
+            letter-spacing: 0.04em;
+        }
 
 .technical-troubleshooting .cause-list > li {
     border-left-color: #d47a00;
 }
 
-.technical-troubleshooting .cause-list > li::before {
-    color: #b76500;
-}
+    .technical-troubleshooting .cause-list > li::before {
+        color: #b76500;
+    }
 
 .troubleshooting-alert {
     color: #472f00;
@@ -1131,15 +1142,15 @@ main {
     border-left-color: var(--tech-danger);
 }
 
-.troubleshooting-alert strong,
-.resolution-panel strong,
-.escalation-panel strong {
-    display: block;
-    margin-bottom: 0.55rem;
-    font-size: 1.15rem;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-}
+    .troubleshooting-alert strong,
+    .resolution-panel strong,
+    .escalation-panel strong {
+        display: block;
+        margin-bottom: 0.55rem;
+        font-size: 1.15rem;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+    }
 
 .cause-table td:first-child {
     width: 7rem;
@@ -1157,27 +1168,27 @@ main {
     list-style: none;
 }
 
-.verification-list > li {
-    position: relative;
-    padding: 1.3rem 1.5rem 1.3rem 4.2rem;
-    background: var(--tech-surface-soft);
-    border: 1px solid var(--tech-line);
-}
+    .verification-list > li {
+        position: relative;
+        padding: 1.3rem 1.5rem 1.3rem 4.2rem;
+        background: var(--tech-surface-soft);
+        border: 1px solid var(--tech-line);
+    }
 
-.verification-list > li::before {
-    content: "✓";
-    position: absolute;
-    top: 1.15rem;
-    left: 1.3rem;
-    display: grid;
-    place-items: center;
-    width: 2.1rem;
-    height: 2.1rem;
-    color: #ffffff;
-    background: #14815a;
-    font-size: 1.2rem;
-    font-weight: 800;
-}
+        .verification-list > li::before {
+            content: "✓";
+            position: absolute;
+            top: 1.15rem;
+            left: 1.3rem;
+            display: grid;
+            place-items: center;
+            width: 2.1rem;
+            height: 2.1rem;
+            color: #ffffff;
+            background: #14815a;
+            font-size: 1.2rem;
+            font-weight: 800;
+        }
 
 @media only screen and (max-width: 760px) {
     .troubleshooting-data-grid,
@@ -1190,9 +1201,9 @@ main {
         box-sizing: border-box;
     }
 
-    .troubleshooting-data-grid th {
-        border-bottom: 0;
-    }
+        .troubleshooting-data-grid th {
+            border-bottom: 0;
+        }
 }
 
 @media only screen and (max-width: 760px) {
@@ -1221,10 +1232,10 @@ main {
         align-items: flex-end;
     }
 
-    .maintenance-page .maintenance-heading .maintenance-main-title::after {
-        flex-basis: 4rem;
-        width: 4rem;
-    }
+        .maintenance-page .maintenance-heading .maintenance-main-title::after {
+            flex-basis: 4rem;
+            width: 4rem;
+        }
 
     .maintenance-page .maintenance-data-grid,
     .maintenance-page .maintenance-data-grid tbody,
@@ -1235,14 +1246,18 @@ main {
         box-sizing: border-box;
     }
 
-    .maintenance-page .maintenance-data-grid td {
-        border-width: 0 0 1px !important;
-    }
+        .maintenance-page .maintenance-data-grid td {
+            border-width: 0 0 1px !important;
+        }
 
-    .maintenance-page .maintenance-data-grid .maintenance-safety-row td {
-        border-left-width: 6px !important;
+        .maintenance-page .maintenance-data-grid .maintenance-safety-row td {
+            border-left-width: 6px !important;
     }
+}
 
+/* Il libro di stampa contiene più documenti tecnici nello stesso <main>. */
+.technical-print-book .technical-print-document {
+    display: flow-root;
 }
 
 @media print {
@@ -1258,6 +1273,33 @@ main {
         width: 100% !important;
         margin: 0 !important;
         box-shadow: none;
+    }
+
+    .technical-print-book,
+    .technical-print-book .technical-print-document {
+        color: #12243a;
+        background: #ffffff;
+    }
+
+    .technical-print-book .technical-print-document .maintenance-sheet {
+        max-width: none !important;
+        padding: 0 1.2cm 1.2cm;
+        overflow: visible;
+        border-right: 0;
+        border-bottom: 0;
+        border-left: 0;
+    }
+
+    .technical-print-book .maintenance-eyebrow,
+    .technical-print-book .maintenance-heading,
+    .technical-print-book .maintenance-section-title,
+    .technical-print-book .maintenance-data-grid tr,
+    .technical-print-book .technical-media {
+        break-inside: avoid;
+    }
+
+    .technical-print-book .maintenance-section-title {
+        break-after: avoid;
     }
 }
 /* MANITIT-TECHNICAL-THEME:END */

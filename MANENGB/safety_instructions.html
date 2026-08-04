@@ -40,7 +40,7 @@
     <script>
       const path_to_root = "";
       const default_light_theme = "light";
-      const default_dark_theme = "navy";
+      const default_dark_theme = "light";
     </script>
     <!-- Start loading toc.js asap -->
     <script src="toc.js"></script>
@@ -86,8 +86,10 @@
     });
   });
 })();
-</script></head>
-<body>
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-safety" data-technical-styler-flow="html">
     <header class="header-main">
         <div class="header-flex">
             <div class="donatoni-flex">
@@ -110,6 +112,15 @@
                 </div>
                 <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                     <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
                 </button>
 
                 <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
@@ -144,17 +155,8 @@
 
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script>
-            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
-                .matches
-                ? default_dark_theme
-                : default_light_theme;
-            let theme;
-            try {
-                theme = localStorage.getItem("mdbook-theme");
-            } catch (e) { }
-            if (theme === null || theme === undefined) {
-                theme = default_theme;
-            }
+            const default_theme = "light";
+            let theme = default_theme;
             const html = document.documentElement;
             html.classList.remove("light");
             html.classList.add(theme);
@@ -214,8 +216,8 @@
 
                         <img src="images/donatoni_111.jpg">
 
-                        <main style="margin-left: 20px;">
-                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="safety-instructions" style="margin:0;"><a class="header" href="#safety-instructions">SAFETY INSTRUCTIONS</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="SAFETY INSTRUCTIONS"--><p>Before starting any installation, setup, or maintenance operation, carefully read ALL instruction manuals, documents, and guides provided with the machine.</p><p><strong>The person performing the operation is solely responsible for the correct functioning and maintenance of the machine.</strong></p><p>Donatoni Macchine expressly declines any responsibility for accidents (including death) or damage to equipment or other property caused by improper use or maintenance of the machine, as well as for failure to comply with the procedures set forth in the equipment instruction manual or in any other safety material and procedure. If you encounter problems or difficulties, we strongly encourage you to contact Donatoni Macchine or your authorized service center.</p><p>Safety is a priority. If you have any questions, do not hesitate to contact Donatoni support at the following contacts:</p><ul><li><p><strong>T:</strong> _39 045 6862899</p></li><li><p><strong>WhatsApp:</strong> _39 045 7740052</p></li><li><p><strong>E-mail:</strong><a href="#">​ assistenza@donatonimacchine.eu</a></p></li><li><p><strong>Telegram:</strong> @donatonimacchine_bot​📞 </p></li></ul>
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Safety instruction</span><span class="maintenance-status"><i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i> Mandatory reading</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="safety-instructions" style="margin:0;" class="maintenance-main-title"><a class="header" href="#safety-instructions"><span class="maintenance-code">HSE</span><span class="maintenance-name">SAFETY INSTRUCTIONS</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document HSE" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="SAFETY INSTRUCTIONS"--><p>Before starting any installation, setup, or maintenance operation, carefully read ALL instruction manuals, documents, and guides provided with the machine.</p><p><strong>The person performing the operation is solely responsible for the correct functioning and maintenance of the machine.</strong></p><p>Donatoni Macchine expressly declines any responsibility for accidents (including death) or damage to equipment or other property caused by improper use or maintenance of the machine, as well as for failure to comply with the procedures set forth in the equipment instruction manual or in any other safety material and procedure. If you encounter problems or difficulties, we strongly encourage you to contact Donatoni Macchine or your authorized service center.</p><p>Safety is a priority. If you have any questions, do not hesitate to contact Donatoni support at the following contacts:</p><ul><li><p><strong>T:</strong> _39 045 6862899</p></li><li><p><strong>WhatsApp:</strong> _39 045 7740052</p></li><li><p><strong>E-mail:</strong><a href="#">​ assistenza@donatonimacchine.eu</a></p></li><li><p><strong>Telegram:</strong> @donatonimacchine_bot​📞 </p></li></ul>
                         </main>
 
                     </div>
@@ -270,5 +272,12 @@
     </div>;
 
 
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
 </body>
 </html>

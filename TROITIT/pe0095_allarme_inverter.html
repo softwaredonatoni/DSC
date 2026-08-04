@@ -40,7 +40,7 @@
     <script>
       const path_to_root = "";
       const default_light_theme = "light";
-      const default_dark_theme = "navy";
+      const default_dark_theme = "light";
     </script>
     <!-- Start loading toc.js asap -->
     <script src="toc.js"></script>
@@ -86,8 +86,10 @@
     });
   });
 })();
-</script></head>
-<body>
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-troubleshooting technical-troubleshooting-emergency" data-technical-styler-flow="html">
     <header class="header-main">
         <div class="header-flex">
             <div class="donatoni-flex">
@@ -110,6 +112,15 @@
                 </div>
                 <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                     <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
                 </button>
 
                 <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
@@ -144,17 +155,8 @@
 
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script>
-            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
-                .matches
-                ? default_dark_theme
-                : default_light_theme;
-            let theme;
-            try {
-                theme = localStorage.getItem("mdbook-theme");
-            } catch (e) { }
-            if (theme === null || theme === undefined) {
-                theme = default_theme;
-            }
+            const default_theme = "light";
+            let theme = default_theme;
             const html = document.documentElement;
             html.classList.remove("light");
             html.classList.add(theme);
@@ -214,8 +216,8 @@
 
                         <img src="images/donatoni_111.jpg">
 
-                        <main style="margin-left: 20px;">
-                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="pe0095-allarme-inverter" style="margin:0;"><a class="header" href="#pe0095-allarme-inverter">PE0095 ALLARME INVERTER</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="PE0095 ALLARME INVERTER"--><table class="my-table2" data-table-width="760" data-layout="default" ac:local-id="85e18120-421b-48c4-b375-dfbfdc4e6731" data-table-display-mode="default"><colgroup><col style="width: 380.0px;"><col style="width: 380.0px;"></colgroup><tbody><tr ac:local-id="4efc4be0-fbe7-42ac-944a-250bc91577b6"><td data-highlight-colour="#f4f5f7" colspan="2" ac:local-id="27b6dfb0-338d-4518-8d9c-c2a754bb5e6c"><p local-id="9873da648764" style="text-align: center;">⚠️ Prima di procedere leggere attentamente le <p><a href='istruzioni_di_sicurezza.html'>ISTRUZIONI DI SICUREZZA</a></p></td></tr><tr ac:local-id="d9e01475-345f-42d9-ba7f-8039fc108ccc"><td data-highlight-colour="#f4f5f7" ac:local-id="eadd5d51-4d6f-4691-bfae-13ccc3444979"><p local-id="199c9bba062c">⏲️ <strong>Descrizione</strong>: Uscita inverter non rilevata dal CN</p></td><td data-highlight-colour="#f4f5f7" ac:local-id="3df078ba-d177-4e65-bb20-09e71f18364a"><p local-id="dfea61c94064">🎚️ <strong>Gravità</strong>: ⭐⭐☆☆☆ </p></td></tr><tr ac:local-id="dae0a24a-83d0-4907-a2ce-6a1a75f17b68"><td data-highlight-colour="#f4f5f7" ac:local-id="7b0044dd-7965-4fc4-8217-154b6f0a28ac"><p local-id="2b8cc4619ea6">🧑‍🏭 <strong>Figura autorizzata</strong>: Operatore macchina</p></td><td data-highlight-colour="#f4f5f7" ac:local-id="ea3ae039-d08a-4935-8573-63d5212e77d5"><p local-id="ab525e021d9b">🧤 <strong>DPI previsti</strong>:   <div><img src="attachments/pe0095_allarme_inverter/5c50dea6-c18e-4b4c-af4e-4a88d2222111.png" alt="image-20240327-084216.png" onclick="showModal(this.src)" class="inline-img"></div> </td></tr></tbody></table><h2 local-id="6806ed909efc">Descrizione</h2><p local-id="3262a94b44cd">Questo messaggio appare quando il CN non rileva l'uscita dell'inverter indica l'assorbimento del motore .</p><h2 local-id="6186578e2836">Sintomi</h2><p local-id="d7cb3083095e">…..</p><h2 local-id="a8f33212d5b6">Possibili cause</h2><div class='panelContent' style='background-color: #fff; border: 1px solid #D3D3D3; padding: 5px;'><p local-id="019852e0b6ff"></p></div><h2 local-id="1b27be54f947">Possibili soluzioni</h2><p local-id="5d6f5a5ece19"></p><!--Label="kb-troubleshooting-article"--><!--Label="pe0095"-->
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Technical troubleshooting sheet</span><span class="maintenance-status"><i class="fa-solid fa-screwdriver-wrench" aria-hidden="true"></i> Emergency diagnostic procedure</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="pe0095-allarme-inverter" style="margin:0;" class="maintenance-main-title"><a class="header" href="#pe0095-allarme-inverter"><span class="maintenance-code">PE0095</span><span class="maintenance-name">ALLARME INVERTER</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document PE0095" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="PE0095 ALLARME INVERTER"--><table class="my-table2 troubleshooting-template-grid maintenance-data-grid" data-table-width="760" data-layout="default" ac:local-id="85e18120-421b-48c4-b375-dfbfdc4e6731" data-table-display-mode="default" aria-label="Technical data for document PE0095"><colgroup><col style="width: 380.0px;"><col style="width: 380.0px;"></colgroup><tbody><tr ac:local-id="4efc4be0-fbe7-42ac-944a-250bc91577b6" class="maintenance-safety-row"><td data-highlight-colour="#f4f5f7" colspan="2" ac:local-id="27b6dfb0-338d-4518-8d9c-c2a754bb5e6c"><p local-id="9873da648764" style="text-align: center;">Prima di procedere leggere attentamente le <p><a href='istruzioni_di_sicurezza.html'>ISTRUZIONI DI SICUREZZA</a></p></td></tr><tr ac:local-id="d9e01475-345f-42d9-ba7f-8039fc108ccc"><td data-highlight-colour="#f4f5f7" ac:local-id="eadd5d51-4d6f-4691-bfae-13ccc3444979"><p local-id="199c9bba062c" class="maintenance-data-layout"><i class="maintenance-data-icon fa-solid fa-file-lines" aria-hidden="true"></i><span class="maintenance-data-content"><strong class="maintenance-data-label">Descrizione</strong><span class="maintenance-data-value">Uscita inverter non rilevata dal CN</span></span></p></td><td data-highlight-colour="#f4f5f7" ac:local-id="3df078ba-d177-4e65-bb20-09e71f18364a"><p local-id="dfea61c94064" class="maintenance-data-layout"><i class="maintenance-data-icon fa-solid fa-triangle-exclamation" aria-hidden="true"></i><span class="maintenance-data-content"><strong class="maintenance-data-label">Gravità</strong><span class="severity-indicator severity-level-2" aria-label="Severity Moderate, level 2 of 5"><span class="severity-scale" aria-hidden="true"><i class="severity-segment is-active"></i><i class="severity-segment is-active"></i><i class="severity-segment"></i><i class="severity-segment"></i><i class="severity-segment"></i></span><span class="severity-readout"><span class="severity-level-name">Moderate</span><span class="severity-score">02 / 05</span></span></span></span></p></td></tr><tr ac:local-id="dae0a24a-83d0-4907-a2ce-6a1a75f17b68"><td data-highlight-colour="#f4f5f7" ac:local-id="7b0044dd-7965-4fc4-8217-154b6f0a28ac"><p local-id="2b8cc4619ea6" class="maintenance-data-layout"><i class="maintenance-data-icon fa-solid fa-user-gear" aria-hidden="true"></i><span class="maintenance-data-content"><strong class="maintenance-data-label">Figura autorizzata</strong><span class="maintenance-data-value">Operatore macchina</span></span></p></td><td data-highlight-colour="#f4f5f7" ac:local-id="ea3ae039-d08a-4935-8573-63d5212e77d5"><p local-id="ab525e021d9b"><i class="maintenance-data-icon fa-solid fa-shield-halved" aria-hidden="true"></i><strong>DPI previsti</strong>:   <div><img src="attachments/pe0095_allarme_inverter/5c50dea6-c18e-4b4c-af4e-4a88d2222111.png" alt="image-20240327-084216.png" onclick="showModal(this.src)" class="inline-img"></div> </td></tr></tbody></table><h2 local-id="6806ed909efc" class="maintenance-section-title" data-section-number="01">Descrizione</h2><p local-id="3262a94b44cd">Questo messaggio appare quando il CN non rileva l'uscita dell'inverter indica l'assorbimento del motore .</p><h2 local-id="6186578e2836" class="maintenance-section-title" data-section-number="02">Sintomi</h2><p local-id="d7cb3083095e">…..</p><h2 local-id="a8f33212d5b6" class="maintenance-section-title" data-section-number="03">Possibili cause</h2><div class='panelContent' style='background-color: #fff; border: 1px solid #D3D3D3; padding: 5px;'><p local-id="019852e0b6ff"></p></div><h2 local-id="1b27be54f947" class="maintenance-section-title" data-section-number="04">Possibili soluzioni</h2><p local-id="5d6f5a5ece19"></p><!--Label="kb-troubleshooting-article"--><!--Label="pe0095"-->
                         </main>
 
                     </div>
@@ -277,5 +279,12 @@
     </div>;
 
 
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
 </body>
 </html>

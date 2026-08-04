@@ -40,7 +40,7 @@
     <script>
       const path_to_root = "";
       const default_light_theme = "light";
-      const default_dark_theme = "navy";
+      const default_dark_theme = "light";
     </script>
     <!-- Start loading toc.js asap -->
     <script src="toc.js"></script>
@@ -86,8 +86,10 @@
     });
   });
 })();
-</script></head>
-<body>
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css">
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css">
+</head>
+<body class="maintenance-page technical-maintenance" data-technical-styler-flow="html">
     <header class="header-main">
         <div class="header-flex">
             <div class="donatoni-flex">
@@ -110,6 +112,9 @@
                 </div>
                 <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                     <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button class="btn btn-sm" id="keyboard-toggle" type="button" title="Virtual Keyboard" aria-label="Activate/Deactivate Virtual Keyboard" aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
                 </button>
 
                 <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
@@ -144,17 +149,8 @@
 
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script>
-            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
-                .matches
-                ? default_dark_theme
-                : default_light_theme;
-            let theme;
-            try {
-                theme = localStorage.getItem("mdbook-theme");
-            } catch (e) { }
-            if (theme === null || theme === undefined) {
-                theme = default_theme;
-            }
+            const default_theme = "light";
+            let theme = default_theme;
             const html = document.documentElement;
             html.classList.remove("light");
             html.classList.add(theme);
@@ -214,8 +210,8 @@
 
                         <img src="images/donatoni_111.jpg">
 
-                        <main style="margin-left: 20px;">
-                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="mn0005-greasing-bearing-spiral-axe-z" style="margin:0;"><a class="header" href="#mn0005-greasing-bearing-spiral-axe-z">MN0005 GREASING BEARING SPIRAL AXE Z</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="MN0005 GREASING BEARING SPIRAL AXE Z"--><table class="my-table2" data-table-width="760" data-layout="center" ac:local-id="b763cb63-b363-4732-987c-793beddd7a0e"><tbody><tr><td data-highlight-colour="#f4f5f7" colspan="2"><p style="text-align: center;">⚠️Before proceeding, carefully read the <p><a href='safety_instructions.html'>SAFETY INSTRUCTIONS</a></p></td></tr><tr><td data-highlight-colour="#f4f5f7"><p>⏲️ <strong>Interval</strong>: every 300 working hours</p></td><td data-highlight-colour="#f4f5f7"><p>🎚️ <strong>Complexity operation</strong>: ⭐☆☆☆☆ </p></td></tr><tr><td data-highlight-colour="#f4f5f7"><p>🧑‍🏭 <strong>Authorized figure</strong>: Machine operator</p></td><td data-highlight-colour="#f4f5f7"><p>🧤 <strong>Expected DPI</strong>:   <div><img src="attachments/mn0005_greasing_bearing_spiral_axe_z/image-20240327-084216.png" alt="image-20240327-084216.png" onclick="showModal(this.src)" class="inline-img" id="a2372503-420e-48f2-91c7-86ad5df99b36" contextid="183010144"></div> </td></tr></tbody></table><h2 id="images"><a class="header" href="#images">Images</a></h2><div class="TextAlignCenter"><img src="attachments/mn0005_greasing_bearing_spiral_axe_z/image-20240327-174356.png" alt="image-20240327-174356.png" width="600" onclick="showModal(this.src)"></div><h2 id="procedure"><a class="header" href="#procedure">Procedure</a></h2><p>At least every 300 hours of work, provide via special gun to grease the Z axis worm gear bearing with 1 cm3 of grease through the nozzle shown in the figure.</p><p>The lubrication nozzle is located on the right side of the tube below the frame in the figure and is positioned as indicated and highlighted in the image.</p><p> </p><div class="TextAlignLeft"><img src="attachments/mn0005_greasing_bearing_spiral_axe_z/image-20240922-085348.png" alt="image-20240922-085348.png" width="200" onclick="showModal(this.src)"></div><div class="TextAlignLeft"><img src="attachments/mn0005_greasing_bearing_spiral_axe_z/image-20240922-085433.png" alt="image-20240922-085433.png" width="200" onclick="showModal(this.src)"></div><p></p><p></p><p></p><p></p><!--Label="mn0005"-->
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Technical maintenance sheet</span><span class="maintenance-status"><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Controlled procedure</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="mn0005-greasing-bearing-spiral-axe-z" style="margin:0;" class="maintenance-main-title"><a class="header" href="#mn0005-greasing-bearing-spiral-axe-z"><span class="maintenance-code">MN0005</span><span class="maintenance-name">GREASING BEARING SPIRAL AXE Z</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document MN0005" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="MN0005 GREASING BEARING SPIRAL AXE Z"--><table class="my-table2" data-table-width="760" data-layout="center" ac:local-id="b763cb63-b363-4732-987c-793beddd7a0e"><tbody><tr><td data-highlight-colour="#f4f5f7" colspan="2"><p style="text-align: center;">⚠️Before proceeding, carefully read the <p><a href='safety_instructions.html'>SAFETY INSTRUCTIONS</a></p></td></tr><tr><td data-highlight-colour="#f4f5f7"><p>⏲️ <strong>Interval</strong>: every 300 working hours</p></td><td data-highlight-colour="#f4f5f7"><p>🎚️ <strong>Complexity operation</strong>: ⭐☆☆☆☆ </p></td></tr><tr><td data-highlight-colour="#f4f5f7"><p>🧑‍🏭 <strong>Authorized figure</strong>: Machine operator</p></td><td data-highlight-colour="#f4f5f7"><p>🧤 <strong>Expected DPI</strong>:   <div><img src="attachments/mn0005_greasing_bearing_spiral_axe_z/image-20240327-084216.png" alt="image-20240327-084216.png" onclick="showModal(this.src)" class="inline-img" id="a2372503-420e-48f2-91c7-86ad5df99b36" contextid="183010144"></div> </td></tr></tbody></table><h2 id="images" class="maintenance-section-title" data-section-number="01"><a class="header" href="#images">Images</a></h2><div class="TextAlignCenter"><img src="attachments/mn0005_greasing_bearing_spiral_axe_z/image-20240327-174356.png" alt="image-20240327-174356.png" width="600" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><h2 id="procedure" class="maintenance-section-title" data-section-number="02"><a class="header" href="#procedure">Procedure</a></h2><p>At least every 300 hours of work, provide via special gun to grease the Z axis worm gear bearing with 1 cm3 of grease through the nozzle shown in the figure.</p><p>The lubrication nozzle is located on the right side of the tube below the frame in the figure and is positioned as indicated and highlighted in the image.</p><p> </p><div class="TextAlignLeft"><img src="attachments/mn0005_greasing_bearing_spiral_axe_z/image-20240922-085348.png" alt="image-20240922-085348.png" width="200" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><div class="TextAlignLeft"><img src="attachments/mn0005_greasing_bearing_spiral_axe_z/image-20240922-085433.png" alt="image-20240922-085433.png" width="200" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><p></p><p></p><p></p><!--Label="mn0005"-->
                         </main>
 
                     </div>
@@ -277,5 +273,12 @@
     </div>;
 
 
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
 </body>
 </html>

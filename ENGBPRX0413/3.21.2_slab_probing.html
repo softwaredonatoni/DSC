@@ -40,7 +40,7 @@
     <script>
       const path_to_root = "";
       const default_light_theme = "light";
-      const default_dark_theme = "navy";
+      const default_dark_theme = "light";
     </script>
     <!-- Start loading toc.js asap -->
     <script src="toc.js"></script>
@@ -86,8 +86,10 @@
     });
   });
 })();
-</script></head>
-<body>
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-document" data-technical-styler-flow="html">
     <header class="header-main">
         <div class="header-flex">
             <div class="donatoni-flex">
@@ -110,6 +112,15 @@
                 </div>
                 <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                     <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
                 </button>
 
                 <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
@@ -144,17 +155,8 @@
 
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script>
-            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
-                .matches
-                ? default_dark_theme
-                : default_light_theme;
-            let theme;
-            try {
-                theme = localStorage.getItem("mdbook-theme");
-            } catch (e) { }
-            if (theme === null || theme === undefined) {
-                theme = default_theme;
-            }
+            const default_theme = "light";
+            let theme = default_theme;
             const html = document.documentElement;
             html.classList.remove("light");
             html.classList.add(theme);
@@ -214,9 +216,9 @@
 
                         <img src="images/donatoni_111.jpg">
 
-                        <main style="margin-left: 20px;">
-                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="3212-slab-probing" style="margin:0;"><a class="header" href="#3212-slab-probing">3.21.2 SLAB PROBING</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="3.21.2 SLAB PROBING"--><p>This function allows to add a slab probe cycle at the beginning of the cutting program.<br>The cycle allows to measure thickness real of the slab.</p><div class="TextAlignCenter"><img src="attachments/3.21.2_slab_probing/2.0.png" alt="2.0.png" width="800" onclick="showModal(this.src)"></div><p></p><p>
-</p><p></p><h1 id="execution-of-the-functionality"><a class="header" href="#execution-of-the-functionality">Execution of the functionality</a></h1><p>After having pressed the button, the program will ask the user to select on the working area the point of the slab in which to execute the probe.</p><div class="TextAlignCenter"><img src="attachments/3.21.2_slab_probing/2.2.png" alt="2.2.png" width="800" onclick="showModal(this.src)"></div><p><br>The keyboard position is indicated on screen with a magenta symbol.<br>This procedure is then inserted at the beginning of the list of cuts.</p><div class="TextAlignCenter"><img src="attachments/3.21.2_slab_probing/2.1.png" alt="2.1.png" width="300" onclick="showModal(this.src)"></div>
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Machine technical documentation</span><span class="maintenance-status"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Operational document</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="3212-slab-probing" style="margin:0;" class="maintenance-main-title"><a class="header" href="#3212-slab-probing"><span class="maintenance-code">DOC</span><span class="maintenance-name">3.21.2 SLAB PROBING</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document DOC" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="3.21.2 SLAB PROBING"--><p>This function allows to add a slab probe cycle at the beginning of the cutting program.<br>The cycle allows to measure thickness real of the slab.</p><div class="TextAlignCenter"><img src="attachments/3.21.2_slab_probing/2.0.png" alt="2.0.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><p>
+</p><p></p><h1 id="execution-of-the-functionality"><a class="header" href="#execution-of-the-functionality">Execution of the functionality</a></h1><p>After having pressed the button, the program will ask the user to select on the working area the point of the slab in which to execute the probe.</p><div class="TextAlignCenter"><img src="attachments/3.21.2_slab_probing/2.2.png" alt="2.2.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p><br>The keyboard position is indicated on screen with a magenta symbol.<br>This procedure is then inserted at the beginning of the list of cuts.</p><div class="TextAlignCenter"><img src="attachments/3.21.2_slab_probing/2.1.png" alt="2.1.png" width="300" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div>
 <div id="admonition-note" class="admonition admonish-info" role="note" aria-labelledby="admonition-note-title">
 <div class="admonition-title">
 <div id="admonition-note-title">
@@ -290,5 +292,12 @@
     </div>;
 
 
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
 </body>
 </html>

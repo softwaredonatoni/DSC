@@ -40,7 +40,7 @@
     <script>
       const path_to_root = "";
       const default_light_theme = "light";
-      const default_dark_theme = "navy";
+      const default_dark_theme = "light";
     </script>
     <!-- Start loading toc.js asap -->
     <script src="toc.js"></script>
@@ -86,8 +86,10 @@
     });
   });
 })();
-</script></head>
-<body>
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-troubleshooting technical-troubleshooting-message" data-technical-styler-flow="html">
     <header class="header-main">
         <div class="header-flex">
             <div class="donatoni-flex">
@@ -110,6 +112,15 @@
                 </div>
                 <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                     <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
                 </button>
 
                 <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
@@ -144,17 +155,8 @@
 
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script>
-            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
-                .matches
-                ? default_dark_theme
-                : default_light_theme;
-            let theme;
-            try {
-                theme = localStorage.getItem("mdbook-theme");
-            } catch (e) { }
-            if (theme === null || theme === undefined) {
-                theme = default_theme;
-            }
+            const default_theme = "light";
+            let theme = default_theme;
             const html = document.documentElement;
             html.classList.remove("light");
             html.classList.add(theme);
@@ -214,8 +216,8 @@
 
                         <img src="images/donatoni_111.jpg">
 
-                        <main style="margin-left: 20px;">
-                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="pm0011-pistone-tastatore-fuori-posizione" style="margin:0;"><a class="header" href="#pm0011-pistone-tastatore-fuori-posizione">PM0011 PISTONE TASTATORE FUORI POSIZIONE</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="PM0011 PISTONE TASTATORE FUORI POSIZIONE"--><table class="my-table2" data-table-width="760" data-layout="default" ac:local-id="85e18120-421b-48c4-b375-dfbfdc4e6731"><colgroup><col style="width: 380.0px;"><col style="width: 380.0px;"></colgroup><tbody><tr ac:local-id="21f328b0-e66d-4190-b4e2-3500f2f73b64"><td data-highlight-colour="#f4f5f7" colspan="2" ac:local-id="592ca61b-c19a-4b81-8c01-2414625462a3"><p local-id="1c1627dead6d" style="text-align: center;">⚠️ Prima di procedere leggere attentamente le <p><a href='istruzioni_di_sicurezza.html'>ISTRUZIONI DI SICUREZZA</a></p></td></tr><tr ac:local-id="38163640-700b-4dcd-85de-7851741990ef"><td data-highlight-colour="#f4f5f7" ac:local-id="7d30c5c2-a913-4ecb-bee7-71e9cab6eea8"><p local-id="3de1dbd01081">⏲️ <strong>Descrizione</strong>: Blocco per pistone tastatore fuori parcheggio</p></td><td data-highlight-colour="#f4f5f7" ac:local-id="5a6c9632-ec4e-4baf-99f9-9d754f107237"><p local-id="b3d4032c1fca">🎚️ <strong>Gravità</strong>: ⭐⭐☆☆☆ </p></td></tr><tr ac:local-id="4e821f26-143a-49d1-ab55-e7d0cc522871"><td data-highlight-colour="#f4f5f7" ac:local-id="25cb9ee6-56bf-490d-bdaf-ddbc82c74aa6"><p local-id="006d0c45b958">🧑‍🏭 <strong>Figura autorizzata</strong>: Operatore macchina</p></td><td data-highlight-colour="#f4f5f7" ac:local-id="63c1f71f-7e1c-47ce-9dc2-5ad00071c12b"><p local-id="0f3b18b49c37">🧤 <strong>DPI previsti</strong>:   <div><img src="attachments/pm0011_pistone_tastatore_fuori_posizione/5c50dea6-c18e-4b4c-af4e-4a88d2222111.png" alt="image-20240327-084216.png" onclick="showModal(this.src)" class="inline-img"></div> </td></tr></tbody></table><h2 local-id="6806ed909efc">Descrizione</h2><p local-id="e10fa0eaed56">Viene inserito un blocco se il pistone del tastatore non risulta in posizione di parcheggio. Tutti gli assi vengono messi in "<strong>hold</strong>".</p><h2 local-id="6186578e2836">Sintomi</h2><p local-id="542be358c53f">…..</p><h2 local-id="96b6f36d90d7">Possibili cause</h2><div class='panelContent' style='background-color: #fff; border: 1px solid #D3D3D3; padding: 5px;'><ol start="1" local-id="9268228974ae" type="1"><li local-id="f0c8f1c32b1b"><p local-id="fc6dba97d386">Posizione del pistone di poco oltre la soglia</p></li><li local-id="f8a45a7cc04a"><p local-id="adfee5993ad9">Pistone del tastatore guasto</p></li><li local-id="bf7e72b078cf"><p local-id="0590d67ec1f8">Errore di cablaggio</p></li></ol></div><h2 local-id="5d1e17ac1cad">Possibili soluzioni</h2><div class='panelContent' style='background-color: #fff; border: 1px solid #D3D3D3; padding: 5px;'><p local-id="ae2e84bd7883">Verificare il valore IW40 relativo alla posizione del tastatore lastra.<br></p><ol start="1" local-id="74081f71a192" type="1"><li local-id="4e974e35440d"><p local-id="cf38b609feb0">Se il valore letto è inferiore a 100 molto probabilmente il valore di soglia è troppo basso. In questo caso, nell'interfaccia KvIsoGui aprire EditorShared - Parametri -Tastatore Lastra e modificare il valore "Posizione di parcheggio" = 100</p></li><li local-id="5a4486ce51cd"><p local-id="b11579515b98">Se il valore letto è superiore a 100 verificare la reale posizione del tastatore e procedere con le verifiche elettriche in base allo schema elettrico della macchina.</p></li><li local-id="31506d9ee87d"><p local-id="daa0578ee2b6">Se non si riesce a trovare il difetto è possibile disabilitare il tastatore lastra per eliminare l'allarme (con tastatore lastra disabilitato il risultato della tastatura, se effettuata, è fisso a 30mm)</p></li></ol></div><!--Label="kb-troubleshooting-article"--><!--Label="tastatore"--><!--Label="pm0011"-->
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Technical troubleshooting sheet</span><span class="maintenance-status"><i class="fa-solid fa-screwdriver-wrench" aria-hidden="true"></i> Message diagnostic procedure</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="pm0011-pistone-tastatore-fuori-posizione" style="margin:0;" class="maintenance-main-title"><a class="header" href="#pm0011-pistone-tastatore-fuori-posizione"><span class="maintenance-code">PM0011</span><span class="maintenance-name">PISTONE TASTATORE FUORI POSIZIONE</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document PM0011" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="PM0011 PISTONE TASTATORE FUORI POSIZIONE"--><table class="my-table2 troubleshooting-template-grid maintenance-data-grid" data-table-width="760" data-layout="default" ac:local-id="85e18120-421b-48c4-b375-dfbfdc4e6731" aria-label="Technical data for document PM0011"><colgroup><col style="width: 380.0px;"><col style="width: 380.0px;"></colgroup><tbody><tr ac:local-id="21f328b0-e66d-4190-b4e2-3500f2f73b64" class="maintenance-safety-row"><td data-highlight-colour="#f4f5f7" colspan="2" ac:local-id="592ca61b-c19a-4b81-8c01-2414625462a3"><p local-id="1c1627dead6d" style="text-align: center;">Prima di procedere leggere attentamente le <p><a href='istruzioni_di_sicurezza.html'>ISTRUZIONI DI SICUREZZA</a></p></td></tr><tr ac:local-id="38163640-700b-4dcd-85de-7851741990ef"><td data-highlight-colour="#f4f5f7" ac:local-id="7d30c5c2-a913-4ecb-bee7-71e9cab6eea8"><p local-id="3de1dbd01081" class="maintenance-data-layout"><i class="maintenance-data-icon fa-solid fa-file-lines" aria-hidden="true"></i><span class="maintenance-data-content"><strong class="maintenance-data-label">Descrizione</strong><span class="maintenance-data-value">Blocco per pistone tastatore fuori parcheggio</span></span></p></td><td data-highlight-colour="#f4f5f7" ac:local-id="5a6c9632-ec4e-4baf-99f9-9d754f107237"><p local-id="b3d4032c1fca" class="maintenance-data-layout"><i class="maintenance-data-icon fa-solid fa-triangle-exclamation" aria-hidden="true"></i><span class="maintenance-data-content"><strong class="maintenance-data-label">Gravità</strong><span class="severity-indicator severity-level-2" aria-label="Severity Moderate, level 2 of 5"><span class="severity-scale" aria-hidden="true"><i class="severity-segment is-active"></i><i class="severity-segment is-active"></i><i class="severity-segment"></i><i class="severity-segment"></i><i class="severity-segment"></i></span><span class="severity-readout"><span class="severity-level-name">Moderate</span><span class="severity-score">02 / 05</span></span></span></span></p></td></tr><tr ac:local-id="4e821f26-143a-49d1-ab55-e7d0cc522871"><td data-highlight-colour="#f4f5f7" ac:local-id="25cb9ee6-56bf-490d-bdaf-ddbc82c74aa6"><p local-id="006d0c45b958" class="maintenance-data-layout"><i class="maintenance-data-icon fa-solid fa-user-gear" aria-hidden="true"></i><span class="maintenance-data-content"><strong class="maintenance-data-label">Figura autorizzata</strong><span class="maintenance-data-value">Operatore macchina</span></span></p></td><td data-highlight-colour="#f4f5f7" ac:local-id="63c1f71f-7e1c-47ce-9dc2-5ad00071c12b"><p local-id="0f3b18b49c37"><i class="maintenance-data-icon fa-solid fa-shield-halved" aria-hidden="true"></i><strong>DPI previsti</strong>:   <div><img src="attachments/pm0011_pistone_tastatore_fuori_posizione/5c50dea6-c18e-4b4c-af4e-4a88d2222111.png" alt="image-20240327-084216.png" onclick="showModal(this.src)" class="inline-img"></div> </td></tr></tbody></table><h2 local-id="6806ed909efc" class="maintenance-section-title" data-section-number="01">Descrizione</h2><p local-id="e10fa0eaed56">Viene inserito un blocco se il pistone del tastatore non risulta in posizione di parcheggio. Tutti gli assi vengono messi in "<strong>hold</strong>".</p><h2 local-id="6186578e2836" class="maintenance-section-title" data-section-number="02">Sintomi</h2><p local-id="542be358c53f">…..</p><h2 local-id="96b6f36d90d7" class="maintenance-section-title" data-section-number="03">Possibili cause</h2><div class='panelContent' style='background-color: #fff; border: 1px solid #D3D3D3; padding: 5px;'><ol start="1" local-id="9268228974ae" type="1"><li local-id="f0c8f1c32b1b"><p local-id="fc6dba97d386">Posizione del pistone di poco oltre la soglia</p></li><li local-id="f8a45a7cc04a"><p local-id="adfee5993ad9">Pistone del tastatore guasto</p></li><li local-id="bf7e72b078cf"><p local-id="0590d67ec1f8">Errore di cablaggio</p></li></ol></div><h2 local-id="5d1e17ac1cad" class="maintenance-section-title" data-section-number="04">Possibili soluzioni</h2><div class='panelContent resolution-panel-content' style='background-color: #fff; border: 1px solid #D3D3D3; padding: 5px;'><p local-id="ae2e84bd7883">Verificare il valore IW40 relativo alla posizione del tastatore lastra.<br></p><ol start="1" local-id="74081f71a192" type="1" class="procedure-steps"><li local-id="4e974e35440d"><p local-id="cf38b609feb0">Se il valore letto è inferiore a 100 molto probabilmente il valore di soglia è troppo basso. In questo caso, nell'interfaccia KvIsoGui aprire EditorShared - Parametri -Tastatore Lastra e modificare il valore "Posizione di parcheggio" = 100</p></li><li local-id="5a4486ce51cd"><p local-id="b11579515b98">Se il valore letto è superiore a 100 verificare la reale posizione del tastatore e procedere con le verifiche elettriche in base allo schema elettrico della macchina.</p></li><li local-id="31506d9ee87d"><p local-id="daa0578ee2b6">Se non si riesce a trovare il difetto è possibile disabilitare il tastatore lastra per eliminare l'allarme (con tastatore lastra disabilitato il risultato della tastatura, se effettuata, è fisso a 30mm)</p></li></ol></div><!--Label="kb-troubleshooting-article"--><!--Label="tastatore"--><!--Label="pm0011"-->
                         </main>
 
                     </div>
@@ -270,5 +272,12 @@
     </div>;
 
 
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
 </body>
 </html>

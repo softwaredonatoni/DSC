@@ -40,7 +40,7 @@
     <script>
       const path_to_root = "";
       const default_light_theme = "light";
-      const default_dark_theme = "navy";
+      const default_dark_theme = "light";
     </script>
     <!-- Start loading toc.js asap -->
     <script src="toc.js"></script>
@@ -86,8 +86,10 @@
     });
   });
 })();
-</script></head>
-<body>
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-troubleshooting technical-troubleshooting-emergency" data-technical-styler-flow="html">
     <header class="header-main">
         <div class="header-flex">
             <div class="donatoni-flex">
@@ -110,6 +112,15 @@
                 </div>
                 <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                     <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
                 </button>
 
                 <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
@@ -144,17 +155,8 @@
 
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script>
-            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
-                .matches
-                ? default_dark_theme
-                : default_light_theme;
-            let theme;
-            try {
-                theme = localStorage.getItem("mdbook-theme");
-            } catch (e) { }
-            if (theme === null || theme === undefined) {
-                theme = default_theme;
-            }
+            const default_theme = "light";
+            let theme = default_theme;
             const html = document.documentElement;
             html.classList.remove("light");
             html.classList.add(theme);
@@ -214,8 +216,8 @@
 
                         <img src="images/donatoni_111.jpg">
 
-                        <main style="margin-left: 20px;">
-                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="pe0029-lubrication-system-fault" style="margin:0;"><a class="header" href="#pe0029-lubrication-system-fault">PE0029 LUBRICATION SYSTEM FAULT</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="PE0029 LUBRICATION SYSTEM FAULT"--><h2 local-id="048288fc4f2e">Error explanation</h2><p local-id="f5d65c31e4fd">The lubrication system fault alarm is displayed when there is an obstruction in the grease distribution circuit and it fails to discharge grease; check that minimum quantity of grease is present in the reservoir and subsequently analyze the distribution path.<br>The grease tank empty alarm indicates that it is necessary to fill the reservoir.</p><p local-id="7a32ecbf1150">Attached is the Polypump manual: <p><a href='attachments/pe0029_lubrication_system_fault/Polipump.pdf'>Polipump.pdf</a></p><h2 local-id="cc6ed240b9e5">Possible causes</h2><div class='panelContent' style='background-color: #fff; border: 1px solid #D3D3D3; padding: 5px;'><p local-id="3f606de442a4">You can use a <!-- <placeholder ac:local-id="6d0a744837da">panel to emphasize key steps.</placeholder> --></p><ol start="1" local-id="b7d232f636ec" type="1"><li local-id="d22868e3f61d"><p local-id="e58233268346">Grease tank empty;</p></li><li local-id="488fa31b9600"><p local-id="00d0ac3c1df1">Grease jammed at pump outlet;</p></li><li local-id="45146a059ea6"><p local-id="08d154b13fd1">Error in grease pump wiring.</p></li></ol></div><h2 local-id="df10e7e88cdf">Possible solutions</h2><div class='panelContent' style='background-color: #fff; border: 1px solid #D3D3D3; padding: 5px;'><p local-id="e4c2ee427f40">You can use a <!-- <placeholder ac:local-id="9f2e6af57f20">panel to emphasize key steps.</placeholder> --></p><ol start="1" local-id="91278d3b5839" type="1"><li local-id="1e0328b0cece"><p local-id="c2d2f196f33c">Through the dedicated charging point pump the correct grease EP1 into the pump;</p></li><li local-id="0a7b6a46fbb2"><p local-id="d3e1b99a8977">Check that at the grease outlet point of the pump there are no obstructions or that the grease is old and solid;</p></li><li local-id="ee41feb2a90d"><p local-id="78065f22eae6">Using the <p><a href='schema_elettrico_jet.html'>wiring diagram</a></p></li></ol><p local-id="e60fa4c50c72"><br></p><p local-id="a46ec1851723">NOTE: TO RESET THE ERROR, PRESS THE (CYCLE START BUTTON) _ (MINUS BUTTON) FOR A FEW SECONDS AND RESET THE ERRORS DIRECTLY ON THE PUMP BY PRESSING RESET</p></div><h2 local-id="ce6294fc8fc7">Related items</h2><p local-id="819518396c44"><!-- <placeholder ac:local-id="03ea891487f3">Articles related to your selection will be displayed here. Click to edit the macro and add or remove labels.</placeholder> --></p><div class='panelContent' style='background-color: #fff; border: 1px solid #D3D3D3; padding: 5px;'><p><br></p></div><p><br></p><!--Label="kb-troubleshooting-article"--><!--Label="pe0029"-->
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Technical troubleshooting sheet</span><span class="maintenance-status"><i class="fa-solid fa-screwdriver-wrench" aria-hidden="true"></i> Emergency diagnostic procedure</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="pe0029-lubrication-system-fault" style="margin:0;" class="maintenance-main-title"><a class="header" href="#pe0029-lubrication-system-fault"><span class="maintenance-code">PE0029</span><span class="maintenance-name">LUBRICATION SYSTEM FAULT</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document PE0029" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="PE0029 LUBRICATION SYSTEM FAULT"--><h2 local-id="048288fc4f2e" class="maintenance-section-title" data-section-number="01">Error explanation</h2><p local-id="f5d65c31e4fd">The lubrication system fault alarm is displayed when there is an obstruction in the grease distribution circuit and it fails to discharge grease; check that minimum quantity of grease is present in the reservoir and subsequently analyze the distribution path.<br>The grease tank empty alarm indicates that it is necessary to fill the reservoir.</p><p local-id="7a32ecbf1150">Attached is the Polypump manual: <p><a href='attachments/pe0029_lubrication_system_fault/Polipump.pdf'>Polipump.pdf</a></p><h2 local-id="cc6ed240b9e5" class="maintenance-section-title" data-section-number="02">Possible causes</h2><div class='panelContent' style='background-color: #fff; border: 1px solid #D3D3D3; padding: 5px;'><p local-id="3f606de442a4">You can use a <!-- <placeholder ac:local-id="6d0a744837da">panel to emphasize key steps.</placeholder> --></p><ol start="1" local-id="b7d232f636ec" type="1"><li local-id="d22868e3f61d"><p local-id="e58233268346">Grease tank empty;</p></li><li local-id="488fa31b9600"><p local-id="00d0ac3c1df1">Grease jammed at pump outlet;</p></li><li local-id="45146a059ea6"><p local-id="08d154b13fd1">Error in grease pump wiring.</p></li></ol></div><h2 local-id="df10e7e88cdf" class="maintenance-section-title" data-section-number="03">Possible solutions</h2><div class='panelContent resolution-panel-content' style='background-color: #fff; border: 1px solid #D3D3D3; padding: 5px;'><p local-id="e4c2ee427f40">You can use a <!-- <placeholder ac:local-id="9f2e6af57f20">panel to emphasize key steps.</placeholder> --></p><ol start="1" local-id="91278d3b5839" type="1" class="procedure-steps"><li local-id="1e0328b0cece"><p local-id="c2d2f196f33c">Through the dedicated charging point pump the correct grease EP1 into the pump;</p></li><li local-id="0a7b6a46fbb2"><p local-id="d3e1b99a8977">Check that at the grease outlet point of the pump there are no obstructions or that the grease is old and solid;</p></li><li local-id="ee41feb2a90d"><p local-id="78065f22eae6">Using the <p><a href='schema_elettrico_jet.html'>wiring diagram</a></p></li></ol><p local-id="e60fa4c50c72"><br></p><p local-id="a46ec1851723">NOTE: TO RESET THE ERROR, PRESS THE (CYCLE START BUTTON) _ (MINUS BUTTON) FOR A FEW SECONDS AND RESET THE ERRORS DIRECTLY ON THE PUMP BY PRESSING RESET</p></div><h2 local-id="ce6294fc8fc7" class="maintenance-section-title" data-section-number="04">Related items</h2><p local-id="819518396c44"><!-- <placeholder ac:local-id="03ea891487f3">Articles related to your selection will be displayed here. Click to edit the macro and add or remove labels.</placeholder> --></p><div class='panelContent' style='background-color: #fff; border: 1px solid #D3D3D3; padding: 5px;'><p><br></p></div><p><br></p><!--Label="kb-troubleshooting-article"--><!--Label="pe0029"-->
                         </main>
 
                     </div>
@@ -277,5 +279,12 @@
     </div>;
 
 
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
 </body>
 </html>

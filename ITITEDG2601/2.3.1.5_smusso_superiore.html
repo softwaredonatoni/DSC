@@ -40,7 +40,7 @@
     <script>
       const path_to_root = "";
       const default_light_theme = "light";
-      const default_dark_theme = "navy";
+      const default_dark_theme = "light";
     </script>
     <!-- Start loading toc.js asap -->
     <script src="toc.js"></script>
@@ -86,8 +86,10 @@
     });
   });
 })();
-</script></head>
-<body>
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-document" data-technical-styler-flow="html">
     <header class="header-main">
         <div class="header-flex">
             <div class="donatoni-flex">
@@ -110,6 +112,15 @@
                 </div>
                 <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                     <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
                 </button>
 
                 <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
@@ -144,17 +155,8 @@
 
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script>
-            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
-                .matches
-                ? default_dark_theme
-                : default_light_theme;
-            let theme;
-            try {
-                theme = localStorage.getItem("mdbook-theme");
-            } catch (e) { }
-            if (theme === null || theme === undefined) {
-                theme = default_theme;
-            }
+            const default_theme = "light";
+            let theme = default_theme;
             const html = document.documentElement;
             html.classList.remove("light");
             html.classList.add(theme);
@@ -214,9 +216,9 @@
 
                         <img src="images/donatoni_111.jpg">
 
-                        <main style="margin-left: 20px;">
-                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="2315-smusso-superiore" style="margin:0;"><a class="header" href="#2315-smusso-superiore">2.3.1.5 SMUSSO SUPERIORE</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="2.3.1.5 SMUSSO SUPERIORE"--><p local-id="014fa60d-4141-440c-ae32-556bfdf2a3c5">Questa lavorazione consente di effettuare uno smusso dello spigolo superiore della costa del pezzo.</p><div class="TextAlignCenter"><img src="attachments/2.3.1.5_smusso_superiore/3.1.1.5.00.png" alt="3.1.1.5.00.png" width="800" onclick="showModal(this.src)"></div><p>
-</p><h1 local-id="4ed2ddb30ea7">Parametri</h1><div class="TextAlignCenter"><img src="attachments/2.3.1.5_smusso_superiore/3.1.1.5.01.png" alt="3.1.1.5.01.png" width="800" onclick="showModal(this.src)"></div><table class="my-table2" data-table-width="1519" data-layout="center" ac:local-id="b532571d-dd98-4be7-ad6a-5985101a9d55"><colgroup><col style="width: 487.0px;"><col style="width: 1031.0px;"></colgroup><tbody><tr ac:local-id="495d5f9e-909f-412d-953f-5cb9e93344e6"><td ac:local-id="6168e85e-1054-4e95-a069-771d469263b8"><div class="TextAlignCenter"><img src="attachments/2.3.1.5_smusso_superiore/3.1.1.5.03.png" alt="3.1.1.5.03.png" width="204" onclick="showModal(this.src)"></div></td><td ac:local-id="1347a3d6-c201-49a6-b1b0-dc5784dd2a2d"><p local-id="176efbafdbcf"><strong>Distanza Verticale </strong><br>Indica la distanza in direzione verticale a cui deve terminare la lavorazione di smusso rispetto allo spigolo di riferimento.</p></td></tr><tr ac:local-id="22f69b24-d731-4ab8-865e-a745f41fb842"><td ac:local-id="b283711c-6a9c-4df6-a3b7-3400f8c53d98"><div class="TextAlignCenter"><img src="attachments/2.3.1.5_smusso_superiore/3.1.1.5.04.png" alt="3.1.1.5.04.png" width="204" onclick="showModal(this.src)"></div></td><td ac:local-id="3de24bd0-5a1e-470b-9bc4-0833ed98d14c"><p local-id="52504d38965a"><strong>Distanza orizzontale</strong><br>Indica la distanza in direzione orizzontale a cui deve terminare la lavorazione di smusso rispetto allo spigolo di riferimento.</p></td></tr><tr ac:local-id="b6ad2d17d2e2"><td ac:local-id="20e9e1efec82"><div class="TextAlignCenter"><img src="attachments/2.3.1.5_smusso_superiore/3.1.1.5.05.png" alt="3.1.1.5.05.png" width="204" onclick="showModal(this.src)"></div></td><td ac:local-id="bcb511efac81"><p local-id="a4b006bb5541"><strong>Lunghezza smusso</strong><br>Indica la dimensione diagonale che deve avere lo smusso.</p></td></tr></tbody></table><p local-id="6b73f41708ee"></p><h1 local-id="a86646965d63">Gruppi disponibili</h1><table class="my-table2" data-table-width="1519" data-layout="center" ac:local-id="65fc7e2a-cf48-4fcd-99a6-35b24117f3ec"><tbody><tr ac:local-id="de64e096-cb0c-4567-8c22-f03e9383f0d7"><td ac:local-id="0e2120d7-a219-4870-b778-3928d34f0367"><p local-id="5eb3a27b34a6" style="text-align: center;"><strong>Gruppo smusso superiore</strong></p></td></tr><tr ac:local-id="cbf159cc-7578-4cf4-91c0-2239ce23b05e"><td ac:local-id="6780ab47-ad15-4d7b-bb45-57211344f1a3"><div class="TextAlignCenter"><img src="attachments/2.3.1.5_smusso_superiore/3.1.1.5.06.png" alt="3.1.1.5.06.png" width="209" onclick="showModal(this.src)"></div></td></tr></tbody></table><p local-id="f8b4dde7d585"></p><!--Label="edg_wrk_tch"-->
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Machine technical documentation</span><span class="maintenance-status"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Operational document</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="2315-smusso-superiore" style="margin:0;" class="maintenance-main-title"><a class="header" href="#2315-smusso-superiore"><span class="maintenance-code">DOC</span><span class="maintenance-name">2.3.1.5 SMUSSO SUPERIORE</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document DOC" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="2.3.1.5 SMUSSO SUPERIORE"--><p local-id="014fa60d-4141-440c-ae32-556bfdf2a3c5">Questa lavorazione consente di effettuare uno smusso dello spigolo superiore della costa del pezzo.</p><div class="TextAlignCenter"><img src="attachments/2.3.1.5_smusso_superiore/3.1.1.5.00.png" alt="3.1.1.5.00.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p>
+</p><h1 local-id="4ed2ddb30ea7">Parametri</h1><div class="TextAlignCenter"><img src="attachments/2.3.1.5_smusso_superiore/3.1.1.5.01.png" alt="3.1.1.5.01.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><table class="my-table2" data-table-width="1519" data-layout="center" ac:local-id="b532571d-dd98-4be7-ad6a-5985101a9d55"><colgroup><col style="width: 487.0px;"><col style="width: 1031.0px;"></colgroup><tbody><tr ac:local-id="495d5f9e-909f-412d-953f-5cb9e93344e6"><td ac:local-id="6168e85e-1054-4e95-a069-771d469263b8"><div class="TextAlignCenter"><img src="attachments/2.3.1.5_smusso_superiore/3.1.1.5.03.png" alt="3.1.1.5.03.png" width="204" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="1347a3d6-c201-49a6-b1b0-dc5784dd2a2d"><p local-id="176efbafdbcf"><strong>Distanza Verticale </strong><br>Indica la distanza in direzione verticale a cui deve terminare la lavorazione di smusso rispetto allo spigolo di riferimento.</p></td></tr><tr ac:local-id="22f69b24-d731-4ab8-865e-a745f41fb842"><td ac:local-id="b283711c-6a9c-4df6-a3b7-3400f8c53d98"><div class="TextAlignCenter"><img src="attachments/2.3.1.5_smusso_superiore/3.1.1.5.04.png" alt="3.1.1.5.04.png" width="204" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="3de24bd0-5a1e-470b-9bc4-0833ed98d14c"><p local-id="52504d38965a"><strong>Distanza orizzontale</strong><br>Indica la distanza in direzione orizzontale a cui deve terminare la lavorazione di smusso rispetto allo spigolo di riferimento.</p></td></tr><tr ac:local-id="b6ad2d17d2e2"><td ac:local-id="20e9e1efec82"><div class="TextAlignCenter"><img src="attachments/2.3.1.5_smusso_superiore/3.1.1.5.05.png" alt="3.1.1.5.05.png" width="204" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="bcb511efac81"><p local-id="a4b006bb5541"><strong>Lunghezza smusso</strong><br>Indica la dimensione diagonale che deve avere lo smusso.</p></td></tr></tbody></table><p local-id="6b73f41708ee"></p><h1 local-id="a86646965d63">Gruppi disponibili</h1><table class="my-table2" data-table-width="1519" data-layout="center" ac:local-id="65fc7e2a-cf48-4fcd-99a6-35b24117f3ec"><tbody><tr ac:local-id="de64e096-cb0c-4567-8c22-f03e9383f0d7"><td ac:local-id="0e2120d7-a219-4870-b778-3928d34f0367"><p local-id="5eb3a27b34a6" style="text-align: center;"><strong>Gruppo smusso superiore</strong></p></td></tr><tr ac:local-id="cbf159cc-7578-4cf4-91c0-2239ce23b05e"><td ac:local-id="6780ab47-ad15-4d7b-bb45-57211344f1a3"><div class="TextAlignCenter"><img src="attachments/2.3.1.5_smusso_superiore/3.1.1.5.06.png" alt="3.1.1.5.06.png" width="209" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td></tr></tbody></table><p local-id="f8b4dde7d585"></p><!--Label="edg_wrk_tch"-->
                         </main>
 
                     </div>
@@ -278,5 +280,12 @@
     </div>;
 
 
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
 </body>
 </html>

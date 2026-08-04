@@ -40,7 +40,7 @@
     <script>
       const path_to_root = "";
       const default_light_theme = "light";
-      const default_dark_theme = "navy";
+      const default_dark_theme = "light";
     </script>
     <!-- Start loading toc.js asap -->
     <script src="toc.js"></script>
@@ -86,8 +86,10 @@
     });
   });
 })();
-</script></head>
-<body>
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-document" data-technical-styler-flow="html">
     <header class="header-main">
         <div class="header-flex">
             <div class="donatoni-flex">
@@ -110,6 +112,15 @@
                 </div>
                 <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                     <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
                 </button>
 
                 <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
@@ -144,17 +155,8 @@
 
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script>
-            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
-                .matches
-                ? default_dark_theme
-                : default_light_theme;
-            let theme;
-            try {
-                theme = localStorage.getItem("mdbook-theme");
-            } catch (e) { }
-            if (theme === null || theme === undefined) {
-                theme = default_theme;
-            }
+            const default_theme = "light";
+            let theme = default_theme;
             const html = document.documentElement;
             html.classList.remove("light");
             html.classList.add(theme);
@@ -214,9 +216,9 @@
 
                         <img src="images/donatoni_111.jpg">
 
-                        <main style="margin-left: 20px;">
-                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="3116-favorites" style="margin:0;"><a class="header" href="#3116-favorites">3.11.6 FAVORITES</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="3.11.6 FAVORITES"--><p>Through the favorites screen is possible import in Parametrix pieces that previously have been saved like favorites.</p><div class="TextAlignCenter"><img src="attachments/3.11.6_favorites/0_ListaNonVuota_C.png" alt="0_ListaNonVuota_C.png" width="800" onclick="showModal(this.src)"></div><p></p><p>
-</p><p></p><h1 id="add-a-piece-among-the-favorites"><a class="header" href="#add-a-piece-among-the-favorites">Add a piece among the favorites</a></h1><p>Is possible insert whichever piece in the pieces favorites section using the following button:</p><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="df526304-8929-42b2-9330-2d0fd53fd858"><colgroup><col style="width: 215.0px;"><col style="width: 1584.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/3.11.6_favorites/4_0_Preferiti_B.png" alt="4_0_Preferiti_B.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Add favorite</strong><br>Adds a piece to the favorites list.</p></td></tr></tbody></table><p>The pressure of this button will make the following pop-up appear: </p><div class="TextAlignCenter"><img src="attachments/3.11.6_favorites/4_AddFavorite.png" alt="4_AddFavorite.png" width="350" onclick="showModal(this.src)"></div><p>The compilation of the text field and subsequent confirmation will allow the operator to insert the selected piece in the list of preferred pieces, previously illustrated.</p><div class="TextAlignCenter"><img src="attachments/3.11.6_favorites/4_AddFavoriteCompilato.png" alt="4_AddFavoriteCompilato.png" width="350" onclick="showModal(this.src)"></div><p></p><h1 id="types-of-piece-view-in-the-history"><a class="header" href="#types-of-piece-view-in-the-history">Types of piece view in the history</a></h1><p>Three different viewing modes of the pieces present in this section are made available.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="47dad8b3-2c17-4d68-8297-2710fd6c803d"><colgroup><col style="width: 292.0px;"><col style="width: 1506.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/3.11.6_favorites/1_0_Tagli_B-20250324-133950.jpg" alt="1_0_Tagli_B-20250324-133950.jpg" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Visible cuts</strong><br>The piece is visible showing the cuts.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.11.6_favorites/2_0_LunghezzaTagli_B-20250324-134149.jpg" alt="2_0_LunghezzaTagli_B-20250324-134149.jpg" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Visual quote</strong><br>The piece is displayed showing the quotes.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.11.6_favorites/3_0_SizeCoordinate_B-20250324-134358.jpg" alt="3_0_SizeCoordinate_B-20250324-134358.jpg" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Visible bound</strong><br>The piece is displayed showing the dimension.</p></td></tr></tbody></table><!--Label="crt_fvr"-->
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Machine technical documentation</span><span class="maintenance-status"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Operational document</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="3116-favorites" style="margin:0;" class="maintenance-main-title"><a class="header" href="#3116-favorites"><span class="maintenance-code">DOC</span><span class="maintenance-name">3.11.6 FAVORITES</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document DOC" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="3.11.6 FAVORITES"--><p>Through the favorites screen is possible import in Parametrix pieces that previously have been saved like favorites.</p><div class="TextAlignCenter"><img src="attachments/3.11.6_favorites/0_ListaNonVuota_C.png" alt="0_ListaNonVuota_C.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><p>
+</p><p></p><h1 id="add-a-piece-among-the-favorites"><a class="header" href="#add-a-piece-among-the-favorites">Add a piece among the favorites</a></h1><p>Is possible insert whichever piece in the pieces favorites section using the following button:</p><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="df526304-8929-42b2-9330-2d0fd53fd858"><colgroup><col style="width: 215.0px;"><col style="width: 1584.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/3.11.6_favorites/4_0_Preferiti_B.png" alt="4_0_Preferiti_B.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Add favorite</strong><br>Adds a piece to the favorites list.</p></td></tr></tbody></table><p>The pressure of this button will make the following pop-up appear: </p><div class="TextAlignCenter"><img src="attachments/3.11.6_favorites/4_AddFavorite.png" alt="4_AddFavorite.png" width="350" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p>The compilation of the text field and subsequent confirmation will allow the operator to insert the selected piece in the list of preferred pieces, previously illustrated.</p><div class="TextAlignCenter"><img src="attachments/3.11.6_favorites/4_AddFavoriteCompilato.png" alt="4_AddFavoriteCompilato.png" width="350" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><h1 id="types-of-piece-view-in-the-history"><a class="header" href="#types-of-piece-view-in-the-history">Types of piece view in the history</a></h1><p>Three different viewing modes of the pieces present in this section are made available.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="47dad8b3-2c17-4d68-8297-2710fd6c803d"><colgroup><col style="width: 292.0px;"><col style="width: 1506.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/3.11.6_favorites/1_0_Tagli_B-20250324-133950.jpg" alt="1_0_Tagli_B-20250324-133950.jpg" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Visible cuts</strong><br>The piece is visible showing the cuts.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.11.6_favorites/2_0_LunghezzaTagli_B-20250324-134149.jpg" alt="2_0_LunghezzaTagli_B-20250324-134149.jpg" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Visual quote</strong><br>The piece is displayed showing the quotes.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.11.6_favorites/3_0_SizeCoordinate_B-20250324-134358.jpg" alt="3_0_SizeCoordinate_B-20250324-134358.jpg" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Visible bound</strong><br>The piece is displayed showing the dimension.</p></td></tr></tbody></table><!--Label="crt_fvr"-->
                         </main>
 
                     </div>
@@ -278,5 +280,12 @@
     </div>;
 
 
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
 </body>
 </html>

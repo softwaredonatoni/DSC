@@ -40,7 +40,7 @@
     <script>
       const path_to_root = "";
       const default_light_theme = "light";
-      const default_dark_theme = "navy";
+      const default_dark_theme = "light";
     </script>
     <!-- Start loading toc.js asap -->
     <script src="toc.js"></script>
@@ -86,8 +86,10 @@
     });
   });
 })();
-</script></head>
-<body>
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-document" data-technical-styler-flow="html">
     <header class="header-main">
         <div class="header-flex">
             <div class="donatoni-flex">
@@ -110,6 +112,15 @@
                 </div>
                 <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                     <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
                 </button>
 
                 <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
@@ -144,17 +155,8 @@
 
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script>
-            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
-                .matches
-                ? default_dark_theme
-                : default_light_theme;
-            let theme;
-            try {
-                theme = localStorage.getItem("mdbook-theme");
-            } catch (e) { }
-            if (theme === null || theme === undefined) {
-                theme = default_theme;
-            }
+            const default_theme = "light";
+            let theme = default_theme;
             const html = document.documentElement;
             html.classList.remove("light");
             html.classList.add(theme);
@@ -214,8 +216,8 @@
 
                         <img src="images/donatoni_111.jpg">
 
-                        <main style="margin-left: 20px;">
-                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="dsc-it-it" style="margin:0;"><a class="header" href="#dsc-it-it">DSC IT-IT</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="DSC IT-IT"--><div class="TextAlignCenter"><img src="attachments/dsc_it-it/image-20260123-093643.png" alt="image-20260123-093643.png" width="1172" onclick="showModal(this.src)"></div><h1 local-id="e9d24c72-5d35-4015-b268-c2d7a70e3d14">Donatoni Share Content</h1><p local-id="b5d4a8b2-e5ef-4f3a-ac6b-dfbc50f76a09">Portale centralizzato per la condivisione della documentazione software e tecnica.<br>Il sito raccoglie manuali software, documenti operativi e materiali informativi in diversi formati (PDF, Word e altri) rendendoli consultabili e scaricabili in modo semplice e immediato.<br>L’accesso è pubblico e disponibile anche al di fuori della rete Donatoni, così da garantire la massima diffusione e disponibilità della documentazione aggiornata a utenti interni, partner e clienti.</p>
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Machine technical documentation</span><span class="maintenance-status"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Operational document</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="dsc-it-it" style="margin:0;" class="maintenance-main-title"><a class="header" href="#dsc-it-it"><span class="maintenance-code">DOC</span><span class="maintenance-name">DSC IT-IT</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document DOC" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="DSC IT-IT"--><div class="TextAlignCenter"><img src="attachments/dsc_it-it/image-20260123-093643.png" alt="image-20260123-093643.png" width="1172" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><h1 local-id="e9d24c72-5d35-4015-b268-c2d7a70e3d14">Donatoni Share Content</h1><p local-id="b5d4a8b2-e5ef-4f3a-ac6b-dfbc50f76a09">Portale centralizzato per la condivisione della documentazione software e tecnica.<br>Il sito raccoglie manuali software, documenti operativi e materiali informativi in diversi formati (PDF, Word e altri) rendendoli consultabili e scaricabili in modo semplice e immediato.<br>L’accesso è pubblico e disponibile anche al di fuori della rete Donatoni, così da garantire la massima diffusione e disponibilità della documentazione aggiornata a utenti interni, partner e clienti.</p>
 <ul>
 <li><a href="./manuali_software.html">MANUALI SOFTWARE</a>
 <ul>
@@ -229,6 +231,7 @@
 <li><a href="./troubleshooting.html">TROUBLESHOOTING</a></li>
 <li><a href="./parametrix.html">PARAMETRIX</a></li>
 <li><a href="./dmes.html">DMES</a></li>
+<li><a href="./dcontour.html">DCONTOUR</a></li>
 </ul>
                         </main>
 
@@ -284,5 +287,12 @@
     </div>;
 
 
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
 </body>
 </html>

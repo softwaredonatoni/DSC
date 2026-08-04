@@ -40,7 +40,7 @@
     <script>
       const path_to_root = "";
       const default_light_theme = "light";
-      const default_dark_theme = "navy";
+      const default_dark_theme = "light";
     </script>
     <!-- Start loading toc.js asap -->
     <script src="toc.js"></script>
@@ -86,8 +86,10 @@
     });
   });
 })();
-</script></head>
-<body>
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-document" data-technical-styler-flow="html">
     <header class="header-main">
         <div class="header-flex">
             <div class="donatoni-flex">
@@ -110,6 +112,15 @@
                 </div>
                 <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                     <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
                 </button>
 
                 <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
@@ -144,17 +155,8 @@
 
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script>
-            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
-                .matches
-                ? default_dark_theme
-                : default_light_theme;
-            let theme;
-            try {
-                theme = localStorage.getItem("mdbook-theme");
-            } catch (e) { }
-            if (theme === null || theme === undefined) {
-                theme = default_theme;
-            }
+            const default_theme = "light";
+            let theme = default_theme;
             const html = document.documentElement;
             html.classList.remove("light");
             html.classList.add(theme);
@@ -214,9 +216,9 @@
 
                         <img src="images/donatoni_111.jpg">
 
-                        <main style="margin-left: 20px;">
-                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="316-save-working" style="margin:0;"><a class="header" href="#316-save-working">3.16 SAVE WORKING</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="3.16 SAVE WORKING"--><p>Through this function it is possible to save the state of the slab and the pieces created.</p><div class="TextAlignCenter"><img src="attachments/3.16_save_working/2.01.png" alt="2.01.png" width="800" onclick="showModal(this.src)"></div><p></p><p>
-</p><p></p><h1 id="buttons"><a class="header" href="#buttons">Buttons</a></h1><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="3dc1ed3a-a722-4ee3-82e5-98ae7d304ba8"><colgroup><col style="width: 318.0px;"><col style="width: 1481.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/3.16_save_working/1.0.png" alt="1.0.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Save</strong><br>Allows to save the state of the current processing.</p></td></tr></tbody></table><p></p><h1 id="how-to-save-a-state"><a class="header" href="#how-to-save-a-state">How to save a state</a></h1><p>Once arranged the pieces on the work area, it is possible to access the panel to save the state.</p><div class="TextAlignCenter"><img src="attachments/3.16_save_working/2.00.png" alt="2.00.png" width="800" onclick="showModal(this.src)"></div><p>Choose the name with which you want to save the file inside the text box placed at the top.<br>Confirm the choice with the save button.</p><div class="TextAlignCenter"><img src="attachments/3.16_save_working/2.01.png" alt="2.01.png" width="800" onclick="showModal(this.src)"></div><p>From the third screen of Parametrix it’s also possible to save the status of a working after programming the cuts to execute on slab.</p><div class="TextAlignCenter"><img src="attachments/3.16_save_working/2.03.png" alt="2.03.png" width="800" onclick="showModal(this.src)"></div><p> </p><h1 id="save-as-dxf-optional"><a class="header" href="#save-as-dxf-optional">Save as DXF (Optional)</a></h1><p>This function allows to save the status of the slab and the pieces in it on a DXF file.</p><div class="TextAlignCenter"><img src="attachments/3.16_save_working/2.02.png" alt="2.02.png" width="800" onclick="showModal(this.src)"></div><p></p><p></p><!--Label="sav"--><!--Label="sav_how"--><!--Label="sav_dxf"-->
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Machine technical documentation</span><span class="maintenance-status"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Operational document</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="316-save-working" style="margin:0;" class="maintenance-main-title"><a class="header" href="#316-save-working"><span class="maintenance-code">DOC</span><span class="maintenance-name">3.16 SAVE WORKING</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document DOC" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="3.16 SAVE WORKING"--><p>Through this function it is possible to save the state of the slab and the pieces created.</p><div class="TextAlignCenter"><img src="attachments/3.16_save_working/2.01.png" alt="2.01.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><p>
+</p><p></p><h1 id="buttons"><a class="header" href="#buttons">Buttons</a></h1><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="3dc1ed3a-a722-4ee3-82e5-98ae7d304ba8"><colgroup><col style="width: 318.0px;"><col style="width: 1481.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/3.16_save_working/1.0.png" alt="1.0.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Save</strong><br>Allows to save the state of the current processing.</p></td></tr></tbody></table><p></p><h1 id="how-to-save-a-state"><a class="header" href="#how-to-save-a-state">How to save a state</a></h1><p>Once arranged the pieces on the work area, it is possible to access the panel to save the state.</p><div class="TextAlignCenter"><img src="attachments/3.16_save_working/2.00.png" alt="2.00.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p>Choose the name with which you want to save the file inside the text box placed at the top.<br>Confirm the choice with the save button.</p><div class="TextAlignCenter"><img src="attachments/3.16_save_working/2.01.png" alt="2.01.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p>From the third screen of Parametrix it’s also possible to save the status of a working after programming the cuts to execute on slab.</p><div class="TextAlignCenter"><img src="attachments/3.16_save_working/2.03.png" alt="2.03.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p> </p><h1 id="save-as-dxf-optional"><a class="header" href="#save-as-dxf-optional">Save as DXF (Optional)</a></h1><p>This function allows to save the status of the slab and the pieces in it on a DXF file.</p><div class="TextAlignCenter"><img src="attachments/3.16_save_working/2.02.png" alt="2.02.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><p></p><!--Label="sav"--><!--Label="sav_how"--><!--Label="sav_dxf"-->
                         </main>
 
                     </div>
@@ -278,5 +280,12 @@
     </div>;
 
 
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
 </body>
 </html>

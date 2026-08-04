@@ -40,7 +40,7 @@
     <script>
       const path_to_root = "";
       const default_light_theme = "light";
-      const default_dark_theme = "navy";
+      const default_dark_theme = "light";
     </script>
     <!-- Start loading toc.js asap -->
     <script src="toc.js"></script>
@@ -86,8 +86,10 @@
     });
   });
 })();
-</script></head>
-<body>
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-document" data-technical-styler-flow="html">
     <header class="header-main">
         <div class="header-flex">
             <div class="donatoni-flex">
@@ -110,6 +112,15 @@
                 </div>
                 <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                     <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
                 </button>
 
                 <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
@@ -144,17 +155,8 @@
 
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script>
-            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
-                .matches
-                ? default_dark_theme
-                : default_light_theme;
-            let theme;
-            try {
-                theme = localStorage.getItem("mdbook-theme");
-            } catch (e) { }
-            if (theme === null || theme === undefined) {
-                theme = default_theme;
-            }
+            const default_theme = "light";
+            let theme = default_theme;
             const html = document.documentElement;
             html.classList.remove("light");
             html.classList.add(theme);
@@ -214,9 +216,9 @@
 
                         <img src="images/donatoni_111.jpg">
 
-                        <main style="margin-left: 20px;">
-                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="22-pagina-allarmi" style="margin:0;"><a class="header" href="#22-pagina-allarmi">2.2 PAGINA ALLARMI</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="2.2 PAGINA ALLARMI"--><p local-id="d41e5dcb-86fd-4916-b764-c2a476ebc45f">In questa pagina sono accessibili i messaggi di errore attivi in macchina ed il relativo storico.</p><div class="TextAlignCenter"><img src="attachments/2.2_pagina_allarmi/2.00.png" alt="2.00.png" width="800" onclick="showModal(this.src)"></div><p>
-</p><p local-id="14517222f7b3"></p><h1 local-id="c93718202969">Categorie di allarmi</h1><p local-id="74a8b02e1f20">In questa pagina vengono distinte due categorie di allarmi.</p><div class="TextAlignCenter"><img src="attachments/2.2_pagina_allarmi/2.07.png" alt="2.07.png" width="420" onclick="showModal(this.src)"></div><table class="my-table2" data-table-width="1539" data-layout="center" ac:local-id="c7e6efaf-e059-4d9e-b157-281345fd5bd2"><colgroup><col style="width: 366.0px;"><col style="width: 1173.0px;"></colgroup><tbody><tr ac:local-id="1b5f58149ee6"><td ac:local-id="1608947e1357"><div class="TextAlignCenter"><img src="attachments/2.2_pagina_allarmi/2.02.png" alt="2.02.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="37f68d09a580"><p local-id="fc90d3b796a4"><strong>Attivi</strong><br>Permette di visualizzare tutti i messaggi attualmente attivi sulla macchina. </p></td></tr><tr ac:local-id="2e05def0d92a"><td ac:local-id="a65606f2516d"><div class="TextAlignCenter"><img src="attachments/2.2_pagina_allarmi/2.03.png" alt="2.03.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="ec39bd5a13d4"><p local-id="b9a53384874b"><strong>Storico</strong><br>Permette di visualizzare la lista completa di tutti gli allarmi presenti in macchina con relativa data e ora.</p></td></tr></tbody></table><p local-id="8011b6d1d33c">Tramite il pulsante in alto a destra è possibile personalizzare gli allarmi della macchina.</p><table class="my-table2" data-table-width="1539" data-layout="center" ac:local-id="db8a1fbb-9184-470f-8ea9-05c61a46fd3e"><colgroup><col style="width: 367.0px;"><col style="width: 1172.0px;"></colgroup><tbody><tr ac:local-id="4bda6d27ba3c"><td ac:local-id="88bd3b891f96"><div class="TextAlignCenter"><img src="attachments/2.2_pagina_allarmi/2.04.png" alt="2.04.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="021ce2e70ef6"><p local-id="b6eb861a8c77"><strong>Carica file messaggi</strong><br>Consente di caricare un file .csv per personalizzare i messaggi d’errore visualizzati a schermo.</p></td></tr></tbody></table><p local-id="b4b8f551b6d7"></p><h2 local-id="5fca3d99cde8">Attivi</h2><p local-id="a2422f2016ab">In questo elenco vengono mostrati i messaggi relativi agli errori ed agli avvisi attualmente presenti in macchina, con relativo codice.</p><div class="TextAlignCenter"><img src="attachments/2.2_pagina_allarmi/2.06.png" alt="2.06.png" width="800" onclick="showModal(this.src)"></div><p local-id="823b18791d13"></p><h2 local-id="d171e49058e7">Storico</h2><p local-id="64ebc652ffbc">Questo elenco mostra la cronologia di tutti gli errori rilevati dalla macchina. <br>Per ogni elemento è possibile vederne il codice identificativo, lo stato di attivazione, una descrizione, data ed ora in cui è stato rilevato.</p><div class="TextAlignCenter"><img src="attachments/2.2_pagina_allarmi/2.01.png" alt="2.01.png" width="800" onclick="showModal(this.src)"></div><p local-id="0561177b1561">Il menù a comparsa posizionato in alto a destra permette di selezionare l’intervallo di tempo in cui visualizzare i messaggi.</p><div class="TextAlignCenter"><img src="attachments/2.2_pagina_allarmi/2.05.png" alt="2.05.png" width="212" onclick="showModal(this.src)"></div><p local-id="3acf97e9-e511-4a66-ad41-f36ac5936c58"></p><p local-id="16f55385-e456-4864-86d4-6269c9cd7f72"></p><!--Label="edg_lrm"-->
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Machine technical documentation</span><span class="maintenance-status"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Operational document</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="22-pagina-allarmi" style="margin:0;" class="maintenance-main-title"><a class="header" href="#22-pagina-allarmi"><span class="maintenance-code">DOC</span><span class="maintenance-name">2.2 PAGINA ALLARMI</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document DOC" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="2.2 PAGINA ALLARMI"--><p local-id="d41e5dcb-86fd-4916-b764-c2a476ebc45f">In questa pagina sono accessibili i messaggi di errore attivi in macchina ed il relativo storico.</p><div class="TextAlignCenter"><img src="attachments/2.2_pagina_allarmi/2.00.png" alt="2.00.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p>
+</p><p local-id="14517222f7b3"></p><h1 local-id="c93718202969">Categorie di allarmi</h1><p local-id="74a8b02e1f20">In questa pagina vengono distinte due categorie di allarmi.</p><div class="TextAlignCenter"><img src="attachments/2.2_pagina_allarmi/2.07.png" alt="2.07.png" width="420" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><table class="my-table2" data-table-width="1539" data-layout="center" ac:local-id="c7e6efaf-e059-4d9e-b157-281345fd5bd2"><colgroup><col style="width: 366.0px;"><col style="width: 1173.0px;"></colgroup><tbody><tr ac:local-id="1b5f58149ee6"><td ac:local-id="1608947e1357"><div class="TextAlignCenter"><img src="attachments/2.2_pagina_allarmi/2.02.png" alt="2.02.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="37f68d09a580"><p local-id="fc90d3b796a4"><strong>Attivi</strong><br>Permette di visualizzare tutti i messaggi attualmente attivi sulla macchina. </p></td></tr><tr ac:local-id="2e05def0d92a"><td ac:local-id="a65606f2516d"><div class="TextAlignCenter"><img src="attachments/2.2_pagina_allarmi/2.03.png" alt="2.03.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="ec39bd5a13d4"><p local-id="b9a53384874b"><strong>Storico</strong><br>Permette di visualizzare la lista completa di tutti gli allarmi presenti in macchina con relativa data e ora.</p></td></tr></tbody></table><p local-id="8011b6d1d33c">Tramite il pulsante in alto a destra è possibile personalizzare gli allarmi della macchina.</p><table class="my-table2" data-table-width="1539" data-layout="center" ac:local-id="db8a1fbb-9184-470f-8ea9-05c61a46fd3e"><colgroup><col style="width: 367.0px;"><col style="width: 1172.0px;"></colgroup><tbody><tr ac:local-id="4bda6d27ba3c"><td ac:local-id="88bd3b891f96"><div class="TextAlignCenter"><img src="attachments/2.2_pagina_allarmi/2.04.png" alt="2.04.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="021ce2e70ef6"><p local-id="b6eb861a8c77"><strong>Carica file messaggi</strong><br>Consente di caricare un file .csv per personalizzare i messaggi d’errore visualizzati a schermo.</p></td></tr></tbody></table><p local-id="b4b8f551b6d7"></p><h2 local-id="5fca3d99cde8" class="maintenance-section-title" data-section-number="01">Attivi</h2><p local-id="a2422f2016ab">In questo elenco vengono mostrati i messaggi relativi agli errori ed agli avvisi attualmente presenti in macchina, con relativo codice.</p><div class="TextAlignCenter"><img src="attachments/2.2_pagina_allarmi/2.06.png" alt="2.06.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="823b18791d13"></p><h2 local-id="d171e49058e7" class="maintenance-section-title" data-section-number="02">Storico</h2><p local-id="64ebc652ffbc">Questo elenco mostra la cronologia di tutti gli errori rilevati dalla macchina. <br>Per ogni elemento è possibile vederne il codice identificativo, lo stato di attivazione, una descrizione, data ed ora in cui è stato rilevato.</p><div class="TextAlignCenter"><img src="attachments/2.2_pagina_allarmi/2.01.png" alt="2.01.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="0561177b1561">Il menù a comparsa posizionato in alto a destra permette di selezionare l’intervallo di tempo in cui visualizzare i messaggi.</p><div class="TextAlignCenter"><img src="attachments/2.2_pagina_allarmi/2.05.png" alt="2.05.png" width="212" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="3acf97e9-e511-4a66-ad41-f36ac5936c58"></p><p local-id="16f55385-e456-4864-86d4-6269c9cd7f72"></p><!--Label="edg_lrm"-->
                         </main>
 
                     </div>
@@ -278,5 +280,12 @@
     </div>;
 
 
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
 </body>
 </html>

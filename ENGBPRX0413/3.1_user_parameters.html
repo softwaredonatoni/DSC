@@ -40,7 +40,7 @@
     <script>
       const path_to_root = "";
       const default_light_theme = "light";
-      const default_dark_theme = "navy";
+      const default_dark_theme = "light";
     </script>
     <!-- Start loading toc.js asap -->
     <script src="toc.js"></script>
@@ -86,8 +86,10 @@
     });
   });
 })();
-</script></head>
-<body>
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-document" data-technical-styler-flow="html">
     <header class="header-main">
         <div class="header-flex">
             <div class="donatoni-flex">
@@ -110,6 +112,15 @@
                 </div>
                 <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                     <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
                 </button>
 
                 <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
@@ -144,17 +155,8 @@
 
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script>
-            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
-                .matches
-                ? default_dark_theme
-                : default_light_theme;
-            let theme;
-            try {
-                theme = localStorage.getItem("mdbook-theme");
-            } catch (e) { }
-            if (theme === null || theme === undefined) {
-                theme = default_theme;
-            }
+            const default_theme = "light";
+            let theme = default_theme;
             const html = document.documentElement;
             html.classList.remove("light");
             html.classList.add(theme);
@@ -214,9 +216,9 @@
 
                         <img src="images/donatoni_111.jpg">
 
-                        <main style="margin-left: 20px;">
-                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="31-user-parameters" style="margin:0;"><a class="header" href="#31-user-parameters">3.1 USER PARAMETERS</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="3.1 USER PARAMETERS"--><p>Once the button is pressed, it is possible to view various windows.</p><div class="TextAlignCenter"><img src="attachments/3.1_user_parameters/0.0.png" alt="0.0.png" width="600" onclick="showModal(this.src)"></div><p></p><p>
-</p><p></p><h1 id="windows"><a class="header" href="#windows">Windows</a></h1><p>There are 4 different windows that will be individually illustrated later.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="4c0e4bce-9484-4ea1-9ccc-89305103d234"><colgroup><col style="width: 352.0px;"><col style="width: 1447.0px;"></colgroup><tbody><tr><td><p><strong>User Values</strong></p></td><td><p>Window dedicated to changing some settings related to workings.</p></td></tr><tr><td><p><strong>Statistic</strong></p></td><td><p>The operator can view the statistics of the workings performed.</p></td></tr><tr><td><p><strong>Layers name</strong></p></td><td><p>Window dedicated to the settings for the import of DXF files on Parametrix.</p></td></tr><tr><td><p><strong>Suction cups</strong></p></td><td><p>Parameters relative to the vacuum movement speed.</p></td></tr></tbody></table><p></p><h1 id="bottom-bar"><a class="header" href="#bottom-bar">Bottom bar</a></h1><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="50a2ca67-d977-49c3-94eb-7ea98716f6e4"><colgroup><col style="width: 180.0px;"><col style="width: 1618.0px;"></colgroup><tbody><tr><td data-highlight-colour="#ffffff"><div class="TextAlignCenter"><img src="attachments/3.1_user_parameters/1.1-20250611-120408.png" alt="1.1-20250611-120408.png" width="60" onclick="showModal(this.src)"></div></td><td data-highlight-colour="#ffffff"><p><strong>Close Parametrix</strong><br>Closes the Parametrix software.</p></td></tr><tr><td data-highlight-colour="#ffffff"><div class="TextAlignCenter"><img src="attachments/3.1_user_parameters/1.2-20250611-120439.png" alt="1.2-20250611-120439.png" width="60" onclick="showModal(this.src)"></div></td><td data-highlight-colour="#ffffff"><p><strong>Restart Parametrix</strong><br>Restart the Parametrix software.</p></td></tr><tr><td data-highlight-colour="#ffffff"><div class="TextAlignCenter"><img src="attachments/3.1_user_parameters/1.3-20250611-120510.png" alt="1.3-20250611-120510.png" width="60" onclick="showModal(this.src)"></div></td><td data-highlight-colour="#ffffff"><p><strong>Probing</strong><br>Opens the Windows keyboard.</p></td></tr><tr><td data-highlight-colour="#ffffff"><div class="TextAlignCenter"><img src="attachments/3.1_user_parameters/1.4-20250611-120537.png" alt="1.4-20250611-120537.png" width="60" onclick="showModal(this.src)"></div></td><td data-highlight-colour="#ffffff"><p><strong>Camera connection</strong><br>Opens the camera management software.</p></td></tr><tr><td data-highlight-colour="#ffffff"><div class="TextAlignCenter"><img src="attachments/3.1_user_parameters/1.5-20250611-120612.png" alt="1.5-20250611-120612.png" width="60" onclick="showModal(this.src)"></div></td><td data-highlight-colour="#ffffff"><p><strong>Remote Assistance</strong><br>Open the connection for the remote assistance.</p></td></tr><tr><td data-highlight-colour="#ffffff"><div class="TextAlignCenter"><img src="attachments/3.1_user_parameters/image-20250611-055254.png" alt="image-20250611-055254.png" width="60" onclick="showModal(this.src)"></div></td><td data-highlight-colour="#ffffff"><p><strong>Technical Parameters</strong><br>Opens the technical parameters page. Intended for use by a technician.</p></td></tr><tr><td data-highlight-colour="#ffffff"><div class="TextAlignCenter"><img src="attachments/3.1_user_parameters/image-20250611-055642.png" alt="image-20250611-055642.png" width="60" onclick="showModal(this.src)"></div></td><td data-highlight-colour="#ffffff"><p><strong>Password insertion</strong><br>Allows to insert the password.</p></td></tr><tr><td data-highlight-colour="#ffffff"><div class="TextAlignCenter"><img src="attachments/3.1_user_parameters/1.11-20250611-120924.png" alt="1.11-20250611-120924.png" width="60" onclick="showModal(this.src)"></div></td><td data-highlight-colour="#ffffff"><p><strong>Don’t save changes</strong><br>It exits from the page without saving changes.</p></td></tr></tbody></table><!--Label="srp"--><!--Label="srp_sst"--><!--Label="srp_pht"-->
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Machine technical documentation</span><span class="maintenance-status"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Operational document</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="31-user-parameters" style="margin:0;" class="maintenance-main-title"><a class="header" href="#31-user-parameters"><span class="maintenance-code">DOC</span><span class="maintenance-name">3.1 USER PARAMETERS</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document DOC" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="3.1 USER PARAMETERS"--><p>Once the button is pressed, it is possible to view various windows.</p><div class="TextAlignCenter"><img src="attachments/3.1_user_parameters/0.0.png" alt="0.0.png" width="600" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><p>
+</p><p></p><h1 id="windows"><a class="header" href="#windows">Windows</a></h1><p>There are 4 different windows that will be individually illustrated later.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="4c0e4bce-9484-4ea1-9ccc-89305103d234"><colgroup><col style="width: 352.0px;"><col style="width: 1447.0px;"></colgroup><tbody><tr><td><p><strong>User Values</strong></p></td><td><p>Window dedicated to changing some settings related to workings.</p></td></tr><tr><td><p><strong>Statistic</strong></p></td><td><p>The operator can view the statistics of the workings performed.</p></td></tr><tr><td><p><strong>Layers name</strong></p></td><td><p>Window dedicated to the settings for the import of DXF files on Parametrix.</p></td></tr><tr><td><p><strong>Suction cups</strong></p></td><td><p>Parameters relative to the vacuum movement speed.</p></td></tr></tbody></table><p></p><h1 id="bottom-bar"><a class="header" href="#bottom-bar">Bottom bar</a></h1><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="50a2ca67-d977-49c3-94eb-7ea98716f6e4"><colgroup><col style="width: 180.0px;"><col style="width: 1618.0px;"></colgroup><tbody><tr><td data-highlight-colour="#ffffff"><div class="TextAlignCenter"><img src="attachments/3.1_user_parameters/1.1-20250611-120408.png" alt="1.1-20250611-120408.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td data-highlight-colour="#ffffff"><p><strong>Close Parametrix</strong><br>Closes the Parametrix software.</p></td></tr><tr><td data-highlight-colour="#ffffff"><div class="TextAlignCenter"><img src="attachments/3.1_user_parameters/1.2-20250611-120439.png" alt="1.2-20250611-120439.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td data-highlight-colour="#ffffff"><p><strong>Restart Parametrix</strong><br>Restart the Parametrix software.</p></td></tr><tr><td data-highlight-colour="#ffffff"><div class="TextAlignCenter"><img src="attachments/3.1_user_parameters/1.3-20250611-120510.png" alt="1.3-20250611-120510.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td data-highlight-colour="#ffffff"><p><strong>Probing</strong><br>Opens the Windows keyboard.</p></td></tr><tr><td data-highlight-colour="#ffffff"><div class="TextAlignCenter"><img src="attachments/3.1_user_parameters/1.4-20250611-120537.png" alt="1.4-20250611-120537.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td data-highlight-colour="#ffffff"><p><strong>Camera connection</strong><br>Opens the camera management software.</p></td></tr><tr><td data-highlight-colour="#ffffff"><div class="TextAlignCenter"><img src="attachments/3.1_user_parameters/1.5-20250611-120612.png" alt="1.5-20250611-120612.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td data-highlight-colour="#ffffff"><p><strong>Remote Assistance</strong><br>Open the connection for the remote assistance.</p></td></tr><tr><td data-highlight-colour="#ffffff"><div class="TextAlignCenter"><img src="attachments/3.1_user_parameters/image-20250611-055254.png" alt="image-20250611-055254.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td data-highlight-colour="#ffffff"><p><strong>Technical Parameters</strong><br>Opens the technical parameters page. Intended for use by a technician.</p></td></tr><tr><td data-highlight-colour="#ffffff"><div class="TextAlignCenter"><img src="attachments/3.1_user_parameters/image-20250611-055642.png" alt="image-20250611-055642.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td data-highlight-colour="#ffffff"><p><strong>Password insertion</strong><br>Allows to insert the password.</p></td></tr><tr><td data-highlight-colour="#ffffff"><div class="TextAlignCenter"><img src="attachments/3.1_user_parameters/1.11-20250611-120924.png" alt="1.11-20250611-120924.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td data-highlight-colour="#ffffff"><p><strong>Don’t save changes</strong><br>It exits from the page without saving changes.</p></td></tr></tbody></table><!--Label="srp"--><!--Label="srp_sst"--><!--Label="srp_pht"-->
                         </main>
 
                     </div>
@@ -278,5 +280,12 @@
     </div>;
 
 
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
 </body>
 </html>

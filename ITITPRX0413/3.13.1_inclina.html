@@ -40,7 +40,7 @@
     <script>
       const path_to_root = "";
       const default_light_theme = "light";
-      const default_dark_theme = "navy";
+      const default_dark_theme = "light";
     </script>
     <!-- Start loading toc.js asap -->
     <script src="toc.js"></script>
@@ -86,8 +86,10 @@
     });
   });
 })();
-</script></head>
-<body>
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-document" data-technical-styler-flow="html">
     <header class="header-main">
         <div class="header-flex">
             <div class="donatoni-flex">
@@ -110,6 +112,15 @@
                 </div>
                 <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                     <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
                 </button>
 
                 <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
@@ -144,17 +155,8 @@
 
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script>
-            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
-                .matches
-                ? default_dark_theme
-                : default_light_theme;
-            let theme;
-            try {
-                theme = localStorage.getItem("mdbook-theme");
-            } catch (e) { }
-            if (theme === null || theme === undefined) {
-                theme = default_theme;
-            }
+            const default_theme = "light";
+            let theme = default_theme;
             const html = document.documentElement;
             html.classList.remove("light");
             html.classList.add(theme);
@@ -214,8 +216,8 @@
 
                         <img src="images/donatoni_111.jpg">
 
-                        <main style="margin-left: 20px;">
-                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="3131-inclina" style="margin:0;"><a class="header" href="#3131-inclina">3.13.1 INCLINA</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="3.13.1 INCLINA"--><p>La funzione ‘Inclinazione’ definisce una lavorazione con l’asse A diverso da 0.<br>L’interfaccia per il tipo di lavorazione “Taglio Inclinato“ assomiglia alla seguente immagine:</p><div class="TextAlignCenter"><img src="attachments/3.13.1_inclina/2.1-20250701-081919.png" alt="2.1-20250701-081919.png" width="800" onclick="showModal(this.src)"></div><p></p><p>
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Machine technical documentation</span><span class="maintenance-status"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Operational document</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="3131-inclina" style="margin:0;" class="maintenance-main-title"><a class="header" href="#3131-inclina"><span class="maintenance-code">DOC</span><span class="maintenance-name">3.13.1 INCLINA</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document DOC" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="3.13.1 INCLINA"--><p>La funzione ‘Inclinazione’ definisce una lavorazione con l’asse A diverso da 0.<br>L’interfaccia per il tipo di lavorazione “Taglio Inclinato“ assomiglia alla seguente immagine:</p><div class="TextAlignCenter"><img src="attachments/3.13.1_inclina/2.1-20250701-081919.png" alt="2.1-20250701-081919.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><p>
 </p><p></p><h1 id="modalità"><a class="header" href="#modalità">Modalità</a></h1>
 <div id="admonition-nota" class="admonition admonish-info" role="note" aria-labelledby="admonition-nota-title">
 <div class="admonition-title">
@@ -228,7 +230,7 @@
 <p>Se si sceglie una direzione squadra si esclude l’altra.</p>
 </div>
 </div>
-<table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="f701da3e-2225-4114-bef3-db567cdcfeac"><colgroup><col style="width: 240.0px;"><col style="width: 1559.0px;"></colgroup><tbody><tr><td data-highlight-colour="#ffffff"><div class="TextAlignCenter"><img src="attachments/3.13.1_inclina/1_On_Off-20250612-142552.png" alt="1_On_Off-20250612-142552.png" width="120" onclick="showModal(this.src)"></div></td><td data-highlight-colour="#ffffff"><p><strong>Direzione squadra _</strong><br>Se abilitata, questa modalità permette all’operatore di creare un taglio inclinato di un certo numero di gradi positivo.</p></td></tr><tr><td data-highlight-colour="#ffffff"><div class="TextAlignCenter"><img src="attachments/3.13.1_inclina/2_On_Off-20250612-142710.png" alt="2_On_Off-20250612-142710.png" width="120" onclick="showModal(this.src)"></div></td><td data-highlight-colour="#ffffff"><p><strong>Direzione squadra -</strong><br>Se abilitata, questa modalità permette all’operatore di creare un taglio inclinato di un certo numero di gradi negativo.</p></td></tr></tbody></table><p></p><h1 id="parametri"><a class="header" href="#parametri">Parametri</a></h1><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="9324b061-dd8a-41f5-90ff-5ac486bb4c08"><colgroup><col style="width: 240.0px;"><col style="width: 1559.0px;"></colgroup><tbody><tr><td><p style="text-align: center;"><strong>Gradi</strong></p></td><td><p>Rappresenta l’angolo formato tra la direzione dell’utensile montato e la superficie del materiale da lavorare.<br>Questo angolo determina l’inclinazione con cui l’attrezzo interagisce con il materiale.</p></td></tr></tbody></table><p></p><h1 id="esecuzione-della-lavorazione"><a class="header" href="#esecuzione-della-lavorazione">Esecuzione della lavorazione</a></h1>
+<table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="f701da3e-2225-4114-bef3-db567cdcfeac"><colgroup><col style="width: 240.0px;"><col style="width: 1559.0px;"></colgroup><tbody><tr><td data-highlight-colour="#ffffff"><div class="TextAlignCenter"><img src="attachments/3.13.1_inclina/1_On_Off-20250612-142552.png" alt="1_On_Off-20250612-142552.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td data-highlight-colour="#ffffff"><p><strong>Direzione squadra _</strong><br>Se abilitata, questa modalità permette all’operatore di creare un taglio inclinato di un certo numero di gradi positivo.</p></td></tr><tr><td data-highlight-colour="#ffffff"><div class="TextAlignCenter"><img src="attachments/3.13.1_inclina/2_On_Off-20250612-142710.png" alt="2_On_Off-20250612-142710.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td data-highlight-colour="#ffffff"><p><strong>Direzione squadra -</strong><br>Se abilitata, questa modalità permette all’operatore di creare un taglio inclinato di un certo numero di gradi negativo.</p></td></tr></tbody></table><p></p><h1 id="parametri"><a class="header" href="#parametri">Parametri</a></h1><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="9324b061-dd8a-41f5-90ff-5ac486bb4c08"><colgroup><col style="width: 240.0px;"><col style="width: 1559.0px;"></colgroup><tbody><tr><td><p style="text-align: center;"><strong>Gradi</strong></p></td><td><p>Rappresenta l’angolo formato tra la direzione dell’utensile montato e la superficie del materiale da lavorare.<br>Questo angolo determina l’inclinazione con cui l’attrezzo interagisce con il materiale.</p></td></tr></tbody></table><p></p><h1 id="esecuzione-della-lavorazione"><a class="header" href="#esecuzione-della-lavorazione">Esecuzione della lavorazione</a></h1>
 <div id="admonition-nota-1" class="admonition admonish-info" role="note" aria-labelledby="admonition-nota-1-title">
 <div class="admonition-title">
 <div id="admonition-nota-1-title">
@@ -242,7 +244,7 @@
 Un’icona rossa con una 'X' indica che la lavorazione non può essere applicata al taglio desiderato.</p>
 </div>
 </div>
-<p>Una volta selezionata la direzione della squadra, si inserisce il valore desiderato a fianco e si seleziona il taglio su cui impostare il taglio inclinato.<br>L’applicazione della lavorazione comporterà la visualizzazione del taglio inclinato con un colore differente.<br>In base alla selezione della squadra è possibile ottenere due risultati distinti:</p><p></p><h2 id="direzione-squadra-positiva"><a class="header" href="#direzione-squadra-positiva">Direzione squadra: Positiva</a></h2><p>Nella seguente immagine di esempio è stata applicata la lavorazione taglio inclinato (45.0_) con direzione della squadra positiva su ogni lato eccetto l’arco interno, poiché non è possibile inclinare l'utensile interno al perimetro.</p><div class="TextAlignCenter"><img src="attachments/3.13.1_inclina/2.2-20250701-082356.png" alt="2.2-20250701-082356.png" width="800" onclick="showModal(this.src)"></div><p></p><h2 id="direzione-squadra-negativa"><a class="header" href="#direzione-squadra-negativa">Direzione squadra: Negativa</a></h2><p>Nell'immagine di esempio riportata, le lavorazioni di taglio inclinato (45.0_) con direzione della squadra negativa sono state applicate ai tagli del pezzo in modo inverso rispetto alla configurazione illustrata nel paragrafo precedente</p><div class="TextAlignCenter"><img src="attachments/3.13.1_inclina/2.3-20250701-082549.png" alt="2.3-20250701-082549.png" width="800" onclick="showModal(this.src)"></div><p></p><!--Label="mdf_mtr_neg"--><!--Label="mdf_mtr"--><!--Label="mdf_mtr_pos"-->
+<p>Una volta selezionata la direzione della squadra, si inserisce il valore desiderato a fianco e si seleziona il taglio su cui impostare il taglio inclinato.<br>L’applicazione della lavorazione comporterà la visualizzazione del taglio inclinato con un colore differente.<br>In base alla selezione della squadra è possibile ottenere due risultati distinti:</p><p></p><h2 id="direzione-squadra-positiva" class="maintenance-section-title" data-section-number="01"><a class="header" href="#direzione-squadra-positiva">Direzione squadra: Positiva</a></h2><p>Nella seguente immagine di esempio è stata applicata la lavorazione taglio inclinato (45.0_) con direzione della squadra positiva su ogni lato eccetto l’arco interno, poiché non è possibile inclinare l'utensile interno al perimetro.</p><div class="TextAlignCenter"><img src="attachments/3.13.1_inclina/2.2-20250701-082356.png" alt="2.2-20250701-082356.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><h2 id="direzione-squadra-negativa" class="maintenance-section-title" data-section-number="02"><a class="header" href="#direzione-squadra-negativa">Direzione squadra: Negativa</a></h2><p>Nell'immagine di esempio riportata, le lavorazioni di taglio inclinato (45.0_) con direzione della squadra negativa sono state applicate ai tagli del pezzo in modo inverso rispetto alla configurazione illustrata nel paragrafo precedente</p><div class="TextAlignCenter"><img src="attachments/3.13.1_inclina/2.3-20250701-082549.png" alt="2.3-20250701-082549.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><!--Label="mdf_mtr_neg"--><!--Label="mdf_mtr"--><!--Label="mdf_mtr_pos"-->
                         </main>
 
                     </div>
@@ -304,5 +306,12 @@ Un’icona rossa con una 'X' indica che la lavorazione non può essere applicata
     </div>;
 
 
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
 </body>
 </html>

@@ -40,7 +40,7 @@
     <script>
       const path_to_root = "";
       const default_light_theme = "light";
-      const default_dark_theme = "navy";
+      const default_dark_theme = "light";
     </script>
     <!-- Start loading toc.js asap -->
     <script src="toc.js"></script>
@@ -86,8 +86,10 @@
     });
   });
 })();
-</script></head>
-<body>
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-document" data-technical-styler-flow="html">
     <header class="header-main">
         <div class="header-flex">
             <div class="donatoni-flex">
@@ -110,6 +112,15 @@
                 </div>
                 <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                     <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
                 </button>
 
                 <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
@@ -144,17 +155,8 @@
 
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script>
-            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
-                .matches
-                ? default_dark_theme
-                : default_light_theme;
-            let theme;
-            try {
-                theme = localStorage.getItem("mdbook-theme");
-            } catch (e) { }
-            if (theme === null || theme === undefined) {
-                theme = default_theme;
-            }
+            const default_theme = "light";
+            let theme = default_theme;
             const html = document.documentElement;
             html.classList.remove("light");
             html.classList.add(theme);
@@ -214,9 +216,9 @@
 
                         <img src="images/donatoni_111.jpg">
 
-                        <main style="margin-left: 20px;">
-                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="36-laser-management" style="margin:0;"><a class="header" href="#36-laser-management">3.6 LASER MANAGEMENT</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="3.6 LASER MANAGEMENT"--><p>This panel allows to add or remove laser references on the working area.</p><div class="TextAlignCenter"><img src="attachments/3.6_laser_management/1.5.png" alt="1.5.png" width="290" onclick="showModal(this.src)"></div><p></p><p>
-</p><p></p><h1 id="buttons"><a class="header" href="#buttons">Buttons</a></h1><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="8028fe8a-a249-410e-a3e1-7530ccdf5347"><colgroup><col style="width: 312.0px;"><col style="width: 1486.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/3.6_laser_management/1.1-20250611-121422.png" alt="1.1-20250611-121422.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Laser reference to line</strong><br>Allows to add on the work area the reference of the laser to line based on the position of the machine.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.6_laser_management/1.2-20250611-121456.png" alt="1.2-20250611-121456.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Draws laser cross</strong><br>Allows to add on the working area the reference of the laser cross according to the position of the machine.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.6_laser_management/1.3-20250611-121520.png" alt="1.3-20250611-121520.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Delete all drawings</strong><br>All lines and crosses inserted on the working area in this mode will be deleted.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.6_laser_management/6_4-20250319-065813.png" alt="6_4-20250319-065813.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Delete a single drawing</strong><br>Allows the operator to delete a laser element drawn on the work area by clicking on it.</p></td></tr></tbody></table><p></p><h1 id="laser-to-line"><a class="header" href="#laser-to-line">Laser to line</a></h1><p>The line laser is a tool aligned with the disk mounted on the machine. It is used to collect information related to the position and the orientation of the disk on the bench.</p><div class="TextAlignCenter"><img src="attachments/3.6_laser_management/3.1.png" alt="3.1.png" width="277" onclick="showModal(this.src)"></div><p>To acquire the reference, bring the machine to the desired point, and press the button to detect the direction of the laser at line and add the reference on the working area.<br>Using more references, it is possible to recognize the perimeter and the position of the slab or of a piece on the work bench.</p>
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Machine technical documentation</span><span class="maintenance-status"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Operational document</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="36-laser-management" style="margin:0;" class="maintenance-main-title"><a class="header" href="#36-laser-management"><span class="maintenance-code">DOC</span><span class="maintenance-name">3.6 LASER MANAGEMENT</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document DOC" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="3.6 LASER MANAGEMENT"--><p>This panel allows to add or remove laser references on the working area.</p><div class="TextAlignCenter"><img src="attachments/3.6_laser_management/1.5.png" alt="1.5.png" width="290" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><p>
+</p><p></p><h1 id="buttons"><a class="header" href="#buttons">Buttons</a></h1><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="8028fe8a-a249-410e-a3e1-7530ccdf5347"><colgroup><col style="width: 312.0px;"><col style="width: 1486.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/3.6_laser_management/1.1-20250611-121422.png" alt="1.1-20250611-121422.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Laser reference to line</strong><br>Allows to add on the work area the reference of the laser to line based on the position of the machine.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.6_laser_management/1.2-20250611-121456.png" alt="1.2-20250611-121456.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Draws laser cross</strong><br>Allows to add on the working area the reference of the laser cross according to the position of the machine.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.6_laser_management/1.3-20250611-121520.png" alt="1.3-20250611-121520.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Delete all drawings</strong><br>All lines and crosses inserted on the working area in this mode will be deleted.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.6_laser_management/6_4-20250319-065813.png" alt="6_4-20250319-065813.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Delete a single drawing</strong><br>Allows the operator to delete a laser element drawn on the work area by clicking on it.</p></td></tr></tbody></table><p></p><h1 id="laser-to-line"><a class="header" href="#laser-to-line">Laser to line</a></h1><p>The line laser is a tool aligned with the disk mounted on the machine. It is used to collect information related to the position and the orientation of the disk on the bench.</p><div class="TextAlignCenter"><img src="attachments/3.6_laser_management/3.1.png" alt="3.1.png" width="277" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p>To acquire the reference, bring the machine to the desired point, and press the button to detect the direction of the laser at line and add the reference on the working area.<br>Using more references, it is possible to recognize the perimeter and the position of the slab or of a piece on the work bench.</p>
 <div id="admonition-note" class="admonition admonish-info" role="note" aria-labelledby="admonition-note-title">
 <div class="admonition-title">
 <div id="admonition-note-title">
@@ -228,7 +230,7 @@
 <p>There are no limits on the number of references that is possible to save.</p>
 </div>
 </div>
-<div class="TextAlignCenter"><img src="attachments/3.6_laser_management/2.03.png" alt="2.03.png" width="800" onclick="showModal(this.src)"></div><p></p><h1 id="laser-cross"><a class="header" href="#laser-cross">Laser cross</a></h1><p>The laser cross is used to collect information related to the position of the laser pointer on the bench.</p><div class="TextAlignCenter"><img src="attachments/3.6_laser_management/3.2.png" alt="3.2.png" width="277" onclick="showModal(this.src)"></div><p>To acquire the reference, bring the machine to the desired point, and press the button to detect the position of the laser cross and add the reference to the work area.<br>Using more references, is possible to recognize the perimeter and the position of the slab or of a piece on the working bench.</p>
+<div class="TextAlignCenter"><img src="attachments/3.6_laser_management/2.03.png" alt="2.03.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><h1 id="laser-cross"><a class="header" href="#laser-cross">Laser cross</a></h1><p>The laser cross is used to collect information related to the position of the laser pointer on the bench.</p><div class="TextAlignCenter"><img src="attachments/3.6_laser_management/3.2.png" alt="3.2.png" width="277" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p>To acquire the reference, bring the machine to the desired point, and press the button to detect the position of the laser cross and add the reference to the work area.<br>Using more references, is possible to recognize the perimeter and the position of the slab or of a piece on the working bench.</p>
 <div id="admonition-note-1" class="admonition admonish-info" role="note" aria-labelledby="admonition-note-1-title">
 <div class="admonition-title">
 <div id="admonition-note-1-title">
@@ -240,7 +242,7 @@
 <p>There are no limits on the number of references that is possible to save.</p>
 </div>
 </div>
-<div class="TextAlignCenter"><img src="attachments/3.6_laser_management/2.01.png" alt="2.01.png" width="800" onclick="showModal(this.src)"></div><!--Label="lsr"--><!--Label="lsr_lin"--><!--Label="lsr_cro"-->
+<div class="TextAlignCenter"><img src="attachments/3.6_laser_management/2.01.png" alt="2.01.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><!--Label="lsr"--><!--Label="lsr_lin"--><!--Label="lsr_cro"-->
                         </main>
 
                     </div>
@@ -302,5 +304,12 @@
     </div>;
 
 
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
 </body>
 </html>

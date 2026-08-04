@@ -40,7 +40,7 @@
     <script>
       const path_to_root = "";
       const default_light_theme = "light";
-      const default_dark_theme = "navy";
+      const default_dark_theme = "light";
     </script>
     <!-- Start loading toc.js asap -->
     <script src="toc.js"></script>
@@ -86,8 +86,10 @@
     });
   });
 })();
-</script></head>
-<body>
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-document" data-technical-styler-flow="html">
     <header class="header-main">
         <div class="header-flex">
             <div class="donatoni-flex">
@@ -110,6 +112,15 @@
                 </div>
                 <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                     <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
                 </button>
 
                 <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
@@ -144,17 +155,8 @@
 
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script>
-            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
-                .matches
-                ? default_dark_theme
-                : default_light_theme;
-            let theme;
-            try {
-                theme = localStorage.getItem("mdbook-theme");
-            } catch (e) { }
-            if (theme === null || theme === undefined) {
-                theme = default_theme;
-            }
+            const default_theme = "light";
+            let theme = default_theme;
             const html = document.documentElement;
             html.classList.remove("light");
             html.classList.add(theme);
@@ -214,8 +216,8 @@
 
                         <img src="images/donatoni_111.jpg">
 
-                        <main style="margin-left: 20px;">
-                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="2-broken-pieces-notification" style="margin:0;"><a class="header" href="#2-broken-pieces-notification">2 BROKEN PIECES NOTIFICATION</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="2 BROKEN PIECES NOTIFICATION"--><p local-id="39ab11427eee">This mode of the Current Configuration page allows selecting one or more pieces and marking them as broken.</p><div class="TextAlignCenter"><img src="attachments/2_broken_pieces_notification/ReportBrokenPieces.png" alt="ReportBrokenPieces.png" width="800" onclick="showModal(this.src)"></div><p local-id="02950a65acf0">The notification will arrive at the properly configured Parametrix software, which will allow reinserting the pieces for a new execution. <br>This function is optional and must be set correctly, or disabled. </p><p local-id="77b43a940f57">It is possible to select the pieces to be marked directly from the viewing window, or by selecting the piece checkbox in the list on the right. <br>Selecting a slab checkbox will select all pieces of that slab.</p><p local-id="e31ef4da5609">The notification of broken pieces can be performed only once for the cut configuration, and once sent it cannot be modified.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="89d34ccf-5d18-437b-bd76-e34ae3784d13"><colgroup><col style="width: 251.0px;"><col style="width: 1543.0px;"></colgroup><tbody><tr ac:local-id="e577cfe66341"><td ac:local-id="723214bb5f01"><div class="TextAlignCenter"><img src="attachments/2_broken_pieces_notification/send.png" alt="Send.png" width="127" onclick="showModal(this.src)"></div></td><td ac:local-id="915e0cb2e1bf"><p local-id="fcc8cb328cae"><strong>Report broken pieces</strong><br>Mark selected pieces as broken.</p></td></tr></tbody></table><p local-id="078ffdfdae7a"></p><!--Label="2_segnalazione_pezzi_rotti"-->
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Machine technical documentation</span><span class="maintenance-status"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Operational document</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="2-broken-pieces-notification" style="margin:0;" class="maintenance-main-title"><a class="header" href="#2-broken-pieces-notification"><span class="maintenance-code">DOC</span><span class="maintenance-name">2 BROKEN PIECES NOTIFICATION</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document DOC" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="2 BROKEN PIECES NOTIFICATION"--><p local-id="39ab11427eee">This mode of the Current Configuration page allows selecting one or more pieces and marking them as broken.</p><div class="TextAlignCenter"><img src="attachments/2_broken_pieces_notification/ReportBrokenPieces.png" alt="ReportBrokenPieces.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="02950a65acf0">The notification will arrive at the properly configured Parametrix software, which will allow reinserting the pieces for a new execution. <br>This function is optional and must be set correctly, or disabled. </p><p local-id="77b43a940f57">It is possible to select the pieces to be marked directly from the viewing window, or by selecting the piece checkbox in the list on the right. <br>Selecting a slab checkbox will select all pieces of that slab.</p><p local-id="e31ef4da5609">The notification of broken pieces can be performed only once for the cut configuration, and once sent it cannot be modified.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="89d34ccf-5d18-437b-bd76-e34ae3784d13"><colgroup><col style="width: 251.0px;"><col style="width: 1543.0px;"></colgroup><tbody><tr ac:local-id="e577cfe66341"><td ac:local-id="723214bb5f01"><div class="TextAlignCenter"><img src="attachments/2_broken_pieces_notification/send.png" alt="Send.png" width="127" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="915e0cb2e1bf"><p local-id="fcc8cb328cae"><strong>Report broken pieces</strong><br>Mark selected pieces as broken.</p></td></tr></tbody></table><p local-id="078ffdfdae7a"></p><!--Label="2_segnalazione_pezzi_rotti"-->
                         </main>
 
                     </div>
@@ -277,5 +279,12 @@
     </div>;
 
 
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
 </body>
 </html>

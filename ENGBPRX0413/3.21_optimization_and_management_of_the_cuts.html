@@ -40,7 +40,7 @@
     <script>
       const path_to_root = "";
       const default_light_theme = "light";
-      const default_dark_theme = "navy";
+      const default_dark_theme = "light";
     </script>
     <!-- Start loading toc.js asap -->
     <script src="toc.js"></script>
@@ -86,8 +86,10 @@
     });
   });
 })();
-</script></head>
-<body>
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-document" data-technical-styler-flow="html">
     <header class="header-main">
         <div class="header-flex">
             <div class="donatoni-flex">
@@ -110,6 +112,15 @@
                 </div>
                 <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                     <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
                 </button>
 
                 <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
@@ -144,17 +155,8 @@
 
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script>
-            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
-                .matches
-                ? default_dark_theme
-                : default_light_theme;
-            let theme;
-            try {
-                theme = localStorage.getItem("mdbook-theme");
-            } catch (e) { }
-            if (theme === null || theme === undefined) {
-                theme = default_theme;
-            }
+            const default_theme = "light";
+            let theme = default_theme;
             const html = document.documentElement;
             html.classList.remove("light");
             html.classList.add(theme);
@@ -214,9 +216,9 @@
 
                         <img src="images/donatoni_111.jpg">
 
-                        <main style="margin-left: 20px;">
-                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="321-optimization-and-management-of-the-cuts" style="margin:0;"><a class="header" href="#321-optimization-and-management-of-the-cuts">3.21 OPTIMIZATION AND MANAGEMENT OF THE CUTS</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="3.21 OPTIMIZATION AND MANAGEMENT OF THE CUTS"--><p>Through the third button in the top right, you access the optimization and cut management screen.</p><div class="TextAlignCenter"><img src="attachments/3.21_optimization_and_management_of_the_cuts/0.00.png" alt="0.00.png" width="800" onclick="showModal(this.src)"></div><p></p><p>
-</p><p></p><h1 id="lower-bar"><a class="header" href="#lower-bar">Lower bar</a></h1><p>In the lower section are shown some buttons that allow to perform operations on cuts.</p><div class="TextAlignCenter"><img src="attachments/3.21_optimization_and_management_of_the_cuts/0.02.png" alt="0.02.png" width="800" onclick="showModal(this.src)"></div><p></p><h1 id="buttons"><a class="header" href="#buttons">Buttons</a></h1><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="d3ee11da-b711-4628-b0cc-b751ad7bc9f9"><colgroup><col style="width: 396.0px;"><col style="width: 1403.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/3.21_optimization_and_management_of_the_cuts/1_OffOn.png" alt="1_OffOn.png" width="119" onclick="showModal(this.src)"></div></td><td><p><strong>Probing Slab</strong><br>Allows to add a slab probe cycle before executing the cuts.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.21_optimization_and_management_of_the_cuts/9_OffOn.png" alt="9_OffOn.png" width="119" onclick="showModal(this.src)"></div></td><td><p><strong>Create ISO program</strong><br>Generate the cutting program and allows to access the ISO control page.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.21_optimization_and_management_of_the_cuts/VentoseMan.png" alt="VentoseMan.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Manual move</strong><br>Allows to move a section of material using the suction cups.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.21_optimization_and_management_of_the_cuts/VentoseAuto2.png" alt="VentoseAuto2.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Move automatic.</strong><br>Performs the material shifts needed to not ruin any piece.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.21_optimization_and_management_of_the_cuts/12_OffOn.png" alt="12_OffOn.png" width="119" onclick="showModal(this.src)"></div></td><td><p><strong>Multiple selection</strong><br>Allows to select more cuts at the time.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.21_optimization_and_management_of_the_cuts/13.png" alt="13.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Single cut</strong><br>Allows to add one cut manually to the slab.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.21_optimization_and_management_of_the_cuts/14_OffOn.png" alt="14_OffOn.png" width="119" onclick="showModal(this.src)"></div></td><td><p><strong>Bench washing</strong><br>Allows to start a washing cycle of an area, or to wash the entire work bench.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.21_optimization_and_management_of_the_cuts/15.png" alt="15.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Operations on cuts</strong><br>Allows to apply operations and/or custom orderings on the cuts.</p></td></tr></tbody></table><p></p><!--Label="cut"-->
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Machine technical documentation</span><span class="maintenance-status"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Operational document</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="321-optimization-and-management-of-the-cuts" style="margin:0;" class="maintenance-main-title"><a class="header" href="#321-optimization-and-management-of-the-cuts"><span class="maintenance-code">DOC</span><span class="maintenance-name">3.21 OPTIMIZATION AND MANAGEMENT OF THE CUTS</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document DOC" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="3.21 OPTIMIZATION AND MANAGEMENT OF THE CUTS"--><p>Through the third button in the top right, you access the optimization and cut management screen.</p><div class="TextAlignCenter"><img src="attachments/3.21_optimization_and_management_of_the_cuts/0.00.png" alt="0.00.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><p>
+</p><p></p><h1 id="lower-bar"><a class="header" href="#lower-bar">Lower bar</a></h1><p>In the lower section are shown some buttons that allow to perform operations on cuts.</p><div class="TextAlignCenter"><img src="attachments/3.21_optimization_and_management_of_the_cuts/0.02.png" alt="0.02.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><h1 id="buttons"><a class="header" href="#buttons">Buttons</a></h1><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="d3ee11da-b711-4628-b0cc-b751ad7bc9f9"><colgroup><col style="width: 396.0px;"><col style="width: 1403.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/3.21_optimization_and_management_of_the_cuts/1_OffOn.png" alt="1_OffOn.png" width="119" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Probing Slab</strong><br>Allows to add a slab probe cycle before executing the cuts.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.21_optimization_and_management_of_the_cuts/9_OffOn.png" alt="9_OffOn.png" width="119" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Create ISO program</strong><br>Generate the cutting program and allows to access the ISO control page.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.21_optimization_and_management_of_the_cuts/VentoseMan.png" alt="VentoseMan.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Manual move</strong><br>Allows to move a section of material using the suction cups.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.21_optimization_and_management_of_the_cuts/VentoseAuto2.png" alt="VentoseAuto2.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Move automatic.</strong><br>Performs the material shifts needed to not ruin any piece.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.21_optimization_and_management_of_the_cuts/12_OffOn.png" alt="12_OffOn.png" width="119" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Multiple selection</strong><br>Allows to select more cuts at the time.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.21_optimization_and_management_of_the_cuts/13.png" alt="13.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Single cut</strong><br>Allows to add one cut manually to the slab.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.21_optimization_and_management_of_the_cuts/14_OffOn.png" alt="14_OffOn.png" width="119" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Bench washing</strong><br>Allows to start a washing cycle of an area, or to wash the entire work bench.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.21_optimization_and_management_of_the_cuts/15.png" alt="15.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Operations on cuts</strong><br>Allows to apply operations and/or custom orderings on the cuts.</p></td></tr></tbody></table><p></p><!--Label="cut"-->
                         </main>
 
                     </div>
@@ -278,5 +280,12 @@
     </div>;
 
 
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
 </body>
 </html>

@@ -40,7 +40,7 @@
     <script>
       const path_to_root = "";
       const default_light_theme = "light";
-      const default_dark_theme = "navy";
+      const default_dark_theme = "light";
     </script>
     <!-- Start loading toc.js asap -->
     <script src="toc.js"></script>
@@ -86,8 +86,10 @@
     });
   });
 })();
-</script></head>
-<body>
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css">
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css">
+</head>
+<body class="maintenance-page technical-maintenance" data-technical-styler-flow="html">
     <header class="header-main">
         <div class="header-flex">
             <div class="donatoni-flex">
@@ -110,6 +112,9 @@
                 </div>
                 <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                     <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button class="btn btn-sm" id="keyboard-toggle" type="button" title="Virtual Keyboard" aria-label="Activate/Deactivate Virtual Keyboard" aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
                 </button>
 
                 <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
@@ -144,17 +149,8 @@
 
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script>
-            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
-                .matches
-                ? default_dark_theme
-                : default_light_theme;
-            let theme;
-            try {
-                theme = localStorage.getItem("mdbook-theme");
-            } catch (e) { }
-            if (theme === null || theme === undefined) {
-                theme = default_theme;
-            }
+            const default_theme = "light";
+            let theme = default_theme;
             const html = document.documentElement;
             html.classList.remove("light");
             html.classList.add(theme);
@@ -214,8 +210,8 @@
 
                         <img src="images/donatoni_111.jpg">
 
-                        <main style="margin-left: 20px;">
-                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="mn0012-clean-filters-electrical-cabinet" style="margin:0;"><a class="header" href="#mn0012-clean-filters-electrical-cabinet">MN0012 CLEAN FILTERS ELECTRICAL CABINET</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="MN0012 CLEAN FILTERS ELECTRICAL CABINET"--><table class="my-table2" data-table-width="760" data-layout="center" ac:local-id="b763cb63-b363-4732-987c-793beddd7a0e"><tbody><tr><td data-highlight-colour="#f4f5f7" colspan="2"><p style="text-align: center;">⚠️Before proceeding, carefully read the <p><a href='safety_instructions.html'>SAFETY INSTRUCTIONS</a></p></td></tr><tr><td data-highlight-colour="#f4f5f7"><p>⏲️ <strong>Interval</strong>: every 2000 working hours</p></td><td data-highlight-colour="#f4f5f7"><p>🎚️ <strong>Complexity operation</strong>: ⭐☆☆☆☆ </p></td></tr><tr><td data-highlight-colour="#f4f5f7"><p>🧑‍🏭 <strong>Authorized figure</strong>: Machine operator</p></td><td data-highlight-colour="#f4f5f7"><p>🧤 <strong>Expected DPI</strong>:   <div><img src="attachments/mn0012_clean_filters_electrical_cabinet/image-20240327-084216.png" alt="image-20240327-084216.png" onclick="showModal(this.src)" class="inline-img" id="a2372503-420e-48f2-91c7-86ad5df99b36" contextid="183010144"></div> </td></tr></tbody></table><h2 id="procedure"><a class="header" href="#procedure"><strong>Procedure</strong></a></h2><h3 id="operations"><a class="header" href="#operations"><strong>Operations</strong></a></h3><table class="my-table2" data-table-width="760" data-layout="default" ac:local-id="c5fef762-e794-40db-91ab-bde80d55756e"><tbody><tr><th data-highlight-colour="#ffffff"><p>Rotate the switch A to the position OFF.</p></th><th data-highlight-colour="#ffffff"><div class="TextAlignCenter"><img src="attachments/mn0012_clean_filters_electrical_cabinet/image-20250107-160103.png" alt="image-20250107-160103.png" width="211" onclick="showModal(this.src)"></div></th></tr><tr><td data-highlight-colour="#ffffff"><p>Open the D and E doors</p></td><td><p></p><div class="TextAlignCenter"><img src="attachments/mn0012_clean_filters_electrical_cabinet/image-20250107-160150.png" alt="image-20250107-160150.png" width="209" onclick="showModal(this.src)"></div></td></tr><tr><td data-highlight-colour="#ffffff"><p>Remove the F protection and the G filter.</p></td><td><p></p><div class="TextAlignCenter"><img src="attachments/mn0012_clean_filters_electrical_cabinet/image-20250107-160224.png" alt="image-20250107-160224.png" width="224" onclick="showModal(this.src)"></div></td></tr><tr><td data-highlight-colour="#ffffff"><p>Clean the filter using an H compressed air jet.</p></td><td><p></p><div class="TextAlignCenter"><img src="attachments/mn0012_clean_filters_electrical_cabinet/image-20250107-160250.png" alt="image-20250107-160250.png" width="265" onclick="showModal(this.src)"></div><p></p></td></tr><tr><td data-highlight-colour="#ffffff"><p>Restore by performing the reverse procedure</p></td><td><p></p></td></tr></tbody></table><!--Label="mn0012"-->
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Technical maintenance sheet</span><span class="maintenance-status"><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Controlled procedure</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="mn0012-clean-filters-electrical-cabinet" style="margin:0;" class="maintenance-main-title"><a class="header" href="#mn0012-clean-filters-electrical-cabinet"><span class="maintenance-code">MN0012</span><span class="maintenance-name">CLEAN FILTERS ELECTRICAL CABINET</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document MN0012" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="MN0012 CLEAN FILTERS ELECTRICAL CABINET"--><table class="my-table2" data-table-width="760" data-layout="center" ac:local-id="b763cb63-b363-4732-987c-793beddd7a0e"><tbody><tr><td data-highlight-colour="#f4f5f7" colspan="2"><p style="text-align: center;">⚠️Before proceeding, carefully read the <p><a href='safety_instructions.html'>SAFETY INSTRUCTIONS</a></p></td></tr><tr><td data-highlight-colour="#f4f5f7"><p>⏲️ <strong>Interval</strong>: every 2000 working hours</p></td><td data-highlight-colour="#f4f5f7"><p>🎚️ <strong>Complexity operation</strong>: ⭐☆☆☆☆ </p></td></tr><tr><td data-highlight-colour="#f4f5f7"><p>🧑‍🏭 <strong>Authorized figure</strong>: Machine operator</p></td><td data-highlight-colour="#f4f5f7"><p>🧤 <strong>Expected DPI</strong>:   <div><img src="attachments/mn0012_clean_filters_electrical_cabinet/image-20240327-084216.png" alt="image-20240327-084216.png" onclick="showModal(this.src)" class="inline-img" id="a2372503-420e-48f2-91c7-86ad5df99b36" contextid="183010144"></div> </td></tr></tbody></table><h2 id="procedure" class="maintenance-section-title" data-section-number="01"><a class="header" href="#procedure"><strong>Procedure</strong></a></h2><h3 id="operations"><a class="header" href="#operations"><strong>Operations</strong></a></h3><table class="my-table2" data-table-width="760" data-layout="default" ac:local-id="c5fef762-e794-40db-91ab-bde80d55756e"><tbody><tr><th data-highlight-colour="#ffffff"><p>Rotate the switch A to the position OFF.</p></th><th data-highlight-colour="#ffffff"><div class="TextAlignCenter"><img src="attachments/mn0012_clean_filters_electrical_cabinet/image-20250107-160103.png" alt="image-20250107-160103.png" width="211" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></th></tr><tr><td data-highlight-colour="#ffffff"><p>Open the D and E doors</p></td><td><p></p><div class="TextAlignCenter"><img src="attachments/mn0012_clean_filters_electrical_cabinet/image-20250107-160150.png" alt="image-20250107-160150.png" width="209" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td></tr><tr><td data-highlight-colour="#ffffff"><p>Remove the F protection and the G filter.</p></td><td><p></p><div class="TextAlignCenter"><img src="attachments/mn0012_clean_filters_electrical_cabinet/image-20250107-160224.png" alt="image-20250107-160224.png" width="224" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td></tr><tr><td data-highlight-colour="#ffffff"><p>Clean the filter using an H compressed air jet.</p></td><td><p></p><div class="TextAlignCenter"><img src="attachments/mn0012_clean_filters_electrical_cabinet/image-20250107-160250.png" alt="image-20250107-160250.png" width="265" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p></td></tr><tr><td data-highlight-colour="#ffffff"><p>Restore by performing the reverse procedure</p></td><td><p></p></td></tr></tbody></table><!--Label="mn0012"-->
                         </main>
 
                     </div>
@@ -277,5 +273,12 @@
     </div>;
 
 
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
 </body>
 </html>

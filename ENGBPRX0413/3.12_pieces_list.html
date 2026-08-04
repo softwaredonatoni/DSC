@@ -40,7 +40,7 @@
     <script>
       const path_to_root = "";
       const default_light_theme = "light";
-      const default_dark_theme = "navy";
+      const default_dark_theme = "light";
     </script>
     <!-- Start loading toc.js asap -->
     <script src="toc.js"></script>
@@ -86,8 +86,10 @@
     });
   });
 })();
-</script></head>
-<body>
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-document" data-technical-styler-flow="html">
     <header class="header-main">
         <div class="header-flex">
             <div class="donatoni-flex">
@@ -110,6 +112,15 @@
                 </div>
                 <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                     <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
                 </button>
 
                 <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
@@ -144,17 +155,8 @@
 
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script>
-            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
-                .matches
-                ? default_dark_theme
-                : default_light_theme;
-            let theme;
-            try {
-                theme = localStorage.getItem("mdbook-theme");
-            } catch (e) { }
-            if (theme === null || theme === undefined) {
-                theme = default_theme;
-            }
+            const default_theme = "light";
+            let theme = default_theme;
             const html = document.documentElement;
             html.classList.remove("light");
             html.classList.add(theme);
@@ -214,9 +216,9 @@
 
                         <img src="images/donatoni_111.jpg">
 
-                        <main style="margin-left: 20px;">
-                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="312-pieces-list" style="margin:0;"><a class="header" href="#312-pieces-list">3.12 PIECES LIST</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="3.12 PIECES LIST"--><p>When a or more pieces are created and imported on Parametrix, the program will adds them to the pieces list, located on the right section of the main screen.</p><p>Through the pieces list, the operator can:</p><ul><li><p>Insert the pieces on the working area.</p></li><li><p>Keep trace of pieces executed and of those still to work;</p></li><li><p>Apply some modifications to pieces.</p></li></ul><div class="TextAlignCenter"><img src="attachments/3.12_pieces_list/1.0.png" alt="1.0.png" width="226" onclick="showModal(this.src)"></div><p></p><p>
-</p><p></p><h1 id="list-items"><a class="header" href="#list-items">List items</a></h1><p>Each line of the list represents a piece that has been imported in Parametrix. </p><div class="TextAlignCenter"><img src="attachments/3.12_pieces_list/2.0.png" alt="2.0.png" width="407" onclick="showModal(this.src)"></div><p>As you can see in this image, in a line are contained the following information relative to the piece:</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="db8b2eb3-975a-4f2c-90fc-3597ddfa8a7b"><colgroup><col style="width: 514.0px;"><col style="width: 1284.0px;"></colgroup><tbody><tr><td><p><strong>Shape preview</strong></p></td><td><p>Simplified representation of the piece's geometry.</p></td></tr><tr><td><p><strong>Piece brand</strong></p></td><td><p>Label that is added to the piece to identify it.</p>
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Machine technical documentation</span><span class="maintenance-status"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Operational document</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="312-pieces-list" style="margin:0;" class="maintenance-main-title"><a class="header" href="#312-pieces-list"><span class="maintenance-code">DOC</span><span class="maintenance-name">3.12 PIECES LIST</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document DOC" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="3.12 PIECES LIST"--><p>When a or more pieces are created and imported on Parametrix, the program will adds them to the pieces list, located on the right section of the main screen.</p><p>Through the pieces list, the operator can:</p><ul><li><p>Insert the pieces on the working area.</p></li><li><p>Keep trace of pieces executed and of those still to work;</p></li><li><p>Apply some modifications to pieces.</p></li></ul><div class="TextAlignCenter"><img src="attachments/3.12_pieces_list/1.0.png" alt="1.0.png" width="226" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><p>
+</p><p></p><h1 id="list-items"><a class="header" href="#list-items">List items</a></h1><p>Each line of the list represents a piece that has been imported in Parametrix. </p><div class="TextAlignCenter"><img src="attachments/3.12_pieces_list/2.0.png" alt="2.0.png" width="407" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p>As you can see in this image, in a line are contained the following information relative to the piece:</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="db8b2eb3-975a-4f2c-90fc-3597ddfa8a7b"><colgroup><col style="width: 514.0px;"><col style="width: 1284.0px;"></colgroup><tbody><tr><td><p><strong>Shape preview</strong></p></td><td><p>Simplified representation of the piece's geometry.</p></td></tr><tr><td><p><strong>Piece brand</strong></p></td><td><p>Label that is added to the piece to identify it.</p>
 <div id="admonition-note" class="admonition admonish-info" role="note" aria-labelledby="admonition-note-title">
 <div class="admonition-title">
 <div id="admonition-note-title">
@@ -228,7 +230,7 @@
 <p>In the case the operator does not choose the brand in creation phase, the program identifies the piece with the name of the file (DXF or CSV) from which it was imported, or with the measures of the sides if it is a rectangle.</p>
 </div>
 </div>
-</td></tr><tr><td><p><strong>Number of pieces inserted and total</strong></p></td><td><p>Indicates the number of pieces of that line that have been inserted inside the work area, and the number total of pieces of that type that is possible to insert.</p></td></tr></tbody></table><p></p><h2 id="insert-the-pieces-in-the-work-area"><a class="header" href="#insert-the-pieces-in-the-work-area">Insert the pieces in the work area</a></h2><p>To insert the pieces in the working area you use the following button that is found in every row of the list: </p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="dd543af5-d7f2-4bf1-89d2-4d27400ddbc5"><colgroup><col style="width: 343.0px;"><col style="width: 1456.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/3.12_pieces_list/2.2.png" alt="2.2.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Insert pieces in the work area</strong><br>Allows to insert the selected piece inside the working area.</p></td></tr></tbody></table><p>The selected piece has been placed on the work area, and the number of pieces of this row entered has been updated.</p><div class="TextAlignCenter"><img src="attachments/3.12_pieces_list/8.1.png" alt="8.1.png" width="800" onclick="showModal(this.src)"></div>
+</td></tr><tr><td><p><strong>Number of pieces inserted and total</strong></p></td><td><p>Indicates the number of pieces of that line that have been inserted inside the work area, and the number total of pieces of that type that is possible to insert.</p></td></tr></tbody></table><p></p><h2 id="insert-the-pieces-in-the-work-area" class="maintenance-section-title" data-section-number="01"><a class="header" href="#insert-the-pieces-in-the-work-area">Insert the pieces in the work area</a></h2><p>To insert the pieces in the working area you use the following button that is found in every row of the list: </p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="dd543af5-d7f2-4bf1-89d2-4d27400ddbc5"><colgroup><col style="width: 343.0px;"><col style="width: 1456.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/3.12_pieces_list/2.2.png" alt="2.2.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Insert pieces in the work area</strong><br>Allows to insert the selected piece inside the working area.</p></td></tr></tbody></table><p>The selected piece has been placed on the work area, and the number of pieces of this row entered has been updated.</p><div class="TextAlignCenter"><img src="attachments/3.12_pieces_list/8.1.png" alt="8.1.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div>
 <div id="admonition-note-1" class="admonition admonish-info" role="note" aria-labelledby="admonition-note-1-title">
 <div class="admonition-title">
 <div id="admonition-note-1-title">
@@ -240,7 +242,7 @@
 <p>Once reached the maximum number, the button 'Insert pieces' of that line disappear, because all the pieces of that line have been executed.</p>
 </div>
 </div>
-<p></p><p></p><h1 id="operations-on-the-pieces-of-the-list"><a class="header" href="#operations-on-the-pieces-of-the-list">Operations on the pieces of the list</a></h1><p>The buttons below the list allow to manage the list items. In particular:</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="2ff521c3-e756-4dc4-8357-c4b52ffa5695"><colgroup><col style="width: 341.0px;"><col style="width: 1456.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/3.12_pieces_list/48a4d926-500d-46c1-a475-4a3a955bf773.png" alt="48a4d926-500d-46c1-a475-4a3a955bf773.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Clean piece list</strong><br>It allows to delete all contents of the pieces list.</p>
+<p></p><p></p><h1 id="operations-on-the-pieces-of-the-list"><a class="header" href="#operations-on-the-pieces-of-the-list">Operations on the pieces of the list</a></h1><p>The buttons below the list allow to manage the list items. In particular:</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="2ff521c3-e756-4dc4-8357-c4b52ffa5695"><colgroup><col style="width: 341.0px;"><col style="width: 1456.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/3.12_pieces_list/48a4d926-500d-46c1-a475-4a3a955bf773.png" alt="48a4d926-500d-46c1-a475-4a3a955bf773.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Clean piece list</strong><br>It allows to delete all contents of the pieces list.</p>
 <div id="admonition-note-2" class="admonition admonish-info" role="note" aria-labelledby="admonition-note-2-title">
 <div class="admonition-title">
 <div id="admonition-note-2-title">
@@ -263,7 +265,7 @@
 <p>Will be removed from the work area all pieces connected to lines removed from the list.</p>
 </div>
 </div>
-</td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.12_pieces_list/3.0.png" alt="3.0.png" width="120" onclick="showModal(this.src)"></div></td><td><p><strong>Hide/Show commercial pieces</strong><br>Allows to hide or view the lines of the list associated with commercial pieces.</p>
+</td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.12_pieces_list/3.0.png" alt="3.0.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Hide/Show commercial pieces</strong><br>Allows to hide or view the lines of the list associated with commercial pieces.</p>
 <div id="admonition-warning-1" class="admonition admonish-warning" role="note" aria-labelledby="admonition-warning-1-title">
 <div class="admonition-title">
 <div id="admonition-warning-1-title">
@@ -275,7 +277,7 @@
 <p>Hiding the lines associated with commercial jobs, all pieces linked to them present on the work area are removed.</p>
 </div>
 </div>
-</td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.12_pieces_list/5.0.png" alt="5.0.png" width="120" onclick="showModal(this.src)"></div></td><td><p><strong>Delete piece</strong><br>Allows to select individually the pieces to delete from the list.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.12_pieces_list/af1abcc1-793c-4437-a11d-51c71295933d.png" alt="af1abcc1-793c-4437-a11d-51c71295933d.png" width="120" onclick="showModal(this.src)"></div></td><td><p><strong>Filters/Sort the pieces</strong><br>It is possible to apply a filter to the pieces of the list, or to order them according to different criteria.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.12_pieces_list/6.0.png" alt="6.0.png" width="118" onclick="showModal(this.src)"></div></td><td><p><strong>Additional piece properties</strong><br>The operator can assign and change the additional properties of the selected piece.</p></td></tr></tbody></table><p></p><h2 id="delete-piece"><a class="header" href="#delete-piece">Delete piece</a></h2><p>This function allows to delete the pieces from the list individually. After pressing the button, the program will ask the user to select the row to delete replacing the piece insertion arrow on the work area with a gum.</p><div class="TextAlignCenter"><img src="attachments/3.12_pieces_list/0.0.png" alt="0.0.png" width="226" onclick="showModal(this.src)"></div><p>Pressing this button, the corresponding line is eliminated, and then all the pieces that it represents.</p>
+</td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.12_pieces_list/5.0.png" alt="5.0.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Delete piece</strong><br>Allows to select individually the pieces to delete from the list.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.12_pieces_list/af1abcc1-793c-4437-a11d-51c71295933d.png" alt="af1abcc1-793c-4437-a11d-51c71295933d.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Filters/Sort the pieces</strong><br>It is possible to apply a filter to the pieces of the list, or to order them according to different criteria.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.12_pieces_list/6.0.png" alt="6.0.png" width="118" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Additional piece properties</strong><br>The operator can assign and change the additional properties of the selected piece.</p></td></tr></tbody></table><p></p><h2 id="delete-piece" class="maintenance-section-title" data-section-number="02"><a class="header" href="#delete-piece">Delete piece</a></h2><p>This function allows to delete the pieces from the list individually. After pressing the button, the program will ask the user to select the row to delete replacing the piece insertion arrow on the work area with a gum.</p><div class="TextAlignCenter"><img src="attachments/3.12_pieces_list/0.0.png" alt="0.0.png" width="226" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p>Pressing this button, the corresponding line is eliminated, and then all the pieces that it represents.</p>
 <div id="admonition-warning-2" class="admonition admonish-warning" role="note" aria-labelledby="admonition-warning-2-title">
 <div class="admonition-title">
 <div id="admonition-warning-2-title">
@@ -349,5 +351,12 @@
     </div>;
 
 
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
 </body>
 </html>

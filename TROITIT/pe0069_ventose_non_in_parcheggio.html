@@ -40,7 +40,7 @@
     <script>
       const path_to_root = "";
       const default_light_theme = "light";
-      const default_dark_theme = "navy";
+      const default_dark_theme = "light";
     </script>
     <!-- Start loading toc.js asap -->
     <script src="toc.js"></script>
@@ -86,8 +86,10 @@
     });
   });
 })();
-</script></head>
-<body>
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-troubleshooting technical-troubleshooting-emergency" data-technical-styler-flow="html">
     <header class="header-main">
         <div class="header-flex">
             <div class="donatoni-flex">
@@ -110,6 +112,15 @@
                 </div>
                 <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                     <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
                 </button>
 
                 <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
@@ -144,17 +155,8 @@
 
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script>
-            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
-                .matches
-                ? default_dark_theme
-                : default_light_theme;
-            let theme;
-            try {
-                theme = localStorage.getItem("mdbook-theme");
-            } catch (e) { }
-            if (theme === null || theme === undefined) {
-                theme = default_theme;
-            }
+            const default_theme = "light";
+            let theme = default_theme;
             const html = document.documentElement;
             html.classList.remove("light");
             html.classList.add(theme);
@@ -214,8 +216,8 @@
 
                         <img src="images/donatoni_111.jpg">
 
-                        <main style="margin-left: 20px;">
-                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="pe0069-ventose-non-in-parcheggio" style="margin:0;"><a class="header" href="#pe0069-ventose-non-in-parcheggio">PE0069 VENTOSE NON IN PARCHEGGIO</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="PE0069 VENTOSE NON IN PARCHEGGIO"--><table class="my-table2" data-table-width="760" data-layout="default" ac:local-id="85e18120-421b-48c4-b375-dfbfdc4e6731"><colgroup><col style="width: 380.0px;"><col style="width: 380.0px;"></colgroup><tbody><tr ac:local-id="1deb7f23-1e46-44ac-8a53-eafd4ef107b8"><td data-highlight-colour="#f4f5f7" colspan="2" ac:local-id="ddf04e88-d547-4009-8040-f7165fe36870"><p local-id="1f2f715cdaf6" style="text-align: center;">⚠️ Prima di procedere leggere attentamente le <p><a href='istruzioni_di_sicurezza.html'>ISTRUZIONI DI SICUREZZA</a></p></td></tr><tr ac:local-id="2d79024a-92ec-4098-91fe-93630344c2fd"><td data-highlight-colour="#f4f5f7" ac:local-id="48426e28-5134-4230-b884-61936455872b"><p local-id="4f1ad9e683fb">⏲️ <strong>Descrizione</strong>: Ventose fuori posizione di parcheggio</p></td><td data-highlight-colour="#f4f5f7" ac:local-id="39a41663-27e5-4fc8-a7fd-21168559dc0a"><p local-id="ee135333e7cb">🎚️ <strong>Gravità</strong>: ⭐☆☆☆☆ </p></td></tr><tr ac:local-id="d0cc44af-8d9f-4567-ba2a-28162d341e61"><td data-highlight-colour="#f4f5f7" ac:local-id="00000516-c8fe-4666-9159-b462b98f8fef"><p local-id="db9b6fca385b">🧑‍🏭 <strong>Figura autorizzata</strong>: Operatore macchina</p></td><td data-highlight-colour="#f4f5f7" ac:local-id="e6df9bfd-7f0c-4a90-a38d-060600b5d8f2"><p local-id="7cbd585b2db1">🧤 <strong>DPI previsti</strong>:   <div><img src="attachments/pe0069_ventose_non_in_parcheggio/5c50dea6-c18e-4b4c-af4e-4a88d2222111.png" alt="image-20240327-084216.png" onclick="showModal(this.src)" class="inline-img"></div> </td></tr></tbody></table><h2 local-id="6806ed909efc">Descrizione</h2><p local-id="b44c2e3a68fb">Questo errore appare quando la macchina rileva che una o tutte e due le ventose non sono in stato di parcheggio.</p><h2 local-id="6186578e2836">Sintomi</h2><p local-id="2b337941e30c">…..</p><h2 local-id="ea2e9aed5aec">Possibili cause</h2><div class='panelContent' style='background-color: #fff; border: 1px solid #D3D3D3; padding: 5px;'><ol start="1" local-id="5e8ec253b263" type="1"><li local-id="0155652fbb75"><p local-id="09fe2b451a86">Mancanza aria</p></li><li local-id="ef0937968f5e"><p local-id="7bc39a8eccfb">Ventose abbassate</p></li><li local-id="47d10752307a"><p local-id="1b18867b7709">Sensori regolati non correttamente</p></li><li local-id="4168240103d2"><p local-id="f63a0c22b87b">sensori guasti</p></li></ol></div><h2 local-id="7306cddc43ca">Possibili soluzioni</h2><div class='panelContent' style='background-color: #fff; border: 1px solid #D3D3D3; padding: 5px;'><ol start="1" local-id="d6f3ba978c24" type="1"><li local-id="cb5b389d3afd"><p local-id="368db403253f">Se abbinati all'errore PE0066 Mancanza aria verificare presenza aria nella macchina</p></li><li local-id="90a1008f2183"><p local-id="116ce3844a83">Premere l'apposito pulsante per fare alzare le ventose</p></li><li local-id="a51a18366800"><p local-id="6cd85277995e">Aprendo le cover di acciaio che ci sono lateralmente ai braccetti delle ventose verificare che i sensori nella parte alta del pistone siano accesi quando le ventose sono su.</p></li></ol></div><!--Label="kb-troubleshooting-article"--><!--Label="pe0069"-->
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Technical troubleshooting sheet</span><span class="maintenance-status"><i class="fa-solid fa-screwdriver-wrench" aria-hidden="true"></i> Emergency diagnostic procedure</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="pe0069-ventose-non-in-parcheggio" style="margin:0;" class="maintenance-main-title"><a class="header" href="#pe0069-ventose-non-in-parcheggio"><span class="maintenance-code">PE0069</span><span class="maintenance-name">VENTOSE NON IN PARCHEGGIO</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document PE0069" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="PE0069 VENTOSE NON IN PARCHEGGIO"--><table class="my-table2 troubleshooting-template-grid maintenance-data-grid" data-table-width="760" data-layout="default" ac:local-id="85e18120-421b-48c4-b375-dfbfdc4e6731" aria-label="Technical data for document PE0069"><colgroup><col style="width: 380.0px;"><col style="width: 380.0px;"></colgroup><tbody><tr ac:local-id="1deb7f23-1e46-44ac-8a53-eafd4ef107b8" class="maintenance-safety-row"><td data-highlight-colour="#f4f5f7" colspan="2" ac:local-id="ddf04e88-d547-4009-8040-f7165fe36870"><p local-id="1f2f715cdaf6" style="text-align: center;">Prima di procedere leggere attentamente le <p><a href='istruzioni_di_sicurezza.html'>ISTRUZIONI DI SICUREZZA</a></p></td></tr><tr ac:local-id="2d79024a-92ec-4098-91fe-93630344c2fd"><td data-highlight-colour="#f4f5f7" ac:local-id="48426e28-5134-4230-b884-61936455872b"><p local-id="4f1ad9e683fb" class="maintenance-data-layout"><i class="maintenance-data-icon fa-solid fa-file-lines" aria-hidden="true"></i><span class="maintenance-data-content"><strong class="maintenance-data-label">Descrizione</strong><span class="maintenance-data-value">Ventose fuori posizione di parcheggio</span></span></p></td><td data-highlight-colour="#f4f5f7" ac:local-id="39a41663-27e5-4fc8-a7fd-21168559dc0a"><p local-id="ee135333e7cb" class="maintenance-data-layout"><i class="maintenance-data-icon fa-solid fa-triangle-exclamation" aria-hidden="true"></i><span class="maintenance-data-content"><strong class="maintenance-data-label">Gravità</strong><span class="severity-indicator severity-level-1" aria-label="Severity Low, level 1 of 5"><span class="severity-scale" aria-hidden="true"><i class="severity-segment is-active"></i><i class="severity-segment"></i><i class="severity-segment"></i><i class="severity-segment"></i><i class="severity-segment"></i></span><span class="severity-readout"><span class="severity-level-name">Low</span><span class="severity-score">01 / 05</span></span></span></span></p></td></tr><tr ac:local-id="d0cc44af-8d9f-4567-ba2a-28162d341e61"><td data-highlight-colour="#f4f5f7" ac:local-id="00000516-c8fe-4666-9159-b462b98f8fef"><p local-id="db9b6fca385b" class="maintenance-data-layout"><i class="maintenance-data-icon fa-solid fa-user-gear" aria-hidden="true"></i><span class="maintenance-data-content"><strong class="maintenance-data-label">Figura autorizzata</strong><span class="maintenance-data-value">Operatore macchina</span></span></p></td><td data-highlight-colour="#f4f5f7" ac:local-id="e6df9bfd-7f0c-4a90-a38d-060600b5d8f2"><p local-id="7cbd585b2db1"><i class="maintenance-data-icon fa-solid fa-shield-halved" aria-hidden="true"></i><strong>DPI previsti</strong>:   <div><img src="attachments/pe0069_ventose_non_in_parcheggio/5c50dea6-c18e-4b4c-af4e-4a88d2222111.png" alt="image-20240327-084216.png" onclick="showModal(this.src)" class="inline-img"></div> </td></tr></tbody></table><h2 local-id="6806ed909efc" class="maintenance-section-title" data-section-number="01">Descrizione</h2><p local-id="b44c2e3a68fb">Questo errore appare quando la macchina rileva che una o tutte e due le ventose non sono in stato di parcheggio.</p><h2 local-id="6186578e2836" class="maintenance-section-title" data-section-number="02">Sintomi</h2><p local-id="2b337941e30c">…..</p><h2 local-id="ea2e9aed5aec" class="maintenance-section-title" data-section-number="03">Possibili cause</h2><div class='panelContent' style='background-color: #fff; border: 1px solid #D3D3D3; padding: 5px;'><ol start="1" local-id="5e8ec253b263" type="1"><li local-id="0155652fbb75"><p local-id="09fe2b451a86">Mancanza aria</p></li><li local-id="ef0937968f5e"><p local-id="7bc39a8eccfb">Ventose abbassate</p></li><li local-id="47d10752307a"><p local-id="1b18867b7709">Sensori regolati non correttamente</p></li><li local-id="4168240103d2"><p local-id="f63a0c22b87b">sensori guasti</p></li></ol></div><h2 local-id="7306cddc43ca" class="maintenance-section-title" data-section-number="04">Possibili soluzioni</h2><div class='panelContent resolution-panel-content' style='background-color: #fff; border: 1px solid #D3D3D3; padding: 5px;'><ol start="1" local-id="d6f3ba978c24" type="1" class="procedure-steps"><li local-id="cb5b389d3afd"><p local-id="368db403253f">Se abbinati all'errore PE0066 Mancanza aria verificare presenza aria nella macchina</p></li><li local-id="90a1008f2183"><p local-id="116ce3844a83">Premere l'apposito pulsante per fare alzare le ventose</p></li><li local-id="a51a18366800"><p local-id="6cd85277995e">Aprendo le cover di acciaio che ci sono lateralmente ai braccetti delle ventose verificare che i sensori nella parte alta del pistone siano accesi quando le ventose sono su.</p></li></ol></div><!--Label="kb-troubleshooting-article"--><!--Label="pe0069"-->
                         </main>
 
                     </div>
@@ -277,5 +279,12 @@
     </div>;
 
 
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
 </body>
 </html>

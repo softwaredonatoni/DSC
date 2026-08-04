@@ -40,7 +40,7 @@
     <script>
       const path_to_root = "";
       const default_light_theme = "light";
-      const default_dark_theme = "navy";
+      const default_dark_theme = "light";
     </script>
     <!-- Start loading toc.js asap -->
     <script src="toc.js"></script>
@@ -86,8 +86,10 @@
     });
   });
 })();
-</script></head>
-<body>
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-maintenance" data-technical-styler-flow="html">
     <header class="header-main">
         <div class="header-flex">
             <div class="donatoni-flex">
@@ -110,6 +112,15 @@
                 </div>
                 <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                     <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
                 </button>
 
                 <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
@@ -144,17 +155,8 @@
 
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script>
-            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
-                .matches
-                ? default_dark_theme
-                : default_light_theme;
-            let theme;
-            try {
-                theme = localStorage.getItem("mdbook-theme");
-            } catch (e) { }
-            if (theme === null || theme === undefined) {
-                theme = default_theme;
-            }
+            const default_theme = "light";
+            let theme = default_theme;
             const html = document.documentElement;
             html.classList.remove("light");
             html.classList.add(theme);
@@ -214,8 +216,8 @@
 
                         <img src="images/donatoni_111.jpg">
 
-                        <main style="margin-left: 20px;">
-                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="mn0010-controllo-tubazioni-e-raccordi-impianto-oleodinamico" style="margin:0;"><a class="header" href="#mn0010-controllo-tubazioni-e-raccordi-impianto-oleodinamico">MN0010 CONTROLLO TUBAZIONI E RACCORDI IMPIANTO OLEODINAMICO</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="MN0010 CONTROLLO TUBAZIONI E RACCORDI IMPIANTO OLEODINAMICO"--><table class="my-table2" data-table-width="760" data-layout="center" ac:local-id="85e18120-421b-48c4-b375-dfbfdc4e6731"><tbody><tr><td data-highlight-colour="#f4f5f7" colspan="2"><p style="text-align: center;">⚠️ Prima di procedere leggere attentamente le <p><a href='istruzioni_di_sicurezza.html'>ISTRUZIONI DI SICUREZZA</a></p></td></tr><tr><td data-highlight-colour="#f4f5f7"><p>⏲️ <strong>Intervallo</strong>: ogni anno = 8760 h</p></td><td data-highlight-colour="#f4f5f7"><p>🎚️ <strong>Complessità operazione</strong>: ⭐☆☆☆☆ </p></td></tr><tr><td data-highlight-colour="#f4f5f7"><p>🧑‍🏭 <strong>Figura autorizzata</strong>: Operatore macchina</p></td><td data-highlight-colour="#f4f5f7"><p>🧤 <strong>DPI previsti</strong>:   <div><img src="attachments/mn0010_controllo_tubazioni_e_raccordi_impianto_oleodinamico/image-20240327-084216.png" alt="image-20240327-084216.png" onclick="showModal(this.src)" class="inline-img"></div> </td></tr></tbody></table><!--Label="mn0010"-->
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Technical maintenance sheet</span><span class="maintenance-status"><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Controlled procedure</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="mn0010-controllo-tubazioni-e-raccordi-impianto-oleodinamico" style="margin:0;" class="maintenance-main-title"><a class="header" href="#mn0010-controllo-tubazioni-e-raccordi-impianto-oleodinamico"><span class="maintenance-code">MN0010</span><span class="maintenance-name">CONTROLLO TUBAZIONI E RACCORDI IMPIANTO OLEODINAMICO</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document MN0010" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="MN0010 CONTROLLO TUBAZIONI E RACCORDI IMPIANTO OLEODINAMICO"--><table class="my-table2 maintenance-data-grid" data-table-width="760" data-layout="center" ac:local-id="85e18120-421b-48c4-b375-dfbfdc4e6731" aria-label="Technical data for document MN0010"><tbody><tr class="maintenance-safety-row"><td data-highlight-colour="#f4f5f7" colspan="2"><p style="text-align: center;">Prima di procedere leggere attentamente le <p><a href='istruzioni_di_sicurezza.html'>ISTRUZIONI DI SICUREZZA</a></p></td></tr><tr><td data-highlight-colour="#f4f5f7"><p class="maintenance-data-layout"><i class="maintenance-data-icon fa-solid fa-clock" aria-hidden="true"></i><span class="maintenance-data-content"><strong class="maintenance-data-label">Intervallo</strong><span class="maintenance-data-value">ogni anno = 8760 h</span></span></p></td><td data-highlight-colour="#f4f5f7"><p class="maintenance-data-layout"><i class="maintenance-data-icon fa-solid fa-gauge-high" aria-hidden="true"></i><span class="maintenance-data-content"><strong class="maintenance-data-label">Complessità operazione</strong><span class="complexity-indicator complexity-level-1" aria-label="Complexity Low, level 1 of 5"><span class="complexity-scale" aria-hidden="true"><i class="complexity-segment is-active"></i><i class="complexity-segment"></i><i class="complexity-segment"></i><i class="complexity-segment"></i><i class="complexity-segment"></i></span><span class="complexity-readout"><span class="complexity-level-name">Low</span><span class="complexity-score">01 / 05</span></span></span></span></p></td></tr><tr><td data-highlight-colour="#f4f5f7"><p class="maintenance-data-layout"><i class="maintenance-data-icon fa-solid fa-user-gear" aria-hidden="true"></i><span class="maintenance-data-content"><strong class="maintenance-data-label">Figura autorizzata</strong><span class="maintenance-data-value">Operatore macchina</span></span></p></td><td data-highlight-colour="#f4f5f7"><p><i class="maintenance-data-icon fa-solid fa-shield-halved" aria-hidden="true"></i><strong>DPI previsti</strong>:   <div><img src="attachments/mn0010_controllo_tubazioni_e_raccordi_impianto_oleodinamico/image-20240327-084216.png" alt="image-20240327-084216.png" onclick="showModal(this.src)" class="inline-img"></div> </td></tr></tbody></table><!--Label="mn0010"-->
                         </main>
 
                     </div>
@@ -277,5 +279,12 @@
     </div>;
 
 
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
 </body>
 </html>

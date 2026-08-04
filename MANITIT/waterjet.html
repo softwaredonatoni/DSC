@@ -40,7 +40,7 @@
     <script>
       const path_to_root = "";
       const default_light_theme = "light";
-      const default_dark_theme = "navy";
+      const default_dark_theme = "light";
     </script>
     <!-- Start loading toc.js asap -->
     <script src="toc.js"></script>
@@ -86,8 +86,10 @@
     });
   });
 })();
-</script></head>
-<body>
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-category" data-technical-styler-flow="html">
     <header class="header-main">
         <div class="header-flex">
             <div class="donatoni-flex">
@@ -110,6 +112,15 @@
                 </div>
                 <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                     <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
                 </button>
 
                 <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
@@ -144,17 +155,8 @@
 
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script>
-            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
-                .matches
-                ? default_dark_theme
-                : default_light_theme;
-            let theme;
-            try {
-                theme = localStorage.getItem("mdbook-theme");
-            } catch (e) { }
-            if (theme === null || theme === undefined) {
-                theme = default_theme;
-            }
+            const default_theme = "light";
+            let theme = default_theme;
             const html = document.documentElement;
             html.classList.remove("light");
             html.classList.add(theme);
@@ -214,8 +216,8 @@
 
                         <img src="images/donatoni_111.jpg">
 
-                        <main style="margin-left: 20px;">
-                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="waterjet" style="margin:0;"><a class="header" href="#waterjet">WATERJET</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="WATERJET"--><p local-id="9402ed4d-9278-4b88-b2bb-644e5cd4d3f5">Spazio per le operazioni di manutenzione raggiungibile da bordo macchina per macchine tipo Waterjet.</p><div class="TextAlignCenter"><img src="attachments/waterjet/J_5_42.jpg" alt="J_5_42.jpg" width="742" onclick="showModal(this.src)"></div><p local-id="fc981793-bde2-4de4-a28f-ca7c2a88a876"></p>
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Machine technical section</span><span class="maintenance-status"><i class="fa-solid fa-gears" aria-hidden="true"></i> Maintenance area</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="waterjet" style="margin:0;" class="maintenance-main-title"><a class="header" href="#waterjet"><span class="maintenance-code">AREA</span><span class="maintenance-name">WATERJET</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document AREA" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="WATERJET"--><p local-id="9402ed4d-9278-4b88-b2bb-644e5cd4d3f5">Spazio per le operazioni di manutenzione raggiungibile da bordo macchina per macchine tipo Waterjet.</p><div class="TextAlignCenter"><img src="attachments/waterjet/J_5_42.jpg" alt="J_5_42.jpg" width="742" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="fc981793-bde2-4de4-a28f-ca7c2a88a876"></p>
                         </main>
 
                     </div>
@@ -277,5 +279,12 @@
     </div>;
 
 
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
 </body>
 </html>

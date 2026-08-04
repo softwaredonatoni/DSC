@@ -40,7 +40,7 @@
     <script>
       const path_to_root = "";
       const default_light_theme = "light";
-      const default_dark_theme = "navy";
+      const default_dark_theme = "light";
     </script>
     <!-- Start loading toc.js asap -->
     <script src="toc.js"></script>
@@ -86,8 +86,10 @@
     });
   });
 })();
-</script></head>
-<body>
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-document" data-technical-styler-flow="html">
     <header class="header-main">
         <div class="header-flex">
             <div class="donatoni-flex">
@@ -110,6 +112,15 @@
                 </div>
                 <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                     <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
                 </button>
 
                 <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
@@ -144,17 +155,8 @@
 
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script>
-            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
-                .matches
-                ? default_dark_theme
-                : default_light_theme;
-            let theme;
-            try {
-                theme = localStorage.getItem("mdbook-theme");
-            } catch (e) { }
-            if (theme === null || theme === undefined) {
-                theme = default_theme;
-            }
+            const default_theme = "light";
+            let theme = default_theme;
             const html = document.documentElement;
             html.classList.remove("light");
             html.classList.add(theme);
@@ -214,9 +216,9 @@
 
                         <img src="images/donatoni_111.jpg">
 
-                        <main style="margin-left: 20px;">
-                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="322-book-match-optional" style="margin:0;"><a class="header" href="#322-book-match-optional">3.22 BOOK MATCH (OPTIONAL)</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="3.22 BOOK MATCH (OPTIONAL)"--><p local-id="51bd4d0a-8674-49f7-b30f-73c4a2b9e4ac">This functionality allows to have a rendering of the project, and to see in real time the background that will assume the pieces, so as to be able to position them on the slabs so as to make the designs created by the stone fit.</p><div class="TextAlignCenter"><img src="attachments/3.22_book_match_(optional)/2.0.png" alt="2.0.png" width="800" onclick="showModal(this.src)"></div><p local-id="fbb58cd9-1d4c-46a2-b8d7-5595fdd388ca"></p><p>
-</p><p local-id="5927d0be-cffd-4f26-b718-21bacb3bd0d5"></p><h1 local-id="a016793f-31ac-4c24-a1d2-13491da7f090">Buttons</h1><p local-id="b025a8eb-c53f-4204-90c7-2cc8de5a6616">Within the lower bar of the Parametrix main screen, there is the button to access the Book Match functionality.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="ee3f20a0-67b2-498c-84d8-2c0f17707440"><colgroup><col style="width: 363.0px;"><col style="width: 1436.0px;"></colgroup><tbody><tr ac:local-id="7ec103d4-c8ae-4ef8-8cb7-108de2eeb5b3"><td ac:local-id="bec5456f-e79b-4f93-a108-c0107e6f815c"><div class="TextAlignCenter"><img src="attachments/3.22_book_match_(optional)/1.1.png" alt="1.1.png" width="120" onclick="showModal(this.src)"></div></td><td ac:local-id="2b4afd88-f6be-4f36-8028-5d54841d78ed"><p local-id="f19dae63-b25c-4f9b-ab5c-d84ced20a019"><strong>Book Match</strong><br>Allows to program the slabs in book match.</p></td></tr></tbody></table><p local-id="81332f65-9434-4010-b88b-d73b66349176"></p><h1 local-id="54d43e49-42ea-4998-aa75-4206f252fc85">Design mode</h1><p local-id="35b88e37-397c-479a-87c0-5c7f1005d397">There are two modes through which is possible program book match designs.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="f0785c24-03d3-4e0f-b5a0-113a642227f2"><colgroup><col style="width: 368.0px;"><col style="width: 1431.0px;"></colgroup><tbody><tr ac:local-id="f38b147e-8d33-4b32-87ac-7a3b8b913888"><td ac:local-id="2273fb83-8182-4982-9566-e2854eb1dba7"><p local-id="125453bb-867d-486c-830e-e3d4e4555e18"><strong>Easy Match</strong></p></td><td ac:local-id="dadfe59a-979c-4a6c-aacd-6e34c651bd68"><p local-id="20b35c72-e785-4c89-b46a-f3175d5c6651">Designed for a sequential working.<br>It allows to manage one slab at a time, and the overall view can be had only at the end of the working of all necessary slabs.<br>Recommended for the programming on-board machine.</p></td></tr><tr ac:local-id="39e132ca-9b86-4462-8ba4-519a0508c030"><td ac:local-id="21995ae1-e8bf-48b1-a1c7-3b60c53ceedd"><p local-id="7ba36634-e09f-473b-8f03-f77370ef44f3"><strong>Project Match</strong></p></td><td ac:local-id="9edf6270-7d35-4e86-be65-9689d6b37eee"><p local-id="45d42c75-f500-48d7-9033-1199589b8419">Designed for the planning of large workings.<br>Allows to manage more slabs simultaneously so as to plan all project with a overall view.<br>Suggested for the programming in office.</p></td></tr></tbody></table><!--Label="bkm"-->
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Machine technical documentation</span><span class="maintenance-status"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Operational document</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="322-book-match-optional" style="margin:0;" class="maintenance-main-title"><a class="header" href="#322-book-match-optional"><span class="maintenance-code">DOC</span><span class="maintenance-name">3.22 BOOK MATCH (OPTIONAL)</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document DOC" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="3.22 BOOK MATCH (OPTIONAL)"--><p local-id="51bd4d0a-8674-49f7-b30f-73c4a2b9e4ac">This functionality allows to have a rendering of the project, and to see in real time the background that will assume the pieces, so as to be able to position them on the slabs so as to make the designs created by the stone fit.</p><div class="TextAlignCenter"><img src="attachments/3.22_book_match_(optional)/2.0.png" alt="2.0.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="fbb58cd9-1d4c-46a2-b8d7-5595fdd388ca"></p><p>
+</p><p local-id="5927d0be-cffd-4f26-b718-21bacb3bd0d5"></p><h1 local-id="a016793f-31ac-4c24-a1d2-13491da7f090">Buttons</h1><p local-id="b025a8eb-c53f-4204-90c7-2cc8de5a6616">Within the lower bar of the Parametrix main screen, there is the button to access the Book Match functionality.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="ee3f20a0-67b2-498c-84d8-2c0f17707440"><colgroup><col style="width: 363.0px;"><col style="width: 1436.0px;"></colgroup><tbody><tr ac:local-id="7ec103d4-c8ae-4ef8-8cb7-108de2eeb5b3"><td ac:local-id="bec5456f-e79b-4f93-a108-c0107e6f815c"><div class="TextAlignCenter"><img src="attachments/3.22_book_match_(optional)/1.1.png" alt="1.1.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="2b4afd88-f6be-4f36-8028-5d54841d78ed"><p local-id="f19dae63-b25c-4f9b-ab5c-d84ced20a019"><strong>Book Match</strong><br>Allows to program the slabs in book match.</p></td></tr></tbody></table><p local-id="81332f65-9434-4010-b88b-d73b66349176"></p><h1 local-id="54d43e49-42ea-4998-aa75-4206f252fc85">Design mode</h1><p local-id="35b88e37-397c-479a-87c0-5c7f1005d397">There are two modes through which is possible program book match designs.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="f0785c24-03d3-4e0f-b5a0-113a642227f2"><colgroup><col style="width: 368.0px;"><col style="width: 1431.0px;"></colgroup><tbody><tr ac:local-id="f38b147e-8d33-4b32-87ac-7a3b8b913888"><td ac:local-id="2273fb83-8182-4982-9566-e2854eb1dba7"><p local-id="125453bb-867d-486c-830e-e3d4e4555e18"><strong>Easy Match</strong></p></td><td ac:local-id="dadfe59a-979c-4a6c-aacd-6e34c651bd68"><p local-id="20b35c72-e785-4c89-b46a-f3175d5c6651">Designed for a sequential working.<br>It allows to manage one slab at a time, and the overall view can be had only at the end of the working of all necessary slabs.<br>Recommended for the programming on-board machine.</p></td></tr><tr ac:local-id="39e132ca-9b86-4462-8ba4-519a0508c030"><td ac:local-id="21995ae1-e8bf-48b1-a1c7-3b60c53ceedd"><p local-id="7ba36634-e09f-473b-8f03-f77370ef44f3"><strong>Project Match</strong></p></td><td ac:local-id="9edf6270-7d35-4e86-be65-9689d6b37eee"><p local-id="45d42c75-f500-48d7-9033-1199589b8419">Designed for the planning of large workings.<br>Allows to manage more slabs simultaneously so as to plan all project with a overall view.<br>Suggested for the programming in office.</p></td></tr></tbody></table><!--Label="bkm"-->
                         </main>
 
                     </div>
@@ -278,5 +280,12 @@
     </div>;
 
 
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
 </body>
 </html>

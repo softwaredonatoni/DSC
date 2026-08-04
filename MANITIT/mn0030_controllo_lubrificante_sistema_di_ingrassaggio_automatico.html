@@ -40,7 +40,7 @@
     <script>
       const path_to_root = "";
       const default_light_theme = "light";
-      const default_dark_theme = "navy";
+      const default_dark_theme = "light";
     </script>
     <!-- Start loading toc.js asap -->
     <script src="toc.js"></script>
@@ -86,8 +86,10 @@
     });
   });
 })();
-</script></head>
-<body>
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-maintenance" data-technical-styler-flow="html">
     <header class="header-main">
         <div class="header-flex">
             <div class="donatoni-flex">
@@ -110,6 +112,15 @@
                 </div>
                 <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                     <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
                 </button>
 
                 <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
@@ -144,17 +155,8 @@
 
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script>
-            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
-                .matches
-                ? default_dark_theme
-                : default_light_theme;
-            let theme;
-            try {
-                theme = localStorage.getItem("mdbook-theme");
-            } catch (e) { }
-            if (theme === null || theme === undefined) {
-                theme = default_theme;
-            }
+            const default_theme = "light";
+            let theme = default_theme;
             const html = document.documentElement;
             html.classList.remove("light");
             html.classList.add(theme);
@@ -214,8 +216,8 @@
 
                         <img src="images/donatoni_111.jpg">
 
-                        <main style="margin-left: 20px;">
-                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="mn0030-controllo-lubrificante-sistema-di-ingrassaggio-automatico" style="margin:0;"><a class="header" href="#mn0030-controllo-lubrificante-sistema-di-ingrassaggio-automatico">MN0030 CONTROLLO LUBRIFICANTE SISTEMA DI INGRASSAGGIO AUTOMATICO</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="MN0030 CONTROLLO LUBRIFICANTE SISTEMA DI INGRASSAGGIO AUTOMATICO"--><table class="my-table2" data-table-width="760" data-layout="default" ac:local-id="85e18120-421b-48c4-b375-dfbfdc4e6731"><tbody><tr ac:local-id="d69e25e1ca36"><td data-highlight-colour="#f4f5f7" colspan="2" ac:local-id="6c90e0baba3a"><p local-id="ac2cf9e034aa" style="text-align: center;">⚠️ Prima di procedere leggere attentamente le <p><a href='istruzioni_di_sicurezza.html'>ISTRUZIONI DI SICUREZZA</a></p></td></tr><tr ac:local-id="cb8079df6f1f"><td data-highlight-colour="#f4f5f7" ac:local-id="1df0c98e979e"><p local-id="9bce737b9eae">⏲️ <strong>Intervallo</strong>: ogni 450 ore di lavoro</p></td><td data-highlight-colour="#f4f5f7" ac:local-id="5c06c0fccb83"><p local-id="a41f381f0249">🎚️ <strong>Complessità operazione</strong>: ⭐☆☆☆☆ </p></td></tr><tr ac:local-id="df9e29e52272"><td data-highlight-colour="#f4f5f7" ac:local-id="15d22988a409"><p local-id="d5d8b81f6a2c">🧑‍🏭 <strong>Figura autorizzata</strong>: Operatore macchina</p></td><td data-highlight-colour="#f4f5f7" ac:local-id="66ddd00f5270"><p local-id="f8c15706b947">🧤 <strong>DPI previsti</strong>:    <div><img src="attachments/mn0030_controllo_lubrificante_sistema_di_ingrassaggio_automatico/image-20240327-084216.png" alt="image-20240327-084216.png" onclick="showModal(this.src)" class="inline-img"></div> </td></tr></tbody></table><h2 local-id="524271cf329c">Procedura</h2><p local-id="179d76e4b551">Il sistema di ingrassaggio automatico è costituito da una centralina automatica che provvede ad ingrassare le utenze collegate secondo la tempistica programmata</p><p local-id="45fddfbb1035">Il serbatoio deve essere reintegrato del grasso necessario senza che questo superi il livello massimo indicato. Il reintegro deve essere effettuato attraverso l’apposito attacco (A in figura)</p><div class="TextAlignCenter"><img src="attachments/mn0030_controllo_lubrificante_sistema_di_ingrassaggio_automatico/image-20240917-101622.png" alt="image-20240917-101622.png" width="400" onclick="showModal(this.src)"></div>
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Technical maintenance sheet</span><span class="maintenance-status"><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Controlled procedure</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="mn0030-controllo-lubrificante-sistema-di-ingrassaggio-automatico" style="margin:0;" class="maintenance-main-title"><a class="header" href="#mn0030-controllo-lubrificante-sistema-di-ingrassaggio-automatico"><span class="maintenance-code">MN0030</span><span class="maintenance-name">CONTROLLO LUBRIFICANTE SISTEMA DI INGRASSAGGIO AUTOMATICO</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document MN0030" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="MN0030 CONTROLLO LUBRIFICANTE SISTEMA DI INGRASSAGGIO AUTOMATICO"--><table class="my-table2 maintenance-data-grid" data-table-width="760" data-layout="default" ac:local-id="85e18120-421b-48c4-b375-dfbfdc4e6731" aria-label="Technical data for document MN0030"><tbody><tr ac:local-id="d69e25e1ca36" class="maintenance-safety-row"><td data-highlight-colour="#f4f5f7" colspan="2" ac:local-id="6c90e0baba3a"><p local-id="ac2cf9e034aa" style="text-align: center;">Prima di procedere leggere attentamente le <p><a href='istruzioni_di_sicurezza.html'>ISTRUZIONI DI SICUREZZA</a></p></td></tr><tr ac:local-id="cb8079df6f1f"><td data-highlight-colour="#f4f5f7" ac:local-id="1df0c98e979e"><p local-id="9bce737b9eae" class="maintenance-data-layout"><i class="maintenance-data-icon fa-solid fa-clock" aria-hidden="true"></i><span class="maintenance-data-content"><strong class="maintenance-data-label">Intervallo</strong><span class="maintenance-data-value">ogni 450 ore di lavoro</span></span></p></td><td data-highlight-colour="#f4f5f7" ac:local-id="5c06c0fccb83"><p local-id="a41f381f0249" class="maintenance-data-layout"><i class="maintenance-data-icon fa-solid fa-gauge-high" aria-hidden="true"></i><span class="maintenance-data-content"><strong class="maintenance-data-label">Complessità operazione</strong><span class="complexity-indicator complexity-level-1" aria-label="Complexity Low, level 1 of 5"><span class="complexity-scale" aria-hidden="true"><i class="complexity-segment is-active"></i><i class="complexity-segment"></i><i class="complexity-segment"></i><i class="complexity-segment"></i><i class="complexity-segment"></i></span><span class="complexity-readout"><span class="complexity-level-name">Low</span><span class="complexity-score">01 / 05</span></span></span></span></p></td></tr><tr ac:local-id="df9e29e52272"><td data-highlight-colour="#f4f5f7" ac:local-id="15d22988a409"><p local-id="d5d8b81f6a2c" class="maintenance-data-layout"><i class="maintenance-data-icon fa-solid fa-user-gear" aria-hidden="true"></i><span class="maintenance-data-content"><strong class="maintenance-data-label">Figura autorizzata</strong><span class="maintenance-data-value">Operatore macchina</span></span></p></td><td data-highlight-colour="#f4f5f7" ac:local-id="66ddd00f5270"><p local-id="f8c15706b947"><i class="maintenance-data-icon fa-solid fa-shield-halved" aria-hidden="true"></i><strong>DPI previsti</strong>:    <div><img src="attachments/mn0030_controllo_lubrificante_sistema_di_ingrassaggio_automatico/image-20240327-084216.png" alt="image-20240327-084216.png" onclick="showModal(this.src)" class="inline-img"></div> </td></tr></tbody></table><h2 local-id="524271cf329c" class="maintenance-section-title" data-section-number="01">Procedura</h2><p local-id="179d76e4b551">Il sistema di ingrassaggio automatico è costituito da una centralina automatica che provvede ad ingrassare le utenze collegate secondo la tempistica programmata</p><p local-id="45fddfbb1035">Il serbatoio deve essere reintegrato del grasso necessario senza che questo superi il livello massimo indicato. Il reintegro deve essere effettuato attraverso l’apposito attacco (A in figura)</p><div class="TextAlignCenter"><img src="attachments/mn0030_controllo_lubrificante_sistema_di_ingrassaggio_automatico/image-20240917-101622.png" alt="image-20240917-101622.png" width="400" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div>
 <div id="admonition-warning" class="admonition admonish-warning" role="note" aria-labelledby="admonition-warning-title">
 <div class="admonition-title">
 <div id="admonition-warning-title">
@@ -289,5 +291,12 @@
     </div>;
 
 
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
 </body>
 </html>

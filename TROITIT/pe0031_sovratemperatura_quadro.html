@@ -40,7 +40,7 @@
     <script>
       const path_to_root = "";
       const default_light_theme = "light";
-      const default_dark_theme = "navy";
+      const default_dark_theme = "light";
     </script>
     <!-- Start loading toc.js asap -->
     <script src="toc.js"></script>
@@ -86,8 +86,10 @@
     });
   });
 })();
-</script></head>
-<body>
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-troubleshooting technical-troubleshooting-emergency" data-technical-styler-flow="html">
     <header class="header-main">
         <div class="header-flex">
             <div class="donatoni-flex">
@@ -110,6 +112,15 @@
                 </div>
                 <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                     <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
                 </button>
 
                 <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
@@ -144,17 +155,8 @@
 
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script>
-            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
-                .matches
-                ? default_dark_theme
-                : default_light_theme;
-            let theme;
-            try {
-                theme = localStorage.getItem("mdbook-theme");
-            } catch (e) { }
-            if (theme === null || theme === undefined) {
-                theme = default_theme;
-            }
+            const default_theme = "light";
+            let theme = default_theme;
             const html = document.documentElement;
             html.classList.remove("light");
             html.classList.add(theme);
@@ -214,8 +216,8 @@
 
                         <img src="images/donatoni_111.jpg">
 
-                        <main style="margin-left: 20px;">
-                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="pe0031-sovratemperatura-quadro" style="margin:0;"><a class="header" href="#pe0031-sovratemperatura-quadro">PE0031 SOVRATEMPERATURA QUADRO</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="PE0031 SOVRATEMPERATURA QUADRO"--><table class="my-table2" data-table-width="760" data-layout="default" ac:local-id="85e18120-421b-48c4-b375-dfbfdc4e6731"><colgroup><col style="width: 380.0px;"><col style="width: 380.0px;"></colgroup><tbody><tr ac:local-id="dc9ba470-a7bc-46c9-b307-7fe1853d51dc"><td data-highlight-colour="#f4f5f7" colspan="2" ac:local-id="d2bab473-52e1-4bc1-b50b-02209510c6c7"><p local-id="53ff6492c8be" style="text-align: center;">⚠️ Prima di procedere leggere attentamente le <p><a href='istruzioni_di_sicurezza.html'>ISTRUZIONI DI SICUREZZA</a></p></td></tr><tr ac:local-id="f78899c6-fa0a-4523-b0fe-72a833f7aef0"><td data-highlight-colour="#f4f5f7" ac:local-id="2e2bcc42-2b34-41fe-bd05-71469bbc70c2"><p local-id="1bad36d3889f">⏲️ <strong>Descrizione</strong>: Temperatura elevata rispetto alla temperatura massima</p></td><td data-highlight-colour="#f4f5f7" ac:local-id="84326735-343c-4ce3-8d0a-84df7e3972aa"><p local-id="37f5ff69c121">🎚️ <strong>Gravità</strong>: ⭐⭐☆☆☆ </p></td></tr><tr ac:local-id="54527426-eaa8-4a4a-b092-edff6db43294"><td data-highlight-colour="#f4f5f7" ac:local-id="fd1c4c20-36ac-4f63-8f27-3532fa08ad1d"><p local-id="73d28b0eb4b7">🧑‍🏭 <strong>Figura autorizzata</strong>: Operatore macchina</p></td><td data-highlight-colour="#f4f5f7" ac:local-id="4caba7f2-09e5-4881-8a8a-d519bdc38f17"><p local-id="f26a8c95418a">🧤 <strong>DPI previsti</strong>:   <div><img src="attachments/pe0031_sovratemperatura_quadro/5c50dea6-c18e-4b4c-af4e-4a88d2222111.png" alt="image-20240327-084216.png" onclick="showModal(this.src)" class="inline-img"></div> </td></tr></tbody></table><h2 local-id="6806ed909efc">Descrizione</h2><p local-id="9d14d5afab45">Questo errore compare quando il termostato all'interno del quadro elettrico rileva una temperatura più alta della temperatura massima impostata che solitamente è a 45_ C</p><h2 local-id="6186578e2836">Sintomi</h2><p local-id="6256c0f8622a">…..</p><h2 local-id="591120660339">Possibili cause</h2><div class='panelContent' style='background-color: #fff; border: 1px solid #D3D3D3; padding: 5px;'><ol start="1" local-id="d0dceaeb7b2d" type="1"><li local-id="b10088e7b3ad"><p local-id="70ceeb3bfaf7">Condizionatore o ventola del quadro guasti;</p></li><li local-id="40c375611c71"><p local-id="12fde803f22d">Termostato regolato male;</p></li></ol></div><h2 local-id="14d9621e31b4">Possibili soluzioni</h2><div class='panelContent' style='background-color: #fff; border: 1px solid #D3D3D3; padding: 5px;'><ol start="1" local-id="5f2e73e735e0" type="1"><li local-id="2c77ff899313"><p local-id="561880afbcd9">Controllare che la ventola di ricircolo funzioni correttamente</p></li><li local-id="e168519224e3"><p local-id="1da9df40e5f2">Controllare che il termostato relativo alla sovratemperatura all'interno del quadro sia a 45 gradi controllare sullo schema elettrico, inoltre se già impostato alla temperatura corretta controllare che apra e chiuda il contatto.</p></li></ol></div><!--Label="kb-troubleshooting-article"--><!--Label="quadro"--><!--Label="pe0031"-->
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Technical troubleshooting sheet</span><span class="maintenance-status"><i class="fa-solid fa-screwdriver-wrench" aria-hidden="true"></i> Emergency diagnostic procedure</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="pe0031-sovratemperatura-quadro" style="margin:0;" class="maintenance-main-title"><a class="header" href="#pe0031-sovratemperatura-quadro"><span class="maintenance-code">PE0031</span><span class="maintenance-name">SOVRATEMPERATURA QUADRO</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document PE0031" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="PE0031 SOVRATEMPERATURA QUADRO"--><table class="my-table2 troubleshooting-template-grid maintenance-data-grid" data-table-width="760" data-layout="default" ac:local-id="85e18120-421b-48c4-b375-dfbfdc4e6731" aria-label="Technical data for document PE0031"><colgroup><col style="width: 380.0px;"><col style="width: 380.0px;"></colgroup><tbody><tr ac:local-id="dc9ba470-a7bc-46c9-b307-7fe1853d51dc" class="maintenance-safety-row"><td data-highlight-colour="#f4f5f7" colspan="2" ac:local-id="d2bab473-52e1-4bc1-b50b-02209510c6c7"><p local-id="53ff6492c8be" style="text-align: center;">Prima di procedere leggere attentamente le <p><a href='istruzioni_di_sicurezza.html'>ISTRUZIONI DI SICUREZZA</a></p></td></tr><tr ac:local-id="f78899c6-fa0a-4523-b0fe-72a833f7aef0"><td data-highlight-colour="#f4f5f7" ac:local-id="2e2bcc42-2b34-41fe-bd05-71469bbc70c2"><p local-id="1bad36d3889f" class="maintenance-data-layout"><i class="maintenance-data-icon fa-solid fa-file-lines" aria-hidden="true"></i><span class="maintenance-data-content"><strong class="maintenance-data-label">Descrizione</strong><span class="maintenance-data-value">Temperatura elevata rispetto alla temperatura massima</span></span></p></td><td data-highlight-colour="#f4f5f7" ac:local-id="84326735-343c-4ce3-8d0a-84df7e3972aa"><p local-id="37f5ff69c121" class="maintenance-data-layout"><i class="maintenance-data-icon fa-solid fa-triangle-exclamation" aria-hidden="true"></i><span class="maintenance-data-content"><strong class="maintenance-data-label">Gravità</strong><span class="severity-indicator severity-level-2" aria-label="Severity Moderate, level 2 of 5"><span class="severity-scale" aria-hidden="true"><i class="severity-segment is-active"></i><i class="severity-segment is-active"></i><i class="severity-segment"></i><i class="severity-segment"></i><i class="severity-segment"></i></span><span class="severity-readout"><span class="severity-level-name">Moderate</span><span class="severity-score">02 / 05</span></span></span></span></p></td></tr><tr ac:local-id="54527426-eaa8-4a4a-b092-edff6db43294"><td data-highlight-colour="#f4f5f7" ac:local-id="fd1c4c20-36ac-4f63-8f27-3532fa08ad1d"><p local-id="73d28b0eb4b7" class="maintenance-data-layout"><i class="maintenance-data-icon fa-solid fa-user-gear" aria-hidden="true"></i><span class="maintenance-data-content"><strong class="maintenance-data-label">Figura autorizzata</strong><span class="maintenance-data-value">Operatore macchina</span></span></p></td><td data-highlight-colour="#f4f5f7" ac:local-id="4caba7f2-09e5-4881-8a8a-d519bdc38f17"><p local-id="f26a8c95418a"><i class="maintenance-data-icon fa-solid fa-shield-halved" aria-hidden="true"></i><strong>DPI previsti</strong>:   <div><img src="attachments/pe0031_sovratemperatura_quadro/5c50dea6-c18e-4b4c-af4e-4a88d2222111.png" alt="image-20240327-084216.png" onclick="showModal(this.src)" class="inline-img"></div> </td></tr></tbody></table><h2 local-id="6806ed909efc" class="maintenance-section-title" data-section-number="01">Descrizione</h2><p local-id="9d14d5afab45">Questo errore compare quando il termostato all'interno del quadro elettrico rileva una temperatura più alta della temperatura massima impostata che solitamente è a 45_ C</p><h2 local-id="6186578e2836" class="maintenance-section-title" data-section-number="02">Sintomi</h2><p local-id="6256c0f8622a">…..</p><h2 local-id="591120660339" class="maintenance-section-title" data-section-number="03">Possibili cause</h2><div class='panelContent' style='background-color: #fff; border: 1px solid #D3D3D3; padding: 5px;'><ol start="1" local-id="d0dceaeb7b2d" type="1"><li local-id="b10088e7b3ad"><p local-id="70ceeb3bfaf7">Condizionatore o ventola del quadro guasti;</p></li><li local-id="40c375611c71"><p local-id="12fde803f22d">Termostato regolato male;</p></li></ol></div><h2 local-id="14d9621e31b4" class="maintenance-section-title" data-section-number="04">Possibili soluzioni</h2><div class='panelContent resolution-panel-content' style='background-color: #fff; border: 1px solid #D3D3D3; padding: 5px;'><ol start="1" local-id="5f2e73e735e0" type="1" class="procedure-steps"><li local-id="2c77ff899313"><p local-id="561880afbcd9">Controllare che la ventola di ricircolo funzioni correttamente</p></li><li local-id="e168519224e3"><p local-id="1da9df40e5f2">Controllare che il termostato relativo alla sovratemperatura all'interno del quadro sia a 45 gradi controllare sullo schema elettrico, inoltre se già impostato alla temperatura corretta controllare che apra e chiuda il contatto.</p></li></ol></div><!--Label="kb-troubleshooting-article"--><!--Label="quadro"--><!--Label="pe0031"-->
                         </main>
 
                     </div>
@@ -277,5 +279,12 @@
     </div>;
 
 
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
 </body>
 </html>

@@ -40,7 +40,7 @@
     <script>
       const path_to_root = "";
       const default_light_theme = "light";
-      const default_dark_theme = "navy";
+      const default_dark_theme = "light";
     </script>
     <!-- Start loading toc.js asap -->
     <script src="toc.js"></script>
@@ -86,8 +86,10 @@
     });
   });
 })();
-</script></head>
-<body>
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-document" data-technical-styler-flow="html">
     <header class="header-main">
         <div class="header-flex">
             <div class="donatoni-flex">
@@ -110,6 +112,15 @@
                 </div>
                 <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                     <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
                 </button>
 
                 <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
@@ -144,17 +155,8 @@
 
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script>
-            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
-                .matches
-                ? default_dark_theme
-                : default_light_theme;
-            let theme;
-            try {
-                theme = localStorage.getItem("mdbook-theme");
-            } catch (e) { }
-            if (theme === null || theme === undefined) {
-                theme = default_theme;
-            }
+            const default_theme = "light";
+            let theme = default_theme;
             const html = document.documentElement;
             html.classList.remove("light");
             html.classList.add(theme);
@@ -214,9 +216,9 @@
 
                         <img src="images/donatoni_111.jpg">
 
-                        <main style="margin-left: 20px;">
-                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="312-lista-dei-pezzi" style="margin:0;"><a class="header" href="#312-lista-dei-pezzi">3.12 LISTA DEI PEZZI</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="3.12 LISTA DEI PEZZI"--><p>Quando uno o più pezzi vengono creati e importati su Parametrix, il programma li aggiunge alla lista dei pezzi, collocata sulla sezione destra della schermata principale.</p><p>Attraverso la lista dei pezzi, l’operatore può:</p><ul><li><p>Inserire i pezzi sull’area di lavoro;</p></li><li><p>Tenere traccia dei pezzi lavorati e di quelli ancora da lavorare;</p></li><li><p>Applicare alcune modifiche ai pezzi.</p></li></ul><div class="TextAlignCenter"><img src="attachments/3.12_lista_dei_pezzi/1.0.png" alt="1.0.png" width="226" onclick="showModal(this.src)"></div><p></p><p>
-</p><p></p><h1 id="elementi-della-lista"><a class="header" href="#elementi-della-lista">Elementi della lista</a></h1><p>Ogni riga della lista rappresenta un pezzo che è stato importato in Parametrix. </p><div class="TextAlignCenter"><img src="attachments/3.12_lista_dei_pezzi/2.0.png" alt="2.0.png" width="407" onclick="showModal(this.src)"></div><p>Come si può vedere in questa immagine, in una riga sono contenute le seguenti informazioni relative al pezzo:</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="db8b2eb3-975a-4f2c-90fc-3597ddfa8a7b"><colgroup><col style="width: 514.0px;"><col style="width: 1284.0px;"></colgroup><tbody><tr><td><p><strong>Anteprima della forma</strong></p></td><td><p>Rappresentazione semplificata della geometria del pezzo.</p></td></tr><tr><td><p><strong>Marca del pezzo</strong></p></td><td><p>Etichetta che viene aggiunta al pezzo per identificarlo.</p>
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Machine technical documentation</span><span class="maintenance-status"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Operational document</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="312-lista-dei-pezzi" style="margin:0;" class="maintenance-main-title"><a class="header" href="#312-lista-dei-pezzi"><span class="maintenance-code">DOC</span><span class="maintenance-name">3.12 LISTA DEI PEZZI</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document DOC" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="3.12 LISTA DEI PEZZI"--><p>Quando uno o più pezzi vengono creati e importati su Parametrix, il programma li aggiunge alla lista dei pezzi, collocata sulla sezione destra della schermata principale.</p><p>Attraverso la lista dei pezzi, l’operatore può:</p><ul><li><p>Inserire i pezzi sull’area di lavoro;</p></li><li><p>Tenere traccia dei pezzi lavorati e di quelli ancora da lavorare;</p></li><li><p>Applicare alcune modifiche ai pezzi.</p></li></ul><div class="TextAlignCenter"><img src="attachments/3.12_lista_dei_pezzi/1.0.png" alt="1.0.png" width="226" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><p>
+</p><p></p><h1 id="elementi-della-lista"><a class="header" href="#elementi-della-lista">Elementi della lista</a></h1><p>Ogni riga della lista rappresenta un pezzo che è stato importato in Parametrix. </p><div class="TextAlignCenter"><img src="attachments/3.12_lista_dei_pezzi/2.0.png" alt="2.0.png" width="407" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p>Come si può vedere in questa immagine, in una riga sono contenute le seguenti informazioni relative al pezzo:</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="db8b2eb3-975a-4f2c-90fc-3597ddfa8a7b"><colgroup><col style="width: 514.0px;"><col style="width: 1284.0px;"></colgroup><tbody><tr><td><p><strong>Anteprima della forma</strong></p></td><td><p>Rappresentazione semplificata della geometria del pezzo.</p></td></tr><tr><td><p><strong>Marca del pezzo</strong></p></td><td><p>Etichetta che viene aggiunta al pezzo per identificarlo.</p>
 <div id="admonition-nota" class="admonition admonish-info" role="note" aria-labelledby="admonition-nota-title">
 <div class="admonition-title">
 <div id="admonition-nota-title">
@@ -228,7 +230,7 @@
 <p>Nel caso l’operatore non scelga la marca in fase di creazione, il programma identifica il pezzo con il nome del file (DXF o CSV) da cui è stato importato, o con le misure dei lati se è un rettangolo.</p>
 </div>
 </div>
-</td></tr><tr><td><p><strong>Numero dei pezzi inseriti e totali</strong></p></td><td><p>Indica il numero dei pezzi di quella riga che sono stati inseriti all’interno dell'area di lavoro, ed il numero totale di pezzi di quel tipo che è possibile inserire.</p></td></tr></tbody></table><p></p><h2 id="inserire-i-pezzi-nellarea-di-lavoro"><a class="header" href="#inserire-i-pezzi-nellarea-di-lavoro">Inserire i pezzi nell’area di lavoro</a></h2><p>Per inserire i pezzi nell’area di lavoro si utilizza il seguente pulsante che si trova in ogni riga della lista: </p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="dd543af5-d7f2-4bf1-89d2-4d27400ddbc5"><colgroup><col style="width: 343.0px;"><col style="width: 1456.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/3.12_lista_dei_pezzi/2.2.png" alt="2.2.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Inserisci pezzi nell’area di lavoro</strong><br>Permette di inserire il pezzo selezionato all’interno dell’area di lavoro.</p></td></tr></tbody></table><p>Il pezzo selezionato è stato posizionato sull’area di lavoro, ed il numero dei pezzi di questa riga inseriti è stato aggiornato.</p><div class="TextAlignCenter"><img src="attachments/3.12_lista_dei_pezzi/8.1.png" alt="8.1.png" width="800" onclick="showModal(this.src)"></div>
+</td></tr><tr><td><p><strong>Numero dei pezzi inseriti e totali</strong></p></td><td><p>Indica il numero dei pezzi di quella riga che sono stati inseriti all’interno dell'area di lavoro, ed il numero totale di pezzi di quel tipo che è possibile inserire.</p></td></tr></tbody></table><p></p><h2 id="inserire-i-pezzi-nellarea-di-lavoro" class="maintenance-section-title" data-section-number="01"><a class="header" href="#inserire-i-pezzi-nellarea-di-lavoro">Inserire i pezzi nell’area di lavoro</a></h2><p>Per inserire i pezzi nell’area di lavoro si utilizza il seguente pulsante che si trova in ogni riga della lista: </p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="dd543af5-d7f2-4bf1-89d2-4d27400ddbc5"><colgroup><col style="width: 343.0px;"><col style="width: 1456.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/3.12_lista_dei_pezzi/2.2.png" alt="2.2.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Inserisci pezzi nell’area di lavoro</strong><br>Permette di inserire il pezzo selezionato all’interno dell’area di lavoro.</p></td></tr></tbody></table><p>Il pezzo selezionato è stato posizionato sull’area di lavoro, ed il numero dei pezzi di questa riga inseriti è stato aggiornato.</p><div class="TextAlignCenter"><img src="attachments/3.12_lista_dei_pezzi/8.1.png" alt="8.1.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div>
 <div id="admonition-nota-1" class="admonition admonish-info" role="note" aria-labelledby="admonition-nota-1-title">
 <div class="admonition-title">
 <div id="admonition-nota-1-title">
@@ -240,7 +242,7 @@
 <p>Una volta raggiunto il numero massimo, il pulsante “Inserisci pezzi“ di quella riga scompare, in quanto tutti i pezzi di quella riga sono stati lavorati.</p>
 </div>
 </div>
-<p></p><p></p><h1 id="operazioni-sui-pezzi-della-lista"><a class="header" href="#operazioni-sui-pezzi-della-lista">Operazioni sui pezzi della lista</a></h1><p>I pulsanti sottostanti alla lista permettono di gestire gli elementi della lista. In particolare:</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="2ff521c3-e756-4dc4-8357-c4b52ffa5695"><colgroup><col style="width: 341.0px;"><col style="width: 1456.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/3.12_lista_dei_pezzi/48a4d926-500d-46c1-a475-4a3a955bf773.png" alt="48a4d926-500d-46c1-a475-4a3a955bf773.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Pulisci lista dei pezzi</strong><br>Permette di eliminare tutto il contenuto della lista dei pezzi.</p>
+<p></p><p></p><h1 id="operazioni-sui-pezzi-della-lista"><a class="header" href="#operazioni-sui-pezzi-della-lista">Operazioni sui pezzi della lista</a></h1><p>I pulsanti sottostanti alla lista permettono di gestire gli elementi della lista. In particolare:</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="2ff521c3-e756-4dc4-8357-c4b52ffa5695"><colgroup><col style="width: 341.0px;"><col style="width: 1456.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/3.12_lista_dei_pezzi/48a4d926-500d-46c1-a475-4a3a955bf773.png" alt="48a4d926-500d-46c1-a475-4a3a955bf773.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Pulisci lista dei pezzi</strong><br>Permette di eliminare tutto il contenuto della lista dei pezzi.</p>
 <div id="admonition-nota-2" class="admonition admonish-info" role="note" aria-labelledby="admonition-nota-2-title">
 <div class="admonition-title">
 <div id="admonition-nota-2-title">
@@ -263,7 +265,7 @@
 <p>Verranno rimossi dall’area di lavoro tutti i pezzi collegati alle righe rimosse dalla lista.</p>
 </div>
 </div>
-</td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.12_lista_dei_pezzi/3.0.png" alt="3.0.png" width="120" onclick="showModal(this.src)"></div></td><td><p><strong>Nascondi/Mostra pezzi commerciali</strong><br>Permette di nascondere o visualizzare le righe dell’elenco associate a pezzi commerciali.</p>
+</td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.12_lista_dei_pezzi/3.0.png" alt="3.0.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Nascondi/Mostra pezzi commerciali</strong><br>Permette di nascondere o visualizzare le righe dell’elenco associate a pezzi commerciali.</p>
 <div id="admonition-attenzione-1" class="admonition admonish-warning" role="note" aria-labelledby="admonition-attenzione-1-title">
 <div class="admonition-title">
 <div id="admonition-attenzione-1-title">
@@ -275,7 +277,7 @@
 <p>Nascondendo le righe associate a commesse commerciali, vengono rimossi tutti i pezzi collegati ad esse presenti sull’area di lavoro.</p>
 </div>
 </div>
-</td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.12_lista_dei_pezzi/5.0.png" alt="5.0.png" width="120" onclick="showModal(this.src)"></div></td><td><p><strong>Cancella pezzo</strong><br>Permette di selezionare singolarmente i pezzi da cancellare dalla lista.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.12_lista_dei_pezzi/af1abcc1-793c-4437-a11d-51c71295933d.png" alt="af1abcc1-793c-4437-a11d-51c71295933d.png" width="120" onclick="showModal(this.src)"></div></td><td><p><strong>Filtra/Ordina i pezzi</strong><br>È possibile applicare un filtro ai pezzi della lista, o di ordinarli secondo diversi criteri.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.12_lista_dei_pezzi/6.0.png" alt="6.0.png" width="118" onclick="showModal(this.src)"></div></td><td><p><strong>Proprietà aggiuntive del pezzo</strong><br>L’operatore può assegnare e modificare le proprietà aggiuntive del pezzo selezionato.</p></td></tr></tbody></table><p></p><h2 id="cancella-pezzo"><a class="header" href="#cancella-pezzo">Cancella pezzo</a></h2><p>Questa funzione permette di eliminare i pezzi dalla lista singolarmente. Dopo aver premuto il pulsante, il programma chiederà all’utente di selezionare la riga da cancellare sostituendo la freccia di inserimento dei pezzi sull’area di lavoro con una gomma.</p><div class="TextAlignCenter"><img src="attachments/3.12_lista_dei_pezzi/0.0.png" alt="0.0.png" width="226" onclick="showModal(this.src)"></div><p>Premendo questo pulsante, viene eliminata la riga corrispondente, e quindi tutti i pezzi che rappresenta.</p>
+</td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.12_lista_dei_pezzi/5.0.png" alt="5.0.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Cancella pezzo</strong><br>Permette di selezionare singolarmente i pezzi da cancellare dalla lista.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.12_lista_dei_pezzi/af1abcc1-793c-4437-a11d-51c71295933d.png" alt="af1abcc1-793c-4437-a11d-51c71295933d.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Filtra/Ordina i pezzi</strong><br>È possibile applicare un filtro ai pezzi della lista, o di ordinarli secondo diversi criteri.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.12_lista_dei_pezzi/6.0.png" alt="6.0.png" width="118" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Proprietà aggiuntive del pezzo</strong><br>L’operatore può assegnare e modificare le proprietà aggiuntive del pezzo selezionato.</p></td></tr></tbody></table><p></p><h2 id="cancella-pezzo" class="maintenance-section-title" data-section-number="02"><a class="header" href="#cancella-pezzo">Cancella pezzo</a></h2><p>Questa funzione permette di eliminare i pezzi dalla lista singolarmente. Dopo aver premuto il pulsante, il programma chiederà all’utente di selezionare la riga da cancellare sostituendo la freccia di inserimento dei pezzi sull’area di lavoro con una gomma.</p><div class="TextAlignCenter"><img src="attachments/3.12_lista_dei_pezzi/0.0.png" alt="0.0.png" width="226" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p>Premendo questo pulsante, viene eliminata la riga corrispondente, e quindi tutti i pezzi che rappresenta.</p>
 <div id="admonition-attenzione-2" class="admonition admonish-warning" role="note" aria-labelledby="admonition-attenzione-2-title">
 <div class="admonition-title">
 <div id="admonition-attenzione-2-title">
@@ -349,5 +351,12 @@
     </div>;
 
 
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
 </body>
 </html>

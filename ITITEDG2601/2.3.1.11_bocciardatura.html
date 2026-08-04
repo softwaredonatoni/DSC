@@ -40,7 +40,7 @@
     <script>
       const path_to_root = "";
       const default_light_theme = "light";
-      const default_dark_theme = "navy";
+      const default_dark_theme = "light";
     </script>
     <!-- Start loading toc.js asap -->
     <script src="toc.js"></script>
@@ -86,8 +86,10 @@
     });
   });
 })();
-</script></head>
-<body>
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-document" data-technical-styler-flow="html">
     <header class="header-main">
         <div class="header-flex">
             <div class="donatoni-flex">
@@ -110,6 +112,15 @@
                 </div>
                 <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                     <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
                 </button>
 
                 <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
@@ -144,17 +155,8 @@
 
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script>
-            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
-                .matches
-                ? default_dark_theme
-                : default_light_theme;
-            let theme;
-            try {
-                theme = localStorage.getItem("mdbook-theme");
-            } catch (e) { }
-            if (theme === null || theme === undefined) {
-                theme = default_theme;
-            }
+            const default_theme = "light";
+            let theme = default_theme;
             const html = document.documentElement;
             html.classList.remove("light");
             html.classList.add(theme);
@@ -214,9 +216,9 @@
 
                         <img src="images/donatoni_111.jpg">
 
-                        <main style="margin-left: 20px;">
-                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="23111-bocciardatura" style="margin:0;"><a class="header" href="#23111-bocciardatura">2.3.1.11 BOCCIARDATURA</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="2.3.1.11 BOCCIARDATURA"--><p local-id="ae61bd546065">Questa lavorazione consente di irruvidire una parte della superficie superiore del pezzo.</p><div class="TextAlignCenter"><img src="attachments/2.3.1.11_bocciardatura/3.1.1.11.01.png" alt="3.1.1.11.01.png" width="800" onclick="showModal(this.src)"></div><p>
-</p><p local-id="01af7d28174e"></p><h1 local-id="c1a83f5ea802">Parametri</h1><div class="TextAlignCenter"><img src="attachments/2.3.1.11_bocciardatura/3.1.1.11.02.png" alt="3.1.1.11.02.png" width="800" onclick="showModal(this.src)"></div>
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Machine technical documentation</span><span class="maintenance-status"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Operational document</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="23111-bocciardatura" style="margin:0;" class="maintenance-main-title"><a class="header" href="#23111-bocciardatura"><span class="maintenance-code">DOC</span><span class="maintenance-name">2.3.1.11 BOCCIARDATURA</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document DOC" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="2.3.1.11 BOCCIARDATURA"--><p local-id="ae61bd546065">Questa lavorazione consente di irruvidire una parte della superficie superiore del pezzo.</p><div class="TextAlignCenter"><img src="attachments/2.3.1.11_bocciardatura/3.1.1.11.01.png" alt="3.1.1.11.01.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p>
+</p><p local-id="01af7d28174e"></p><h1 local-id="c1a83f5ea802">Parametri</h1><div class="TextAlignCenter"><img src="attachments/2.3.1.11_bocciardatura/3.1.1.11.02.png" alt="3.1.1.11.02.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div>
 <div id="admonition-nota" class="admonition admonish-info" role="note" aria-labelledby="admonition-nota-title">
 <div class="admonition-title">
 <div id="admonition-nota-title">
@@ -228,7 +230,7 @@
 <p>Questa lavorazione può essere eseguita solo in modalità non passante.</p>
 </div>
 </div>
-<table class="my-table2" data-table-width="1539" data-layout="center" ac:local-id="a95a0613-fe26-4ee1-8507-aff7ebc15b01"><colgroup><col style="width: 512.0px;"><col style="width: 1026.0px;"></colgroup><tbody><tr ac:local-id="4e1137e3c28d"><td ac:local-id="4d3e29e66272"><div class="TextAlignCenter"><img src="attachments/2.3.1.11_bocciardatura/3.1.1.11.04.png" alt="3.1.1.11.04.png" width="374" onclick="showModal(this.src)"></div></td><td ac:local-id="b34ddf95d2b9"><p local-id="d9a26681989f"><strong>Distanza dal bordo</strong><br>Indica la distanza della bocciardatura dalla costa del pezzo.</p></td></tr><tr ac:local-id="8b48f2c4c893"><td ac:local-id="d11efbee0ce3"><div class="TextAlignCenter"><img src="attachments/2.3.1.11_bocciardatura/3.1.1.11.07.png" alt="3.1.1.11.07.png" width="374" onclick="showModal(this.src)"></div></td><td ac:local-id="45a73af4064a"><p local-id="8bd936fc67b3"><strong>Distanza inizio velocità massima</strong><br>Intervallo in cui il nastro si muoverà con velocità ridotta per facilitare l’ingresso della bocciarda nel pezzo.<br>Spazio tra l’inizio della lavorazione ed il punto in cui la lavorazione viene eseguita a pieno regime.</p></td></tr><tr ac:local-id="c06101d830e1"><td ac:local-id="9bea830454e8"><div class="TextAlignCenter"><img src="attachments/2.3.1.11_bocciardatura/3.1.1.11.08.png" alt="3.1.1.11.08.png" width="374" onclick="showModal(this.src)"></div></td><td ac:local-id="f9262db64567"><p local-id="7fb46e81588a"><strong>Distanza inizio velocità massima</strong><br>Intervallo in cui il nastro si muoverà con velocità ridotta per facilitare l’uscita della bocciarda dal pezzo.<br>Spazio tra il punto in cui la lavorazione termina l’esecuzione a pieno regime e la fine del pezzo.</p></td></tr></tbody></table><p local-id="c248f07b098e"></p><h1 local-id="b872017a928f">Gruppi disponibili</h1><table class="my-table2" data-table-width="1539" data-layout="center" ac:local-id="41110ab1-48de-417d-8132-b3ce76946476"><tbody><tr ac:local-id="964b65656bd3"><td ac:local-id="2005da4a79d0"><p local-id="d4657bea1ccf" style="text-align: center;"><strong>Gruppo bocciardatore/pulitore</strong></p></td></tr><tr ac:local-id="ff579f0f3ff3"><td ac:local-id="765c9ab0ffe7"><div class="TextAlignCenter"><img src="attachments/2.3.1.11_bocciardatura/3.1.1.11.00.png" alt="3.1.1.11.00.png" width="208" onclick="showModal(this.src)"></div></td></tr></tbody></table><!--Label="edg_wrk_bsh"-->
+<table class="my-table2" data-table-width="1539" data-layout="center" ac:local-id="a95a0613-fe26-4ee1-8507-aff7ebc15b01"><colgroup><col style="width: 512.0px;"><col style="width: 1026.0px;"></colgroup><tbody><tr ac:local-id="4e1137e3c28d"><td ac:local-id="4d3e29e66272"><div class="TextAlignCenter"><img src="attachments/2.3.1.11_bocciardatura/3.1.1.11.04.png" alt="3.1.1.11.04.png" width="374" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="b34ddf95d2b9"><p local-id="d9a26681989f"><strong>Distanza dal bordo</strong><br>Indica la distanza della bocciardatura dalla costa del pezzo.</p></td></tr><tr ac:local-id="8b48f2c4c893"><td ac:local-id="d11efbee0ce3"><div class="TextAlignCenter"><img src="attachments/2.3.1.11_bocciardatura/3.1.1.11.07.png" alt="3.1.1.11.07.png" width="374" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="45a73af4064a"><p local-id="8bd936fc67b3"><strong>Distanza inizio velocità massima</strong><br>Intervallo in cui il nastro si muoverà con velocità ridotta per facilitare l’ingresso della bocciarda nel pezzo.<br>Spazio tra l’inizio della lavorazione ed il punto in cui la lavorazione viene eseguita a pieno regime.</p></td></tr><tr ac:local-id="c06101d830e1"><td ac:local-id="9bea830454e8"><div class="TextAlignCenter"><img src="attachments/2.3.1.11_bocciardatura/3.1.1.11.08.png" alt="3.1.1.11.08.png" width="374" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="f9262db64567"><p local-id="7fb46e81588a"><strong>Distanza inizio velocità massima</strong><br>Intervallo in cui il nastro si muoverà con velocità ridotta per facilitare l’uscita della bocciarda dal pezzo.<br>Spazio tra il punto in cui la lavorazione termina l’esecuzione a pieno regime e la fine del pezzo.</p></td></tr></tbody></table><p local-id="c248f07b098e"></p><h1 local-id="b872017a928f">Gruppi disponibili</h1><table class="my-table2" data-table-width="1539" data-layout="center" ac:local-id="41110ab1-48de-417d-8132-b3ce76946476"><tbody><tr ac:local-id="964b65656bd3"><td ac:local-id="2005da4a79d0"><p local-id="d4657bea1ccf" style="text-align: center;"><strong>Gruppo bocciardatore/pulitore</strong></p></td></tr><tr ac:local-id="ff579f0f3ff3"><td ac:local-id="765c9ab0ffe7"><div class="TextAlignCenter"><img src="attachments/2.3.1.11_bocciardatura/3.1.1.11.00.png" alt="3.1.1.11.00.png" width="208" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td></tr></tbody></table><!--Label="edg_wrk_bsh"-->
                         </main>
 
                     </div>
@@ -290,5 +292,12 @@
     </div>;
 
 
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
 </body>
 </html>

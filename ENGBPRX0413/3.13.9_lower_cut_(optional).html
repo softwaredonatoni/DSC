@@ -40,7 +40,7 @@
     <script>
       const path_to_root = "";
       const default_light_theme = "light";
-      const default_dark_theme = "navy";
+      const default_dark_theme = "light";
     </script>
     <!-- Start loading toc.js asap -->
     <script src="toc.js"></script>
@@ -86,8 +86,10 @@
     });
   });
 })();
-</script></head>
-<body>
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-document" data-technical-styler-flow="html">
     <header class="header-main">
         <div class="header-flex">
             <div class="donatoni-flex">
@@ -110,6 +112,15 @@
                 </div>
                 <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                     <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
                 </button>
 
                 <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
@@ -144,17 +155,8 @@
 
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script>
-            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
-                .matches
-                ? default_dark_theme
-                : default_light_theme;
-            let theme;
-            try {
-                theme = localStorage.getItem("mdbook-theme");
-            } catch (e) { }
-            if (theme === null || theme === undefined) {
-                theme = default_theme;
-            }
+            const default_theme = "light";
+            let theme = default_theme;
             const html = document.documentElement;
             html.classList.remove("light");
             html.classList.add(theme);
@@ -214,8 +216,8 @@
 
                         <img src="images/donatoni_111.jpg">
 
-                        <main style="margin-left: 20px;">
-                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="3139-lower-cut-optional" style="margin:0;"><a class="header" href="#3139-lower-cut-optional">3.13.9 LOWER CUT (OPTIONAL)</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="3.13.9 LOWER CUT (OPTIONAL)"--><p>This functionality allows the operator to add a lower cut with respect to a selected cut, on the selected piece.<br>The interface for this function looks like the following image:</p><div class="TextAlignCenter"><img src="attachments/3.13.9_lower_cut_(optional)/2-20250630-123653.png" alt="2-20250630-123653.png" width="800" onclick="showModal(this.src)"></div><p></p><p>
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Machine technical documentation</span><span class="maintenance-status"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Operational document</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="3139-lower-cut-optional" style="margin:0;" class="maintenance-main-title"><a class="header" href="#3139-lower-cut-optional"><span class="maintenance-code">DOC</span><span class="maintenance-name">3.13.9 LOWER CUT (OPTIONAL)</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document DOC" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="3.13.9 LOWER CUT (OPTIONAL)"--><p>This functionality allows the operator to add a lower cut with respect to a selected cut, on the selected piece.<br>The interface for this function looks like the following image:</p><div class="TextAlignCenter"><img src="attachments/3.13.9_lower_cut_(optional)/2-20250630-123653.png" alt="2-20250630-123653.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><p>
 </p><h1 id="parameters"><a class="header" href="#parameters">Parameters</a></h1><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="130ea639-578a-4239-a3c6-9bdbbe2bf522"><colgroup><col style="width: 278.0px;"><col style="width: 1521.0px;"></colgroup><tbody><tr><td><p><strong>Distance from cut</strong></p></td><td><p>The distance from the selected cut to the lower cut processing.</p></td></tr><tr><td><p><strong>Depth cutting</strong></p></td><td><p>It is the penetration depth on the material.</p></td></tr><tr><td><p><strong>Start Distance</strong></p></td><td><p>The distance inward with which the working is created with respect to the start of the cut.</p></td></tr><tr><td><p><strong>End Distance</strong></p></td><td><p>The distance inwards with which the working is created with respect to the end of the cut.</p></td></tr></tbody></table>
 <div id="admonition-note" class="admonition admonish-info" role="note" aria-labelledby="admonition-note-title">
 <div class="admonition-title">
@@ -230,7 +232,7 @@
 In case they are off, Parametrix does not take them into account, while when they are on, the program calculates the displacement.</p>
 </div>
 </div>
-<p></p><h2 id="start-distance-and-end-distance"><a class="header" href="#start-distance-and-end-distance">Start Distance and End Distance</a></h2><p>These parameters can be active or off with the buttons on the right of the value. If they are gray (off) Parametrix does not take them into account, while when they are green (on - as in the figure) the program calculates the shift.</p><div class="TextAlignCenter"><img src="attachments/3.13.9_lower_cut_(optional)/spiegazione_distanze_e_direzione_b-20250623-072340.png" alt="spiegazione_distanze_e_direzione_b-20250623-072340.png" width="500" onclick="showModal(this.src)"></div><p></p><h1 id="execution-of-working"><a class="header" href="#execution-of-working">Execution of working</a></h1>
+<p></p><h2 id="start-distance-and-end-distance" class="maintenance-section-title" data-section-number="01"><a class="header" href="#start-distance-and-end-distance">Start Distance and End Distance</a></h2><p>These parameters can be active or off with the buttons on the right of the value. If they are gray (off) Parametrix does not take them into account, while when they are green (on - as in the figure) the program calculates the shift.</p><div class="TextAlignCenter"><img src="attachments/3.13.9_lower_cut_(optional)/spiegazione_distanze_e_direzione_b-20250623-072340.png" alt="spiegazione_distanze_e_direzione_b-20250623-072340.png" width="500" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><h1 id="execution-of-working"><a class="header" href="#execution-of-working">Execution of working</a></h1>
 <div id="admonition-note-1" class="admonition admonish-info" role="note" aria-labelledby="admonition-note-1-title">
 <div class="admonition-title">
 <div id="admonition-note-1-title">
@@ -244,7 +246,7 @@ In case they are off, Parametrix does not take them into account, while when the
 An icon red with a 'X' indicates that the process cannot be applied to the desired cut.</p>
 </div>
 </div>
-<p>Based on the processing parameters set, a lower cut is inserted parallel to the cut of the selected piece.</p><div class="TextAlignCenter"><img src="attachments/3.13.9_lower_cut_(optional)/3-20250630-123927.png" alt="3-20250630-123927.png" width="800" onclick="showModal(this.src)"></div><p></p><p>In the following image there has been illustrated a drip system working, realized with the same parameters of the previous example.</p><div class="TextAlignCenter"><img src="attachments/3.13.9_lower_cut_(optional)/4-20250630-123848.png" alt="4-20250630-123848.png" width="800" onclick="showModal(this.src)"></div><p></p><p>In both examples the working was applied to the lower straight cut. <br>Furthermore, it has been added to the list of 'Additional Workings', located in the bottom left part of the 'Edit piece' panel.</p><!--Label="mdf_lwr"-->
+<p>Based on the processing parameters set, a lower cut is inserted parallel to the cut of the selected piece.</p><div class="TextAlignCenter"><img src="attachments/3.13.9_lower_cut_(optional)/3-20250630-123927.png" alt="3-20250630-123927.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><p>In the following image there has been illustrated a drip system working, realized with the same parameters of the previous example.</p><div class="TextAlignCenter"><img src="attachments/3.13.9_lower_cut_(optional)/4-20250630-123848.png" alt="4-20250630-123848.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><p>In both examples the working was applied to the lower straight cut. <br>Furthermore, it has been added to the list of 'Additional Workings', located in the bottom left part of the 'Edit piece' panel.</p><!--Label="mdf_lwr"-->
                         </main>
 
                     </div>
@@ -306,5 +308,12 @@ An icon red with a 'X' indicates that the process cannot be applied to the desir
     </div>;
 
 
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
 </body>
 </html>

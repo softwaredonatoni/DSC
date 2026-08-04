@@ -40,7 +40,7 @@
     <script>
       const path_to_root = "";
       const default_light_theme = "light";
-      const default_dark_theme = "navy";
+      const default_dark_theme = "light";
     </script>
     <!-- Start loading toc.js asap -->
     <script src="toc.js"></script>
@@ -86,8 +86,10 @@
     });
   });
 })();
-</script></head>
-<body>
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-document" data-technical-styler-flow="html">
     <header class="header-main">
         <div class="header-flex">
             <div class="donatoni-flex">
@@ -110,6 +112,15 @@
                 </div>
                 <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                     <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
                 </button>
 
                 <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
@@ -144,17 +155,8 @@
 
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script>
-            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
-                .matches
-                ? default_dark_theme
-                : default_light_theme;
-            let theme;
-            try {
-                theme = localStorage.getItem("mdbook-theme");
-            } catch (e) { }
-            if (theme === null || theme === undefined) {
-                theme = default_theme;
-            }
+            const default_theme = "light";
+            let theme = default_theme;
             const html = document.documentElement;
             html.classList.remove("light");
             html.classList.add(theme);
@@ -214,9 +216,9 @@
 
                         <img src="images/donatoni_111.jpg">
 
-                        <main style="margin-left: 20px;">
-                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="3151-magnetize-the-pieces" style="margin:0;"><a class="header" href="#3151-magnetize-the-pieces">3.15.1 MAGNETIZE THE PIECES</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="3.15.1 MAGNETIZE THE PIECES"--><p>With this function you can align the sides of different pieces.</p><div class="TextAlignCenter"><img src="attachments/3.15.1_magnetize_the_pieces/0.0.png" alt="0.0.png" width="800" onclick="showModal(this.src)"></div><p></p><p>
-</p><p></p><h1 id="drag-the-pieces-on-the-work-area"><a class="header" href="#drag-the-pieces-on-the-work-area">Drag the pieces on the work area</a></h1><p>Moving a piece near another one happens that the nearby sides become yellow as well as in the below image:</p><div class="TextAlignCenter"><img src="attachments/3.15.1_magnetize_the_pieces/1.0.png" alt="1.0.png" width="800" onclick="showModal(this.src)"></div><p>If then you let go the piece will attach perfectly to the side of the other piece:</p><div class="TextAlignCenter"><img src="attachments/3.15.1_magnetize_the_pieces/1.1.png" alt="1.1.png" width="800" onclick="showModal(this.src)"></div><p>In the case the cuts are not parallel, the piece is rotated in parallel position to the cut.</p><p></p><h1 id="align-two-cuts"><a class="header" href="#align-two-cuts">Align two cuts</a></h1><p>It is possibiele to use the magnet to align two cuts. <br>To do that, select in sequence the cut you want to move and, subsequently, the cut on which you want to magnetize the piece.<br>The first cut will move so as to result parallel to the second selected cut.<br>In the case the cuts are not parallel, the piece is rotated in parallel position to the cut.</p><div class="TextAlignCenter"><img src="attachments/3.15.1_magnetize_the_pieces/2.0.png" alt="2.0.png" width="800" onclick="showModal(this.src)"></div><div class="TextAlignCenter"><img src="attachments/3.15.1_magnetize_the_pieces/2.2.png" alt="2.2.png" width="800" onclick="showModal(this.src)"></div><h2 id="alignment-with-stress-relief-cuts"><a class="header" href="#alignment-with-stress-relief-cuts"><br>Alignment with stress relief cuts</a></h2><p>With this mode, it's possible to align cuts of a piece with the cuts of a slab.</p><div class="TextAlignCenter"><img src="attachments/3.15.1_magnetize_the_pieces/4.0.png" alt="4.0.png" width="800" onclick="showModal(this.src)"></div><div class="TextAlignCenter"><img src="attachments/3.15.1_magnetize_the_pieces/4.1.png" alt="4.1.png" width="800" onclick="showModal(this.src)"></div><p></p><h2 id="alignment-with-laser-references"><a class="header" href="#alignment-with-laser-references">Alignment with laser references</a></h2><p>Via the same procedure it is possibiele magnetize the cuts with the laser reference, both line and cross.<br>In the case of line laser, the selected side is aligned with the reference.</p><div class="TextAlignCenter"><img src="attachments/3.15.1_magnetize_the_pieces/3.0.png" alt="3.0.png" width="800" onclick="showModal(this.src)"></div><div class="TextAlignCenter"><img src="attachments/3.15.1_magnetize_the_pieces/3.1.png" alt="3.1.png" width="800" onclick="showModal(this.src)"></div><p>In the case of the laser cross, the piece is moved so that the laser reference matches the nearest vertex of the selected cut.</p><div class="TextAlignCenter"><img src="attachments/3.15.1_magnetize_the_pieces/3.2.png" alt="3.2.png" width="800" onclick="showModal(this.src)"></div><div class="TextAlignCenter"><img src="attachments/3.15.1_magnetize_the_pieces/3.3.png" alt="3.3.png" width="800" onclick="showModal(this.src)"></div><p></p><!--Label="mag"--><!--Label="mag_lgn_det"--><!--Label="mag_drg"--><!--Label="mag_lgn"--><!--Label="mag_lgn_lrf"-->
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Machine technical documentation</span><span class="maintenance-status"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Operational document</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="3151-magnetize-the-pieces" style="margin:0;" class="maintenance-main-title"><a class="header" href="#3151-magnetize-the-pieces"><span class="maintenance-code">DOC</span><span class="maintenance-name">3.15.1 MAGNETIZE THE PIECES</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document DOC" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="3.15.1 MAGNETIZE THE PIECES"--><p>With this function you can align the sides of different pieces.</p><div class="TextAlignCenter"><img src="attachments/3.15.1_magnetize_the_pieces/0.0.png" alt="0.0.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><p>
+</p><p></p><h1 id="drag-the-pieces-on-the-work-area"><a class="header" href="#drag-the-pieces-on-the-work-area">Drag the pieces on the work area</a></h1><p>Moving a piece near another one happens that the nearby sides become yellow as well as in the below image:</p><div class="TextAlignCenter"><img src="attachments/3.15.1_magnetize_the_pieces/1.0.png" alt="1.0.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p>If then you let go the piece will attach perfectly to the side of the other piece:</p><div class="TextAlignCenter"><img src="attachments/3.15.1_magnetize_the_pieces/1.1.png" alt="1.1.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p>In the case the cuts are not parallel, the piece is rotated in parallel position to the cut.</p><p></p><h1 id="align-two-cuts"><a class="header" href="#align-two-cuts">Align two cuts</a></h1><p>It is possibiele to use the magnet to align two cuts. <br>To do that, select in sequence the cut you want to move and, subsequently, the cut on which you want to magnetize the piece.<br>The first cut will move so as to result parallel to the second selected cut.<br>In the case the cuts are not parallel, the piece is rotated in parallel position to the cut.</p><div class="TextAlignCenter"><img src="attachments/3.15.1_magnetize_the_pieces/2.0.png" alt="2.0.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><div class="TextAlignCenter"><img src="attachments/3.15.1_magnetize_the_pieces/2.2.png" alt="2.2.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><h2 id="alignment-with-stress-relief-cuts" class="maintenance-section-title" data-section-number="01"><a class="header" href="#alignment-with-stress-relief-cuts"><br>Alignment with stress relief cuts</a></h2><p>With this mode, it's possible to align cuts of a piece with the cuts of a slab.</p><div class="TextAlignCenter"><img src="attachments/3.15.1_magnetize_the_pieces/4.0.png" alt="4.0.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><div class="TextAlignCenter"><img src="attachments/3.15.1_magnetize_the_pieces/4.1.png" alt="4.1.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><h2 id="alignment-with-laser-references" class="maintenance-section-title" data-section-number="02"><a class="header" href="#alignment-with-laser-references">Alignment with laser references</a></h2><p>Via the same procedure it is possibiele magnetize the cuts with the laser reference, both line and cross.<br>In the case of line laser, the selected side is aligned with the reference.</p><div class="TextAlignCenter"><img src="attachments/3.15.1_magnetize_the_pieces/3.0.png" alt="3.0.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><div class="TextAlignCenter"><img src="attachments/3.15.1_magnetize_the_pieces/3.1.png" alt="3.1.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p>In the case of the laser cross, the piece is moved so that the laser reference matches the nearest vertex of the selected cut.</p><div class="TextAlignCenter"><img src="attachments/3.15.1_magnetize_the_pieces/3.2.png" alt="3.2.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><div class="TextAlignCenter"><img src="attachments/3.15.1_magnetize_the_pieces/3.3.png" alt="3.3.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><!--Label="mag"--><!--Label="mag_lgn_det"--><!--Label="mag_drg"--><!--Label="mag_lgn"--><!--Label="mag_lgn_lrf"-->
                         </main>
 
                     </div>
@@ -278,5 +280,12 @@
     </div>;
 
 
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
 </body>
 </html>

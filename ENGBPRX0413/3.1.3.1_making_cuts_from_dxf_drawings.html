@@ -40,7 +40,7 @@
     <script>
       const path_to_root = "";
       const default_light_theme = "light";
-      const default_dark_theme = "navy";
+      const default_dark_theme = "light";
     </script>
     <!-- Start loading toc.js asap -->
     <script src="toc.js"></script>
@@ -86,8 +86,10 @@
     });
   });
 })();
-</script></head>
-<body>
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-document" data-technical-styler-flow="html">
     <header class="header-main">
         <div class="header-flex">
             <div class="donatoni-flex">
@@ -110,6 +112,15 @@
                 </div>
                 <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                     <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
                 </button>
 
                 <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
@@ -144,17 +155,8 @@
 
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script>
-            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
-                .matches
-                ? default_dark_theme
-                : default_light_theme;
-            let theme;
-            try {
-                theme = localStorage.getItem("mdbook-theme");
-            } catch (e) { }
-            if (theme === null || theme === undefined) {
-                theme = default_theme;
-            }
+            const default_theme = "light";
+            let theme = default_theme;
             const html = document.documentElement;
             html.classList.remove("light");
             html.classList.add(theme);
@@ -214,8 +216,8 @@
 
                         <img src="images/donatoni_111.jpg">
 
-                        <main style="margin-left: 20px;">
-                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="3131-making-cuts-from-dxf-drawings" style="margin:0;"><a class="header" href="#3131-making-cuts-from-dxf-drawings">3.1.3.1 MAKING CUTS FROM DXF DRAWINGS</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="3.1.3.1 MAKING CUTS FROM DXF DRAWINGS"--><p>The machine can execute cuts, millings and holes through designs created with CAD software and saved in '.dxf' format with the automatic recognition of some workings useful to simplify and make faster the work to the machine operator.</p>
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Machine technical documentation</span><span class="maintenance-status"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Operational document</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="3131-making-cuts-from-dxf-drawings" style="margin:0;" class="maintenance-main-title"><a class="header" href="#3131-making-cuts-from-dxf-drawings"><span class="maintenance-code">DOC</span><span class="maintenance-name">3.1.3.1 MAKING CUTS FROM DXF DRAWINGS</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document DOC" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="3.1.3.1 MAKING CUTS FROM DXF DRAWINGS"--><p>The machine can execute cuts, millings and holes through designs created with CAD software and saved in '.dxf' format with the automatic recognition of some workings useful to simplify and make faster the work to the machine operator.</p>
 <div id="admonition-note" class="admonition admonish-info" role="note" aria-labelledby="admonition-note-title">
 <div class="admonition-title">
 <div id="admonition-note-title">
@@ -231,8 +233,8 @@ All pieces drawn must be closed and converted into polylines forming a polygon.
 Should you wish to insert the brand of the piece for identification, it must be inserted within the polygon.</p>
 </div>
 </div>
-<div class="TextAlignCenter"><img src="attachments/3.1.3.1_making_cuts_from_dxf_drawings/0.0.png" alt="0.0.png" width="600" onclick="showModal(this.src)"></div><p></p><p>
-</p><h1 id="parametrix-settings-for-the-recognition-of-imported-layers"><a class="header" href="#parametrix-settings-for-the-recognition-of-imported-layers">Parametrix settings for the recognition of imported layers</a></h1><p>To access the window dedicated to the customization settings related to the import of DXF files, press the User Parameters button located on the top bar of Parametrix.<br>From here, move to the section dedicated to managing the names of the Layers.</p><p>For each type of function listed, the user can assign a name (corresponding to the name of the Layer set in the CAD software used) and assign some parameters related to the default values for some workings.</p><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="e4ea2044-658d-4187-bdac-59c197e7ac76"><tbody><tr><td data-highlight-colour="#ffffff"><p style="text-align: center;"><strong>Funzione</strong></p></td><td data-highlight-colour="#ffffff"><p style="text-align: center;"><strong>Nome Layer</strong></p></td></tr><tr><td data-highlight-colour="#ffffff"><p>Miter cut</p></td><td data-highlight-colour="#ffffff"><p>Miter cut</p></td></tr><tr><td data-highlight-colour="#ffffff"><p>Downstand</p></td><td data-highlight-colour="#ffffff"><p>Downstand</p></td></tr><tr><td data-highlight-colour="#ffffff"><p>Backsplash</p></td><td data-highlight-colour="#ffffff"><p>Backsplash</p></td></tr><tr><td data-highlight-colour="#ffffff"><p>Offset</p></td><td data-highlight-colour="#ffffff"><p>Offset</p></td></tr><tr><td data-highlight-colour="#ffffff"><p>Cuts under the material</p></td><td data-highlight-colour="#ffffff"><p>Below</p></td></tr><tr><td data-highlight-colour="#ffffff"><p>Drip system</p></td><td data-highlight-colour="#ffffff"><p>Drip</p></td></tr><tr><td data-highlight-colour="#ffffff"><p>Milling</p></td><td data-highlight-colour="#ffffff"><p>Milling</p></td></tr><tr><td data-highlight-colour="#ffffff"><p>Rim</p></td><td data-highlight-colour="#ffffff"><p>Rim</p></td></tr><tr><td data-highlight-colour="#ffffff"><p>Drilling</p></td><td data-highlight-colour="#ffffff"><p>Drilling</p></td></tr><tr><td data-highlight-colour="#ffffff"><p>Cut added</p></td><td data-highlight-colour="#ffffff"><p>Added</p></td></tr><tr><td data-highlight-colour="#ffffff"><p>Anchoring hole</p></td><td data-highlight-colour="#ffffff"><p>Keil</p></td></tr><tr><td data-highlight-colour="#ffffff"><p>Chamfer</p></td><td data-highlight-colour="#ffffff"><p>Chamfer</p></td></tr><tr><td data-highlight-colour="#ffffff"><p>Lower Chamfer</p></td><td data-highlight-colour="#ffffff"><p>Lower Chamfer</p></td></tr><tr><td data-highlight-colour="#ffffff"><p>Deactivate</p></td><td data-highlight-colour="#ffffff"><p>Deactivate</p></td></tr><tr><td data-highlight-colour="#ffffff"><p>Remove</p></td><td data-highlight-colour="#ffffff"><p>Remove</p></td></tr></tbody></table><p></p><h1 id="buttons"><a class="header" href="#buttons">Buttons</a></h1><p>The buttons on the left of each working allow to:</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="9c5ac8e5-ae22-44e8-9a43-2570c039f23a" data-table-display-mode="default"><colgroup><col style="width: 193.0px;"><col style="width: 1606.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/3.1.3.1_making_cuts_from_dxf_drawings/0.1.png" alt="0.1.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Information window</strong><br>Show a graphic representation of the information required to create a Layer associated with the working.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.1.3.1_making_cuts_from_dxf_drawings/0.2.png" alt="0.2.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Download example</strong><br>Allows to download a dxf file containing a example of Layer associated to the working.</p></td></tr></tbody></table><p></p><p></p><h1 id="miter-cut-mode"><a class="header" href="#miter-cut-mode">Miter Cut mode</a></h1><p>To be able to insert automatic an inclined edge is necessary observe some conventions:</p><ul><li><p>The miter cuts can be inserted only on the sides of the pieces; if the miter cut is not valid for the entire section, it can be divided into more parts.</p></li><li><p>It can be applied the miter cut on external arcs (Eg: circular table, or on curved covers only as far as the external cut is concerned).</p></li><li><p>Regarding internal arcs (e.g. curved covers) the cut is made in passes; the cut will be made inclining the disk automatically, avoiding collision problems with the material.</p></li></ul><p>The procedure for those who use CAD systems, provides for the creation of a Layer that has the following properties:</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="21f548b7-1105-4b01-9b59-5a113f8e7d77"><colgroup><col style="width: 385.0px;"><col style="width: 1413.0px;"></colgroup><tbody><tr><td><p><strong>Layer Name</strong></p></td><td><p>Inclined _ (followed by the number that identifies the desired inclination degrees).</p>
+<div class="TextAlignCenter"><img src="attachments/3.1.3.1_making_cuts_from_dxf_drawings/0.0.png" alt="0.0.png" width="600" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><p>
+</p><h1 id="parametrix-settings-for-the-recognition-of-imported-layers"><a class="header" href="#parametrix-settings-for-the-recognition-of-imported-layers">Parametrix settings for the recognition of imported layers</a></h1><p>To access the window dedicated to the customization settings related to the import of DXF files, press the User Parameters button located on the top bar of Parametrix.<br>From here, move to the section dedicated to managing the names of the Layers.</p><p>For each type of function listed, the user can assign a name (corresponding to the name of the Layer set in the CAD software used) and assign some parameters related to the default values for some workings.</p><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="e4ea2044-658d-4187-bdac-59c197e7ac76"><tbody><tr><td data-highlight-colour="#ffffff"><p style="text-align: center;"><strong>Funzione</strong></p></td><td data-highlight-colour="#ffffff"><p style="text-align: center;"><strong>Nome Layer</strong></p></td></tr><tr><td data-highlight-colour="#ffffff"><p>Miter cut</p></td><td data-highlight-colour="#ffffff"><p>Miter cut</p></td></tr><tr><td data-highlight-colour="#ffffff"><p>Downstand</p></td><td data-highlight-colour="#ffffff"><p>Downstand</p></td></tr><tr><td data-highlight-colour="#ffffff"><p>Backsplash</p></td><td data-highlight-colour="#ffffff"><p>Backsplash</p></td></tr><tr><td data-highlight-colour="#ffffff"><p>Offset</p></td><td data-highlight-colour="#ffffff"><p>Offset</p></td></tr><tr><td data-highlight-colour="#ffffff"><p>Cuts under the material</p></td><td data-highlight-colour="#ffffff"><p>Below</p></td></tr><tr><td data-highlight-colour="#ffffff"><p>Drip system</p></td><td data-highlight-colour="#ffffff"><p>Drip</p></td></tr><tr><td data-highlight-colour="#ffffff"><p>Milling</p></td><td data-highlight-colour="#ffffff"><p>Milling</p></td></tr><tr><td data-highlight-colour="#ffffff"><p>Rim</p></td><td data-highlight-colour="#ffffff"><p>Rim</p></td></tr><tr><td data-highlight-colour="#ffffff"><p>Drilling</p></td><td data-highlight-colour="#ffffff"><p>Drilling</p></td></tr><tr><td data-highlight-colour="#ffffff"><p>Cut added</p></td><td data-highlight-colour="#ffffff"><p>Added</p></td></tr><tr><td data-highlight-colour="#ffffff"><p>Anchoring hole</p></td><td data-highlight-colour="#ffffff"><p>Keil</p></td></tr><tr><td data-highlight-colour="#ffffff"><p>Chamfer</p></td><td data-highlight-colour="#ffffff"><p>Chamfer</p></td></tr><tr><td data-highlight-colour="#ffffff"><p>Lower Chamfer</p></td><td data-highlight-colour="#ffffff"><p>Lower Chamfer</p></td></tr><tr><td data-highlight-colour="#ffffff"><p>Deactivate</p></td><td data-highlight-colour="#ffffff"><p>Deactivate</p></td></tr><tr><td data-highlight-colour="#ffffff"><p>Remove</p></td><td data-highlight-colour="#ffffff"><p>Remove</p></td></tr></tbody></table><p></p><h1 id="buttons"><a class="header" href="#buttons">Buttons</a></h1><p>The buttons on the left of each working allow to:</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="9c5ac8e5-ae22-44e8-9a43-2570c039f23a" data-table-display-mode="default"><colgroup><col style="width: 193.0px;"><col style="width: 1606.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/3.1.3.1_making_cuts_from_dxf_drawings/0.1.png" alt="0.1.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Information window</strong><br>Show a graphic representation of the information required to create a Layer associated with the working.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.1.3.1_making_cuts_from_dxf_drawings/0.2.png" alt="0.2.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Download example</strong><br>Allows to download a dxf file containing a example of Layer associated to the working.</p></td></tr></tbody></table><p></p><p></p><h1 id="miter-cut-mode"><a class="header" href="#miter-cut-mode">Miter Cut mode</a></h1><p>To be able to insert automatic an inclined edge is necessary observe some conventions:</p><ul><li><p>The miter cuts can be inserted only on the sides of the pieces; if the miter cut is not valid for the entire section, it can be divided into more parts.</p></li><li><p>It can be applied the miter cut on external arcs (Eg: circular table, or on curved covers only as far as the external cut is concerned).</p></li><li><p>Regarding internal arcs (e.g. curved covers) the cut is made in passes; the cut will be made inclining the disk automatically, avoiding collision problems with the material.</p></li></ul><p>The procedure for those who use CAD systems, provides for the creation of a Layer that has the following properties:</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="21f548b7-1105-4b01-9b59-5a113f8e7d77"><colgroup><col style="width: 385.0px;"><col style="width: 1413.0px;"></colgroup><tbody><tr><td><p><strong>Layer Name</strong></p></td><td><p>Inclined _ (followed by the number that identifies the desired inclination degrees).</p>
 <div id="admonition-note-1" class="admonition admonish-info" role="note" aria-labelledby="admonition-note-1-title">
 <div class="admonition-title">
 <div id="admonition-note-1-title">
@@ -523,5 +525,12 @@ degrees sexagesimal</p>
     </div>;
 
 
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
 </body>
 </html>

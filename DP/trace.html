@@ -40,7 +40,7 @@
     <script>
       const path_to_root = "";
       const default_light_theme = "light";
-      const default_dark_theme = "navy";
+      const default_dark_theme = "light";
     </script>
     <!-- Start loading toc.js asap -->
     <script src="toc.js"></script>
@@ -86,8 +86,10 @@
     });
   });
 })();
-</script></head>
-<body>
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-document" data-technical-styler-flow="html">
     <header class="header-main">
         <div class="header-flex">
             <div class="donatoni-flex">
@@ -110,6 +112,15 @@
                 </div>
                 <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                     <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
                 </button>
 
                 <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
@@ -144,17 +155,8 @@
 
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script>
-            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
-                .matches
-                ? default_dark_theme
-                : default_light_theme;
-            let theme;
-            try {
-                theme = localStorage.getItem("mdbook-theme");
-            } catch (e) { }
-            if (theme === null || theme === undefined) {
-                theme = default_theme;
-            }
+            const default_theme = "light";
+            let theme = default_theme;
             const html = document.documentElement;
             html.classList.remove("light");
             html.classList.add(theme);
@@ -214,8 +216,8 @@
 
                         <img src="images/donatoni_111.jpg">
 
-                        <main style="margin-left: 20px;">
-                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="trace" style="margin:0;"><a class="header" href="#trace">TRACE</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="TRACE"--><p local-id="3b59653f-c3cc-4484-9509-f0c01421f3df">Pacchetto per la gestione delle etichette</p><p local-id="39831c50-0512-4184-9990-47ea488fa67c">PACCHETTO MINIMO: <strong>BASE</strong></p><p local-id="25a558a9-0a47-4096-a966-5b9c90f802f8">La fornitura comprende solo la parte software di gestione e non comprende la stampante e i consumabili.</p><h1 local-id="4b9cb4bd-c41f-42f8-ac7e-b604e2834635">ETICHETTA PERSONALIZZATA</h1><p local-id="4df95937-7530-4d08-be94-ad4f334a28fe">Posso personalizzare le etichette in base al cliente al tipo di etichetta e alle informazioni che voglio stampare</p><div class="TextAlignCenter"><img src="attachments/trace/01_piece_labels_customization.png" alt="01_piece_labels_customization.png" width="760" onclick="showModal(this.src)"></div><h1 local-id="227796b8-f9d0-479b-8ead-d5a83978d1fe">STAMPA</h1><p local-id="8d4e34fd-b843-47f5-bd95-f8092f683a1c">Posso stampare le etichette per i pezzi</p><div class="TextAlignCenter"><img src="attachments/trace/01_piece_labels_printing.png" alt="01_piece_labels_printing.png" width="760" onclick="showModal(this.src)"></div><p local-id="2e2a770b-6fa5-4148-a2e9-9e599d267130"></p>
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Machine technical documentation</span><span class="maintenance-status"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Operational document</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="trace" style="margin:0;" class="maintenance-main-title"><a class="header" href="#trace"><span class="maintenance-code">DOC</span><span class="maintenance-name">TRACE</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document DOC" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="TRACE"--><p local-id="3b59653f-c3cc-4484-9509-f0c01421f3df">Pacchetto per la gestione delle etichette</p><p local-id="39831c50-0512-4184-9990-47ea488fa67c">PACCHETTO MINIMO: <strong>BASE</strong></p><p local-id="25a558a9-0a47-4096-a966-5b9c90f802f8">La fornitura comprende solo la parte software di gestione e non comprende la stampante e i consumabili.</p><h1 local-id="4b9cb4bd-c41f-42f8-ac7e-b604e2834635">ETICHETTA PERSONALIZZATA</h1><p local-id="4df95937-7530-4d08-be94-ad4f334a28fe">Posso personalizzare le etichette in base al cliente al tipo di etichetta e alle informazioni che voglio stampare</p><div class="TextAlignCenter"><img src="attachments/trace/01_piece_labels_customization.png" alt="01_piece_labels_customization.png" width="760" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><h1 local-id="227796b8-f9d0-479b-8ead-d5a83978d1fe">STAMPA</h1><p local-id="8d4e34fd-b843-47f5-bd95-f8092f683a1c">Posso stampare le etichette per i pezzi</p><div class="TextAlignCenter"><img src="attachments/trace/01_piece_labels_printing.png" alt="01_piece_labels_printing.png" width="760" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="2e2a770b-6fa5-4148-a2e9-9e599d267130"></p>
                         </main>
 
                     </div>
@@ -277,5 +279,12 @@
     </div>;
 
 
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
 </body>
 </html>

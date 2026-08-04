@@ -40,7 +40,7 @@
     <script>
       const path_to_root = "";
       const default_light_theme = "light";
-      const default_dark_theme = "navy";
+      const default_dark_theme = "light";
     </script>
     <!-- Start loading toc.js asap -->
     <script src="toc.js"></script>
@@ -86,8 +86,10 @@
     });
   });
 })();
-</script></head>
-<body>
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-safety" data-technical-styler-flow="html">
     <header class="header-main">
         <div class="header-flex">
             <div class="donatoni-flex">
@@ -110,6 +112,15 @@
                 </div>
                 <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                     <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
                 </button>
 
                 <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
@@ -144,17 +155,8 @@
 
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script>
-            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
-                .matches
-                ? default_dark_theme
-                : default_light_theme;
-            let theme;
-            try {
-                theme = localStorage.getItem("mdbook-theme");
-            } catch (e) { }
-            if (theme === null || theme === undefined) {
-                theme = default_theme;
-            }
+            const default_theme = "light";
+            let theme = default_theme;
             const html = document.documentElement;
             html.classList.remove("light");
             html.classList.add(theme);
@@ -214,8 +216,8 @@
 
                         <img src="images/donatoni_111.jpg">
 
-                        <main style="margin-left: 20px;">
-                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="istruzioni-di-sicurezza" style="margin:0;"><a class="header" href="#istruzioni-di-sicurezza">ISTRUZIONI DI SICUREZZA</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="ISTRUZIONI DI SICUREZZA"--><p>Prima di iniziare qualsiasi operazione di installazione, setup o manutenzione leggere attentamente TUTTI i manuali di istruzione, documenti e guide forniti con la macchina.</p><p><strong>Chi esegue l’operazione è l'unico responsabile del corretto funzionamento e della manutenzione della macchina.</strong></p><p><em>Donatoni Macchine declina espressamente ogni responsabilità per eventuali infortuni (inclusa la morte) o danni all'attrezzatura o ad altri beni a causa di un uso o di una manutenzione impropri della macchina, così come per il mancato rispetto delle procedure stabilite nel manuale di istruzioni dell'attrezzatura o in qualsiasi altro materiale e procedura di sicurezza. Se si incontrano problemi o difficoltà, invitiamo vivamente a contattare la Donatoni Macchine o il vostro centro di assistenza di riferimento.</em></p><p>La sicurezza è un priorità. Se hai domande, non esitare a contattare l’assistenza Donatoni ai seguenti recapiti:</p><ul><li><p><strong>T:</strong> _39 045 6862899</p></li><li><p><strong>WhatsApp:</strong> _39 045 7740052</p></li><li><p><strong>E-mail:</strong><a>​ assistenza@donatonimacchine.eu</a></p></li><li><p><strong>Telegram:</strong> @donatonimacchine_bot​📞 </p></li></ul>
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Safety instruction</span><span class="maintenance-status"><i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i> Mandatory reading</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="istruzioni-di-sicurezza" style="margin:0;" class="maintenance-main-title"><a class="header" href="#istruzioni-di-sicurezza"><span class="maintenance-code">HSE</span><span class="maintenance-name">ISTRUZIONI DI SICUREZZA</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document HSE" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="ISTRUZIONI DI SICUREZZA"--><p>Prima di iniziare qualsiasi operazione di installazione, setup o manutenzione leggere attentamente TUTTI i manuali di istruzione, documenti e guide forniti con la macchina.</p><p><strong>Chi esegue l’operazione è l'unico responsabile del corretto funzionamento e della manutenzione della macchina.</strong></p><p><em>Donatoni Macchine declina espressamente ogni responsabilità per eventuali infortuni (inclusa la morte) o danni all'attrezzatura o ad altri beni a causa di un uso o di una manutenzione impropri della macchina, così come per il mancato rispetto delle procedure stabilite nel manuale di istruzioni dell'attrezzatura o in qualsiasi altro materiale e procedura di sicurezza. Se si incontrano problemi o difficoltà, invitiamo vivamente a contattare la Donatoni Macchine o il vostro centro di assistenza di riferimento.</em></p><p>La sicurezza è un priorità. Se hai domande, non esitare a contattare l’assistenza Donatoni ai seguenti recapiti:</p><ul><li><p><strong>T:</strong> _39 045 6862899</p></li><li><p><strong>WhatsApp:</strong> _39 045 7740052</p></li><li><p><strong>E-mail:</strong><a>​ assistenza@donatonimacchine.eu</a></p></li><li><p><strong>Telegram:</strong> @donatonimacchine_bot​📞 </p></li></ul>
                         </main>
 
                     </div>
@@ -270,5 +272,12 @@
     </div>;
 
 
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
 </body>
 </html>

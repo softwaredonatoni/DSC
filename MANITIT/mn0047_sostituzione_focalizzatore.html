@@ -40,7 +40,7 @@
     <script>
       const path_to_root = "";
       const default_light_theme = "light";
-      const default_dark_theme = "navy";
+      const default_dark_theme = "light";
     </script>
     <!-- Start loading toc.js asap -->
     <script src="toc.js"></script>
@@ -86,8 +86,10 @@
     });
   });
 })();
-</script></head>
-<body>
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-maintenance" data-technical-styler-flow="html">
     <header class="header-main">
         <div class="header-flex">
             <div class="donatoni-flex">
@@ -110,6 +112,15 @@
                 </div>
                 <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                     <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
                 </button>
 
                 <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
@@ -144,17 +155,8 @@
 
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script>
-            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
-                .matches
-                ? default_dark_theme
-                : default_light_theme;
-            let theme;
-            try {
-                theme = localStorage.getItem("mdbook-theme");
-            } catch (e) { }
-            if (theme === null || theme === undefined) {
-                theme = default_theme;
-            }
+            const default_theme = "light";
+            let theme = default_theme;
             const html = document.documentElement;
             html.classList.remove("light");
             html.classList.add(theme);
@@ -214,8 +216,8 @@
 
                         <img src="images/donatoni_111.jpg">
 
-                        <main style="margin-left: 20px;">
-                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="mn0047-sostituzione-focalizzatore" style="margin:0;"><a class="header" href="#mn0047-sostituzione-focalizzatore">MN0047 SOSTITUZIONE FOCALIZZATORE</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="MN0047 SOSTITUZIONE FOCALIZZATORE"--><table class="my-table2" data-table-width="760" data-layout="default" ac:local-id="85e18120-421b-48c4-b375-dfbfdc4e6731"><tbody><tr ac:local-id="eb19b524c35f"><td data-highlight-colour="#f4f5f7" colspan="2" ac:local-id="4a8f1d98bb59"><p local-id="e17c7f1dffdf" style="text-align: center;">⚠️ Prima di procedere leggere attentamente le <p><a href='istruzioni_di_sicurezza.html'>ISTRUZIONI DI SICUREZZA</a></p></td></tr><tr ac:local-id="b3a501a2524d"><td data-highlight-colour="#f4f5f7" ac:local-id="1b9c1b1798a8"><p local-id="a4978d7f675e">⏲️ <strong>Intervallo</strong>: ogni 100 ore di lavoro</p></td><td data-highlight-colour="#f4f5f7" ac:local-id="a9ca18a64c03"><p local-id="c4e2dfa55634">🎚️ <strong>Complessità operazione</strong>: ⭐☆☆☆☆ </p></td></tr><tr ac:local-id="ea255a611c93"><td data-highlight-colour="#f4f5f7" ac:local-id="94ad9cb9216a"><p local-id="c946f10a5428">🧑‍🏭 <strong>Figura autorizzata</strong>: Operatore macchina</p></td><td data-highlight-colour="#f4f5f7" ac:local-id="b254bfd02d2c"><p local-id="f0bd985c7d0c">🧤 <strong>DPI previsti</strong>:   <div><img src="attachments/mn0047_sostituzione_focalizzatore/image-20240327-084216.png" alt="image-20240327-084216.png" onclick="showModal(this.src)" class="inline-img"></div> </td></tr></tbody></table><ol start="1" local-id="32beb822ee0a" type="1"><li local-id="9c91c5f74844"><p local-id="2630d52b0415">Rimuovere il tastatore per agevolare lo smontaggio <br></p><div class="TextAlignCenter"><img src="attachments/mn0047_sostituzione_focalizzatore/image-20260626-133340.png" alt="image-20260626-133340.png" width="312" onclick="showModal(this.src)"></div></li><li local-id="7d039f20d29b"><p local-id="84afd16b7dcd">Ruotare la ghiera per togliere il focalizzatore.</p><div class="TextAlignCenter"><img src="attachments/mn0047_sostituzione_focalizzatore/image-20260626-133504.png" alt="image-20260626-133504.png" width="310" onclick="showModal(this.src)"></div></li><li local-id="9522a7c5eadf"><p local-id="6026526376f8">Sostituire il focalizzatore con un nuovo elemento recuperando il distanziale<br></p><div class="TextAlignCenter"><img src="attachments/mn0047_sostituzione_focalizzatore/image-20260626-133613.png" alt="image-20260626-133613.png" width="324" onclick="showModal(this.src)"></div></li><li local-id="958216a62f12"><p local-id="84140d5569bc">Riassemblare e riavvitare la ghiera dopo aver inserito il nuovo pezzo</p><div class="TextAlignCenter"><img src="attachments/mn0047_sostituzione_focalizzatore/image-20260626-133733.png" alt="image-20260626-133733.png" width="326" onclick="showModal(this.src)"></div></li><li local-id="b1efca56ceea"><p local-id="8f9383019cf5">Rimontare il tastatore lastra</p><div class="TextAlignCenter"><img src="attachments/mn0047_sostituzione_focalizzatore/image-20260626-133826.png" alt="image-20260626-133826.png" width="326" onclick="showModal(this.src)"></div></li><li local-id="f97e58cb8858"><p local-id="e9515911ae58">Eseguire la tastatura ugello per impostare il corretto valore “Delta Z”</p></li></ol><p local-id="dd442aac5d06"></p><!--Label="mn0044"-->
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Technical maintenance sheet</span><span class="maintenance-status"><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Controlled procedure</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="mn0047-sostituzione-focalizzatore" style="margin:0;" class="maintenance-main-title"><a class="header" href="#mn0047-sostituzione-focalizzatore"><span class="maintenance-code">MN0047</span><span class="maintenance-name">SOSTITUZIONE FOCALIZZATORE</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document MN0047" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="MN0047 SOSTITUZIONE FOCALIZZATORE"--><table class="my-table2 maintenance-data-grid" data-table-width="760" data-layout="default" ac:local-id="85e18120-421b-48c4-b375-dfbfdc4e6731" aria-label="Technical data for document MN0047"><tbody><tr ac:local-id="eb19b524c35f" class="maintenance-safety-row"><td data-highlight-colour="#f4f5f7" colspan="2" ac:local-id="4a8f1d98bb59"><p local-id="e17c7f1dffdf" style="text-align: center;">Prima di procedere leggere attentamente le <p><a href='istruzioni_di_sicurezza.html'>ISTRUZIONI DI SICUREZZA</a></p></td></tr><tr ac:local-id="b3a501a2524d"><td data-highlight-colour="#f4f5f7" ac:local-id="1b9c1b1798a8"><p local-id="a4978d7f675e" class="maintenance-data-layout"><i class="maintenance-data-icon fa-solid fa-clock" aria-hidden="true"></i><span class="maintenance-data-content"><strong class="maintenance-data-label">Intervallo</strong><span class="maintenance-data-value">ogni 100 ore di lavoro</span></span></p></td><td data-highlight-colour="#f4f5f7" ac:local-id="a9ca18a64c03"><p local-id="c4e2dfa55634" class="maintenance-data-layout"><i class="maintenance-data-icon fa-solid fa-gauge-high" aria-hidden="true"></i><span class="maintenance-data-content"><strong class="maintenance-data-label">Complessità operazione</strong><span class="complexity-indicator complexity-level-1" aria-label="Complexity Low, level 1 of 5"><span class="complexity-scale" aria-hidden="true"><i class="complexity-segment is-active"></i><i class="complexity-segment"></i><i class="complexity-segment"></i><i class="complexity-segment"></i><i class="complexity-segment"></i></span><span class="complexity-readout"><span class="complexity-level-name">Low</span><span class="complexity-score">01 / 05</span></span></span></span></p></td></tr><tr ac:local-id="ea255a611c93"><td data-highlight-colour="#f4f5f7" ac:local-id="94ad9cb9216a"><p local-id="c946f10a5428" class="maintenance-data-layout"><i class="maintenance-data-icon fa-solid fa-user-gear" aria-hidden="true"></i><span class="maintenance-data-content"><strong class="maintenance-data-label">Figura autorizzata</strong><span class="maintenance-data-value">Operatore macchina</span></span></p></td><td data-highlight-colour="#f4f5f7" ac:local-id="b254bfd02d2c"><p local-id="f0bd985c7d0c"><i class="maintenance-data-icon fa-solid fa-shield-halved" aria-hidden="true"></i><strong>DPI previsti</strong>:   <div><img src="attachments/mn0047_sostituzione_focalizzatore/image-20240327-084216.png" alt="image-20240327-084216.png" onclick="showModal(this.src)" class="inline-img"></div> </td></tr></tbody></table><ol start="1" local-id="32beb822ee0a" type="1"><li local-id="9c91c5f74844"><p local-id="2630d52b0415">Rimuovere il tastatore per agevolare lo smontaggio <br></p><div class="TextAlignCenter"><img src="attachments/mn0047_sostituzione_focalizzatore/image-20260626-133340.png" alt="image-20260626-133340.png" width="312" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></li><li local-id="7d039f20d29b"><p local-id="84afd16b7dcd">Ruotare la ghiera per togliere il focalizzatore.</p><div class="TextAlignCenter"><img src="attachments/mn0047_sostituzione_focalizzatore/image-20260626-133504.png" alt="image-20260626-133504.png" width="310" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></li><li local-id="9522a7c5eadf"><p local-id="6026526376f8">Sostituire il focalizzatore con un nuovo elemento recuperando il distanziale<br></p><div class="TextAlignCenter"><img src="attachments/mn0047_sostituzione_focalizzatore/image-20260626-133613.png" alt="image-20260626-133613.png" width="324" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></li><li local-id="958216a62f12"><p local-id="84140d5569bc">Riassemblare e riavvitare la ghiera dopo aver inserito il nuovo pezzo</p><div class="TextAlignCenter"><img src="attachments/mn0047_sostituzione_focalizzatore/image-20260626-133733.png" alt="image-20260626-133733.png" width="326" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></li><li local-id="b1efca56ceea"><p local-id="8f9383019cf5">Rimontare il tastatore lastra</p><div class="TextAlignCenter"><img src="attachments/mn0047_sostituzione_focalizzatore/image-20260626-133826.png" alt="image-20260626-133826.png" width="326" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></li><li local-id="f97e58cb8858"><p local-id="e9515911ae58">Eseguire la tastatura ugello per impostare il corretto valore “Delta Z”</p></li></ol><p local-id="dd442aac5d06"></p><!--Label="mn0044"-->
                         </main>
 
                     </div>
@@ -277,5 +279,12 @@
     </div>;
 
 
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
 </body>
 </html>

@@ -40,7 +40,7 @@
     <script>
       const path_to_root = "";
       const default_light_theme = "light";
-      const default_dark_theme = "navy";
+      const default_dark_theme = "light";
     </script>
     <!-- Start loading toc.js asap -->
     <script src="toc.js"></script>
@@ -86,8 +86,10 @@
     });
   });
 })();
-</script></head>
-<body>
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-document" data-technical-styler-flow="html">
     <header class="header-main">
         <div class="header-flex">
             <div class="donatoni-flex">
@@ -110,6 +112,15 @@
                 </div>
                 <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                     <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
                 </button>
 
                 <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
@@ -144,17 +155,8 @@
 
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script>
-            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
-                .matches
-                ? default_dark_theme
-                : default_light_theme;
-            let theme;
-            try {
-                theme = localStorage.getItem("mdbook-theme");
-            } catch (e) { }
-            if (theme === null || theme === undefined) {
-                theme = default_theme;
-            }
+            const default_theme = "light";
+            let theme = default_theme;
             const html = document.documentElement;
             html.classList.remove("light");
             html.classList.add(theme);
@@ -214,9 +216,9 @@
 
                         <img src="images/donatoni_111.jpg">
 
-                        <main style="margin-left: 20px;">
-                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="31-parametri-utente" style="margin:0;"><a class="header" href="#31-parametri-utente">3.1 PARAMETRI UTENTE</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="3.1 PARAMETRI UTENTE"--><p>Una volta premuto il pulsante si possono visualizzare varie finestre.</p><div class="TextAlignCenter"><img src="attachments/3.1_parametri_utente/0.0.png" alt="0.0.png" width="600" onclick="showModal(this.src)"></div><p></p><p>
-</p><p></p><h1 id="finestre"><a class="header" href="#finestre">Finestre</a></h1><p>Sono disponibili 4 diverse finestre che verranno singolarmente illustrate in seguito.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="4c0e4bce-9484-4ea1-9ccc-89305103d234"><colgroup><col style="width: 352.0px;"><col style="width: 1447.0px;"></colgroup><tbody><tr><td><p><strong>Valori Utente</strong></p></td><td><p>Finestra dedicata alla modifica di alcune impostazioni legate alle lavorazioni.</p></td></tr><tr><td><p><strong>Statistica</strong></p></td><td><p>L’operatore può visualizzare le statistiche delle lavorazioni effettuate.</p></td></tr><tr><td><p><strong>Nomi Layer</strong></p></td><td><p>Finestra dedicata alle impostazioni per l’importazione di file DXF su Parametrix.</p></td></tr><tr><td><p><strong>Ventose</strong></p></td><td><p>Parametri relativi alla velocità di spostamento delle ventose.</p></td></tr></tbody></table><p></p><h1 id="barra-inferiore"><a class="header" href="#barra-inferiore">Barra inferiore</a></h1><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="50a2ca67-d977-49c3-94eb-7ea98716f6e4"><colgroup><col style="width: 180.0px;"><col style="width: 1618.0px;"></colgroup><tbody><tr><td data-highlight-colour="#ffffff"><div class="TextAlignCenter"><img src="attachments/3.1_parametri_utente/1.1-20250611-120408.png" alt="1.1-20250611-120408.png" width="60" onclick="showModal(this.src)"></div></td><td data-highlight-colour="#ffffff"><p><strong>Chiudi Parametrix</strong><br>Chiude il software Parametrix.</p></td></tr><tr><td data-highlight-colour="#ffffff"><div class="TextAlignCenter"><img src="attachments/3.1_parametri_utente/1.2-20250611-120439.png" alt="1.2-20250611-120439.png" width="60" onclick="showModal(this.src)"></div></td><td data-highlight-colour="#ffffff"><p><strong>Riavvia Parametrix</strong><br>Riavvia il software Parametrix.</p></td></tr><tr><td data-highlight-colour="#ffffff"><div class="TextAlignCenter"><img src="attachments/3.1_parametri_utente/1.3-20250611-120510.png" alt="1.3-20250611-120510.png" width="60" onclick="showModal(this.src)"></div></td><td data-highlight-colour="#ffffff"><p><strong>Tastiera </strong><br>Apre la tastiera di Windows.</p></td></tr><tr><td data-highlight-colour="#ffffff"><div class="TextAlignCenter"><img src="attachments/3.1_parametri_utente/1.4-20250611-120537.png" alt="1.4-20250611-120537.png" width="60" onclick="showModal(this.src)"></div></td><td data-highlight-colour="#ffffff"><p><strong>Connessione macchina fotografica</strong><br>Apre il software di gestione della macchina fotografica.</p></td></tr><tr><td data-highlight-colour="#ffffff"><div class="TextAlignCenter"><img src="attachments/3.1_parametri_utente/1.5-20250611-120612.png" alt="1.5-20250611-120612.png" width="60" onclick="showModal(this.src)"></div></td><td data-highlight-colour="#ffffff"><p><strong>Assistenza remota</strong><br>Apre la connessione per l’assistenza remota.</p></td></tr><tr><td data-highlight-colour="#ffffff"><div class="TextAlignCenter"><img src="attachments/3.1_parametri_utente/image-20250611-055254.png" alt="image-20250611-055254.png" width="60" onclick="showModal(this.src)"></div></td><td data-highlight-colour="#ffffff"><p><strong>Parametri tecnici</strong><br>Apre la pagina dei parametri tecnici. Destinato all’uso di un tecnico.</p></td></tr><tr><td data-highlight-colour="#ffffff"><div class="TextAlignCenter"><img src="attachments/3.1_parametri_utente/image-20250611-055642.png" alt="image-20250611-055642.png" width="60" onclick="showModal(this.src)"></div></td><td data-highlight-colour="#ffffff"><p><strong>Inserimento password</strong><br>Permette di inserire la password.</p></td></tr><tr><td data-highlight-colour="#ffffff"><div class="TextAlignCenter"><img src="attachments/3.1_parametri_utente/1.11-20250611-120924.png" alt="1.11-20250611-120924.png" width="60" onclick="showModal(this.src)"></div></td><td data-highlight-colour="#ffffff"><p><strong>Non salvare le modifiche</strong><br>Esce dalla pagina senza salvare le modifiche.</p></td></tr></tbody></table><!--Label="srp"--><!--Label="srp_sst"--><!--Label="srp_pht"-->
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Machine technical documentation</span><span class="maintenance-status"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Operational document</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="31-parametri-utente" style="margin:0;" class="maintenance-main-title"><a class="header" href="#31-parametri-utente"><span class="maintenance-code">DOC</span><span class="maintenance-name">3.1 PARAMETRI UTENTE</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document DOC" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="3.1 PARAMETRI UTENTE"--><p>Una volta premuto il pulsante si possono visualizzare varie finestre.</p><div class="TextAlignCenter"><img src="attachments/3.1_parametri_utente/0.0.png" alt="0.0.png" width="600" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><p>
+</p><p></p><h1 id="finestre"><a class="header" href="#finestre">Finestre</a></h1><p>Sono disponibili 4 diverse finestre che verranno singolarmente illustrate in seguito.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="4c0e4bce-9484-4ea1-9ccc-89305103d234"><colgroup><col style="width: 352.0px;"><col style="width: 1447.0px;"></colgroup><tbody><tr><td><p><strong>Valori Utente</strong></p></td><td><p>Finestra dedicata alla modifica di alcune impostazioni legate alle lavorazioni.</p></td></tr><tr><td><p><strong>Statistica</strong></p></td><td><p>L’operatore può visualizzare le statistiche delle lavorazioni effettuate.</p></td></tr><tr><td><p><strong>Nomi Layer</strong></p></td><td><p>Finestra dedicata alle impostazioni per l’importazione di file DXF su Parametrix.</p></td></tr><tr><td><p><strong>Ventose</strong></p></td><td><p>Parametri relativi alla velocità di spostamento delle ventose.</p></td></tr></tbody></table><p></p><h1 id="barra-inferiore"><a class="header" href="#barra-inferiore">Barra inferiore</a></h1><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="50a2ca67-d977-49c3-94eb-7ea98716f6e4"><colgroup><col style="width: 180.0px;"><col style="width: 1618.0px;"></colgroup><tbody><tr><td data-highlight-colour="#ffffff"><div class="TextAlignCenter"><img src="attachments/3.1_parametri_utente/1.1-20250611-120408.png" alt="1.1-20250611-120408.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td data-highlight-colour="#ffffff"><p><strong>Chiudi Parametrix</strong><br>Chiude il software Parametrix.</p></td></tr><tr><td data-highlight-colour="#ffffff"><div class="TextAlignCenter"><img src="attachments/3.1_parametri_utente/1.2-20250611-120439.png" alt="1.2-20250611-120439.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td data-highlight-colour="#ffffff"><p><strong>Riavvia Parametrix</strong><br>Riavvia il software Parametrix.</p></td></tr><tr><td data-highlight-colour="#ffffff"><div class="TextAlignCenter"><img src="attachments/3.1_parametri_utente/1.3-20250611-120510.png" alt="1.3-20250611-120510.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td data-highlight-colour="#ffffff"><p><strong>Tastiera </strong><br>Apre la tastiera di Windows.</p></td></tr><tr><td data-highlight-colour="#ffffff"><div class="TextAlignCenter"><img src="attachments/3.1_parametri_utente/1.4-20250611-120537.png" alt="1.4-20250611-120537.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td data-highlight-colour="#ffffff"><p><strong>Connessione macchina fotografica</strong><br>Apre il software di gestione della macchina fotografica.</p></td></tr><tr><td data-highlight-colour="#ffffff"><div class="TextAlignCenter"><img src="attachments/3.1_parametri_utente/1.5-20250611-120612.png" alt="1.5-20250611-120612.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td data-highlight-colour="#ffffff"><p><strong>Assistenza remota</strong><br>Apre la connessione per l’assistenza remota.</p></td></tr><tr><td data-highlight-colour="#ffffff"><div class="TextAlignCenter"><img src="attachments/3.1_parametri_utente/image-20250611-055254.png" alt="image-20250611-055254.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td data-highlight-colour="#ffffff"><p><strong>Parametri tecnici</strong><br>Apre la pagina dei parametri tecnici. Destinato all’uso di un tecnico.</p></td></tr><tr><td data-highlight-colour="#ffffff"><div class="TextAlignCenter"><img src="attachments/3.1_parametri_utente/image-20250611-055642.png" alt="image-20250611-055642.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td data-highlight-colour="#ffffff"><p><strong>Inserimento password</strong><br>Permette di inserire la password.</p></td></tr><tr><td data-highlight-colour="#ffffff"><div class="TextAlignCenter"><img src="attachments/3.1_parametri_utente/1.11-20250611-120924.png" alt="1.11-20250611-120924.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td data-highlight-colour="#ffffff"><p><strong>Non salvare le modifiche</strong><br>Esce dalla pagina senza salvare le modifiche.</p></td></tr></tbody></table><!--Label="srp"--><!--Label="srp_sst"--><!--Label="srp_pht"-->
                         </main>
 
                     </div>
@@ -278,5 +280,12 @@
     </div>;
 
 
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
 </body>
 </html>

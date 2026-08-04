@@ -40,7 +40,7 @@
     <script>
       const path_to_root = "";
       const default_light_theme = "light";
-      const default_dark_theme = "navy";
+      const default_dark_theme = "light";
     </script>
     <!-- Start loading toc.js asap -->
     <script src="toc.js"></script>
@@ -86,8 +86,10 @@
     });
   });
 })();
-</script></head>
-<body>
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-document" data-technical-styler-flow="html">
     <header class="header-main">
         <div class="header-flex">
             <div class="donatoni-flex">
@@ -110,6 +112,15 @@
                 </div>
                 <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                     <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
                 </button>
 
                 <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
@@ -144,17 +155,8 @@
 
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script>
-            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
-                .matches
-                ? default_dark_theme
-                : default_light_theme;
-            let theme;
-            try {
-                theme = localStorage.getItem("mdbook-theme");
-            } catch (e) { }
-            if (theme === null || theme === undefined) {
-                theme = default_theme;
-            }
+            const default_theme = "light";
+            let theme = default_theme;
             const html = document.documentElement;
             html.classList.remove("light");
             html.classList.add(theme);
@@ -214,8 +216,8 @@
 
                         <img src="images/donatoni_111.jpg">
 
-                        <main style="margin-left: 20px;">
-                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="31317-internal-break" style="margin:0;"><a class="header" href="#31317-internal-break">3.13.17 INTERNAL BREAK</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="3.13.17 INTERNAL BREAK"--><p>The function 'Scasso Interno' allows to add on the piece an internal break of rectangular, circular or elliptical shape. <br>The interface for this function resembles the following image:</p><div class="TextAlignCenter"><img src="attachments/3.13.17_internal_break/9-20250702-071232.png" alt="9-20250702-071232.png" width="800" onclick="showModal(this.src)"></div><p></p><p>
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Machine technical documentation</span><span class="maintenance-status"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Operational document</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="31317-internal-break" style="margin:0;" class="maintenance-main-title"><a class="header" href="#31317-internal-break"><span class="maintenance-code">DOC</span><span class="maintenance-name">3.13.17 INTERNAL BREAK</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document DOC" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="3.13.17 INTERNAL BREAK"--><p>The function 'Scasso Interno' allows to add on the piece an internal break of rectangular, circular or elliptical shape. <br>The interface for this function resembles the following image:</p><div class="TextAlignCenter"><img src="attachments/3.13.17_internal_break/9-20250702-071232.png" alt="9-20250702-071232.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><p>
 </p><p></p><h1 id="processing-types"><a class="header" href="#processing-types">Processing types</a></h1><p>To use this working, it is necessary to first choose one of the two available modes, selecting the corresponding button:</p>
 <div id="admonition-note" class="admonition admonish-info" role="note" aria-labelledby="admonition-note-title">
 <div class="admonition-title">
@@ -228,7 +230,7 @@
 <p>The modes 'Rectangular', 'Circular' and 'Elliptical' are mutually exclusive: the activation of one excludes automatically the other.</p>
 </div>
 </div>
-<table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="66ab93e0-e606-42c0-be86-20f4d97b4bfe"><colgroup><col style="width: 280.0px;"><col style="width: 1517.0px;"></colgroup><tbody><tr><td data-highlight-colour="#ffffff"><div class="TextAlignCenter"><img src="attachments/3.13.17_internal_break/0.4-20250701-135833.png" alt="0.4-20250701-135833.png" width="120" onclick="showModal(this.src)"></div></td><td data-highlight-colour="#ffffff"><p><strong>Rectangular crack</strong><br>Selecting this mode, it will be possible to access the configuration of specific parameters necessary for the execution of a rectangular rebate working.</p></td></tr><tr><td data-highlight-colour="#ffffff"><div class="TextAlignCenter"><img src="attachments/3.13.17_internal_break/1.4-20250701-135854.png" alt="1.4-20250701-135854.png" width="120" onclick="showModal(this.src)"></div></td><td data-highlight-colour="#ffffff"><p><strong>Circular breach</strong><br>Selecting this mode, it will be possible to access the configuration of specific parameters necessary for the execution of a circular rabbet processing.</p></td></tr><tr><td data-highlight-colour="#ffffff"><div class="TextAlignCenter"><img src="attachments/3.13.17_internal_break/2.4-20250701-135914.png" alt="2.4-20250701-135914.png" width="120" onclick="showModal(this.src)"></div></td><td data-highlight-colour="#ffffff"><p><strong>Elliptical break</strong><br>Selecting this mode, it will be possible to access the configuration of specific parameters necessary for the execution of an elliptical rebate processing.</p></td></tr></tbody></table><p></p><p></p><h1 id="rectangolar-crack"><a class="header" href="#rectangolar-crack">Rectangolar crack</a></h1><p>When this mode is activated, the rectangular rebate preview is displayed directly in the work preview, highlighted in light green. The dimensions and positioning of the rebate depend on the default parameters, which can be modified by the user.</p><div class="TextAlignCenter"><img src="attachments/3.13.17_internal_break/0.5-20250701-142748.png" alt="0.5-20250701-142748.png" width="800" onclick="showModal(this.src)"></div><p></p><h2 id="rectangular-slot-parameters"><a class="header" href="#rectangular-slot-parameters">Rectangular slot parameters</a></h2><p>While you are in this mode the following parameters panel will be shown:</p><div class="TextAlignCenter"><img src="attachments/3.13.17_internal_break/0.8-20250702-063826.png" alt="0.8-20250702-063826.png" width="500" onclick="showModal(this.src)"></div><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="2ec5dd79-c8d2-4f70-b851-1cfe91e8bcf9"><colgroup><col style="width: 280.0px;"><col style="width: 1517.0px;"></colgroup><tbody><tr><td><p><strong>Offset O</strong></p></td><td><p>Distance between the edge of the notch and the reference side of the selected piece.</p></td></tr><tr><td><p><strong>Midpoint offset D</strong></p></td><td><p>Distance between the side of the piece parallel to the selected one and the center of the notch.</p>
+<table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="66ab93e0-e606-42c0-be86-20f4d97b4bfe"><colgroup><col style="width: 280.0px;"><col style="width: 1517.0px;"></colgroup><tbody><tr><td data-highlight-colour="#ffffff"><div class="TextAlignCenter"><img src="attachments/3.13.17_internal_break/0.4-20250701-135833.png" alt="0.4-20250701-135833.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td data-highlight-colour="#ffffff"><p><strong>Rectangular crack</strong><br>Selecting this mode, it will be possible to access the configuration of specific parameters necessary for the execution of a rectangular rebate working.</p></td></tr><tr><td data-highlight-colour="#ffffff"><div class="TextAlignCenter"><img src="attachments/3.13.17_internal_break/1.4-20250701-135854.png" alt="1.4-20250701-135854.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td data-highlight-colour="#ffffff"><p><strong>Circular breach</strong><br>Selecting this mode, it will be possible to access the configuration of specific parameters necessary for the execution of a circular rabbet processing.</p></td></tr><tr><td data-highlight-colour="#ffffff"><div class="TextAlignCenter"><img src="attachments/3.13.17_internal_break/2.4-20250701-135914.png" alt="2.4-20250701-135914.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td data-highlight-colour="#ffffff"><p><strong>Elliptical break</strong><br>Selecting this mode, it will be possible to access the configuration of specific parameters necessary for the execution of an elliptical rebate processing.</p></td></tr></tbody></table><p></p><p></p><h1 id="rectangolar-crack"><a class="header" href="#rectangolar-crack">Rectangolar crack</a></h1><p>When this mode is activated, the rectangular rebate preview is displayed directly in the work preview, highlighted in light green. The dimensions and positioning of the rebate depend on the default parameters, which can be modified by the user.</p><div class="TextAlignCenter"><img src="attachments/3.13.17_internal_break/0.5-20250701-142748.png" alt="0.5-20250701-142748.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><h2 id="rectangular-slot-parameters" class="maintenance-section-title" data-section-number="01"><a class="header" href="#rectangular-slot-parameters">Rectangular slot parameters</a></h2><p>While you are in this mode the following parameters panel will be shown:</p><div class="TextAlignCenter"><img src="attachments/3.13.17_internal_break/0.8-20250702-063826.png" alt="0.8-20250702-063826.png" width="500" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="2ec5dd79-c8d2-4f70-b851-1cfe91e8bcf9"><colgroup><col style="width: 280.0px;"><col style="width: 1517.0px;"></colgroup><tbody><tr><td><p><strong>Offset O</strong></p></td><td><p>Distance between the edge of the notch and the reference side of the selected piece.</p></td></tr><tr><td><p><strong>Midpoint offset D</strong></p></td><td><p>Distance between the side of the piece parallel to the selected one and the center of the notch.</p>
 <div id="admonition-note-1" class="admonition admonish-info" role="note" aria-labelledby="admonition-note-1-title">
 <div class="admonition-title">
 <div id="admonition-note-1-title">
@@ -240,7 +242,7 @@
 <p>The Arc cut allows to choose between central offset D specified in mm or in degrees through a button.</p>
 </div>
 </div>
-</td></tr><tr><td><p><strong>Height H</strong></p></td><td><p>Height of the slot.</p></td></tr><tr><td><p><strong>Width W</strong></p></td><td><p>Width of the break.</p></td></tr></tbody></table><p></p><h2 id="rectangular-recess-execution"><a class="header" href="#rectangular-recess-execution">Rectangular recess execution</a></h2>
+</td></tr><tr><td><p><strong>Height H</strong></p></td><td><p>Height of the slot.</p></td></tr><tr><td><p><strong>Width W</strong></p></td><td><p>Width of the break.</p></td></tr></tbody></table><p></p><h2 id="rectangular-recess-execution" class="maintenance-section-title" data-section-number="02"><a class="header" href="#rectangular-recess-execution">Rectangular recess execution</a></h2>
 <div id="admonition-note-2" class="admonition admonish-info" role="note" aria-labelledby="admonition-note-2-title">
 <div class="admonition-title">
 <div id="admonition-note-2-title">
@@ -254,7 +256,7 @@
 An icon red with a 'X' indicates that the process cannot be applied to the desired cut.</p>
 </div>
 </div>
-<p>The working confirmation adds a new inner polygon to the piece both graphically and in the polygon list on the left side:</p><div class="TextAlignCenter"><img src="attachments/3.13.17_internal_break/0.6-20250701-143804.png" alt="0.6-20250701-143804.png" width="800" onclick="showModal(this.src)"></div><p></p><p></p><h1 id="circular-breach"><a class="header" href="#circular-breach">Circular breach</a></h1><p>When this mode is activated, the preview of the circular pocket is displayed directly in the work preview, highlighted in light green. The dimensions and positioning of the pocket depend on the default parameters, which can be modified by the user.</p><div class="TextAlignCenter"><img src="attachments/3.13.17_internal_break/1.5-20250702-064038.png" alt="1.5-20250702-064038.png" width="800" onclick="showModal(this.src)"></div><p></p><h2 id="circular-carving-parameters"><a class="header" href="#circular-carving-parameters">Circular carving parameters</a></h2><p>While you are in this mode the following parameters panel will be shown:</p><div class="TextAlignCenter"><img src="attachments/3.13.17_internal_break/1.8-20250702-064217.png" alt="1.8-20250702-064217.png" width="500" onclick="showModal(this.src)"></div><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="757759fc-03be-447a-8891-f8b05c2e2b76"><colgroup><col style="width: 280.0px;"><col style="width: 1517.0px;"></colgroup><tbody><tr><td><p><strong>Offset O</strong></p></td><td><p>Distance between the edge of the notch and the reference side of the selected piece.</p></td></tr><tr><td><p><strong>Midpoint offset D</strong></p></td><td><p>Distance between the side of the piece parallel to the one selected and the center of the recess.</p>
+<p>The working confirmation adds a new inner polygon to the piece both graphically and in the polygon list on the left side:</p><div class="TextAlignCenter"><img src="attachments/3.13.17_internal_break/0.6-20250701-143804.png" alt="0.6-20250701-143804.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><p></p><h1 id="circular-breach"><a class="header" href="#circular-breach">Circular breach</a></h1><p>When this mode is activated, the preview of the circular pocket is displayed directly in the work preview, highlighted in light green. The dimensions and positioning of the pocket depend on the default parameters, which can be modified by the user.</p><div class="TextAlignCenter"><img src="attachments/3.13.17_internal_break/1.5-20250702-064038.png" alt="1.5-20250702-064038.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><h2 id="circular-carving-parameters" class="maintenance-section-title" data-section-number="03"><a class="header" href="#circular-carving-parameters">Circular carving parameters</a></h2><p>While you are in this mode the following parameters panel will be shown:</p><div class="TextAlignCenter"><img src="attachments/3.13.17_internal_break/1.8-20250702-064217.png" alt="1.8-20250702-064217.png" width="500" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="757759fc-03be-447a-8891-f8b05c2e2b76"><colgroup><col style="width: 280.0px;"><col style="width: 1517.0px;"></colgroup><tbody><tr><td><p><strong>Offset O</strong></p></td><td><p>Distance between the edge of the notch and the reference side of the selected piece.</p></td></tr><tr><td><p><strong>Midpoint offset D</strong></p></td><td><p>Distance between the side of the piece parallel to the one selected and the center of the recess.</p>
 <div id="admonition-note-3" class="admonition admonish-info" role="note" aria-labelledby="admonition-note-3-title">
 <div class="admonition-title">
 <div id="admonition-note-3-title">
@@ -266,7 +268,7 @@ An icon red with a 'X' indicates that the process cannot be applied to the desir
 <p>Arc cuts allow to choose between D center offset specified in mm or in degrees through a small button.</p>
 </div>
 </div>
-</td></tr><tr><td><p><strong>Radius R</strong></p></td><td><p>Measure of the break radius.</p></td></tr></tbody></table><p></p><h2 id="circular-recess-execution"><a class="header" href="#circular-recess-execution">Circular recess execution</a></h2>
+</td></tr><tr><td><p><strong>Radius R</strong></p></td><td><p>Measure of the break radius.</p></td></tr></tbody></table><p></p><h2 id="circular-recess-execution" class="maintenance-section-title" data-section-number="04"><a class="header" href="#circular-recess-execution">Circular recess execution</a></h2>
 <div id="admonition-note-4" class="admonition admonish-info" role="note" aria-labelledby="admonition-note-4-title">
 <div class="admonition-title">
 <div id="admonition-note-4-title">
@@ -280,7 +282,7 @@ An icon red with a 'X' indicates that the process cannot be applied to the desir
 An icon red with a 'X' indicates that the working cannot be applied to the desired cut.</p>
 </div>
 </div>
-<p>The confirmation of the working adds a new internal polygon to the piece both at graphic level, and in the list of polygons on the left side:</p><div class="TextAlignCenter"><img src="attachments/3.13.17_internal_break/1.6-20250701-143457.png" alt="1.6-20250701-143457.png" width="800" onclick="showModal(this.src)"></div><p></p><p></p><h1 id="elliptical-break"><a class="header" href="#elliptical-break">Elliptical break</a></h1><p>When this mode is activated, the preview of the elliptical rebate is displayed directly in the processing preview, highlighted in light green. The dimensions and positioning of the rebate depend on the predefined parameters, which can be modified by the user.</p><div class="TextAlignCenter"><img src="attachments/3.13.17_internal_break/2.5-20250702-060648.png" alt="2.5-20250702-060648.png" width="800" onclick="showModal(this.src)"></div><p></p><h2 id="elliptical-recess-parameters"><a class="header" href="#elliptical-recess-parameters">Elliptical recess parameters</a></h2><p>While you are in this mode will be shown the following parameters panel:</p><div class="TextAlignCenter"><img src="attachments/3.13.17_internal_break/2.8-20250702-064324.png" alt="2.8-20250702-064324.png" width="500" onclick="showModal(this.src)"></div><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="df5e9b5d-c1d2-4ed6-aa35-79ce1df8cd64"><colgroup><col style="width: 280.0px;"><col style="width: 1517.0px;"></colgroup><tbody><tr><td><p><strong>Offset O</strong></p></td><td><p>Distance between the edge of the slot and the reference side of the selected piece.</p></td></tr><tr><td><p><strong>Midpoint offset D</strong></p></td><td><p>Distance between the side of the piece parallel to the selected one and the center of the recess.</p>
+<p>The confirmation of the working adds a new internal polygon to the piece both at graphic level, and in the list of polygons on the left side:</p><div class="TextAlignCenter"><img src="attachments/3.13.17_internal_break/1.6-20250701-143457.png" alt="1.6-20250701-143457.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><p></p><h1 id="elliptical-break"><a class="header" href="#elliptical-break">Elliptical break</a></h1><p>When this mode is activated, the preview of the elliptical rebate is displayed directly in the processing preview, highlighted in light green. The dimensions and positioning of the rebate depend on the predefined parameters, which can be modified by the user.</p><div class="TextAlignCenter"><img src="attachments/3.13.17_internal_break/2.5-20250702-060648.png" alt="2.5-20250702-060648.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><h2 id="elliptical-recess-parameters" class="maintenance-section-title" data-section-number="05"><a class="header" href="#elliptical-recess-parameters">Elliptical recess parameters</a></h2><p>While you are in this mode will be shown the following parameters panel:</p><div class="TextAlignCenter"><img src="attachments/3.13.17_internal_break/2.8-20250702-064324.png" alt="2.8-20250702-064324.png" width="500" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="df5e9b5d-c1d2-4ed6-aa35-79ce1df8cd64"><colgroup><col style="width: 280.0px;"><col style="width: 1517.0px;"></colgroup><tbody><tr><td><p><strong>Offset O</strong></p></td><td><p>Distance between the edge of the slot and the reference side of the selected piece.</p></td></tr><tr><td><p><strong>Midpoint offset D</strong></p></td><td><p>Distance between the side of the piece parallel to the selected one and the center of the recess.</p>
 <div id="admonition-note-5" class="admonition admonish-info" role="note" aria-labelledby="admonition-note-5-title">
 <div class="admonition-title">
 <div id="admonition-note-5-title">
@@ -292,7 +294,7 @@ An icon red with a 'X' indicates that the working cannot be applied to the desir
 <p>The arc cut allows to choose between center offset D specified in mm or in degrees through a button.</p>
 </div>
 </div>
-</td></tr><tr><td><p><strong>A</strong></p></td><td><p>Value corresponding to the major semiaxes of the elliptical recess.</p></td></tr><tr><td><p><strong>B</strong></p></td><td><p>Value corresponding to the smaller semi-axis of the elliptical recess.</p></td></tr></tbody></table><p></p><h2 id="elliptical-slot-execution"><a class="header" href="#elliptical-slot-execution">Elliptical slot execution</a></h2>
+</td></tr><tr><td><p><strong>A</strong></p></td><td><p>Value corresponding to the major semiaxes of the elliptical recess.</p></td></tr><tr><td><p><strong>B</strong></p></td><td><p>Value corresponding to the smaller semi-axis of the elliptical recess.</p></td></tr></tbody></table><p></p><h2 id="elliptical-slot-execution" class="maintenance-section-title" data-section-number="06"><a class="header" href="#elliptical-slot-execution">Elliptical slot execution</a></h2>
 <div id="admonition-note-6" class="admonition admonish-info" role="note" aria-labelledby="admonition-note-6-title">
 <div class="admonition-title">
 <div id="admonition-note-6-title">
@@ -306,7 +308,7 @@ An icon red with a 'X' indicates that the working cannot be applied to the desir
 An icon red with a 'X' indicates that the process can not be applied to the desired cut.</p>
 </div>
 </div>
-<p>The confirmation of the working adds a new inner polygon to the piece both at the graphic level, and in the list of polygons on the left side:</p><div class="TextAlignCenter"><img src="attachments/3.13.17_internal_break/2.6-20250701-143231.png" alt="2.6-20250701-143231.png" width="800" onclick="showModal(this.src)"></div><p></p><!--Label="mdr_int"--><!--Label="mdr_int_ecr"--><!--Label="mdr_int_pcr"--><!--Label="mdr_int_ert"--><!--Label="mdr_int_prt"--><!--Label="mdr_int_pll"--><!--Label="mdr_int_ell"-->
+<p>The confirmation of the working adds a new inner polygon to the piece both at the graphic level, and in the list of polygons on the left side:</p><div class="TextAlignCenter"><img src="attachments/3.13.17_internal_break/2.6-20250701-143231.png" alt="2.6-20250701-143231.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><!--Label="mdr_int"--><!--Label="mdr_int_ecr"--><!--Label="mdr_int_pcr"--><!--Label="mdr_int_ert"--><!--Label="mdr_int_prt"--><!--Label="mdr_int_pll"--><!--Label="mdr_int_ell"-->
                         </main>
 
                     </div>
@@ -368,5 +370,12 @@ An icon red with a 'X' indicates that the process can not be applied to the desi
     </div>;
 
 
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
 </body>
 </html>

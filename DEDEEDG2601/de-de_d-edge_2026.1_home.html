@@ -40,7 +40,7 @@
     <script>
       const path_to_root = "";
       const default_light_theme = "light";
-      const default_dark_theme = "navy";
+      const default_dark_theme = "light";
     </script>
     <!-- Start loading toc.js asap -->
     <script src="toc.js"></script>
@@ -86,8 +86,10 @@
     });
   });
 })();
-</script></head>
-<body>
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-index" data-technical-styler-flow="html">
     <header class="header-main">
         <div class="header-flex">
             <div class="donatoni-flex">
@@ -110,6 +112,15 @@
                 </div>
                 <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                     <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
                 </button>
 
                 <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
@@ -144,17 +155,8 @@
 
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script>
-            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
-                .matches
-                ? default_dark_theme
-                : default_light_theme;
-            let theme;
-            try {
-                theme = localStorage.getItem("mdbook-theme");
-            } catch (e) { }
-            if (theme === null || theme === undefined) {
-                theme = default_theme;
-            }
+            const default_theme = "light";
+            let theme = default_theme;
             const html = document.documentElement;
             html.classList.remove("light");
             html.classList.add(theme);
@@ -214,8 +216,8 @@
 
                         <img src="images/donatoni_111.jpg">
 
-                        <main style="margin-left: 20px;">
-                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="de-de-d-edge-20261-home" style="margin:0;"><a class="header" href="#de-de-d-edge-20261-home">DE-DE D-EDGE 2026.1 Home</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="DE-DE D-EDGE 2026.1 Home"--><div class="TextAlignCenter"><img src="attachments/de-de_d-edge_2026.1_home/logo.png" alt="logo.png" width="760" onclick="showModal(this.src)"></div><h1 local-id="a356d2f8-898d-44fa-b081-3ef3e55e05fa">D-Edge-Softwarehandbuch</h1><p local-id="8996bfd4fa0b">Eine Veröffentlichung von Donatoni Macchine S.r.l.</p><p local-id="82bce7dbf420">Softwareversion: 2026.1</p><p local-id="5b347c40c9e6">Handbuchversion: 1.0</p><p local-id="742e9dcf97fa">Datum: 13/04/2026</p><p local-id="e9a8f0d9b296"></p>
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Technical maintenance index</span><span class="maintenance-status"><i class="fa-solid fa-layer-group" aria-hidden="true"></i> Operational archive</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="de-de-d-edge-20261-home" style="margin:0;" class="maintenance-main-title"><a class="header" href="#de-de-d-edge-20261-home"><span class="maintenance-code">INDEX</span><span class="maintenance-name">DE-DE D-EDGE 2026.1 Home</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document INDEX" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="DE-DE D-EDGE 2026.1 Home"--><div class="TextAlignCenter"><img src="attachments/de-de_d-edge_2026.1_home/logo.png" alt="logo.png" width="760" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><h1 local-id="a356d2f8-898d-44fa-b081-3ef3e55e05fa">D-Edge-Softwarehandbuch</h1><p local-id="8996bfd4fa0b">Eine Veröffentlichung von Donatoni Macchine S.r.l.</p><p local-id="82bce7dbf420">Softwareversion: 2026.1</p><p local-id="5b347c40c9e6">Handbuchversion: 1.0</p><p local-id="742e9dcf97fa">Datum: 13/04/2026</p><p local-id="e9a8f0d9b296"></p>
 <ul>
 <li><a href="./1_vorbemerkungen.html">1 VORBEMERKUNGEN</a></li>
 <li><a href="./2_d-edge.html">2 D-EDGE</a>
@@ -307,5 +309,12 @@
     </div>;
 
 
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
 </body>
 </html>

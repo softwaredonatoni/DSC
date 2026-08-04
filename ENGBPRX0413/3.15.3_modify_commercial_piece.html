@@ -40,7 +40,7 @@
     <script>
       const path_to_root = "";
       const default_light_theme = "light";
-      const default_dark_theme = "navy";
+      const default_dark_theme = "light";
     </script>
     <!-- Start loading toc.js asap -->
     <script src="toc.js"></script>
@@ -86,8 +86,10 @@
     });
   });
 })();
-</script></head>
-<body>
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-document" data-technical-styler-flow="html">
     <header class="header-main">
         <div class="header-flex">
             <div class="donatoni-flex">
@@ -110,6 +112,15 @@
                 </div>
                 <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                     <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
                 </button>
 
                 <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
@@ -144,17 +155,8 @@
 
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script>
-            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
-                .matches
-                ? default_dark_theme
-                : default_light_theme;
-            let theme;
-            try {
-                theme = localStorage.getItem("mdbook-theme");
-            } catch (e) { }
-            if (theme === null || theme === undefined) {
-                theme = default_theme;
-            }
+            const default_theme = "light";
+            let theme = default_theme;
             const html = document.documentElement;
             html.classList.remove("light");
             html.classList.add(theme);
@@ -214,9 +216,9 @@
 
                         <img src="images/donatoni_111.jpg">
 
-                        <main style="margin-left: 20px;">
-                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="3153-modify-commercial-piece" style="margin:0;"><a class="header" href="#3153-modify-commercial-piece">3.15.3 MODIFY COMMERCIAL PIECE</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="3.15.3 MODIFY COMMERCIAL PIECE"--><p>It opens a panel with which you can change the dimensions of a commercial piece.</p><div class="TextAlignCenter"><img src="attachments/3.15.3_modify_commercial_piece/image-20250613-142931.png" alt="image-20250613-142931.png" width="310" onclick="showModal(this.src)"></div><p></p><p>
-</p><p></p><h1 id="buttons"><a class="header" href="#buttons">Buttons</a></h1><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="d4dabc60-da61-429d-bf1f-38fad117ea4f"><colgroup><col style="width: 353.0px;"><col style="width: 1443.0px;"></colgroup><tbody><tr><td data-highlight-colour="#ffffff"><div class="TextAlignCenter"><img src="attachments/3.15.3_modify_commercial_piece/1.1c-20250616-061851.png" alt="1.1c-20250616-061851.png" width="120" onclick="showModal(this.src)"></div></td><td data-highlight-colour="#ffffff"><p><strong>Magnet dimensions</strong><br>Allows to resize a piece of the same dimensions of that on the side dragging a side.</p></td></tr><tr><td data-highlight-colour="#ffffff"><div class="TextAlignCenter"><img src="attachments/3.15.3_modify_commercial_piece/2.0.png" alt="2.0.png" width="144" onclick="showModal(this.src)"></div></td><td data-highlight-colour="#ffffff"><p><strong>Width</strong><br>The width of the piece in real time.</p></td></tr><tr><td data-highlight-colour="#ffffff"><div class="TextAlignCenter"><img src="attachments/3.15.3_modify_commercial_piece/2.1.png" alt="2.1.png" width="109" onclick="showModal(this.src)"></div></td><td data-highlight-colour="#ffffff"><p><strong>Height</strong><br>The height of piece in real time.</p></td></tr><tr><td data-highlight-colour="#ffffff"><div class="TextAlignCenter"><img src="attachments/3.15.3_modify_commercial_piece/image-20250616-061939.png" alt="image-20250616-061939.png" width="124" onclick="showModal(this.src)"></div></td><td data-highlight-colour="#ffffff"><p><strong>Quantity of extension</strong><br>The quantity of mm that the piece must stretch.</p></td></tr><tr><td data-highlight-colour="#ffffff"><div class="TextAlignCenter"><img src="attachments/3.15.3_modify_commercial_piece/1.3-20250613-135449.png" alt="1.3-20250613-135449.png" width="60" onclick="showModal(this.src)"></div></td><td data-highlight-colour="#ffffff"><p><strong>Apply extension</strong><br>Button to apply piece extension.</p></td></tr><tr><td data-highlight-colour="#ffffff"><div class="TextAlignCenter"><img src="attachments/3.15.3_modify_commercial_piece/image-20250616-062014.png" alt="image-20250616-062014.png" width="120" onclick="showModal(this.src)"></div></td><td data-highlight-colour="#ffffff"><p><strong>Step touch</strong><br>You can also drag the piece from one of the sides to extend it and this step touch is the drag step.<br>If I drag the piece a little, it will lengthen by 5mm, if I increase the step touch to 20, the piece will lengthen by 20mm at a strike.</p></td></tr></tbody></table><p></p><h1 id="execution-of-workings"><a class="header" href="#execution-of-workings">Execution of workings</a></h1><h2 id="piece-extension"><a class="header" href="#piece-extension">Piece extension</a></h2><p>Apply a piece extension on one of its sides.</p><div class="TextAlignCenter"><img src="attachments/3.15.3_modify_commercial_piece/1.4.png" alt="1.4.png" width="800" onclick="showModal(this.src)"></div><p>You insert the number 1000 in the appropriate box, you press on the side of the piece and you press on the button with the arrow towards the right.</p><div class="TextAlignCenter"><img src="attachments/3.15.3_modify_commercial_piece/1.5.png" alt="1.5.png" width="800" onclick="showModal(this.src)"></div><p></p><h2 id="step-touch"><a class="header" href="#step-touch">Step touch</a></h2><p>We use Step Touch to extend the piece by 500mm, dragging the side it will extend by 500mm per step.</p><div class="TextAlignCenter"><img src="attachments/3.15.3_modify_commercial_piece/1.6.png" alt="1.6.png" width="800" onclick="showModal(this.src)"></div><p>One inserts the number 500 in the proper box, one presses the side of the piece and one drags towards right.</p><div class="TextAlignCenter"><img src="attachments/3.15.3_modify_commercial_piece/1.7.png" alt="1.7.png" width="800" onclick="showModal(this.src)"></div><p></p><h2 id="resizing"><a class="header" href="#resizing">Resizing </a></h2><p>We go to size a piece dragging its side towards that of another piece.</p><div class="TextAlignCenter"><img src="attachments/3.15.3_modify_commercial_piece/1.8.png" alt="1.8.png" width="800" onclick="showModal(this.src)"></div><p>You click on the side of the piece to be resized and you drag it towards the side of the other reference piece.</p><div class="TextAlignCenter"><img src="attachments/3.15.3_modify_commercial_piece/1.9.png" alt="1.9.png" width="800" onclick="showModal(this.src)"></div><p></p><!--Label="pcc"--><!--Label="pcc_exe_rsz"--><!--Label="pcc_exe"--><!--Label="pcc_exe_tch"--><!--Label="pcc_exe_str"-->
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Machine technical documentation</span><span class="maintenance-status"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Operational document</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="3153-modify-commercial-piece" style="margin:0;" class="maintenance-main-title"><a class="header" href="#3153-modify-commercial-piece"><span class="maintenance-code">DOC</span><span class="maintenance-name">3.15.3 MODIFY COMMERCIAL PIECE</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document DOC" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="3.15.3 MODIFY COMMERCIAL PIECE"--><p>It opens a panel with which you can change the dimensions of a commercial piece.</p><div class="TextAlignCenter"><img src="attachments/3.15.3_modify_commercial_piece/image-20250613-142931.png" alt="image-20250613-142931.png" width="310" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><p>
+</p><p></p><h1 id="buttons"><a class="header" href="#buttons">Buttons</a></h1><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="d4dabc60-da61-429d-bf1f-38fad117ea4f"><colgroup><col style="width: 353.0px;"><col style="width: 1443.0px;"></colgroup><tbody><tr><td data-highlight-colour="#ffffff"><div class="TextAlignCenter"><img src="attachments/3.15.3_modify_commercial_piece/1.1c-20250616-061851.png" alt="1.1c-20250616-061851.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td data-highlight-colour="#ffffff"><p><strong>Magnet dimensions</strong><br>Allows to resize a piece of the same dimensions of that on the side dragging a side.</p></td></tr><tr><td data-highlight-colour="#ffffff"><div class="TextAlignCenter"><img src="attachments/3.15.3_modify_commercial_piece/2.0.png" alt="2.0.png" width="144" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td data-highlight-colour="#ffffff"><p><strong>Width</strong><br>The width of the piece in real time.</p></td></tr><tr><td data-highlight-colour="#ffffff"><div class="TextAlignCenter"><img src="attachments/3.15.3_modify_commercial_piece/2.1.png" alt="2.1.png" width="109" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td data-highlight-colour="#ffffff"><p><strong>Height</strong><br>The height of piece in real time.</p></td></tr><tr><td data-highlight-colour="#ffffff"><div class="TextAlignCenter"><img src="attachments/3.15.3_modify_commercial_piece/image-20250616-061939.png" alt="image-20250616-061939.png" width="124" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td data-highlight-colour="#ffffff"><p><strong>Quantity of extension</strong><br>The quantity of mm that the piece must stretch.</p></td></tr><tr><td data-highlight-colour="#ffffff"><div class="TextAlignCenter"><img src="attachments/3.15.3_modify_commercial_piece/1.3-20250613-135449.png" alt="1.3-20250613-135449.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td data-highlight-colour="#ffffff"><p><strong>Apply extension</strong><br>Button to apply piece extension.</p></td></tr><tr><td data-highlight-colour="#ffffff"><div class="TextAlignCenter"><img src="attachments/3.15.3_modify_commercial_piece/image-20250616-062014.png" alt="image-20250616-062014.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td data-highlight-colour="#ffffff"><p><strong>Step touch</strong><br>You can also drag the piece from one of the sides to extend it and this step touch is the drag step.<br>If I drag the piece a little, it will lengthen by 5mm, if I increase the step touch to 20, the piece will lengthen by 20mm at a strike.</p></td></tr></tbody></table><p></p><h1 id="execution-of-workings"><a class="header" href="#execution-of-workings">Execution of workings</a></h1><h2 id="piece-extension" class="maintenance-section-title" data-section-number="01"><a class="header" href="#piece-extension">Piece extension</a></h2><p>Apply a piece extension on one of its sides.</p><div class="TextAlignCenter"><img src="attachments/3.15.3_modify_commercial_piece/1.4.png" alt="1.4.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p>You insert the number 1000 in the appropriate box, you press on the side of the piece and you press on the button with the arrow towards the right.</p><div class="TextAlignCenter"><img src="attachments/3.15.3_modify_commercial_piece/1.5.png" alt="1.5.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><h2 id="step-touch" class="maintenance-section-title" data-section-number="02"><a class="header" href="#step-touch">Step touch</a></h2><p>We use Step Touch to extend the piece by 500mm, dragging the side it will extend by 500mm per step.</p><div class="TextAlignCenter"><img src="attachments/3.15.3_modify_commercial_piece/1.6.png" alt="1.6.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p>One inserts the number 500 in the proper box, one presses the side of the piece and one drags towards right.</p><div class="TextAlignCenter"><img src="attachments/3.15.3_modify_commercial_piece/1.7.png" alt="1.7.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><h2 id="resizing" class="maintenance-section-title" data-section-number="03"><a class="header" href="#resizing">Resizing </a></h2><p>We go to size a piece dragging its side towards that of another piece.</p><div class="TextAlignCenter"><img src="attachments/3.15.3_modify_commercial_piece/1.8.png" alt="1.8.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p>You click on the side of the piece to be resized and you drag it towards the side of the other reference piece.</p><div class="TextAlignCenter"><img src="attachments/3.15.3_modify_commercial_piece/1.9.png" alt="1.9.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><!--Label="pcc"--><!--Label="pcc_exe_rsz"--><!--Label="pcc_exe"--><!--Label="pcc_exe_tch"--><!--Label="pcc_exe_str"-->
                         </main>
 
                     </div>
@@ -278,5 +280,12 @@
     </div>;
 
 
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
 </body>
 </html>

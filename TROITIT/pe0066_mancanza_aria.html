@@ -40,7 +40,7 @@
     <script>
       const path_to_root = "";
       const default_light_theme = "light";
-      const default_dark_theme = "navy";
+      const default_dark_theme = "light";
     </script>
     <!-- Start loading toc.js asap -->
     <script src="toc.js"></script>
@@ -86,8 +86,10 @@
     });
   });
 })();
-</script></head>
-<body>
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-troubleshooting technical-troubleshooting-emergency" data-technical-styler-flow="html">
     <header class="header-main">
         <div class="header-flex">
             <div class="donatoni-flex">
@@ -110,6 +112,15 @@
                 </div>
                 <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                     <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
                 </button>
 
                 <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
@@ -144,17 +155,8 @@
 
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script>
-            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
-                .matches
-                ? default_dark_theme
-                : default_light_theme;
-            let theme;
-            try {
-                theme = localStorage.getItem("mdbook-theme");
-            } catch (e) { }
-            if (theme === null || theme === undefined) {
-                theme = default_theme;
-            }
+            const default_theme = "light";
+            let theme = default_theme;
             const html = document.documentElement;
             html.classList.remove("light");
             html.classList.add(theme);
@@ -214,8 +216,8 @@
 
                         <img src="images/donatoni_111.jpg">
 
-                        <main style="margin-left: 20px;">
-                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="pe0066-mancanza-aria" style="margin:0;"><a class="header" href="#pe0066-mancanza-aria">PE0066 MANCANZA ARIA</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="PE0066 MANCANZA ARIA"--><table class="my-table2" data-table-width="760" data-layout="default" ac:local-id="85e18120-421b-48c4-b375-dfbfdc4e6731"><colgroup><col style="width: 380.0px;"><col style="width: 380.0px;"></colgroup><tbody><tr ac:local-id="bf95ec2f-785c-4b76-8244-6d86737d0d84"><td data-highlight-colour="#f4f5f7" colspan="2" ac:local-id="47a7518b-9a98-488b-9940-07b37e780946"><p local-id="357fe31d2def" style="text-align: center;">⚠️ Prima di procedere leggere attentamente le <p><a href='istruzioni_di_sicurezza.html'>ISTRUZIONI DI SICUREZZA</a></p></td></tr><tr ac:local-id="46b0283c-ab8d-439f-adb4-33b301766583"><td data-highlight-colour="#f4f5f7" ac:local-id="a3b287c8-7277-45c8-b7ba-654278c787a1"><p local-id="03ef30f2a60b">⏲️ <strong>Descrizione</strong>: Rilevamento calo di pressione</p></td><td data-highlight-colour="#f4f5f7" ac:local-id="82a672ee-6d6e-4a0d-bcec-2ddc508d14d5"><p local-id="098c95fffb87">🎚️ <strong>Gravità</strong>: ⭐☆☆☆☆ </p></td></tr><tr ac:local-id="4d1f78ef-c30f-4745-bc1d-7926d626f00b"><td data-highlight-colour="#f4f5f7" ac:local-id="dafe8b2c-2e48-4cb6-bf3f-98cdf68f27f2"><p local-id="adee3bce586b">🧑‍🏭 <strong>Figura autorizzata</strong>: Operatore macchina</p></td><td data-highlight-colour="#f4f5f7" ac:local-id="8d3a0fa5-29fc-4c85-acd4-4d6db02654fe"><p local-id="cbd239f0c494">🧤 <strong>DPI previsti</strong>:   <div><img src="attachments/pe0066_mancanza_aria/5c50dea6-c18e-4b4c-af4e-4a88d2222111.png" alt="image-20240327-084216.png" onclick="showModal(this.src)" class="inline-img"></div> </td></tr></tbody></table><h2 local-id="6806ed909efc">Descrizione</h2><p local-id="a5fb5214934f">Questo allarme appare quando il pressostato presente sul gruppo aria generale della macchina rileva un importante calo di pressione</p><h2 local-id="6186578e2836">Sintomi</h2><p local-id="512c7389ff13">…..</p><h2 local-id="ec93a2df84b9">Possibili cause</h2><div class='panelContent' style='background-color: #fff; border: 1px solid #D3D3D3; padding: 5px;'><ol start="1" local-id="5ae29531000a" type="1"><li local-id="babfed6dd82d"><p local-id="ba1f144574cd">Pressione della linea non sufficiente;</p></li><li local-id="5e0f29cb97b5"><p local-id="38aff5f36560">Sensore non regolato correttamente;</p></li><li local-id="034cf834236a"><p local-id="c1cab9a70984">Guasto del sensore;</p></li><li local-id="97b97ab74b4a"><p local-id="38cd1206a898">Variazione improvvisa pressione in ingresso</p></li></ol></div><h2 local-id="221455e58335">Possibili soluzioni</h2><div class='panelContent' style='background-color: #fff; border: 1px solid #D3D3D3; padding: 5px;'><ol start="1" local-id="86b683492ca8" type="1"><li local-id="6fa93b4b72dd"><p local-id="f1eceee7b0cc">Controllare sul manometro del distributore d'aria generale della macchina se sono presenti almeno 6 Bar in caso negativo portare la pressione a sei bar tramite il regolatore e controllare che effetivamente arrivino almeno 6bar.</p></li><li local-id="b6a780fb9998"><p local-id="d549ea079019">Se sul manometro si leggono 6Bar, provare dare mezzo giro in senso orario alla vite interna al sensore e controllare se sparisce l'allarme se no sparisce controllare tramite la mappa degli ingressi presente sul Sw quando il segnale risulta attivo</p></li><li local-id="93b4b6720eae"><p local-id="b76ad5da43c5">Nonostante le regolazioni del sensore l'allarme non scompare provare a scollegare il sensore e provare a collegare tra di loro i cavi del sensore, se l'allarme scompare, il sensore è guasto.</p></li><li local-id="aca738258947"><p local-id="be14b6747434">Se il messaggio di errore dura qualche secondo e poi scompare, probabilmente è dovuto ad un calo di pressione, tenere monitorato se cala la pressione spesso</p></li></ol></div><!--Label="kb-troubleshooting-article"--><!--Label="pe0066"-->
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Technical troubleshooting sheet</span><span class="maintenance-status"><i class="fa-solid fa-screwdriver-wrench" aria-hidden="true"></i> Emergency diagnostic procedure</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="pe0066-mancanza-aria" style="margin:0;" class="maintenance-main-title"><a class="header" href="#pe0066-mancanza-aria"><span class="maintenance-code">PE0066</span><span class="maintenance-name">MANCANZA ARIA</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document PE0066" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="PE0066 MANCANZA ARIA"--><table class="my-table2 troubleshooting-template-grid maintenance-data-grid" data-table-width="760" data-layout="default" ac:local-id="85e18120-421b-48c4-b375-dfbfdc4e6731" aria-label="Technical data for document PE0066"><colgroup><col style="width: 380.0px;"><col style="width: 380.0px;"></colgroup><tbody><tr ac:local-id="bf95ec2f-785c-4b76-8244-6d86737d0d84" class="maintenance-safety-row"><td data-highlight-colour="#f4f5f7" colspan="2" ac:local-id="47a7518b-9a98-488b-9940-07b37e780946"><p local-id="357fe31d2def" style="text-align: center;">Prima di procedere leggere attentamente le <p><a href='istruzioni_di_sicurezza.html'>ISTRUZIONI DI SICUREZZA</a></p></td></tr><tr ac:local-id="46b0283c-ab8d-439f-adb4-33b301766583"><td data-highlight-colour="#f4f5f7" ac:local-id="a3b287c8-7277-45c8-b7ba-654278c787a1"><p local-id="03ef30f2a60b" class="maintenance-data-layout"><i class="maintenance-data-icon fa-solid fa-file-lines" aria-hidden="true"></i><span class="maintenance-data-content"><strong class="maintenance-data-label">Descrizione</strong><span class="maintenance-data-value">Rilevamento calo di pressione</span></span></p></td><td data-highlight-colour="#f4f5f7" ac:local-id="82a672ee-6d6e-4a0d-bcec-2ddc508d14d5"><p local-id="098c95fffb87" class="maintenance-data-layout"><i class="maintenance-data-icon fa-solid fa-triangle-exclamation" aria-hidden="true"></i><span class="maintenance-data-content"><strong class="maintenance-data-label">Gravità</strong><span class="severity-indicator severity-level-1" aria-label="Severity Low, level 1 of 5"><span class="severity-scale" aria-hidden="true"><i class="severity-segment is-active"></i><i class="severity-segment"></i><i class="severity-segment"></i><i class="severity-segment"></i><i class="severity-segment"></i></span><span class="severity-readout"><span class="severity-level-name">Low</span><span class="severity-score">01 / 05</span></span></span></span></p></td></tr><tr ac:local-id="4d1f78ef-c30f-4745-bc1d-7926d626f00b"><td data-highlight-colour="#f4f5f7" ac:local-id="dafe8b2c-2e48-4cb6-bf3f-98cdf68f27f2"><p local-id="adee3bce586b" class="maintenance-data-layout"><i class="maintenance-data-icon fa-solid fa-user-gear" aria-hidden="true"></i><span class="maintenance-data-content"><strong class="maintenance-data-label">Figura autorizzata</strong><span class="maintenance-data-value">Operatore macchina</span></span></p></td><td data-highlight-colour="#f4f5f7" ac:local-id="8d3a0fa5-29fc-4c85-acd4-4d6db02654fe"><p local-id="cbd239f0c494"><i class="maintenance-data-icon fa-solid fa-shield-halved" aria-hidden="true"></i><strong>DPI previsti</strong>:   <div><img src="attachments/pe0066_mancanza_aria/5c50dea6-c18e-4b4c-af4e-4a88d2222111.png" alt="image-20240327-084216.png" onclick="showModal(this.src)" class="inline-img"></div> </td></tr></tbody></table><h2 local-id="6806ed909efc" class="maintenance-section-title" data-section-number="01">Descrizione</h2><p local-id="a5fb5214934f">Questo allarme appare quando il pressostato presente sul gruppo aria generale della macchina rileva un importante calo di pressione</p><h2 local-id="6186578e2836" class="maintenance-section-title" data-section-number="02">Sintomi</h2><p local-id="512c7389ff13">…..</p><h2 local-id="ec93a2df84b9" class="maintenance-section-title" data-section-number="03">Possibili cause</h2><div class='panelContent' style='background-color: #fff; border: 1px solid #D3D3D3; padding: 5px;'><ol start="1" local-id="5ae29531000a" type="1"><li local-id="babfed6dd82d"><p local-id="ba1f144574cd">Pressione della linea non sufficiente;</p></li><li local-id="5e0f29cb97b5"><p local-id="38aff5f36560">Sensore non regolato correttamente;</p></li><li local-id="034cf834236a"><p local-id="c1cab9a70984">Guasto del sensore;</p></li><li local-id="97b97ab74b4a"><p local-id="38cd1206a898">Variazione improvvisa pressione in ingresso</p></li></ol></div><h2 local-id="221455e58335" class="maintenance-section-title" data-section-number="04">Possibili soluzioni</h2><div class='panelContent resolution-panel-content' style='background-color: #fff; border: 1px solid #D3D3D3; padding: 5px;'><ol start="1" local-id="86b683492ca8" type="1" class="procedure-steps"><li local-id="6fa93b4b72dd"><p local-id="f1eceee7b0cc">Controllare sul manometro del distributore d'aria generale della macchina se sono presenti almeno 6 Bar in caso negativo portare la pressione a sei bar tramite il regolatore e controllare che effetivamente arrivino almeno 6bar.</p></li><li local-id="b6a780fb9998"><p local-id="d549ea079019">Se sul manometro si leggono 6Bar, provare dare mezzo giro in senso orario alla vite interna al sensore e controllare se sparisce l'allarme se no sparisce controllare tramite la mappa degli ingressi presente sul Sw quando il segnale risulta attivo</p></li><li local-id="93b4b6720eae"><p local-id="b76ad5da43c5">Nonostante le regolazioni del sensore l'allarme non scompare provare a scollegare il sensore e provare a collegare tra di loro i cavi del sensore, se l'allarme scompare, il sensore è guasto.</p></li><li local-id="aca738258947"><p local-id="be14b6747434">Se il messaggio di errore dura qualche secondo e poi scompare, probabilmente è dovuto ad un calo di pressione, tenere monitorato se cala la pressione spesso</p></li></ol></div><!--Label="kb-troubleshooting-article"--><!--Label="pe0066"-->
                         </main>
 
                     </div>
@@ -277,5 +279,12 @@
     </div>;
 
 
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
 </body>
 </html>

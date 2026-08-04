@@ -40,7 +40,7 @@
     <script>
       const path_to_root = "";
       const default_light_theme = "light";
-      const default_dark_theme = "navy";
+      const default_dark_theme = "light";
     </script>
     <!-- Start loading toc.js asap -->
     <script src="toc.js"></script>
@@ -86,8 +86,10 @@
     });
   });
 })();
-</script></head>
-<body>
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-troubleshooting technical-troubleshooting-emergency" data-technical-styler-flow="html">
     <header class="header-main">
         <div class="header-flex">
             <div class="donatoni-flex">
@@ -110,6 +112,15 @@
                 </div>
                 <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                     <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
                 </button>
 
                 <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
@@ -144,17 +155,8 @@
 
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script>
-            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
-                .matches
-                ? default_dark_theme
-                : default_light_theme;
-            let theme;
-            try {
-                theme = localStorage.getItem("mdbook-theme");
-            } catch (e) { }
-            if (theme === null || theme === undefined) {
-                theme = default_theme;
-            }
+            const default_theme = "light";
+            let theme = default_theme;
             const html = document.documentElement;
             html.classList.remove("light");
             html.classList.add(theme);
@@ -214,8 +216,8 @@
 
                         <img src="images/donatoni_111.jpg">
 
-                        <main style="margin-left: 20px;">
-                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="pe0015-spindle-overcurrent" style="margin:0;"><a class="header" href="#pe0015-spindle-overcurrent">PE0015 SPINDLE OVERCURRENT</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="PE0015 SPINDLE OVERCURRENT"--><h2 id="error-explanation"><a class="header" href="#error-explanation">Error explanation</a></h2><p>During automatic work cycles the PLC may generate an Extracurrent alarm of the spindle due to exceeding the maximum load capacity of the motor in question. The threshold is set based on the working type and consequently on the spindle speed</p><p>Generally one starts a working process, looks at the disk/milling absorption value then sets a threshold value of 3/5A higher than the absorbed value during normal operation.</p><div class="TextAlignCenter"><img src="attachments/pe0015_spindle_overcurrent/Cattura1.jpg" alt="Cattura1.jpg" width="353" onclick="showModal(this.src)"></div><hr><p><br></p><h2 id="possible-causes"><a class="header" href="#possible-causes">Possible causes</a></h2><div class='panelContent' style='background-color: #fff; border: 1px solid #D3D3D3; padding: 5px;'><p><!-- <placeholder>You might wish to employ a panel to emphasize key steps.</placeholder> --></p><ol start="1" type="1"><li><p>Set an incorrect threshold alarm value for the type of processing;</p></li><li><p>Excessive electro-spindle absorption due to workings with excessively high speeds.</p></li><li><p>Tool unsuitable for type of work performed</p></li><li><p>Replace bearings</p></li></ol></div><h2 id="possible-solutions"><a class="header" href="#possible-solutions">Possible solutions</a></h2><p><!-- <placeholder>Insert steps for resolving issues, such as "The level 7 printer flashes red if out of paper; add paper in tray 1".</placeholder> --></p><div class='panelContent' style='background-color: #fff; border: 1px solid #D3D3D3; padding: 5px;'><p><!-- <placeholder>You might wish to employ a panel to emphasize key steps.</placeholder> --></p><ol start="1" type="1"><li><p>Adjust threshold amperage value</p></li><li><p>Gradually reduce speeds until finding correct speeds</p></li><li><p>Check tool if it is suitable for the operations being performed and whether it is not a highly worn-out tool that does not cut</p></li></ol></div><h2 id="related-articles"><a class="header" href="#related-articles">Related articles</a></h2><p><!-- <placeholder>Articles related to your selection are displayed below. Click to edit this macro and assign or modify labels.</placeholder> --></p><div class='panelContent' style='background-color: #fff; border: 1px solid #D3D3D3; padding: 5px;'><p><br></p></div><p><br></p><!--Label="extracorrente"--><!--Label="pe0015"-->
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Technical troubleshooting sheet</span><span class="maintenance-status"><i class="fa-solid fa-screwdriver-wrench" aria-hidden="true"></i> Emergency diagnostic procedure</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="pe0015-spindle-overcurrent" style="margin:0;" class="maintenance-main-title"><a class="header" href="#pe0015-spindle-overcurrent"><span class="maintenance-code">PE0015</span><span class="maintenance-name">SPINDLE OVERCURRENT</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document PE0015" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="PE0015 SPINDLE OVERCURRENT"--><h2 id="error-explanation" class="maintenance-section-title" data-section-number="01"><a class="header" href="#error-explanation">Error explanation</a></h2><p>During automatic work cycles the PLC may generate an Extracurrent alarm of the spindle due to exceeding the maximum load capacity of the motor in question. The threshold is set based on the working type and consequently on the spindle speed</p><p>Generally one starts a working process, looks at the disk/milling absorption value then sets a threshold value of 3/5A higher than the absorbed value during normal operation.</p><div class="TextAlignCenter"><img src="attachments/pe0015_spindle_overcurrent/Cattura1.jpg" alt="Cattura1.jpg" width="353" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><hr><p><br></p><h2 id="possible-causes" class="maintenance-section-title" data-section-number="02"><a class="header" href="#possible-causes">Possible causes</a></h2><div class='panelContent' style='background-color: #fff; border: 1px solid #D3D3D3; padding: 5px;'><p><!-- <placeholder>You might wish to employ a panel to emphasize key steps.</placeholder> --></p><ol start="1" type="1"><li><p>Set an incorrect threshold alarm value for the type of processing;</p></li><li><p>Excessive electro-spindle absorption due to workings with excessively high speeds.</p></li><li><p>Tool unsuitable for type of work performed</p></li><li><p>Replace bearings</p></li></ol></div><h2 id="possible-solutions" class="maintenance-section-title" data-section-number="03"><a class="header" href="#possible-solutions">Possible solutions</a></h2><p><!-- <placeholder>Insert steps for resolving issues, such as "The level 7 printer flashes red if out of paper; add paper in tray 1".</placeholder> --></p><div class='panelContent resolution-panel-content' style='background-color: #fff; border: 1px solid #D3D3D3; padding: 5px;'><p><!-- <placeholder>You might wish to employ a panel to emphasize key steps.</placeholder> --></p><ol start="1" type="1" class="procedure-steps"><li><p>Adjust threshold amperage value</p></li><li><p>Gradually reduce speeds until finding correct speeds</p></li><li><p>Check tool if it is suitable for the operations being performed and whether it is not a highly worn-out tool that does not cut</p></li></ol></div><h2 id="related-articles" class="maintenance-section-title" data-section-number="04"><a class="header" href="#related-articles">Related articles</a></h2><p><!-- <placeholder>Articles related to your selection are displayed below. Click to edit this macro and assign or modify labels.</placeholder> --></p><div class='panelContent' style='background-color: #fff; border: 1px solid #D3D3D3; padding: 5px;'><p><br></p></div><p><br></p><!--Label="extracorrente"--><!--Label="pe0015"-->
                         </main>
 
                     </div>
@@ -277,5 +279,12 @@
     </div>;
 
 
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
 </body>
 </html>

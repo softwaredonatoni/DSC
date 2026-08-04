@@ -40,7 +40,7 @@
     <script>
       const path_to_root = "";
       const default_light_theme = "light";
-      const default_dark_theme = "navy";
+      const default_dark_theme = "light";
     </script>
     <!-- Start loading toc.js asap -->
     <script src="toc.js"></script>
@@ -86,8 +86,10 @@
     });
   });
 })();
-</script></head>
-<body>
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-document" data-technical-styler-flow="html">
     <header class="header-main">
         <div class="header-flex">
             <div class="donatoni-flex">
@@ -110,6 +112,15 @@
                 </div>
                 <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                     <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
                 </button>
 
                 <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
@@ -144,17 +155,8 @@
 
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script>
-            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
-                .matches
-                ? default_dark_theme
-                : default_light_theme;
-            let theme;
-            try {
-                theme = localStorage.getItem("mdbook-theme");
-            } catch (e) { }
-            if (theme === null || theme === undefined) {
-                theme = default_theme;
-            }
+            const default_theme = "light";
+            let theme = default_theme;
             const html = document.documentElement;
             html.classList.remove("light");
             html.classList.add(theme);
@@ -214,8 +216,8 @@
 
                         <img src="images/donatoni_111.jpg">
 
-                        <main style="margin-left: 20px;">
-                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="1-premesse" style="margin:0;"><a class="header" href="#1-premesse">1 PREMESSE</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="1 PREMESSE"--><p>
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Machine technical documentation</span><span class="maintenance-status"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Operational document</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="1-premesse" style="margin:0;" class="maintenance-main-title"><a class="header" href="#1-premesse"><span class="maintenance-code">DOC</span><span class="maintenance-name">1 PREMESSE</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document DOC" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="1 PREMESSE"--><p>
 </p><h1 local-id="0f461ebb-cfe6-48a3-9b61-19f443b8d858">Generalità</h1><p local-id="e8d5e370-51a0-4aa2-aa37-49f5a768a397">Le informazioni contenute in questo documento sono applicabili solamente alle versioni software riportate nel frontespizio.<br>È possibile che non tutte le funzioni esplicabili dal prodotto siano descritte nella presente documentazione; in questi casi Donatoni macchine non è, comunque, obbligata, a garantire queste funzioni né a preservarle nelle future versioni.<br>Il presente documento è fornito come allegato “Sezione B”, parte software, del manuale di uso e manutenzione della macchina.</p><p local-id="421ab5ca-9471-438c-84f9-6854e253145f"></p><h1 local-id="b54ff72e-d08b-4b7c-95f5-08c28aeb3138">Scopo del manuale</h1><p local-id="88e9e1b4-3985-45ae-a498-22e508fa7b37">Questo manuale riporta le istruzioni d’utilizzo necessarie per la buona conoscenza del programma D-Edge e informazioni utili per trovare soluzioni a malfunzionamenti.<br>Dall'osservanza di quanto descritto in questo manuale dipende il regolare funzionamento, la durata e l'economia di esercizio della macchina stessa.<br>Il manuale d’uso e manutenzione della macchina e il presente manuale software devono essere sempre reperibili nel luogo d’installazione dell’impianto, in posto sicuro e facilmente accessibile. Se uno di essi viene smarrito contattare il responsabile del servizio prevenzione e protezione.<br>La mancata osservanza di quanto descritto in questo manuale, la negligenza, un cattivo e inadeguato uso della macchina, possono essere causa di annullamento, da parte della Ditta Costruttrice, della garanzia che essa dà alla macchina stessa, ed inoltre si possono non ottenere i vantaggi per cui questa macchina è stata costruita.<br>La DONATONI MACCHINE SRL, è comunque a disposizione per assicurare una pronta ed accurata assistenza tecnica e tutto quanto può essere utile per il miglior funzionamento ed ottenere il massimo della resa dalla macchina.<br>La Ditta Costruttrice, si riserva il diritto di modificare, a propria discrezione, la presente pubblicazione ed i dati in essa contenuti qualora lo ritenesse necessario per un miglioramento tecnico o commerciale del prodotto.</p><p local-id="62145cfd-e32d-4e47-94f4-df930b1f6db7"></p><h1 local-id="6a5e7154-747a-4bbb-bac0-ec5d9f56af41">Conservazione del manuale</h1><p local-id="737b82f4-3d35-4279-8536-2b9a3ebb2b7d">Il presente Manuale Software deve essere custodito per tutta la vita operativa della macchina, anche in caso di cessione a terzi.<br>Al fine di conservare correttamente il Manuale Software si raccomanda:</p><ul local-id="f256cf82-5153-4fa8-a855-7b96d6dd2cb4"><li local-id="6d40c571-7264-4fb5-938f-77cbbe09b442"><p local-id="1ba827fa-c626-42c8-9f60-387b08a2cf78">Impiegare il Manuale in modo tale da non danneggiare tutto, od in parte, il contenuto; in particolare si raccomanda di non abbandonare il Manuale durante l'utilizzo e di riporlo nel luogo assegnato immediatamente dopo il termine della consultazione;</p></li><li local-id="3acb4c6e-e2b0-4240-81a8-5ad6ca3bf35b"><p local-id="56625337-833e-4742-8ff6-3446630f8e77">Non asportare, strappare o riscrivere per alcun motivo le parti del Manuale;</p></li><li local-id="b17a7d51-f59b-4215-8241-a7ba3ae53a05"><p local-id="ebdf68ef-8af6-4b21-a287-8a7129188b9d">Conservare il Manuale in zone protette da umidità, calore ed altri agenti ambientali che potrebbero pregiudicarne l'integrità o la durata;</p></li><li local-id="e77c6219-7c96-4322-86a5-dacded2f6e5c"><p local-id="145fa244-c318-4c5f-b149-5cb6127a4fec">In caso di smarrimento o danneggiamento di tutto o parte del contenuto del presente Manuale, richiedere copia di tale documentazione al Costruttore.</p></li></ul><!--Label="edg_pre"-->
                         </main>
 
@@ -278,5 +280,12 @@
     </div>;
 
 
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
 </body>
 </html>

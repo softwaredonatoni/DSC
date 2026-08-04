@@ -40,7 +40,7 @@
     <script>
       const path_to_root = "";
       const default_light_theme = "light";
-      const default_dark_theme = "navy";
+      const default_dark_theme = "light";
     </script>
     <!-- Start loading toc.js asap -->
     <script src="toc.js"></script>
@@ -86,8 +86,10 @@
     });
   });
 })();
-</script></head>
-<body>
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-document" data-technical-styler-flow="html">
     <header class="header-main">
         <div class="header-flex">
             <div class="donatoni-flex">
@@ -110,6 +112,15 @@
                 </div>
                 <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                     <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
                 </button>
 
                 <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
@@ -144,17 +155,8 @@
 
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script>
-            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
-                .matches
-                ? default_dark_theme
-                : default_light_theme;
-            let theme;
-            try {
-                theme = localStorage.getItem("mdbook-theme");
-            } catch (e) { }
-            if (theme === null || theme === undefined) {
-                theme = default_theme;
-            }
+            const default_theme = "light";
+            let theme = default_theme;
             const html = document.documentElement;
             html.classList.remove("light");
             html.classList.add(theme);
@@ -214,9 +216,9 @@
 
                         <img src="images/donatoni_111.jpg">
 
-                        <main style="margin-left: 20px;">
-                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="333-macchina-doppio-disco" style="margin:0;"><a class="header" href="#333-macchina-doppio-disco">3.3.3 MACCHINA DOPPIO DISCO</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="3.3.3 MACCHINA DOPPIO DISCO"--><p local-id="ca5b287069b9">Questa tipologia di macchina consente di montare due dischi sulla testa anzichè uno. Il pannello utensile consente la gestione di entrambi.</p><div class="TextAlignCenter"><img src="attachments/3.3.3_macchina_doppio_disco/0.01.png" alt="0.01.png" width="800" onclick="showModal(this.src)"></div><p local-id="667d9598852e"></p><p>
-</p><p local-id="dbebacb13d46"></p><h1 local-id="b33b21c6ed2f">Parametri</h1><p local-id="a5e094a1bce1">Ogni utensile della sezione “Disco” contiene le informazioni riguardanti entrambi i dischi montati in macchina.</p><div class="TextAlignCenter"><img src="attachments/3.3.3_macchina_doppio_disco/0.04.png" alt="0.04.png" width="433" onclick="showModal(this.src)"></div><p local-id="195c032128f4">In particolare:</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="bcc2dbfb-0cda-4c01-beae-52b8287fcf82"><colgroup><col style="width: 378.0px;"><col style="width: 1421.0px;"></colgroup><tbody><tr ac:local-id="76001372112d"><td ac:local-id="940667c026cb"><div class="TextAlignCenter"><img src="attachments/3.3.3_macchina_doppio_disco/0.02.png" alt="0.02.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="9979d2a01b4b"><p local-id="e46cb3c41e29"><strong>Diametro primo disco</strong><br>Diametro del primo disco montato in macchina.</p></td></tr><tr ac:local-id="5fb0d4060c62"><td ac:local-id="f5d3b50f3008"><div class="TextAlignCenter"><img src="attachments/3.3.3_macchina_doppio_disco/0.03.png" alt="0.03.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="3f7563ab83b5"><p local-id="a6cbaaa5f754"><strong>Diametro secondo disco</strong><br>Diametro del secondo disco montato sulla macchina.</p></td></tr></tbody></table><!--Label="tlp_ddm"-->
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Machine technical documentation</span><span class="maintenance-status"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Operational document</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="333-macchina-doppio-disco" style="margin:0;" class="maintenance-main-title"><a class="header" href="#333-macchina-doppio-disco"><span class="maintenance-code">DOC</span><span class="maintenance-name">3.3.3 MACCHINA DOPPIO DISCO</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document DOC" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="3.3.3 MACCHINA DOPPIO DISCO"--><p local-id="ca5b287069b9">Questa tipologia di macchina consente di montare due dischi sulla testa anzichè uno. Il pannello utensile consente la gestione di entrambi.</p><div class="TextAlignCenter"><img src="attachments/3.3.3_macchina_doppio_disco/0.01.png" alt="0.01.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="667d9598852e"></p><p>
+</p><p local-id="dbebacb13d46"></p><h1 local-id="b33b21c6ed2f">Parametri</h1><p local-id="a5e094a1bce1">Ogni utensile della sezione “Disco” contiene le informazioni riguardanti entrambi i dischi montati in macchina.</p><div class="TextAlignCenter"><img src="attachments/3.3.3_macchina_doppio_disco/0.04.png" alt="0.04.png" width="433" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="195c032128f4">In particolare:</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="bcc2dbfb-0cda-4c01-beae-52b8287fcf82"><colgroup><col style="width: 378.0px;"><col style="width: 1421.0px;"></colgroup><tbody><tr ac:local-id="76001372112d"><td ac:local-id="940667c026cb"><div class="TextAlignCenter"><img src="attachments/3.3.3_macchina_doppio_disco/0.02.png" alt="0.02.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="9979d2a01b4b"><p local-id="e46cb3c41e29"><strong>Diametro primo disco</strong><br>Diametro del primo disco montato in macchina.</p></td></tr><tr ac:local-id="5fb0d4060c62"><td ac:local-id="f5d3b50f3008"><div class="TextAlignCenter"><img src="attachments/3.3.3_macchina_doppio_disco/0.03.png" alt="0.03.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="3f7563ab83b5"><p local-id="a6cbaaa5f754"><strong>Diametro secondo disco</strong><br>Diametro del secondo disco montato sulla macchina.</p></td></tr></tbody></table><!--Label="tlp_ddm"-->
                         </main>
 
                     </div>
@@ -278,5 +280,12 @@
     </div>;
 
 
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
 </body>
 </html>

@@ -40,7 +40,7 @@
     <script>
       const path_to_root = "";
       const default_light_theme = "light";
-      const default_dark_theme = "navy";
+      const default_dark_theme = "light";
     </script>
     <!-- Start loading toc.js asap -->
     <script src="toc.js"></script>
@@ -86,8 +86,10 @@
     });
   });
 })();
-</script></head>
-<body>
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-troubleshooting technical-troubleshooting-emergency" data-technical-styler-flow="html">
     <header class="header-main">
         <div class="header-flex">
             <div class="donatoni-flex">
@@ -110,6 +112,15 @@
                 </div>
                 <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                     <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
                 </button>
 
                 <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
@@ -144,17 +155,8 @@
 
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script>
-            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
-                .matches
-                ? default_dark_theme
-                : default_light_theme;
-            let theme;
-            try {
-                theme = localStorage.getItem("mdbook-theme");
-            } catch (e) { }
-            if (theme === null || theme === undefined) {
-                theme = default_theme;
-            }
+            const default_theme = "light";
+            let theme = default_theme;
             const html = document.documentElement;
             html.classList.remove("light");
             html.classList.add(theme);
@@ -214,8 +216,8 @@
 
                         <img src="images/donatoni_111.jpg">
 
-                        <main style="margin-left: 20px;">
-                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="pe0041-ch-0-program-without-m2m30" style="margin:0;"><a class="header" href="#pe0041-ch-0-program-without-m2m30">PE0041 CH 0 PROGRAM WITHOUT M2M30</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="PE0041 CH 0 PROGRAM WITHOUT M2M30"--><p>Symptom:</p><ul><li><p>using the TEST ISO function check for message '<strong>PE0041 CH 0 Program without M2-M30</strong>' on any ISO file</p></li><li><p>the same ISO files can be executed normally</p></li></ul><p>The issue is caused by the fnzm30.srt file on the client's CNC.</p><p>Solution:</p><ul><li><p>download attached file fnzm30.srt</p></li><li><p>copy into folder C:\\kvara\\CustomerMachine\\Iso</p></li><li><p>open KvIsoGui</p></li><li><p>Menu > Archive Management</p></li><li><p>move in left space to folder C:\\kvara\\DiskC\\Iso</p></li><li><p>click on right space</p></li><li><p>click 'Change Unit' in the bottom buttons</p></li><li><p>select disk C of the CNC</p></li><li><p>select the file fnzm30.srt in folder C:\\kvara\\DiskSpace\\LeftISO</p></li><li><p>click 'Copy' in the bottom buttons</p></li></ul><p><br></p><p>File fnzm30.srt below.</p><p><p><a href='attachments/pe0041_ch_0_program_without_m2m30/fnzm30.srt'>fnzm30.srt</a></p><!--Label="pe0041"-->
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Technical troubleshooting sheet</span><span class="maintenance-status"><i class="fa-solid fa-screwdriver-wrench" aria-hidden="true"></i> Emergency diagnostic procedure</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="pe0041-ch-0-program-without-m2m30" style="margin:0;" class="maintenance-main-title"><a class="header" href="#pe0041-ch-0-program-without-m2m30"><span class="maintenance-code">PE0041</span><span class="maintenance-name">CH 0 PROGRAM WITHOUT M2M30</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document PE0041" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="PE0041 CH 0 PROGRAM WITHOUT M2M30"--><p>Symptom:</p><ul><li><p>using the TEST ISO function check for message '<strong>PE0041 CH 0 Program without M2-M30</strong>' on any ISO file</p></li><li><p>the same ISO files can be executed normally</p></li></ul><p>The issue is caused by the fnzm30.srt file on the client's CNC.</p><p>Solution:</p><ul><li><p>download attached file fnzm30.srt</p></li><li><p>copy into folder C:\\kvara\\CustomerMachine\\Iso</p></li><li><p>open KvIsoGui</p></li><li><p>Menu > Archive Management</p></li><li><p>move in left space to folder C:\\kvara\\DiskC\\Iso</p></li><li><p>click on right space</p></li><li><p>click 'Change Unit' in the bottom buttons</p></li><li><p>select disk C of the CNC</p></li><li><p>select the file fnzm30.srt in folder C:\\kvara\\DiskSpace\\LeftISO</p></li><li><p>click 'Copy' in the bottom buttons</p></li></ul><p><br></p><p>File fnzm30.srt below.</p><p><p><a href='attachments/pe0041_ch_0_program_without_m2m30/fnzm30.srt'>fnzm30.srt</a></p><!--Label="pe0041"-->
                         </main>
 
                     </div>
@@ -277,5 +279,12 @@
     </div>;
 
 
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
 </body>
 </html>

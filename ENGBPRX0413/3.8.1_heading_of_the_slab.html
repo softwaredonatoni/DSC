@@ -40,7 +40,7 @@
     <script>
       const path_to_root = "";
       const default_light_theme = "light";
-      const default_dark_theme = "navy";
+      const default_dark_theme = "light";
     </script>
     <!-- Start loading toc.js asap -->
     <script src="toc.js"></script>
@@ -86,8 +86,10 @@
     });
   });
 })();
-</script></head>
-<body>
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-document" data-technical-styler-flow="html">
     <header class="header-main">
         <div class="header-flex">
             <div class="donatoni-flex">
@@ -110,6 +112,15 @@
                 </div>
                 <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                     <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
                 </button>
 
                 <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
@@ -144,17 +155,8 @@
 
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script>
-            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
-                .matches
-                ? default_dark_theme
-                : default_light_theme;
-            let theme;
-            try {
-                theme = localStorage.getItem("mdbook-theme");
-            } catch (e) { }
-            if (theme === null || theme === undefined) {
-                theme = default_theme;
-            }
+            const default_theme = "light";
+            let theme = default_theme;
             const html = document.documentElement;
             html.classList.remove("light");
             html.classList.add(theme);
@@ -214,9 +216,9 @@
 
                         <img src="images/donatoni_111.jpg">
 
-                        <main style="margin-left: 20px;">
-                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="381-heading-of-the-slab" style="margin:0;"><a class="header" href="#381-heading-of-the-slab">3.8.1 HEADING OF THE SLAB</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="3.8.1 HEADING OF THE SLAB"--><p>The slab heading is a feature that allows adding to the process of stress relief cuts. These cuts have the task of refiling the slab along the edges. <br>The functionality can be activated in the perimeter creation panel.<br>In the following example screen there is a scheme that represents the four cuts, one for side, that you can insert. </p><div class="TextAlignCenter"><img src="attachments/3.8.1_heading_of_the_slab/2.01.png" alt="2.01.png" width="800" onclick="showModal(this.src)"></div><p></p><p>
-</p><h1 id="side-bar"><a class="header" href="#side-bar">Side bar</a></h1><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="33698727-b1ac-48ae-aa0c-ff23c15322f0"><colgroup><col style="width: 417.0px;"><col style="width: 1381.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/3.8.1_heading_of_the_slab/2.25.png" alt="2.25.png" width="162" onclick="showModal(this.src)"></div></td><td><p><strong>Heading of the slab</strong><br>To add/remove a stress relief cut on the slab, select the corresponding side.<br>The value of Offset allows to specify the distance of the Heading from the edge of the Slab.</p></td></tr></tbody></table>
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Machine technical documentation</span><span class="maintenance-status"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Operational document</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="381-heading-of-the-slab" style="margin:0;" class="maintenance-main-title"><a class="header" href="#381-heading-of-the-slab"><span class="maintenance-code">DOC</span><span class="maintenance-name">3.8.1 HEADING OF THE SLAB</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document DOC" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="3.8.1 HEADING OF THE SLAB"--><p>The slab heading is a feature that allows adding to the process of stress relief cuts. These cuts have the task of refiling the slab along the edges. <br>The functionality can be activated in the perimeter creation panel.<br>In the following example screen there is a scheme that represents the four cuts, one for side, that you can insert. </p><div class="TextAlignCenter"><img src="attachments/3.8.1_heading_of_the_slab/2.01.png" alt="2.01.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><p>
+</p><h1 id="side-bar"><a class="header" href="#side-bar">Side bar</a></h1><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="33698727-b1ac-48ae-aa0c-ff23c15322f0"><colgroup><col style="width: 417.0px;"><col style="width: 1381.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/3.8.1_heading_of_the_slab/2.25.png" alt="2.25.png" width="162" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Heading of the slab</strong><br>To add/remove a stress relief cut on the slab, select the corresponding side.<br>The value of Offset allows to specify the distance of the Heading from the edge of the Slab.</p></td></tr></tbody></table>
 <div id="admonition-note" class="admonition admonish-info" role="note" aria-labelledby="admonition-note-title">
 <div class="admonition-title">
 <div id="admonition-note-title">
@@ -230,7 +232,7 @@
 It is also possible to head more perimeters in a different way.</p>
 </div>
 </div>
-<p></p><p></p><h1 id="execution-of-working"><a class="header" href="#execution-of-working">Execution of working</a></h1><p>On the working area, the program checks that the operator does not position pieces outside of the slab header.<br>Is furthermore possible magnetize the pieces to these cuts, as showed in figure.</p><div class="TextAlignCenter"><img src="attachments/3.8.1_heading_of_the_slab/0.00.png" alt="0.00.png" width="800" onclick="showModal(this.src)"></div><p>During execution of the cutting program, the machine will execute these refilatures before any other operation. Immediately after, a heading pause will be carried out, so as to give the operator the time to remove the discarded slab material.<br>In this way, successive operations of handling the slab through vacuum cups could be executed without the impediment of these refilings.<br>It is possible to see these operations also inside the list in the screen of management and optimization of the cuts.</p><div class="TextAlignCenter"><img src="attachments/3.8.1_heading_of_the_slab/0.01.png" alt="0.01.png" width="800" onclick="showModal(this.src)"></div><p></p><p></p><!--Label="prm_nts"-->
+<p></p><p></p><h1 id="execution-of-working"><a class="header" href="#execution-of-working">Execution of working</a></h1><p>On the working area, the program checks that the operator does not position pieces outside of the slab header.<br>Is furthermore possible magnetize the pieces to these cuts, as showed in figure.</p><div class="TextAlignCenter"><img src="attachments/3.8.1_heading_of_the_slab/0.00.png" alt="0.00.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p>During execution of the cutting program, the machine will execute these refilatures before any other operation. Immediately after, a heading pause will be carried out, so as to give the operator the time to remove the discarded slab material.<br>In this way, successive operations of handling the slab through vacuum cups could be executed without the impediment of these refilings.<br>It is possible to see these operations also inside the list in the screen of management and optimization of the cuts.</p><div class="TextAlignCenter"><img src="attachments/3.8.1_heading_of_the_slab/0.01.png" alt="0.01.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><p></p><!--Label="prm_nts"-->
                         </main>
 
                     </div>
@@ -292,5 +294,12 @@ It is also possible to head more perimeters in a different way.</p>
     </div>;
 
 
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
 </body>
 </html>

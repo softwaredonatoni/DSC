@@ -40,7 +40,7 @@
     <script>
       const path_to_root = "";
       const default_light_theme = "light";
-      const default_dark_theme = "navy";
+      const default_dark_theme = "light";
     </script>
     <!-- Start loading toc.js asap -->
     <script src="toc.js"></script>
@@ -86,8 +86,10 @@
     });
   });
 })();
-</script></head>
-<body>
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-document" data-technical-styler-flow="html">
     <header class="header-main">
         <div class="header-flex">
             <div class="donatoni-flex">
@@ -110,6 +112,15 @@
                 </div>
                 <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                     <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
                 </button>
 
                 <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
@@ -144,17 +155,8 @@
 
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script>
-            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
-                .matches
-                ? default_dark_theme
-                : default_light_theme;
-            let theme;
-            try {
-                theme = localStorage.getItem("mdbook-theme");
-            } catch (e) { }
-            if (theme === null || theme === undefined) {
-                theme = default_theme;
-            }
+            const default_theme = "light";
+            let theme = default_theme;
             const html = document.documentElement;
             html.classList.remove("light");
             html.classList.add(theme);
@@ -214,9 +216,9 @@
 
                         <img src="images/donatoni_111.jpg">
 
-                        <main style="margin-left: 20px;">
-                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="314-nesting" style="margin:0;"><a class="header" href="#314-nesting">3.14 NESTING</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="3.14 NESTING"--><p>La funzione di Nesting serve per disporre in maniera automatica ed ottimizzata i pezzi all’interno del perimetro della lastra. </p><div class="TextAlignCenter"><img src="attachments/3.14_nesting/2.00.png" alt="2.00.png" width="800" onclick="showModal(this.src)"></div><p></p><p>
-</p><p></p><h1 id="come-utilizzare-la-funzionalità"><a class="header" href="#come-utilizzare-la-funzionalità">Come utilizzare la funzionalità</a></h1><p>Per usare questa funzione è necessario creare una lista di pezzi e delimitare il perimetro su cui si vogliono inserire.</p><div class="TextAlignCenter"><img src="attachments/3.14_nesting/2.01.png" alt="2.01.png" width="800" onclick="showModal(this.src)"></div><p>Dopo di che premere il pulsante: il programma disporrà automaticamente i pezzi all’interno del perimetro della lastra.</p>
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Machine technical documentation</span><span class="maintenance-status"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Operational document</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="314-nesting" style="margin:0;" class="maintenance-main-title"><a class="header" href="#314-nesting"><span class="maintenance-code">DOC</span><span class="maintenance-name">3.14 NESTING</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document DOC" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="3.14 NESTING"--><p>La funzione di Nesting serve per disporre in maniera automatica ed ottimizzata i pezzi all’interno del perimetro della lastra. </p><div class="TextAlignCenter"><img src="attachments/3.14_nesting/2.00.png" alt="2.00.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><p>
+</p><p></p><h1 id="come-utilizzare-la-funzionalità"><a class="header" href="#come-utilizzare-la-funzionalità">Come utilizzare la funzionalità</a></h1><p>Per usare questa funzione è necessario creare una lista di pezzi e delimitare il perimetro su cui si vogliono inserire.</p><div class="TextAlignCenter"><img src="attachments/3.14_nesting/2.01.png" alt="2.01.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p>Dopo di che premere il pulsante: il programma disporrà automaticamente i pezzi all’interno del perimetro della lastra.</p>
 <div id="admonition-nota" class="admonition admonish-info" role="note" aria-labelledby="admonition-nota-title">
 <div class="admonition-title">
 <div id="admonition-nota-title">
@@ -228,7 +230,7 @@
 <p>I pezzi vengono inseriti sulla lastra considerando poi l'utilizzo del sistema di movimentazione del materiale con ventose per la risoluzione delle collisioni fra i pezzi e considerando i difetti segnati sulla lastra stessa.</p>
 </div>
 </div>
-<div class="TextAlignCenter"><img src="attachments/3.14_nesting/2.00.png" alt="2.00.png" width="800" onclick="showModal(this.src)"></div><p>Se la soluzione trovata non è di gradimento, è possibile ripremere il pulsante per applicare nuovamente il Nesting e trovare una configurazione diversa.</p>
+<div class="TextAlignCenter"><img src="attachments/3.14_nesting/2.00.png" alt="2.00.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p>Se la soluzione trovata non è di gradimento, è possibile ripremere il pulsante per applicare nuovamente il Nesting e trovare una configurazione diversa.</p>
 <div id="admonition-attenzione" class="admonition admonish-warning" role="note" aria-labelledby="admonition-attenzione-title">
 <div class="admonition-title">
 <div id="admonition-attenzione-title">
@@ -240,7 +242,7 @@
 <p>Il programma rimuoverà tutti i pezzi presenti sull’area di lavoro per poter eseguire il Nesting.</p>
 </div>
 </div>
-<p>La funzione Nesting dispone i pezzi seguendo diverse logiche di inserimento, per questo motivo ogni volta che viene premuto il pulsante il programma modifica la disposizione dei pezzi, fino a un massimo di 4 soluzioni (al quinto tentativo viene riproposta la prima soluzione). <br>Il programma dispone i pezzi in 4 differenti modi per permettere all’utente di confrontare e decidere la disposizione migliore.</p><p></p><h1 id="alcuni-esempi"><a class="header" href="#alcuni-esempi">Alcuni esempi</a></h1><p>Di seguito vengono mostrati alcuni esempi di utilizzo della funzione di Nesting.</p><ul><li><p>Può essere utilizzata per disporre più velocemente pezzi dalla forma semplice.</p></li></ul><div class="TextAlignCenter"><img src="attachments/3.14_nesting/2.05.png" alt="2.05.png" width="800" onclick="showModal(this.src)"></div><ul><li><p>Questa funzione trova la disposizione e la combinazione di pezzi per riempire la maggiore area di lastra possibile.</p></li></ul><div class="TextAlignCenter"><img src="attachments/3.14_nesting/2.06.png" alt="2.06.png" width="800" onclick="showModal(this.src)"></div><ul><li><p>Il Nesting non inserisce nessun pezzo all’interno delle aree da evitare della lastra.</p></li></ul><div class="TextAlignCenter"><img src="attachments/3.14_nesting/2.02.png" alt="2.02.png" width="800" onclick="showModal(this.src)"></div><ul><li><p>È possibile lavorare con perimetri di lastra dalla forma qualsiasi.</p></li></ul><div class="TextAlignCenter"><img src="attachments/3.14_nesting/2.03.png" alt="2.03.png" width="800" onclick="showModal(this.src)"></div><ul><li><p>Se sono presenti più perimetri, il Nesting dispone i pezzi in ognuno di essi.</p></li></ul><div class="TextAlignCenter"><img src="attachments/3.14_nesting/2.04.png" alt="2.04.png" width="800" onclick="showModal(this.src)"></div><p></p><!--Label="nst"-->
+<p>La funzione Nesting dispone i pezzi seguendo diverse logiche di inserimento, per questo motivo ogni volta che viene premuto il pulsante il programma modifica la disposizione dei pezzi, fino a un massimo di 4 soluzioni (al quinto tentativo viene riproposta la prima soluzione). <br>Il programma dispone i pezzi in 4 differenti modi per permettere all’utente di confrontare e decidere la disposizione migliore.</p><p></p><h1 id="alcuni-esempi"><a class="header" href="#alcuni-esempi">Alcuni esempi</a></h1><p>Di seguito vengono mostrati alcuni esempi di utilizzo della funzione di Nesting.</p><ul><li><p>Può essere utilizzata per disporre più velocemente pezzi dalla forma semplice.</p></li></ul><div class="TextAlignCenter"><img src="attachments/3.14_nesting/2.05.png" alt="2.05.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><ul><li><p>Questa funzione trova la disposizione e la combinazione di pezzi per riempire la maggiore area di lastra possibile.</p></li></ul><div class="TextAlignCenter"><img src="attachments/3.14_nesting/2.06.png" alt="2.06.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><ul><li><p>Il Nesting non inserisce nessun pezzo all’interno delle aree da evitare della lastra.</p></li></ul><div class="TextAlignCenter"><img src="attachments/3.14_nesting/2.02.png" alt="2.02.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><ul><li><p>È possibile lavorare con perimetri di lastra dalla forma qualsiasi.</p></li></ul><div class="TextAlignCenter"><img src="attachments/3.14_nesting/2.03.png" alt="2.03.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><ul><li><p>Se sono presenti più perimetri, il Nesting dispone i pezzi in ognuno di essi.</p></li></ul><div class="TextAlignCenter"><img src="attachments/3.14_nesting/2.04.png" alt="2.04.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><!--Label="nst"-->
                         </main>
 
                     </div>
@@ -302,5 +304,12 @@
     </div>;
 
 
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
 </body>
 </html>

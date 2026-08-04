@@ -40,7 +40,7 @@
     <script>
       const path_to_root = "";
       const default_light_theme = "light";
-      const default_dark_theme = "navy";
+      const default_dark_theme = "light";
     </script>
     <!-- Start loading toc.js asap -->
     <script src="toc.js"></script>
@@ -86,8 +86,10 @@
     });
   });
 })();
-</script></head>
-<body>
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-document" data-technical-styler-flow="html">
     <header class="header-main">
         <div class="header-flex">
             <div class="donatoni-flex">
@@ -110,6 +112,15 @@
                 </div>
                 <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                     <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
                 </button>
 
                 <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
@@ -144,17 +155,8 @@
 
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script>
-            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
-                .matches
-                ? default_dark_theme
-                : default_light_theme;
-            let theme;
-            try {
-                theme = localStorage.getItem("mdbook-theme");
-            } catch (e) { }
-            if (theme === null || theme === undefined) {
-                theme = default_theme;
-            }
+            const default_theme = "light";
+            let theme = default_theme;
             const html = document.documentElement;
             html.classList.remove("light");
             html.classList.add(theme);
@@ -214,9 +216,9 @@
 
                         <img src="images/donatoni_111.jpg">
 
-                        <main style="margin-left: 20px;">
-                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="36-gestione-del-laser" style="margin:0;"><a class="header" href="#36-gestione-del-laser">3.6 GESTIONE DEL LASER</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="3.6 GESTIONE DEL LASER"--><p>Questo pannello consente di aggiungere o rimuovere riferimenti laser sull’area di lavoro.</p><div class="TextAlignCenter"><img src="attachments/3.6_gestione_del_laser/1.5.png" alt="1.5.png" width="290" onclick="showModal(this.src)"></div><p></p><p>
-</p><p></p><h1 id="pulsanti"><a class="header" href="#pulsanti">Pulsanti</a></h1><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="8028fe8a-a249-410e-a3e1-7530ccdf5347"><colgroup><col style="width: 312.0px;"><col style="width: 1486.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/3.6_gestione_del_laser/1.1-20250611-121422.png" alt="1.1-20250611-121422.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Riferimento laser a linea</strong><br>Permette di aggiungere sull’area di lavoro il riferimento del laser a linea in base alla posizione della macchina.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.6_gestione_del_laser/1.2-20250611-121456.png" alt="1.2-20250611-121456.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Disegna laser a croce</strong><br>Permette di aggiungere sull’area di lavoro il riferimento del laser a croce in base alla posizione della macchina.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.6_gestione_del_laser/1.3-20250611-121520.png" alt="1.3-20250611-121520.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Cancella tutti i disegni</strong><br>Tutti le linee e croci inserite sull’area di lavoro in questa modalità verranno cancellate.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.6_gestione_del_laser/6_4-20250319-065813.png" alt="6_4-20250319-065813.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Cancella un singolo disegno</strong><br>Permette all’operatore di cancellare un elemento laser disegnato sull’area di lavoro cliccandoci sopra.</p></td></tr></tbody></table><p></p><h1 id="laser-a-linea"><a class="header" href="#laser-a-linea">Laser a linea</a></h1><p>Il laser a linea è uno strumento allineato con il disco montato in macchina. Viene utilizzato per raccogliere informazioni legate alla posizione e all’orientamento del disco sul banco.</p><div class="TextAlignCenter"><img src="attachments/3.6_gestione_del_laser/3.1.png" alt="3.1.png" width="277" onclick="showModal(this.src)"></div><p>Per acquisire il riferimento, portare la macchina nel punto desiderato, e premere il pulsante per rilevare la direzione del laser a linea ed aggiungere il riferimento sull’area di lavoro.<br>Utilizzando più riferimenti, è possibile riconoscere il perimetro e la posizione della lastra o di un pezzo sul banco di lavoro.</p>
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Machine technical documentation</span><span class="maintenance-status"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Operational document</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="36-gestione-del-laser" style="margin:0;" class="maintenance-main-title"><a class="header" href="#36-gestione-del-laser"><span class="maintenance-code">DOC</span><span class="maintenance-name">3.6 GESTIONE DEL LASER</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document DOC" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="3.6 GESTIONE DEL LASER"--><p>Questo pannello consente di aggiungere o rimuovere riferimenti laser sull’area di lavoro.</p><div class="TextAlignCenter"><img src="attachments/3.6_gestione_del_laser/1.5.png" alt="1.5.png" width="290" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><p>
+</p><p></p><h1 id="pulsanti"><a class="header" href="#pulsanti">Pulsanti</a></h1><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="8028fe8a-a249-410e-a3e1-7530ccdf5347"><colgroup><col style="width: 312.0px;"><col style="width: 1486.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/3.6_gestione_del_laser/1.1-20250611-121422.png" alt="1.1-20250611-121422.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Riferimento laser a linea</strong><br>Permette di aggiungere sull’area di lavoro il riferimento del laser a linea in base alla posizione della macchina.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.6_gestione_del_laser/1.2-20250611-121456.png" alt="1.2-20250611-121456.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Disegna laser a croce</strong><br>Permette di aggiungere sull’area di lavoro il riferimento del laser a croce in base alla posizione della macchina.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.6_gestione_del_laser/1.3-20250611-121520.png" alt="1.3-20250611-121520.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Cancella tutti i disegni</strong><br>Tutti le linee e croci inserite sull’area di lavoro in questa modalità verranno cancellate.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.6_gestione_del_laser/6_4-20250319-065813.png" alt="6_4-20250319-065813.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Cancella un singolo disegno</strong><br>Permette all’operatore di cancellare un elemento laser disegnato sull’area di lavoro cliccandoci sopra.</p></td></tr></tbody></table><p></p><h1 id="laser-a-linea"><a class="header" href="#laser-a-linea">Laser a linea</a></h1><p>Il laser a linea è uno strumento allineato con il disco montato in macchina. Viene utilizzato per raccogliere informazioni legate alla posizione e all’orientamento del disco sul banco.</p><div class="TextAlignCenter"><img src="attachments/3.6_gestione_del_laser/3.1.png" alt="3.1.png" width="277" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p>Per acquisire il riferimento, portare la macchina nel punto desiderato, e premere il pulsante per rilevare la direzione del laser a linea ed aggiungere il riferimento sull’area di lavoro.<br>Utilizzando più riferimenti, è possibile riconoscere il perimetro e la posizione della lastra o di un pezzo sul banco di lavoro.</p>
 <div id="admonition-nota" class="admonition admonish-info" role="note" aria-labelledby="admonition-nota-title">
 <div class="admonition-title">
 <div id="admonition-nota-title">
@@ -228,7 +230,7 @@
 <p>Non ci sono limiti sul numero di riferimenti che è possibile salvare.</p>
 </div>
 </div>
-<div class="TextAlignCenter"><img src="attachments/3.6_gestione_del_laser/2.03.png" alt="2.03.png" width="800" onclick="showModal(this.src)"></div><p></p><h1 id="laser-a-croce"><a class="header" href="#laser-a-croce">Laser a croce</a></h1><p>Il laser a croce viene utilizzato per raccogliere informazioni legate alla posizione del puntatore laser sul banco.</p><div class="TextAlignCenter"><img src="attachments/3.6_gestione_del_laser/3.2.png" alt="3.2.png" width="277" onclick="showModal(this.src)"></div><p>Per acquisire il riferimento, portare la macchina nel punto desiderato, e premere il pulsante per rilevare la posizione del laser a croce ed aggiungere il riferimento sull’area di lavoro.<br>Utilizzando più riferimenti, è possibile riconoscere il perimetro e la posizione della lastra o di un pezzo sul banco di lavoro.</p>
+<div class="TextAlignCenter"><img src="attachments/3.6_gestione_del_laser/2.03.png" alt="2.03.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><h1 id="laser-a-croce"><a class="header" href="#laser-a-croce">Laser a croce</a></h1><p>Il laser a croce viene utilizzato per raccogliere informazioni legate alla posizione del puntatore laser sul banco.</p><div class="TextAlignCenter"><img src="attachments/3.6_gestione_del_laser/3.2.png" alt="3.2.png" width="277" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p>Per acquisire il riferimento, portare la macchina nel punto desiderato, e premere il pulsante per rilevare la posizione del laser a croce ed aggiungere il riferimento sull’area di lavoro.<br>Utilizzando più riferimenti, è possibile riconoscere il perimetro e la posizione della lastra o di un pezzo sul banco di lavoro.</p>
 <div id="admonition-nota-1" class="admonition admonish-info" role="note" aria-labelledby="admonition-nota-1-title">
 <div class="admonition-title">
 <div id="admonition-nota-1-title">
@@ -240,7 +242,7 @@
 <p>Non ci sono limiti sul numero di riferimenti che è possibile salvare.</p>
 </div>
 </div>
-<div class="TextAlignCenter"><img src="attachments/3.6_gestione_del_laser/2.01.png" alt="2.01.png" width="800" onclick="showModal(this.src)"></div><!--Label="lsr"--><!--Label="lsr_lin"--><!--Label="lsr_cro"-->
+<div class="TextAlignCenter"><img src="attachments/3.6_gestione_del_laser/2.01.png" alt="2.01.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><!--Label="lsr"--><!--Label="lsr_lin"--><!--Label="lsr_cro"-->
                         </main>
 
                     </div>
@@ -302,5 +304,12 @@
     </div>;
 
 
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
 </body>
 </html>

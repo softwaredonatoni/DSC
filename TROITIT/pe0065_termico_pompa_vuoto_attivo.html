@@ -40,7 +40,7 @@
     <script>
       const path_to_root = "";
       const default_light_theme = "light";
-      const default_dark_theme = "navy";
+      const default_dark_theme = "light";
     </script>
     <!-- Start loading toc.js asap -->
     <script src="toc.js"></script>
@@ -86,8 +86,10 @@
     });
   });
 })();
-</script></head>
-<body>
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-troubleshooting technical-troubleshooting-emergency" data-technical-styler-flow="html">
     <header class="header-main">
         <div class="header-flex">
             <div class="donatoni-flex">
@@ -110,6 +112,15 @@
                 </div>
                 <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                     <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
                 </button>
 
                 <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
@@ -144,17 +155,8 @@
 
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script>
-            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
-                .matches
-                ? default_dark_theme
-                : default_light_theme;
-            let theme;
-            try {
-                theme = localStorage.getItem("mdbook-theme");
-            } catch (e) { }
-            if (theme === null || theme === undefined) {
-                theme = default_theme;
-            }
+            const default_theme = "light";
+            let theme = default_theme;
             const html = document.documentElement;
             html.classList.remove("light");
             html.classList.add(theme);
@@ -214,8 +216,8 @@
 
                         <img src="images/donatoni_111.jpg">
 
-                        <main style="margin-left: 20px;">
-                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="pe0065-termico-pompa-vuoto-attivo" style="margin:0;"><a class="header" href="#pe0065-termico-pompa-vuoto-attivo">PE0065 TERMICO POMPA VUOTO ATTIVO</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="PE0065 TERMICO POMPA VUOTO ATTIVO"--><layout><layout-section ac:type="fixed-width" ac:breakout-mode="default"><layout-cell><table class="my-table2" data-table-width="760" data-layout="default" ac:local-id="85e18120-421b-48c4-b375-dfbfdc4e6731"><colgroup><col style="width: 380.0px;"><col style="width: 380.0px;"></colgroup><tbody><tr ac:local-id="507652b2-994c-44ab-8635-d4c294c28230"><td data-highlight-colour="#f4f5f7" colspan="2" ac:local-id="fb970b36-1ef9-4d64-9aaa-196c8fa198b8"><p local-id="08b5d7be26ea" style="text-align: center;">⚠️ Prima di procedere leggere attentamente le <p><a href='istruzioni_di_sicurezza.html'>ISTRUZIONI DI SICUREZZA</a></p></td></tr><tr ac:local-id="70cd0489-9aad-4c3f-a0d7-4de223f1f396"><td data-highlight-colour="#f4f5f7" ac:local-id="01998d7d-f95f-4a3f-8f34-f882f85d1541"><p local-id="4bfdb07164ab">⏲️ <strong>Descrizione</strong>: Interruttore termico della pompa del vuoto attivo</p></td><td data-highlight-colour="#f4f5f7" ac:local-id="7485960f-ebc1-45d8-83ff-d7987fd942fb"><p local-id="228901bb4f6c">🎚️ <strong>Gravità</strong>: ⭐⭐☆☆☆ </p></td></tr><tr ac:local-id="ddbba918-4d0a-4d25-91d5-94382a943ad1"><td data-highlight-colour="#f4f5f7" ac:local-id="ad9a543d-68fa-478c-b455-b524a8f8b51a"><p local-id="bbb7d4a74d0b">🧑‍🏭 <strong>Figura autorizzata</strong>: Operatore macchina</p></td><td data-highlight-colour="#f4f5f7" ac:local-id="35da272d-602b-4b1c-a1ca-c76c0e8e51a2"><p local-id="65b0830c3aae">🧤 <strong>DPI previsti</strong>:   <div><img src="attachments/pe0065_termico_pompa_vuoto_attivo/5c50dea6-c18e-4b4c-af4e-4a88d2222111.png" alt="image-20240327-084216.png" onclick="showModal(this.src)" class="inline-img"></div> </td></tr></tbody></table><h2 local-id="6806ed909efc">Descrizione</h2><p local-id="6bb1e47c8f11">Anomalia sull'impianto di sollevamento banco; L'interruttore magnetotermico relativo alla pompa del vuoto è scattato, esso offre una protezione sull'impianto sia ai cortocircuiti sia ai sovraccarichi. Per riarmare l'interruttore spostare il selettore a 0 e successivamente a 1;</p><h2 local-id="6186578e2836">Sintomi</h2><p local-id="a9d8ef524488">…..</p><h2 local-id="7ba6b779b955">Possibili cause</h2><p local-id="39275192eea7">Le cause possono essere suddivise in problemi <strong>Meccanici</strong> o <strong>Elettrici</strong></p><div class='panelContent' style='background-color: #fff; border: 1px solid #D3D3D3; padding: 5px;'><p local-id="e5e193dc9791"><strong>Problemi meccanici:</strong></p><ol start="1" local-id="b9254ee66358" type="1"><li local-id="0e27c7592299"><p local-id="f269840f21a2">Motore pompa del vuoto bloccato, si può provare ad avviare la pompa del vuoto e vedere se effettivamente gira.</p></li><li local-id="2f1c2493a15a"><p local-id="2626fc266228">La vasca della pompa del vuoto è vuota</p></li></ol></div><p local-id="51ff4c866990"></p><div class='panelContent' style='background-color: #fff; border: 1px solid #D3D3D3; padding: 5px;'><p local-id="d9ae03894c4d"><strong>Problemi elettrici:</strong></p><ol start="1" local-id="66b4a62454b4" type="1"><li local-id="6aa1633c2f50"><p local-id="c8552dfba9c5">Cortocircuito tra fasi motore;</p></li><li local-id="daf21106f4f3"><p local-id="cfcc03c895cc">Mancanza di una fase;</p></li><li local-id="40b051c2e90b"><p local-id="1cbc14b6532b">Cortocircuito avvolgimenti del motore;</p></li><li local-id="eafc79f5bd1d"><p local-id="c40ad8248bc7">Interruttore Guasto o impostato la soglia di assorbimento su un valore errato</p></li></ol></div></layout-cell></layout-section><layout-section ac:type="three_equal" ac:breakout-mode="wide" ac:breakout-width="760" ac:local-id="c857ed166745"><layout-cell ac:local-id="9620be5ab80e"><p local-id="2a6c8343c713"></p></layout-cell><layout-cell ac:local-id="4550e6e1dfe4"><p local-id="bd1150f83ff7"></p></layout-cell><layout-cell ac:local-id="174ad11c3695"><p local-id="7e909960b04c"><br></p></layout-cell></layout-section><layout-section ac:type="fixed-width" ac:breakout-mode="default"><layout-cell><div class='panelContent' style='background-color: #fff; border: 1px solid #D3D3D3; padding: 5px;'><h2 local-id="8d7d011d58a3">Possibili soluzioni</h2><p local-id="e194d49c2b96"></p><p local-id="1634801673ab"><strong>MECCANICHE</strong><br></p><ol start="1" local-id="3fdbd1e2220c" type="1"><li local-id="17173a81d13a"><p local-id="fd6bce4bb926">Per prima cosa controllare che la ventolina di raffreddamento del motore giri libera, ovvero con un cacciavite per esempio provare a muovere la ventola, se risulta bloccata bisogna</p></li><li local-id="d2005f3dd455"><p local-id="7566f70c2aa3">riempire fino al livello di troppo pieno la vasca</p></li></ol></div><p local-id="caad054b236d"><br>    <strong>ELETTRICHE</strong> </p>
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Technical troubleshooting sheet</span><span class="maintenance-status"><i class="fa-solid fa-screwdriver-wrench" aria-hidden="true"></i> Emergency diagnostic procedure</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="pe0065-termico-pompa-vuoto-attivo" style="margin:0;" class="maintenance-main-title"><a class="header" href="#pe0065-termico-pompa-vuoto-attivo"><span class="maintenance-code">PE0065</span><span class="maintenance-name">TERMICO POMPA VUOTO ATTIVO</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document PE0065" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="PE0065 TERMICO POMPA VUOTO ATTIVO"--><layout><layout-section ac:type="fixed-width" ac:breakout-mode="default"><layout-cell><table class="my-table2 troubleshooting-template-grid maintenance-data-grid" data-table-width="760" data-layout="default" ac:local-id="85e18120-421b-48c4-b375-dfbfdc4e6731" aria-label="Technical data for document PE0065"><colgroup><col style="width: 380.0px;"><col style="width: 380.0px;"></colgroup><tbody><tr ac:local-id="507652b2-994c-44ab-8635-d4c294c28230" class="maintenance-safety-row"><td data-highlight-colour="#f4f5f7" colspan="2" ac:local-id="fb970b36-1ef9-4d64-9aaa-196c8fa198b8"><p local-id="08b5d7be26ea" style="text-align: center;">Prima di procedere leggere attentamente le <p><a href='istruzioni_di_sicurezza.html'>ISTRUZIONI DI SICUREZZA</a></p></td></tr><tr ac:local-id="70cd0489-9aad-4c3f-a0d7-4de223f1f396"><td data-highlight-colour="#f4f5f7" ac:local-id="01998d7d-f95f-4a3f-8f34-f882f85d1541"><p local-id="4bfdb07164ab" class="maintenance-data-layout"><i class="maintenance-data-icon fa-solid fa-file-lines" aria-hidden="true"></i><span class="maintenance-data-content"><strong class="maintenance-data-label">Descrizione</strong><span class="maintenance-data-value">Interruttore termico della pompa del vuoto attivo</span></span></p></td><td data-highlight-colour="#f4f5f7" ac:local-id="7485960f-ebc1-45d8-83ff-d7987fd942fb"><p local-id="228901bb4f6c" class="maintenance-data-layout"><i class="maintenance-data-icon fa-solid fa-triangle-exclamation" aria-hidden="true"></i><span class="maintenance-data-content"><strong class="maintenance-data-label">Gravità</strong><span class="severity-indicator severity-level-2" aria-label="Severity Moderate, level 2 of 5"><span class="severity-scale" aria-hidden="true"><i class="severity-segment is-active"></i><i class="severity-segment is-active"></i><i class="severity-segment"></i><i class="severity-segment"></i><i class="severity-segment"></i></span><span class="severity-readout"><span class="severity-level-name">Moderate</span><span class="severity-score">02 / 05</span></span></span></span></p></td></tr><tr ac:local-id="ddbba918-4d0a-4d25-91d5-94382a943ad1"><td data-highlight-colour="#f4f5f7" ac:local-id="ad9a543d-68fa-478c-b455-b524a8f8b51a"><p local-id="bbb7d4a74d0b" class="maintenance-data-layout"><i class="maintenance-data-icon fa-solid fa-user-gear" aria-hidden="true"></i><span class="maintenance-data-content"><strong class="maintenance-data-label">Figura autorizzata</strong><span class="maintenance-data-value">Operatore macchina</span></span></p></td><td data-highlight-colour="#f4f5f7" ac:local-id="35da272d-602b-4b1c-a1ca-c76c0e8e51a2"><p local-id="65b0830c3aae"><i class="maintenance-data-icon fa-solid fa-shield-halved" aria-hidden="true"></i><strong>DPI previsti</strong>:   <div><img src="attachments/pe0065_termico_pompa_vuoto_attivo/5c50dea6-c18e-4b4c-af4e-4a88d2222111.png" alt="image-20240327-084216.png" onclick="showModal(this.src)" class="inline-img"></div> </td></tr></tbody></table><h2 local-id="6806ed909efc" class="maintenance-section-title" data-section-number="01">Descrizione</h2><p local-id="6bb1e47c8f11">Anomalia sull'impianto di sollevamento banco; L'interruttore magnetotermico relativo alla pompa del vuoto è scattato, esso offre una protezione sull'impianto sia ai cortocircuiti sia ai sovraccarichi. Per riarmare l'interruttore spostare il selettore a 0 e successivamente a 1;</p><h2 local-id="6186578e2836" class="maintenance-section-title" data-section-number="02">Sintomi</h2><p local-id="a9d8ef524488">…..</p><h2 local-id="7ba6b779b955" class="maintenance-section-title" data-section-number="03">Possibili cause</h2><p local-id="39275192eea7">Le cause possono essere suddivise in problemi <strong>Meccanici</strong> o <strong>Elettrici</strong></p><div class='panelContent' style='background-color: #fff; border: 1px solid #D3D3D3; padding: 5px;'><p local-id="e5e193dc9791"><strong>Problemi meccanici:</strong></p><ol start="1" local-id="b9254ee66358" type="1"><li local-id="0e27c7592299"><p local-id="f269840f21a2">Motore pompa del vuoto bloccato, si può provare ad avviare la pompa del vuoto e vedere se effettivamente gira.</p></li><li local-id="2f1c2493a15a"><p local-id="2626fc266228">La vasca della pompa del vuoto è vuota</p></li></ol></div><p local-id="51ff4c866990"></p><div class='panelContent' style='background-color: #fff; border: 1px solid #D3D3D3; padding: 5px;'><p local-id="d9ae03894c4d"><strong>Problemi elettrici:</strong></p><ol start="1" local-id="66b4a62454b4" type="1"><li local-id="6aa1633c2f50"><p local-id="c8552dfba9c5">Cortocircuito tra fasi motore;</p></li><li local-id="daf21106f4f3"><p local-id="cfcc03c895cc">Mancanza di una fase;</p></li><li local-id="40b051c2e90b"><p local-id="1cbc14b6532b">Cortocircuito avvolgimenti del motore;</p></li><li local-id="eafc79f5bd1d"><p local-id="c40ad8248bc7">Interruttore Guasto o impostato la soglia di assorbimento su un valore errato</p></li></ol></div></layout-cell></layout-section><layout-section ac:type="three_equal" ac:breakout-mode="wide" ac:breakout-width="760" ac:local-id="c857ed166745"><layout-cell ac:local-id="9620be5ab80e"><p local-id="2a6c8343c713"></p></layout-cell><layout-cell ac:local-id="4550e6e1dfe4"><p local-id="bd1150f83ff7"></p></layout-cell><layout-cell ac:local-id="174ad11c3695"><p local-id="7e909960b04c"><br></p></layout-cell></layout-section><layout-section ac:type="fixed-width" ac:breakout-mode="default"><layout-cell><div class='panelContent' style='background-color: #fff; border: 1px solid #D3D3D3; padding: 5px;'><h2 local-id="8d7d011d58a3" class="maintenance-section-title" data-section-number="04">Possibili soluzioni</h2><p local-id="e194d49c2b96"></p><p local-id="1634801673ab"><strong>MECCANICHE</strong><br></p><ol start="1" local-id="3fdbd1e2220c" type="1" class="procedure-steps"><li local-id="17173a81d13a"><p local-id="fd6bce4bb926">Per prima cosa controllare che la ventolina di raffreddamento del motore giri libera, ovvero con un cacciavite per esempio provare a muovere la ventola, se risulta bloccata bisogna</p></li><li local-id="d2005f3dd455"><p local-id="7566f70c2aa3">riempire fino al livello di troppo pieno la vasca</p></li></ol></div><p local-id="caad054b236d"><br>    <strong>ELETTRICHE</strong> </p>
 <div id="admonition-attenzione-" class="admonition admonish-warning" role="note" aria-labelledby="admonition-attenzione--title">
 <div class="admonition-title">
 <div id="admonition-attenzione--title">
@@ -289,5 +291,12 @@
     </div>;
 
 
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
 </body>
 </html>

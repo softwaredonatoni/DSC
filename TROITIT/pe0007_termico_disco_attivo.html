@@ -40,7 +40,7 @@
     <script>
       const path_to_root = "";
       const default_light_theme = "light";
-      const default_dark_theme = "navy";
+      const default_dark_theme = "light";
     </script>
     <!-- Start loading toc.js asap -->
     <script src="toc.js"></script>
@@ -86,8 +86,10 @@
     });
   });
 })();
-</script></head>
-<body>
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-troubleshooting technical-troubleshooting-emergency" data-technical-styler-flow="html">
     <header class="header-main">
         <div class="header-flex">
             <div class="donatoni-flex">
@@ -110,6 +112,15 @@
                 </div>
                 <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                     <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
                 </button>
 
                 <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
@@ -144,17 +155,8 @@
 
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script>
-            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
-                .matches
-                ? default_dark_theme
-                : default_light_theme;
-            let theme;
-            try {
-                theme = localStorage.getItem("mdbook-theme");
-            } catch (e) { }
-            if (theme === null || theme === undefined) {
-                theme = default_theme;
-            }
+            const default_theme = "light";
+            let theme = default_theme;
             const html = document.documentElement;
             html.classList.remove("light");
             html.classList.add(theme);
@@ -214,8 +216,8 @@
 
                         <img src="images/donatoni_111.jpg">
 
-                        <main style="margin-left: 20px;">
-                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="pe0007-termico-disco-attivo" style="margin:0;"><a class="header" href="#pe0007-termico-disco-attivo">PE0007 TERMICO DISCO ATTIVO</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="PE0007 TERMICO DISCO ATTIVO"--><table class="my-table2" data-table-width="760" data-layout="default" ac:local-id="85e18120-421b-48c4-b375-dfbfdc4e6731"><colgroup><col style="width: 380.0px;"><col style="width: 380.0px;"></colgroup><tbody><tr ac:local-id="e76be599-eac8-4092-be0f-66e262b9575f"><td data-highlight-colour="#f4f5f7" colspan="2" ac:local-id="73b646c3-6e66-4e62-ba9a-d2c1b1989377"><p local-id="529f9a5f299a" style="text-align: center;">⚠️ Prima di procedere leggere attentamente le <p><a href='istruzioni_di_sicurezza.html'>ISTRUZIONI DI SICUREZZA</a></p></td></tr><tr ac:local-id="47124d36-7436-49e9-a393-ef60db714238"><td data-highlight-colour="#f4f5f7" ac:local-id="6a09089e-36d4-487f-9725-98457a8a84cc"><p local-id="2892a1d7a01f">⏲️ <strong>Descrizione</strong>: Allarme termico disco attivo</p></td><td data-highlight-colour="#f4f5f7" ac:local-id="bc6acaf1-742f-4cb4-a46a-f1bea5cfd8ed"><p local-id="27032a62bc95">🎚️ <strong>Gravità</strong>: ⭐⭐☆☆☆ </p></td></tr><tr ac:local-id="62dae00c-c212-4f49-b51c-4cf4cb8a56bc"><td data-highlight-colour="#f4f5f7" ac:local-id="72eb6e0f-0149-4df2-867a-483580f46b31"><p local-id="b4a301863bf7">🧑‍🏭 <strong>Figura autorizzata</strong>: Operatore macchina</p></td><td data-highlight-colour="#f4f5f7" ac:local-id="8cd4541b-176e-4b59-9dc3-237ac522dd6f"><p local-id="e7c940bbe0d4">🧤 <strong>DPI previsti</strong>:   <div><img src="attachments/pe0007_termico_disco_attivo/5c50dea6-c18e-4b4c-af4e-4a88d2222111.png" alt="image-20240327-084216.png" onclick="showModal(this.src)" class="inline-img"></div> </td></tr></tbody></table><h2 local-id="95dadf3e9658">Descrizione</h2><p local-id="ec6e66f66cf0">L’allarme termico disco è generato qualora l’inverter che gestisce la rotazione del mandrino abbia malfunzionamenti.</p><h2 local-id="6186578e2836">Sintomi</h2><p local-id="f0840cb3a9da">…..</p><h2 local-id="f4b205503223">Possibili cause</h2><p local-id="269b206e3633">Le cause di questo errore sono da valutare di volta in volta poiché si dovrà aprire il quadro elettrico e controllare i messaggi di errore dell'inverter.</p><p local-id="67bcfd67ab55"><strong>NB</strong>: per aprire il quadro elettrico effettuare la procedura di <p><a href='apertura_quadro_elettrico_acceso.html'>Apertura quadro elettrico acceso</a></p><p><a href='attachments/pe0007_termico_disco_attivo/Messaggi_errore_Inverter.pdf'>Messaggi errore Inverter.pdf</a></p><h2 local-id="cb0255ba0c3b">Possibili soluzioni</h2><p local-id="ddc582b20b1f">Le soluzioni al problema dipenderanno dallo stato dell'inverter, importante è valutare se il problema è dato dai collegamenti Post inverter o Pre inverter:</p><ul local-id="f8a7ffec9a8c"><li local-id="0c6d96df751e"><p local-id="9bd617587497">Per esempio provare a scollegare il cavo del mandrino e provare ad avviare il disco e vedere se si ripresenta l'errore.</p></li></ul><p local-id="d67b201c06af"></p><!--Label="elettrico"--><!--Label="quadro"--><!--Label="inverter"--><!--Label="pe0007"-->
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Technical troubleshooting sheet</span><span class="maintenance-status"><i class="fa-solid fa-screwdriver-wrench" aria-hidden="true"></i> Emergency diagnostic procedure</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="pe0007-termico-disco-attivo" style="margin:0;" class="maintenance-main-title"><a class="header" href="#pe0007-termico-disco-attivo"><span class="maintenance-code">PE0007</span><span class="maintenance-name">TERMICO DISCO ATTIVO</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document PE0007" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="PE0007 TERMICO DISCO ATTIVO"--><table class="my-table2 troubleshooting-template-grid maintenance-data-grid" data-table-width="760" data-layout="default" ac:local-id="85e18120-421b-48c4-b375-dfbfdc4e6731" aria-label="Technical data for document PE0007"><colgroup><col style="width: 380.0px;"><col style="width: 380.0px;"></colgroup><tbody><tr ac:local-id="e76be599-eac8-4092-be0f-66e262b9575f" class="maintenance-safety-row"><td data-highlight-colour="#f4f5f7" colspan="2" ac:local-id="73b646c3-6e66-4e62-ba9a-d2c1b1989377"><p local-id="529f9a5f299a" style="text-align: center;">Prima di procedere leggere attentamente le <p><a href='istruzioni_di_sicurezza.html'>ISTRUZIONI DI SICUREZZA</a></p></td></tr><tr ac:local-id="47124d36-7436-49e9-a393-ef60db714238"><td data-highlight-colour="#f4f5f7" ac:local-id="6a09089e-36d4-487f-9725-98457a8a84cc"><p local-id="2892a1d7a01f" class="maintenance-data-layout"><i class="maintenance-data-icon fa-solid fa-file-lines" aria-hidden="true"></i><span class="maintenance-data-content"><strong class="maintenance-data-label">Descrizione</strong><span class="maintenance-data-value">Allarme termico disco attivo</span></span></p></td><td data-highlight-colour="#f4f5f7" ac:local-id="bc6acaf1-742f-4cb4-a46a-f1bea5cfd8ed"><p local-id="27032a62bc95" class="maintenance-data-layout"><i class="maintenance-data-icon fa-solid fa-triangle-exclamation" aria-hidden="true"></i><span class="maintenance-data-content"><strong class="maintenance-data-label">Gravità</strong><span class="severity-indicator severity-level-2" aria-label="Severity Moderate, level 2 of 5"><span class="severity-scale" aria-hidden="true"><i class="severity-segment is-active"></i><i class="severity-segment is-active"></i><i class="severity-segment"></i><i class="severity-segment"></i><i class="severity-segment"></i></span><span class="severity-readout"><span class="severity-level-name">Moderate</span><span class="severity-score">02 / 05</span></span></span></span></p></td></tr><tr ac:local-id="62dae00c-c212-4f49-b51c-4cf4cb8a56bc"><td data-highlight-colour="#f4f5f7" ac:local-id="72eb6e0f-0149-4df2-867a-483580f46b31"><p local-id="b4a301863bf7" class="maintenance-data-layout"><i class="maintenance-data-icon fa-solid fa-user-gear" aria-hidden="true"></i><span class="maintenance-data-content"><strong class="maintenance-data-label">Figura autorizzata</strong><span class="maintenance-data-value">Operatore macchina</span></span></p></td><td data-highlight-colour="#f4f5f7" ac:local-id="8cd4541b-176e-4b59-9dc3-237ac522dd6f"><p local-id="e7c940bbe0d4"><i class="maintenance-data-icon fa-solid fa-shield-halved" aria-hidden="true"></i><strong>DPI previsti</strong>:   <div><img src="attachments/pe0007_termico_disco_attivo/5c50dea6-c18e-4b4c-af4e-4a88d2222111.png" alt="image-20240327-084216.png" onclick="showModal(this.src)" class="inline-img"></div> </td></tr></tbody></table><h2 local-id="95dadf3e9658" class="maintenance-section-title" data-section-number="01">Descrizione</h2><p local-id="ec6e66f66cf0">L’allarme termico disco è generato qualora l’inverter che gestisce la rotazione del mandrino abbia malfunzionamenti.</p><h2 local-id="6186578e2836" class="maintenance-section-title" data-section-number="02">Sintomi</h2><p local-id="f0840cb3a9da">…..</p><h2 local-id="f4b205503223" class="maintenance-section-title" data-section-number="03">Possibili cause</h2><p local-id="269b206e3633">Le cause di questo errore sono da valutare di volta in volta poiché si dovrà aprire il quadro elettrico e controllare i messaggi di errore dell'inverter.</p><p local-id="67bcfd67ab55"><strong>NB</strong>: per aprire il quadro elettrico effettuare la procedura di <p><a href='apertura_quadro_elettrico_acceso.html'>Apertura quadro elettrico acceso</a></p><p><a href='attachments/pe0007_termico_disco_attivo/Messaggi_errore_Inverter.pdf'>Messaggi errore Inverter.pdf</a></p><h2 local-id="cb0255ba0c3b" class="maintenance-section-title" data-section-number="04">Possibili soluzioni</h2><p local-id="ddc582b20b1f">Le soluzioni al problema dipenderanno dallo stato dell'inverter, importante è valutare se il problema è dato dai collegamenti Post inverter o Pre inverter:</p><ul local-id="f8a7ffec9a8c" class="procedure-steps"><li local-id="0c6d96df751e"><p local-id="9bd617587497">Per esempio provare a scollegare il cavo del mandrino e provare ad avviare il disco e vedere se si ripresenta l'errore.</p></li></ul><p local-id="d67b201c06af"></p><!--Label="elettrico"--><!--Label="quadro"--><!--Label="inverter"--><!--Label="pe0007"-->
                         </main>
 
                     </div>
@@ -277,5 +279,12 @@
     </div>;
 
 
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
 </body>
 </html>

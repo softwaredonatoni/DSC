@@ -40,7 +40,7 @@
     <script>
       const path_to_root = "";
       const default_light_theme = "light";
-      const default_dark_theme = "navy";
+      const default_dark_theme = "light";
     </script>
     <!-- Start loading toc.js asap -->
     <script src="toc.js"></script>
@@ -86,8 +86,10 @@
     });
   });
 })();
-</script></head>
-<body>
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-document" data-technical-styler-flow="html">
     <header class="header-main">
         <div class="header-flex">
             <div class="donatoni-flex">
@@ -110,6 +112,15 @@
                 </div>
                 <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                     <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
                 </button>
 
                 <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
@@ -144,17 +155,8 @@
 
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script>
-            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
-                .matches
-                ? default_dark_theme
-                : default_light_theme;
-            let theme;
-            try {
-                theme = localStorage.getItem("mdbook-theme");
-            } catch (e) { }
-            if (theme === null || theme === undefined) {
-                theme = default_theme;
-            }
+            const default_theme = "light";
+            let theme = default_theme;
             const html = document.documentElement;
             html.classList.remove("light");
             html.classList.add(theme);
@@ -214,9 +216,9 @@
 
                         <img src="images/donatoni_111.jpg">
 
-                        <main style="margin-left: 20px;">
-                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="2318-taglio-sotto" style="margin:0;"><a class="header" href="#2318-taglio-sotto">2.3.1.8 TAGLIO SOTTO</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="2.3.1.8 TAGLIO SOTTO"--><p local-id="1a8d131a-37b9-4768-8bed-1f51cadc8eb0">Questa lavorazione consente di eseguire un taglio sulla superficie inferiore del pezzo.</p><div class="TextAlignCenter"><img src="attachments/2.3.1.8_taglio_sotto/3.1.1.8.00.png" alt="3.1.1.8.00.png" width="800" onclick="showModal(this.src)"></div><p>
-</p><p local-id="c62e25b63de6"></p><h1 local-id="2cc1768778e5">Parametri</h1><div class="TextAlignCenter"><img src="attachments/2.3.1.8_taglio_sotto/3.1.1.8.01.png" alt="3.1.1.8.01.png" width="800" onclick="showModal(this.src)"></div><table class="my-table2" data-table-width="1539" data-layout="center" ac:local-id="191857e6-b7ff-4e98-9092-e73ea545ec58"><colgroup><col style="width: 456.0px;"><col style="width: 1082.0px;"></colgroup><tbody><tr ac:local-id="15bae492a8b8"><td ac:local-id="aaae0877901c"><div class="TextAlignCenter"><img src="attachments/2.3.1.8_taglio_sotto/3.1.1.8.02.png" alt="3.1.1.8.02.png" width="203" onclick="showModal(this.src)"></div></td><td ac:local-id="a7c02a2be185"><p local-id="2bda31cd40de"><strong>Profondità</strong><br>Indica la penetrazione del taglio nel materiale.</p></td></tr><tr ac:local-id="a38bc5c34db2"><td ac:local-id="ecf156e06a18"><div class="TextAlignCenter"><img src="attachments/2.3.1.8_taglio_sotto/3.1.1.8.03.png" alt="3.1.1.8.03.png" width="203" onclick="showModal(this.src)"></div></td><td ac:local-id="03cd49667977"><p local-id="783033667c55"><strong>Distanza dal bordo</strong><br>Indica la distanza del taglio dalla costa del pezzo.</p></td></tr></tbody></table><p local-id="9611ea46487d"></p><h1 local-id="a3f18172fa98">Gruppi disponibili</h1><table class="my-table2" data-table-width="1539" data-layout="center" ac:local-id="2cd012da-dbfd-468f-b2c5-035b600e1adb"><tbody><tr ac:local-id="0f62c553ef20"><td ac:local-id="4ce7b11f94ad"><p local-id="6908d0c45f75" style="text-align: center;"><strong>Gruppo taglio lama/rettifica</strong></p></td></tr><tr ac:local-id="d98dda5de019"><td ac:local-id="0c5b6c292aa6"><div class="TextAlignCenter"><img src="attachments/2.3.1.8_taglio_sotto/3.1.1.8.04.png" alt="3.1.1.8.04.png" width="208" onclick="showModal(this.src)"></div></td></tr></tbody></table><!--Label="edg_wrk_bct"-->
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Machine technical documentation</span><span class="maintenance-status"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Operational document</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="2318-taglio-sotto" style="margin:0;" class="maintenance-main-title"><a class="header" href="#2318-taglio-sotto"><span class="maintenance-code">DOC</span><span class="maintenance-name">2.3.1.8 TAGLIO SOTTO</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document DOC" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="2.3.1.8 TAGLIO SOTTO"--><p local-id="1a8d131a-37b9-4768-8bed-1f51cadc8eb0">Questa lavorazione consente di eseguire un taglio sulla superficie inferiore del pezzo.</p><div class="TextAlignCenter"><img src="attachments/2.3.1.8_taglio_sotto/3.1.1.8.00.png" alt="3.1.1.8.00.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p>
+</p><p local-id="c62e25b63de6"></p><h1 local-id="2cc1768778e5">Parametri</h1><div class="TextAlignCenter"><img src="attachments/2.3.1.8_taglio_sotto/3.1.1.8.01.png" alt="3.1.1.8.01.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><table class="my-table2" data-table-width="1539" data-layout="center" ac:local-id="191857e6-b7ff-4e98-9092-e73ea545ec58"><colgroup><col style="width: 456.0px;"><col style="width: 1082.0px;"></colgroup><tbody><tr ac:local-id="15bae492a8b8"><td ac:local-id="aaae0877901c"><div class="TextAlignCenter"><img src="attachments/2.3.1.8_taglio_sotto/3.1.1.8.02.png" alt="3.1.1.8.02.png" width="203" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="a7c02a2be185"><p local-id="2bda31cd40de"><strong>Profondità</strong><br>Indica la penetrazione del taglio nel materiale.</p></td></tr><tr ac:local-id="a38bc5c34db2"><td ac:local-id="ecf156e06a18"><div class="TextAlignCenter"><img src="attachments/2.3.1.8_taglio_sotto/3.1.1.8.03.png" alt="3.1.1.8.03.png" width="203" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="03cd49667977"><p local-id="783033667c55"><strong>Distanza dal bordo</strong><br>Indica la distanza del taglio dalla costa del pezzo.</p></td></tr></tbody></table><p local-id="9611ea46487d"></p><h1 local-id="a3f18172fa98">Gruppi disponibili</h1><table class="my-table2" data-table-width="1539" data-layout="center" ac:local-id="2cd012da-dbfd-468f-b2c5-035b600e1adb"><tbody><tr ac:local-id="0f62c553ef20"><td ac:local-id="4ce7b11f94ad"><p local-id="6908d0c45f75" style="text-align: center;"><strong>Gruppo taglio lama/rettifica</strong></p></td></tr><tr ac:local-id="d98dda5de019"><td ac:local-id="0c5b6c292aa6"><div class="TextAlignCenter"><img src="attachments/2.3.1.8_taglio_sotto/3.1.1.8.04.png" alt="3.1.1.8.04.png" width="208" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td></tr></tbody></table><!--Label="edg_wrk_bct"-->
                         </main>
 
                     </div>
@@ -278,5 +280,12 @@
     </div>;
 
 
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
 </body>
 </html>

@@ -40,7 +40,7 @@
     <script>
       const path_to_root = "";
       const default_light_theme = "light";
-      const default_dark_theme = "navy";
+      const default_dark_theme = "light";
     </script>
     <!-- Start loading toc.js asap -->
     <script src="toc.js"></script>
@@ -86,8 +86,10 @@
     });
   });
 })();
-</script></head>
-<body>
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-maintenance" data-technical-styler-flow="html">
     <header class="header-main">
         <div class="header-flex">
             <div class="donatoni-flex">
@@ -110,6 +112,15 @@
                 </div>
                 <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                     <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
                 </button>
 
                 <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
@@ -144,17 +155,8 @@
 
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script>
-            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
-                .matches
-                ? default_dark_theme
-                : default_light_theme;
-            let theme;
-            try {
-                theme = localStorage.getItem("mdbook-theme");
-            } catch (e) { }
-            if (theme === null || theme === undefined) {
-                theme = default_theme;
-            }
+            const default_theme = "light";
+            let theme = default_theme;
             const html = document.documentElement;
             html.classList.remove("light");
             html.classList.add(theme);
@@ -214,8 +216,8 @@
 
                         <img src="images/donatoni_111.jpg">
 
-                        <main style="margin-left: 20px;">
-                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="mn0049-sostituzione-olio-della-pompa-hydrox" style="margin:0;"><a class="header" href="#mn0049-sostituzione-olio-della-pompa-hydrox">MN0049 Sostituzione olio della pompa Hydrox</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="MN0049 Sostituzione olio della pompa Hydrox"--><table class="my-table2" data-table-width="760" data-layout="default" ac:local-id="85e18120-421b-48c4-b375-dfbfdc4e6731"><tbody><tr ac:local-id="48091707-acff-4f20-a33c-82022201d6b3"><td data-highlight-colour="#f4f5f7" colspan="2" ac:local-id="f4a32b52-7bcf-4fc5-9e82-7a565e9e58eb"><p local-id="151093f363bd" style="text-align: center;">⚠️ Prima di procedere leggere attentamente le <p><a href='istruzioni_di_sicurezza.html'>ISTRUZIONI DI SICUREZZA</a></p></td></tr><tr ac:local-id="9464fbd7-3ed7-4a34-88b2-b5692918eb11"><td data-highlight-colour="#f4f5f7" ac:local-id="876f5cf8-a395-47be-8c7c-3a794147e717"><p local-id="8e5cf021430d">⏲️ <strong>Intervallo</strong>: 1 anno o 4 anni dalla seconda volta</p></td><td data-highlight-colour="#f4f5f7" ac:local-id="312461da-6e72-417c-8ca9-db727dae7ffc"><p local-id="571c8e02f593">🎚️ <strong>Complessità operazione</strong>: ⭐⭐⭐☆☆ </p></td></tr><tr ac:local-id="615a13fa-eb76-4c46-a650-c1f4ff153265"><td data-highlight-colour="#f4f5f7" ac:local-id="7da46177-e47b-4d5e-ad6f-7d4ea713968b"><p local-id="384409ba02fa">🧑‍🏭 <strong>Figura autorizzata</strong>: Operatore macchina</p></td><td data-highlight-colour="#f4f5f7" ac:local-id="cc7054ae-00fa-4efd-9f96-b21cf8129ea8"><p local-id="f44e3feae4f7">🧤 <strong>DPI previsti</strong>:   <div><img src="attachments/mn0049_sostituzione_olio_della_pompa_hydrox/image-20240327-084216.png" alt="image-20240327-084216.png" onclick="showModal(this.src)" class="inline-img"></div> </td></tr></tbody></table><p local-id="1772f7f01f1d">Per raggiungere il tappo della valvola di scarico e il bocchettone di riempimento, aprire il cofano di copertura (A) e rimuovere il carter frontale (C) e laterale (B).</p><p local-id="7eab7f17cbb8">Per raccogliere l’olio è necessario un recipiente di raccolta idoneo con capacità superiore a 5litri.<br>Collocare uno straccio o simili sotto il tappo di scarico olio (E).</p><div class="TextAlignCenter"><img src="attachments/mn0049_sostituzione_olio_della_pompa_hydrox/image-20260629-115602.png" alt="image-20260629-115602.png" width="757" onclick="showModal(this.src)"></div><ol start="1" local-id="592e4ed30054" type="1"><li local-id="a37edc24f887"><p local-id="a813b58bf18f">Rimuovere il tappo (D) dal bocchettone di riempimento dell’olio.</p></li><li local-id="29d89408f7b3"><p local-id="92d212abc6c2">Per scaricare l’olio utilizzare il tubo flessibile con l’apposito avvitaggio fornito in dotazione. Fare in modo che l’estremità aperta rimanga dentro il recipiente predisposto per la raccolta</p></li><li local-id="e1d58231231b"><p local-id="e016e9897e6a">Svitare il tappo della valvola di scarico olio (E). L’olio inizia a fuoriuscire non appena si avvita il collegamento a vite del tubo flessibile.</p></li><li local-id="82f5e5b864fb"><p local-id="e9776d944565">Verificare la presenza di emulsione nell’olio esausto. Se è presente un’emulsione, eliminare l’umidità dal circuito dell’olio.</p></li><li local-id="109e7235690d"><p local-id="4e7c4563fa5a">Togliere il tubo flessibile e avvitare il tappo della valvola di scarico olio (E).</p></li><li local-id="47810622b0e0"><p local-id="120bb20099bd">Riempire il basamento con circa 4.3 litri di olio nuovo verificando il livello tramite l’astina.<br>Classe di viscosità dell’olio: PAO ISO VG 320. <br>Al termine del documento è presente una tabella comparativa.</p></li></ol><table class="my-table2" data-table-width="760" data-layout="default" ac:local-id="eca43f9e-69f3-41dd-959d-107f01401c6f"><tbody><tr ac:local-id="ce2151ce68a5"><td ac:local-id="d9e56875fd7c"><div class="TextAlignCenter"><img src="attachments/mn0049_sostituzione_olio_della_pompa_hydrox/97deb37b-8054-473b-a850-f6f5daac9b1f.png" alt="97deb37b-8054-473b-a850-f6f5daac9b1f.png" width="150" onclick="showModal(this.src)"></div></td><td ac:local-id="b4b625025990"><p local-id="219e8c7f551e"></p><div class="TextAlignCenter"><img src="attachments/mn0049_sostituzione_olio_della_pompa_hydrox/8bd37748-9ae6-471f-84d2-79627ca202ee.png" alt="8bd37748-9ae6-471f-84d2-79627ca202ee.png" width="191" onclick="showModal(this.src)"></div></td></tr></tbody></table><div class="TextAlignCenter"><img src="attachments/mn0049_sostituzione_olio_della_pompa_hydrox/image-20260629-125040.png" alt="image-20260629-125040.png" width="760" onclick="showModal(this.src)"></div><p local-id="2f3fb09fc392"></p>
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Technical maintenance sheet</span><span class="maintenance-status"><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Controlled procedure</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="mn0049-sostituzione-olio-della-pompa-hydrox" style="margin:0;" class="maintenance-main-title"><a class="header" href="#mn0049-sostituzione-olio-della-pompa-hydrox"><span class="maintenance-code">MN0049</span><span class="maintenance-name">Sostituzione olio della pompa Hydrox</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document MN0049" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="MN0049 Sostituzione olio della pompa Hydrox"--><table class="my-table2 maintenance-data-grid" data-table-width="760" data-layout="default" ac:local-id="85e18120-421b-48c4-b375-dfbfdc4e6731" aria-label="Technical data for document MN0049"><tbody><tr ac:local-id="48091707-acff-4f20-a33c-82022201d6b3" class="maintenance-safety-row"><td data-highlight-colour="#f4f5f7" colspan="2" ac:local-id="f4a32b52-7bcf-4fc5-9e82-7a565e9e58eb"><p local-id="151093f363bd" style="text-align: center;">Prima di procedere leggere attentamente le <p><a href='istruzioni_di_sicurezza.html'>ISTRUZIONI DI SICUREZZA</a></p></td></tr><tr ac:local-id="9464fbd7-3ed7-4a34-88b2-b5692918eb11"><td data-highlight-colour="#f4f5f7" ac:local-id="876f5cf8-a395-47be-8c7c-3a794147e717"><p local-id="8e5cf021430d" class="maintenance-data-layout"><i class="maintenance-data-icon fa-solid fa-clock" aria-hidden="true"></i><span class="maintenance-data-content"><strong class="maintenance-data-label">Intervallo</strong><span class="maintenance-data-value">1 anno o 4 anni dalla seconda volta</span></span></p></td><td data-highlight-colour="#f4f5f7" ac:local-id="312461da-6e72-417c-8ca9-db727dae7ffc"><p local-id="571c8e02f593" class="maintenance-data-layout"><i class="maintenance-data-icon fa-solid fa-gauge-high" aria-hidden="true"></i><span class="maintenance-data-content"><strong class="maintenance-data-label">Complessità operazione</strong><span class="complexity-indicator complexity-level-3" aria-label="Complexity Medium, level 3 of 5"><span class="complexity-scale" aria-hidden="true"><i class="complexity-segment is-active"></i><i class="complexity-segment is-active"></i><i class="complexity-segment is-active"></i><i class="complexity-segment"></i><i class="complexity-segment"></i></span><span class="complexity-readout"><span class="complexity-level-name">Medium</span><span class="complexity-score">03 / 05</span></span></span></span></p></td></tr><tr ac:local-id="615a13fa-eb76-4c46-a650-c1f4ff153265"><td data-highlight-colour="#f4f5f7" ac:local-id="7da46177-e47b-4d5e-ad6f-7d4ea713968b"><p local-id="384409ba02fa" class="maintenance-data-layout"><i class="maintenance-data-icon fa-solid fa-user-gear" aria-hidden="true"></i><span class="maintenance-data-content"><strong class="maintenance-data-label">Figura autorizzata</strong><span class="maintenance-data-value">Operatore macchina</span></span></p></td><td data-highlight-colour="#f4f5f7" ac:local-id="cc7054ae-00fa-4efd-9f96-b21cf8129ea8"><p local-id="f44e3feae4f7"><i class="maintenance-data-icon fa-solid fa-shield-halved" aria-hidden="true"></i><strong>DPI previsti</strong>:   <div><img src="attachments/mn0049_sostituzione_olio_della_pompa_hydrox/image-20240327-084216.png" alt="image-20240327-084216.png" onclick="showModal(this.src)" class="inline-img"></div> </td></tr></tbody></table><p local-id="1772f7f01f1d">Per raggiungere il tappo della valvola di scarico e il bocchettone di riempimento, aprire il cofano di copertura (A) e rimuovere il carter frontale (C) e laterale (B).</p><p local-id="7eab7f17cbb8">Per raccogliere l’olio è necessario un recipiente di raccolta idoneo con capacità superiore a 5litri.<br>Collocare uno straccio o simili sotto il tappo di scarico olio (E).</p><div class="TextAlignCenter"><img src="attachments/mn0049_sostituzione_olio_della_pompa_hydrox/image-20260629-115602.png" alt="image-20260629-115602.png" width="757" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><ol start="1" local-id="592e4ed30054" type="1"><li local-id="a37edc24f887"><p local-id="a813b58bf18f">Rimuovere il tappo (D) dal bocchettone di riempimento dell’olio.</p></li><li local-id="29d89408f7b3"><p local-id="92d212abc6c2">Per scaricare l’olio utilizzare il tubo flessibile con l’apposito avvitaggio fornito in dotazione. Fare in modo che l’estremità aperta rimanga dentro il recipiente predisposto per la raccolta</p></li><li local-id="e1d58231231b"><p local-id="e016e9897e6a">Svitare il tappo della valvola di scarico olio (E). L’olio inizia a fuoriuscire non appena si avvita il collegamento a vite del tubo flessibile.</p></li><li local-id="82f5e5b864fb"><p local-id="e9776d944565">Verificare la presenza di emulsione nell’olio esausto. Se è presente un’emulsione, eliminare l’umidità dal circuito dell’olio.</p></li><li local-id="109e7235690d"><p local-id="4e7c4563fa5a">Togliere il tubo flessibile e avvitare il tappo della valvola di scarico olio (E).</p></li><li local-id="47810622b0e0"><p local-id="120bb20099bd">Riempire il basamento con circa 4.3 litri di olio nuovo verificando il livello tramite l’astina.<br>Classe di viscosità dell’olio: PAO ISO VG 320. <br>Al termine del documento è presente una tabella comparativa.</p></li></ol><table class="my-table2" data-table-width="760" data-layout="default" ac:local-id="eca43f9e-69f3-41dd-959d-107f01401c6f"><tbody><tr ac:local-id="ce2151ce68a5"><td ac:local-id="d9e56875fd7c"><div class="TextAlignCenter"><img src="attachments/mn0049_sostituzione_olio_della_pompa_hydrox/97deb37b-8054-473b-a850-f6f5daac9b1f.png" alt="97deb37b-8054-473b-a850-f6f5daac9b1f.png" width="150" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="b4b625025990"><p local-id="219e8c7f551e"></p><div class="TextAlignCenter"><img src="attachments/mn0049_sostituzione_olio_della_pompa_hydrox/8bd37748-9ae6-471f-84d2-79627ca202ee.png" alt="8bd37748-9ae6-471f-84d2-79627ca202ee.png" width="191" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td></tr></tbody></table><div class="TextAlignCenter"><img src="attachments/mn0049_sostituzione_olio_della_pompa_hydrox/image-20260629-125040.png" alt="image-20260629-125040.png" width="760" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="2f3fb09fc392"></p>
                         </main>
 
                     </div>
@@ -277,5 +279,12 @@
     </div>;
 
 
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
 </body>
 </html>

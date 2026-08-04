@@ -40,7 +40,7 @@
     <script>
       const path_to_root = "";
       const default_light_theme = "light";
-      const default_dark_theme = "navy";
+      const default_dark_theme = "light";
     </script>
     <!-- Start loading toc.js asap -->
     <script src="toc.js"></script>
@@ -86,8 +86,10 @@
     });
   });
 })();
-</script></head>
-<body>
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-document" data-technical-styler-flow="html">
     <header class="header-main">
         <div class="header-flex">
             <div class="donatoni-flex">
@@ -110,6 +112,15 @@
                 </div>
                 <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                     <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
                 </button>
 
                 <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
@@ -144,17 +155,8 @@
 
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script>
-            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
-                .matches
-                ? default_dark_theme
-                : default_light_theme;
-            let theme;
-            try {
-                theme = localStorage.getItem("mdbook-theme");
-            } catch (e) { }
-            if (theme === null || theme === undefined) {
-                theme = default_theme;
-            }
+            const default_theme = "light";
+            let theme = default_theme;
             const html = document.documentElement;
             html.classList.remove("light");
             html.classList.add(theme);
@@ -214,9 +216,9 @@
 
                         <img src="images/donatoni_111.jpg">
 
-                        <main style="margin-left: 20px;">
-                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="23112-top-polishing" style="margin:0;"><a class="header" href="#23112-top-polishing">2.3.1.12 TOP POLISHING</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="2.3.1.12 TOP POLISHING"--><p local-id="0eb8048b79da">This operation allows cleaning a zone of the upper surface of the piece.</p><div class="TextAlignCenter"><img src="attachments/2.3.1.12_top_polishing/3.1.1.12.00.png" alt="3.1.1.12.00.png" width="800" onclick="showModal(this.src)"></div><p>
-</p><p local-id="2306181c8b7f"></p><h1 local-id="138612512d5f">Parameters</h1><div class="TextAlignCenter"><img src="attachments/2.3.1.12_top_polishing/3.1.1.12.01.png" alt="3.1.1.12.01.png" width="800" onclick="showModal(this.src)"></div><table class="my-table2" data-table-width="1539" data-layout="center" ac:local-id="d0c0882c-b0e4-4c13-b287-8328c789dc5c"><colgroup><col style="width: 539.0px;"><col style="width: 999.0px;"></colgroup><tbody><tr ac:local-id="58f170b7583a"><td ac:local-id="778cb1838cf3"><div class="TextAlignCenter"><img src="attachments/2.3.1.12_top_polishing/3.1.1.12.03.png" alt="3.1.1.12.03.png" width="374" onclick="showModal(this.src)"></div></td><td ac:local-id="96bdde9d237d"><p local-id="ac0e9493925c"><strong>Polishing width</strong><br>Specify the width of the polish material.<br></p></td></tr></tbody></table><p local-id="d71694a975b5"></p><h1 local-id="ce54b197a1db">Available groups</h1><table class="my-table2" data-table-width="1539" data-layout="center" ac:local-id="ec58787c-2c47-461a-ad49-c5ef7690a2f6"><tbody><tr ac:local-id="7aaf275e3f29"><td ac:local-id="ff5445c1d2c7"><p local-id="4be13d579f74" style="text-align: center;"><strong>Group bush-hammer/polisher</strong></p></td></tr><tr ac:local-id="674910931d3b"><td ac:local-id="38682ef6d86b"><div class="TextAlignCenter"><img src="attachments/2.3.1.12_top_polishing/3.1.1.12.05.png" alt="3.1.1.12.05.png" width="208" onclick="showModal(this.src)"></div></td></tr></tbody></table><!--Label="edg_wrk_tpl"-->
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Machine technical documentation</span><span class="maintenance-status"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Operational document</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="23112-top-polishing" style="margin:0;" class="maintenance-main-title"><a class="header" href="#23112-top-polishing"><span class="maintenance-code">DOC</span><span class="maintenance-name">2.3.1.12 TOP POLISHING</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document DOC" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="2.3.1.12 TOP POLISHING"--><p local-id="0eb8048b79da">This operation allows cleaning a zone of the upper surface of the piece.</p><div class="TextAlignCenter"><img src="attachments/2.3.1.12_top_polishing/3.1.1.12.00.png" alt="3.1.1.12.00.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p>
+</p><p local-id="2306181c8b7f"></p><h1 local-id="138612512d5f">Parameters</h1><div class="TextAlignCenter"><img src="attachments/2.3.1.12_top_polishing/3.1.1.12.01.png" alt="3.1.1.12.01.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><table class="my-table2" data-table-width="1539" data-layout="center" ac:local-id="d0c0882c-b0e4-4c13-b287-8328c789dc5c"><colgroup><col style="width: 539.0px;"><col style="width: 999.0px;"></colgroup><tbody><tr ac:local-id="58f170b7583a"><td ac:local-id="778cb1838cf3"><div class="TextAlignCenter"><img src="attachments/2.3.1.12_top_polishing/3.1.1.12.03.png" alt="3.1.1.12.03.png" width="374" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="96bdde9d237d"><p local-id="ac0e9493925c"><strong>Polishing width</strong><br>Specify the width of the polish material.<br></p></td></tr></tbody></table><p local-id="d71694a975b5"></p><h1 local-id="ce54b197a1db">Available groups</h1><table class="my-table2" data-table-width="1539" data-layout="center" ac:local-id="ec58787c-2c47-461a-ad49-c5ef7690a2f6"><tbody><tr ac:local-id="7aaf275e3f29"><td ac:local-id="ff5445c1d2c7"><p local-id="4be13d579f74" style="text-align: center;"><strong>Group bush-hammer/polisher</strong></p></td></tr><tr ac:local-id="674910931d3b"><td ac:local-id="38682ef6d86b"><div class="TextAlignCenter"><img src="attachments/2.3.1.12_top_polishing/3.1.1.12.05.png" alt="3.1.1.12.05.png" width="208" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td></tr></tbody></table><!--Label="edg_wrk_tpl"-->
                         </main>
 
                     </div>
@@ -278,5 +280,12 @@
     </div>;
 
 
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
 </body>
 </html>

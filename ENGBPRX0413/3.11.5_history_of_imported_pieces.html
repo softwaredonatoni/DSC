@@ -40,7 +40,7 @@
     <script>
       const path_to_root = "";
       const default_light_theme = "light";
-      const default_dark_theme = "navy";
+      const default_dark_theme = "light";
     </script>
     <!-- Start loading toc.js asap -->
     <script src="toc.js"></script>
@@ -86,8 +86,10 @@
     });
   });
 })();
-</script></head>
-<body>
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-document" data-technical-styler-flow="html">
     <header class="header-main">
         <div class="header-flex">
             <div class="donatoni-flex">
@@ -110,6 +112,15 @@
                 </div>
                 <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                     <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
                 </button>
 
                 <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
@@ -144,17 +155,8 @@
 
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script>
-            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
-                .matches
-                ? default_dark_theme
-                : default_light_theme;
-            let theme;
-            try {
-                theme = localStorage.getItem("mdbook-theme");
-            } catch (e) { }
-            if (theme === null || theme === undefined) {
-                theme = default_theme;
-            }
+            const default_theme = "light";
+            let theme = default_theme;
             const html = document.documentElement;
             html.classList.remove("light");
             html.classList.add(theme);
@@ -214,9 +216,9 @@
 
                         <img src="images/donatoni_111.jpg">
 
-                        <main style="margin-left: 20px;">
-                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="3115-history-of-imported-pieces" style="margin:0;"><a class="header" href="#3115-history-of-imported-pieces">3.11.5 HISTORY OF IMPORTED PIECES</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="3.11.5 HISTORY OF IMPORTED PIECES"--><p>This functionality allows the operator to recover the history of the created pieces.</p><div class="TextAlignCenter"><img src="attachments/3.11.5_history_of_imported_pieces/10-20250717-075059.png" alt="10-20250717-075059.png" width="800" onclick="showModal(this.src)"></div><p></p><p>
-</p><p></p><h1 id="types-of-viewing-of-the-pieces-in-the-history"><a class="header" href="#types-of-viewing-of-the-pieces-in-the-history">Types of viewing of the pieces in the history</a></h1><p>Three different viewing modes of the pieces present in this section are made available.</p><div class="TextAlignCenter"><img src="attachments/3.11.5_history_of_imported_pieces/1_pulsanti-20250324-133015.jpg" alt="1_pulsanti-20250324-133015.jpg" width="180" onclick="showModal(this.src)"></div><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="47dad8b3-2c17-4d68-8297-2710fd6c803d"><colgroup><col style="width: 292.0px;"><col style="width: 1506.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/3.11.5_history_of_imported_pieces/1_0_Tagli_B-20250324-133950.jpg" alt="1_0_Tagli_B-20250324-133950.jpg" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Visible cuts</strong><br>The piece is visible showing the cuts.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.11.5_history_of_imported_pieces/2_0_LunghezzaTagli_B-20250324-134149.jpg" alt="2_0_LunghezzaTagli_B-20250324-134149.jpg" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Visuale quote</strong><br>The piece is visible showing the quotes.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.11.5_history_of_imported_pieces/3_0_SizeCoordinate_B-20250324-134358.jpg" alt="3_0_SizeCoordinate_B-20250324-134358.jpg" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Visible Bound</strong><br>The piece is visible showing the dimension.</p></td></tr></tbody></table><p>For the following examples five pieces (A1, A2, A3, A4 and A5) have been imported from the DXF named 'Kitchen_Curve'.<br>Regardless of the selected viewing, it will be always possible to view all pieces both in the list of the history on the left side, that in the list of the pieces currently imported on the right side.</p><p></p><h2 id="viewing-of-the-cuts"><a class="header" href="#viewing-of-the-cuts">Viewing of the cuts</a></h2><p>The view cuts highlights all cuts, both perimeter and internal to the piece, hiding other information like the value of their length.</p><div class="TextAlignCenter"><img src="attachments/3.11.5_history_of_imported_pieces/1_1_VisualeTagli.jpg" alt="1_1_VisualeTagli.jpg" width="800" onclick="showModal(this.src)"></div><p></p><h2 id="visible-of-the-cut-quotes"><a class="header" href="#visible-of-the-cut-quotes">Visible of the cut quotes</a></h2><p>The quote view cuts highlights the external perimeter coloring it in black color, and places in proximity of the center of each cut on the perimeter the relative length.</p><div class="TextAlignCenter"><img src="attachments/3.11.5_history_of_imported_pieces/2_1_VisualeTagliPerimetrali.png" alt="2_1_VisualeTagliPerimetrali.png" width="800" onclick="showModal(this.src)"></div><p></p><h2 id="visual-bulk"><a class="header" href="#visual-bulk">Visual bulk</a></h2><p>The view of dimensions does not highlight any cut, instead it allows observing the maximum dimensions of the piece in terms of width and length of the piece.<br>In the following image it is possible to observe two black lines with at center of each the value of the length and width maximum of the piece, but it is important to observe that only for a coincidence the sides of the piece A2 coincide with the black lines, the remaining cuts of the piece indeed they are not highlighted and they do not show any information.</p><div class="TextAlignCenter"><img src="attachments/3.11.5_history_of_imported_pieces/3_1_VisualeSizeXandY.png" alt="3_1_VisualeSizeXandY.png" width="800" onclick="showModal(this.src)"></div><!--Label="crt_crn"-->
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Machine technical documentation</span><span class="maintenance-status"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Operational document</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="3115-history-of-imported-pieces" style="margin:0;" class="maintenance-main-title"><a class="header" href="#3115-history-of-imported-pieces"><span class="maintenance-code">DOC</span><span class="maintenance-name">3.11.5 HISTORY OF IMPORTED PIECES</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document DOC" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="3.11.5 HISTORY OF IMPORTED PIECES"--><p>This functionality allows the operator to recover the history of the created pieces.</p><div class="TextAlignCenter"><img src="attachments/3.11.5_history_of_imported_pieces/10-20250717-075059.png" alt="10-20250717-075059.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><p>
+</p><p></p><h1 id="types-of-viewing-of-the-pieces-in-the-history"><a class="header" href="#types-of-viewing-of-the-pieces-in-the-history">Types of viewing of the pieces in the history</a></h1><p>Three different viewing modes of the pieces present in this section are made available.</p><div class="TextAlignCenter"><img src="attachments/3.11.5_history_of_imported_pieces/1_pulsanti-20250324-133015.jpg" alt="1_pulsanti-20250324-133015.jpg" width="180" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="47dad8b3-2c17-4d68-8297-2710fd6c803d"><colgroup><col style="width: 292.0px;"><col style="width: 1506.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/3.11.5_history_of_imported_pieces/1_0_Tagli_B-20250324-133950.jpg" alt="1_0_Tagli_B-20250324-133950.jpg" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Visible cuts</strong><br>The piece is visible showing the cuts.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.11.5_history_of_imported_pieces/2_0_LunghezzaTagli_B-20250324-134149.jpg" alt="2_0_LunghezzaTagli_B-20250324-134149.jpg" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Visuale quote</strong><br>The piece is visible showing the quotes.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.11.5_history_of_imported_pieces/3_0_SizeCoordinate_B-20250324-134358.jpg" alt="3_0_SizeCoordinate_B-20250324-134358.jpg" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Visible Bound</strong><br>The piece is visible showing the dimension.</p></td></tr></tbody></table><p>For the following examples five pieces (A1, A2, A3, A4 and A5) have been imported from the DXF named 'Kitchen_Curve'.<br>Regardless of the selected viewing, it will be always possible to view all pieces both in the list of the history on the left side, that in the list of the pieces currently imported on the right side.</p><p></p><h2 id="viewing-of-the-cuts" class="maintenance-section-title" data-section-number="01"><a class="header" href="#viewing-of-the-cuts">Viewing of the cuts</a></h2><p>The view cuts highlights all cuts, both perimeter and internal to the piece, hiding other information like the value of their length.</p><div class="TextAlignCenter"><img src="attachments/3.11.5_history_of_imported_pieces/1_1_VisualeTagli.jpg" alt="1_1_VisualeTagli.jpg" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><h2 id="visible-of-the-cut-quotes" class="maintenance-section-title" data-section-number="02"><a class="header" href="#visible-of-the-cut-quotes">Visible of the cut quotes</a></h2><p>The quote view cuts highlights the external perimeter coloring it in black color, and places in proximity of the center of each cut on the perimeter the relative length.</p><div class="TextAlignCenter"><img src="attachments/3.11.5_history_of_imported_pieces/2_1_VisualeTagliPerimetrali.png" alt="2_1_VisualeTagliPerimetrali.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><h2 id="visual-bulk" class="maintenance-section-title" data-section-number="03"><a class="header" href="#visual-bulk">Visual bulk</a></h2><p>The view of dimensions does not highlight any cut, instead it allows observing the maximum dimensions of the piece in terms of width and length of the piece.<br>In the following image it is possible to observe two black lines with at center of each the value of the length and width maximum of the piece, but it is important to observe that only for a coincidence the sides of the piece A2 coincide with the black lines, the remaining cuts of the piece indeed they are not highlighted and they do not show any information.</p><div class="TextAlignCenter"><img src="attachments/3.11.5_history_of_imported_pieces/3_1_VisualeSizeXandY.png" alt="3_1_VisualeSizeXandY.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><!--Label="crt_crn"-->
                         </main>
 
                     </div>
@@ -278,5 +280,12 @@
     </div>;
 
 
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
 </body>
 </html>

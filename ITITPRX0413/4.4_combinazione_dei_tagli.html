@@ -40,7 +40,7 @@
     <script>
       const path_to_root = "";
       const default_light_theme = "light";
-      const default_dark_theme = "navy";
+      const default_dark_theme = "light";
     </script>
     <!-- Start loading toc.js asap -->
     <script src="toc.js"></script>
@@ -86,8 +86,10 @@
     });
   });
 })();
-</script></head>
-<body>
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-document" data-technical-styler-flow="html">
     <header class="header-main">
         <div class="header-flex">
             <div class="donatoni-flex">
@@ -110,6 +112,15 @@
                 </div>
                 <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                     <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
                 </button>
 
                 <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
@@ -144,17 +155,8 @@
 
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script>
-            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
-                .matches
-                ? default_dark_theme
-                : default_light_theme;
-            let theme;
-            try {
-                theme = localStorage.getItem("mdbook-theme");
-            } catch (e) { }
-            if (theme === null || theme === undefined) {
-                theme = default_theme;
-            }
+            const default_theme = "light";
+            let theme = default_theme;
             const html = document.documentElement;
             html.classList.remove("light");
             html.classList.add(theme);
@@ -214,9 +216,9 @@
 
                         <img src="images/donatoni_111.jpg">
 
-                        <main style="margin-left: 20px;">
-                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="44-combinazione-dei-tagli" style="margin:0;"><a class="header" href="#44-combinazione-dei-tagli">4.4 COMBINAZIONE DEI TAGLI</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="4.4 COMBINAZIONE DEI TAGLI"--><p>In questa schermata vengono mostrate le combinazioni di mandrini utilizzate dalla macchina per eseguire i tagli.</p><div class="TextAlignCenter"><img src="attachments/4.4_combinazione_dei_tagli/0.png" alt="0.png" width="800" onclick="showModal(this.src)"></div><p></p><p>
-</p><p></p><h1 id="lista-dei-tagli-combinati"><a class="header" href="#lista-dei-tagli-combinati">Lista dei tagli combinati</a></h1><p>Ogni elemento dell’elenco situato nella sezione di destra mostra la combinazione dei mandrini utilizzati per eseguire un insieme di tagli contemporaneamente.</p><div class="TextAlignCenter"><img src="attachments/4.4_combinazione_dei_tagli/1.png" alt="1.png" width="242" onclick="showModal(this.src)"></div>
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Machine technical documentation</span><span class="maintenance-status"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Operational document</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="44-combinazione-dei-tagli" style="margin:0;" class="maintenance-main-title"><a class="header" href="#44-combinazione-dei-tagli"><span class="maintenance-code">DOC</span><span class="maintenance-name">4.4 COMBINAZIONE DEI TAGLI</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document DOC" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="4.4 COMBINAZIONE DEI TAGLI"--><p>In questa schermata vengono mostrate le combinazioni di mandrini utilizzate dalla macchina per eseguire i tagli.</p><div class="TextAlignCenter"><img src="attachments/4.4_combinazione_dei_tagli/0.png" alt="0.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><p>
+</p><p></p><h1 id="lista-dei-tagli-combinati"><a class="header" href="#lista-dei-tagli-combinati">Lista dei tagli combinati</a></h1><p>Ogni elemento dell’elenco situato nella sezione di destra mostra la combinazione dei mandrini utilizzati per eseguire un insieme di tagli contemporaneamente.</p><div class="TextAlignCenter"><img src="attachments/4.4_combinazione_dei_tagli/1.png" alt="1.png" width="242" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div>
 <div id="admonition-nota" class="admonition admonish-info" role="note" aria-labelledby="admonition-nota-title">
 <div class="admonition-title">
 <div id="admonition-nota-title">
@@ -228,7 +230,7 @@
 <p>Se un mandrino viene disattivato manualmente tramite l’apposito comando situato nel pannello utensile, non verrà considerato nelle combinazioni dei tagli.</p>
 </div>
 </div>
-<p>Come per i tagli classici, è possibile cambiarne l’ordinamento all’interno dell’elenco o disattivarli.</p><table class="my-table2" data-table-width="1241" data-layout="align-start" ac:local-id="444a7af2-3ab3-47c5-94e1-780924b51c6d"><colgroup><col style="width: 221.0px;"><col style="width: 1020.0px;"></colgroup><tbody><tr><td data-highlight-colour="#ffffff"><div class="TextAlignCenter"><img src="attachments/4.4_combinazione_dei_tagli/2.3-20250613-084005.png" alt="2.3-20250613-084005.png" width="119" onclick="showModal(this.src)"></div></td><td data-highlight-colour="#ffffff"><p><strong>Attiva/Disattiva taglio</strong><br>Indica se il taglio deve essere attivato o disattivato per la lavorazione.<br>Premere sul pulsante ne cambia lo stato.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/4.4_combinazione_dei_tagli/0.3-20250711-120847.png" alt="0.3-20250711-120847.png" width="119" onclick="showModal(this.src)"></div></td><td data-highlight-colour="#ffffff"><p><strong>Spostamento con frecce</strong><br>Permettono di spostare il taglio selezionato nella posizione superiore o inferiore.</p></td></tr><tr><td data-highlight-colour="#ffffff"><div class="TextAlignCenter"><img src="attachments/4.4_combinazione_dei_tagli/0.8-20250704-141714.png" alt="0.8-20250704-141714.png" width="60" onclick="showModal(this.src)"></div></td><td data-highlight-colour="#ffffff"><p><strong>Spostamento alla posizione desiderata</strong><br>Permette di spostare il taglio attualmente selezionato nella posizione indicata dalla casella di testo adiacente.</p></td></tr><tr><td data-highlight-colour="#ffffff"><div class="TextAlignCenter"><img src="attachments/4.4_combinazione_dei_tagli/0.7-20250704-141511.png" alt="0.7-20250704-141511.png" width="60" onclick="showModal(this.src)"></div></td><td data-highlight-colour="#ffffff"><p><strong>Pausa</strong><br>Permette di inserire una pausa nella posizione successiva al taglio selezionato.</p></td></tr></tbody></table>
+<p>Come per i tagli classici, è possibile cambiarne l’ordinamento all’interno dell’elenco o disattivarli.</p><table class="my-table2" data-table-width="1241" data-layout="align-start" ac:local-id="444a7af2-3ab3-47c5-94e1-780924b51c6d"><colgroup><col style="width: 221.0px;"><col style="width: 1020.0px;"></colgroup><tbody><tr><td data-highlight-colour="#ffffff"><div class="TextAlignCenter"><img src="attachments/4.4_combinazione_dei_tagli/2.3-20250613-084005.png" alt="2.3-20250613-084005.png" width="119" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td data-highlight-colour="#ffffff"><p><strong>Attiva/Disattiva taglio</strong><br>Indica se il taglio deve essere attivato o disattivato per la lavorazione.<br>Premere sul pulsante ne cambia lo stato.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/4.4_combinazione_dei_tagli/0.3-20250711-120847.png" alt="0.3-20250711-120847.png" width="119" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td data-highlight-colour="#ffffff"><p><strong>Spostamento con frecce</strong><br>Permettono di spostare il taglio selezionato nella posizione superiore o inferiore.</p></td></tr><tr><td data-highlight-colour="#ffffff"><div class="TextAlignCenter"><img src="attachments/4.4_combinazione_dei_tagli/0.8-20250704-141714.png" alt="0.8-20250704-141714.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td data-highlight-colour="#ffffff"><p><strong>Spostamento alla posizione desiderata</strong><br>Permette di spostare il taglio attualmente selezionato nella posizione indicata dalla casella di testo adiacente.</p></td></tr><tr><td data-highlight-colour="#ffffff"><div class="TextAlignCenter"><img src="attachments/4.4_combinazione_dei_tagli/0.7-20250704-141511.png" alt="0.7-20250704-141511.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td data-highlight-colour="#ffffff"><p><strong>Pausa</strong><br>Permette di inserire una pausa nella posizione successiva al taglio selezionato.</p></td></tr></tbody></table>
 <div id="admonition-nota-1" class="admonition admonish-info" role="note" aria-labelledby="admonition-nota-1-title">
 <div class="admonition-title">
 <div id="admonition-nota-1-title">
@@ -240,7 +242,7 @@
 <p>Ogni operazione svolta su un elemento dell’elenco ha effetto su tutti i tagli che lo compongono.</p>
 </div>
 </div>
-<p></p><h1 id="pulsanti"><a class="header" href="#pulsanti">Pulsanti</a></h1><p>Nella barra inferiore si trova il seguente pulsante:</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="acee8a7e-7900-4803-bfec-cca4f98ac8d3"><colgroup><col style="width: 317.0px;"><col style="width: 1482.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/4.4_combinazione_dei_tagli/3.png" alt="3.png" width="123" onclick="showModal(this.src)"></div></td><td><p><strong>Visualizza scarico</strong><br>Permette di accedere ad una schermata per tramite cui l’operatore può creare un programma di scarico per posizionare le file di pezzi sugli appositi nastri.</p></td></tr></tbody></table><p></p><!--Label="psx_cmb"-->
+<p></p><h1 id="pulsanti"><a class="header" href="#pulsanti">Pulsanti</a></h1><p>Nella barra inferiore si trova il seguente pulsante:</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="acee8a7e-7900-4803-bfec-cca4f98ac8d3"><colgroup><col style="width: 317.0px;"><col style="width: 1482.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/4.4_combinazione_dei_tagli/3.png" alt="3.png" width="123" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Visualizza scarico</strong><br>Permette di accedere ad una schermata per tramite cui l’operatore può creare un programma di scarico per posizionare le file di pezzi sugli appositi nastri.</p></td></tr></tbody></table><p></p><!--Label="psx_cmb"-->
                         </main>
 
                     </div>
@@ -302,5 +304,12 @@
     </div>;
 
 
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
 </body>
 </html>

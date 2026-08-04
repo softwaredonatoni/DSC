@@ -76,7 +76,9 @@
     });
   });
 })();
-</script></head>
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
 <body>
     <h1>Ricerca della Pagina</h1>
     <p id="parametro">Attendi mentre cerchiamo la pagina corrispondente...</p>
@@ -86,5 +88,12 @@
 <p id="mapping">2_segnalazione_pezzi_rotti=2_broken_pieces_notification.html</p>
 <p id="mapping">3_stampa_etichette=3_print_labels.html</p>
 <p id="mapping">4_apri_configurazione=4_open_configuration.html</p>
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
 </body>
 </html>

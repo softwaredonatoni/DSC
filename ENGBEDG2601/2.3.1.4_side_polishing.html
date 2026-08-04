@@ -40,7 +40,7 @@
     <script>
       const path_to_root = "";
       const default_light_theme = "light";
-      const default_dark_theme = "navy";
+      const default_dark_theme = "light";
     </script>
     <!-- Start loading toc.js asap -->
     <script src="toc.js"></script>
@@ -86,8 +86,10 @@
     });
   });
 })();
-</script></head>
-<body>
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-document" data-technical-styler-flow="html">
     <header class="header-main">
         <div class="header-flex">
             <div class="donatoni-flex">
@@ -110,6 +112,15 @@
                 </div>
                 <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                     <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
                 </button>
 
                 <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
@@ -144,17 +155,8 @@
 
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script>
-            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
-                .matches
-                ? default_dark_theme
-                : default_light_theme;
-            let theme;
-            try {
-                theme = localStorage.getItem("mdbook-theme");
-            } catch (e) { }
-            if (theme === null || theme === undefined) {
-                theme = default_theme;
-            }
+            const default_theme = "light";
+            let theme = default_theme;
             const html = document.documentElement;
             html.classList.remove("light");
             html.classList.add(theme);
@@ -214,9 +216,9 @@
 
                         <img src="images/donatoni_111.jpg">
 
-                        <main style="margin-left: 20px;">
-                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="2314-side-polishing" style="margin:0;"><a class="header" href="#2314-side-polishing">2.3.1.4 SIDE POLISHING</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="2.3.1.4 SIDE POLISHING"--><p local-id="b46aa48d-b42d-4d6c-ab7f-0eebd570078d">This working allows polishing the edge of the piece.</p><div class="TextAlignCenter"><img src="attachments/2.3.1.4_side_polishing/3.1.1.4.00.png" alt="3.1.1.4.00.png" width="800" onclick="showModal(this.src)"></div><p>
-</p><p local-id="60fc9f0dc440"></p><h1 local-id="4ed2ddb30ea7">Parameters</h1><p local-id="7ae7d9667d1a">The working does not require parameters.</p><div class="TextAlignCenter"><img src="attachments/2.3.1.4_side_polishing/3.1.1.4.01.png" alt="3.1.1.4.01.png" width="800" onclick="showModal(this.src)"></div><p local-id="7927ac566bb4"></p>
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Machine technical documentation</span><span class="maintenance-status"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Operational document</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="2314-side-polishing" style="margin:0;" class="maintenance-main-title"><a class="header" href="#2314-side-polishing"><span class="maintenance-code">DOC</span><span class="maintenance-name">2.3.1.4 SIDE POLISHING</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document DOC" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="2.3.1.4 SIDE POLISHING"--><p local-id="b46aa48d-b42d-4d6c-ab7f-0eebd570078d">This working allows polishing the edge of the piece.</p><div class="TextAlignCenter"><img src="attachments/2.3.1.4_side_polishing/3.1.1.4.00.png" alt="3.1.1.4.00.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p>
+</p><p local-id="60fc9f0dc440"></p><h1 local-id="4ed2ddb30ea7">Parameters</h1><p local-id="7ae7d9667d1a">The working does not require parameters.</p><div class="TextAlignCenter"><img src="attachments/2.3.1.4_side_polishing/3.1.1.4.01.png" alt="3.1.1.4.01.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="7927ac566bb4"></p>
 <div id="admonition-note" class="admonition admonish-info" role="note" aria-labelledby="admonition-note-title">
 <div class="admonition-title">
 <div id="admonition-note-title">
@@ -230,7 +232,7 @@
 In case of non-through working, the distance between the start point and the end point of the working cannot be less than the diameter of the abrasives mounted on the cleaning elements.</p>
 </div>
 </div>
-<p local-id="86c666bb7152"></p><h1 local-id="a86646965d63">Available Groups</h1><table class="my-table2" data-table-width="1519" data-layout="center" ac:local-id="65fc7e2a-cf48-4fcd-99a6-35b24117f3ec"><tbody><tr ac:local-id="25dd263b-ffcd-4f00-b619-d0027aec4bc6"><td ac:local-id="89bc8b2a-033b-4699-9ab1-80d86f73287f"><p local-id="40a8ed9ca5a6" style="text-align: center;"><strong>Side Polishing Group</strong></p></td></tr><tr ac:local-id="94c6ba50-9f73-45b2-a09d-76d33a6f3a7c"><td ac:local-id="5df11ba6-6012-46a5-903c-5e5c260710da"><div class="TextAlignCenter"><img src="attachments/2.3.1.4_side_polishing/3.1.4.03.png" alt="3.1.4.03.png" width="427" onclick="showModal(this.src)"></div></td></tr></tbody></table><p local-id="ba3f278ae773"></p><!--Label="edg_wrk_spl"-->
+<p local-id="86c666bb7152"></p><h1 local-id="a86646965d63">Available Groups</h1><table class="my-table2" data-table-width="1519" data-layout="center" ac:local-id="65fc7e2a-cf48-4fcd-99a6-35b24117f3ec"><tbody><tr ac:local-id="25dd263b-ffcd-4f00-b619-d0027aec4bc6"><td ac:local-id="89bc8b2a-033b-4699-9ab1-80d86f73287f"><p local-id="40a8ed9ca5a6" style="text-align: center;"><strong>Side Polishing Group</strong></p></td></tr><tr ac:local-id="94c6ba50-9f73-45b2-a09d-76d33a6f3a7c"><td ac:local-id="5df11ba6-6012-46a5-903c-5e5c260710da"><div class="TextAlignCenter"><img src="attachments/2.3.1.4_side_polishing/3.1.4.03.png" alt="3.1.4.03.png" width="427" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td></tr></tbody></table><p local-id="ba3f278ae773"></p><!--Label="edg_wrk_spl"-->
                         </main>
 
                     </div>
@@ -292,5 +294,12 @@ In case of non-through working, the distance between the start point and the end
     </div>;
 
 
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
 </body>
 </html>

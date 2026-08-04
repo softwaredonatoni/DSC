@@ -40,7 +40,7 @@
     <script>
       const path_to_root = "";
       const default_light_theme = "light";
-      const default_dark_theme = "navy";
+      const default_dark_theme = "light";
     </script>
     <!-- Start loading toc.js asap -->
     <script src="toc.js"></script>
@@ -86,8 +86,10 @@
     });
   });
 })();
-</script></head>
-<body>
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-troubleshooting technical-troubleshooting-emergency" data-technical-styler-flow="html">
     <header class="header-main">
         <div class="header-flex">
             <div class="donatoni-flex">
@@ -110,6 +112,15 @@
                 </div>
                 <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                     <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
                 </button>
 
                 <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
@@ -144,17 +155,8 @@
 
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script>
-            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
-                .matches
-                ? default_dark_theme
-                : default_light_theme;
-            let theme;
-            try {
-                theme = localStorage.getItem("mdbook-theme");
-            } catch (e) { }
-            if (theme === null || theme === undefined) {
-                theme = default_theme;
-            }
+            const default_theme = "light";
+            let theme = default_theme;
             const html = document.documentElement;
             html.classList.remove("light");
             html.classList.add(theme);
@@ -214,8 +216,8 @@
 
                         <img src="images/donatoni_111.jpg">
 
-                        <main style="margin-left: 20px;">
-                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="pe0011-extracorrente-asse-y" style="margin:0;"><a class="header" href="#pe0011-extracorrente-asse-y">PE0011 EXTRACORRENTE ASSE Y</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="PE0011 EXTRACORRENTE ASSE Y"--><table class="my-table2" data-table-width="760" data-layout="default" ac:local-id="85e18120-421b-48c4-b375-dfbfdc4e6731"><colgroup><col style="width: 380.0px;"><col style="width: 380.0px;"></colgroup><tbody><tr ac:local-id="157862fa-7ff0-443c-b3f6-c43077c5194a"><td data-highlight-colour="#f4f5f7" colspan="2" ac:local-id="766a7090-d23c-4290-84e5-0b22040bc589"><p local-id="160601648c1e" style="text-align: center;">⚠️ Prima di procedere leggere attentamente le <p><a href='istruzioni_di_sicurezza.html'>ISTRUZIONI DI SICUREZZA</a></p></td></tr><tr ac:local-id="cdc23870-a0f5-4e85-8608-a1d0c992bc45"><td data-highlight-colour="#f4f5f7" ac:local-id="d68dbb81-858b-40d5-b0fe-bd4764f94245"><p local-id="f1b607d417c9">⏲️ <strong>Descrizione</strong>: Allarme extracorrente asse Y</p></td><td data-highlight-colour="#f4f5f7" ac:local-id="1842660c-4c69-4987-a957-1826bdd9e81d"><p local-id="9244d487db39">🎚️ <strong>Gravità</strong>: ⭐⭐☆☆☆ </p></td></tr><tr ac:local-id="22592cff-bf22-4983-92ad-1aeaaa404f2e"><td data-highlight-colour="#f4f5f7" ac:local-id="42580db4-f109-43fe-8cce-97c42f46af86"><p local-id="1552e0712142">🧑‍🏭 <strong>Figura autorizzata</strong>: Operatore macchina</p></td><td data-highlight-colour="#f4f5f7" ac:local-id="363f011e-a511-4dd4-91cc-d5de593ce4f5"><p local-id="7242c15611a2">🧤 <strong>DPI previsti</strong>:   <div><img src="attachments/pe0011_extracorrente_asse_y/5c50dea6-c18e-4b4c-af4e-4a88d2222111.png" alt="image-20240327-084216.png" onclick="showModal(this.src)" class="inline-img"></div> </td></tr></tbody></table><h2 local-id="6806ed909efc">Descrizione</h2><p local-id="c81c3cf16974">Durante i cicli di lavoro automatico il plc può generare un allarme di Extracorrente per ogni singolo asse, dovuto al superamento della portata massima di sforzo del motore in questione.</p><h2 local-id="6186578e2836">Sintomi</h2><p local-id="45addddced54">…..</p><h2 local-id="65a0fde6d266">Possibili cause</h2><div class='panelContent' style='background-color: #fff; border: 1px solid #D3D3D3; padding: 5px;'><ol start="1" local-id="aa24ef097bb5" type="1"><li local-id="052d8183200d"><p local-id="98ac72ac07c1">Sforzo eccessivo istantaneo in direzione Y</p></li><li local-id="0af6dc6d8deb"><p local-id="b6b108af0f7f">Malfunzionamento motore asse Y</p></li></ol></div><h2 local-id="fe3f26161b69">Possibili soluzioni</h2><div class='panelContent' style='background-color: #fff; border: 1px solid #D3D3D3; padding: 5px;'><ol start="1" local-id="0737484af640" type="1"><li local-id="2be2767e14bb"><p local-id="93dce5feada0">Premere il pulsante di reset, per resettare l'errore, successivamente premere il pulsante di emergenza, riabilitare i comandi e riprendere il normale utilizzo;</p></li><li local-id="29fb7a8fedbb"><p local-id="4f73198c3907">Dopo avere provato ad eseguire il punto 1, se si ripresenta l'errore muovendosi a vuoto in qualunque direzione, sostituire il motore asseY</p></li></ol></div><!--Label="extracorrente"--><!--Label="pe0011"-->
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Technical troubleshooting sheet</span><span class="maintenance-status"><i class="fa-solid fa-screwdriver-wrench" aria-hidden="true"></i> Emergency diagnostic procedure</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="pe0011-extracorrente-asse-y" style="margin:0;" class="maintenance-main-title"><a class="header" href="#pe0011-extracorrente-asse-y"><span class="maintenance-code">PE0011</span><span class="maintenance-name">EXTRACORRENTE ASSE Y</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document PE0011" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="PE0011 EXTRACORRENTE ASSE Y"--><table class="my-table2 troubleshooting-template-grid maintenance-data-grid" data-table-width="760" data-layout="default" ac:local-id="85e18120-421b-48c4-b375-dfbfdc4e6731" aria-label="Technical data for document PE0011"><colgroup><col style="width: 380.0px;"><col style="width: 380.0px;"></colgroup><tbody><tr ac:local-id="157862fa-7ff0-443c-b3f6-c43077c5194a" class="maintenance-safety-row"><td data-highlight-colour="#f4f5f7" colspan="2" ac:local-id="766a7090-d23c-4290-84e5-0b22040bc589"><p local-id="160601648c1e" style="text-align: center;">Prima di procedere leggere attentamente le <p><a href='istruzioni_di_sicurezza.html'>ISTRUZIONI DI SICUREZZA</a></p></td></tr><tr ac:local-id="cdc23870-a0f5-4e85-8608-a1d0c992bc45"><td data-highlight-colour="#f4f5f7" ac:local-id="d68dbb81-858b-40d5-b0fe-bd4764f94245"><p local-id="f1b607d417c9" class="maintenance-data-layout"><i class="maintenance-data-icon fa-solid fa-file-lines" aria-hidden="true"></i><span class="maintenance-data-content"><strong class="maintenance-data-label">Descrizione</strong><span class="maintenance-data-value">Allarme extracorrente asse Y</span></span></p></td><td data-highlight-colour="#f4f5f7" ac:local-id="1842660c-4c69-4987-a957-1826bdd9e81d"><p local-id="9244d487db39" class="maintenance-data-layout"><i class="maintenance-data-icon fa-solid fa-triangle-exclamation" aria-hidden="true"></i><span class="maintenance-data-content"><strong class="maintenance-data-label">Gravità</strong><span class="severity-indicator severity-level-2" aria-label="Severity Moderate, level 2 of 5"><span class="severity-scale" aria-hidden="true"><i class="severity-segment is-active"></i><i class="severity-segment is-active"></i><i class="severity-segment"></i><i class="severity-segment"></i><i class="severity-segment"></i></span><span class="severity-readout"><span class="severity-level-name">Moderate</span><span class="severity-score">02 / 05</span></span></span></span></p></td></tr><tr ac:local-id="22592cff-bf22-4983-92ad-1aeaaa404f2e"><td data-highlight-colour="#f4f5f7" ac:local-id="42580db4-f109-43fe-8cce-97c42f46af86"><p local-id="1552e0712142" class="maintenance-data-layout"><i class="maintenance-data-icon fa-solid fa-user-gear" aria-hidden="true"></i><span class="maintenance-data-content"><strong class="maintenance-data-label">Figura autorizzata</strong><span class="maintenance-data-value">Operatore macchina</span></span></p></td><td data-highlight-colour="#f4f5f7" ac:local-id="363f011e-a511-4dd4-91cc-d5de593ce4f5"><p local-id="7242c15611a2"><i class="maintenance-data-icon fa-solid fa-shield-halved" aria-hidden="true"></i><strong>DPI previsti</strong>:   <div><img src="attachments/pe0011_extracorrente_asse_y/5c50dea6-c18e-4b4c-af4e-4a88d2222111.png" alt="image-20240327-084216.png" onclick="showModal(this.src)" class="inline-img"></div> </td></tr></tbody></table><h2 local-id="6806ed909efc" class="maintenance-section-title" data-section-number="01">Descrizione</h2><p local-id="c81c3cf16974">Durante i cicli di lavoro automatico il plc può generare un allarme di Extracorrente per ogni singolo asse, dovuto al superamento della portata massima di sforzo del motore in questione.</p><h2 local-id="6186578e2836" class="maintenance-section-title" data-section-number="02">Sintomi</h2><p local-id="45addddced54">…..</p><h2 local-id="65a0fde6d266" class="maintenance-section-title" data-section-number="03">Possibili cause</h2><div class='panelContent' style='background-color: #fff; border: 1px solid #D3D3D3; padding: 5px;'><ol start="1" local-id="aa24ef097bb5" type="1"><li local-id="052d8183200d"><p local-id="98ac72ac07c1">Sforzo eccessivo istantaneo in direzione Y</p></li><li local-id="0af6dc6d8deb"><p local-id="b6b108af0f7f">Malfunzionamento motore asse Y</p></li></ol></div><h2 local-id="fe3f26161b69" class="maintenance-section-title" data-section-number="04">Possibili soluzioni</h2><div class='panelContent resolution-panel-content' style='background-color: #fff; border: 1px solid #D3D3D3; padding: 5px;'><ol start="1" local-id="0737484af640" type="1" class="procedure-steps"><li local-id="2be2767e14bb"><p local-id="93dce5feada0">Premere il pulsante di reset, per resettare l'errore, successivamente premere il pulsante di emergenza, riabilitare i comandi e riprendere il normale utilizzo;</p></li><li local-id="29fb7a8fedbb"><p local-id="4f73198c3907">Dopo avere provato ad eseguire il punto 1, se si ripresenta l'errore muovendosi a vuoto in qualunque direzione, sostituire il motore asseY</p></li></ol></div><!--Label="extracorrente"--><!--Label="pe0011"-->
                         </main>
 
                     </div>
@@ -277,5 +279,12 @@
     </div>;
 
 
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
 </body>
 </html>

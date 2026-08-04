@@ -40,7 +40,7 @@
     <script>
       const path_to_root = "";
       const default_light_theme = "light";
-      const default_dark_theme = "navy";
+      const default_dark_theme = "light";
     </script>
     <!-- Start loading toc.js asap -->
     <script src="toc.js"></script>
@@ -86,8 +86,10 @@
     });
   });
 })();
-</script></head>
-<body>
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-document" data-technical-styler-flow="html">
     <header class="header-main">
         <div class="header-flex">
             <div class="donatoni-flex">
@@ -110,6 +112,15 @@
                 </div>
                 <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                     <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
                 </button>
 
                 <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
@@ -144,17 +155,8 @@
 
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script>
-            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
-                .matches
-                ? default_dark_theme
-                : default_light_theme;
-            let theme;
-            try {
-                theme = localStorage.getItem("mdbook-theme");
-            } catch (e) { }
-            if (theme === null || theme === undefined) {
-                theme = default_theme;
-            }
+            const default_theme = "light";
+            let theme = default_theme;
             const html = document.documentElement;
             html.classList.remove("light");
             html.classList.add(theme);
@@ -214,9 +216,9 @@
 
                         <img src="images/donatoni_111.jpg">
 
-                        <main style="margin-left: 20px;">
-                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="3117-commercial-piece-creation" style="margin:0;"><a class="header" href="#3117-commercial-piece-creation">3.11.7 COMMERCIAL PIECE CREATION</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="3.11.7 COMMERCIAL PIECE CREATION"--><p>In this section of the 'Create pieces' panel it is possible to create the commercial pieces. The characteristics of this type of pieces are the following:</p><ul><li><p>they are created with a high number of copies;</p></li><li><p>the dimensions of width and height are changeable even when a piece is inserted in the working area.</p></li></ul><div class="TextAlignCenter"><img src="attachments/3.11.7_commercial_piece_creation/0_0_CreaPezziCC.png" alt="0_0_CreaPezziCC.png" width="800" onclick="showModal(this.src)"></div><p></p><p>
-</p><p></p><h1 id="parameters"><a class="header" href="#parameters">Parameters</a></h1><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="bce60155-f4bf-44ac-8cca-2116cd4a9dc5"><colgroup><col style="width: 526.0px;"><col style="width: 1262.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/3.11.7_commercial_piece_creation/casella_larghezza.png" alt="casella_larghezza.png" width="282" onclick="showModal(this.src)"></div></td><td><p><strong>Width</strong><br>Width of the rectangle. It is measured with the unit of measurement reported to its right.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.11.7_commercial_piece_creation/casella_altezza.png" alt="casella_altezza.png" width="282" onclick="showModal(this.src)"></div></td><td><p><strong>Height</strong><br>Height of the rectangle. It is measured with the unit of measure reported to its right.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.11.7_commercial_piece_creation/casella_etichetta_pulita.png" alt="casella_etichetta_pulita.png" width="282" onclick="showModal(this.src)"></div></td><td><p><strong>Mark</strong><br>Label that is added to piece to identify it. It is an optional parameter, as not fundamental for piece creation.</p></td></tr></tbody></table><p></p><h1 id="import-of-a-commercial-piece"><a class="header" href="#import-of-a-commercial-piece">Import of a commercial piece</a></h1><p>To correctly conclude the creation of a commercial piece, it’s necessary to use the following button:</p><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="03a9cd82-cd4e-4141-aaed-d545c93c5aa5"><colgroup><col style="width: 199.0px;"><col style="width: 1590.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/3.11.7_commercial_piece_creation/__B-20250324-130506.png" alt="__B-20250324-130506.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Import pieces commercial</strong><br>Confirm the creation of the commercial piece and insert it into the list of pieces to work.</p></td></tr></tbody></table><p>The creation procedure will also update both the list of commercial pieces on the left, and the list of pieces to be executed on the right side. The following example shows both lists updated:</p><div class="TextAlignCenter"><img src="attachments/3.11.7_commercial_piece_creation/0_2_CreaPezziCC_B.png" alt="0_2_CreaPezziCC_B.png" width="800" onclick="showModal(this.src)"></div><p>As it can be noticed observing the column on the left side of the screen, a green icon precedes the piece’s name. Clicking that icon, it will become red, and the piece will be removed from the list on the right side.</p><div class="TextAlignCenter"><img src="attachments/3.11.7_commercial_piece_creation/0_3_PezzoCCDisattivato.png" alt="0_3_PezzoCCDisattivato.png" width="800" onclick="showModal(this.src)"></div><p></p><!--Label="crt_pcc"-->
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Machine technical documentation</span><span class="maintenance-status"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Operational document</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="3117-commercial-piece-creation" style="margin:0;" class="maintenance-main-title"><a class="header" href="#3117-commercial-piece-creation"><span class="maintenance-code">DOC</span><span class="maintenance-name">3.11.7 COMMERCIAL PIECE CREATION</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document DOC" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="3.11.7 COMMERCIAL PIECE CREATION"--><p>In this section of the 'Create pieces' panel it is possible to create the commercial pieces. The characteristics of this type of pieces are the following:</p><ul><li><p>they are created with a high number of copies;</p></li><li><p>the dimensions of width and height are changeable even when a piece is inserted in the working area.</p></li></ul><div class="TextAlignCenter"><img src="attachments/3.11.7_commercial_piece_creation/0_0_CreaPezziCC.png" alt="0_0_CreaPezziCC.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><p>
+</p><p></p><h1 id="parameters"><a class="header" href="#parameters">Parameters</a></h1><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="bce60155-f4bf-44ac-8cca-2116cd4a9dc5"><colgroup><col style="width: 526.0px;"><col style="width: 1262.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/3.11.7_commercial_piece_creation/casella_larghezza.png" alt="casella_larghezza.png" width="282" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Width</strong><br>Width of the rectangle. It is measured with the unit of measurement reported to its right.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.11.7_commercial_piece_creation/casella_altezza.png" alt="casella_altezza.png" width="282" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Height</strong><br>Height of the rectangle. It is measured with the unit of measure reported to its right.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.11.7_commercial_piece_creation/casella_etichetta_pulita.png" alt="casella_etichetta_pulita.png" width="282" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Mark</strong><br>Label that is added to piece to identify it. It is an optional parameter, as not fundamental for piece creation.</p></td></tr></tbody></table><p></p><h1 id="import-of-a-commercial-piece"><a class="header" href="#import-of-a-commercial-piece">Import of a commercial piece</a></h1><p>To correctly conclude the creation of a commercial piece, it’s necessary to use the following button:</p><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="03a9cd82-cd4e-4141-aaed-d545c93c5aa5"><colgroup><col style="width: 199.0px;"><col style="width: 1590.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/3.11.7_commercial_piece_creation/__B-20250324-130506.png" alt="__B-20250324-130506.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Import pieces commercial</strong><br>Confirm the creation of the commercial piece and insert it into the list of pieces to work.</p></td></tr></tbody></table><p>The creation procedure will also update both the list of commercial pieces on the left, and the list of pieces to be executed on the right side. The following example shows both lists updated:</p><div class="TextAlignCenter"><img src="attachments/3.11.7_commercial_piece_creation/0_2_CreaPezziCC_B.png" alt="0_2_CreaPezziCC_B.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p>As it can be noticed observing the column on the left side of the screen, a green icon precedes the piece’s name. Clicking that icon, it will become red, and the piece will be removed from the list on the right side.</p><div class="TextAlignCenter"><img src="attachments/3.11.7_commercial_piece_creation/0_3_PezzoCCDisattivato.png" alt="0_3_PezzoCCDisattivato.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><!--Label="crt_pcc"-->
                         </main>
 
                     </div>
@@ -278,5 +280,12 @@
     </div>;
 
 
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
 </body>
 </html>

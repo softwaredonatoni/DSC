@@ -40,7 +40,7 @@
     <script>
       const path_to_root = "";
       const default_light_theme = "light";
-      const default_dark_theme = "navy";
+      const default_dark_theme = "light";
     </script>
     <!-- Start loading toc.js asap -->
     <script src="toc.js"></script>
@@ -86,8 +86,10 @@
     });
   });
 })();
-</script></head>
-<body>
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-maintenance" data-technical-styler-flow="html">
     <header class="header-main">
         <div class="header-flex">
             <div class="donatoni-flex">
@@ -110,6 +112,15 @@
                 </div>
                 <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                     <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
                 </button>
 
                 <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
@@ -144,17 +155,8 @@
 
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script>
-            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
-                .matches
-                ? default_dark_theme
-                : default_light_theme;
-            let theme;
-            try {
-                theme = localStorage.getItem("mdbook-theme");
-            } catch (e) { }
-            if (theme === null || theme === undefined) {
-                theme = default_theme;
-            }
+            const default_theme = "light";
+            let theme = default_theme;
             const html = document.documentElement;
             html.classList.remove("light");
             html.classList.add(theme);
@@ -214,8 +216,8 @@
 
                         <img src="images/donatoni_111.jpg">
 
-                        <main style="margin-left: 20px;">
-                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="mn0001-emergency-circuit-test" style="margin:0;"><a class="header" href="#mn0001-emergency-circuit-test">MN0001 EMERGENCY CIRCUIT TEST</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="MN0001 EMERGENCY CIRCUIT TEST"--><table class="my-table2" data-table-width="760" data-layout="center" ac:local-id="85e18120-421b-48c4-b375-dfbfdc4e6731"><tbody><tr><td data-highlight-colour="#f4f5f7" colspan="2"><p style="text-align: center;">⚠️Before proceeding, carefully read the <p><a href='safety_instructions.html'>SAFETY INSTRUCTIONS</a></p></td></tr><tr><td data-highlight-colour="#f4f5f7"><p>⏲️ <strong>Interval</strong>: every 200 working hours</p></td><td data-highlight-colour="#f4f5f7"><p>🎚️ <strong>Complexity operation</strong>: ⭐☆☆☆☆ </p></td></tr><tr><td data-highlight-colour="#f4f5f7"><p>🧑‍🏭 <strong>Authorized figure</strong>: Machine operator</p></td><td data-highlight-colour="#f4f5f7"><p>🧤 <strong>Expected DPI</strong>:   <div><img src="attachments/mn0001_emergency_circuit_test/5c50dea6-c18e-4b4c-af4e-4a88d2222111.png" alt="image-20240327-084216.png" onclick="showModal(this.src)" class="inline-img"></div> </td></tr></tbody></table><h2 id="video"><a class="header" href="#video">Video</a></h2><div class="TextAlignCenter"><video controls src="attachments/mn0001_emergency_circuit_test/EmergencyTest.mp4" width="760" aria-label="attachments/mn0001_emergency_circuit_test/EmergencyTest.mp4"></video></div><h2 id="procedure"><a class="header" href="#procedure">Procedure</a></h2><p>Machine on and ready for operation in a way to access the dangerous zone  press the emergency stop button and verify:</p><ul><li><p>That on the monitor of the control panel the status of 'EMERGENCY ACTIVE' is displayed</p></li><li><p>Let the red sector of the light signal located on the control panel light up.</p></li><li><p>That performing any movement of one of the machine's axes through the maintained action levers present on the control panel no movement occurs inside the machine.</p></li></ul><p>Restore the operation of the machine and verify:</p><ul><li><p>That on the monitor of the control panel disappears the indication of 'EMERGENCY ACTIVE'.</p></li><li><p>That the red sector of the light signal located on the control panel turns off.</p></li><li><p>That performing any movement of one of the machine axes via the maintained action levers present on the control panel causes the corresponding movement inside the machine.</p></li></ul><p></p><p></p><p></p><!--Label="mn0001"-->
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Technical maintenance sheet</span><span class="maintenance-status"><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Controlled procedure</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="mn0001-emergency-circuit-test" style="margin:0;" class="maintenance-main-title"><a class="header" href="#mn0001-emergency-circuit-test"><span class="maintenance-code">MN0001</span><span class="maintenance-name">EMERGENCY CIRCUIT TEST</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document MN0001" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="MN0001 EMERGENCY CIRCUIT TEST"--><table class="my-table2" data-table-width="760" data-layout="center" ac:local-id="85e18120-421b-48c4-b375-dfbfdc4e6731"><tbody><tr><td data-highlight-colour="#f4f5f7" colspan="2"><p style="text-align: center;">⚠️Before proceeding, carefully read the <p><a href='safety_instructions.html'>SAFETY INSTRUCTIONS</a></p></td></tr><tr><td data-highlight-colour="#f4f5f7"><p>⏲️ <strong>Interval</strong>: every 200 working hours</p></td><td data-highlight-colour="#f4f5f7"><p>🎚️ <strong>Complexity operation</strong>: ⭐☆☆☆☆ </p></td></tr><tr><td data-highlight-colour="#f4f5f7"><p>🧑‍🏭 <strong>Authorized figure</strong>: Machine operator</p></td><td data-highlight-colour="#f4f5f7"><p>🧤 <strong>Expected DPI</strong>:   <div><img src="attachments/mn0001_emergency_circuit_test/5c50dea6-c18e-4b4c-af4e-4a88d2222111.png" alt="image-20240327-084216.png" onclick="showModal(this.src)" class="inline-img"></div> </td></tr></tbody></table><h2 id="video" class="maintenance-section-title" data-section-number="01"><a class="header" href="#video">Video</a></h2><div class="TextAlignCenter"><video controls src="attachments/mn0001_emergency_circuit_test/EmergencyTest.mp4" width="760" aria-label="attachments/mn0001_emergency_circuit_test/EmergencyTest.mp4" class="technical-media"></video></div><h2 id="procedure" class="maintenance-section-title" data-section-number="02"><a class="header" href="#procedure">Procedure</a></h2><p>Machine on and ready for operation in a way to access the dangerous zone  press the emergency stop button and verify:</p><ul><li><p>That on the monitor of the control panel the status of 'EMERGENCY ACTIVE' is displayed</p></li><li><p>Let the red sector of the light signal located on the control panel light up.</p></li><li><p>That performing any movement of one of the machine's axes through the maintained action levers present on the control panel no movement occurs inside the machine.</p></li></ul><p>Restore the operation of the machine and verify:</p><ul><li><p>That on the monitor of the control panel disappears the indication of 'EMERGENCY ACTIVE'.</p></li><li><p>That the red sector of the light signal located on the control panel turns off.</p></li><li><p>That performing any movement of one of the machine axes via the maintained action levers present on the control panel causes the corresponding movement inside the machine.</p></li></ul><p></p><p></p><p></p><!--Label="mn0001"-->
                         </main>
 
                     </div>
@@ -277,5 +279,12 @@
     </div>;
 
 
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
 </body>
 </html>

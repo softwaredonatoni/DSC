@@ -40,7 +40,7 @@
     <script>
       const path_to_root = "";
       const default_light_theme = "light";
-      const default_dark_theme = "navy";
+      const default_dark_theme = "light";
     </script>
     <!-- Start loading toc.js asap -->
     <script src="toc.js"></script>
@@ -86,8 +86,10 @@
     });
   });
 })();
-</script></head>
-<body>
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-document" data-technical-styler-flow="html">
     <header class="header-main">
         <div class="header-flex">
             <div class="donatoni-flex">
@@ -110,6 +112,15 @@
                 </div>
                 <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                     <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
                 </button>
 
                 <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
@@ -144,17 +155,8 @@
 
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script>
-            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
-                .matches
-                ? default_dark_theme
-                : default_light_theme;
-            let theme;
-            try {
-                theme = localStorage.getItem("mdbook-theme");
-            } catch (e) { }
-            if (theme === null || theme === undefined) {
-                theme = default_theme;
-            }
+            const default_theme = "light";
+            let theme = default_theme;
             const html = document.documentElement;
             html.classList.remove("light");
             html.classList.add(theme);
@@ -214,9 +216,9 @@
 
                         <img src="images/donatoni_111.jpg">
 
-                        <main style="margin-left: 20px;">
-                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="333-double-disk-machine" style="margin:0;"><a class="header" href="#333-double-disk-machine">3.3.3 DOUBLE DISK MACHINE</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="3.3.3 DOUBLE DISK MACHINE"--><p>This type of machine allows to mount two disks on the head instead of one. The tool panel allows the management of both.</p><div class="TextAlignCenter"><img src="attachments/3.3.3_double_disk_machine/0.01.png" alt="0.01.png" width="600" onclick="showModal(this.src)"></div><p></p><p>
-</p><p></p><h1 id="parameters"><a class="header" href="#parameters">Parameters</a></h1><p>Each tool of the 'Disk' section contains the information regarding both disks mounted on the machine.</p><div class="TextAlignCenter"><img src="attachments/3.3.3_double_disk_machine/0.04.png" alt="0.04.png" width="433" onclick="showModal(this.src)"></div><p>In particular:</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="bcc2dbfb-0cda-4c01-beae-52b8287fcf82"><colgroup><col style="width: 378.0px;"><col style="width: 1421.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/3.3.3_double_disk_machine/0.02.png" alt="0.02.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Diameter first disk</strong><br>Diameter of the first disk mounted in machine.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.3.3_double_disk_machine/0.03.png" alt="0.03.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Disk second disk</strong><br>Diameter of the second disk mounted on the machine.</p></td></tr></tbody></table><!--Label="tlp_ddm"-->
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Machine technical documentation</span><span class="maintenance-status"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Operational document</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="333-double-disk-machine" style="margin:0;" class="maintenance-main-title"><a class="header" href="#333-double-disk-machine"><span class="maintenance-code">DOC</span><span class="maintenance-name">3.3.3 DOUBLE DISK MACHINE</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document DOC" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="3.3.3 DOUBLE DISK MACHINE"--><p>This type of machine allows to mount two disks on the head instead of one. The tool panel allows the management of both.</p><div class="TextAlignCenter"><img src="attachments/3.3.3_double_disk_machine/0.01.png" alt="0.01.png" width="600" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><p>
+</p><p></p><h1 id="parameters"><a class="header" href="#parameters">Parameters</a></h1><p>Each tool of the 'Disk' section contains the information regarding both disks mounted on the machine.</p><div class="TextAlignCenter"><img src="attachments/3.3.3_double_disk_machine/0.04.png" alt="0.04.png" width="433" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p>In particular:</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="bcc2dbfb-0cda-4c01-beae-52b8287fcf82"><colgroup><col style="width: 378.0px;"><col style="width: 1421.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/3.3.3_double_disk_machine/0.02.png" alt="0.02.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Diameter first disk</strong><br>Diameter of the first disk mounted in machine.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.3.3_double_disk_machine/0.03.png" alt="0.03.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Disk second disk</strong><br>Diameter of the second disk mounted on the machine.</p></td></tr></tbody></table><!--Label="tlp_ddm"-->
                         </main>
 
                     </div>
@@ -278,5 +280,12 @@
     </div>;
 
 
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
 </body>
 </html>

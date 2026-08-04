@@ -44,7 +44,9 @@
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc.js"></script>
-    </head>
+        <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
     <body>
     <div id="body-container">
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
@@ -126,6 +128,15 @@
                         <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                             <i class="fa fa-search"></i>
                         </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
+                </button>
                     </div>
 
                     <h1 class="menu-title">Maintenance Orchestrator</h1>
@@ -1036,5 +1047,12 @@ WATERJET</li>
         </script>
 
     </div>
-    </body>
+    
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
+</body>
 </html>

@@ -76,7 +76,9 @@
     });
   });
 })();
-</script></head>
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
 <body>
     <h1>Ricerca della Pagina</h1>
     <p id="parametro">Attendi mentre cerchiamo la pagina corrispondente...</p>
@@ -161,5 +163,12 @@
 <p id="mapping">kb-troubleshooting-article=pm0011_probe_piston_out_of_position.html</p>
 <p id="mapping">tastatore=pm0011_probe_piston_out_of_position.html</p>
 <p id="mapping">pm0011=pm0011_probe_piston_out_of_position.html</p>
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
 </body>
 </html>

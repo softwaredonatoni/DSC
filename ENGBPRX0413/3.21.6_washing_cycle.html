@@ -40,7 +40,7 @@
     <script>
       const path_to_root = "";
       const default_light_theme = "light";
-      const default_dark_theme = "navy";
+      const default_dark_theme = "light";
     </script>
     <!-- Start loading toc.js asap -->
     <script src="toc.js"></script>
@@ -86,8 +86,10 @@
     });
   });
 })();
-</script></head>
-<body>
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-document" data-technical-styler-flow="html">
     <header class="header-main">
         <div class="header-flex">
             <div class="donatoni-flex">
@@ -110,6 +112,15 @@
                 </div>
                 <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                     <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
                 </button>
 
                 <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
@@ -144,17 +155,8 @@
 
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script>
-            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
-                .matches
-                ? default_dark_theme
-                : default_light_theme;
-            let theme;
-            try {
-                theme = localStorage.getItem("mdbook-theme");
-            } catch (e) { }
-            if (theme === null || theme === undefined) {
-                theme = default_theme;
-            }
+            const default_theme = "light";
+            let theme = default_theme;
             const html = document.documentElement;
             html.classList.remove("light");
             html.classList.add(theme);
@@ -214,9 +216,9 @@
 
                         <img src="images/donatoni_111.jpg">
 
-                        <main style="margin-left: 20px;">
-                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="3216-washing-cycle" style="margin:0;"><a class="header" href="#3216-washing-cycle">3.21.6 WASHING CYCLE</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="3.21.6 WASHING CYCLE"--><p>It is possible to start manually a cycle of washing of the area, enable the automatic adding of the entire bench and select a portion in which to execute the cleaning.</p><div class="TextAlignCenter"><img src="attachments/3.21.6_washing_cycle/0.00.png" alt="0.00.png" width="800" onclick="showModal(this.src)"></div><p></p><p>
-</p><p></p><h1 id="parameters"><a class="header" href="#parameters">Parameters</a></h1><div class="TextAlignCenter"><img src="attachments/3.21.6_washing_cycle/1.1-20250715-085214.png" alt="1.1-20250715-085214.png" width="285" onclick="showModal(this.src)"></div><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="acd1fcae-e16f-4894-917d-96b1161d66bb"><colgroup><col style="width: 469.0px;"><col style="width: 1322.0px;"></colgroup><tbody><tr><td data-highlight-colour="#ffffff"><div class="TextAlignCenter"><img src="attachments/3.21.6_washing_cycle/1.2-20250715-085517.png" alt="1.2-20250715-085517.png" width="228" onclick="showModal(this.src)"></div></td><td data-highlight-colour="#ffffff"><p><strong>Width</strong><br>It is displayed how much measures in width the area in creation phase.</p></td></tr><tr><td data-highlight-colour="#ffffff"><div class="TextAlignCenter"><img src="attachments/3.21.6_washing_cycle/1.3-20250715-085536.png" alt="1.3-20250715-085536.png" width="228" onclick="showModal(this.src)"></div></td><td data-highlight-colour="#ffffff"><p><strong>Height</strong><br>Is visualized what measures in height the area in creation phase.</p></td></tr><tr><td data-highlight-colour="#ffffff"><div class="TextAlignCenter"><img src="attachments/3.21.6_washing_cycle/1.3_b-20250715-130552.png" alt="1.3_b-20250715-130552.png" width="60" onclick="showModal(this.src)"></div></td><td data-highlight-colour="#ffffff"><p><strong>Create area</strong><br>Create an area that the operator can resize and move based on where he wants to perform the washing.</p></td></tr><tr><td data-highlight-colour="#ffffff"><div class="TextAlignCenter"><img src="attachments/3.21.6_washing_cycle/1.4_OffOn-20250715-125637.png" alt="1.4_OffOn-20250715-125637.png" width="120" onclick="showModal(this.src)"></div></td><td data-highlight-colour="#ffffff"><p><strong>Move</strong><br>The operator can move the area during the creation phase.</p></td></tr><tr><td data-highlight-colour="#ffffff"><div class="TextAlignCenter"><img src="attachments/3.21.6_washing_cycle/1.5_OffOn-20250715-130325.png" alt="1.5_OffOn-20250715-130325.png" width="120" onclick="showModal(this.src)"></div></td><td data-highlight-colour="#ffffff"><p><strong>Piece washing</strong><br>Create a piece washing area slightly upper than a selected piece.</p></td></tr><tr><td data-highlight-colour="#ffffff"><div class="TextAlignCenter"><img src="attachments/3.21.6_washing_cycle/1.6-20250715-130021.png" alt="1.6-20250715-130021.png" width="60" onclick="showModal(this.src)"></div></td><td data-highlight-colour="#ffffff"><p><strong>Clean bench</strong><br>The entire area of the bench will be affected by a washing cycle.</p></td></tr><tr><td data-highlight-colour="#ffffff"><div class="TextAlignCenter"><img src="attachments/3.21.6_washing_cycle/1.7_OffOn-20250715-125146.png" alt="1.7_OffOn-20250715-125146.png" width="120" onclick="showModal(this.src)"></div></td><td data-highlight-colour="#ffffff"><p><strong>Automatic washing cycle</strong><br>Automatic addition of a 'bench cleaning' phase at the end of the cutting list.<br>The addition will happen at the passage to the cut window.</p></td></tr></tbody></table><p></p><h1 id="mode-of-insert-a-washing-cycle"><a class="header" href="#mode-of-insert-a-washing-cycle">Mode of insert a washing cycle</a></h1><p>The addition of a washing cycle involves the insertion, inside the work area, of a rectangle that indicates the portion of the bench subject to washing.<br>It is possible to insert more washing cycles; the respective areas can also overlap, partially or completely.<br>Each new washing cycle will be inserted at the end of the cuts list on the right side.</p><p></p><h2 id="manual-selection-of-the-area"><a class="header" href="#manual-selection-of-the-area">Manual selection of the area</a></h2><p>By pressing the button, you enable the possibility to add customizable washing areas. <br>It is therefore possible to move and resize the area.</p><div class="TextAlignCenter"><img src="attachments/3.21.6_washing_cycle/2.1-20250715-141334.png" alt="2.1-20250715-141334.png" width="800" onclick="showModal(this.src)"></div><p>After having modified as you want the area for washing cycle, it is possible to add an additional area to be washed by pressing again the button.</p><div class="TextAlignCenter"><img src="attachments/3.21.6_washing_cycle/2.2-20250715-141436.png" alt="2.2-20250715-141436.png" width="800" onclick="showModal(this.src)"></div><p></p><h2 id="piece-washing"><a class="header" href="#piece-washing">Piece washing</a></h2><p>Enabling this mode, the operator can select a piece. Following the selection, the system automatically generates a rectangular area that completely encloses the selected piece, as illustrated in the following example:</p><div class="TextAlignCenter"><img src="attachments/3.21.6_washing_cycle/3.1-20250716-080253.png" alt="3.1-20250716-080253.png" width="800" onclick="showModal(this.src)"></div><p></p><h2 id="complete-bench-washing"><a class="header" href="#complete-bench-washing">Complete bench washing</a></h2><p>Employing this mode, the system inserts automatically a cut named <strong>'Bench Washing'</strong> in the cuts list and displays its corresponding representation in the work area.</p><div class="TextAlignCenter"><img src="attachments/3.21.6_washing_cycle/4.1-20250716-081841.png" alt="4.1-20250716-081841.png" width="800" onclick="showModal(this.src)"></div><p></p><!--Label="cut_cln"--><!--Label="cut_cln_man"--><!--Label="cut_cln_lwc"--><!--Label="cut_cln_lpz"-->
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Machine technical documentation</span><span class="maintenance-status"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Operational document</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="3216-washing-cycle" style="margin:0;" class="maintenance-main-title"><a class="header" href="#3216-washing-cycle"><span class="maintenance-code">DOC</span><span class="maintenance-name">3.21.6 WASHING CYCLE</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document DOC" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="3.21.6 WASHING CYCLE"--><p>It is possible to start manually a cycle of washing of the area, enable the automatic adding of the entire bench and select a portion in which to execute the cleaning.</p><div class="TextAlignCenter"><img src="attachments/3.21.6_washing_cycle/0.00.png" alt="0.00.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><p>
+</p><p></p><h1 id="parameters"><a class="header" href="#parameters">Parameters</a></h1><div class="TextAlignCenter"><img src="attachments/3.21.6_washing_cycle/1.1-20250715-085214.png" alt="1.1-20250715-085214.png" width="285" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="acd1fcae-e16f-4894-917d-96b1161d66bb"><colgroup><col style="width: 469.0px;"><col style="width: 1322.0px;"></colgroup><tbody><tr><td data-highlight-colour="#ffffff"><div class="TextAlignCenter"><img src="attachments/3.21.6_washing_cycle/1.2-20250715-085517.png" alt="1.2-20250715-085517.png" width="228" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td data-highlight-colour="#ffffff"><p><strong>Width</strong><br>It is displayed how much measures in width the area in creation phase.</p></td></tr><tr><td data-highlight-colour="#ffffff"><div class="TextAlignCenter"><img src="attachments/3.21.6_washing_cycle/1.3-20250715-085536.png" alt="1.3-20250715-085536.png" width="228" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td data-highlight-colour="#ffffff"><p><strong>Height</strong><br>Is visualized what measures in height the area in creation phase.</p></td></tr><tr><td data-highlight-colour="#ffffff"><div class="TextAlignCenter"><img src="attachments/3.21.6_washing_cycle/1.3_b-20250715-130552.png" alt="1.3_b-20250715-130552.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td data-highlight-colour="#ffffff"><p><strong>Create area</strong><br>Create an area that the operator can resize and move based on where he wants to perform the washing.</p></td></tr><tr><td data-highlight-colour="#ffffff"><div class="TextAlignCenter"><img src="attachments/3.21.6_washing_cycle/1.4_OffOn-20250715-125637.png" alt="1.4_OffOn-20250715-125637.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td data-highlight-colour="#ffffff"><p><strong>Move</strong><br>The operator can move the area during the creation phase.</p></td></tr><tr><td data-highlight-colour="#ffffff"><div class="TextAlignCenter"><img src="attachments/3.21.6_washing_cycle/1.5_OffOn-20250715-130325.png" alt="1.5_OffOn-20250715-130325.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td data-highlight-colour="#ffffff"><p><strong>Piece washing</strong><br>Create a piece washing area slightly upper than a selected piece.</p></td></tr><tr><td data-highlight-colour="#ffffff"><div class="TextAlignCenter"><img src="attachments/3.21.6_washing_cycle/1.6-20250715-130021.png" alt="1.6-20250715-130021.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td data-highlight-colour="#ffffff"><p><strong>Clean bench</strong><br>The entire area of the bench will be affected by a washing cycle.</p></td></tr><tr><td data-highlight-colour="#ffffff"><div class="TextAlignCenter"><img src="attachments/3.21.6_washing_cycle/1.7_OffOn-20250715-125146.png" alt="1.7_OffOn-20250715-125146.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td data-highlight-colour="#ffffff"><p><strong>Automatic washing cycle</strong><br>Automatic addition of a 'bench cleaning' phase at the end of the cutting list.<br>The addition will happen at the passage to the cut window.</p></td></tr></tbody></table><p></p><h1 id="mode-of-insert-a-washing-cycle"><a class="header" href="#mode-of-insert-a-washing-cycle">Mode of insert a washing cycle</a></h1><p>The addition of a washing cycle involves the insertion, inside the work area, of a rectangle that indicates the portion of the bench subject to washing.<br>It is possible to insert more washing cycles; the respective areas can also overlap, partially or completely.<br>Each new washing cycle will be inserted at the end of the cuts list on the right side.</p><p></p><h2 id="manual-selection-of-the-area" class="maintenance-section-title" data-section-number="01"><a class="header" href="#manual-selection-of-the-area">Manual selection of the area</a></h2><p>By pressing the button, you enable the possibility to add customizable washing areas. <br>It is therefore possible to move and resize the area.</p><div class="TextAlignCenter"><img src="attachments/3.21.6_washing_cycle/2.1-20250715-141334.png" alt="2.1-20250715-141334.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p>After having modified as you want the area for washing cycle, it is possible to add an additional area to be washed by pressing again the button.</p><div class="TextAlignCenter"><img src="attachments/3.21.6_washing_cycle/2.2-20250715-141436.png" alt="2.2-20250715-141436.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><h2 id="piece-washing" class="maintenance-section-title" data-section-number="02"><a class="header" href="#piece-washing">Piece washing</a></h2><p>Enabling this mode, the operator can select a piece. Following the selection, the system automatically generates a rectangular area that completely encloses the selected piece, as illustrated in the following example:</p><div class="TextAlignCenter"><img src="attachments/3.21.6_washing_cycle/3.1-20250716-080253.png" alt="3.1-20250716-080253.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><h2 id="complete-bench-washing" class="maintenance-section-title" data-section-number="03"><a class="header" href="#complete-bench-washing">Complete bench washing</a></h2><p>Employing this mode, the system inserts automatically a cut named <strong>'Bench Washing'</strong> in the cuts list and displays its corresponding representation in the work area.</p><div class="TextAlignCenter"><img src="attachments/3.21.6_washing_cycle/4.1-20250716-081841.png" alt="4.1-20250716-081841.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><!--Label="cut_cln"--><!--Label="cut_cln_man"--><!--Label="cut_cln_lwc"--><!--Label="cut_cln_lpz"-->
                         </main>
 
                     </div>
@@ -278,5 +280,12 @@
     </div>;
 
 
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
 </body>
 </html>
