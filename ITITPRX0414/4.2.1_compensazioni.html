@@ -40,7 +40,7 @@
     <script>
       const path_to_root = "";
       const default_light_theme = "light";
-      const default_dark_theme = "navy";
+      const default_dark_theme = "light";
     </script>
     <!-- Start loading toc.js asap -->
     <script src="toc.js"></script>
@@ -86,8 +86,10 @@
     });
   });
 })();
-</script></head>
-<body>
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-document" data-technical-styler-flow="html">
     <header class="header-main">
         <div class="header-flex">
             <div class="donatoni-flex">
@@ -110,6 +112,15 @@
                 </div>
                 <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                     <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
                 </button>
 
                 <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
@@ -144,17 +155,8 @@
 
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script>
-            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
-                .matches
-                ? default_dark_theme
-                : default_light_theme;
-            let theme;
-            try {
-                theme = localStorage.getItem("mdbook-theme");
-            } catch (e) { }
-            if (theme === null || theme === undefined) {
-                theme = default_theme;
-            }
+            const default_theme = "light";
+            let theme = default_theme;
             const html = document.documentElement;
             html.classList.remove("light");
             html.classList.add(theme);
@@ -214,9 +216,9 @@
 
                         <img src="images/donatoni_111.jpg">
 
-                        <main style="margin-left: 20px;">
-                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="421-compensazioni" style="margin:0;"><a class="header" href="#421-compensazioni">4.2.1 COMPENSAZIONI</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="4.2.1 COMPENSAZIONI"--><p>Questa funzione consente di eseguire compensazioni manuali alla distanza tra gli attestatori della macchina.<br>È da utilizzare in caso si noti una discrepanza tra le dimensioni dei pezzi programmati e le misure osservate su quelli ottenuti.</p><div class="TextAlignCenter"><img src="attachments/4.2.1_compensazioni/0.03.png" alt="0.03.png" width="600" onclick="showModal(this.src)"></div><p></p><p>
-</p><p></p><h1 id="valori-richiesti"><a class="header" href="#valori-richiesti">Valori richiesti</a></h1><p>Durante la procedura di compensazione, viene richiesto all’operatore di inserire questi valori.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="7304b2b8-ef9e-4aea-a7ea-2c67daa27e3f"><colgroup><col style="width: 446.0px;"><col style="width: 1353.0px;"></colgroup><tbody><tr><td><p><strong>Dimensioni pezzo desiderato</strong></p></td><td><p>Misura programmata del lato dei pezzi che si desidera controllare.</p></td></tr><tr><td><p><strong>Pezzo</strong></p></td><td><p>Misura riscontrata del lato del pezzo le cui estremità sono state tagliate utilizzando il disco indicato ed il successivo.</p></td></tr><tr><td><p><strong>Spessore</strong></p></td><td><p>Spessore del disco montato sull’attestatore indicato.</p></td></tr></tbody></table><p>Infine, premere il pulsante.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="3391e674-8c38-42b4-8219-f337baa513ad"><colgroup><col style="width: 446.0px;"><col style="width: 1353.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/4.2.1_compensazioni/0.02.png" alt="0.02.png" width="166" onclick="showModal(this.src)"></div></td><td><p><strong>Compensazione</strong><br>Applica la compensazione adatta.</p></td></tr></tbody></table><p></p><p></p><h1 id="procedura-da-seguire"><a class="header" href="#procedura-da-seguire">Procedura da seguire</a></h1><p>Come prima cosa, importare in Parametrix due pezzi rettangolari aventi le stesse dimensioni.<br>Disporli necessariamente affiancati su una lastra come mostrato figura, e procedere con l’esecuzione della lavorazione.</p><div class="TextAlignCenter"><img src="attachments/4.2.1_compensazioni/0.01.png" alt="0.01.png" width="800" onclick="showModal(this.src)"></div><p>Accedere alla finestra per la compensazione manuale degli attestatori e compilare i campi richiesti.<br>Deve essere inserita la misura originale del lato dei rettangoli programmati.<br>Poi, le misure riscontrate dello stesso lato di ciascun rettangolo tagliato, facendo attenzione di indicare quali dischi sono stati utilizzati.<br>Infine, lo spessore di ogni disco montato in macchina.</p><div class="TextAlignCenter"><img src="attachments/4.2.1_compensazioni/0.00.png" alt="0.00.png" width="600" onclick="showModal(this.src)"></div><p>Al termine, premere il pulsante sottostante per fare calcolare a Parametrix la compensazione da adottare su ogni attestatore.</p>
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Machine technical documentation</span><span class="maintenance-status"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Operational document</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="421-compensazioni" style="margin:0;" class="maintenance-main-title"><a class="header" href="#421-compensazioni"><span class="maintenance-code">DOC</span><span class="maintenance-name">4.2.1 COMPENSAZIONI</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document DOC" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="4.2.1 COMPENSAZIONI"--><p>Questa funzione consente di eseguire compensazioni manuali alla distanza tra gli attestatori della macchina.<br>È da utilizzare in caso si noti una discrepanza tra le dimensioni dei pezzi programmati e le misure osservate su quelli ottenuti.</p><div class="TextAlignCenter"><img src="attachments/4.2.1_compensazioni/0.03.png" alt="0.03.png" width="600" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><p>
+</p><p></p><h1 id="valori-richiesti"><a class="header" href="#valori-richiesti">Valori richiesti</a></h1><p>Durante la procedura di compensazione, viene richiesto all’operatore di inserire questi valori.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="7304b2b8-ef9e-4aea-a7ea-2c67daa27e3f"><colgroup><col style="width: 446.0px;"><col style="width: 1353.0px;"></colgroup><tbody><tr><td><p><strong>Dimensioni pezzo desiderato</strong></p></td><td><p>Misura programmata del lato dei pezzi che si desidera controllare.</p></td></tr><tr><td><p><strong>Pezzo</strong></p></td><td><p>Misura riscontrata del lato del pezzo le cui estremità sono state tagliate utilizzando il disco indicato ed il successivo.</p></td></tr><tr><td><p><strong>Spessore</strong></p></td><td><p>Spessore del disco montato sull’attestatore indicato.</p></td></tr></tbody></table><p>Infine, premere il pulsante.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="3391e674-8c38-42b4-8219-f337baa513ad"><colgroup><col style="width: 446.0px;"><col style="width: 1353.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/4.2.1_compensazioni/0.02.png" alt="0.02.png" width="166" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Compensazione</strong><br>Applica la compensazione adatta.</p></td></tr></tbody></table><p></p><p></p><h1 id="procedura-da-seguire"><a class="header" href="#procedura-da-seguire">Procedura da seguire</a></h1><p>Come prima cosa, importare in Parametrix due pezzi rettangolari aventi le stesse dimensioni.<br>Disporli necessariamente affiancati su una lastra come mostrato figura, e procedere con l’esecuzione della lavorazione.</p><div class="TextAlignCenter"><img src="attachments/4.2.1_compensazioni/0.01.png" alt="0.01.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p>Accedere alla finestra per la compensazione manuale degli attestatori e compilare i campi richiesti.<br>Deve essere inserita la misura originale del lato dei rettangoli programmati.<br>Poi, le misure riscontrate dello stesso lato di ciascun rettangolo tagliato, facendo attenzione di indicare quali dischi sono stati utilizzati.<br>Infine, lo spessore di ogni disco montato in macchina.</p><div class="TextAlignCenter"><img src="attachments/4.2.1_compensazioni/0.00.png" alt="0.00.png" width="600" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p>Al termine, premere il pulsante sottostante per fare calcolare a Parametrix la compensazione da adottare su ogni attestatore.</p>
 <div id="admonition-nota" class="admonition admonish-info" role="note" aria-labelledby="admonition-nota-title">
 <div class="admonition-title">
 <div id="admonition-nota-title">
@@ -290,5 +292,12 @@
     </div>;
 
 
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
 </body>
 </html>

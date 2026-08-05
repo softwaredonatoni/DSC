@@ -40,7 +40,7 @@
     <script>
       const path_to_root = "";
       const default_light_theme = "light";
-      const default_dark_theme = "navy";
+      const default_dark_theme = "light";
     </script>
     <!-- Start loading toc.js asap -->
     <script src="toc.js"></script>
@@ -86,8 +86,10 @@
     });
   });
 })();
-</script></head>
-<body>
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-document" data-technical-styler-flow="html">
     <header class="header-main">
         <div class="header-flex">
             <div class="donatoni-flex">
@@ -110,6 +112,15 @@
                 </div>
                 <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                     <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
                 </button>
 
                 <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
@@ -144,17 +155,8 @@
 
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script>
-            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
-                .matches
-                ? default_dark_theme
-                : default_light_theme;
-            let theme;
-            try {
-                theme = localStorage.getItem("mdbook-theme");
-            } catch (e) { }
-            if (theme === null || theme === undefined) {
-                theme = default_theme;
-            }
+            const default_theme = "light";
+            let theme = default_theme;
             const html = document.documentElement;
             html.classList.remove("light");
             html.classList.add(theme);
@@ -214,8 +216,8 @@
 
                         <img src="images/donatoni_111.jpg">
 
-                        <main style="margin-left: 20px;">
-                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="31318-flutes" style="margin:0;"><a class="header" href="#31318-flutes">3.13.18 FLUTES</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="3.13.18 FLUTES"--><p local-id="7e23a731c1b4">Questa funzionalità permette di applicare lavorazioni con l’utensile di tipo fresa attualmente montato in macchina nel taglio selezionato, curva o retta che sia, al fine di ottenere flutes.</p><div class="TextAlignCenter"><img src="attachments/3.13.18_flutes/{87243141-4DA8-4401-8A31-71D2C3EC7B4C}-20260616-084003.png" alt="{87243141-4DA8-4401-8A31-71D2C3EC7B4C}-20260616-084003.png" width="800" onclick="showModal(this.src)"></div><p local-id="eef65df666c2"></p><p>
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Machine technical documentation</span><span class="maintenance-status"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Operational document</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="31318-flutes" style="margin:0;" class="maintenance-main-title"><a class="header" href="#31318-flutes"><span class="maintenance-code">DOC</span><span class="maintenance-name">3.13.18 FLUTES</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document DOC" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="3.13.18 FLUTES"--><p local-id="7e23a731c1b4">Questa funzionalità permette di applicare lavorazioni con l’utensile di tipo fresa attualmente montato in macchina nel taglio selezionato, curva o retta che sia, al fine di ottenere flutes.</p><div class="TextAlignCenter"><img src="attachments/3.13.18_flutes/{87243141-4DA8-4401-8A31-71D2C3EC7B4C}-20260616-084003.png" alt="{87243141-4DA8-4401-8A31-71D2C3EC7B4C}-20260616-084003.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="eef65df666c2"></p><p>
 </p><h1 local-id="d6c4d60cc8da">Parametri</h1><p local-id="f1537179abcf">Il risultato varia a seconda del valore dei seguenti parametri:</p><table class="my-table2" data-table-width="1349" data-layout="align-start" ac:local-id="3063db39-6c50-4cf6-a574-7c49409e9d98"><colgroup><col style="width: 336.0px;"><col style="width: 1013.0px;"></colgroup><tbody><tr ac:local-id="88f9fbf9fdf0"><td ac:local-id="50dd621bca35"><p local-id="ad0bd4ef9332"><strong>Numero di flutes</strong></p></td><td ac:local-id="376446d90e75"><p local-id="0f37183dcf90">Indica quanti flutes applicare alla lavorazione corrente sul taglio selezionato.</p>
 <div id="admonition-nota" class="admonition admonish-info" role="note" aria-labelledby="admonition-nota-title">
 <div class="admonition-title">
@@ -228,7 +230,7 @@
 <p>Questo parametro è visibile solo quando si seleziona la modalità di inserimento flutes a numero.</p>
 </div>
 </div>
-</td></tr><tr ac:local-id="708c1ea27c6c"><td ac:local-id="4987fbb2c8ff"><div class="TextAlignCenter"><img src="attachments/3.13.18_flutes/Update_b-20250612-093422.png" alt="Update_b-20250612-093422.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="37f041abb49a"><p local-id="83db216f0f37"><strong>Ricalcola numero</strong><br>Ricalcola il numero di flutes in modo da riempire il taglio selezionato.</p>
+</td></tr><tr ac:local-id="708c1ea27c6c"><td ac:local-id="4987fbb2c8ff"><div class="TextAlignCenter"><img src="attachments/3.13.18_flutes/Update_b-20250612-093422.png" alt="Update_b-20250612-093422.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="37f041abb49a"><p local-id="83db216f0f37"><strong>Ricalcola numero</strong><br>Ricalcola il numero di flutes in modo da riempire il taglio selezionato.</p>
 <div id="admonition-nota-1" class="admonition admonish-info" role="note" aria-labelledby="admonition-nota-1-title">
 <div class="admonition-title">
 <div id="admonition-nota-1-title">
@@ -276,7 +278,7 @@
 <p>Questo parametro è visibile solo quando si seleziona la modalità riempimento per inserire i flutes.</p>
 </div>
 </div>
-</td></tr></tbody></table><p local-id="61ab4f8c3bd2"></p><h2 local-id="756f022d5687">Ricalcola numero</h2><p local-id="b1335ac28c32">Premendo il pulsante collocato sulla destra rispetto al numero di flutes permette di riempire il taglio selezionato con più flutes possibile, in relazione al valore degli altri parametri.<br>Nella seguente immagine di esempio è possibile osservare il risultato del riempimento flutes, in contrapposizione alla prima immagine a inizio capitolo.</p><p local-id="c023d995d5a4"></p><div class="TextAlignCenter"><img src="attachments/3.13.18_flutes/{E58555CC-AA01-49DF-8203-EB6340212FF7}-20260616-082617.png" alt="{E58555CC-AA01-49DF-8203-EB6340212FF7}-20260616-082617.png" width="800" onclick="showModal(this.src)"></div><p local-id="699a5e16b3d0"></p><h2 local-id="5c93d22ad495">Modalità inserimento flutes</h2><p local-id="19ac03fc22d3">Queste sono le opzioni di inserimento dei flutes :</p><table class="my-table2" data-table-width="1344" data-layout="align-start" ac:local-id="8e83506a289c"><colgroup><col style="width: 262.0px;"><col style="width: 1082.0px;"></colgroup><tbody><tr ac:local-id="ee87be0f-fa91-43c4-bb06-a378b1d56f47"><td ac:local-id="217d8063-502b-4151-89e0-f0bb907c2e3f"><div class="TextAlignCenter"><img src="attachments/3.13.18_flutes/PulsanteInserimentoNumero-20260611-142105.png" alt="PulsanteInserimentoNumero-20260611-142105.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="556a6b6d-05a1-4c62-9ad8-33b8c5111810"><p local-id="be77ea29a351"><strong>Inserimento a numero </strong><br>I flutes vengono inseriti in base al numero che si inserisce.</p>
+</td></tr></tbody></table><p local-id="61ab4f8c3bd2"></p><h2 local-id="756f022d5687" class="maintenance-section-title" data-section-number="01">Ricalcola numero</h2><p local-id="b1335ac28c32">Premendo il pulsante collocato sulla destra rispetto al numero di flutes permette di riempire il taglio selezionato con più flutes possibile, in relazione al valore degli altri parametri.<br>Nella seguente immagine di esempio è possibile osservare il risultato del riempimento flutes, in contrapposizione alla prima immagine a inizio capitolo.</p><p local-id="c023d995d5a4"></p><div class="TextAlignCenter"><img src="attachments/3.13.18_flutes/{E58555CC-AA01-49DF-8203-EB6340212FF7}-20260616-082617.png" alt="{E58555CC-AA01-49DF-8203-EB6340212FF7}-20260616-082617.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="699a5e16b3d0"></p><h2 local-id="5c93d22ad495" class="maintenance-section-title" data-section-number="02">Modalità inserimento flutes</h2><p local-id="19ac03fc22d3">Queste sono le opzioni di inserimento dei flutes :</p><table class="my-table2" data-table-width="1344" data-layout="align-start" ac:local-id="8e83506a289c"><colgroup><col style="width: 262.0px;"><col style="width: 1082.0px;"></colgroup><tbody><tr ac:local-id="ee87be0f-fa91-43c4-bb06-a378b1d56f47"><td ac:local-id="217d8063-502b-4151-89e0-f0bb907c2e3f"><div class="TextAlignCenter"><img src="attachments/3.13.18_flutes/PulsanteInserimentoNumero-20260611-142105.png" alt="PulsanteInserimentoNumero-20260611-142105.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="556a6b6d-05a1-4c62-9ad8-33b8c5111810"><p local-id="be77ea29a351"><strong>Inserimento a numero </strong><br>I flutes vengono inseriti in base al numero che si inserisce.</p>
 <div id="admonition-nota-5" class="admonition admonish-info" role="note" aria-labelledby="admonition-nota-5-title">
 <div class="admonition-title">
 <div id="admonition-nota-5-title">
@@ -288,7 +290,7 @@
 <p>Se viene scelto questo inserimento non si potrà usare l’inserimento a riempimento e viceversa.</p>
 </div>
 </div>
-</td></tr><tr ac:local-id="49af29bd-37eb-43d5-9c39-42eb64188bf6"><td ac:local-id="2c0f3492-1e99-4ad8-b35a-e888c8f4dc7c"><div class="TextAlignCenter"><img src="attachments/3.13.18_flutes/InserimentoRiempimento-20260611-142352.png" alt="InserimentoRiempimento-20260611-142352.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="5eb44062-20f0-4d95-936c-09857a0a15ba"><p local-id="352f160ba3a8"><strong>Inserimento a riempimento</strong><br>I flutes vengono inseriti in base alla distanza <strong> </strong>inserita.<br></p></td></tr><tr ac:local-id="7f3e8e27-fd60-442e-900e-5e1d6800da65"><td ac:local-id="b2898d03-7002-4437-b66e-b189ab33889f"><div class="TextAlignCenter"><img src="attachments/3.13.18_flutes/Disco-20260611-142541.png" alt="Disco-20260611-142541.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="4ecdf2c3-8c39-4e24-add3-1a97d0a3af16"><p local-id="eba02443c521"><strong>Modalità disco</strong><br>Per inserire i flutes verrà usato il disco per l’intaglio.</p>
+</td></tr><tr ac:local-id="49af29bd-37eb-43d5-9c39-42eb64188bf6"><td ac:local-id="2c0f3492-1e99-4ad8-b35a-e888c8f4dc7c"><div class="TextAlignCenter"><img src="attachments/3.13.18_flutes/InserimentoRiempimento-20260611-142352.png" alt="InserimentoRiempimento-20260611-142352.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="5eb44062-20f0-4d95-936c-09857a0a15ba"><p local-id="352f160ba3a8"><strong>Inserimento a riempimento</strong><br>I flutes vengono inseriti in base alla distanza <strong> </strong>inserita.<br></p></td></tr><tr ac:local-id="7f3e8e27-fd60-442e-900e-5e1d6800da65"><td ac:local-id="b2898d03-7002-4437-b66e-b189ab33889f"><div class="TextAlignCenter"><img src="attachments/3.13.18_flutes/Disco-20260611-142541.png" alt="Disco-20260611-142541.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="4ecdf2c3-8c39-4e24-add3-1a97d0a3af16"><p local-id="eba02443c521"><strong>Modalità disco</strong><br>Per inserire i flutes verrà usato il disco per l’intaglio.</p>
 <div id="admonition-nota-6" class="admonition admonish-info" role="note" aria-labelledby="admonition-nota-6-title">
 <div class="admonition-title">
 <div id="admonition-nota-6-title">
@@ -300,7 +302,7 @@
 <p>Se viene scelta questa modalità non si potrà usare la modalità fresa e viceversa.</p>
 </div>
 </div>
-</td></tr><tr ac:local-id="3dac58b75f57"><td ac:local-id="ea57b8d55013"><div class="TextAlignCenter"><img src="attachments/3.13.18_flutes/Fresa-20260611-142556.png" alt="Fresa-20260611-142556.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="c32e7392e7a0"><p local-id="2f5aaccf85c0"><strong>Modalità fresa</strong><br>Per inserire i flutes verrà usata la fresa per l’intaglio.</p><p local-id="436ef42db2a9"></p></td></tr></tbody></table><p local-id="80501108dd61"></p><h2 local-id="c511db6cd81c">Modalità flutes su archi</h2><p local-id="be87629df877">Quando viene selezionato un taglio curvo di un poligono, verrà visualizzato un nuovo parametro necessario per assumere uno tra tre valori:</p><table class="my-table2" data-table-width="1344" data-layout="align-start" ac:local-id="1e1ae50f-23b0-4a36-87a8-008c0ed77cee"><colgroup><col style="width: 262.0px;"><col style="width: 1082.0px;"></colgroup><tbody><tr ac:local-id="3893522d425f"><td ac:local-id="fd496de5cbd4"><div class="TextAlignCenter"><img src="attachments/3.13.18_flutes/flute_mode_0_b.png" alt="flute_mode_0_b.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="c4e6e191c205"><p local-id="a4495e95b47a"><strong>Radiali</strong><br>I flutes vengono disposti lungo la curva in modo tale da essere rivolti verso il centro dell’arco.<br></p></td></tr><tr ac:local-id="66eef9465fba"><td ac:local-id="c8151483e90c"><div class="TextAlignCenter"><img src="attachments/3.13.18_flutes/flute_mode_1_b.png" alt="flute_mode_1_b.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="06ad8441642f"><p local-id="b87e426053bc"><strong>Allineamento ad arco</strong><br>I flutes vengono disposti paralleli lungo la curva e con lunghezza uguale.</p></td></tr><tr ac:local-id="dd60a85e45e1"><td ac:local-id="e29e9908bf0d"><div class="TextAlignCenter"><img src="attachments/3.13.18_flutes/flute_mode_2_b.png" alt="flute_mode_2_b.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="ea345aaaf92a"><p local-id="0f0b368a9e80"><strong>Allineamento a tangente</strong><br>I flutes vengono disposti paralleli lungo la curva. La loro lunghezza varia in modo da mantenere tutte le estremità interne al pezzo sulla stessa retta, rispettando l’allungo delle estremità esterne al pezzo.</p></td></tr></tbody></table><p local-id="1c033a36a09e"></p><h3 local-id="866e1ad99da6">Modalità 1: <strong>Radiali</strong></h3><p local-id="3d868b2eb68a">In questa modalità i flutes condividono un punto di origine e sono perpendicolari rispetto alla relativa tangente sul taglio curvo selezionato.</p><div class="TextAlignCenter"><img src="attachments/3.13.18_flutes/{08200D4D-1BE7-4B38-A9B3-EFE65F4F15D7}-20260616-082310.png" alt="{08200D4D-1BE7-4B38-A9B3-EFE65F4F15D7}-20260616-082310.png" width="800" onclick="showModal(this.src)"></div><p local-id="30abbda0817c"></p><h3 local-id="cc3f621521a4">Modalità 2: <strong>Allineamento ad arco</strong></h3><p local-id="4fadabe6f024">In questa modalità i flutes sono paralleli tra loro e sono allineati ad arco sia per la distanza sia per l’allungo interno.</p><div class="TextAlignCenter"><img src="attachments/3.13.18_flutes/{D4A7A7AD-55A4-486B-B55A-F7DC5501B230}-20260616-082122.png" alt="{D4A7A7AD-55A4-486B-B55A-F7DC5501B230}-20260616-082122.png" width="800" onclick="showModal(this.src)"></div><p local-id="acc17bb2ac2d"></p><h3 local-id="57d72f337ee6">Modalità 3: <strong>Allineamento a tangente</strong></h3><p local-id="5f06c73009ec">In questa modalità i flutes sono paralleli tra loro e sono allineati ad arco per l’allungo interno, mentre sono allungati fino al raggiungimento della tangente che dista tanto quanto specificato dal valore lunghezza.</p><div class="TextAlignCenter"><img src="attachments/3.13.18_flutes/{C7D50817-974A-407A-943C-4AE8B1F504A0}-20260616-081912.png" alt="{C7D50817-974A-407A-943C-4AE8B1F504A0}-20260616-081912.png" width="800" onclick="showModal(this.src)"></div><p local-id="2a6ca0d15512"></p><h1 local-id="e211debf7727">Esecuzione della lavorazione</h1>
+</td></tr><tr ac:local-id="3dac58b75f57"><td ac:local-id="ea57b8d55013"><div class="TextAlignCenter"><img src="attachments/3.13.18_flutes/Fresa-20260611-142556.png" alt="Fresa-20260611-142556.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="c32e7392e7a0"><p local-id="2f5aaccf85c0"><strong>Modalità fresa</strong><br>Per inserire i flutes verrà usata la fresa per l’intaglio.</p><p local-id="436ef42db2a9"></p></td></tr></tbody></table><p local-id="80501108dd61"></p><h2 local-id="c511db6cd81c" class="maintenance-section-title" data-section-number="03">Modalità flutes su archi</h2><p local-id="be87629df877">Quando viene selezionato un taglio curvo di un poligono, verrà visualizzato un nuovo parametro necessario per assumere uno tra tre valori:</p><table class="my-table2" data-table-width="1344" data-layout="align-start" ac:local-id="1e1ae50f-23b0-4a36-87a8-008c0ed77cee"><colgroup><col style="width: 262.0px;"><col style="width: 1082.0px;"></colgroup><tbody><tr ac:local-id="3893522d425f"><td ac:local-id="fd496de5cbd4"><div class="TextAlignCenter"><img src="attachments/3.13.18_flutes/flute_mode_0_b.png" alt="flute_mode_0_b.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="c4e6e191c205"><p local-id="a4495e95b47a"><strong>Radiali</strong><br>I flutes vengono disposti lungo la curva in modo tale da essere rivolti verso il centro dell’arco.<br></p></td></tr><tr ac:local-id="66eef9465fba"><td ac:local-id="c8151483e90c"><div class="TextAlignCenter"><img src="attachments/3.13.18_flutes/flute_mode_1_b.png" alt="flute_mode_1_b.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="06ad8441642f"><p local-id="b87e426053bc"><strong>Allineamento ad arco</strong><br>I flutes vengono disposti paralleli lungo la curva e con lunghezza uguale.</p></td></tr><tr ac:local-id="dd60a85e45e1"><td ac:local-id="e29e9908bf0d"><div class="TextAlignCenter"><img src="attachments/3.13.18_flutes/flute_mode_2_b.png" alt="flute_mode_2_b.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="ea345aaaf92a"><p local-id="0f0b368a9e80"><strong>Allineamento a tangente</strong><br>I flutes vengono disposti paralleli lungo la curva. La loro lunghezza varia in modo da mantenere tutte le estremità interne al pezzo sulla stessa retta, rispettando l’allungo delle estremità esterne al pezzo.</p></td></tr></tbody></table><p local-id="1c033a36a09e"></p><h3 local-id="866e1ad99da6">Modalità 1: <strong>Radiali</strong></h3><p local-id="3d868b2eb68a">In questa modalità i flutes condividono un punto di origine e sono perpendicolari rispetto alla relativa tangente sul taglio curvo selezionato.</p><div class="TextAlignCenter"><img src="attachments/3.13.18_flutes/{08200D4D-1BE7-4B38-A9B3-EFE65F4F15D7}-20260616-082310.png" alt="{08200D4D-1BE7-4B38-A9B3-EFE65F4F15D7}-20260616-082310.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="30abbda0817c"></p><h3 local-id="cc3f621521a4">Modalità 2: <strong>Allineamento ad arco</strong></h3><p local-id="4fadabe6f024">In questa modalità i flutes sono paralleli tra loro e sono allineati ad arco sia per la distanza sia per l’allungo interno.</p><div class="TextAlignCenter"><img src="attachments/3.13.18_flutes/{D4A7A7AD-55A4-486B-B55A-F7DC5501B230}-20260616-082122.png" alt="{D4A7A7AD-55A4-486B-B55A-F7DC5501B230}-20260616-082122.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="acc17bb2ac2d"></p><h3 local-id="57d72f337ee6">Modalità 3: <strong>Allineamento a tangente</strong></h3><p local-id="5f06c73009ec">In questa modalità i flutes sono paralleli tra loro e sono allineati ad arco per l’allungo interno, mentre sono allungati fino al raggiungimento della tangente che dista tanto quanto specificato dal valore lunghezza.</p><div class="TextAlignCenter"><img src="attachments/3.13.18_flutes/{C7D50817-974A-407A-943C-4AE8B1F504A0}-20260616-081912.png" alt="{C7D50817-974A-407A-943C-4AE8B1F504A0}-20260616-081912.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="2a6ca0d15512"></p><h1 local-id="e211debf7727">Esecuzione della lavorazione</h1>
 <div id="admonition-nota-7" class="admonition admonish-info" role="note" aria-labelledby="admonition-nota-7-title">
 <div class="admonition-title">
 <div id="admonition-nota-7-title">
@@ -314,7 +316,7 @@
 Un’icona rossa con una 'X' indica che la lavorazione non può essere applicata al taglio desiderato.</p>
 </div>
 </div>
-<p local-id="bb8ae3a06ab4">Una volta ottenuto il risultato desiderato, visualizzato e costantemente aggiornato nell’anteprima della lavorazione, l’operatore può confermare l’operazione premendo il pulsante verde “OK”, situato appena sotto i parametri impostati.<br>I flutes mostrati nell’anteprima verranno quindi applicati al taglio selezionato: il loro colore passerà a un verde scuro, sia nell’anteprima che successivamente nell’area di lavoro, a indicarne l’avvenuta applicazione.</p><div class="TextAlignCenter"><img src="attachments/3.13.18_flutes/{7E39D15E-9E6E-44D8-8333-0A3297A44D1E}-20260617-134501.png" alt="{7E39D15E-9E6E-44D8-8333-0A3297A44D1E}-20260617-134501.png" width="800" onclick="showModal(this.src)"></div><p local-id="b2e1bed1b421"></p><p local-id="c7d4471d6c16">Anche l’elenco dei tagli, situato sul lato sinistro, verrà aggiornato in base alla nuova lavorazione applicata e ai parametri dei flutes. <br>È possibile applicare più lavorazioni di questo tipo a un singolo taglio, purché i relativi parametri non si ripetano.</p><!--Label="mdr_flt"--><!--Label="mdr_flt_rad"--><!--Label="mdr_flt_tan"--><!--Label="mdr_flt_exe"--><!--Label="mdr_fit_arc"-->
+<p local-id="bb8ae3a06ab4">Una volta ottenuto il risultato desiderato, visualizzato e costantemente aggiornato nell’anteprima della lavorazione, l’operatore può confermare l’operazione premendo il pulsante verde “OK”, situato appena sotto i parametri impostati.<br>I flutes mostrati nell’anteprima verranno quindi applicati al taglio selezionato: il loro colore passerà a un verde scuro, sia nell’anteprima che successivamente nell’area di lavoro, a indicarne l’avvenuta applicazione.</p><div class="TextAlignCenter"><img src="attachments/3.13.18_flutes/{7E39D15E-9E6E-44D8-8333-0A3297A44D1E}-20260617-134501.png" alt="{7E39D15E-9E6E-44D8-8333-0A3297A44D1E}-20260617-134501.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="b2e1bed1b421"></p><p local-id="c7d4471d6c16">Anche l’elenco dei tagli, situato sul lato sinistro, verrà aggiornato in base alla nuova lavorazione applicata e ai parametri dei flutes. <br>È possibile applicare più lavorazioni di questo tipo a un singolo taglio, purché i relativi parametri non si ripetano.</p><!--Label="mdr_flt"--><!--Label="mdr_flt_rad"--><!--Label="mdr_flt_tan"--><!--Label="mdr_flt_exe"--><!--Label="mdr_fit_arc"-->
                         </main>
 
                     </div>
@@ -376,5 +378,12 @@ Un’icona rossa con una 'X' indica che la lavorazione non può essere applicata
     </div>;
 
 
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
 </body>
 </html>

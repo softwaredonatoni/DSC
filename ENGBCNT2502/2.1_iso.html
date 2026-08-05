@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+<head>
+    <!-- Book generated using mdBook -->
+    <meta charset="UTF-8">
+    <title>2.1 ISO - EN-GB D-CONTOUR 2025.2</title>
+
+    <!-- Custom HTML head -->
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="icon" href="favicon.svg">
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/chrome.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Fonts -->
+    <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+    <link rel="stylesheet" href="fonts/fonts.css">
+
+    <!-- Highlight.js Stylesheets -->
+    <link rel="stylesheet" id="highlight-css" href="highlight.css">
+    <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+    <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+    <!-- Custom theme stylesheets -->
+    <link rel="stylesheet" href="./mdbook-admonish.css">
+    <link rel="stylesheet" href="theme/custom.css">
+    <link rel="stylesheet" href="search.html">
+    <link rel="stylesheet" href="login.html">
+    <link rel="stylesheet" href="searchlogin.html">
+    <link rel="stylesheet" href="searchloginmenu.html">
+
+    <!-- Provide site root and default themes to javascript -->
+    <script>
+      const path_to_root = "";
+      const default_light_theme = "light";
+      const default_dark_theme = "light";
+    </script>
+    <!-- Start loading toc.js asap -->
+    <script src="toc.js"></script>
+<script>(function () {
+  const SUFFIX = "#2utHhOLI7Iz0";
+
+  function buildUrl() {
+    const base = window.location.href.split("#")[0];
+    return base + SUFFIX;
+  }
+
+  function fallbackCopy(text) {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.top = "-1000px";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+
+  async function copyUrl() {
+    const url = buildUrl();
+
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(url);
+        return;
+      } catch (e) {}
+    }
+
+    fallbackCopy(url);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.getElementById("copy-link-btn");
+    if (!btn) return;
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      copyUrl();
+    });
+  });
+})();
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-document" data-technical-styler-flow="html">
+    <header class="header-main">
+        <div class="header-flex">
+            <div class="donatoni-flex">
+                <label class="btn hamburger-menu" id="sidebar-toggle" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                    <i id="sidebar-toggle-icon" class="fa-solid fa-bars"></i>
+                </label>
+
+                <img src="images/donatoni-logo-white.svg" alt="Donatoni Macchine">
+            </div>
+
+            <div class="donatoni-flex action-header-buttons">
+                <div id="search-wrapper" class="search-wrapper hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults"></ul>
+                    </div>
+                </div>
+                <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
+                </button>
+
+                <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
+                    <i class="fa-solid fa-print"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div id="body-container">
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem("mdbook-theme");
+                let sidebar = localStorage.getItem("mdbook-sidebar");
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-theme",
+                        theme.slice(1, theme.length - 1)
+                    );
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-sidebar",
+                        sidebar.slice(1, sidebar.length - 1)
+                    );
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = "light";
+            let theme = default_theme;
+            const html = document.documentElement;
+            html.classList.remove("light");
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try {
+                    sidebar = localStorage.getItem('mdbook-sidebar');
+                } catch (e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document
+                        .getElementById("sidebar-toggle")
+                        .setAttribute("aria-expanded", sidebar === "visible");
+                    document
+                        .getElementById("sidebar")
+                        .setAttribute("aria-hidden", sidebar !== "visible");
+                    Array.from(document.querySelectorAll("#sidebar a")).forEach(
+                        function (link) {
+                            link.setAttribute("tabIndex", sidebar === "visible" ? 0 : -1);
+                        }
+                    );
+                </script>
+
+                <div id="content" class="content">
+
+                    <div>
+
+                        <img src="images/donatoni_111.jpg">
+
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Machine technical documentation</span><span class="maintenance-status"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Operational document</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="21-iso" style="margin:0;" class="maintenance-main-title"><a class="header" href="#21-iso"><span class="maintenance-code">DOC</span><span class="maintenance-name">2.1 ISO</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document DOC" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="2.1 ISO"--><p local-id="eeadbf144b64">This page displays various items of information about the machine status, such as the axis positions and the mounted tool.</p><div class="TextAlignCenter"><img src="attachments/2.1_iso/_System.Windows.Controls.Grid_20374254.png" alt="_System.Windows.Controls.Grid_20374254.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p>
+</p><h1 local-id="9050cf017112">Operating Mode</h1><p local-id="9769442c23c8">There are 3 operating modes, shown in a small panel at the top right.<br>The commands displayed on the interface may vary according to the selected operating mode.</p><div class="TextAlignCenter"><img src="attachments/2.1_iso/opModeComponent_AppContour.Menu.Iso.Views.Controls.ViewOperationModeComponent_25162958.png" alt="opModeComponent_AppContour.Menu.Iso.Views.Controls.ViewOperationModeComponent_25162958.png" width="678" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><table class="my-table2" data-table-width="1989" data-layout="center" ac:local-id="c4ff69b4-8a91-4700-b1a6-1193530349c0" data-table-display-mode="default"><colgroup><col style="width: 437.0px;"><col style="width: 1543.0px;"></colgroup><tbody><tr ac:local-id="004b896ea6f2"><td ac:local-id="fbef39dd5e9e"><div class="TextAlignCenter"><img src="attachments/2.1_iso/_AppContour.Controls.ViewOperationModeButton_3197346.png" alt="_AppContour.Controls.ViewOperationModeButton_3197346.png" width="242" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="838c01e253bb"><p local-id="80446376cf12"><strong>Manual mode</strong><br>Sets the operating mode to “Manual”.</p></td></tr><tr ac:local-id="2676a9457dd3"><td ac:local-id="b38bb01ee048"><div class="TextAlignCenter"><img src="attachments/2.1_iso/_AppContour.Controls.ViewOperationModeButton_7093323.png" alt="_AppContour.Controls.ViewOperationModeButton_7093323.png" width="238" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="07c13bbb91c8"><p local-id="3e7863e7332a"><strong>MDI mode</strong><br>Sets the operating mode to “MDI”.</p></td></tr><tr ac:local-id="53130dadd1a9"><td ac:local-id="ab99262b036e"><div class="TextAlignCenter"><img src="attachments/2.1_iso/_AppContour.Controls.ViewOperationModeButton_52327117.png" alt="_AppContour.Controls.ViewOperationModeButton_52327117.png" width="238" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="024e1acb3a28"><p local-id="fd1b44294940"><strong>Automatic mode</strong><br>Sets the operating mode to “Automatic”.</p></td></tr></tbody></table><h1 local-id="a7d1caa210bc">Mounted Tool</h1><p local-id="a9067dc02428">On the right-hand side of the interface, immediately below the operating mode selection panel, information about the mounted tool can be viewed and several operations can be carried out:</p><div class="TextAlignCenter"><img src="attachments/2.1_iso/_AppContour.Menu.Iso.Views.Controls.ViewToolIso_40639560.png" alt="_AppContour.Menu.Iso.Views.Controls.ViewToolIso_40639560.png" width="320" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><table class="my-table2" data-table-width="1989" data-layout="center" ac:local-id="0dc77d13275d"><colgroup><col style="width: 437.0px;"><col style="width: 1543.0px;"></colgroup><tbody><tr ac:local-id="ddd6f13b-5844-4519-be81-4e12d76e1ee7"><td ac:local-id="67df56f9-2127-4f7b-9e4c-a0412bc665c1"><div class="TextAlignCenter"><img src="attachments/2.1_iso/_AppContour.Controls.ViewVariableRequestConfirmButton_42655441.png" alt="_AppContour.Controls.ViewVariableRequestConfirmButton_42655441.png" width="175" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="323d1cc5808b"></p></td><td ac:local-id="a4aeff09-8b7b-4f44-9024-3358782a5ca7"><p local-id="f21a8349f59a"><strong>Open clamp</strong><br>Opens the clamp.</p>
+<div id="admonition-note" class="admonition admonish-info" role="note" aria-labelledby="admonition-note-title">
+<div class="admonition-title">
+<div id="admonition-note-title">
+<p>NOTE</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-note"></a>
+</div>
+<div>
+<p>The “Open clamp” command is executed only after the user confirms the following message:</p>
+</div>
+</div>
+</td></tr><tr ac:local-id="4b45db8f-bffa-4646-a6d3-6b71ffb149d5"><td ac:local-id="f997007b-633a-4e7a-b46a-9ff75d158248"><div class="TextAlignCenter"><img src="attachments/2.1_iso/_AppContour.Controls.ViewVariableButton_32836002.png" alt="_AppContour.Controls.ViewVariableButton_32836002.png" width="174" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="90c1642a-9022-4164-bfb5-178b84c25865"><p local-id="98a1cb8c0d80"><strong>Close clamp</strong><br>Closes the clamp.</p></td></tr><tr ac:local-id="de756795-7e1a-4f4b-90a0-c1fb1ec88617"><td ac:local-id="b4ee667c-e113-48a6-8e68-5a908dc3e486"><div class="TextAlignCenter"><img src="attachments/2.1_iso/_AppContour.Controls.ViewVariableBistableButton_38723810.png" alt="_AppContour.Controls.ViewVariableBistableButton_38723810.png" width="175" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="8564ab20-3b75-4277-b0a6-56d2a1f1740a"><p local-id="53915814adfc"><strong>Clockwise spindle rotation (Manual mode only)</strong><br>Sets the spindle rotation clockwise.</p></td></tr><tr ac:local-id="59068881d014"><td ac:local-id="1d5c1a8ba259"><div class="TextAlignCenter"><img src="attachments/2.1_iso/_AppContour.Controls.ViewVariableBistableButton_59671974.png" alt="_AppContour.Controls.ViewVariableBistableButton_59671974.png" width="174" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="069e089065e7"><p local-id="37f2ba2d9edd"><strong>Counter-clockwise spindle rotation (Manual mode only)</strong><br>Sets the spindle rotation counter-clockwise.</p></td></tr></tbody></table><h1 local-id="768fc8962241">Spindle Data</h1><p local-id="a63a10d708ff">This panel, located at the top right, displays spindle data such as RPM and delivered torque.</p><div class="TextAlignCenter"><img src="attachments/2.1_iso/_UIFramework.Controls.ViewBorderCard_20445098.png" alt="_UIFramework.Controls.ViewBorderCard_20445098.png" width="400" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><h1 local-id="a57c5581fecd">Feed</h1><p local-id="7a2499c0eda0">This panel, located on the right, displays the feed rate and override.</p><div class="TextAlignCenter"><img src="attachments/2.1_iso/_UIFramework.Controls.ViewBorderCard_5468271.png" alt="_UIFramework.Controls.ViewBorderCard_5468271.png" width="400" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><h1 local-id="2474acaf5dfd">Commands</h1><p local-id="b361379cf5bc">The panel in the lower-right area always displays the following buttons:</p><table class="my-table2" data-table-width="1989" data-layout="center" ac:local-id="905be38cfb78"><colgroup><col style="width: 437.0px;"><col style="width: 1543.0px;"></colgroup><tbody><tr ac:local-id="19a17094-7bbb-491a-a5a5-0a7b5ba8f7b5"><td ac:local-id="55902394-08e3-4537-b2dc-de58e6d726a4"><div class="TextAlignCenter"><img src="attachments/2.1_iso/_AppContour.Controls.ViewVariableButton_47888269.png" alt="_AppContour.Controls.ViewVariableButton_47888269.png" width="242" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="d14f8b44-ea74-43d2-a612-6e130503ef8f"><p local-id="1e31d46c227c"><strong>Enable commands</strong><br>Enables the machine commands by energising the axes.</p></td></tr><tr ac:local-id="c222b09a-60d9-4ff0-ad1a-cad9ac06ec42"><td ac:local-id="057fc2ba-d753-4d20-9bb6-e2b8312555f8"><div class="TextAlignCenter"><img src="attachments/2.1_iso/_AppContour.Controls.ViewVariableButton_42003087.png" alt="_AppContour.Controls.ViewVariableButton_42003087.png" width="238" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="04d65054-d826-4c28-8141-ae9dc1e1ec7c"><p local-id="531ff0c2f923"><strong>Disable commands</strong><br>Disables the machine commands by de-energising the axes.</p></td></tr></tbody></table><!--Label="cnt_iso"-->
+                        </main>
+
+                    </div>
+
+                    <img src="images/donatoni_222.jpg">
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="2_dcontour.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="2.1.1_manual_mode.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+
+
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                <a rel="prev" href="2_dcontour.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="2.1.1_manual_mode.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="mermaid.min.js"></script>
+        <script src="mermaid-init.js"></script>
+        <script src="hidemenu.js"></script>
+        <script src="imagemodal.js"></script>
+        <script src="login.js"></script>
+    </div>
+
+    <!-- Modale -->
+    <div id="modal" onclick="closeModal()">
+        <img id="modal-img" src="">
+    </div>;
+
+
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
+</body>
+</html>

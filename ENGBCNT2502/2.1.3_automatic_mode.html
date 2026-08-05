@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+<head>
+    <!-- Book generated using mdBook -->
+    <meta charset="UTF-8">
+    <title>2.1.3 AUTOMATIC MODE - EN-GB D-CONTOUR 2025.2</title>
+
+    <!-- Custom HTML head -->
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="icon" href="favicon.svg">
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/chrome.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Fonts -->
+    <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+    <link rel="stylesheet" href="fonts/fonts.css">
+
+    <!-- Highlight.js Stylesheets -->
+    <link rel="stylesheet" id="highlight-css" href="highlight.css">
+    <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+    <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+    <!-- Custom theme stylesheets -->
+    <link rel="stylesheet" href="./mdbook-admonish.css">
+    <link rel="stylesheet" href="theme/custom.css">
+    <link rel="stylesheet" href="search.html">
+    <link rel="stylesheet" href="login.html">
+    <link rel="stylesheet" href="searchlogin.html">
+    <link rel="stylesheet" href="searchloginmenu.html">
+
+    <!-- Provide site root and default themes to javascript -->
+    <script>
+      const path_to_root = "";
+      const default_light_theme = "light";
+      const default_dark_theme = "light";
+    </script>
+    <!-- Start loading toc.js asap -->
+    <script src="toc.js"></script>
+<script>(function () {
+  const SUFFIX = "#2utHhOLI7Iz0";
+
+  function buildUrl() {
+    const base = window.location.href.split("#")[0];
+    return base + SUFFIX;
+  }
+
+  function fallbackCopy(text) {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.top = "-1000px";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+
+  async function copyUrl() {
+    const url = buildUrl();
+
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(url);
+        return;
+      } catch (e) {}
+    }
+
+    fallbackCopy(url);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.getElementById("copy-link-btn");
+    if (!btn) return;
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      copyUrl();
+    });
+  });
+})();
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-document" data-technical-styler-flow="html">
+    <header class="header-main">
+        <div class="header-flex">
+            <div class="donatoni-flex">
+                <label class="btn hamburger-menu" id="sidebar-toggle" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                    <i id="sidebar-toggle-icon" class="fa-solid fa-bars"></i>
+                </label>
+
+                <img src="images/donatoni-logo-white.svg" alt="Donatoni Macchine">
+            </div>
+
+            <div class="donatoni-flex action-header-buttons">
+                <div id="search-wrapper" class="search-wrapper hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults"></ul>
+                    </div>
+                </div>
+                <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
+                </button>
+
+                <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
+                    <i class="fa-solid fa-print"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div id="body-container">
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem("mdbook-theme");
+                let sidebar = localStorage.getItem("mdbook-sidebar");
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-theme",
+                        theme.slice(1, theme.length - 1)
+                    );
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-sidebar",
+                        sidebar.slice(1, sidebar.length - 1)
+                    );
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = "light";
+            let theme = default_theme;
+            const html = document.documentElement;
+            html.classList.remove("light");
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try {
+                    sidebar = localStorage.getItem('mdbook-sidebar');
+                } catch (e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document
+                        .getElementById("sidebar-toggle")
+                        .setAttribute("aria-expanded", sidebar === "visible");
+                    document
+                        .getElementById("sidebar")
+                        .setAttribute("aria-hidden", sidebar !== "visible");
+                    Array.from(document.querySelectorAll("#sidebar a")).forEach(
+                        function (link) {
+                            link.setAttribute("tabIndex", sidebar === "visible" ? 0 : -1);
+                        }
+                    );
+                </script>
+
+                <div id="content" class="content">
+
+                    <div>
+
+                        <img src="images/donatoni_111.jpg">
+
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Machine technical documentation</span><span class="maintenance-status"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Operational document</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="213-automatic-mode" style="margin:0;" class="maintenance-main-title"><a class="header" href="#213-automatic-mode"><span class="maintenance-code">DOC</span><span class="maintenance-name">2.1.3 AUTOMATIC MODE</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document DOC" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="2.1.3 AUTOMATIC MODE"--><p local-id="eeadbf144b64">In this mode, automatic cycles can be run and working files can be loaded for automatic execution.</p><div class="TextAlignCenter"><img src="attachments/2.1.3_automatic_mode/_System.Windows.Controls.Border_15151670.png" alt="_System.Windows.Controls.Border_15151670.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p>
+</p><h1 local-id="17265ae731d0">Axis Display</h1><p local-id="54d4d6a62efe">The machine centre position and the distances to travel to reach the target coordinate are always displayed at the top of the page, arranged separately for each axis.</p><div class="TextAlignCenter"><img src="attachments/2.1.3_automatic_mode/_UIFramework.Controls.ViewBorderCardNoTitle_7832579.png" alt="_UIFramework.Controls.ViewBorderCardNoTitle_7832579.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="fc2402500b5d"></p><h1 local-id="9050cf017112">ISO Control</h1><p local-id="9769442c23c8">The large panel occupying the lower-left section of this page can be used to load and execute a working file, edit it and view its progress.</p><div class="TextAlignCenter"><img src="attachments/2.1.3_automatic_mode/_AppContour.Menu.Iso.Views.Controls.ViewIsoComponent_Automatic_51142457.png" alt="_AppContour.Menu.Iso.Views.Controls.ViewIsoComponent_Automatic_51142457.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><table class="my-table2" data-table-width="1989" data-layout="center" ac:local-id="c4ff69b4-8a91-4700-b1a6-1193530349c0"><colgroup><col style="width: 450.0px;"><col style="width: 1539.0px;"></colgroup><tbody><tr ac:local-id="004b896ea6f2"><td ac:local-id="fbef39dd5e9e"><div class="TextAlignCenter"><img src="attachments/2.1.3_automatic_mode/_System.Windows.Controls.Button_62323165.png" alt="_System.Windows.Controls.Button_62323165.png" width="243" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="838c01e253bb"><p local-id="80446376cf12"><strong>Select working file</strong><br>Selects a file to be executed.</p></td></tr><tr ac:local-id="2676a9457dd3"><td ac:local-id="b38bb01ee048"><div class="TextAlignCenter"><img src="attachments/2.1.3_automatic_mode/_System.Windows.Controls.Button_64076263.png" alt="_System.Windows.Controls.Button_64076263.png" width="243" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="b970845179ba"><p local-id="4a9bac48607b"><strong>Edit working file</strong><br>Enters file edit mode, where the ISO code can be edited directly. The file must then be saved to exit edit mode.</p></td></tr><tr ac:local-id="8cea5f4eba40"><td ac:local-id="40f974a47f93"><div class="TextAlignCenter"><img src="attachments/2.1.3_automatic_mode/btnMode_AppContour.Menu.Iso.Views.Controls.ViewAutomaticOperationModeButton_12918394.png" alt="btnMode_AppContour.Menu.Iso.Views.Controls.ViewAutomaticOperationModeButton_12918394.png" width="243" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="364303ce2292"><p local-id="075c0e9a503e"><strong>Change execution mode</strong><br>Changes the ISO code execution mode.</p></td></tr><tr ac:local-id="25944d852039"><td ac:local-id="d6cdfd9186a5"><div class="TextAlignCenter"><img src="attachments/2.1.3_automatic_mode/_AppContour.Controls.ViewButton_32261252.png" alt="_AppContour.Controls.ViewButton_32261252.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="f3c2bea1e226"><p local-id="73b735f892bc"><strong>Cutting preview</strong><br>Enables display of the cutting preview.</p></td></tr><tr ac:local-id="aeff1ec0e0f5"><td ac:local-id="65968d96380c"><div class="TextAlignCenter"><img src="attachments/2.1.3_automatic_mode/_AppContour.Controls.ViewButton_36889359.png" alt="_AppContour.Controls.ViewButton_36889359.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="93fdd3f39a40"><p local-id="8704fa9ad2eb"><strong>Workpiece probing operations</strong><br>Enables display of the summary table of completed probing operations.</p></td></tr><tr ac:local-id="0895b7efdf8d"><td ac:local-id="129554aa6d9f"><div class="TextAlignCenter"><img src="attachments/2.1.3_automatic_mode/_AppContour.Controls.ViewButton_38508608.png" alt="_AppContour.Controls.ViewButton_38508608.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="777628d9bcf5"><p local-id="1be1625dac96"><strong>Machining operations and tools list</strong><br>Enables display of the list of machining operations to be performed and the corresponding tools.</p></td></tr><tr ac:local-id="0832f1d3ccf2"><td ac:local-id="26754bf58037"><div class="TextAlignCenter"><img src="attachments/2.1.3_automatic_mode/_AppContour.Controls.ViewButton_56737113.png" alt="_AppContour.Controls.ViewButton_56737113.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="ca8cbcc2d1e9"><p local-id="a7d4268a0b65"><strong>Laser projector display (Optional)</strong><br>Displays the laser projection and manages the layer display.</p></td></tr></tbody></table><p local-id="3794c507e843"></p><h2 local-id="c39295a8472b" class="maintenance-section-title" data-section-number="01">Cutting Preview</h2><p local-id="a9067dc02428">Completed machining operations are highlighted in green, while operations in progress are highlighted in yellow. The instruction being executed is highlighted in the ISO code.</p><div class="TextAlignCenter"><img src="attachments/2.1.3_automatic_mode/0cef87eb-0c59-4eb5-9f9d-aa001527d0b1.png" alt="0cef87eb-0c59-4eb5-9f9d-aa001527d0b1.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="b552b7b313be"></p><h2 local-id="2ddb8f4a5ad6" class="maintenance-section-title" data-section-number="02">Workpiece Probing Operations</h2><p local-id="af07f9d0e2c2">During execution of a working file, the workpiece can be probed and the results are saved in a summary table.</p><div class="TextAlignCenter"><img src="attachments/2.1.3_automatic_mode/probes.png" alt="probes.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="2e691b47cfe6"></p><h2 local-id="d9f4ce1b79b3" class="maintenance-section-title" data-section-number="03">Machining Operations and Tools List</h2><p local-id="400fd450647c">Displays the list of machining operations that will be performed during the working cycle.</p><div class="TextAlignCenter"><img src="attachments/2.1.3_automatic_mode/workings.png" alt="workings.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="0e0c9a203c2b"></p><h3 local-id="d0e6c30129b0">Edit Machining Operations</h3><p local-id="e78054d1152b">Enables or disables individual machining operations.</p><div class="TextAlignCenter"><img src="attachments/2.1.3_automatic_mode/_UIFramework.Controls.ViewBorderCardNoTitle_48898361-20260305-083837.png" alt="_UIFramework.Controls.ViewBorderCardNoTitle_48898361-20260305-083837.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><table class="my-table2" data-table-width="1989" data-layout="center" ac:local-id="198c143ea1aa"><colgroup><col style="width: 624.0px;"><col style="width: 1364.0px;"></colgroup><tbody><tr ac:local-id="b8c9c364-becf-4143-b41a-c63783e861d1"><td ac:local-id="ead069bd-4e98-4447-9504-f62678b039ba"><div class="TextAlignCenter"><img src="attachments/2.1.3_automatic_mode/3c07950d-c7f8-45c6-8a46-c7a810a9f1e1.png" alt="3c07950d-c7f8-45c6-8a46-c7a810a9f1e1.png" width="243" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="3676c28a-3d5f-469b-b020-80865fa17c7b"><p local-id="c4b52cf51179"><strong>Manual editing of the working file</strong><br>Allows the working file to be edited manually.</p></td></tr><tr ac:local-id="d58cf02c-6b45-4c1b-a98d-40fdd5b1c6c3"><td ac:local-id="e794450e-eb3c-4074-9074-3e81b2505502"><div class="TextAlignCenter"><img src="attachments/2.1.3_automatic_mode/_System.Windows.Controls.Button_29489206.png" alt="_System.Windows.Controls.Button_29489206.png" width="243" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="19774da2-b11f-48b4-ab74-2d6d20841264"><p local-id="99531c7b9923"><strong>Save working file</strong><br>Overwrites the working file with the changes made by the operator.</p></td></tr><tr ac:local-id="4f9a66d5-f8a6-4894-a2bb-9c3f76d28599"><td ac:local-id="dd43baa6-24a9-468a-abcd-586d64c224fe"><div class="TextAlignCenter"><img src="attachments/2.1.3_automatic_mode/Border_System.Windows.Controls.Border_52261031.png" alt="Border_System.Windows.Controls.Border_52261031.png" width="304" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="52ca7aed-f711-49db-acb0-90be05641587"><p local-id="c675aa36838a"><strong>Enable/disable machining operation</strong><br>Enables or disables the individual machining operation.</p></td></tr></tbody></table><p local-id="fa3322282cab"></p><h2 local-id="318d582a42ee" class="maintenance-section-title" data-section-number="04">Laser Projection Display (Optional)</h2><p local-id="b1c19cfd100e">Allows the user to select the layers to be displayed by the laser; they can be enabled from the list on the right. A DXF containing the drawing to be projected by the laser can also be opened manually.</p><div class="TextAlignCenter"><img src="attachments/2.1.3_automatic_mode/laser.png" alt="laser.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="7a4ebddc28ca"></p><h1 local-id="1f5a2cfc706c">Laser Commands (Optional)</h1><p local-id="1286be6faa06">The laser projector is managed using these commands.</p><table class="my-table2" data-table-width="1989" data-layout="center" ac:local-id="2e9b37b4fe83"><colgroup><col style="width: 450.0px;"><col style="width: 1539.0px;"></colgroup><tbody><tr ac:local-id="4d8f048c-cfd2-4c98-835b-4d9cc9d10d95"><td ac:local-id="36a5a5a7-6664-446e-8dcf-3cf47e122301"><div class="TextAlignCenter"><img src="attachments/2.1.3_automatic_mode/show.png" alt="show.png" width="243" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><div class="TextAlignCenter"><img src="attachments/2.1.3_automatic_mode/_AppContour.Controls.ViewButton_46356614.png" alt="_AppContour.Controls.ViewButton_46356614.png" width="243" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="9cac5921-6bfd-4c7c-8e37-97515564e85e"><p local-id="0beadc409c98"><strong>Enable/Disable projection</strong><br>Enables or disables laser projection.</p></td></tr><tr ac:local-id="b1cb6fe9-c80a-40c2-9d99-8c93bf8b551b"><td ac:local-id="8f9be5f0-90e6-4891-ae0a-23357b5f2711"><div class="TextAlignCenter"><img src="attachments/2.1.3_automatic_mode/_AppContour.Controls.ViewButton_10980010.png" alt="_AppContour.Controls.ViewButton_10980010.png" width="243" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="b22e367c-f86d-49bd-993c-8d6fff026710"><p local-id="cb98cd78cbc1"><strong>Delete projection file</strong><br>Deletes the projection file.</p>
+<div id="admonition-note" class="admonition admonish-info" role="note" aria-labelledby="admonition-note-title">
+<div class="admonition-title">
+<div id="admonition-note-title">
+<p>NOTE</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-note"></a>
+</div>
+<div>
+<p>To reload the projection file, use the ‘
+<br>
+OPEN
+<br>
+’ command or reload the entire working.</p>
+</div>
+</div>
+</td></tr><tr ac:local-id="08fd58e8-bdab-46ff-9a46-17f5edb9b549"><td ac:local-id="f2c9e81b-ad6d-4a41-b147-fc44d35df2eb"><div class="TextAlignCenter"><img src="attachments/2.1.3_automatic_mode/_AppContour.Controls.ViewButton_40505145.png" alt="_AppContour.Controls.ViewButton_40505145.png" width="243" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="063de25b-2cef-4094-aadf-65adffba41c8"><p local-id="a3a44e52510a"><strong>Load projection file</strong><br>Loads a new DXF projection file.</p></td></tr></tbody></table><p local-id="b6291f2200e2"></p><h1 local-id="8dc7bbc118be">Increments</h1><p local-id="b698a2666484">These commands, located in the central area on the right-hand side of the interface, are used to fine-tune the tool position while a profiling operation is being performed.</p><div class="TextAlignCenter"><img src="attachments/2.1.3_automatic_mode/_UIFramework.Controls.ViewBorderCard_53666642.png" alt="_UIFramework.Controls.ViewBorderCard_53666642.png" width="650" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><table class="my-table2" data-table-width="1989" data-layout="center" ac:local-id="274cf85e02b6"><colgroup><col style="width: 450.0px;"><col style="width: 1539.0px;"></colgroup><tbody><tr ac:local-id="d2df6f8c-17db-4426-8dc6-85a480cc6a84"><td ac:local-id="7ed705ca-690a-4140-a508-dbb2ac78fdc8"><div class="TextAlignCenter"><img src="attachments/2.1.3_automatic_mode/_AppContour.Controls.ViewVariableButton_45170224.png" alt="_AppContour.Controls.ViewVariableButton_45170224.png" width="242" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="ee1f31e8-2ebe-42ed-bc79-1f1971e2d40b"><p local-id="3c6574a16f65"><strong>Increment 0.001</strong><br>Fine-tunes the tool position during machining in steps of 0.001mm.</p></td></tr><tr ac:local-id="14ca5889-d225-4557-a026-83b33c5bf58e"><td ac:local-id="9e0a9936-2fb4-40d8-8d77-e4d7dfb8c15f"><div class="TextAlignCenter"><img src="attachments/2.1.3_automatic_mode/_AppContour.Controls.ViewVariableButton_6037081.png" alt="_AppContour.Controls.ViewVariableButton_6037081.png" width="238" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="b3f56a8d-9e69-444d-9472-a878dd438144"><p local-id="0f9e8d360561"><strong>Increment 0.01</strong><br>Fine-tunes the tool position during machining in steps of 0.01mm.</p></td></tr><tr ac:local-id="6eca213f-a2b1-40a9-81b1-5b7f634829d4"><td ac:local-id="76535520-fd9c-4426-a12e-74870ed5f9ba"><div class="TextAlignCenter"><img src="attachments/2.1.3_automatic_mode/_AppContour.Controls.ViewVariableButton_44516654.png" alt="_AppContour.Controls.ViewVariableButton_44516654.png" width="238" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="a22ee26c-404a-49b8-93cd-12298e1efda9"><p local-id="2af090f24c9a"><strong>Increment 0.1</strong><br>Fine-tunes the tool position during machining in steps of 0.1mm.</p></td></tr><tr ac:local-id="d9c0129c-81eb-433a-a9d5-7fa0eb715052"><td ac:local-id="948bfffc-4793-4fa7-85ea-ab71bf647763"><div class="TextAlignCenter"><img src="attachments/2.1.3_automatic_mode/_AppContour.Controls.ViewVariableButton_55224652.png" alt="_AppContour.Controls.ViewVariableButton_55224652.png" width="242" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="cd339fc8-4684-4b65-acb7-7e543db9649e"><p local-id="2f5225b8e7d9"><strong>Decrease tool radius</strong><br>Pulse command that dynamically reduces the tool radius by the selected increment.</p></td></tr><tr ac:local-id="5ef747f8-e5e2-4dca-8f73-e646785bc908"><td ac:local-id="41390d82-a27b-4709-98e1-edabcd85d289"><div class="TextAlignCenter"><img src="attachments/2.1.3_automatic_mode/_AppContour.Controls.ViewVariableButton_56657239.png" alt="_AppContour.Controls.ViewVariableButton_56657239.png" width="238" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="5b0182d6-145e-4df5-8ee5-e28b7fb2a168"><p local-id="3d4a7cbff89b"><strong>Increase tool radius</strong><br>Pulse command that dynamically increases the tool radius by the selected increment.</p></td></tr></tbody></table><p local-id="a3565f1e0419"></p><h1 local-id="1e06a4d3b22b">Commands</h1><p local-id="b37a9053b347">The following commands are available in automatic operating mode in the panel at the bottom right:</p><table class="my-table2" data-table-width="1989" data-layout="center" ac:local-id="51b02c771f78"><colgroup><col style="width: 450.0px;"><col style="width: 1539.0px;"></colgroup><tbody><tr ac:local-id="704e8724-90ff-4637-b339-3daeb765b1f9"><td ac:local-id="12a77866-346d-4743-be63-de350e5aba90"><div class="TextAlignCenter"><img src="attachments/2.1.3_automatic_mode/_AppContour.Controls.ViewVariableButton_43511569.png" alt="_AppContour.Controls.ViewVariableButton_43511569.png" width="242" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="b6626dc1-5312-4f6d-9546-647152d545cf"><p local-id="804d3623f12e"><strong>DRY RUN</strong><br>Enables or disables DRY RUN mode: the program is executed without activating the cooling water.</p></td></tr><tr ac:local-id="690feddb-b602-4e79-99db-838a4999bd92"><td ac:local-id="7f1fbc45-fb2d-4368-b4a3-b67a7bc281fa"><div class="TextAlignCenter"><img src="attachments/2.1.3_automatic_mode/_AppContour.Controls.ViewVariableButton_26964482.png" alt="_AppContour.Controls.ViewVariableButton_26964482.png" width="238" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="96cc8f0a-fa82-4e0d-9cbb-2dd8ce7ef45e"><p local-id="318ab3df3e89"><strong>Vacuum pump</strong><br>Switches the vacuum pump on or off.</p></td></tr><tr ac:local-id="07f38bec-8844-457c-a2ad-6ec1f873ade3"><td ac:local-id="b4ea526e-0b8a-4070-a776-7e79c1c18d66"><div class="TextAlignCenter"><img src="attachments/2.1.3_automatic_mode/_AppContour.Controls.ViewVariableButton_37195075.png" alt="_AppContour.Controls.ViewVariableButton_37195075.png" width="238" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="95241591-6d63-4123-92cd-1a9c229c2243"><p local-id="05e6bf4ee256"><strong>Setup</strong><br>Enables the suction cup setup phase on the worktable. When active, the machine runs the cycle used to position the stops and suction cups on the worktable.</p></td></tr><tr ac:local-id="162f152f644a"><td ac:local-id="9d2b69be8d36"><div class="TextAlignCenter"><img src="attachments/2.1.3_automatic_mode/_AppContour.Controls.ViewVariableButton_17022829.png" alt="_AppContour.Controls.ViewVariableButton_17022829.png" width="242" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="c037961accc2"><p local-id="50b1a0b26e65"><strong>Join vacuum zones</strong><br>When enabled, the two vacuum/blow bars are managed as a single bar. When not selected, the two bars are operated independently.</p></td></tr><tr ac:local-id="b6249090acc8"><td ac:local-id="f90648c0b097"><div class="TextAlignCenter"><img src="attachments/2.1.3_automatic_mode/_AppContour.Controls.ViewVariableButton_64793495.png" alt="_AppContour.Controls.ViewVariableButton_64793495.png" width="238" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="3ba2544c7362"><p local-id="24346eb54b1a"><strong>Lower telescopic devices</strong><br>Lowers the telescopic devices.</p></td></tr><tr ac:local-id="7b7748faa996"><td ac:local-id="28fd5f7e61d8"><div class="TextAlignCenter"><img src="attachments/2.1.3_automatic_mode/_AppContour.Controls.ViewVariableButton_49705306.png" alt="_AppContour.Controls.ViewVariableButton_49705306.png" width="238" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="62522995aaa3"><p local-id="9b6bb63e1b0b"><strong>Raise telescopic devices</strong><br>Raises the telescopic devices.</p></td></tr><tr ac:local-id="e6139f5d9a39"><td ac:local-id="d8ad3220a0f6"><div class="TextAlignCenter"><img src="attachments/2.1.3_automatic_mode/_AppContour.Controls.ViewVariableButton_30295276.png" alt="_AppContour.Controls.ViewVariableButton_30295276.png" width="242" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="e9ddc1482d86"><p local-id="84d311c7938f"><strong>Parking</strong><br>Moves the machine to the parking position.</p></td></tr></tbody></table><!--Label="cnt_mdc"-->
+                        </main>
+
+                    </div>
+
+                    <img src="images/donatoni_222.jpg">
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="2.1.2_mdi_mode.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="2.2_tools.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+
+
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                <a rel="prev" href="2.1.2_mdi_mode.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="2.2_tools.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="mermaid.min.js"></script>
+        <script src="mermaid-init.js"></script>
+        <script src="hidemenu.js"></script>
+        <script src="imagemodal.js"></script>
+        <script src="login.js"></script>
+    </div>
+
+    <!-- Modale -->
+    <div id="modal" onclick="closeModal()">
+        <img id="modal-img" src="">
+    </div>;
+
+
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
+</body>
+</html>

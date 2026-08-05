@@ -40,7 +40,7 @@
     <script>
       const path_to_root = "";
       const default_light_theme = "light";
-      const default_dark_theme = "navy";
+      const default_dark_theme = "light";
     </script>
     <!-- Start loading toc.js asap -->
     <script src="toc.js"></script>
@@ -86,8 +86,10 @@
     });
   });
 })();
-</script></head>
-<body>
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-document" data-technical-styler-flow="html">
     <header class="header-main">
         <div class="header-flex">
             <div class="donatoni-flex">
@@ -110,6 +112,15 @@
                 </div>
                 <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                     <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
                 </button>
 
                 <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
@@ -144,17 +155,8 @@
 
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script>
-            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
-                .matches
-                ? default_dark_theme
-                : default_light_theme;
-            let theme;
-            try {
-                theme = localStorage.getItem("mdbook-theme");
-            } catch (e) { }
-            if (theme === null || theme === undefined) {
-                theme = default_theme;
-            }
+            const default_theme = "light";
+            let theme = default_theme;
             const html = document.documentElement;
             html.classList.remove("light");
             html.classList.add(theme);
@@ -214,8 +216,8 @@
 
                         <img src="images/donatoni_111.jpg">
 
-                        <main style="margin-left: 20px;">
-                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="workflow---cut-management---pgm" style="margin:0;"><a class="header" href="#workflow---cut-management---pgm">WORKFLOW - CUT MANAGEMENT - PGM</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="WORKFLOW - CUT MANAGEMENT - PGM"--><p local-id="857a2a31-99eb-44aa-b8c0-65ad4b90529c">L’operatore può gestire ed ottimizzare i tagli, modificarne l’ordine di esecuzione, e programmare movimenti della lastra. Al termine, si genera il programma di taglio per fare lavorare la macchina.</p><div class="TextAlignCenter"><img src="attachments/workflow_-_cut_management_-_pgm/WORKFLOW_-_CUT_MANAGEMENT_-_PGM_0.png" alt="WORKFLOW_-_CUT_MANAGEMENT_-_PGM_0.png" width="760" onclick="showModal(this.src)"></div><p local-id="a6ea4d1a-06df-4e31-9343-bf617f66d1f8"></p><h2 local-id="edd2094f-081c-4ff8-9494-0508fb06a757">VIDEO</h2><div class="TextAlignCenter"><video controls src="attachments/workflow_-_cut_management_-_pgm/WORKFLOW_-_CUT_MANAGEMENT_-_PGM_1_R.mp4" width="760" aria-label="attachments/workflow_-_cut_management_-_pgm/WORKFLOW_-_CUT_MANAGEMENT_-_PGM_1_R.mp4"></video></div><p local-id="f30226c2-e765-4de5-a12e-0006be550fea"></p><!--Label="workflow_cut_management_pgm"-->
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Machine technical documentation</span><span class="maintenance-status"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Operational document</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="workflow---cut-management---pgm" style="margin:0;" class="maintenance-main-title"><a class="header" href="#workflow---cut-management---pgm"><span class="maintenance-code">DOC</span><span class="maintenance-name">WORKFLOW - CUT MANAGEMENT - PGM</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document DOC" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="WORKFLOW - CUT MANAGEMENT - PGM"--><p local-id="857a2a31-99eb-44aa-b8c0-65ad4b90529c">L’operatore può gestire ed ottimizzare i tagli, modificarne l’ordine di esecuzione, e programmare movimenti della lastra. Al termine, si genera il programma di taglio per fare lavorare la macchina.</p><div class="TextAlignCenter"><img src="attachments/workflow_-_cut_management_-_pgm/WORKFLOW_-_CUT_MANAGEMENT_-_PGM_0.png" alt="WORKFLOW_-_CUT_MANAGEMENT_-_PGM_0.png" width="760" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="a6ea4d1a-06df-4e31-9343-bf617f66d1f8"></p><h2 local-id="edd2094f-081c-4ff8-9494-0508fb06a757" class="maintenance-section-title" data-section-number="01">VIDEO</h2><div class="TextAlignCenter"><video controls src="attachments/workflow_-_cut_management_-_pgm/WORKFLOW_-_CUT_MANAGEMENT_-_PGM_1_R.mp4" width="760" aria-label="attachments/workflow_-_cut_management_-_pgm/WORKFLOW_-_CUT_MANAGEMENT_-_PGM_1_R.mp4" class="technical-media"></video></div><p local-id="f30226c2-e765-4de5-a12e-0006be550fea"></p><!--Label="workflow_cut_management_pgm"-->
                         </main>
 
                     </div>
@@ -277,5 +279,12 @@
     </div>;
 
 
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
 </body>
 </html>

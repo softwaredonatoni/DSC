@@ -40,7 +40,7 @@
     <script>
       const path_to_root = "";
       const default_light_theme = "light";
-      const default_dark_theme = "navy";
+      const default_dark_theme = "light";
     </script>
     <!-- Start loading toc.js asap -->
     <script src="toc.js"></script>
@@ -86,8 +86,10 @@
     });
   });
 })();
-</script></head>
-<body>
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-document" data-technical-styler-flow="html">
     <header class="header-main">
         <div class="header-flex">
             <div class="donatoni-flex">
@@ -110,6 +112,15 @@
                 </div>
                 <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                     <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
                 </button>
 
                 <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
@@ -144,17 +155,8 @@
 
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script>
-            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
-                .matches
-                ? default_dark_theme
-                : default_light_theme;
-            let theme;
-            try {
-                theme = localStorage.getItem("mdbook-theme");
-            } catch (e) { }
-            if (theme === null || theme === undefined) {
-                theme = default_theme;
-            }
+            const default_theme = "light";
+            let theme = default_theme;
             const html = document.documentElement;
             html.classList.remove("light");
             html.classList.add(theme);
@@ -214,9 +216,9 @@
 
                         <img src="images/donatoni_111.jpg">
 
-                        <main style="margin-left: 20px;">
-                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="319-macchina-su-taglio" style="margin:0;"><a class="header" href="#319-macchina-su-taglio">3.19 MACCHINA SU TAGLIO</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="3.19 MACCHINA SU TAGLIO"--><p>Permette di controllare la posizione del pezzo nell’area di lavoro rispetto alla posizione in macchina. Quando si attiva “Macchina su taglio” si seleziona un taglio sul video e la macchina si muove nella posizione relativa.<br>Questa operazione è utile quando si vuole controllare se un taglio sta dentro il materiale.</p><div class="TextAlignCenter"><img src="attachments/3.19_macchina_su_taglio/0.01.png" alt="0.01.png" width="800" onclick="showModal(this.src)"></div><p> </p><p>
-</p><p> </p><h1 id="esecuzione"><a class="header" href="#esecuzione">Esecuzione</a></h1><p>Premendo sul pulsante viene visualizzata la macchina sull’area di lavoro. </p><div class="TextAlignCenter"><img src="attachments/3.19_macchina_su_taglio/0.00.png" alt="0.00.png" width="800" onclick="showModal(this.src)"></div><p>Premendo su uno dei tagli, la macchina si muoverà in modo tale da posizionare il centro del disco sull’estremo del taglio più vicino al punto selezionato.</p><div class="TextAlignCenter"><img src="attachments/3.19_macchina_su_taglio/0.01.png" alt="0.01.png" width="800" onclick="showModal(this.src)"></div>
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Machine technical documentation</span><span class="maintenance-status"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Operational document</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="319-macchina-su-taglio" style="margin:0;" class="maintenance-main-title"><a class="header" href="#319-macchina-su-taglio"><span class="maintenance-code">DOC</span><span class="maintenance-name">3.19 MACCHINA SU TAGLIO</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document DOC" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="3.19 MACCHINA SU TAGLIO"--><p>Permette di controllare la posizione del pezzo nell’area di lavoro rispetto alla posizione in macchina. Quando si attiva “Macchina su taglio” si seleziona un taglio sul video e la macchina si muove nella posizione relativa.<br>Questa operazione è utile quando si vuole controllare se un taglio sta dentro il materiale.</p><div class="TextAlignCenter"><img src="attachments/3.19_macchina_su_taglio/0.01.png" alt="0.01.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p> </p><p>
+</p><p> </p><h1 id="esecuzione"><a class="header" href="#esecuzione">Esecuzione</a></h1><p>Premendo sul pulsante viene visualizzata la macchina sull’area di lavoro. </p><div class="TextAlignCenter"><img src="attachments/3.19_macchina_su_taglio/0.00.png" alt="0.00.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p>Premendo su uno dei tagli, la macchina si muoverà in modo tale da posizionare il centro del disco sull’estremo del taglio più vicino al punto selezionato.</p><div class="TextAlignCenter"><img src="attachments/3.19_macchina_su_taglio/0.01.png" alt="0.01.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div>
 <div id="admonition-nota" class="admonition admonish-info" role="note" aria-labelledby="admonition-nota-title">
 <div class="admonition-title">
 <div id="admonition-nota-title">
@@ -239,7 +241,7 @@
 <p>Per svolgere il movimento, l'asse A della macchina deve essere uguale a 0_</p>
 </div>
 </div>
-<h1 id="modalità-avanzata-opzionale"><a class="header" href="#modalità-avanzata-opzionale">Modalità avanzata (Opzionale)</a></h1><p>La modalità avanzata permette di collocare elementi diversi della macchina sul punto selezionato. <br>Attivando la funzionalità, apparirà il pannello seguente:</p><div class="TextAlignCenter"><img src="attachments/3.19_macchina_su_taglio/image-20250620-121833.png" alt="image-20250620-121833.png" width="300" onclick="showModal(this.src)"></div><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="883242b6-1a64-4095-a9bf-d244310ccab4"><colgroup><col style="width: 269.0px;"><col style="width: 1528.0px;"></colgroup><tbody><tr><td data-highlight-colour="#ffffff"><div class="TextAlignCenter"><img src="attachments/3.19_macchina_su_taglio/1.3c-20250620-122239.png" alt="1.3c-20250620-122239.png" width="120" onclick="showModal(this.src)"></div></td><td data-highlight-colour="#ffffff"><p><strong>Allineamento centro disco</strong><br>Permette di posizionare il centro del disco sull’estremo del taglio più vicino al punto selezionato.</p></td></tr><tr><td data-highlight-colour="#ffffff"><div class="TextAlignCenter"><img src="attachments/3.19_macchina_su_taglio/1.4c-20250620-122514.png" alt="1.4c-20250620-122514.png" width="120" onclick="showModal(this.src)"></div></td><td data-highlight-colour="#ffffff"><p><strong>Allineamento laser a croce</strong><br>Permette di posizionare il laser a croce sull’estremo del taglio più vicino al punto selezionato.</p></td></tr><tr><td data-highlight-colour="#ffffff"><div class="TextAlignCenter"><img src="attachments/3.19_macchina_su_taglio/1.5c-20250620-122815.png" alt="1.5c-20250620-122815.png" width="120" onclick="showModal(this.src)"></div></td><td data-highlight-colour="#ffffff"><p><strong>Allineamento secondo utensile</strong><br>Permette di posizionare il secondo utensile (fresa o foretto) sull’estremo del taglio più vicino al punto selezionato.</p></td></tr><tr><td data-highlight-colour="#ffffff"><div class="TextAlignCenter"><img src="attachments/3.19_macchina_su_taglio/1.6c-20250620-123026.png" alt="1.6c-20250620-123026.png" width="120" onclick="showModal(this.src)"></div></td><td data-highlight-colour="#ffffff"><p><strong>Allineamento tool plus</strong><br>Permette di posizionare il tool plus sull’estremo del taglio più vicino al punto selezionato.</p></td></tr></tbody></table>
+<h1 id="modalità-avanzata-opzionale"><a class="header" href="#modalità-avanzata-opzionale">Modalità avanzata (Opzionale)</a></h1><p>La modalità avanzata permette di collocare elementi diversi della macchina sul punto selezionato. <br>Attivando la funzionalità, apparirà il pannello seguente:</p><div class="TextAlignCenter"><img src="attachments/3.19_macchina_su_taglio/image-20250620-121833.png" alt="image-20250620-121833.png" width="300" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="883242b6-1a64-4095-a9bf-d244310ccab4"><colgroup><col style="width: 269.0px;"><col style="width: 1528.0px;"></colgroup><tbody><tr><td data-highlight-colour="#ffffff"><div class="TextAlignCenter"><img src="attachments/3.19_macchina_su_taglio/1.3c-20250620-122239.png" alt="1.3c-20250620-122239.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td data-highlight-colour="#ffffff"><p><strong>Allineamento centro disco</strong><br>Permette di posizionare il centro del disco sull’estremo del taglio più vicino al punto selezionato.</p></td></tr><tr><td data-highlight-colour="#ffffff"><div class="TextAlignCenter"><img src="attachments/3.19_macchina_su_taglio/1.4c-20250620-122514.png" alt="1.4c-20250620-122514.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td data-highlight-colour="#ffffff"><p><strong>Allineamento laser a croce</strong><br>Permette di posizionare il laser a croce sull’estremo del taglio più vicino al punto selezionato.</p></td></tr><tr><td data-highlight-colour="#ffffff"><div class="TextAlignCenter"><img src="attachments/3.19_macchina_su_taglio/1.5c-20250620-122815.png" alt="1.5c-20250620-122815.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td data-highlight-colour="#ffffff"><p><strong>Allineamento secondo utensile</strong><br>Permette di posizionare il secondo utensile (fresa o foretto) sull’estremo del taglio più vicino al punto selezionato.</p></td></tr><tr><td data-highlight-colour="#ffffff"><div class="TextAlignCenter"><img src="attachments/3.19_macchina_su_taglio/1.6c-20250620-123026.png" alt="1.6c-20250620-123026.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td data-highlight-colour="#ffffff"><p><strong>Allineamento tool plus</strong><br>Permette di posizionare il tool plus sull’estremo del taglio più vicino al punto selezionato.</p></td></tr></tbody></table>
 <div id="admonition-nota-1" class="admonition admonish-info" role="note" aria-labelledby="admonition-nota-1-title">
 <div class="admonition-title">
 <div id="admonition-nota-1-title">
@@ -251,7 +253,7 @@
 <p>Il quarto e ultimo pulsante del pannellino sarà visibile solo se in macchina è presente il “tool plus”.</p>
 </div>
 </div>
-<p></p><h2 id="allineamento-centro-disco"><a class="header" href="#allineamento-centro-disco">Allineamento <strong>centro disco</strong></a></h2><p>Equivale alla modalità standard. La macchina si sposta in modo tale da posizionare il centro del disco sull’estremo del taglio più vicino al punto selezionato.</p><div class="TextAlignCenter"><img src="attachments/3.19_macchina_su_taglio/0.02.png" alt="0.02.png" width="800" onclick="showModal(this.src)"></div><p></p><h2 id="allineamento-laser-a-croce"><a class="header" href="#allineamento-laser-a-croce">Allineamento laser a croce</a></h2><p>La macchina si sposta in modo tale da posizionare il puntatore del laser a croce sull’estremo del taglio più vicino al punto selezionato.</p><div class="TextAlignCenter"><img src="attachments/3.19_macchina_su_taglio/0.03.png" alt="0.03.png" width="800" onclick="showModal(this.src)"></div><p></p><h2 id="allineamento-fresa-o-foretto"><a class="header" href="#allineamento-fresa-o-foretto">Allineamento fresa o foretto</a></h2><p>La macchina si sposta in modo tale da posizionare il centro del secondo utensile montato in macchina, che sia fresa o foretto, sull’estremo del taglio più vicino al punto selezionato.</p>
+<p></p><h2 id="allineamento-centro-disco" class="maintenance-section-title" data-section-number="01"><a class="header" href="#allineamento-centro-disco">Allineamento <strong>centro disco</strong></a></h2><p>Equivale alla modalità standard. La macchina si sposta in modo tale da posizionare il centro del disco sull’estremo del taglio più vicino al punto selezionato.</p><div class="TextAlignCenter"><img src="attachments/3.19_macchina_su_taglio/0.02.png" alt="0.02.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><h2 id="allineamento-laser-a-croce" class="maintenance-section-title" data-section-number="02"><a class="header" href="#allineamento-laser-a-croce">Allineamento laser a croce</a></h2><p>La macchina si sposta in modo tale da posizionare il puntatore del laser a croce sull’estremo del taglio più vicino al punto selezionato.</p><div class="TextAlignCenter"><img src="attachments/3.19_macchina_su_taglio/0.03.png" alt="0.03.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><h2 id="allineamento-fresa-o-foretto" class="maintenance-section-title" data-section-number="03"><a class="header" href="#allineamento-fresa-o-foretto">Allineamento fresa o foretto</a></h2><p>La macchina si sposta in modo tale da posizionare il centro del secondo utensile montato in macchina, che sia fresa o foretto, sull’estremo del taglio più vicino al punto selezionato.</p>
 <div id="admonition-attenzione-1" class="admonition admonish-warning" role="note" aria-labelledby="admonition-attenzione-1-title">
 <div class="admonition-title">
 <div id="admonition-attenzione-1-title">
@@ -263,7 +265,7 @@
 <p>Per poter utilizzare questa funzione bisogna portare l’inclinazione dell’asse A a 90_.</p>
 </div>
 </div>
-<div class="TextAlignCenter"><img src="attachments/3.19_macchina_su_taglio/0.04.png" alt="0.04.png" width="800" onclick="showModal(this.src)"></div><p> </p><h2 id="allineamento-tool-plus"><a class="header" href="#allineamento-tool-plus">Allineamento tool plus</a></h2><p>La macchina si sposta in modo tale da posizionare il centro dell’utensile montato sul tool plus sull’estremo del taglio più vicino al punto selezionato.</p><div class="TextAlignCenter"><img src="attachments/3.19_macchina_su_taglio/0.05.png" alt="0.05.png" width="800" onclick="showModal(this.src)"></div><p></p><p> </p><p></p><!--Label="moc"--><!--Label="moc_adv"--><!--Label="moc_adv_dsk"--><!--Label="moc_adv_cro"--><!--Label="moc_adv_mll"--><!--Label="moc_adv_tlp"--><!--Label="moc_exe"-->
+<div class="TextAlignCenter"><img src="attachments/3.19_macchina_su_taglio/0.04.png" alt="0.04.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p> </p><h2 id="allineamento-tool-plus" class="maintenance-section-title" data-section-number="04"><a class="header" href="#allineamento-tool-plus">Allineamento tool plus</a></h2><p>La macchina si sposta in modo tale da posizionare il centro dell’utensile montato sul tool plus sull’estremo del taglio più vicino al punto selezionato.</p><div class="TextAlignCenter"><img src="attachments/3.19_macchina_su_taglio/0.05.png" alt="0.05.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><p> </p><p></p><!--Label="moc"--><!--Label="moc_adv"--><!--Label="moc_adv_dsk"--><!--Label="moc_adv_cro"--><!--Label="moc_adv_mll"--><!--Label="moc_adv_tlp"--><!--Label="moc_exe"-->
                         </main>
 
                     </div>
@@ -325,5 +327,12 @@
     </div>;
 
 
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
 </body>
 </html>

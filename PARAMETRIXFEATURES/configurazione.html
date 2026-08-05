@@ -40,7 +40,7 @@
     <script>
       const path_to_root = "";
       const default_light_theme = "light";
-      const default_dark_theme = "navy";
+      const default_dark_theme = "light";
     </script>
     <!-- Start loading toc.js asap -->
     <script src="toc.js"></script>
@@ -86,8 +86,10 @@
     });
   });
 })();
-</script></head>
-<body>
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-document" data-technical-styler-flow="html">
     <header class="header-main">
         <div class="header-flex">
             <div class="donatoni-flex">
@@ -110,6 +112,15 @@
                 </div>
                 <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                     <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
                 </button>
 
                 <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
@@ -144,17 +155,8 @@
 
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script>
-            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
-                .matches
-                ? default_dark_theme
-                : default_light_theme;
-            let theme;
-            try {
-                theme = localStorage.getItem("mdbook-theme");
-            } catch (e) { }
-            if (theme === null || theme === undefined) {
-                theme = default_theme;
-            }
+            const default_theme = "light";
+            let theme = default_theme;
             const html = document.documentElement;
             html.classList.remove("light");
             html.classList.add(theme);
@@ -214,8 +216,8 @@
 
                         <img src="images/donatoni_111.jpg">
 
-                        <main style="margin-left: 20px;">
-                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="configurazione" style="margin:0;"><a class="header" href="#configurazione">CONFIGURAZIONE</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="CONFIGURAZIONE"--><p>Il DMES è strutturato a pacchetti e può essere configurato in base alle esigenze del cliente.</p><p>il pacchetto comune a tutte le configurazioni è il pacchetto BASE:</p><div class="TextAlignCenter"><img src="attachments/configurazione/Pacchetti.png" alt="Pacchetti.png" width="400" onclick="showModal(this.src)"></div><p>I prezzi dei pacchetti sono da considerarsi in aggiunta, il prezzo complessivo sarà quindi la somma delle diverse opzioni selezionate. La costruzione del pacchetto prevede dei vincoli, ad esempio per il pacchetto “SLABS” è necessario aver acquistato DMES BASE _ LABEL.</p><table class="my-table2" data-table-width="760" data-layout="default" ac:local-id="561d3591-9c04-48e9-a116-bf8f1c98bccc"><colgroup><col style="width: 97.0px;"><col style="width: 427.0px;"><col style="width: 236.0px;"></colgroup><tbody><tr><th><p><strong>Indice</strong></p></th><th><p><strong>Nome prodotto</strong></p></th><th><p><strong>Link a descrizione</strong></p></th></tr><tr><td><p>1</p></td><td><p>DMES - BASE</p></td><td><p><p><a href='core.html'>BASE</a></p></td></tr><tr><td><p>2</p></td><td><p>LABEL</p></td><td><p><p><a href='trace.html'>LABEL</a></p></td></tr><tr><td><p>3</p></td><td><p>SLABS</p></td><td><p><p><a href='matrix.html'>SLABS</a></p></td></tr><tr><td><p>4</p></td><td><p>JOBS</p></td><td><p><p><a href='pro.html'>JOBS</a></p></td></tr><tr><td colspan="3"><p><strong>Pacchetti e opzioni aggiuntive</strong></p></td></tr><tr><td><p>5</p></td><td><p>NOTIFICHE</p></td><td><p><p><a href='notifiche.html'>NOTIFICHE</a></p></td></tr><tr><td><p>6</p></td><td><p>Aggiunta di n_1 macchina Donatoni</p></td><td><p><p><a href='macchine_aggiuntive_e_area_manuale.html'>MACCHINE AGGIUNTIVE E AREA MANUALE</a></p></td></tr><tr><td><p>7</p></td><td><p>Aggiunta di una stazione manuale e installazione del SW D-MES Station su hardware del cliente</p></td><td><p><p><a href='macchine_aggiuntive_e_area_manuale.html'>MACCHINE AGGIUNTIVE E AREA MANUALE</a></p></td></tr><tr><td><p>8</p></td><td><p>Aggiunta di n_1 macchina NON Donatoni con interfaccia 4.0</p></td><td><p><p><a href='macchine_aggiuntive_e_area_manuale.html'>MACCHINE AGGIUNTIVE E AREA MANUALE</a></p></td></tr><tr><td><p>9</p></td><td><p>Aggiunta di una macchina NON Donatoni SENZA interfaccia 4.0</p></td><td><p><p><a href='macchine_aggiuntive_e_area_manuale.html'>MACCHINE AGGIUNTIVE E AREA MANUALE</a></p></td></tr></tbody></table><h3 id="condizioni-di-utilizzo-e-rinnovi"><a class="header" href="#condizioni-di-utilizzo-e-rinnovi"><strong><u>CONDIZIONI DI UTILIZZO E RINNOVI:</u></strong></a></h3><p>DONATONI MES è accessibile, tramite dispositivi compatibili, con licenza d'uso, non esclusiva e non trasferibile, soggetta alle condizioni d’uso.</p><p>La proprietà del Software, e di ogni diritto non espressamente concesso, sono e rimarranno di spettanza di Donatoni Macchine (e/o dei relativi fornitori di software).</p><p>Gli oneri di connessione fisica ed i costi di connettività sono a carico del cliente.</p><p>I servizi DONATONI MES sono forniti all'Acquirente per un periodo di 12 mesi dal momento della loro attivazione, saranno rinnovati automaticamente a titolo oneroso al prezzo di listino, salvo intervenga disdetta dell'Acquirente entro 30 giorni prima della fine della validità del servizio.<br>Nel caso in cui il servizio DONATONI MES non venga rinnovato vengono bloccate alcune funzionalità del software.</p><p>Servizi di aggiornamento e assistenza:</p><ul><li><p>Aggiornamento all’ultima revisione</p></li><li><p>Risoluzione bug</p></li><li><p>Assistenza remota</p></li></ul><p>Il prezzo per i rinnovi, potrebbe subire variazioni a seconda delle esigenze di mercato o in correlazione a variazioni dei costi di produzione, del personale o dei servizi accessori, fatte salve eventuali disposizioni legislative con impatti sui prezzi di vendita.</p><!--Label="configurazione"-->
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Machine technical documentation</span><span class="maintenance-status"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Operational document</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="configurazione" style="margin:0;" class="maintenance-main-title"><a class="header" href="#configurazione"><span class="maintenance-code">DOC</span><span class="maintenance-name">CONFIGURAZIONE</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document DOC" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="CONFIGURAZIONE"--><p>Il DMES è strutturato a pacchetti e può essere configurato in base alle esigenze del cliente.</p><p>il pacchetto comune a tutte le configurazioni è il pacchetto BASE:</p><div class="TextAlignCenter"><img src="attachments/configurazione/Pacchetti.png" alt="Pacchetti.png" width="400" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p>I prezzi dei pacchetti sono da considerarsi in aggiunta, il prezzo complessivo sarà quindi la somma delle diverse opzioni selezionate. La costruzione del pacchetto prevede dei vincoli, ad esempio per il pacchetto “SLABS” è necessario aver acquistato DMES BASE _ LABEL.</p><table class="my-table2" data-table-width="760" data-layout="default" ac:local-id="561d3591-9c04-48e9-a116-bf8f1c98bccc"><colgroup><col style="width: 97.0px;"><col style="width: 427.0px;"><col style="width: 236.0px;"></colgroup><tbody><tr><th><p><strong>Indice</strong></p></th><th><p><strong>Nome prodotto</strong></p></th><th><p><strong>Link a descrizione</strong></p></th></tr><tr><td><p>1</p></td><td><p>DMES - BASE</p></td><td><p><p><a href='core.html'>BASE</a></p></td></tr><tr><td><p>2</p></td><td><p>LABEL</p></td><td><p><p><a href='trace.html'>LABEL</a></p></td></tr><tr><td><p>3</p></td><td><p>SLABS</p></td><td><p><p><a href='matrix.html'>SLABS</a></p></td></tr><tr><td><p>4</p></td><td><p>JOBS</p></td><td><p><p><a href='pro.html'>JOBS</a></p></td></tr><tr><td colspan="3"><p><strong>Pacchetti e opzioni aggiuntive</strong></p></td></tr><tr><td><p>5</p></td><td><p>NOTIFICHE</p></td><td><p><p><a href='notifiche.html'>NOTIFICHE</a></p></td></tr><tr><td><p>6</p></td><td><p>Aggiunta di n_1 macchina Donatoni</p></td><td><p><p><a href='macchine_aggiuntive_e_area_manuale.html'>MACCHINE AGGIUNTIVE E AREA MANUALE</a></p></td></tr><tr><td><p>7</p></td><td><p>Aggiunta di una stazione manuale e installazione del SW D-MES Station su hardware del cliente</p></td><td><p><p><a href='macchine_aggiuntive_e_area_manuale.html'>MACCHINE AGGIUNTIVE E AREA MANUALE</a></p></td></tr><tr><td><p>8</p></td><td><p>Aggiunta di n_1 macchina NON Donatoni con interfaccia 4.0</p></td><td><p><p><a href='macchine_aggiuntive_e_area_manuale.html'>MACCHINE AGGIUNTIVE E AREA MANUALE</a></p></td></tr><tr><td><p>9</p></td><td><p>Aggiunta di una macchina NON Donatoni SENZA interfaccia 4.0</p></td><td><p><p><a href='macchine_aggiuntive_e_area_manuale.html'>MACCHINE AGGIUNTIVE E AREA MANUALE</a></p></td></tr></tbody></table><h3 id="condizioni-di-utilizzo-e-rinnovi"><a class="header" href="#condizioni-di-utilizzo-e-rinnovi"><strong><u>CONDIZIONI DI UTILIZZO E RINNOVI:</u></strong></a></h3><p>DONATONI MES è accessibile, tramite dispositivi compatibili, con licenza d'uso, non esclusiva e non trasferibile, soggetta alle condizioni d’uso.</p><p>La proprietà del Software, e di ogni diritto non espressamente concesso, sono e rimarranno di spettanza di Donatoni Macchine (e/o dei relativi fornitori di software).</p><p>Gli oneri di connessione fisica ed i costi di connettività sono a carico del cliente.</p><p>I servizi DONATONI MES sono forniti all'Acquirente per un periodo di 12 mesi dal momento della loro attivazione, saranno rinnovati automaticamente a titolo oneroso al prezzo di listino, salvo intervenga disdetta dell'Acquirente entro 30 giorni prima della fine della validità del servizio.<br>Nel caso in cui il servizio DONATONI MES non venga rinnovato vengono bloccate alcune funzionalità del software.</p><p>Servizi di aggiornamento e assistenza:</p><ul><li><p>Aggiornamento all’ultima revisione</p></li><li><p>Risoluzione bug</p></li><li><p>Assistenza remota</p></li></ul><p>Il prezzo per i rinnovi, potrebbe subire variazioni a seconda delle esigenze di mercato o in correlazione a variazioni dei costi di produzione, del personale o dei servizi accessori, fatte salve eventuali disposizioni legislative con impatti sui prezzi di vendita.</p><!--Label="configurazione"-->
                         </main>
 
                     </div>
@@ -277,5 +279,12 @@
     </div>;
 
 
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
 </body>
 </html>

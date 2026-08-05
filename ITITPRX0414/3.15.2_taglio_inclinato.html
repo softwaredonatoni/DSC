@@ -40,7 +40,7 @@
     <script>
       const path_to_root = "";
       const default_light_theme = "light";
-      const default_dark_theme = "navy";
+      const default_dark_theme = "light";
     </script>
     <!-- Start loading toc.js asap -->
     <script src="toc.js"></script>
@@ -86,8 +86,10 @@
     });
   });
 })();
-</script></head>
-<body>
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-document" data-technical-styler-flow="html">
     <header class="header-main">
         <div class="header-flex">
             <div class="donatoni-flex">
@@ -110,6 +112,15 @@
                 </div>
                 <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                     <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
                 </button>
 
                 <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
@@ -144,17 +155,8 @@
 
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script>
-            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
-                .matches
-                ? default_dark_theme
-                : default_light_theme;
-            let theme;
-            try {
-                theme = localStorage.getItem("mdbook-theme");
-            } catch (e) { }
-            if (theme === null || theme === undefined) {
-                theme = default_theme;
-            }
+            const default_theme = "light";
+            let theme = default_theme;
             const html = document.documentElement;
             html.classList.remove("light");
             html.classList.add(theme);
@@ -214,9 +216,9 @@
 
                         <img src="images/donatoni_111.jpg">
 
-                        <main style="margin-left: 20px;">
-                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="3152-taglio-inclinato" style="margin:0;"><a class="header" href="#3152-taglio-inclinato">3.15.2 TAGLIO INCLINATO</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="3.15.2 TAGLIO INCLINATO"--><p local-id="390430bd9b7c">Tramite questa funzione, l’operatore può applicare cordoli o inclinare un lato del pezzo selezionato.</p><div class="TextAlignCenter"><img src="attachments/3.15.2_taglio_inclinato/{3}-20260618-071630.png" alt="{3}-20260618-071630.png" width="400" onclick="showModal(this.src)"></div><p>
-</p><h1 local-id="875419bb75a8">Pulsanti</h1><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="99069474-7dcd-4c44-98e6-3b2a5916fc26"><colgroup><col style="width: 452.0px;"><col style="width: 1345.0px;"></colgroup><tbody><tr ac:local-id="2020ea85fbac"><td ac:local-id="aeaf0322d53f"><div class="TextAlignCenter"><img src="attachments/3.15.2_taglio_inclinato/1_On_Off-20250612-142552.png" alt="1_On_Off-20250612-142552.png" width="120" onclick="showModal(this.src)"></div></td><td ac:local-id="4a214bbe3cb2"><p local-id="89c299259ede"><strong>Direzione squadra positiva</strong><br>Permette all’operatore di creare un taglio con inclinazione positiva di valore indicato nella casella si testo sottostante.</p></td></tr><tr ac:local-id="a0a18c3a1dce"><td ac:local-id="5ba4889244fc"><div class="TextAlignCenter"><img src="attachments/3.15.2_taglio_inclinato/2_On_Off-20250612-142710.png" alt="2_On_Off-20250612-142710.png" width="120" onclick="showModal(this.src)"></div></td><td ac:local-id="95f91b31f7fb"><p local-id="79c94943917e"><strong>Direzione squadra negativa</strong><br>Permette all’operatore di creare un taglio con inclinazione negativa di valore indicato nella casella si testo sottostante.</p></td></tr><tr ac:local-id="5dad8118063f"><td ac:local-id="28dfda06c30f"><div class="TextAlignCenter"><img src="attachments/3.15.2_taglio_inclinato/merged-image-1781768333107.png" alt="merged-image-1781768333107.png" width="120" onclick="showModal(this.src)"></div></td><td ac:local-id="4ab03dce9b11"><p local-id="51fa724c"><strong>Angolo tra l’ipotenusa e il lato Y - Lato Y</strong><br>Questa modalità richiede l’inserimento dell’ampiezza dell’angolo tra l’ipotenusa e il lato Y, in coppia alla lunghezza del lato Y.</p></td></tr><tr ac:local-id="0917de498799"><td ac:local-id="87ae7d212e2e"><div class="TextAlignCenter"><img src="attachments/3.15.2_taglio_inclinato/merged-image-1781768483476.png" alt="merged-image-1781768483476.png" width="120" onclick="showModal(this.src)"></div></td><td ac:local-id="835cd1369efa"><p local-id="4a20b7e7"><strong>Ipotenusa - Angolo tra l’ipotenusa e il lato Y</strong><br>Questa modalità richiede l’inserimento dell’ampiezza dell’angolo tra l’ipotenusa e il lato Y, in coppia alla lunghezza dell’ipotenusa.</p></td></tr><tr ac:local-id="15a33361f789"><td ac:local-id="ec616219b376"><div class="TextAlignCenter"><img src="attachments/3.15.2_taglio_inclinato/merged-image-1781768269020.png" alt="merged-image-1781768269020.png" width="120" onclick="showModal(this.src)"></div></td><td ac:local-id="bdbe2a8e04c9"><p local-id="12e06fa6"><strong>Ipotenusa - Lato Y</strong><br>Questa modalità richiede l’inserimento della lunghezza dell’ipotenusa e del lato Y.</p></td></tr><tr ac:local-id="1dce0ab6ae99"><td ac:local-id="357c4e1f1f86"><div class="TextAlignCenter"><img src="attachments/3.15.2_taglio_inclinato/merged-image-1781768442772.png" alt="merged-image-1781768442772.png" width="120" onclick="showModal(this.src)"></div></td><td ac:local-id="f4c0b8feb858"><p local-id="05b8feca"><strong>Lato X - Angolo tra l’ipotenusa e il lato Y</strong><br>Questa modalità richiede l’inserimento dell’ampiezza dell’angolo tra l’ipotenusa e il lato Y, in coppia alla lunghezza del lato X.</p></td></tr><tr ac:local-id="1a280def7abd"><td ac:local-id="586fdec14194"><div class="TextAlignCenter"><img src="attachments/3.15.2_taglio_inclinato/merged-image-1781768371019.png" alt="merged-image-1781768371019.png" width="120" onclick="showModal(this.src)"></div></td><td ac:local-id="1fa2909a417d"><p local-id="44c1922b"><strong>X e Y sono forniti dall’utente</strong><br>Questa modalità richiede l’inserimento della lunghezza del lato Y e del lato X.</p></td></tr><tr ac:local-id="5e85678f9471"><td ac:local-id="20052faf49cf"><div class="TextAlignCenter"><img src="attachments/3.15.2_taglio_inclinato/merged-image-1781768408716.png" alt="merged-image-1781768408716.png" width="120" onclick="showModal(this.src)"></div></td><td ac:local-id="20652d023356"><p local-id="0d53bb4c"><strong>Lato X - Ipotenusa</strong><br>Questa modalità richiede l’inserimento della lunghezza dell’ipotenusa e del lato X.</p></td></tr></tbody></table><p local-id="1b899102bd0e"></p><h1 local-id="3409a5b2015f">Esecuzione della lavorazione</h1><p local-id="59ce0b9f71e9">Applichiamo un taglio inclinato di _45_ al pezzo selezionato.<br>Si seleziona il pulsante con il _ e si inserisce il numero 45 nella casellina sottostante.</p><div class="TextAlignCenter"><img src="attachments/3.15.2_taglio_inclinato/LAyoutPreTaglio-20260618-082039.png" alt="LAyoutPreTaglio-20260618-082039.png" width="800" onclick="showModal(this.src)"></div><p local-id="f7561d4b4c1e">Si va a selezionare il lato del pezzo a cui si vuole applicare questo taglio inclinato, una volta selezionato si crea in automatico il taglio inclinato.</p><div class="TextAlignCenter"><img src="attachments/3.15.2_taglio_inclinato/TaglioInclinatoAggiornato-20260618-081728.png" alt="TaglioInclinatoAggiornato-20260618-081728.png" width="800" onclick="showModal(this.src)"></div>
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Machine technical documentation</span><span class="maintenance-status"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Operational document</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="3152-taglio-inclinato" style="margin:0;" class="maintenance-main-title"><a class="header" href="#3152-taglio-inclinato"><span class="maintenance-code">DOC</span><span class="maintenance-name">3.15.2 TAGLIO INCLINATO</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document DOC" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="3.15.2 TAGLIO INCLINATO"--><p local-id="390430bd9b7c">Tramite questa funzione, l’operatore può applicare cordoli o inclinare un lato del pezzo selezionato.</p><div class="TextAlignCenter"><img src="attachments/3.15.2_taglio_inclinato/{3}-20260618-071630.png" alt="{3}-20260618-071630.png" width="400" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p>
+</p><h1 local-id="875419bb75a8">Pulsanti</h1><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="99069474-7dcd-4c44-98e6-3b2a5916fc26"><colgroup><col style="width: 452.0px;"><col style="width: 1345.0px;"></colgroup><tbody><tr ac:local-id="2020ea85fbac"><td ac:local-id="aeaf0322d53f"><div class="TextAlignCenter"><img src="attachments/3.15.2_taglio_inclinato/1_On_Off-20250612-142552.png" alt="1_On_Off-20250612-142552.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="4a214bbe3cb2"><p local-id="89c299259ede"><strong>Direzione squadra positiva</strong><br>Permette all’operatore di creare un taglio con inclinazione positiva di valore indicato nella casella si testo sottostante.</p></td></tr><tr ac:local-id="a0a18c3a1dce"><td ac:local-id="5ba4889244fc"><div class="TextAlignCenter"><img src="attachments/3.15.2_taglio_inclinato/2_On_Off-20250612-142710.png" alt="2_On_Off-20250612-142710.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="95f91b31f7fb"><p local-id="79c94943917e"><strong>Direzione squadra negativa</strong><br>Permette all’operatore di creare un taglio con inclinazione negativa di valore indicato nella casella si testo sottostante.</p></td></tr><tr ac:local-id="5dad8118063f"><td ac:local-id="28dfda06c30f"><div class="TextAlignCenter"><img src="attachments/3.15.2_taglio_inclinato/merged-image-1781768333107.png" alt="merged-image-1781768333107.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="4ab03dce9b11"><p local-id="51fa724c"><strong>Angolo tra l’ipotenusa e il lato Y - Lato Y</strong><br>Questa modalità richiede l’inserimento dell’ampiezza dell’angolo tra l’ipotenusa e il lato Y, in coppia alla lunghezza del lato Y.</p></td></tr><tr ac:local-id="0917de498799"><td ac:local-id="87ae7d212e2e"><div class="TextAlignCenter"><img src="attachments/3.15.2_taglio_inclinato/merged-image-1781768483476.png" alt="merged-image-1781768483476.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="835cd1369efa"><p local-id="4a20b7e7"><strong>Ipotenusa - Angolo tra l’ipotenusa e il lato Y</strong><br>Questa modalità richiede l’inserimento dell’ampiezza dell’angolo tra l’ipotenusa e il lato Y, in coppia alla lunghezza dell’ipotenusa.</p></td></tr><tr ac:local-id="15a33361f789"><td ac:local-id="ec616219b376"><div class="TextAlignCenter"><img src="attachments/3.15.2_taglio_inclinato/merged-image-1781768269020.png" alt="merged-image-1781768269020.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="bdbe2a8e04c9"><p local-id="12e06fa6"><strong>Ipotenusa - Lato Y</strong><br>Questa modalità richiede l’inserimento della lunghezza dell’ipotenusa e del lato Y.</p></td></tr><tr ac:local-id="1dce0ab6ae99"><td ac:local-id="357c4e1f1f86"><div class="TextAlignCenter"><img src="attachments/3.15.2_taglio_inclinato/merged-image-1781768442772.png" alt="merged-image-1781768442772.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="f4c0b8feb858"><p local-id="05b8feca"><strong>Lato X - Angolo tra l’ipotenusa e il lato Y</strong><br>Questa modalità richiede l’inserimento dell’ampiezza dell’angolo tra l’ipotenusa e il lato Y, in coppia alla lunghezza del lato X.</p></td></tr><tr ac:local-id="1a280def7abd"><td ac:local-id="586fdec14194"><div class="TextAlignCenter"><img src="attachments/3.15.2_taglio_inclinato/merged-image-1781768371019.png" alt="merged-image-1781768371019.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="1fa2909a417d"><p local-id="44c1922b"><strong>X e Y sono forniti dall’utente</strong><br>Questa modalità richiede l’inserimento della lunghezza del lato Y e del lato X.</p></td></tr><tr ac:local-id="5e85678f9471"><td ac:local-id="20052faf49cf"><div class="TextAlignCenter"><img src="attachments/3.15.2_taglio_inclinato/merged-image-1781768408716.png" alt="merged-image-1781768408716.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="20652d023356"><p local-id="0d53bb4c"><strong>Lato X - Ipotenusa</strong><br>Questa modalità richiede l’inserimento della lunghezza dell’ipotenusa e del lato X.</p></td></tr></tbody></table><p local-id="1b899102bd0e"></p><h1 local-id="3409a5b2015f">Esecuzione della lavorazione</h1><p local-id="59ce0b9f71e9">Applichiamo un taglio inclinato di _45_ al pezzo selezionato.<br>Si seleziona il pulsante con il _ e si inserisce il numero 45 nella casellina sottostante.</p><div class="TextAlignCenter"><img src="attachments/3.15.2_taglio_inclinato/LAyoutPreTaglio-20260618-082039.png" alt="LAyoutPreTaglio-20260618-082039.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="f7561d4b4c1e">Si va a selezionare il lato del pezzo a cui si vuole applicare questo taglio inclinato, una volta selezionato si crea in automatico il taglio inclinato.</p><div class="TextAlignCenter"><img src="attachments/3.15.2_taglio_inclinato/TaglioInclinatoAggiornato-20260618-081728.png" alt="TaglioInclinatoAggiornato-20260618-081728.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div>
 <div id="admonition-attenzione" class="admonition admonish-warning" role="note" aria-labelledby="admonition-attenzione-title">
 <div class="admonition-title">
 <div id="admonition-attenzione-title">
@@ -228,7 +230,7 @@
 <p>Questa modifica non si applica ai pezzi dell’elenco appartenenti alla stessa riga del pezzo modificato.</p>
 </div>
 </div>
-<p local-id="4cdc8160b669"></p><p local-id="881c3e62199c">Applichiamo un taglio con la lunghezza dei lati premendo il suo pulsante  : </p><div class="TextAlignCenter"><img src="attachments/3.15.2_taglio_inclinato/LayoutNuovoTaglio-20260618-084321.png" alt="LayoutNuovoTaglio-20260618-084321.png" width="800" onclick="showModal(this.src)"></div><p local-id="88550b3ff6f2"></p><p local-id="687afcb8231d">Dopo aver premuto il pulsante il risultato è questo : </p><div class="TextAlignCenter"><img src="attachments/3.15.2_taglio_inclinato/LayoutNuovoTaglioEffetuato-20260618-084800.png" alt="LayoutNuovoTaglioEffetuato-20260618-084800.png" width="800" onclick="showModal(this.src)"></div>
+<p local-id="4cdc8160b669"></p><p local-id="881c3e62199c">Applichiamo un taglio con la lunghezza dei lati premendo il suo pulsante  : </p><div class="TextAlignCenter"><img src="attachments/3.15.2_taglio_inclinato/LayoutNuovoTaglio-20260618-084321.png" alt="LayoutNuovoTaglio-20260618-084321.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="88550b3ff6f2"></p><p local-id="687afcb8231d">Dopo aver premuto il pulsante il risultato è questo : </p><div class="TextAlignCenter"><img src="attachments/3.15.2_taglio_inclinato/LayoutNuovoTaglioEffetuato-20260618-084800.png" alt="LayoutNuovoTaglioEffetuato-20260618-084800.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div>
 <div id="admonition-nota" class="admonition admonish-info" role="note" aria-labelledby="admonition-nota-title">
 <div class="admonition-title">
 <div id="admonition-nota-title">
@@ -240,7 +242,7 @@
 <p>Per cambiare modalità di taglio basta premere sul pulsante selezionato e questo passerà da modalità a modalità.</p>
 </div>
 </div>
-<h2 local-id="9160b15a3559">Comandi rapidi</h2><p local-id="b365613ee4f5">Cliccando con il tasto destro del mouse sul taglio di un pezzo all’interno dell'area di lavoro, appare una finestra con comandi che consentono di modificarne l’inclinazione.</p><div class="TextAlignCenter"><img src="attachments/3.15.2_taglio_inclinato/{02E57639-E261-4E53-8C06-DD181B732AB6}-20260618-071917.png" alt="{02E57639-E261-4E53-8C06-DD181B732AB6}-20260618-071917.png" width="300" onclick="showModal(this.src)"></div>
+<h2 local-id="9160b15a3559" class="maintenance-section-title" data-section-number="01">Comandi rapidi</h2><p local-id="b365613ee4f5">Cliccando con il tasto destro del mouse sul taglio di un pezzo all’interno dell'area di lavoro, appare una finestra con comandi che consentono di modificarne l’inclinazione.</p><div class="TextAlignCenter"><img src="attachments/3.15.2_taglio_inclinato/{02E57639-E261-4E53-8C06-DD181B732AB6}-20260618-071917.png" alt="{02E57639-E261-4E53-8C06-DD181B732AB6}-20260618-071917.png" width="300" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div>
 <div id="admonition-attenzione-1" class="admonition admonish-warning" role="note" aria-labelledby="admonition-attenzione-1-title">
 <div class="admonition-title">
 <div id="admonition-attenzione-1-title">
@@ -314,5 +316,12 @@
     </div>;
 
 
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
 </body>
 </html>

@@ -40,7 +40,7 @@
     <script>
       const path_to_root = "";
       const default_light_theme = "light";
-      const default_dark_theme = "navy";
+      const default_dark_theme = "light";
     </script>
     <!-- Start loading toc.js asap -->
     <script src="toc.js"></script>
@@ -86,8 +86,10 @@
     });
   });
 })();
-</script></head>
-<body>
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-document" data-technical-styler-flow="html">
     <header class="header-main">
         <div class="header-flex">
             <div class="donatoni-flex">
@@ -110,6 +112,15 @@
                 </div>
                 <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                     <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
                 </button>
 
                 <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
@@ -144,17 +155,8 @@
 
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script>
-            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
-                .matches
-                ? default_dark_theme
-                : default_light_theme;
-            let theme;
-            try {
-                theme = localStorage.getItem("mdbook-theme");
-            } catch (e) { }
-            if (theme === null || theme === undefined) {
-                theme = default_theme;
-            }
+            const default_theme = "light";
+            let theme = default_theme;
             const html = document.documentElement;
             html.classList.remove("light");
             html.classList.add(theme);
@@ -214,9 +216,9 @@
 
                         <img src="images/donatoni_111.jpg">
 
-                        <main style="margin-left: 20px;">
-                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="43-ottimizzazione-e-gestione-dei-tagli" style="margin:0;"><a class="header" href="#43-ottimizzazione-e-gestione-dei-tagli">4.3 OTTIMIZZAZIONE E GESTIONE DEI TAGLI</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="4.3 OTTIMIZZAZIONE E GESTIONE DEI TAGLI"--><p>Attraverso il secondo pulsante in alto a destra, si accede alla schermata di ottimizzazione e gestione dei tagli.</p><div class="TextAlignCenter"><img src="attachments/4.3_ottimizzazione_e_gestione_dei_tagli/0.png" alt="0.png" width="800" onclick="showModal(this.src)"></div><p></p><p>
-</p><p></p><h1 id="lista-dei-tagli"><a class="header" href="#lista-dei-tagli">Lista dei tagli</a></h1><p>I tagli che la macchina deve eseguire sono riportati all’interno di questo elenco.</p><p>Utilizzando la lista dei tagli, l’operatore può:</p><ul><li><p>Cambiare l’ordine di esecuzione dei tagli.</p></li><li><p>Modificare le caratteristiche di un taglio.</p></li><li><p>Inserire pause tra un taglio e l’altro.</p></li></ul><p></p><h2 id="elementi-della-lista"><a class="header" href="#elementi-della-lista">Elementi della lista</a></h2><p></p><div class="TextAlignCenter"><img src="attachments/4.3_ottimizzazione_e_gestione_dei_tagli/1.3.1-20250808-123320.png" alt="1.3.1-20250808-123320.png" width="278" onclick="showModal(this.src)"></div><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="68ffff06-68b2-42ea-9b6b-d79fe20c84a9"><colgroup><col style="width: 326.0px;"><col style="width: 1471.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/4.3_ottimizzazione_e_gestione_dei_tagli/2.3-20250613-084005.png" alt="2.3-20250613-084005.png" width="119" onclick="showModal(this.src)"></div></td><td><p><strong>Attiva/Disattiva taglio</strong><br>Indica se il taglio deve essere attivato o disattivato per la lavorazione.<br>Premere sul pulsante ne cambia lo stato.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/4.3_ottimizzazione_e_gestione_dei_tagli/0.04.png" alt="0.04.png" width="145" onclick="showModal(this.src)"></div></td><td><p><strong>Tipologia di taglio</strong><br>Indica la tipologia del taglio (“Perimetro“, “Taglio interno“, “Fresa“, ecc…).</p></td></tr></tbody></table><p></p><h2 id="funzioni"><a class="header" href="#funzioni">Funzioni</a></h2><p>La disposizione dei tagli nella lista di destra, indica l’ordine con il quale essi vengono tagliati.<br>Con i pulsanti sottostanti, è possibile modificare questo ordine, oppure inserire una pausa nell’esecuzione delle operazioni tra un taglio e l’altro.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="18b644c5-615c-446b-8842-a141c7b1d099"><colgroup><col style="width: 324.0px;"><col style="width: 1474.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/4.3_ottimizzazione_e_gestione_dei_tagli/1.2.1_Off-20250808-112542.png" alt="1.2.1_Off-20250808-112542.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Modifica taglio</strong><br>Permette di modificare alcune proprietà del taglio selezionato.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/4.3_ottimizzazione_e_gestione_dei_tagli/1.2.2-20250808-112638.png" alt="1.2.2-20250808-112638.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Inserisci pausa</strong><br>È possibile inserire una pausa tra l’esecuzione del taglio selezionato ed il successivo. <br>Il programma effettuerà tutti i tagli precedenti alla pausa, per poi fermare la macchina e attendere il comando di Start da parte dell’operatore.<br>Può essere utilizzata, ad esempio, per cambiare utensile.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/4.3_ottimizzazione_e_gestione_dei_tagli/1.2.3_Off_On-20250808-112745.png" alt="1.2.3_Off_On-20250808-112745.png" width="119" onclick="showModal(this.src)"></div></td><td><p><strong>Elimina taglio</strong><br>Attivando questa funzione, accanto a ciascuna voce nell’elenco dei tagli verrà visualizzata un’icona a forma di gomma.<br>Premendo tale icona, l’utente può rimuovere definitivamente il corrispondente taglio dall’elenco.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/4.3_ottimizzazione_e_gestione_dei_tagli/1.2.4-20250303-082728.png" alt="1.2.4-20250303-082728.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Ottimizzazione dei tagli</strong><br>Da utilizzare per migliorare la combinazione dei mandrini della macchina in fase di taglio.<br>È necessario indicare la modalità nella casella di testo a fianco e premere il pulsante per applicare le ottimizzazioni.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/4.3_ottimizzazione_e_gestione_dei_tagli/1.2.5_Off_On-20250808-113304.png" alt="1.2.5_Off_On-20250808-113304.png" width="121" onclick="showModal(this.src)"></div></td><td><p><strong>Proprietà aggiuntive del pezzo</strong><br>Permette di modificare le proprietà aggiuntive del pezzo selezionato all’interno dell’area di lavoro.</p></td></tr></tbody></table><p></p><!--Label="psx_ptm"-->
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Machine technical documentation</span><span class="maintenance-status"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Operational document</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="43-ottimizzazione-e-gestione-dei-tagli" style="margin:0;" class="maintenance-main-title"><a class="header" href="#43-ottimizzazione-e-gestione-dei-tagli"><span class="maintenance-code">DOC</span><span class="maintenance-name">4.3 OTTIMIZZAZIONE E GESTIONE DEI TAGLI</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document DOC" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="4.3 OTTIMIZZAZIONE E GESTIONE DEI TAGLI"--><p>Attraverso il secondo pulsante in alto a destra, si accede alla schermata di ottimizzazione e gestione dei tagli.</p><div class="TextAlignCenter"><img src="attachments/4.3_ottimizzazione_e_gestione_dei_tagli/0.png" alt="0.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><p>
+</p><p></p><h1 id="lista-dei-tagli"><a class="header" href="#lista-dei-tagli">Lista dei tagli</a></h1><p>I tagli che la macchina deve eseguire sono riportati all’interno di questo elenco.</p><p>Utilizzando la lista dei tagli, l’operatore può:</p><ul><li><p>Cambiare l’ordine di esecuzione dei tagli.</p></li><li><p>Modificare le caratteristiche di un taglio.</p></li><li><p>Inserire pause tra un taglio e l’altro.</p></li></ul><p></p><h2 id="elementi-della-lista" class="maintenance-section-title" data-section-number="01"><a class="header" href="#elementi-della-lista">Elementi della lista</a></h2><p></p><div class="TextAlignCenter"><img src="attachments/4.3_ottimizzazione_e_gestione_dei_tagli/1.3.1-20250808-123320.png" alt="1.3.1-20250808-123320.png" width="278" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="68ffff06-68b2-42ea-9b6b-d79fe20c84a9"><colgroup><col style="width: 326.0px;"><col style="width: 1471.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/4.3_ottimizzazione_e_gestione_dei_tagli/2.3-20250613-084005.png" alt="2.3-20250613-084005.png" width="119" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Attiva/Disattiva taglio</strong><br>Indica se il taglio deve essere attivato o disattivato per la lavorazione.<br>Premere sul pulsante ne cambia lo stato.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/4.3_ottimizzazione_e_gestione_dei_tagli/0.04.png" alt="0.04.png" width="145" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Tipologia di taglio</strong><br>Indica la tipologia del taglio (“Perimetro“, “Taglio interno“, “Fresa“, ecc…).</p></td></tr></tbody></table><p></p><h2 id="funzioni" class="maintenance-section-title" data-section-number="02"><a class="header" href="#funzioni">Funzioni</a></h2><p>La disposizione dei tagli nella lista di destra, indica l’ordine con il quale essi vengono tagliati.<br>Con i pulsanti sottostanti, è possibile modificare questo ordine, oppure inserire una pausa nell’esecuzione delle operazioni tra un taglio e l’altro.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="18b644c5-615c-446b-8842-a141c7b1d099"><colgroup><col style="width: 324.0px;"><col style="width: 1474.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/4.3_ottimizzazione_e_gestione_dei_tagli/1.2.1_Off-20250808-112542.png" alt="1.2.1_Off-20250808-112542.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Modifica taglio</strong><br>Permette di modificare alcune proprietà del taglio selezionato.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/4.3_ottimizzazione_e_gestione_dei_tagli/1.2.2-20250808-112638.png" alt="1.2.2-20250808-112638.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Inserisci pausa</strong><br>È possibile inserire una pausa tra l’esecuzione del taglio selezionato ed il successivo. <br>Il programma effettuerà tutti i tagli precedenti alla pausa, per poi fermare la macchina e attendere il comando di Start da parte dell’operatore.<br>Può essere utilizzata, ad esempio, per cambiare utensile.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/4.3_ottimizzazione_e_gestione_dei_tagli/1.2.3_Off_On-20250808-112745.png" alt="1.2.3_Off_On-20250808-112745.png" width="119" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Elimina taglio</strong><br>Attivando questa funzione, accanto a ciascuna voce nell’elenco dei tagli verrà visualizzata un’icona a forma di gomma.<br>Premendo tale icona, l’utente può rimuovere definitivamente il corrispondente taglio dall’elenco.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/4.3_ottimizzazione_e_gestione_dei_tagli/1.2.4-20250303-082728.png" alt="1.2.4-20250303-082728.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Ottimizzazione dei tagli</strong><br>Da utilizzare per migliorare la combinazione dei mandrini della macchina in fase di taglio.<br>È necessario indicare la modalità nella casella di testo a fianco e premere il pulsante per applicare le ottimizzazioni.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/4.3_ottimizzazione_e_gestione_dei_tagli/1.2.5_Off_On-20250808-113304.png" alt="1.2.5_Off_On-20250808-113304.png" width="121" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Proprietà aggiuntive del pezzo</strong><br>Permette di modificare le proprietà aggiuntive del pezzo selezionato all’interno dell’area di lavoro.</p></td></tr></tbody></table><p></p><!--Label="psx_ptm"-->
                         </main>
 
                     </div>
@@ -278,5 +280,12 @@
     </div>;
 
 
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
 </body>
 </html>

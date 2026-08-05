@@ -76,7 +76,9 @@
     });
   });
 })();
-</script></head>
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
 <body>
     <h1>Ricerca della Pagina</h1>
     <p id="parametro">Attendi mentre cerchiamo la pagina corrispondente...</p>
@@ -357,7 +359,6 @@
 <p id="mapping">cut_lst=3.21.1_lista_dei_tagli.html</p>
 <p id="mapping">cut_lst_fnc=3.21.1_lista_dei_tagli.html</p>
 <p id="mapping">cut_mdf=3.21.1.1_modifica_taglio.html</p>
-<p id="mapping">cut_lst=3.21.1.1_modifica_taglio.html</p>
 <p id="mapping">cut_mdf_dsk=3.21.1.1_modifica_taglio.html</p>
 <p id="mapping">cmd_mdf_hol=3.21.1.1_modifica_taglio.html</p>
 <p id="mapping">cut_mdf_rib=3.21.1.1_modifica_taglio.html</p>
@@ -410,8 +411,7 @@
 <p id="mapping">lbl=3.25_etichettatura_(opzionale).html</p>
 <p id="mapping">lbl_mad=3.25_etichettatura_(opzionale).html</p>
 <p id="mapping">lbl_mba=3.25_etichettatura_(opzionale).html</p>
-<p id="mapping">scn=3.26_scan_cnc_(opzionale).html</p>
-<p id="mapping">sml=3.27_simulazione_taglio.html</p>
+<p id="mapping">sml=3.26_simulazione_taglio.html</p>
 <p id="mapping">psx=4_parametrix_sx.html</p>
 <p id="mapping">psx_man=4.1_pagina_comandi_manuali.html</p>
 <p id="mapping">psx_man_rgh=4.1_pagina_comandi_manuali.html</p>
@@ -425,5 +425,12 @@
 <p id="mapping">psx_cut=4.3.1_ottimizzazione_dei_tagli.html</p>
 <p id="mapping">psx_cmb=4.4_combinazione_dei_tagli.html</p>
 <p id="mapping">psx_cmb_nld=4.4.1_scaricatore.html</p>
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
 </body>
 </html>

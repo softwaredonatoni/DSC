@@ -40,7 +40,7 @@
     <script>
       const path_to_root = "";
       const default_light_theme = "light";
-      const default_dark_theme = "navy";
+      const default_dark_theme = "light";
     </script>
     <!-- Start loading toc.js asap -->
     <script src="toc.js"></script>
@@ -86,8 +86,10 @@
     });
   });
 })();
-</script></head>
-<body>
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-document" data-technical-styler-flow="html">
     <header class="header-main">
         <div class="header-flex">
             <div class="donatoni-flex">
@@ -110,6 +112,15 @@
                 </div>
                 <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                     <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
                 </button>
 
                 <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
@@ -144,17 +155,8 @@
 
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script>
-            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
-                .matches
-                ? default_dark_theme
-                : default_light_theme;
-            let theme;
-            try {
-                theme = localStorage.getItem("mdbook-theme");
-            } catch (e) { }
-            if (theme === null || theme === undefined) {
-                theme = default_theme;
-            }
+            const default_theme = "light";
+            let theme = default_theme;
             const html = document.documentElement;
             html.classList.remove("light");
             html.classList.add(theme);
@@ -214,9 +216,9 @@
 
                         <img src="images/donatoni_111.jpg">
 
-                        <main style="margin-left: 20px;">
-                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="3151-magnetizzare-i-pezzi" style="margin:0;"><a class="header" href="#3151-magnetizzare-i-pezzi">3.15.1 MAGNETIZZARE I PEZZI</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="3.15.1 MAGNETIZZARE I PEZZI"--><p>Con questa funzione si possono allineare i lati di pezzi diversi.</p><div class="TextAlignCenter"><img src="attachments/3.15.1_magnetizzare_i_pezzi/0.0.png" alt="0.0.png" width="800" onclick="showModal(this.src)"></div><p></p><p>
-</p><p></p><h1 id="trascinare-i-pezzi-sullarea-di-lavoro"><a class="header" href="#trascinare-i-pezzi-sullarea-di-lavoro">Trascinare i pezzi sull’area di lavoro</a></h1><p>Spostando un pezzo vicino ad un altro succede che i lati vicini diventano gialli così come nella sottostante immagine:</p><div class="TextAlignCenter"><img src="attachments/3.15.1_magnetizzare_i_pezzi/1.0.png" alt="1.0.png" width="800" onclick="showModal(this.src)"></div><p>Se poi si lascia andare il pezzo si attaccherà perfettamente al lato dell’altro pezzo:</p><div class="TextAlignCenter"><img src="attachments/3.15.1_magnetizzare_i_pezzi/1.1.png" alt="1.1.png" width="800" onclick="showModal(this.src)"></div><p>Nel caso in cui i tagli non sono paralleli, il pezzo viene ruotato in posizione parallela al taglio.</p><p></p><h1 id="allineare-due-tagli"><a class="header" href="#allineare-due-tagli">Allineare due tagli</a></h1><p>È possibile usare la calamita per allineare due tagli. <br>Per fare ciò, selezionare in sequenza il taglio che si desidera muovere e, successivamente, il taglio su cui si desidera calamitare il pezzo.<br>Il primo taglio si sposterà in modo tale da risultare parallelo al secondo taglio selezionato.<br>Nel caso in cui i tagli non sono paralleli, il pezzo viene ruotato in posizione parallela al taglio.</p><div class="TextAlignCenter"><img src="attachments/3.15.1_magnetizzare_i_pezzi/2.0.png" alt="2.0.png" width="800" onclick="showModal(this.src)"></div><div class="TextAlignCenter"><img src="attachments/3.15.1_magnetizzare_i_pezzi/2.2.png" alt="2.2.png" width="800" onclick="showModal(this.src)"></div><h2 id="allineamento-con-tagli-di-detensionamento"><a class="header" href="#allineamento-con-tagli-di-detensionamento"><br>Allineamento con tagli di detensionamento</a></h2><p>Con questa modalità, è possibile allineare i tagli di un pezzo con i tagli di detensionamento di una lastra.</p><div class="TextAlignCenter"><img src="attachments/3.15.1_magnetizzare_i_pezzi/4.0.png" alt="4.0.png" width="800" onclick="showModal(this.src)"></div><div class="TextAlignCenter"><img src="attachments/3.15.1_magnetizzare_i_pezzi/4.1.png" alt="4.1.png" width="800" onclick="showModal(this.src)"></div><p></p><h2 id="allineamento-con-riferimenti-dei-laser"><a class="header" href="#allineamento-con-riferimenti-dei-laser">Allineamento con riferimenti dei laser</a></h2><p>Tramite la stessa procedura è possibile calamitare i tagli con i riferimenti del laser, sia a linea che a croce.<br>Nel caso del laser a linea, il lato selezionato viene allineato con il riferimento.</p><div class="TextAlignCenter"><img src="attachments/3.15.1_magnetizzare_i_pezzi/3.0.png" alt="3.0.png" width="800" onclick="showModal(this.src)"></div><div class="TextAlignCenter"><img src="attachments/3.15.1_magnetizzare_i_pezzi/3.1.png" alt="3.1.png" width="800" onclick="showModal(this.src)"></div><p>Nel caso del laser a croce, il pezzo viene spostato in modo tale da fare combaciare il riferimento del laser con il vertice più vicino del taglio selezionato.</p><div class="TextAlignCenter"><img src="attachments/3.15.1_magnetizzare_i_pezzi/3.2.png" alt="3.2.png" width="800" onclick="showModal(this.src)"></div><div class="TextAlignCenter"><img src="attachments/3.15.1_magnetizzare_i_pezzi/3.3.png" alt="3.3.png" width="800" onclick="showModal(this.src)"></div><p></p><!--Label="mag"--><!--Label="mag_lgn_det"--><!--Label="mag_drg"--><!--Label="mag_lgn"--><!--Label="mag_lgn_lrf"-->
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Machine technical documentation</span><span class="maintenance-status"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Operational document</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="3151-magnetizzare-i-pezzi" style="margin:0;" class="maintenance-main-title"><a class="header" href="#3151-magnetizzare-i-pezzi"><span class="maintenance-code">DOC</span><span class="maintenance-name">3.15.1 MAGNETIZZARE I PEZZI</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document DOC" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="3.15.1 MAGNETIZZARE I PEZZI"--><p>Con questa funzione si possono allineare i lati di pezzi diversi.</p><div class="TextAlignCenter"><img src="attachments/3.15.1_magnetizzare_i_pezzi/0.0.png" alt="0.0.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><p>
+</p><p></p><h1 id="trascinare-i-pezzi-sullarea-di-lavoro"><a class="header" href="#trascinare-i-pezzi-sullarea-di-lavoro">Trascinare i pezzi sull’area di lavoro</a></h1><p>Spostando un pezzo vicino ad un altro succede che i lati vicini diventano gialli così come nella sottostante immagine:</p><div class="TextAlignCenter"><img src="attachments/3.15.1_magnetizzare_i_pezzi/1.0.png" alt="1.0.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p>Se poi si lascia andare il pezzo si attaccherà perfettamente al lato dell’altro pezzo:</p><div class="TextAlignCenter"><img src="attachments/3.15.1_magnetizzare_i_pezzi/1.1.png" alt="1.1.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p>Nel caso in cui i tagli non sono paralleli, il pezzo viene ruotato in posizione parallela al taglio.</p><p></p><h1 id="allineare-due-tagli"><a class="header" href="#allineare-due-tagli">Allineare due tagli</a></h1><p>È possibile usare la calamita per allineare due tagli. <br>Per fare ciò, selezionare in sequenza il taglio che si desidera muovere e, successivamente, il taglio su cui si desidera calamitare il pezzo.<br>Il primo taglio si sposterà in modo tale da risultare parallelo al secondo taglio selezionato.<br>Nel caso in cui i tagli non sono paralleli, il pezzo viene ruotato in posizione parallela al taglio.</p><div class="TextAlignCenter"><img src="attachments/3.15.1_magnetizzare_i_pezzi/2.0.png" alt="2.0.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><div class="TextAlignCenter"><img src="attachments/3.15.1_magnetizzare_i_pezzi/2.2.png" alt="2.2.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><h2 id="allineamento-con-tagli-di-detensionamento" class="maintenance-section-title" data-section-number="01"><a class="header" href="#allineamento-con-tagli-di-detensionamento"><br>Allineamento con tagli di detensionamento</a></h2><p>Con questa modalità, è possibile allineare i tagli di un pezzo con i tagli di detensionamento di una lastra.</p><div class="TextAlignCenter"><img src="attachments/3.15.1_magnetizzare_i_pezzi/4.0.png" alt="4.0.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><div class="TextAlignCenter"><img src="attachments/3.15.1_magnetizzare_i_pezzi/4.1.png" alt="4.1.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><h2 id="allineamento-con-riferimenti-dei-laser" class="maintenance-section-title" data-section-number="02"><a class="header" href="#allineamento-con-riferimenti-dei-laser">Allineamento con riferimenti dei laser</a></h2><p>Tramite la stessa procedura è possibile calamitare i tagli con i riferimenti del laser, sia a linea che a croce.<br>Nel caso del laser a linea, il lato selezionato viene allineato con il riferimento.</p><div class="TextAlignCenter"><img src="attachments/3.15.1_magnetizzare_i_pezzi/3.0.png" alt="3.0.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><div class="TextAlignCenter"><img src="attachments/3.15.1_magnetizzare_i_pezzi/3.1.png" alt="3.1.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p>Nel caso del laser a croce, il pezzo viene spostato in modo tale da fare combaciare il riferimento del laser con il vertice più vicino del taglio selezionato.</p><div class="TextAlignCenter"><img src="attachments/3.15.1_magnetizzare_i_pezzi/3.2.png" alt="3.2.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><div class="TextAlignCenter"><img src="attachments/3.15.1_magnetizzare_i_pezzi/3.3.png" alt="3.3.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><!--Label="mag"--><!--Label="mag_lgn_det"--><!--Label="mag_drg"--><!--Label="mag_lgn"--><!--Label="mag_lgn_lrf"-->
                         </main>
 
                     </div>
@@ -278,5 +280,12 @@
     </div>;
 
 
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
 </body>
 </html>

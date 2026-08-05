@@ -40,7 +40,7 @@
     <script>
       const path_to_root = "";
       const default_light_theme = "light";
-      const default_dark_theme = "navy";
+      const default_dark_theme = "light";
     </script>
     <!-- Start loading toc.js asap -->
     <script src="toc.js"></script>
@@ -86,8 +86,10 @@
     });
   });
 })();
-</script></head>
-<body>
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-document" data-technical-styler-flow="html">
     <header class="header-main">
         <div class="header-flex">
             <div class="donatoni-flex">
@@ -110,6 +112,15 @@
                 </div>
                 <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                     <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
                 </button>
 
                 <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
@@ -144,17 +155,8 @@
 
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script>
-            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
-                .matches
-                ? default_dark_theme
-                : default_light_theme;
-            let theme;
-            try {
-                theme = localStorage.getItem("mdbook-theme");
-            } catch (e) { }
-            if (theme === null || theme === undefined) {
-                theme = default_theme;
-            }
+            const default_theme = "light";
+            let theme = default_theme;
             const html = document.documentElement;
             html.classList.remove("light");
             html.classList.add(theme);
@@ -214,9 +216,9 @@
 
                         <img src="images/donatoni_111.jpg">
 
-                        <main style="margin-left: 20px;">
-                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="3213-selezione-multipla" style="margin:0;"><a class="header" href="#3213-selezione-multipla">3.21.3 SELEZIONE MULTIPLA</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="3.21.3 SELEZIONE MULTIPLA"--><p>Questa funzione permette la selezione multipla dei tagli sull’area di lavoro.</p><div class="TextAlignCenter"><img src="attachments/3.21.3_selezione_multipla/0.00.png" alt="0.00.png" width="294" onclick="showModal(this.src)"></div><p></p><p>
-</p><p></p><h1 id="pulsanti"><a class="header" href="#pulsanti">Pulsanti</a></h1><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="f75f07b1-9860-4207-bfa1-3629fa5e6bef"><colgroup><col style="width: 286.0px;"><col style="width: 1512.0px;"></colgroup><tbody><tr><td data-highlight-colour="#ffffff"><div class="TextAlignCenter"><img src="attachments/3.21.3_selezione_multipla/0.02.png" alt="0.02.png" width="121" onclick="showModal(this.src)"></div></td><td data-highlight-colour="#ffffff"><p><strong>Seleziona/deseleziona tagli con disco</strong><br>Seleziona o deseleziona tutti i tagli con disco presenti sull’area di lavoro.</p></td></tr><tr><td data-highlight-colour="#ffffff"><div class="TextAlignCenter"><img src="attachments/3.21.3_selezione_multipla/0.04.png" alt="0.04.png" width="121" onclick="showModal(this.src)"></div></td><td data-highlight-colour="#ffffff"><p><strong>Seleziona/deseleziona fori</strong><br>Seleziona o deseleziona tutti i fori presenti sull’area di lavoro.</p></td></tr><tr><td data-highlight-colour="#ffffff"><div class="TextAlignCenter"><img src="attachments/3.21.3_selezione_multipla/0.06.png" alt="0.06.png" width="121" onclick="showModal(this.src)"></div></td><td data-highlight-colour="#ffffff"><p><strong>Seleziona/deseleziona fresature</strong><br>Seleziona o deseleziona tutti le fresature presenti sull’area di lavoro.</p></td></tr><tr><td data-highlight-colour="#ffffff"><div class="TextAlignCenter"><img src="attachments/3.21.3_selezione_multipla/0.08.png" alt="0.08.png" width="121" onclick="showModal(this.src)"></div></td><td data-highlight-colour="#ffffff"><p><strong>Seleziona/deseleziona ribassi</strong><br>Seleziona o deseleziona tutti i ribassi presenti sull’area di lavoro.</p></td></tr></tbody></table><p></p><h1 id="selezione-dallarea-di-lavoro"><a class="header" href="#selezione-dallarea-di-lavoro">Selezione dall’area di lavoro</a></h1><p>Premendo il pulsante si attiva la modalità selezione multipla. In questa modalità si potranno selezionare più tagli contemporaneamente. Per deselezionare un taglio, cliccarlo all’interno dell’area di lavoro oppure premere la voce corrispondente nell’elenco dei tagli.</p>
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Machine technical documentation</span><span class="maintenance-status"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Operational document</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="3213-selezione-multipla" style="margin:0;" class="maintenance-main-title"><a class="header" href="#3213-selezione-multipla"><span class="maintenance-code">DOC</span><span class="maintenance-name">3.21.3 SELEZIONE MULTIPLA</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document DOC" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="3.21.3 SELEZIONE MULTIPLA"--><p>Questa funzione permette la selezione multipla dei tagli sull’area di lavoro.</p><div class="TextAlignCenter"><img src="attachments/3.21.3_selezione_multipla/0.00.png" alt="0.00.png" width="294" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><p>
+</p><p></p><h1 id="pulsanti"><a class="header" href="#pulsanti">Pulsanti</a></h1><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="f75f07b1-9860-4207-bfa1-3629fa5e6bef"><colgroup><col style="width: 286.0px;"><col style="width: 1512.0px;"></colgroup><tbody><tr><td data-highlight-colour="#ffffff"><div class="TextAlignCenter"><img src="attachments/3.21.3_selezione_multipla/0.02.png" alt="0.02.png" width="121" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td data-highlight-colour="#ffffff"><p><strong>Seleziona/deseleziona tagli con disco</strong><br>Seleziona o deseleziona tutti i tagli con disco presenti sull’area di lavoro.</p></td></tr><tr><td data-highlight-colour="#ffffff"><div class="TextAlignCenter"><img src="attachments/3.21.3_selezione_multipla/0.04.png" alt="0.04.png" width="121" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td data-highlight-colour="#ffffff"><p><strong>Seleziona/deseleziona fori</strong><br>Seleziona o deseleziona tutti i fori presenti sull’area di lavoro.</p></td></tr><tr><td data-highlight-colour="#ffffff"><div class="TextAlignCenter"><img src="attachments/3.21.3_selezione_multipla/0.06.png" alt="0.06.png" width="121" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td data-highlight-colour="#ffffff"><p><strong>Seleziona/deseleziona fresature</strong><br>Seleziona o deseleziona tutti le fresature presenti sull’area di lavoro.</p></td></tr><tr><td data-highlight-colour="#ffffff"><div class="TextAlignCenter"><img src="attachments/3.21.3_selezione_multipla/0.08.png" alt="0.08.png" width="121" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td data-highlight-colour="#ffffff"><p><strong>Seleziona/deseleziona ribassi</strong><br>Seleziona o deseleziona tutti i ribassi presenti sull’area di lavoro.</p></td></tr></tbody></table><p></p><h1 id="selezione-dallarea-di-lavoro"><a class="header" href="#selezione-dallarea-di-lavoro">Selezione dall’area di lavoro</a></h1><p>Premendo il pulsante si attiva la modalità selezione multipla. In questa modalità si potranno selezionare più tagli contemporaneamente. Per deselezionare un taglio, cliccarlo all’interno dell’area di lavoro oppure premere la voce corrispondente nell’elenco dei tagli.</p>
 <div id="admonition-nota" class="admonition admonish-info" role="note" aria-labelledby="admonition-nota-title">
 <div class="admonition-title">
 <div id="admonition-nota-title">
@@ -228,7 +230,7 @@
 <p>È possibile modificare contemporaneamente tutti i tagli selezionati.</p>
 </div>
 </div>
-<div class="TextAlignCenter"><img src="attachments/3.21.3_selezione_multipla/0.09.png" alt="0.09.png" width="800" onclick="showModal(this.src)"></div><p></p><h1 id="selezionare-i-tagli-con-disco"><a class="header" href="#selezionare-i-tagli-con-disco">Selezionare i tagli con disco</a></h1><p>Questo pulsante permette di selezionare contemporaneamente tutti i tagli sull’area di lavoro eseguiti con il disco.<br>Ad esempio tagli lineari, tagli su archi e tagli inclinati.</p><div class="TextAlignCenter"><img src="attachments/3.21.3_selezione_multipla/0.10.png" alt="0.10.png" width="800" onclick="showModal(this.src)"></div><p></p><h1 id="selezionare-i-fori"><a class="header" href="#selezionare-i-fori">Selezionare i fori</a></h1><p>Questo pulsante permette di selezionare contemporaneamente tutti i fori sull’area di lavoro, compresi i fori su angolo.</p><div class="TextAlignCenter"><img src="attachments/3.21.3_selezione_multipla/0.11.png" alt="0.11.png" width="800" onclick="showModal(this.src)"></div><p></p><h1 id="selezionare-le-fresature"><a class="header" href="#selezionare-le-fresature">Selezionare le fresature</a></h1><p>Questo pulsante permette di selezionare contemporaneamente tutte le fresature sull’area di lavoro.<br>Comprendono fresature e flutes, ma non ribassi.</p><div class="TextAlignCenter"><img src="attachments/3.21.3_selezione_multipla/0.12.png" alt="0.12.png" width="800" onclick="showModal(this.src)"></div><p></p><h1 id="selezionare-i-ribassi"><a class="header" href="#selezionare-i-ribassi">Selezionare i ribassi</a></h1><p>Questo pulsante permette di selezionare contemporaneamente tutti i ribassi sull’area di lavoro.</p><div class="TextAlignCenter"><img src="attachments/3.21.3_selezione_multipla/0.13.png" alt="0.13.png" width="800" onclick="showModal(this.src)"></div><p></p><p></p><p></p><p></p><!--Label="cut_slc"-->
+<div class="TextAlignCenter"><img src="attachments/3.21.3_selezione_multipla/0.09.png" alt="0.09.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><h1 id="selezionare-i-tagli-con-disco"><a class="header" href="#selezionare-i-tagli-con-disco">Selezionare i tagli con disco</a></h1><p>Questo pulsante permette di selezionare contemporaneamente tutti i tagli sull’area di lavoro eseguiti con il disco.<br>Ad esempio tagli lineari, tagli su archi e tagli inclinati.</p><div class="TextAlignCenter"><img src="attachments/3.21.3_selezione_multipla/0.10.png" alt="0.10.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><h1 id="selezionare-i-fori"><a class="header" href="#selezionare-i-fori">Selezionare i fori</a></h1><p>Questo pulsante permette di selezionare contemporaneamente tutti i fori sull’area di lavoro, compresi i fori su angolo.</p><div class="TextAlignCenter"><img src="attachments/3.21.3_selezione_multipla/0.11.png" alt="0.11.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><h1 id="selezionare-le-fresature"><a class="header" href="#selezionare-le-fresature">Selezionare le fresature</a></h1><p>Questo pulsante permette di selezionare contemporaneamente tutte le fresature sull’area di lavoro.<br>Comprendono fresature e flutes, ma non ribassi.</p><div class="TextAlignCenter"><img src="attachments/3.21.3_selezione_multipla/0.12.png" alt="0.12.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><h1 id="selezionare-i-ribassi"><a class="header" href="#selezionare-i-ribassi">Selezionare i ribassi</a></h1><p>Questo pulsante permette di selezionare contemporaneamente tutti i ribassi sull’area di lavoro.</p><div class="TextAlignCenter"><img src="attachments/3.21.3_selezione_multipla/0.13.png" alt="0.13.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><p></p><p></p><p></p><!--Label="cut_slc"-->
                         </main>
 
                     </div>
@@ -290,5 +292,12 @@
     </div>;
 
 
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
 </body>
 </html>

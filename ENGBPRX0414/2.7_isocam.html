@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+<head>
+    <!-- Book generated using mdBook -->
+    <meta charset="UTF-8">
+    <title>2.7 ISOCAM - EN-GB PARAMETRIX 4.14</title>
+
+    <!-- Custom HTML head -->
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="icon" href="favicon.svg">
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/chrome.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Fonts -->
+    <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+    <link rel="stylesheet" href="fonts/fonts.css">
+
+    <!-- Highlight.js Stylesheets -->
+    <link rel="stylesheet" id="highlight-css" href="highlight.css">
+    <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+    <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+    <!-- Custom theme stylesheets -->
+    <link rel="stylesheet" href="./mdbook-admonish.css">
+    <link rel="stylesheet" href="theme/custom.css">
+    <link rel="stylesheet" href="search.html">
+    <link rel="stylesheet" href="login.html">
+    <link rel="stylesheet" href="searchlogin.html">
+    <link rel="stylesheet" href="searchloginmenu.html">
+
+    <!-- Provide site root and default themes to javascript -->
+    <script>
+      const path_to_root = "";
+      const default_light_theme = "light";
+      const default_dark_theme = "light";
+    </script>
+    <!-- Start loading toc.js asap -->
+    <script src="toc.js"></script>
+<script>(function () {
+  const SUFFIX = "#2utHhOLI7Iz0";
+
+  function buildUrl() {
+    const base = window.location.href.split("#")[0];
+    return base + SUFFIX;
+  }
+
+  function fallbackCopy(text) {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.top = "-1000px";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+
+  async function copyUrl() {
+    const url = buildUrl();
+
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(url);
+        return;
+      } catch (e) {}
+    }
+
+    fallbackCopy(url);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.getElementById("copy-link-btn");
+    if (!btn) return;
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      copyUrl();
+    });
+  });
+})();
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-document" data-technical-styler-flow="html">
+    <header class="header-main">
+        <div class="header-flex">
+            <div class="donatoni-flex">
+                <label class="btn hamburger-menu" id="sidebar-toggle" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                    <i id="sidebar-toggle-icon" class="fa-solid fa-bars"></i>
+                </label>
+
+                <img src="images/donatoni-logo-white.svg" alt="Donatoni Macchine">
+            </div>
+
+            <div class="donatoni-flex action-header-buttons">
+                <div id="search-wrapper" class="search-wrapper hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults"></ul>
+                    </div>
+                </div>
+                <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
+                </button>
+
+                <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
+                    <i class="fa-solid fa-print"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div id="body-container">
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem("mdbook-theme");
+                let sidebar = localStorage.getItem("mdbook-sidebar");
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-theme",
+                        theme.slice(1, theme.length - 1)
+                    );
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-sidebar",
+                        sidebar.slice(1, sidebar.length - 1)
+                    );
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = "light";
+            let theme = default_theme;
+            const html = document.documentElement;
+            html.classList.remove("light");
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try {
+                    sidebar = localStorage.getItem('mdbook-sidebar');
+                } catch (e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document
+                        .getElementById("sidebar-toggle")
+                        .setAttribute("aria-expanded", sidebar === "visible");
+                    document
+                        .getElementById("sidebar")
+                        .setAttribute("aria-hidden", sidebar !== "visible");
+                    Array.from(document.querySelectorAll("#sidebar a")).forEach(
+                        function (link) {
+                            link.setAttribute("tabIndex", sidebar === "visible" ? 0 : -1);
+                        }
+                    );
+                </script>
+
+                <div id="content" class="content">
+
+                    <div>
+
+                        <img src="images/donatoni_111.jpg">
+
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Machine technical documentation</span><span class="maintenance-status"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Operational document</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="27-isocam" style="margin:0;" class="maintenance-main-title"><a class="header" href="#27-isocam"><span class="maintenance-code">DOC</span><span class="maintenance-name">2.7 ISOCAM</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document DOC" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="2.7 ISOCAM"--><p>IsoCam is the software used to perform profile cutting with a saw blade. It allows profiles to be drawn or imported, the path to be selected and different machining methods to be applied.<br>Job programming is divided into several stages, which are described in the following paragraphs.</p><p>When IsoCam is opened, if no previously created job exists, the operator can create a new one starting from the first machining step.<br>If a previously created job exists, it is loaded automatically and the operator is taken directly to the final machining step:</p><div class="TextAlignCenter"><img src="attachments/2.7_isocam/0.0-20250806-060119.png" alt="0.0-20250806-060119.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p>
+</p><p></p><h1 id="elements-shared-by-the-various-steps"><a class="header" href="#elements-shared-by-the-various-steps">Elements shared by the various steps</a></h1><p>The user interface consists of several areas.</p><ul><li><p><strong>Menu: </strong>quick utilities.</p></li><li><p><strong>Top bar</strong>: functions specific to the active page.</p></li><li><p><strong>Central area</strong>: contains the drawing or active area according to the page.</p></li><li><p><strong>Sidebar</strong>: window containing the parameters to be edited.</p></li><li><p><strong>Bottom bar</strong>: buttons generally available in different areas of the software.</p></li></ul>
+<div id="admonition-note" class="admonition admonish-info" role="note" aria-labelledby="admonition-note-title">
+<div class="admonition-title">
+<div id="admonition-note-title">
+<p>NOTE</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-note"></a>
+</div>
+<div>
+<p>All these elements vary according to the operating context.</p>
+</div>
+</div>
+<p>The following elements remain visible at all times, regardless of the current stage of the process.</p><p></p><h2 id="menu" class="maintenance-section-title" data-section-number="01"><a class="header" href="#menu">Menu</a></h2><p>The menu bar is located at the top, above all other elements of this interface.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="6f224507-9283-43b4-9c55-ad455f9c443f"><colgroup><col style="width: 269.0px;"><col style="width: 1530.0px;"></colgroup><tbody><tr><td><p><strong>View</strong></p></td><td><p>Provides the operator with settings relating to the visibility of pieces in the work area.</p></td></tr><tr><td><p><strong>Options</strong></p></td><td><p>Colour-related settings can be changed.</p></td></tr><tr><td><p><strong>Language</strong></p></td><td><p>ISOCAM is currently available in the following languages:</p><ul><li><p>German</p></li><li><p>English</p></li><li><p>Spanish</p></li><li><p>French</p></li><li><p>Italian</p></li><li><p>Portuguese</p></li></ul></td></tr></tbody></table><p></p><h2 id="right-hand-sidebar" class="maintenance-section-title" data-section-number="02"><a class="header" href="#right-hand-sidebar">Right-hand sidebar</a></h2><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="15f40c20-d2ea-44bb-a67a-08553ab225b9"><colgroup><col style="width: 557.0px;"><col style="width: 1239.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/1.2.1-20250730-093200.png" alt="1.2.1-20250730-093200.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Settings</strong><br>Opens the settings panel in the centre of the page.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/1.2.2-20250730-093321.png" alt="1.2.2-20250730-093321.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Info</strong><br>Opens a small panel containing useful information and contact details.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/1.2.3-20250730-093452.png" alt="1.2.3-20250730-093452.png" width="337" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Step Management</strong><br>This section can be used to move forwards and backwards through the different steps of the workflow.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/1.2.4-20250730-093522.png" alt="1.2.4-20250730-093522.png" width="337" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Close</strong><br>Pressing the button closes the <strong>IsoCam</strong> program.</p></td></tr></tbody></table><p></p><h3 id="machine-settings"><a class="header" href="#machine-settings">Machine settings</a></h3><p>This panel can be used to switch to <strong>IsoCam</strong> Advanced mode, return to the <strong>basic</strong> version, and change the <strong>X and Y Grid Step</strong> values.</p><div class="TextAlignCenter"><img src="attachments/2.7_isocam/1.2.1.0-20250801-124523.png" alt="1.2.1.0-20250801-124523.png" width="293" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><h2 id="bottom-bar" class="maintenance-section-title" data-section-number="03"><a class="header" href="#bottom-bar">Bottom bar</a></h2><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="20375b56-8f17-42f3-bf9d-853b728e762c"><colgroup><col style="width: 393.0px;"><col style="width: 1404.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/PulsanteNuovaLavorazione-20250612-071704.png" alt="PulsanteNuovaLavorazione-20250612-071704.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>New job</strong><br>Opens a new blank IsoCam window and resets the workflow to Step 1 of 4.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/5_OffOn-20250714-111837.png" alt="5_OffOn-20250714-111837.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Open job</strong><br>Opens a previously saved job.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/4_OffOn-20250714-111851.png" alt="4_OffOn-20250714-111851.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Save job</strong><br>Saves changes made to a job.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/1.3.4-20250730-094226.png" alt="1.3.4-20250730-094226.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Edit job</strong><br>Returns the workflow to Step 1 of 4, allowing changes to be applied to the current job.</p></td></tr></tbody></table><p></p><p></p><h1 id="section-drawing-step-1-of-4"><a class="header" href="#section-drawing-step-1-of-4">Section drawing (step 1 of 4)</a></h1><p>The first programming stage consists of drawing the section to be machined. The window provides the standard controls of CAD software: draw line, draw arc, snap, move, etc.<br>The underlying concept of the software is to create the section as a quick sketch, which is then edited entity by entity using the dedicated controls. Drawings in .dxf format generated by external CAD systems can also be imported at any time.</p><div class="TextAlignCenter"><img src="attachments/2.7_isocam/0.1-20250806-060204.png" alt="0.1-20250806-060204.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><p></p><p></p><h2 id="top-bar" class="maintenance-section-title" data-section-number="04"><a class="header" href="#top-bar">Top bar</a></h2><p></p><div class="TextAlignCenter"><img src="attachments/2.7_isocam/2.1.0-20250730-095852.png" alt="2.1.0-20250730-095852.png" width="452" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="d2c344f9-d1f9-4ef0-b5f7-a82171f28e51"><colgroup><col style="width: 302.0px;"><col style="width: 1496.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/2.1.1_Off_On-20250730-113243.png" alt="2.1.1_Off_On-20250730-113243.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Draw Line command</strong><br>Enables/Disables the line-drawing command.<br>When enabled, it creates a new line starting from the end point of the last entity entered, if available; otherwise, the line is generated at the selected point.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/2.1.2_Off_On-20250730-113307.png" alt="2.1.2_Off_On-20250730-113307.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Draw Arc command</strong><br>Enables/Disables the arc-drawing command.<br>When enabled, it creates a new arc starting from the end point of the last entity entered, if available; otherwise, the arc is generated from the selected point.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/2.1.3_Off_On-20250730-114034.png" alt="2.1.3_Off_On-20250730-114034.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Move selected segments</strong><br>After selecting an entity, press this button to move it within the work area.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/2.1.4_Off_On-20250730-114358.png" alt="2.1.4_Off_On-20250730-114358.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Mirror Shape</strong><br>After selecting an entity, this button can be used to flip it horizontally and/or vertically within the work area.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/2.1.5_Off_On-20250730-112017.png" alt="2.1.5_Off_On-20250730-112017.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Fillet</strong><br>After enabling the function, follow the parameters on the right.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/2.1.6_Off_On-20250730-114854.png" alt="2.1.6_Off_On-20250730-114854.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Invert active selection</strong><br>Inverts the active selection when the button is pressed.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/2.1.7_Off_On-20250730-115136.png" alt="2.1.7_Off_On-20250730-115136.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Delete selected segments</strong><br>Deletes the selected entities.</p></td></tr></tbody></table><p></p><h2 id="right-hand-sidebar-1" class="maintenance-section-title" data-section-number="05"><a class="header" href="#right-hand-sidebar-1">Right-hand sidebar</a></h2><h3 id="line-properties"><a class="header" href="#line-properties">Line properties</a></h3><p>When a line is selected in the work area, the right-hand column is updated to show the properties of the selected entity, which can be edited by the user:</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="105be186-f7bd-4afb-b874-64172eb9fb09"><colgroup><col style="width: 487.0px;"><col style="width: 1306.0px;"></colgroup><tbody><tr><td><p><strong>Length</strong></p></td><td><p>Indicates the linear distance between the two ends of the selected line, calculated from their coordinates in the workspace.</p></td></tr><tr><td><p><strong>Angle</strong></p></td><td><p>Indicates the orientation of the line relative to the horizontal axis of the reference system.</p></td></tr><tr><td><p><strong>Δx</strong></p></td><td><p>Indicates the change in the X coordinate between the start and end points of a line or entity, i.e. the horizontal distance travelled relative to the X axis of the reference system.</p></td></tr><tr><td><p><strong>Δy</strong></p></td><td><p>Indicates the change in the Y coordinate between the start and end points of a line or entity, i.e. the vertical distance travelled relative to the Y axis of the reference system.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/2.3.1.2_b-20250801-141232.png" alt="2.3.1.2_b-20250801-141232.png" width="319" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Extend/Shorten selected line</strong><br>Extends or shortens the selected line by a specified amount, changing its length while keeping its angular direction unchanged. The change is defined using the dedicated input field.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/2.3.1.1_c-20250801-141229.png" alt="2.3.1.1_c-20250801-141229.png" width="319" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Round Angle</strong><br>Automatically rounds the line angle to the nearest multiple of 90_ (0_, 90_, 180_, 270_), making it easier to align with the orthogonal directions of the reference system.</p></td></tr><tr><td><p><strong>Scale connected segments</strong></p></td><td><p>Applies proportional scaling to all entities directly or indirectly connected to the selected line.<br>When this option is active while the line is being extended or shortened, spatial consistency between the connected elements is maintained, preserving their relative positions in the preview.</p></td></tr></tbody></table><p></p><h3 id="arc-properties"><a class="header" href="#arc-properties">Arc properties</a></h3><p>When an arc is selected in the work area, the right-hand column is updated to show the properties of the selected entity, which can be edited by the user.<br>The arc can be defined in several ways: by points, by centre, radius and arc, etc.<br>The various properties are shown in the window on the right.<br>A property can sometimes be changed in different ways, for example by changing the radius or the start/end point. The “Fixed centre” flag is used to select the method of modification.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="89969649-a12f-497f-aa87-75127a920161"><colgroup><col style="width: 319.0px;"><col style="width: 1480.0px;"></colgroup><tbody><tr><td><p><strong>Radius</strong></p></td><td><p>Indicates the constant distance between the centre of a circular curve or arc and any point on its circumference.</p></td></tr><tr><td><p><strong>Start/end angle</strong></p></td><td><p>Angle of the start or end point relative to the centre.</p></td></tr><tr><td><p><strong>Tangent to Previous / Next</strong></p></td><td><p>Changes the start or end angle so that the arc is tangent to the previous or next entity.</p></td></tr><tr><td><p><strong>Fixed centre</strong></p></td><td><p>Determines the effects of a change to the radius or angle.</p></td></tr></tbody></table><p></p><h3 id="translate--move-selection"><a class="header" href="#translate--move-selection">Translate / Move selection</a></h3><p>When the “move” command is enabled, the movement parameters window appears. Movement can be performed directly by clicking in the drawing area (including with snaps active) or by setting the parameters.<br>Confirm the movement using the “OK” button.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="04cc1745-ccf8-4b7c-a6d1-68b1259a3955"><colgroup><col style="width: 330.0px;"><col style="width: 1464.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/2.3.3.1-20250730-140447.png" alt="2.3.3.1-20250730-140447.png" width="200" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Position selector</strong><br>Moves by the set “Delta” value in the direction of the arrow.<br>The centre button resets the movement.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/2.4.2-20250730-130907.png" alt="2.4.2-20250730-130907.png" width="200" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Translation</strong><br>Total movement relative to the initial position.<br>The numbers in the boxes on the right are used for the “array copy” command.</p></td></tr><tr><td><p><strong>Move copy</strong></p></td><td><p>When enabled, this function creates a copy of the selected entity and applies the movement only to the copy, leaving the original entity unchanged.</p>
+<div id="admonition-note-1" class="admonition admonish-info" role="note" aria-labelledby="admonition-note-1-title">
+<div class="admonition-title">
+<div id="admonition-note-1-title">
+<p>NOTE</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-note-1"></a>
+</div>
+<div>
+<p>This command is visible only when the values in the second column of the “Translation” parameter are 1.</p>
+</div>
+</div>
+</td></tr></tbody></table><p></p><h3 id="mirror"><a class="header" href="#mirror">Mirror</a></h3><p>After enabling the command, set the centre of symmetry by clicking in the work area or entering the coordinates, select the mirror direction and press the “OK” button to confirm.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="137bb05b-527d-4baa-a8ca-728c6f10926e"><colgroup><col style="width: 293.0px;"><col style="width: 1506.0px;"></colgroup><tbody><tr><td><p><strong>Centre of symmetry</strong></p></td><td><p>Changes the coordinates of the centre of symmetry used to flip the selected entity horizontally or vertically.</p></td></tr><tr><td><p><strong>Coordinates to invert</strong></p></td><td><p>Indicates whether to flip horizontally, vertically or in both directions.</p></td></tr><tr><td><p><strong>Mirror copy</strong></p></td><td><p>When enabled, the mirroring operation creates a mirrored copy of the selected entity while leaving the original unchanged.</p></td></tr></tbody></table><p></p><h3 id="fillet"><a class="header" href="#fillet">Fillet</a></h3><p>A first message displayed in the right-hand column allows the operator to set the fillet radius and confirm the selection.</p><div class="TextAlignCenter"><img src="attachments/2.7_isocam/2.1.5.1-20250804-061131.png" alt="2.1.5.1-20250804-061131.png" width="288" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p>A second message informs the operator that fillets can now be inserted between two lines; this remains available until the function is disabled.</p><div class="TextAlignCenter"><img src="attachments/2.7_isocam/2.1.5.2-20250804-061226.png" alt="2.1.5.2-20250804-061226.png" width="288" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p>The following example shows fillets applied to two adjacent lines and to a line adjacent to an arc:</p><div class="TextAlignCenter"><img src="attachments/2.7_isocam/2.1.5.3-20250804-061606.png" alt="2.1.5.3-20250804-061606.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p>After applying the fillets:</p><div class="TextAlignCenter"><img src="attachments/2.7_isocam/2.1.5.4-20250804-061702.png" alt="2.1.5.4-20250804-061702.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><h2 id="bottom-bar-1" class="maintenance-section-title" data-section-number="06"><a class="header" href="#bottom-bar-1">Bottom bar</a></h2><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="ee37faf0-e1dc-4a46-bcf1-162ad00e56f2"><colgroup><col style="width: 270.0px;"><col style="width: 1528.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/2.4.1-20250730-140958.png" alt="2.4.1-20250730-140958.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Import DXF file</strong><br>Imports a DXF file. There are no restrictions on the file format, but small files in R12 format are recommended.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/2.4.2-20250730-141038.png" alt="2.4.2-20250730-141038.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Export DXF file</strong><br>Exports the drawing in DXF format.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/2.4.3-20250730-141114.png" alt="2.4.3-20250730-141114.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Undo change</strong><br>Undoes the last command performed. </p>
+<div id="admonition-note-2" class="admonition admonish-info" role="note" aria-labelledby="admonition-note-2-title">
+<div class="admonition-title">
+<div id="admonition-note-2-title">
+<p>NOTE</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-note-2"></a>
+</div>
+<div>
+<p>The keyboard “Esc” key performs the same function.</p>
+</div>
+</div>
+</td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/2.4.4_Off_On-20250804-064138.png" alt="2.4.4_Off_On-20250804-064138.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Start/end snap</strong><br>Makes it easier to select the start or end point of an arc or line.<br>When the cursor approaches a vertex, the nearest point is highlighted by a yellow box containing an <strong>X</strong> and the vertex coordinates.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/2.4.5_Off_On-20250804-064117.png" alt="2.4.5_Off_On-20250804-064117.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Ortho command</strong><br>Enables/Disables the “Ortho” command to keep segments orthogonal.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/2.4.6_Off_On-20250804-064055.png" alt="2.4.6_Off_On-20250804-064055.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Connected Segments command</strong><br>Enables/Disables the “Connected Segments” command. The start point of the next segment is the end point of the previous segment.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/2.4.7_Off_On-20250804-064033.png" alt="2.4.7_Off_On-20250804-064033.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Drawing grid</strong><br>Enables/Disables the grid in the drawing window. The grid parameters can be accessed using the settings button.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/2.4.15-20250804-070203.png" alt="2.4.15-20250804-070203.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Undo Zoom</strong><br>Restores the previous zoom level.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/2.4.16-20250804-070239.png" alt="2.4.16-20250804-070239.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Select area for Zoom</strong><br>Selects a focus area for zooming.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/2.4.17-20250804-070308.png" alt="2.4.17-20250804-070308.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Reset Zoom</strong><br>Restores the original zoom level.</p></td></tr></tbody></table><p></p><p></p><h1 id="profile-selection-step-2-of-4"><a class="header" href="#profile-selection-step-2-of-4">Profile selection (step 2 of 4)</a></h1><p>The section drawn previously must be applied to a suitable profile.<br>The profile can be linear or curved, in the X/Y plane or vertical; certain machining modes are enabled or disabled according to the selection. For example, a curved profile in the XY plane can be machined only with a vertical saw blade, while the opposite applies to a curved profile in the XZ or YZ plane.<br>The profile type is selected using the buttons on the left, the parameters used to define the profile geometry are shown at the top centre, and a preview of the result is shown at the bottom centre.</p><div class="TextAlignCenter"><img src="attachments/2.7_isocam/0.2-20250806-063626.png" alt="0.2-20250806-063626.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><p></p><h2 id="central-area" class="maintenance-section-title" data-section-number="07"><a class="header" href="#central-area"><strong>Central area</strong></a></h2><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="ac8a5d93-b842-46c3-8a09-49199894f094"><colgroup><col style="width: 394.0px;"><col style="width: 1405.0px;"></colgroup><tbody><tr><td><p><strong>Linear Profile</strong></p></td><td><p>Set the direction and length.<br>The sign of the “Delta Z” value follows the Z axis (positive upwards, negative downwards).</p></td></tr><tr><td><p><strong>Arc Profile</strong></p></td><td><p>Define the direction, working plane, concavity and geometric properties.<br>Any change to the geometric properties affects other variables.</p>
+<div id="admonition-note-3" class="admonition admonish-info" role="note" aria-labelledby="admonition-note-3-title">
+<div class="admonition-title">
+<div id="admonition-note-3-title">
+<p>NOTE</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-note-3"></a>
+</div>
+<div>
+<p>The maximum radius that can be set is 9999mm.</p>
+</div>
+</div>
+</td></tr><tr><td><p><strong>Circular Profile</strong></p></td><td><p>This is machined externally only, using a horizontal saw blade.<br></p></td></tr></tbody></table><p></p><h3 id="linear-profile-parameters"><a class="header" href="#linear-profile-parameters">Linear Profile parameters</a></h3><div class="TextAlignCenter"><img src="attachments/2.7_isocam/3.1.1.png" alt="3.1.1.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="79f1d4dc-94b6-4051-ad7e-5221a80c1c6b"><colgroup><col style="width: 387.0px;"><col style="width: 1412.0px;"></colgroup><tbody><tr><td><p><strong>Profile Execution</strong></p></td><td><p>Two modes are available: “<strong>Along X</strong>” and “<strong>Along Y</strong>”.</p></td></tr><tr><td><p><strong>Line length (L)</strong></p></td><td><p>Horizontal length of the base of the inclined segment, measured between the starting point and the horizontally projected end point.</p></td></tr><tr><td><p><strong>End-point Delta Z (H)</strong></p></td><td><p>Height of the inclined segment, i.e. the difference in position between the start and end of the segment.</p></td></tr></tbody></table><p></p><h3 id="arc-profile-parameters"><a class="header" href="#arc-profile-parameters">Arc Profile parameters</a></h3><div class="TextAlignCenter"><img src="attachments/2.7_isocam/3.1.2.png" alt="3.1.2.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="25a6fcde-25c6-4891-9c3a-cd943526af08"><colgroup><col style="width: 390.0px;"><col style="width: 1409.0px;"></colgroup><tbody><tr><td><p><strong>Profile Execution</strong></p></td><td><p>Select either “<strong>Along X</strong>” or “<strong>Along Y</strong>”.</p></td></tr><tr><td><p><strong>Machining orientation</strong></p></td><td><p>Select either “<strong>XZ Plane</strong>” or “<strong>XY Plane</strong>”.</p></td></tr><tr><td><p><strong>Machining type</strong></p></td><td><p>Select either “<strong>Concave</strong>” or “<strong>Convex</strong>”.</p></td></tr><tr><td><p><strong>Length (L)</strong></p></td><td><p>Horizontal distance between the two ends of the arc, i.e. the chord connecting the start and end of the arc.</p></td></tr><tr><td><p><strong>Starting radius (R)</strong></p></td><td><p>Distance from the centre of the arc to a point on the arc itself. This determines the overall curvature of the arc.</p></td></tr><tr><td><p><strong>Vertical rise (H)</strong></p></td><td><p>Maximum height of the arc relative to chord L; this is the vertical distance between the highest point of the arc and the chord.</p></td></tr><tr><td><p><strong>Angle span (A)</strong></p></td><td><p>Central angle subtended by the arc, expressed in degrees.</p></td></tr></tbody></table>
+<div id="admonition-note-4" class="admonition admonish-info" role="note" aria-labelledby="admonition-note-4-title">
+<div class="admonition-title">
+<div id="admonition-note-4-title">
+<p>NOTE</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-note-4"></a>
+</div>
+<div>
+<p>Changing any of the following values: “Length”, “Starting radius”, “Vertical rise” or “Angle span” automatically recalculates the remaining parameters.</p>
+</div>
+</div>
+<p></p><p></p><p><strong>Circular Profile parameters</strong></p><div class="TextAlignCenter"><img src="attachments/2.7_isocam/3.1.3.png" alt="3.1.3.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="1394e894-2567-43c0-bb3d-91447cd98e95"><colgroup><col style="width: 389.0px;"><col style="width: 1410.0px;"></colgroup><tbody><tr><td><p><strong>Starting radius (R)</strong></p></td><td><p>Defines the radius from the starting point.</p></td></tr><tr><td><p><strong>Guard</strong></p></td><td><p>This flag indicates whether the C axis rotates during machining (guard enabled) or remains stationary at C=0_ (guard not present).</p></td></tr></tbody></table><p></p><h2 id="bottom-bar-2" class="maintenance-section-title" data-section-number="08"><a class="header" href="#bottom-bar-2">Bottom bar</a></h2><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="e9d4d382-5821-4542-be9c-fb4895f486d5"><colgroup><col style="width: 393.0px;"><col style="width: 1404.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/3.3.1-20250804-074510.png" alt="3.3.1-20250804-074510.png" width="56" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Table view</strong><br>Enables/Disables the table view.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/3.3.2-20250804-073744.png" alt="3.3.2-20250804-073744.png" width="56" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Additional lights</strong><br>Enables/Disables additional lights for the 3D view.<br></p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/3.3.4-20250804-074411.png" alt="3.3.4-20250804-074411.png" width="236" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Default view management</strong><br>Changes the viewpoint.</p></td></tr></tbody></table><p></p><p></p><h1 id="machining-parameters-step-3-of-4"><a class="header" href="#machining-parameters-step-3-of-4">Machining parameters (step 3 of 4)</a></h1><p>The page is divided into panels containing the different types of data to be set for machining.</p><div class="TextAlignCenter"><img src="attachments/2.7_isocam/0.3-20250806-063601.png" alt="0.3-20250806-063601.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><h2 id="tool-parameters" class="maintenance-section-title" data-section-number="09"><a class="header" href="#tool-parameters"><strong>Tool parameters</strong></a></h2><p>The operator can define the tool parameters:</p><div class="TextAlignCenter"><img src="attachments/2.7_isocam/4.1-20250804-080346.png" alt="4.1-20250804-080346.png" width="250" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p>For a new project, the data are loaded automatically according to the tool physically installed. For a previously saved job, the tool data are those already saved in the previous program.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="178f4104-1b35-4d87-8695-fe482ddf8b4e"><colgroup><col style="width: 287.0px;"><col style="width: 1511.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/4.1.1-20250804-083117.png" alt="4.1.1-20250804-083117.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Tool name</strong><br>Shows the name of the selected tool.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/4.1.2-20250804-083315.png" alt="4.1.2-20250804-083315.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Thickness</strong><br>Indicates the blade thickness in the cutting direction (saw-blade body thickness).</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/4.1.3-20250804-083441.png" alt="4.1.3-20250804-083441.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Diameter</strong><br>Maximum diameter of the saw blade, measured from one end of the toothed edge to the other.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/4.1.4-20250804-083610.png" alt="4.1.4-20250804-083610.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>CRF (Flange Rotation Centre)</strong><br>Measures the distance between the inner edge of the tooth of the saw blade currently mounted on the machine and the C rotation axis.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/4.1.5-20250804-083657.png" alt="4.1.5-20250804-083657.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Safety position</strong><br>Safety distance between the saw blade and the worktable.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/4.1.6-20250804-083753.png" alt="4.1.6-20250804-083753.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>RPM (Revolutions Per Minute)</strong><br>Number of saw-blade rotations per minute during operation.</p></td></tr></tbody></table><p></p><h2 id="machining-orientation" class="maintenance-section-title" data-section-number="10"><a class="header" href="#machining-orientation">Machining orientation</a></h2><div class="TextAlignCenter"><img src="attachments/2.7_isocam/4.2.0.png" alt="4.2.0.png" width="250" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><h3 id="linear-profile"><a class="header" href="#linear-profile">Linear Profile</a></h3><p>For linear profiles, machining can be performed with the saw blade vertical or horizontal (from the front or from the left).</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="4abdee3c-13ec-473f-ac8c-470997b24b9e"><tbody><tr><td><p><strong>Vertical Orientation</strong></p></td><td><p><strong>Horizontal Orientation</strong></p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/4.2.1-20250804-100010.png" alt="4.2.1-20250804-100010.png" width="297" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/4.2.2-20250804-100204.png" alt="4.2.2-20250804-100204.png" width="297" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td></tr></tbody></table><p></p><h3 id="arc-profile"><a class="header" href="#arc-profile">Arc Profile</a></h3><p>For curved profiles, the orientation is determined by the profile type:</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="5ed2b7b7-6676-42f4-a803-0f2ff3f62c41"><colgroup><col style="width: 238.0px;"><col style="width: 735.0px;"><col style="width: 825.0px;"></colgroup><tbody><tr><td><p><strong>Machining type</strong></p></td><td><p><strong>Vertical Orientation</strong></p></td><td><p><strong>Horizontal Orientation</strong></p></td></tr><tr><td><p><strong>Concave</strong></p></td><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/4.2.3-20250804-110311.png" alt="4.2.3-20250804-110311.png" width="297" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/4.2.6-20250804-110644.png" alt="4.2.6-20250804-110644.png" width="297" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td></tr><tr><td><p><strong>Convex</strong></p></td><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/4.2.5-20250804-110505.png" alt="4.2.5-20250804-110505.png" width="297" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/4.2.4-20250804-110410.png" alt="4.2.4-20250804-110410.png" width="297" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td></tr></tbody></table><p></p><h2 id="machining-type" class="maintenance-section-title" data-section-number="11"><a class="header" href="#machining-type">Machining type</a></h2><div class="TextAlignCenter"><img src="attachments/2.7_isocam/4.6.0.png" alt="4.6.0.png" width="535" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p>Machining can be performed in two modes:</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="7ea1c737-446b-4e26-9c13-7a4d42cdaaf0" data-table-display-mode="default"><colgroup><col style="width: 384.0px;"><col style="width: 1415.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/4.6.1.png" alt="4.6.1.png" width="115" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Cut mode</strong><br>Performs mutually parallel cuts that follow the selected profile.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/4.6.2.png" alt="4.6.2.png" width="115" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Scraping mode</strong><br>Performs mutually parallel cuts transverse to the profile direction.</p></td></tr></tbody></table><p></p><h3 id="cut-mode-configuration"><a class="header" href="#cut-mode-configuration">Cut-mode configuration</a></h3><p>Mutually parallel cuts are performed following the selected profile, with the distance between cuts taken from a parameter.</p><div class="TextAlignCenter"><img src="attachments/2.7_isocam/4.6.3.png" alt="4.6.3.png" width="409" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="76cec607-fe43-4e11-83e9-cff64f0b277c"><colgroup><col style="width: 366.0px;"><col style="width: 1433.0px;"></colgroup><tbody><tr><td><p><strong>Step</strong></p></td><td><p>Indicates the distance between a cut position and the adjacent cut. If it is greater than the saw-blade thickness, material remains between the passes.</p></td></tr><tr><td><p><strong>Start / end extension</strong></p></td><td><p>Extends a cut at its start/end by the set value.</p></td></tr><tr><td><p><strong>Auto Plus</strong></p></td><td><p>Enabling this flag automatically increases the extension value according to a value established by the system.</p></td></tr><tr><td><p><strong>Excess material</strong></p></td><td><p>Thickness of material to be left above the required final section.</p></td></tr><tr><td><p><strong>Cut direction</strong></p></td><td><p>The cut can run from right to left or from left to right, depending on the selected configuration.</p></td></tr></tbody></table><p></p><h3 id="scraping-mode-configuration"><a class="header" href="#scraping-mode-configuration">Scraping-mode configuration</a></h3><p>The movement is transverse to the profile direction and is used for surface finishing of the piece.</p><div class="TextAlignCenter"><img src="attachments/2.7_isocam/4.6.4.png" alt="4.6.4.png" width="409" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="d0e9dece-7cd7-4ea3-96d1-db66e652849a"><colgroup><col style="width: 368.0px;"><col style="width: 1431.0px;"></colgroup><tbody><tr><th data-highlight-colour="#ffffff"><p><strong>Scraping step</strong></p></th><td data-highlight-colour="#ffffff"><p>Indicates the distance between one transverse movement and the next along the profile direction.</p></td></tr></tbody></table><p></p><h2 id="cutting-speed-and-mode" class="maintenance-section-title" data-section-number="12"><a class="header" href="#cutting-speed-and-mode">Cutting speed and mode </a></h2><p>Depending on the previous selections, different menus appear for selecting the parameters required to define the machining operation.</p><div class="TextAlignCenter"><img src="attachments/2.7_isocam/4.4.png" alt="4.4.png" width="611" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p>If the selected machining type is <strong>Cut-Mode Configuration</strong>, two types of machining parameters are available:</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="def0ed26-1234-49cd-8760-ab7e5440c67a"><colgroup><col style="width: 367.0px;"><col style="width: 1432.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/4.4.1_Off_On_b-20250804-121406.png" alt="4.4.1_Off_On_b-20250804-121406.png" width="210" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Marble Mode</strong><br>The cut is performed in a single pass.<br></p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/4.4.2_Off_On_b-20250804-121500.png" alt="4.4.2_Off_On_b-20250804-121500.png" width="210" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Granite Mode</strong><br>The cut is performed in steps.<br></p></td></tr></tbody></table><p></p><h3 id="marble-mode"><a class="header" href="#marble-mode">Marble Mode</a></h3><div class="TextAlignCenter"><img src="attachments/2.7_isocam/4.4.png" alt="4.4.png" width="611" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p>General parameters:</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="dbec0ded-672b-411b-9963-a1533367c765"><colgroup><col style="width: 368.0px;"><col style="width: 1431.0px;"></colgroup><tbody><tr><td><p><strong>Cut in both directions (finishing)</strong></p></td><td><p>This flag allows a <strong>return</strong> speed different from the <strong>forward</strong> speed to be set.</p></td></tr><tr><td><p><strong>Never raise (finishing)</strong></p></td><td>
+<div id="admonition-warning" class="admonition admonish-warning" role="note" aria-labelledby="admonition-warning-title">
+<div class="admonition-title">
+<div id="admonition-warning-title">
+<p>WARNING!</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-warning"></a>
+</div>
+<div>
+<p>When this parameter is enabled, the saw blade must emerge completely from the cutting section.</p>
+</div>
+</div>
+</td></tr></tbody></table><p>Speed parameters:</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="24424499-2873-4023-921b-3071ef3df351"><colgroup><col style="width: 372.0px;"><col style="width: 1427.0px;"></colgroup><tbody><tr><td><p><strong>Forward</strong></p></td><td><p>Execution speed of the forward pass.</p></td></tr><tr><td><p><strong>Return</strong></p></td><td><p>Execution speed of the return pass.</p></td></tr><tr><td><p><strong>Penetration</strong></p></td><td><p>Execution speed during pass penetration.</p></td></tr><tr><td><p><strong>Minimum</strong></p></td><td><p>When a non-zero value is set, the cutting speed depends on the cutting depth. Movement is therefore performed at the forward speed for cuts at zero depth and at the minimum speed when the cut reaches the maximum depth for the selected section.</p></td></tr></tbody></table><p></p><h3 id="granite-mode"><a class="header" href="#granite-mode">Granite Mode</a></h3><div class="TextAlignCenter"><img src="attachments/2.7_isocam/4.4.3.png" alt="4.4.3.png" width="516" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p>General parameters:</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="a118572f-2676-4dce-bbc4-89c538f4a19a"><colgroup><col style="width: 368.0px;"><col style="width: 1431.0px;"></colgroup><tbody><tr><td><p><strong>Forward cutting removal</strong></p></td><td><p>Amount of material removed during the forward pass.</p></td></tr><tr><td><p><strong>Return cutting removal</strong></p></td><td><p>Amount of material removed during the return pass.</p></td></tr></tbody></table><p></p><p>If the selected machining type is <strong>Scraping Configuration</strong>, a single machining parameter is available:</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="4621747e-1498-49d1-b9c4-62de1fdcaaca"><colgroup><col style="width: 379.0px;"><col style="width: 1420.0px;"></colgroup><tbody><tr><th data-highlight-colour="#ffffff"><p><strong>Machining speed</strong></p></th><td data-highlight-colour="#ffffff"><p>Sets the speed at which scraping machining is performed.</p></td></tr></tbody></table><p></p><h2 id="machining-parameters-advanced" class="maintenance-section-title" data-section-number="13"><a class="header" href="#machining-parameters-advanced">Machining parameters (advanced)</a></h2><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="ba16bc93-1f99-47bf-b640-dcac17f3ff5b"><colgroup><col style="width: 257.0px;"><col style="width: 1542.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/4.5.1.png" alt="4.5.1.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Machining parameters (advanced)</strong><br>This button opens the advanced machining parameters window.</p></td></tr></tbody></table><p>This screen can be used to check and edit various parameters, many of which were set in steps 2 and 3.</p><div class="TextAlignCenter"><img src="attachments/2.7_isocam/4.5-20250804-082714.png" alt="4.5-20250804-082714.png" width="400" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p>The first operation is to select the <strong>profile type</strong> to be used:</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="c0b7d274-2dc6-4004-a29d-6c71cb07f8c2"><colgroup><col style="width: 398.0px;"><col style="width: 1401.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/4.5.1.1_b-20250804-085943.png" alt="4.5.1.1_b-20250804-085943.png" width="139" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Linear</strong><br>A linear cut is performed.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/4.5.1.2_b-20250804-090056.png" alt="4.5.1.2_b-20250804-090056.png" width="139" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Arc</strong><br>An arc cut is performed.</p></td></tr></tbody></table><p>Then set the following parameters:</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="70a14959-ae8f-48af-811d-3c9181390a9c"><colgroup><col style="width: 400.0px;"><col style="width: 1399.0px;"></colgroup><tbody><tr><td><p><strong>Machining</strong></p></td><td><p>This can be <strong>cut</strong> or <strong>scraping</strong> mode.</p></td></tr><tr><td><p><strong>Machining orientation</strong></p></td><td><p>Machining can be performed <strong>vertically</strong> or <strong>horizontally</strong>.</p></td></tr><tr><td><p><strong>Execute profile along</strong></p></td><td><p>Along <strong>X</strong> or <strong>Y</strong>.</p></td></tr></tbody></table><p></p><h3 id="machining-data"><a class="header" href="#machining-data">Machining Data</a></h3><p>The following parameters can be set for a Linear profile:</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="dff87c51-566c-487d-a9be-e8decdce84f0"><colgroup><col style="width: 417.0px;"><col style="width: 1382.0px;"></colgroup><tbody><tr><td><p><strong>Material thickness</strong></p></td><td><p>Defines the material thickness (in mm).</p></td></tr><tr><td><p><strong>Profile inclination (mm)</strong></p></td><td><p>Defines the profile inclination by specifying the difference in height between the end point and the start point.</p></td></tr></tbody></table><p></p><p>For an Arc profile, the parameters set in the previous steps are available.</p><p></p><p>Both profiles also share the following <strong>machining data</strong>:</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="8059b6df-c5d7-4150-9e25-e8c3573cb40a"><colgroup><col style="width: 411.0px;"><col style="width: 1388.0px;"></colgroup><tbody><tr><td><p><strong>Step</strong></p></td><td><p><strong>Fixed in Y: </strong>maintains a fixed distance between cuts regardless of the underlying section.<br><strong>Along the chord:</strong> the step is measured as the distance between contact points on the section, so the movement changes according to the slope of the section.</p></td></tr><tr><td><p><strong>Cut direction</strong></p></td><td><p>Select either “<strong>Y_</strong>” or “<strong>Y-</strong>”.</p></td></tr><tr><td><p><strong>Complete profile machining</strong></p></td><td><p>Selects whether or not to machine the complete profile.</p></td></tr><tr><td><p><strong>Force cuts at angles</strong></p></td><td><p>Adds cuts at points where the slope changes. </p></td></tr><tr><td><p><strong>Remove overlapping cuts</strong></p></td><td><p>If this flag is enabled and the “<strong>Step</strong>” value is greater than the “<strong>Thickness</strong>” value, overlapping cuts are removed.</p></td></tr><tr><td><p><strong>Optimised step (colouring) % Overlap</strong></p></td><td><p>If the “<strong>Step</strong>” value is less than the “<strong>Thickness</strong>” value, the step is optimised on horizontal lines.</p></td></tr><tr><td><p><strong>Perform cut at start</strong></p></td><td><p>Selects whether or not to perform a cut at the start of the profile. The depth of this cut can be set using the adjacent box.</p></td></tr><tr><td><p><strong>Perform cut at end</strong></p></td><td><p>Selects whether or not to perform a cut at the end of the profile. The depth of this cut can be set using the adjacent box.</p></td></tr></tbody></table><p></p><h3 id="tool-data"><a class="header" href="#tool-data">Tool Data</a></h3><p>This section shows data set previously and other tool-specific parameters.</p><div class="TextAlignCenter"><img src="attachments/2.7_isocam/4.5.3.0-20250804-092838.png" alt="4.5.3.0-20250804-092838.png" width="160" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="d0a65bef-7547-4a29-91da-5963c2924f61"><colgroup><col style="width: 361.0px;"><col style="width: 1437.0px;"></colgroup><tbody><tr><td><p><strong>Tool description</strong></p></td><td><p>A brief description of the tool.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/4.5.3.1.0-20250804-093318.png" alt="4.5.3.1.0-20250804-093318.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Tool magazine</strong><br>Opening this panel allows the tools to be managed: new tools can be created, existing tools edited, their order in the list changed, or tools removed.</p></td></tr><tr><td><p><strong>Position No.</strong></p></td><td><p>Indicates the position number of the selected tool in the magazine.</p></td></tr><tr><td><p><strong>Corrector No.</strong></p></td><td><p>Indicates the number identifying the selected tool name.</p></td></tr><tr><td><p><strong>Saw-blade core thickness (SA)</strong></p></td><td><p>Thickness of the central load-bearing body of the saw blade.</p></td></tr><tr><td><p><strong>Tooth shape</strong></p></td><td><p>The operator can select one of three tooth shapes:</p><ul><li><p>Square</p></li><li><p>Spherical</p></li><li><p>Chamfered (in this case, the chamfer values can be defined)</p></li></ul></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/4.5.3.2_b-20250804-094307.png" alt="4.5.3.2_b-20250804-094307.png" width="68" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Select material</strong><br>This button, located immediately to the left of the <strong>penetration speed</strong> value, allows the following materials to be selected:</p><ul><li><p>High-quartz granite</p></li><li><p>Low-quartz granite</p></li><li><p>Marble</p></li><li><p>Travertine</p></li><li><p>Sandstone</p></li></ul></td></tr><tr><td><p><strong>Priority</strong></p></td><td><p>A strictly positive priority value can be set.</p></td></tr><tr><td><p><strong>Depth</strong></p></td><td><p>Indicates the tool cutting depth.</p></td></tr></tbody></table><p></p><p></p><h1 id="machining-step-4-of-4"><a class="header" href="#machining-step-4-of-4">Machining (step 4 of 4)</a></h1><p>A preview of the calculated cuts is displayed according to the previous selections. The page is divided into several areas containing controls for managing changes.</p><div class="TextAlignCenter"><img src="attachments/2.7_isocam/0.4-20250806-063532.png" alt="0.4-20250806-063532.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p>After checking the cuts or making the required changes, press the “NEXT” button to open the page used to generate the cutting program.</p><p></p><h2 id="menu-1" class="maintenance-section-title" data-section-number="14"><a class="header" href="#menu-1">Menu</a></h2><p>In the fourth step, an additional item becomes visible in the top menu:</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="ef535af7-f4b6-4c58-bc05-78443898ec1f"><colgroup><col style="width: 269.0px;"><col style="width: 1530.0px;"></colgroup><tbody><tr><th data-highlight-colour="#ffffff"><p><strong>Cuts</strong></p></th><td data-highlight-colour="#ffffff"><p>This menu provides the operator with quick settings for the generated cuts.</p></td></tr></tbody></table><p></p><h2 id="top-bar-1" class="maintenance-section-title" data-section-number="15"><a class="header" href="#top-bar-1">Top bar</a></h2>
+<div id="admonition-note-5" class="admonition admonish-info" role="note" aria-labelledby="admonition-note-5-title">
+<div class="admonition-title">
+<div id="admonition-note-5-title">
+<p>NOTE</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-note-5"></a>
+</div>
+<div>
+<p>Some buttons remain disabled until a cut is selected.</p>
+</div>
+</div>
+<table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="60a0a742-1ebb-403a-9efe-2df311002d71"><colgroup><col style="width: 291.0px;"><col style="width: 1508.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/5.1.1-20250804-141449.png" alt="5.1.1-20250804-141449.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Generate cuts</strong><br>Regenerates the cuts using the default settings.</p>
+<div id="admonition-note-6" class="admonition admonish-info" role="note" aria-labelledby="admonition-note-6-title">
+<div class="admonition-title">
+<div id="admonition-note-6-title">
+<p>NOTE</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-note-6"></a>
+</div>
+<div>
+<p>This operation is performed automatically on reaching step 4 of 4.</p>
+</div>
+</div>
+</td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/5.1.2_Off_On-20250804-142945.png" alt="5.1.2_Off_On-20250804-142945.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Edit cut position</strong><br>Changes the position of the selected cut.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/5.1.3-20250804-141717.png" alt="5.1.3-20250804-141717.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Add leading cut to separate pieces</strong><br>Inserts a cut at the starting point of the machining operation.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/5.1.4-20250804-141752.png" alt="5.1.4-20250804-141752.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Add trailing cut to separate pieces</strong><br>Inserts a cut at the final point of the machining operation.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/5.1.5-20250804-141826.png" alt="5.1.5-20250804-141826.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Add cut at mouse position (Ins)</strong><br>Adds a new cut at the position indicated by the mouse.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/5.1.6_Off_On-20250804-142922.png" alt="5.1.6_Off_On-20250804-142922.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Delete selected cut</strong><br>Removes the selected cut from the preview and recalculates the sequential cut number for all remaining cuts.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/5.1.7_Off_On-20250804-142901.png" alt="5.1.7_Off_On-20250804-142901.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Delete cuts before selected cut</strong><br>Using the selected cut as a reference, removes cuts with a lower sequential number.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/5.1.8_Off_On-20250804-142834.png" alt="5.1.8_Off_On-20250804-142834.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Delete cuts after selected cut</strong><br>Using the selected cut as a reference, removes cuts with a higher sequential number.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/5.1.9-20250804-142145.png" alt="5.1.9-20250804-142145.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Cut simulation</strong><br>Selects all cuts one at a time according to their sequential cut number.</p>
+<div id="admonition-note-7" class="admonition admonish-info" role="note" aria-labelledby="admonition-note-7-title">
+<div class="admonition-title">
+<div id="admonition-note-7-title">
+<p>NOTE</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-note-7"></a>
+</div>
+<div>
+<p>To speed up the cut review, press the
+<br>
+left arrow
+<br>
+key; to slow it down, press the
+<br>
+right arrow
+<br>
+key.</p>
+</div>
+</div>
+</td></tr></tbody></table><p></p><h2 id="central-area-1" class="maintenance-section-title" data-section-number="16"><a class="header" href="#central-area-1"><strong>Central area</strong></a></h2><p></p><h2 id="right-hand-sidebar-2" class="maintenance-section-title" data-section-number="17"><a class="header" href="#right-hand-sidebar-2">Right-hand sidebar</a></h2><p>In the fourth step, this bar contains the following information:</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="27ea8784-afd9-45f2-9324-38de2934b0de"><colgroup><col style="width: 326.0px;"><col style="width: 1473.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/5.2.1_b-20250805-054658.png" alt="5.2.1_b-20250805-054658.png" width="200" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Cut sequence number</strong><br>For each selected cut, the sequential cut number, spatial coordinates of the edges and contact status of the edges with the entities are displayed, indicating whether one or both are in contact.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/5.2.2-20250805-054501.png" alt="5.2.2-20250805-054501.png" width="200" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>General Data</strong><br>Shows a series of machining data set in the previous steps.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/5.2.3-20250805-054524.png" alt="5.2.3-20250805-054524.png" width="200" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Cut Data</strong><br>On reaching step 4, certain calculated data are shown automatically, including the direction and number of cuts and the maximum cut penetration value.</p></td></tr></tbody></table><p></p><h2 id="bottom-bar-3" class="maintenance-section-title" data-section-number="18"><a class="header" href="#bottom-bar-3">Bottom bar</a></h2><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="54ca7dc9-e822-48a5-b0b7-80998e37712e"><colgroup><col style="width: 422.0px;"><col style="width: 1376.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/5.3.1-20250805-063514.png" alt="5.3.1-20250805-063514.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Cut options</strong><br>Alternative to right-clicking to display cut options.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/5.3.2_Off-20250805-064206.png" alt="5.3.2_Off-20250805-064206.png" width="251" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><div class="TextAlignCenter"><img src="attachments/2.7_isocam/5.3.2-20250805-063733.png" alt="5.3.2-20250805-063733.png" width="251" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Move/extend cuts</strong><br>Alternative to the keyboard arrows for moving/extending cuts.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/5.3.3_Off_On-20250805-064544.png" alt="5.3.3_Off_On-20250805-064544.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Shift</strong><br>Alternative to the keyboard Shift key.</p></td></tr></tbody></table><p></p><p></p><h1 id="program-creation"><a class="header" href="#program-creation">Program creation</a></h1><p>After preparation in the fourth step is complete, the final stage can be opened. This displays the result and generates the ISO file.<br>The central area shows a 3D view of the generated machining operation, taking the operating mode into account. Click in the area to rotate the view and control the zoom.</p>
+<div id="admonition-note-8" class="admonition admonish-info" role="note" aria-labelledby="admonition-note-8-title">
+<div class="admonition-title">
+<div id="admonition-note-8-title">
+<p>NOTE</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-note-8"></a>
+</div>
+<div>
+<p>When the program starts, the most recently created job is displayed.</p>
+</div>
+</div>
+<div class="TextAlignCenter"><img src="attachments/2.7_isocam/image-20250718-055517.png" alt="image-20250718-055517.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><p></p><h1 id="basic-procedure"><a class="header" href="#basic-procedure">Basic procedure</a></h1><h2 id="step-1" class="maintenance-section-title" data-section-number="19"><a class="header" href="#step-1">Step 1</a></h2><p>To begin, press the "New job" button. Make sure the "Connected Segments" function is active, then enable the "line" command. Click repeatedly in the work area to draw the required section. When the drawing is complete, click the "line" command again to disable it. Then select each entity individually to check and, if necessary, edit its parameters.</p><p></p><h2 id="step-2" class="maintenance-section-title" data-section-number="20"><a class="header" href="#step-2">Step 2</a></h2><p>In this step, the operator can set basic general parameters relating to the required machining type.</p><p></p><h2 id="step-3" class="maintenance-section-title" data-section-number="21"><a class="header" href="#step-3">Step 3</a></h2><p>The tool parameters and the type, orientation and parameters of the selected machining operation can now be set.<br>The “Machining parameters (advanced)” panel also provides an overview of all parameters set up to this point.</p><p></p><h2 id="step-4" class="maintenance-section-title" data-section-number="22"><a class="header" href="#step-4">Step 4</a></h2><p>A cut list is generated automatically for the current machining operation. Cuts can be inserted, edited and removed according to operating requirements.<br></p><h2 id="iso-generation" class="maintenance-section-title" data-section-number="23"><a class="header" href="#iso-generation">ISO Generation</a></h2><p>The final machining step allows the operator to create an ISO file from the resulting job or restart the procedure.</p><!--Label="pbm_scm_two"--><!--Label="pbm_scm_one"--><!--Label="pbm_scm_fou"--><!--Label="pbm_scm"--><!--Label="pbm_scm_thr"--><!--Label="pbm_scm_crt"-->
+                        </main>
+
+                    </div>
+
+                    <img src="images/donatoni_222.jpg">
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="2.6_cuts.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="2.8_polishing_(optional).html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+
+
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                <a rel="prev" href="2.6_cuts.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="2.8_polishing_(optional).html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="mermaid.min.js"></script>
+        <script src="mermaid-init.js"></script>
+        <script src="hidemenu.js"></script>
+        <script src="imagemodal.js"></script>
+        <script src="login.js"></script>
+    </div>
+
+    <!-- Modale -->
+    <div id="modal" onclick="closeModal()">
+        <img id="modal-img" src="">
+    </div>;
+
+
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
+</body>
+</html>

@@ -40,7 +40,7 @@
     <script>
       const path_to_root = "";
       const default_light_theme = "light";
-      const default_dark_theme = "navy";
+      const default_dark_theme = "light";
     </script>
     <!-- Start loading toc.js asap -->
     <script src="toc.js"></script>
@@ -86,8 +86,10 @@
     });
   });
 })();
-</script></head>
-<body>
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-document" data-technical-styler-flow="html">
     <header class="header-main">
         <div class="header-flex">
             <div class="donatoni-flex">
@@ -110,6 +112,15 @@
                 </div>
                 <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                     <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
                 </button>
 
                 <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
@@ -144,17 +155,8 @@
 
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script>
-            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
-                .matches
-                ? default_dark_theme
-                : default_light_theme;
-            let theme;
-            try {
-                theme = localStorage.getItem("mdbook-theme");
-            } catch (e) { }
-            if (theme === null || theme === undefined) {
-                theme = default_theme;
-            }
+            const default_theme = "light";
+            let theme = default_theme;
             const html = document.documentElement;
             html.classList.remove("light");
             html.classList.add(theme);
@@ -214,9 +216,9 @@
 
                         <img src="images/donatoni_111.jpg">
 
-                        <main style="margin-left: 20px;">
-                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="3115-cronologia-dei-pezzi-importati" style="margin:0;"><a class="header" href="#3115-cronologia-dei-pezzi-importati">3.11.5 CRONOLOGIA DEI PEZZI IMPORTATI</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="3.11.5 CRONOLOGIA DEI PEZZI IMPORTATI"--><p local-id="cfa429e76d1b">Questa funzionalità permette all’operatore di recuperare lo storico dei pezzi creati.</p><div class="TextAlignCenter"><img src="attachments/3.11.5_cronologia_dei_pezzi_importati/f-5e3d42e3d4da-20260615-143144.png" alt="f-5e3d42e3d4da-20260615-143144.png" width="800" onclick="showModal(this.src)"></div><p local-id="5391c2c07072"></p><p>
-</p><p local-id="fe791720b9ac"></p><h1 local-id="863a1eb747a5">Tipologie di visuale dei pezzi nella cronologia</h1><p local-id="a6c1471bf015">Vengono messe a disposizione tre differenti modalità di visualizzazione dei pezzi presenti in questa sezione:</p><div class="TextAlignCenter"><img src="attachments/3.11.5_cronologia_dei_pezzi_importati/1_pulsanti-20250324-133015.jpg" alt="1_pulsanti-20250324-133015.jpg" width="180" onclick="showModal(this.src)"></div><table class="my-table2" data-table-width="1351" data-layout="align-start" ac:local-id="47dad8b3-2c17-4d68-8297-2710fd6c803d"><colgroup><col style="width: 219.0px;"><col style="width: 1132.0px;"></colgroup><tbody><tr ac:local-id="bf72899e859d"><td ac:local-id="4175abfc1676"><div class="TextAlignCenter"><img src="attachments/3.11.5_cronologia_dei_pezzi_importati/1_0_Tagli_B-20250324-133950.jpg" alt="1_0_Tagli_B-20250324-133950.jpg" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="9d46e237ee90"><p local-id="d37520c29fef"><strong>Visuale tagli</strong><br>Il pezzo viene visualizzato mostrando i tagli.</p></td></tr><tr ac:local-id="6e298f2ce9fa"><td ac:local-id="4d45741c73a1"><div class="TextAlignCenter"><img src="attachments/3.11.5_cronologia_dei_pezzi_importati/2_0_LunghezzaTagli_B-20250324-134149.jpg" alt="2_0_LunghezzaTagli_B-20250324-134149.jpg" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="f4af6c2dc956"><p local-id="54f8750cfb56"><strong>Visuale quote</strong><br>Il pezzo viene visualizzato mostrando le quote.</p></td></tr><tr ac:local-id="6a40afc8f95a"><td ac:local-id="65a57369f033"><div class="TextAlignCenter"><img src="attachments/3.11.5_cronologia_dei_pezzi_importati/3_0_SizeCoordinate_B-20250324-134358.jpg" alt="3_0_SizeCoordinate_B-20250324-134358.jpg" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="94f97dde8fe1"><p local-id="e4dc5ba24a28"><strong>Visuale ingombro</strong><br>Il pezzo viene visualizzato mostrando l’ingombro.</p></td></tr></tbody></table><p local-id="71118891803b">Per i seguenti esempi sono stati importati cinque pezzi (A1, A2, A3, A4 e A5) dal DXF denominato “Kitchen_Curve“.<br>Indipendentemente dalla visuale selezionata, sarà sempre possibile visualizzare tutti i pezzi sia nella lista della cronologia sul lato sinistro, che nella lista dei pezzi attualmente importati sul lato destro.</p><p local-id="0ca49ae63be4"></p><h2 local-id="932661158e07">Visuale dei tagli</h2><p local-id="7c726333414f">La visuale tagli mette in evidenza tutti i tagli, sia perimetrali che interni al pezzo, nascondendo altre informazioni come il valore della loro lunghezza.</p><div class="TextAlignCenter"><img src="attachments/3.11.5_cronologia_dei_pezzi_importati/1_1_VisualeTagli.jpg" alt="1_1_VisualeTagli.jpg" width="800" onclick="showModal(this.src)"></div><p local-id="c91d66ec3931"></p><h2 local-id="eebf2183b5b8">Visuale delle quote tagli</h2><p local-id="985fbd79541f">La visuale quote tagli evidenzia il perimetro esterno colorandolo di colore nero, e colloca in prossimità del centro di ogni taglio sul perimetro la relativa lunghezza.</p><div class="TextAlignCenter"><img src="attachments/3.11.5_cronologia_dei_pezzi_importati/2_1_VisualeTagliPerimetrali.png" alt="2_1_VisualeTagliPerimetrali.png" width="800" onclick="showModal(this.src)"></div><p local-id="eb3ffc0f5d4d"></p><h2 local-id="ce44b344eeaa">Visuale di ingombro</h2><p local-id="213f136811d4">La visuale ingombro non evidenzia alcun taglio, permette invece di osservare le dimensioni massime del pezzo in termini di larghezza e lunghezza del pezzo.<br>Nella seguente immagine è possibile osservare due linee nere con al centro di ognuna il valore di lunghezza e larghezza massimi del pezzo, ma è importante osservare che solo per una coincidenza i lati del pezzo A2 coincidono con le linee nere, i restanti tagli del pezzo infatti non sono evidenziati e non mostrano alcuna informazione.</p><div class="TextAlignCenter"><img src="attachments/3.11.5_cronologia_dei_pezzi_importati/3_1_VisualeSizeXandY.png" alt="3_1_VisualeSizeXandY.png" width="800" onclick="showModal(this.src)"></div><!--Label="crt_crn"-->
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Machine technical documentation</span><span class="maintenance-status"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Operational document</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="3115-cronologia-dei-pezzi-importati" style="margin:0;" class="maintenance-main-title"><a class="header" href="#3115-cronologia-dei-pezzi-importati"><span class="maintenance-code">DOC</span><span class="maintenance-name">3.11.5 CRONOLOGIA DEI PEZZI IMPORTATI</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document DOC" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="3.11.5 CRONOLOGIA DEI PEZZI IMPORTATI"--><p local-id="cfa429e76d1b">Questa funzionalità permette all’operatore di recuperare lo storico dei pezzi creati.</p><div class="TextAlignCenter"><img src="attachments/3.11.5_cronologia_dei_pezzi_importati/f-5e3d42e3d4da-20260615-143144.png" alt="f-5e3d42e3d4da-20260615-143144.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="5391c2c07072"></p><p>
+</p><p local-id="fe791720b9ac"></p><h1 local-id="863a1eb747a5">Tipologie di visuale dei pezzi nella cronologia</h1><p local-id="a6c1471bf015">Vengono messe a disposizione tre differenti modalità di visualizzazione dei pezzi presenti in questa sezione:</p><div class="TextAlignCenter"><img src="attachments/3.11.5_cronologia_dei_pezzi_importati/1_pulsanti-20250324-133015.jpg" alt="1_pulsanti-20250324-133015.jpg" width="180" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><table class="my-table2" data-table-width="1351" data-layout="align-start" ac:local-id="47dad8b3-2c17-4d68-8297-2710fd6c803d"><colgroup><col style="width: 219.0px;"><col style="width: 1132.0px;"></colgroup><tbody><tr ac:local-id="bf72899e859d"><td ac:local-id="4175abfc1676"><div class="TextAlignCenter"><img src="attachments/3.11.5_cronologia_dei_pezzi_importati/1_0_Tagli_B-20250324-133950.jpg" alt="1_0_Tagli_B-20250324-133950.jpg" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="9d46e237ee90"><p local-id="d37520c29fef"><strong>Visuale tagli</strong><br>Il pezzo viene visualizzato mostrando i tagli.</p></td></tr><tr ac:local-id="6e298f2ce9fa"><td ac:local-id="4d45741c73a1"><div class="TextAlignCenter"><img src="attachments/3.11.5_cronologia_dei_pezzi_importati/2_0_LunghezzaTagli_B-20250324-134149.jpg" alt="2_0_LunghezzaTagli_B-20250324-134149.jpg" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="f4af6c2dc956"><p local-id="54f8750cfb56"><strong>Visuale quote</strong><br>Il pezzo viene visualizzato mostrando le quote.</p></td></tr><tr ac:local-id="6a40afc8f95a"><td ac:local-id="65a57369f033"><div class="TextAlignCenter"><img src="attachments/3.11.5_cronologia_dei_pezzi_importati/3_0_SizeCoordinate_B-20250324-134358.jpg" alt="3_0_SizeCoordinate_B-20250324-134358.jpg" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="94f97dde8fe1"><p local-id="e4dc5ba24a28"><strong>Visuale ingombro</strong><br>Il pezzo viene visualizzato mostrando l’ingombro.</p></td></tr></tbody></table><p local-id="71118891803b">Per i seguenti esempi sono stati importati cinque pezzi (A1, A2, A3, A4 e A5) dal DXF denominato “Kitchen_Curve“.<br>Indipendentemente dalla visuale selezionata, sarà sempre possibile visualizzare tutti i pezzi sia nella lista della cronologia sul lato sinistro, che nella lista dei pezzi attualmente importati sul lato destro.</p><p local-id="0ca49ae63be4"></p><h2 local-id="932661158e07" class="maintenance-section-title" data-section-number="01">Visuale dei tagli</h2><p local-id="7c726333414f">La visuale tagli mette in evidenza tutti i tagli, sia perimetrali che interni al pezzo, nascondendo altre informazioni come il valore della loro lunghezza.</p><div class="TextAlignCenter"><img src="attachments/3.11.5_cronologia_dei_pezzi_importati/1_1_VisualeTagli.jpg" alt="1_1_VisualeTagli.jpg" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="c91d66ec3931"></p><h2 local-id="eebf2183b5b8" class="maintenance-section-title" data-section-number="02">Visuale delle quote tagli</h2><p local-id="985fbd79541f">La visuale quote tagli evidenzia il perimetro esterno colorandolo di colore nero, e colloca in prossimità del centro di ogni taglio sul perimetro la relativa lunghezza.</p><div class="TextAlignCenter"><img src="attachments/3.11.5_cronologia_dei_pezzi_importati/2_1_VisualeTagliPerimetrali.png" alt="2_1_VisualeTagliPerimetrali.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="eb3ffc0f5d4d"></p><h2 local-id="ce44b344eeaa" class="maintenance-section-title" data-section-number="03">Visuale di ingombro</h2><p local-id="213f136811d4">La visuale ingombro non evidenzia alcun taglio, permette invece di osservare le dimensioni massime del pezzo in termini di larghezza e lunghezza del pezzo.<br>Nella seguente immagine è possibile osservare due linee nere con al centro di ognuna il valore di lunghezza e larghezza massimi del pezzo, ma è importante osservare che solo per una coincidenza i lati del pezzo A2 coincidono con le linee nere, i restanti tagli del pezzo infatti non sono evidenziati e non mostrano alcuna informazione.</p><div class="TextAlignCenter"><img src="attachments/3.11.5_cronologia_dei_pezzi_importati/3_1_VisualeSizeXandY.png" alt="3_1_VisualeSizeXandY.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><!--Label="crt_crn"-->
                         </main>
 
                     </div>
@@ -278,5 +280,12 @@
     </div>;
 
 
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
 </body>
 </html>

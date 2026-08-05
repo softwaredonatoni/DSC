@@ -40,7 +40,7 @@
     <script>
       const path_to_root = "";
       const default_light_theme = "light";
-      const default_dark_theme = "navy";
+      const default_dark_theme = "light";
     </script>
     <!-- Start loading toc.js asap -->
     <script src="toc.js"></script>
@@ -86,8 +86,10 @@
     });
   });
 })();
-</script></head>
-<body>
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-document" data-technical-styler-flow="html">
     <header class="header-main">
         <div class="header-flex">
             <div class="donatoni-flex">
@@ -110,6 +112,15 @@
                 </div>
                 <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                     <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
                 </button>
 
                 <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
@@ -144,17 +155,8 @@
 
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script>
-            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
-                .matches
-                ? default_dark_theme
-                : default_light_theme;
-            let theme;
-            try {
-                theme = localStorage.getItem("mdbook-theme");
-            } catch (e) { }
-            if (theme === null || theme === undefined) {
-                theme = default_theme;
-            }
+            const default_theme = "light";
+            let theme = default_theme;
             const html = document.documentElement;
             html.classList.remove("light");
             html.classList.add(theme);
@@ -214,9 +216,9 @@
 
                         <img src="images/donatoni_111.jpg">
 
-                        <main style="margin-left: 20px;">
-                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="331-tool-plus-opzionale" style="margin:0;"><a class="header" href="#331-tool-plus-opzionale">3.3.1 TOOL PLUS (OPZIONALE)</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="3.3.1 TOOL PLUS (OPZIONALE)"--><p local-id="80429358e2ae">Se la macchina dispone dell’optional Tool Plus, sarà presente una nuova sezione dedicata all’interno del pannello utensile.</p><div class="TextAlignCenter"><img src="attachments/3.3.1_tool_plus_(opzionale)/0.00.png" alt="0.00.png" width="800" onclick="showModal(this.src)"></div><p local-id="5d3d9f6939d6"></p><p>
-</p><p local-id="06815255c3e9"></p><h1 local-id="d6490622a6e6">Pulsanti</h1><table class="my-table2" data-table-width="1314" data-layout="align-start" ac:local-id="d24c3c2d-ec77-4f4f-803c-1ed111e0f138"><colgroup><col style="width: 262.0px;"><col style="width: 1052.0px;"></colgroup><tbody><tr ac:local-id="46aea49aef57"><td ac:local-id="33fe1a876142"><div class="TextAlignCenter"><img src="attachments/3.3.1_tool_plus_(opzionale)/0.01.png" alt="0.01.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="4ab1fce5aacd"><p local-id="7318972b99c0"><strong>Accensione/Spegnimento acqua</strong><br>Permette di regolare la fuoriuscita dell’acqua dal condotto del Tool Plus.</p></td></tr><tr ac:local-id="7f6a3272c000"><td ac:local-id="3fed1cabcfed"><div class="TextAlignCenter"><img src="attachments/3.3.1_tool_plus_(opzionale)/0.02.png" alt="0.02.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="d5e1709dd6ca"><p local-id="412fa40656f7"><strong>Attiva/Disattiva rotazione</strong><br>Permette di avviare o interrompere la rotazione del Tool Plus.</p></td></tr><tr ac:local-id="8ad89698537e"><td ac:local-id="8a88645d49e7"><div class="TextAlignCenter"><img src="attachments/3.3.1_tool_plus_(opzionale)/0.03.png" alt="0.03.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="20394ba34fa3"><p local-id="7e7d7726a996"><strong>Sollevamento</strong><br>Permette di sollevare il blocco della macchina su cui è montato l’utensile.</p></td></tr><tr ac:local-id="d3758aba7e0d"><td ac:local-id="46efa00b7e8e"><div class="TextAlignCenter"><img src="attachments/3.3.1_tool_plus_(opzionale)/0.04.png" alt="0.04.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="1eaf785fb781"><p local-id="116916b1fd73"><strong>Abbassamento</strong><br>Permette di abbassare il blocco della macchina su cui è montato l’utensile.</p></td></tr></tbody></table><p local-id="8492399ffb16"></p><!--Label="tlp_pls_rtt"--><!--Label="tlp_pls"--><!--Label="tlp_pls_wtr"--><!--Label="tlp_pls_lft"--><!--Label="tlp_pls_dcr"-->
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Machine technical documentation</span><span class="maintenance-status"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Operational document</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="331-tool-plus-opzionale" style="margin:0;" class="maintenance-main-title"><a class="header" href="#331-tool-plus-opzionale"><span class="maintenance-code">DOC</span><span class="maintenance-name">3.3.1 TOOL PLUS (OPZIONALE)</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document DOC" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="3.3.1 TOOL PLUS (OPZIONALE)"--><p local-id="80429358e2ae">Se la macchina dispone dell’optional Tool Plus, sarà presente una nuova sezione dedicata all’interno del pannello utensile.</p><div class="TextAlignCenter"><img src="attachments/3.3.1_tool_plus_(opzionale)/0.00.png" alt="0.00.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="5d3d9f6939d6"></p><p>
+</p><p local-id="06815255c3e9"></p><h1 local-id="d6490622a6e6">Pulsanti</h1><table class="my-table2" data-table-width="1314" data-layout="align-start" ac:local-id="d24c3c2d-ec77-4f4f-803c-1ed111e0f138"><colgroup><col style="width: 262.0px;"><col style="width: 1052.0px;"></colgroup><tbody><tr ac:local-id="46aea49aef57"><td ac:local-id="33fe1a876142"><div class="TextAlignCenter"><img src="attachments/3.3.1_tool_plus_(opzionale)/0.01.png" alt="0.01.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="4ab1fce5aacd"><p local-id="7318972b99c0"><strong>Accensione/Spegnimento acqua</strong><br>Permette di regolare la fuoriuscita dell’acqua dal condotto del Tool Plus.</p></td></tr><tr ac:local-id="7f6a3272c000"><td ac:local-id="3fed1cabcfed"><div class="TextAlignCenter"><img src="attachments/3.3.1_tool_plus_(opzionale)/0.02.png" alt="0.02.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="d5e1709dd6ca"><p local-id="412fa40656f7"><strong>Attiva/Disattiva rotazione</strong><br>Permette di avviare o interrompere la rotazione del Tool Plus.</p></td></tr><tr ac:local-id="8ad89698537e"><td ac:local-id="8a88645d49e7"><div class="TextAlignCenter"><img src="attachments/3.3.1_tool_plus_(opzionale)/0.03.png" alt="0.03.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="20394ba34fa3"><p local-id="7e7d7726a996"><strong>Sollevamento</strong><br>Permette di sollevare il blocco della macchina su cui è montato l’utensile.</p></td></tr><tr ac:local-id="d3758aba7e0d"><td ac:local-id="46efa00b7e8e"><div class="TextAlignCenter"><img src="attachments/3.3.1_tool_plus_(opzionale)/0.04.png" alt="0.04.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="1eaf785fb781"><p local-id="116916b1fd73"><strong>Abbassamento</strong><br>Permette di abbassare il blocco della macchina su cui è montato l’utensile.</p></td></tr></tbody></table><p local-id="8492399ffb16"></p><!--Label="tlp_pls_rtt"--><!--Label="tlp_pls"--><!--Label="tlp_pls_wtr"--><!--Label="tlp_pls_lft"--><!--Label="tlp_pls_dcr"-->
                         </main>
 
                     </div>
@@ -278,5 +280,12 @@
     </div>;
 
 
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
 </body>
 </html>

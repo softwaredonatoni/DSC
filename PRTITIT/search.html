@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ricerca Pagina</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const parametro = window.location.hash.substring(1); // Prende il valore dopo #
+            const output = document.getElementById("parametro");
+
+            if (!parametro) {
+                output.textContent = "Nessun parametro passato.";
+                return;
+            }
+
+            output.textContent = `Parametro passato: ${parametro}`;
+
+            // Cerca tutte le corrispondenze nel body
+            const mappings = document.querySelectorAll("p#mapping");
+            for (const mapping of mappings) {
+                const [key, value] = mapping.textContent.split("=");
+                if (key === parametro) {
+                    window.location.href = value.trim(); // Reindirizza l'utente alla pagina corrispondente
+                    return;
+                }
+            }
+
+            var msg = `Nessuna pagina trovata con questa etichetta: ${parametro}`;
+
+            alert(msg);
+        });
+    </script>
+        <style>
+            p#mapping { display: none; }
+        </style>
+<script>(function () {
+  const SUFFIX = "#2utHhOLI7Iz0";
+
+  function buildUrl() {
+    const base = window.location.href.split("#")[0];
+    return base + SUFFIX;
+  }
+
+  function fallbackCopy(text) {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.top = "-1000px";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+
+  async function copyUrl() {
+    const url = buildUrl();
+
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(url);
+        return;
+      } catch (e) {}
+    }
+
+    fallbackCopy(url);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.getElementById("copy-link-btn");
+    if (!btn) return;
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      copyUrl();
+    });
+  });
+})();
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body>
+    <h1>Ricerca della Pagina</h1>
+    <p id="parametro">Attendi mentre cerchiamo la pagina corrispondente...</p>
+    
+    <!-- Mappatura parametri-pagine -->
+<p id="mapping">parametrix_tutorial=parametrix_tutorial_it-it.html</p>
+<p id="mapping">prm=parametrix_tutorials.html</p>
+<p id="mapping">tr0001=tr0001_flusso_di_lavoro_completo.html</p>
+<p id="mapping">tr0002=tr0002_gestione_tagli_e_file_pgm.html</p>
+<p id="mapping">tr0003=tr0003_foto.html</p>
+<p id="mapping">tr0004=tr0004_creazione_di_pezzi.html</p>
+<p id="mapping">tr0005=tr0005_gestione_dei_pezzi.html</p>
+<p id="mapping">tr0006=tr0006_spostamenti_automatici.html</p>
+<p id="mapping">tr0007=tr0007_spostamenti_manuali.html</p>
+<p id="mapping">tr0008=tr0008_macchia_aperta.html</p>
+<p id="mapping">tr0009=tr0009_creazione_progetto_multilastra.html</p>
+<p id="mapping">tr0010=tr0010_lavorazioni_di_un_progetto_multilastra.html</p>
+<p id="mapping">tr0011=tr0011_performance_multilastra.html</p>
+<p id="mapping">tr0012=tr0012_commesse_csv.html</p>
+<p id="mapping">tr0013=tr0013_help_system.html</p>
+<p id="mapping">tr0014=tr0014_lavorazioni_da_layer_dxf.html</p>
+<p id="mapping">tr0015=tr0015_lavorazioni_da_modifica_pezzo.html</p>
+<p id="mapping">tr0016=tr0016_lavorazioni_per_piani_cucina_da_modifica_pezzo.html</p>
+<p id="mapping">tr0017=tr0017_flusso_di_lavoro_ufficio.html</p>
+<p id="mapping">tr0018=tr0018_slab_matching.html</p>
+<p id="mapping">tr0019=tr0019_tagli_combinati.html</p>
+<p id="mapping">tr0020=tr0020_pezzi_standard.html</p>
+<p id="mapping">tr0021=tr0021_nesting.html</p>
+<p id="mapping">tr0022=tr0022_importazione_layout_dxf.html</p>
+<p id="mapping">tr0023=tr0023_importazione_layout_dxf.html</p>
+<p id="mapping">tr0024=tr0024_statistiche.html</p>
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
+</body>
+</html>

@@ -40,7 +40,7 @@
     <script>
       const path_to_root = "";
       const default_light_theme = "light";
-      const default_dark_theme = "navy";
+      const default_dark_theme = "light";
     </script>
     <!-- Start loading toc.js asap -->
     <script src="toc.js"></script>
@@ -86,8 +86,10 @@
     });
   });
 })();
-</script></head>
-<body>
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-document" data-technical-styler-flow="html">
     <header class="header-main">
         <div class="header-flex">
             <div class="donatoni-flex">
@@ -110,6 +112,15 @@
                 </div>
                 <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                     <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
                 </button>
 
                 <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
@@ -144,17 +155,8 @@
 
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script>
-            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
-                .matches
-                ? default_dark_theme
-                : default_light_theme;
-            let theme;
-            try {
-                theme = localStorage.getItem("mdbook-theme");
-            } catch (e) { }
-            if (theme === null || theme === undefined) {
-                theme = default_theme;
-            }
+            const default_theme = "light";
+            let theme = default_theme;
             const html = document.documentElement;
             html.classList.remove("light");
             html.classList.add(theme);
@@ -214,9 +216,9 @@
 
                         <img src="images/donatoni_111.jpg">
 
-                        <main style="margin-left: 20px;">
-                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="piece-creation" style="margin:0;"><a class="header" href="#piece-creation">PIECE CREATION</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="PIECE CREATION"--><p local-id="6998be99-54c2-4261-9324-d08fe39817cf">Creazione dei pezzi in Parametrix, rettangoli, da dxf, da csv o da figure parametriche</p><div class="TextAlignCenter"><img src="attachments/piece_creation/PIECE_CREATION_8.png" alt="PIECE_CREATION_8.png" width="760" onclick="showModal(this.src)"></div><p>
-</p><p local-id="bafde19f-0244-449f-863c-fa0a3c7351e4"></p><h1 local-id="1b211812-5c96-4742-a20b-a34abd28e448">Importa DXF</h1><div class="TextAlignCenter"><video controls src="attachments/piece_creation/PIECE_CREATION_2_R.mp4" width="760" aria-label="attachments/piece_creation/PIECE_CREATION_2_R.mp4"></video></div><p local-id="f9ea053b-3865-436b-8a59-92366446e54a"></p><h1 local-id="d2bffe81-9ce4-4c14-ad2e-d541215a3e5e">Rettangoli</h1><div class="TextAlignCenter"><video controls src="attachments/piece_creation/PIECE_CREATION_1_R.mp4" width="760" aria-label="attachments/piece_creation/PIECE_CREATION_1_R.mp4"></video></div><p local-id="2fec5b70-3e46-4687-94df-658e01110b20"></p><h1 local-id="13ee3b0d-3f53-4004-8467-2bd1c67feb9a">Figure parametriche</h1><div class="TextAlignCenter"><video controls src="attachments/piece_creation/PIECE_CREATION_3_R.mp4" width="760" aria-label="attachments/piece_creation/PIECE_CREATION_3_R.mp4"></video></div><p local-id="722f004e-86df-4ba1-86dc-ec7c483e4a9d"></p><h1 local-id="c7877990-4ffd-4427-9bb4-27f472672bf5">Importazione CSV</h1><div class="TextAlignCenter"><video controls src="attachments/piece_creation/PIECE_CREATION_4_R.mp4" width="760" aria-label="attachments/piece_creation/PIECE_CREATION_4_R.mp4"></video></div><p local-id="9a433bbf-a861-42d5-8acb-1c25bfb8a8da"></p><h1 local-id="36195c79-ee00-46ed-89da-8d7e11893c79">Cronologia</h1><div class="TextAlignCenter"><video controls src="attachments/piece_creation/PIECE_CREATION_5_R.mp4" width="760" aria-label="attachments/piece_creation/PIECE_CREATION_5_R.mp4"></video></div><p local-id="f2637f0f-bed0-4afd-97b3-a2370a374526"></p><h1 local-id="ce5c2fa1-056e-4eb1-9f12-ad64be6e7b55">Preferiti</h1><div class="TextAlignCenter"><video controls src="attachments/piece_creation/PIECE_CREATION_6_R.mp4" width="760" aria-label="attachments/piece_creation/PIECE_CREATION_6_R.mp4"></video></div><p local-id="32286344-4b26-499c-8be3-5326e79b21ef"></p><h1 local-id="2c1c6e14-b08f-46f0-970b-30d6d9bef953">Pezzi commerciali</h1><div class="TextAlignCenter"><video controls src="attachments/piece_creation/PIECE_CREATION_7_R.mp4" width="760" aria-label="attachments/piece_creation/PIECE_CREATION_7_R.mp4"></video></div><p local-id="73af29f3-cb59-49ef-9621-f5212729a734"></p><!--Label="piece_creation"-->
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Machine technical documentation</span><span class="maintenance-status"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Operational document</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="piece-creation" style="margin:0;" class="maintenance-main-title"><a class="header" href="#piece-creation"><span class="maintenance-code">DOC</span><span class="maintenance-name">PIECE CREATION</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document DOC" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="PIECE CREATION"--><p local-id="6998be99-54c2-4261-9324-d08fe39817cf">Creazione dei pezzi in Parametrix, rettangoli, da dxf, da csv o da figure parametriche</p><div class="TextAlignCenter"><img src="attachments/piece_creation/PIECE_CREATION_8.png" alt="PIECE_CREATION_8.png" width="760" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p>
+</p><p local-id="bafde19f-0244-449f-863c-fa0a3c7351e4"></p><h1 local-id="1b211812-5c96-4742-a20b-a34abd28e448">Importa DXF</h1><div class="TextAlignCenter"><video controls src="attachments/piece_creation/PIECE_CREATION_2_R.mp4" width="760" aria-label="attachments/piece_creation/PIECE_CREATION_2_R.mp4" class="technical-media"></video></div><p local-id="f9ea053b-3865-436b-8a59-92366446e54a"></p><h1 local-id="d2bffe81-9ce4-4c14-ad2e-d541215a3e5e">Rettangoli</h1><div class="TextAlignCenter"><video controls src="attachments/piece_creation/PIECE_CREATION_1_R.mp4" width="760" aria-label="attachments/piece_creation/PIECE_CREATION_1_R.mp4" class="technical-media"></video></div><p local-id="2fec5b70-3e46-4687-94df-658e01110b20"></p><h1 local-id="13ee3b0d-3f53-4004-8467-2bd1c67feb9a">Figure parametriche</h1><div class="TextAlignCenter"><video controls src="attachments/piece_creation/PIECE_CREATION_3_R.mp4" width="760" aria-label="attachments/piece_creation/PIECE_CREATION_3_R.mp4" class="technical-media"></video></div><p local-id="722f004e-86df-4ba1-86dc-ec7c483e4a9d"></p><h1 local-id="c7877990-4ffd-4427-9bb4-27f472672bf5">Importazione CSV</h1><div class="TextAlignCenter"><video controls src="attachments/piece_creation/PIECE_CREATION_4_R.mp4" width="760" aria-label="attachments/piece_creation/PIECE_CREATION_4_R.mp4" class="technical-media"></video></div><p local-id="9a433bbf-a861-42d5-8acb-1c25bfb8a8da"></p><h1 local-id="36195c79-ee00-46ed-89da-8d7e11893c79">Cronologia</h1><div class="TextAlignCenter"><video controls src="attachments/piece_creation/PIECE_CREATION_5_R.mp4" width="760" aria-label="attachments/piece_creation/PIECE_CREATION_5_R.mp4" class="technical-media"></video></div><p local-id="f2637f0f-bed0-4afd-97b3-a2370a374526"></p><h1 local-id="ce5c2fa1-056e-4eb1-9f12-ad64be6e7b55">Preferiti</h1><div class="TextAlignCenter"><video controls src="attachments/piece_creation/PIECE_CREATION_6_R.mp4" width="760" aria-label="attachments/piece_creation/PIECE_CREATION_6_R.mp4" class="technical-media"></video></div><p local-id="32286344-4b26-499c-8be3-5326e79b21ef"></p><h1 local-id="2c1c6e14-b08f-46f0-970b-30d6d9bef953">Pezzi commerciali</h1><div class="TextAlignCenter"><video controls src="attachments/piece_creation/PIECE_CREATION_7_R.mp4" width="760" aria-label="attachments/piece_creation/PIECE_CREATION_7_R.mp4" class="technical-media"></video></div><p local-id="73af29f3-cb59-49ef-9621-f5212729a734"></p><!--Label="piece_creation"-->
                         </main>
 
                     </div>
@@ -278,5 +280,12 @@
     </div>;
 
 
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
 </body>
 </html>

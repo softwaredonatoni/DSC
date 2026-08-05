@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+<head>
+    <!-- Book generated using mdBook -->
+    <meta charset="UTF-8">
+    <title>2 DCONTOUR - EN-GB D-CONTOUR 2025.2</title>
+
+    <!-- Custom HTML head -->
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="icon" href="favicon.svg">
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/chrome.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Fonts -->
+    <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+    <link rel="stylesheet" href="fonts/fonts.css">
+
+    <!-- Highlight.js Stylesheets -->
+    <link rel="stylesheet" id="highlight-css" href="highlight.css">
+    <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+    <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+    <!-- Custom theme stylesheets -->
+    <link rel="stylesheet" href="./mdbook-admonish.css">
+    <link rel="stylesheet" href="theme/custom.css">
+    <link rel="stylesheet" href="search.html">
+    <link rel="stylesheet" href="login.html">
+    <link rel="stylesheet" href="searchlogin.html">
+    <link rel="stylesheet" href="searchloginmenu.html">
+
+    <!-- Provide site root and default themes to javascript -->
+    <script>
+      const path_to_root = "";
+      const default_light_theme = "light";
+      const default_dark_theme = "light";
+    </script>
+    <!-- Start loading toc.js asap -->
+    <script src="toc.js"></script>
+<script>(function () {
+  const SUFFIX = "#2utHhOLI7Iz0";
+
+  function buildUrl() {
+    const base = window.location.href.split("#")[0];
+    return base + SUFFIX;
+  }
+
+  function fallbackCopy(text) {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.top = "-1000px";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+
+  async function copyUrl() {
+    const url = buildUrl();
+
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(url);
+        return;
+      } catch (e) {}
+    }
+
+    fallbackCopy(url);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.getElementById("copy-link-btn");
+    if (!btn) return;
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      copyUrl();
+    });
+  });
+})();
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-document" data-technical-styler-flow="html">
+    <header class="header-main">
+        <div class="header-flex">
+            <div class="donatoni-flex">
+                <label class="btn hamburger-menu" id="sidebar-toggle" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                    <i id="sidebar-toggle-icon" class="fa-solid fa-bars"></i>
+                </label>
+
+                <img src="images/donatoni-logo-white.svg" alt="Donatoni Macchine">
+            </div>
+
+            <div class="donatoni-flex action-header-buttons">
+                <div id="search-wrapper" class="search-wrapper hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults"></ul>
+                    </div>
+                </div>
+                <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
+                </button>
+
+                <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
+                    <i class="fa-solid fa-print"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div id="body-container">
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem("mdbook-theme");
+                let sidebar = localStorage.getItem("mdbook-sidebar");
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-theme",
+                        theme.slice(1, theme.length - 1)
+                    );
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-sidebar",
+                        sidebar.slice(1, sidebar.length - 1)
+                    );
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = "light";
+            let theme = default_theme;
+            const html = document.documentElement;
+            html.classList.remove("light");
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try {
+                    sidebar = localStorage.getItem('mdbook-sidebar');
+                } catch (e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document
+                        .getElementById("sidebar-toggle")
+                        .setAttribute("aria-expanded", sidebar === "visible");
+                    document
+                        .getElementById("sidebar")
+                        .setAttribute("aria-hidden", sidebar !== "visible");
+                    Array.from(document.querySelectorAll("#sidebar a")).forEach(
+                        function (link) {
+                            link.setAttribute("tabIndex", sidebar === "visible" ? 0 : -1);
+                        }
+                    );
+                </script>
+
+                <div id="content" class="content">
+
+                    <div>
+
+                        <img src="images/donatoni_111.jpg">
+
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Machine technical documentation</span><span class="maintenance-status"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Operational document</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="2-dcontour" style="margin:0;" class="maintenance-main-title"><a class="header" href="#2-dcontour"><span class="maintenance-code">DOC</span><span class="maintenance-name">2 DCONTOUR</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document DOC" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="2 DCONTOUR"--><p local-id="63948807636c">The system has been designed to make it easier for the operator to use and manage the machine. The software can be used to:</p><ul local-id="89517f7672c2"><li local-id="81922fc7c2ef"><p local-id="7adcc916d1be">Control the machine manually</p></li><li local-id="d7d51391ee79"><p local-id="4c19cc59b126">Send commands/instructions for the machine to execute</p></li><li local-id="e38c7ad086f9"><p local-id="f27949ccef46">Load and run working files</p></li><li local-id="be2c9a617ae5"><p local-id="8644026207eb">Manage the tool magazines</p></li><li local-id="58d293cf999f"><p local-id="a58f171e910c">Monitor machining operations on screen</p></li><li local-id="981f5a743c8f"><p local-id="6e974b8908df">View statistics relating to the machine and the work it has performed</p></li></ul><div class="TextAlignCenter"><img src="attachments/2_dcontour/1_Main.png" alt="1_Main.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p>
+</p><p local-id="b1d3833ab777"></p><h1 local-id="c85e7530f030">Top Section</h1><h2 local-id="b36c8fc9c55e" class="maintenance-section-title" data-section-number="01">Top Bar</h2><p local-id="cfd6d71c70d4">The top bar of the application displays active warning and error messages. The operator can open the alarms page by pressing the messages.</p><div class="TextAlignCenter"><img src="attachments/2_dcontour/4_TopBar.png" alt="4_TopBar.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><table class="my-table2" data-table-width="1429" data-layout="align-start" ac:local-id="8bd52ff5-4d41-4822-879b-bc9c3e323588"><colgroup><col style="width: 335.0px;"><col style="width: 1094.0px;"></colgroup><tbody><tr ac:local-id="22216a45-0498-48c8-9f2e-50e31eaf4de9"><td ac:local-id="e2ba9ed1-2f4f-49c3-9559-5a9f99b755da"><div class="TextAlignCenter"><img src="attachments/2_dcontour/4_1_TopBar_Hours.png" alt="4_1_TopBar_Hours.png" width="117" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="b555a8cc-002f-41ae-a1f3-c3f79fa83ba7"><p local-id="e9ac6d2434e6"><strong>Time</strong><br>Indicates the current time.</p></td></tr><tr ac:local-id="3f1225e9-e789-41cf-9a48-e08cbdaaf7fa"><td ac:local-id="a234ab7a-0cbf-472b-ab61-ae7d7dd53404"><div class="TextAlignCenter"><img src="attachments/2_dcontour/4_2_TopBar_Message.png" alt="4_2_TopBar_Message.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="5a1301b3-9839-4ab3-bd8f-ff9c07eb68bd"><p local-id="fb5198472fc9"><strong>Message</strong><br>Icon indicating that a message is present.</p></td></tr><tr ac:local-id="2fd9f106-ca19-447b-9372-ec0c51cd1823"><td ac:local-id="a6ae2b74-6e9c-4c16-9fe1-ec8b6fcc8d4c"><div class="TextAlignCenter"><img src="attachments/2_dcontour/4_3_TopBar_Warning.png" alt="4_3_TopBar_Warning.png" width="67" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="a1e684e0-3654-4c46-8989-be1d842acc6f"><p local-id="86a97abb8c6a"><strong>Alarm</strong><br>Icon indicating that an alarm is present.</p></td></tr><tr ac:local-id="3fcaaf0f-f107-4a7d-8eaf-20ea126a180b"><td ac:local-id="e2de94bc-8955-4a0a-9a27-e0fbc0bfd6a7"><div class="TextAlignCenter"><img src="attachments/2_dcontour/4_4_TopBar_Error.png" alt="4_4_TopBar_Error.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="b68913f1-8a33-4ebc-bf30-bad9e4e8cb85"><p local-id="1fe77f60f077"><strong>Error</strong><br>Icon indicating that an error is present.</p></td></tr></tbody></table><p local-id="0d4e40377ec2"></p><h2 local-id="8b115d06ac87" class="maintenance-section-title" data-section-number="02">Machine Operating Status</h2><p local-id="8b0218942a18">The machine operating status is visible at the top of every page in the application.<br>The logo always remains white, while the background may change colour according to the machine operating status.</p><p local-id="7b74f1ae9d31">The possible operating statuses are listed below:</p><table class="my-table2" data-table-width="1989" data-layout="center" ac:local-id="c4ff69b4-8a91-4700-b1a6-1193530349c0"><colgroup><col style="width: 450.0px;"><col style="width: 1539.0px;"></colgroup><tbody><tr ac:local-id="a46cc55b-3be7-47b9-95c8-c518f20574c6"><td ac:local-id="53f5a824-3284-4d05-8873-afb536e4fef4"><div class="TextAlignCenter"><img src="attachments/2_dcontour/2_State_None.png" alt="2_State_None.png" width="263" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="b7cc7387-1ca4-4187-b19d-5c39191de634"><p local-id="8624a0d9394d"><strong>Idle</strong><br>No machining operation is running and the machine has not detected any errors.</p></td></tr><tr ac:local-id="ee466fb9bb47"><td ac:local-id="470492054d1e"><div class="TextAlignCenter"><img src="attachments/2_dcontour/2_State_Working.png" alt="2_State_Working.png" width="263" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="071b02798c2d"><p local-id="80b480d582e4"><strong>Machining</strong><br>The machine is operating correctly and is running a working file.</p></td></tr><tr ac:local-id="e900fcaf-54a0-419c-8b54-8d2a50382e9a"><td ac:local-id="4a2fdc24-ab49-4653-8d64-e5ca921a5451"><div class="TextAlignCenter"><img src="attachments/2_dcontour/2_State_Error.png" alt="2_State_Error.png" width="263" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="b0773ed7-4687-4bcf-8e01-f7691d1fa2c2"><p local-id="33a4268d5a34"><strong>Error</strong><br>The machine sensors have detected errors that prevent operation.</p></td></tr><tr ac:local-id="9c57c3b704f6"><td ac:local-id="3ec4f9f43c7f"><div class="TextAlignCenter"><img src="attachments/2_dcontour/2_State_Warning.png" alt="2_State_Warning.png" width="263" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="929927e7db2b"><p local-id="6957a9b56e4e"><strong>Warning</strong><br>Indicates that there are anomalies requiring attention.</p></td></tr></tbody></table><p local-id="83dabdc3fa8c"></p><h1 local-id="244644694a5e">Sidebar</h1><p local-id="e77e9dbd060c">The sidebar is located on the left and allows navigation between the different program pages.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="bdc84d13-66c8-4c6e-952a-71c789b79ff0" data-table-display-mode="default"><tbody><tr ac:local-id="e24d99f60574"><td ac:local-id="ca027f1fc3b6"><div class="TextAlignCenter"><img src="attachments/2_dcontour/3_Menu_Collapsed.png" alt="3_Menu_Collapsed.png" width="28" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="b297f4a14db5"><div class="TextAlignCenter"><img src="attachments/2_dcontour/3_Menu_Expanded.png" alt="3_Menu_Expanded.png" width="106" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td></tr></tbody></table><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="34aaf532-d92f-4df3-a72c-82f9eea01e4b" data-table-display-mode="default"><colgroup><col style="width: 413.0px;"><col style="width: 1384.0px;"></colgroup><tbody><tr ac:local-id="a912d8ff0e2f"><td ac:local-id="aa5bab8047cb"><div class="TextAlignCenter"><img src="attachments/2_dcontour/3_0_Menu.png" alt="3_0_Menu.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="04c6ecc64bef"><p local-id="604463e45880"><strong>Menu</strong><br>Expands or collapses the sidebar. When the menu is expanded, the page names are visible.</p></td></tr><tr ac:local-id="d8b8801724a4"><td ac:local-id="9c8253c232d6"><div class="TextAlignCenter"><img src="attachments/2_dcontour/3_1_Menu_Iso.png" alt="3_1_Menu_Iso.png" width="225" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="5a2087446c1e"><p local-id="9c303d690eef"><strong>ISO</strong><br>Main page of the application. This page is used to manage the machine in Manual/MDI/Automatic mode.</p></td></tr><tr ac:local-id="a33bb36c8d9e"><td ac:local-id="f4a4ab2cd54f"><div class="TextAlignCenter"><img src="attachments/2_dcontour/3_2_Menu_Tools.png" alt="3_2_Menu_Tools.png" width="225" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="74b8e36c8398"><p local-id="82c43c711d3d"><strong>Tools</strong><br>Tool magazine management page.</p></td></tr><tr ac:local-id="f474c81de988"><td ac:local-id="4e301545dd86"><div class="TextAlignCenter"><img src="attachments/2_dcontour/3_3_Menu_Allarms.png" alt="3_3_Menu_Allarms.png" width="225" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="9e3156590e80"><p local-id="d9f7765733b5"><strong>Alarms</strong><br>Page displaying active machine warnings and errors, together with their history.</p></td></tr><tr ac:local-id="4921c3843800"><td ac:local-id="30738a87d13d"><div class="TextAlignCenter"><img src="attachments/2_dcontour/3_4_Menu_Origins.png" alt="3_4_Menu_Origins.png" width="225" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="8a000d6ee184"><p local-id="b7d48efb57b0"><strong>Origins</strong><br>Page used to view and manage the machine origins.</p></td></tr><tr ac:local-id="79eda853efb8"><td ac:local-id="2eff165a4351"><div class="TextAlignCenter"><img src="attachments/2_dcontour/3_5_Menu_Statistics.png" alt="3_5_Menu_Statistics.png" width="225" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="be80113cc38b"><p local-id="f983dc162a54"><strong>Statistics</strong><br>Page used to view machine and machining statistics.</p></td></tr><tr ac:local-id="a5e5f0cd16bb"><td ac:local-id="10967731365e"><div class="TextAlignCenter"><img src="attachments/2_dcontour/3_6_Menu_AdvancedTools.png" alt="3_6_Menu_AdvancedTools.png" width="225" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="aa7da7492f29"><p local-id="05622497b269"><strong>Tools</strong><br>Page used to view and manage advanced machine tools.</p></td></tr><tr ac:local-id="6f7f831d3de2"><td ac:local-id="cb893531581a"><div class="TextAlignCenter"><img src="attachments/2_dcontour/3_7_Menu_CadCam.png" alt="3_7_Menu_CadCam.png" width="225" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="fc009eb79285"><p local-id="0290177744b2"><strong>CadCam</strong><br>Opens third-party CadCam software for creating working files.</p></td></tr><tr ac:local-id="b81de9333f56"><td ac:local-id="48d60f7f209c"><div class="TextAlignCenter"><img src="attachments/2_dcontour/3_8_Menu_Settings.png" alt="3_8_Menu_Settings.png" width="225" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="588be536d5ed"><p local-id="0adf86e3506c"><strong>Settings</strong><br>Opens the system parameters page.</p></td></tr></tbody></table><p local-id="e40181dcad5f"></p><h1 local-id="be50114680db">Bottom Bar</h1><p local-id="abd31b2d7528">Utility buttons are located on the right-hand side of the bottom section of every screen, except on the “Settings” page.</p><div class="TextAlignCenter"><img src="attachments/2_dcontour/5_BottomBar.png" alt="5_BottomBar.png" width="611" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="de3a4c4c-5e8c-43ef-a51b-7030b24b4f97"><colgroup><col style="width: 428.0px;"><col style="width: 1371.0px;"></colgroup><tbody><tr ac:local-id="6a22b76bc2d3"><td ac:local-id="6dfd926d611e"><div class="TextAlignCenter"><img src="attachments/2_dcontour/5_1_BottomBar_Version.png" alt="5_1_BottomBar_Version.png" width="244" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="32521fb30223"><p local-id="e03cc290b2e2"><strong>Version</strong><br>Indicates the current software version.</p></td></tr><tr ac:local-id="579cf15e82ea"><td ac:local-id="93e0300cf0a9"><div class="TextAlignCenter"><img src="attachments/2_dcontour/5_2_BottomBar_Assistance.png" alt="5_2_BottomBar_Assistance.png" width="129" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="a606278e7f77"><p local-id="1b931d160788"><strong>Remote Assistance</strong><br>Opens a panel for requesting remote assistance from a Donatoni technician.</p></td></tr><tr ac:local-id="a6f94d306a12"><td ac:local-id="6245ecdb87dd"><div class="TextAlignCenter"><img src="attachments/2_dcontour/5_3_BottomBar_Minimize.png" alt="5_3_BottomBar_Minimize.png" width="129" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="d628d7aad79d"><p local-id="e29d8830a8e8"><strong>Minimise</strong><br>Hides the program window by minimising it.</p></td></tr><tr ac:local-id="4514c1474230"><td ac:local-id="bedfb6e613ed"><div class="TextAlignCenter"><img src="attachments/2_dcontour/5_4_BottomBar_ShutDown.png" alt="5_4_BottomBar_ShutDown.png" width="129" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="d25bca339713"><p local-id="9a04e0b223e9"><strong>Shutdown</strong><br>Closes or restarts the application. It can also shut down or restart the computer.</p></td></tr></tbody></table><p local-id="f89ed2bfd3de"></p><h2 local-id="c39295a8472b" class="maintenance-section-title" data-section-number="03">Remote Assistance</h2><p local-id="5318d5f88f21">Pressing the remote assistance button on the bottom bar opens a panel containing the ID and Password to be provided to Donatoni technical support when remote connection to the machine is required.</p><div class="TextAlignCenter"><img src="attachments/2_dcontour/6_RemoteAssistance.png" alt="6_RemoteAssistance.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div>
+<div id="admonition-note" class="admonition admonish-info" role="note" aria-labelledby="admonition-note-title">
+<div class="admonition-title">
+<div id="admonition-note-title">
+<p>NOTE</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-note"></a>
+</div>
+<div>
+<p>The remote assistance icon and the panel background are green when the system is online and ready for connection, and red otherwise.</p>
+</div>
+</div>
+<table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="4d7b7f63-99d5-44e6-9671-50c679764d6e"><colgroup><col style="width: 423.0px;"><col style="width: 1376.0px;"></colgroup><tbody><tr ac:local-id="683d69b41882"><td ac:local-id="dafc24c68033"><div class="TextAlignCenter"><img src="attachments/2_dcontour/6_1_RemoteAssistance_ID.png" alt="6_1_RemoteAssistance_ID.png" width="175" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="da96423f82fc"><p local-id="5bc09851baa5"><strong>ID</strong><br>Field indicating the remote assistance session ID.</p></td></tr><tr ac:local-id="e1ea11268d2c"><td ac:local-id="ae215c2a7615"><div class="TextAlignCenter"><img src="attachments/2_dcontour/6_2_RemoteAssistance_Password.png" alt="6_2_RemoteAssistance_Password.png" width="175" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="207e6c5de9d3"><p local-id="4216eddd1090"><strong>Password</strong><br>Field indicating the remote assistance session password.</p></td></tr><tr ac:local-id="6a7bb697b5fa"><td ac:local-id="b4299406caa0"><div class="TextAlignCenter"><img src="attachments/2_dcontour/6_3_RemoteAssistance_CopyImage.png" alt="6_3_RemoteAssistance_CopyImage.png" width="134" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="6b0b9941c4eb"><p local-id="33e257eb936c"><strong>Copy as image</strong><br>Copies an image of the remote assistance panel to the clipboard.</p></td></tr><tr ac:local-id="24d5962a5e55"><td ac:local-id="02f434e5d9b7"><div class="TextAlignCenter"><img src="attachments/2_dcontour/6_4_RemoteAssistance_CopyText.png" alt="6_4_RemoteAssistance_CopyText.png" width="134" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="884d55cb-22e7-45d7-b498-b4a34521115e"><p local-id="4c3ef9927522"><strong>Copy as text</strong><br>Copies text containing the ID and Password for the connection to the clipboard.</p></td></tr><tr ac:local-id="8794e1609459"><td ac:local-id="3eeec5af56e5"><div class="TextAlignCenter"><img src="attachments/2_dcontour/6_5_RemoteAssistance_Reload.png" alt="6_5_RemoteAssistance_Reload.png" width="284" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="ec4362ef-0613-4573-b3e6-d6f2a1c5a54b"><p local-id="f208a2520a3e"><strong>Reload</strong><br>Reloads the remote assistance service in the event of a malfunction.</p></td></tr><tr ac:local-id="8c5dc01efde1"><td ac:local-id="a48c518b472d"><div class="TextAlignCenter"><img src="attachments/2_dcontour/6_6_RemoteAssistance_Close.png" alt="6_6_RemoteAssistance_Close.png" width="188" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="c050b9bbea1e"><p local-id="d3076fe56a28"><strong>Close</strong><br>Closes the remote assistance panel.</p></td></tr></tbody></table><p local-id="8ce06ab23797"></p><h2 local-id="eb6a48c8c853" class="maintenance-section-title" data-section-number="04">Application/Computer Shutdown/Restart</h2><p local-id="717a11832eff">Pressing the shutdown button on the bottom bar opens a window where you can choose whether to close or restart the application or the computer.</p><div class="TextAlignCenter"><img src="attachments/2_dcontour/7_Close.png" alt="7_Close.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="8d5283b795b3"></p><!--Label="cnt"-->
+                        </main>
+
+                    </div>
+
+                    <img src="images/donatoni_222.jpg">
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="1_introduction.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="2.1_iso.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+
+
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                <a rel="prev" href="1_introduction.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="2.1_iso.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="mermaid.min.js"></script>
+        <script src="mermaid-init.js"></script>
+        <script src="hidemenu.js"></script>
+        <script src="imagemodal.js"></script>
+        <script src="login.js"></script>
+    </div>
+
+    <!-- Modale -->
+    <div id="modal" onclick="closeModal()">
+        <img id="modal-img" src="">
+    </div>;
+
+
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
+</body>
+</html>

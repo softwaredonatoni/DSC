@@ -40,7 +40,7 @@
     <script>
       const path_to_root = "";
       const default_light_theme = "light";
-      const default_dark_theme = "navy";
+      const default_dark_theme = "light";
     </script>
     <!-- Start loading toc.js asap -->
     <script src="toc.js"></script>
@@ -86,8 +86,10 @@
     });
   });
 })();
-</script></head>
-<body>
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-document" data-technical-styler-flow="html">
     <header class="header-main">
         <div class="header-flex">
             <div class="donatoni-flex">
@@ -110,6 +112,15 @@
                 </div>
                 <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                     <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
                 </button>
 
                 <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
@@ -144,17 +155,8 @@
 
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script>
-            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
-                .matches
-                ? default_dark_theme
-                : default_light_theme;
-            let theme;
-            try {
-                theme = localStorage.getItem("mdbook-theme");
-            } catch (e) { }
-            if (theme === null || theme === undefined) {
-                theme = default_theme;
-            }
+            const default_theme = "light";
+            let theme = default_theme;
             const html = document.documentElement;
             html.classList.remove("light");
             html.classList.add(theme);
@@ -214,8 +216,8 @@
 
                         <img src="images/donatoni_111.jpg">
 
-                        <main style="margin-left: 20px;">
-                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="photo" style="margin:0;"><a class="header" href="#photo">PHOTO</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="PHOTO"--><p local-id="4e781c7a-f407-4a17-990a-86646ffd5bad">In Parametrix è possibile utilizzare l’immagine della lastra per programmare i pezzi e il taglio.<br>Per fare ciò è possibile utilizzare la fotocamera della macchina o caricare una foto da file.</p><div class="TextAlignCenter"><img src="attachments/photo/image-20251029-130306.png" alt="image-20251029-130306.png" width="760" onclick="showModal(this.src)"></div><div class="TextAlignCenter"><img src="attachments/photo/image-20251029-125505.png" alt="image-20251029-125505.png" width="760" onclick="showModal(this.src)"></div><p local-id="7c7e7952-e71b-4ec6-9c98-1222c37bbbbb"></p><h2 local-id="edf8aa8f-708f-407a-bbcc-48c541917df9">VIDEO</h2><div class="TextAlignCenter"><video controls src="attachments/photo/PHOTO_2_R.mp4" width="760" aria-label="attachments/photo/PHOTO_2_R.mp4"></video></div><p local-id="8785637d-fe69-407f-b868-5073a72f1bf0"></p><h2 local-id="ac2bddf5-5959-402c-ab3a-186ecf1c9c74">FOTO</h2><table class="my-table2" data-table-width="760" data-layout="default" ac:local-id="f125b861-a736-4d9a-83de-51135567be9a"><tbody><tr ac:local-id="9370843f-6df9-4231-aaf9-fb654c9819f3"><td ac:local-id="ac3c489e-fa9f-48fa-aa6b-6383ecd57b0c"><div class="TextAlignCenter"><img src="attachments/photo/e742e79f-8b94-4e69-ba4a-1c4f27f9ab0d.png" alt="e742e79f-8b94-4e69-ba4a-1c4f27f9ab0d.png" width="177" onclick="showModal(this.src)"></div></td><td ac:local-id="8fe13c74-cf24-49aa-accf-2c7ffc91634f"><div class="TextAlignCenter"><img src="attachments/photo/69632d3a-69b1-4cae-8632-56d3b76dd05a.png" alt="69632d3a-69b1-4cae-8632-56d3b76dd05a.png" width="181" onclick="showModal(this.src)"></div></td></tr></tbody></table><p local-id="70d18915-e99e-4e75-aa05-eebb4acfc690">Fotocamera.</p><table class="my-table2" data-table-width="760" data-layout="default" ac:local-id="1f9c1786-b6a8-44bb-91c3-5fa1cdec7dc4"><tbody><tr ac:local-id="be0ad1df-48a7-49d3-b14b-4339b6c7e594"><td ac:local-id="9e81599c-c2c0-4531-a36b-0615d9bdc456"><div class="TextAlignCenter"><img src="attachments/photo/lastra.png" alt="lastra.png" width="363" onclick="showModal(this.src)"></div></td><td ac:local-id="0760ceca-1950-4529-a8e7-4c629ced7706"><div class="TextAlignCenter"><img src="attachments/photo/image-20250711-070425.png" alt="image-20250711-070425.png" width="760" onclick="showModal(this.src)"></div></td></tr></tbody></table><p local-id="3a2634dd-a7f8-4dfd-b2be-279fb7528a12">Caricamento da file.</p><table class="my-table2" data-table-width="760" data-layout="default" ac:local-id="71496da5-6342-462c-949e-77cebf877ff5"><tbody><tr ac:local-id="e9ca5c86-0157-4794-85bf-6d621ac0c7cf"><td ac:local-id="4aa2271f-c279-4c5e-9fbb-fb0d5c7ceff8"><div class="TextAlignCenter"><img src="attachments/photo/image-20250711-070601.png" alt="image-20250711-070601.png" width="363" onclick="showModal(this.src)"></div><p local-id="370d5ba6-77bc-450b-b238-ccf6b0aec4dc"></p></td><td ac:local-id="0e69c3aa-19d6-4eaf-bc22-659bfc4dce00"><div class="TextAlignCenter"><img src="attachments/photo/image-20250711-070623.png" alt="image-20250711-070623.png" width="363" onclick="showModal(this.src)"></div></td></tr></tbody></table><!--Label="photo"-->
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Machine technical documentation</span><span class="maintenance-status"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Operational document</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="photo" style="margin:0;" class="maintenance-main-title"><a class="header" href="#photo"><span class="maintenance-code">DOC</span><span class="maintenance-name">PHOTO</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document DOC" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="PHOTO"--><p local-id="4e781c7a-f407-4a17-990a-86646ffd5bad">In Parametrix è possibile utilizzare l’immagine della lastra per programmare i pezzi e il taglio.<br>Per fare ciò è possibile utilizzare la fotocamera della macchina o caricare una foto da file.</p><div class="TextAlignCenter"><img src="attachments/photo/image-20251029-130306.png" alt="image-20251029-130306.png" width="760" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><div class="TextAlignCenter"><img src="attachments/photo/image-20251029-125505.png" alt="image-20251029-125505.png" width="760" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="7c7e7952-e71b-4ec6-9c98-1222c37bbbbb"></p><h2 local-id="edf8aa8f-708f-407a-bbcc-48c541917df9" class="maintenance-section-title" data-section-number="01">VIDEO</h2><div class="TextAlignCenter"><video controls src="attachments/photo/PHOTO_2_R.mp4" width="760" aria-label="attachments/photo/PHOTO_2_R.mp4" class="technical-media"></video></div><p local-id="8785637d-fe69-407f-b868-5073a72f1bf0"></p><h2 local-id="ac2bddf5-5959-402c-ab3a-186ecf1c9c74" class="maintenance-section-title" data-section-number="02">FOTO</h2><table class="my-table2" data-table-width="760" data-layout="default" ac:local-id="f125b861-a736-4d9a-83de-51135567be9a"><tbody><tr ac:local-id="9370843f-6df9-4231-aaf9-fb654c9819f3"><td ac:local-id="ac3c489e-fa9f-48fa-aa6b-6383ecd57b0c"><div class="TextAlignCenter"><img src="attachments/photo/e742e79f-8b94-4e69-ba4a-1c4f27f9ab0d.png" alt="e742e79f-8b94-4e69-ba4a-1c4f27f9ab0d.png" width="177" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="8fe13c74-cf24-49aa-accf-2c7ffc91634f"><div class="TextAlignCenter"><img src="attachments/photo/69632d3a-69b1-4cae-8632-56d3b76dd05a.png" alt="69632d3a-69b1-4cae-8632-56d3b76dd05a.png" width="181" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td></tr></tbody></table><p local-id="70d18915-e99e-4e75-aa05-eebb4acfc690">Fotocamera.</p><table class="my-table2" data-table-width="760" data-layout="default" ac:local-id="1f9c1786-b6a8-44bb-91c3-5fa1cdec7dc4"><tbody><tr ac:local-id="be0ad1df-48a7-49d3-b14b-4339b6c7e594"><td ac:local-id="9e81599c-c2c0-4531-a36b-0615d9bdc456"><div class="TextAlignCenter"><img src="attachments/photo/lastra.png" alt="lastra.png" width="363" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="0760ceca-1950-4529-a8e7-4c629ced7706"><div class="TextAlignCenter"><img src="attachments/photo/image-20250711-070425.png" alt="image-20250711-070425.png" width="760" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td></tr></tbody></table><p local-id="3a2634dd-a7f8-4dfd-b2be-279fb7528a12">Caricamento da file.</p><table class="my-table2" data-table-width="760" data-layout="default" ac:local-id="71496da5-6342-462c-949e-77cebf877ff5"><tbody><tr ac:local-id="e9ca5c86-0157-4794-85bf-6d621ac0c7cf"><td ac:local-id="4aa2271f-c279-4c5e-9fbb-fb0d5c7ceff8"><div class="TextAlignCenter"><img src="attachments/photo/image-20250711-070601.png" alt="image-20250711-070601.png" width="363" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="370d5ba6-77bc-450b-b238-ccf6b0aec4dc"></p></td><td ac:local-id="0e69c3aa-19d6-4eaf-bc22-659bfc4dce00"><div class="TextAlignCenter"><img src="attachments/photo/image-20250711-070623.png" alt="image-20250711-070623.png" width="363" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td></tr></tbody></table><!--Label="photo"-->
                         </main>
 
                     </div>
@@ -277,5 +279,12 @@
     </div>;
 
 
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
 </body>
 </html>

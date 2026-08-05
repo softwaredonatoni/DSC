@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ricerca Pagina</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const parametro = window.location.hash.substring(1); // Prende il valore dopo #
+            const output = document.getElementById("parametro");
+
+            if (!parametro) {
+                output.textContent = "Nessun parametro passato.";
+                return;
+            }
+
+            output.textContent = `Parametro passato: ${parametro}`;
+
+            // Cerca tutte le corrispondenze nel body
+            const mappings = document.querySelectorAll("p#mapping");
+            for (const mapping of mappings) {
+                const [key, value] = mapping.textContent.split("=");
+                if (key === parametro) {
+                    window.location.href = value.trim(); // Reindirizza l'utente alla pagina corrispondente
+                    return;
+                }
+            }
+
+            var msg = `Nessuna pagina trovata con questa etichetta: ${parametro}`;
+
+            alert(msg);
+        });
+    </script>
+        <style>
+            p#mapping { display: none; }
+        </style>
+<script>(function () {
+  const SUFFIX = "#2utHhOLI7Iz0";
+
+  function buildUrl() {
+    const base = window.location.href.split("#")[0];
+    return base + SUFFIX;
+  }
+
+  function fallbackCopy(text) {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.top = "-1000px";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+
+  async function copyUrl() {
+    const url = buildUrl();
+
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(url);
+        return;
+      } catch (e) {}
+    }
+
+    fallbackCopy(url);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.getElementById("copy-link-btn");
+    if (!btn) return;
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      copyUrl();
+    });
+  });
+})();
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body>
+    <h1>Ricerca della Pagina</h1>
+    <p id="parametro">Attendi mentre cerchiamo la pagina corrispondente...</p>
+    
+    <!-- Mappatura parametri-pagine -->
+<p id="mapping">dms_iti=it-it_d-mes_2.0.html</p>
+<p id="mapping">prm=1_premesse.html</p>
+<p id="mapping">mes=2_dmes.html</p>
+<p id="mapping">msc=3_dmes_core.html</p>
+<p id="mapping">masc_nfm=3.1_info_macchina.html</p>
+<p id="mapping">msc_prd=3.2_produzione.html</p>
+<p id="mapping">msc_stt=3.3_statistiche.html</p>
+<p id="mapping">msc_tns=3.4_utensili.html</p>
+<p id="mapping">mst=4_dmes_trace.html</p>
+<p id="mapping">mst_gst=4.1_gestione_di_una_lavorazione.html</p>
+<p id="mapping">mst_fsd=4.1.1_fasi_di_lavorazione.html</p>
+<p id="mapping">dmt_ilv=4.1.2_info_lavorazione.html</p>
+<p id="mapping">mst_stm=4.1.3_stampa_etichette.html</p>
+<p id="mapping">mst_cnt=4.2_contatti.html</p>
+<p id="mapping">mst_cln=4.3_clienti.html</p>
+<p id="mapping">mst_frn=4.4_fornitori.html</p>
+<p id="mapping">msm=5_dmes_matrix.html</p>
+<p id="mapping">msm_ctg=5.1_categoria_materiali.html</p>
+<p id="mapping">msm_mtr=5.2_materiali.html</p>
+<p id="mapping">msm_clr=5.3_colore_materiali.html</p>
+<p id="mapping">msm_slb=5.4_slabs.html</p>
+<p id="mapping">msm_blc=5.5__blocchi.html</p>
+<p id="mapping">msm_lst=5.6_lastre.html</p>
+<p id="mapping">msm_rcr=5.7_ricerca_lastre.html</p>
+<p id="mapping">msp=6_dmes_pro.html</p>
+<p id="mapping">msp_pzn=6.1_opzioni_lavorazioni.html</p>
+<p id="mapping">msp_srs=6.2_users.html</p>
+<p id="mapping">msp_tnt=6.3_utenti.html</p>
+<p id="mapping">msp_grp=6.4__gruppi_utente.html</p>
+<p id="mapping">msp_att=6.5__attivita.html</p>
+<p id="mapping">msp_ttv=6.6__attivita_in_esecuzione.html</p>
+<p id="mapping">stt=7_stations.html</p>
+<p id="mapping">stt_prd=7.1_produzione.html</p>
+<p id="mapping">stt_gst=7.2_gestione_utenti.html</p>
+<p id="mapping">stt_gsn=7.3_gestione_attivita.html</p>
+<p id="mapping">mps=8_impostazioni.html</p>
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
+</body>
+</html>

@@ -40,7 +40,7 @@
     <script>
       const path_to_root = "";
       const default_light_theme = "light";
-      const default_dark_theme = "navy";
+      const default_dark_theme = "light";
     </script>
     <!-- Start loading toc.js asap -->
     <script src="toc.js"></script>
@@ -86,8 +86,10 @@
     });
   });
 })();
-</script></head>
-<body>
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-document" data-technical-styler-flow="html">
     <header class="header-main">
         <div class="header-flex">
             <div class="donatoni-flex">
@@ -110,6 +112,15 @@
                 </div>
                 <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                     <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
                 </button>
 
                 <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
@@ -144,17 +155,8 @@
 
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script>
-            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
-                .matches
-                ? default_dark_theme
-                : default_light_theme;
-            let theme;
-            try {
-                theme = localStorage.getItem("mdbook-theme");
-            } catch (e) { }
-            if (theme === null || theme === undefined) {
-                theme = default_theme;
-            }
+            const default_theme = "light";
+            let theme = default_theme;
             const html = document.documentElement;
             html.classList.remove("light");
             html.classList.add(theme);
@@ -214,8 +216,8 @@
 
                         <img src="images/donatoni_111.jpg">
 
-                        <main style="margin-left: 20px;">
-                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="project-match---paginate" style="margin:0;"><a class="header" href="#project-match---paginate">PROJECT MATCH - PAGINATE</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="PROJECT MATCH - PAGINATE"--><p local-id="7800fa80-1394-4e21-884e-5141188e7e44">Permette di utilizzare il project match per creare un pdf di preventivo da poter girare al cliente.</p><div class="TextAlignCenter"><img src="attachments/project_match_-_paginate/PROJECT_MATCH_-_PAGINATE_0.png" alt="PROJECT_MATCH_-_PAGINATE_0.png" width="760" onclick="showModal(this.src)"></div><p local-id="be8b26c4-5d6a-4b89-aecd-06e1d54b792a"></p><h2 local-id="2cee2e40-3a48-4995-865a-7ffb37858888">VIDEO</h2><div class="TextAlignCenter"><video controls src="attachments/project_match_-_paginate/PROJECT_MATCH_-_PAGINATE_1_R.mp4" width="760" aria-label="attachments/project_match_-_paginate/PROJECT_MATCH_-_PAGINATE_1_R.mp4"></video></div><p local-id="f4562723-dfcf-480c-9fac-1efe43678f76"></p><h2 local-id="150a49b0-4e37-4cb3-8392-bd8108ef7927">ALLEGATI</h2><p class="media-group"><p><a href='attachments/project_match_-_paginate/Sheet_1.pdf'>Sheet 1.pdf</a></p><p><a href='attachments/project_match_-_paginate/Sheet_2.pdf'>Sheet 2.pdf</a></p><p local-id="44d20320-e33b-467d-9d81-2ffad09314a2"></p><!--Label="project_match_paginate"-->
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Machine technical documentation</span><span class="maintenance-status"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Operational document</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="project-match---paginate" style="margin:0;" class="maintenance-main-title"><a class="header" href="#project-match---paginate"><span class="maintenance-code">DOC</span><span class="maintenance-name">PROJECT MATCH - PAGINATE</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document DOC" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="PROJECT MATCH - PAGINATE"--><p local-id="7800fa80-1394-4e21-884e-5141188e7e44">Permette di utilizzare il project match per creare un pdf di preventivo da poter girare al cliente.</p><div class="TextAlignCenter"><img src="attachments/project_match_-_paginate/PROJECT_MATCH_-_PAGINATE_0.png" alt="PROJECT_MATCH_-_PAGINATE_0.png" width="760" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="be8b26c4-5d6a-4b89-aecd-06e1d54b792a"></p><h2 local-id="2cee2e40-3a48-4995-865a-7ffb37858888" class="maintenance-section-title" data-section-number="01">VIDEO</h2><div class="TextAlignCenter"><video controls src="attachments/project_match_-_paginate/PROJECT_MATCH_-_PAGINATE_1_R.mp4" width="760" aria-label="attachments/project_match_-_paginate/PROJECT_MATCH_-_PAGINATE_1_R.mp4" class="technical-media"></video></div><p local-id="f4562723-dfcf-480c-9fac-1efe43678f76"></p><h2 local-id="150a49b0-4e37-4cb3-8392-bd8108ef7927" class="maintenance-section-title" data-section-number="02">ALLEGATI</h2><p class="media-group"><p><a href='attachments/project_match_-_paginate/Sheet_1.pdf'>Sheet 1.pdf</a></p><p><a href='attachments/project_match_-_paginate/Sheet_2.pdf'>Sheet 2.pdf</a></p><p local-id="44d20320-e33b-467d-9d81-2ffad09314a2"></p><!--Label="project_match_paginate"-->
                         </main>
 
                     </div>
@@ -277,5 +279,12 @@
     </div>;
 
 
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
 </body>
 </html>

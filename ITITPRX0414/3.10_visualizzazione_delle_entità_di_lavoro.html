@@ -40,7 +40,7 @@
     <script>
       const path_to_root = "";
       const default_light_theme = "light";
-      const default_dark_theme = "navy";
+      const default_dark_theme = "light";
     </script>
     <!-- Start loading toc.js asap -->
     <script src="toc.js"></script>
@@ -86,8 +86,10 @@
     });
   });
 })();
-</script></head>
-<body>
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-document" data-technical-styler-flow="html">
     <header class="header-main">
         <div class="header-flex">
             <div class="donatoni-flex">
@@ -110,6 +112,15 @@
                 </div>
                 <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                     <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
                 </button>
 
                 <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
@@ -144,17 +155,8 @@
 
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script>
-            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
-                .matches
-                ? default_dark_theme
-                : default_light_theme;
-            let theme;
-            try {
-                theme = localStorage.getItem("mdbook-theme");
-            } catch (e) { }
-            if (theme === null || theme === undefined) {
-                theme = default_theme;
-            }
+            const default_theme = "light";
+            let theme = default_theme;
             const html = document.documentElement;
             html.classList.remove("light");
             html.classList.add(theme);
@@ -214,9 +216,9 @@
 
                         <img src="images/donatoni_111.jpg">
 
-                        <main style="margin-left: 20px;">
-                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="310-visualizzazione-delle-entitÀ-di-lavoro" style="margin:0;"><a class="header" href="#310-visualizzazione-delle-entitÀ-di-lavoro">3.10 VISUALIZZAZIONE DELLE ENTITÀ DI LAVORO</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="3.10 VISUALIZZAZIONE DELLE ENTITÀ DI LAVORO"--><p local-id="6385126ad153">Questa funzione apre un pannellino con degli strumenti di visualizzazione.</p><p local-id="4880797c4f8e"></p><div class="TextAlignCenter"><img src="attachments/3.10_visualizzazione_delle_entità_di_lavoro/Menu3.10-20260619-111436.png" alt="Menu3.10-20260619-111436.png" width="420" onclick="showModal(this.src)"></div><p>
-</p><h1 local-id="6afd1d7d76fa">Pulsanti</h1><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="72ae8552-e87a-4e25-975d-219baa20120d"><colgroup><col style="width: 267.0px;"><col style="width: 1531.0px;"></colgroup><tbody><tr ac:local-id="cda6a102ae56"><td ac:local-id="1d1b3176316f"><div class="TextAlignCenter"><img src="attachments/3.10_visualizzazione_delle_entità_di_lavoro/1.1_c-20250723-140513.png" alt="1.1_c-20250723-140513.png" width="120" onclick="showModal(this.src)"></div></td><td ac:local-id="e96fcec7f3b1"><p local-id="fbc6a092b815"><strong>Mostra / Nascondi tagli</strong><br>Abilita o disabilita la visualizzazione dei tagli con disco su tutte le figure nell’area di lavoro.</p></td></tr><tr ac:local-id="65bcfdbbf42f"><td ac:local-id="884b1825c191"><div class="TextAlignCenter"><img src="attachments/3.10_visualizzazione_delle_entità_di_lavoro/1.2_c-20250723-140653.png" alt="1.2_c-20250723-140653.png" width="120" onclick="showModal(this.src)"></div></td><td ac:local-id="08715dae0603"><p local-id="903f6cca4082"><strong>Mostra / Nascondi fori</strong><br>Abilita o disabilita la visualizzazione dei fori su tutte le figure nell’area di lavoro.</p></td></tr><tr ac:local-id="2773f960b8ce"><td ac:local-id="e8e34190e8f8"><div class="TextAlignCenter"><img src="attachments/3.10_visualizzazione_delle_entità_di_lavoro/1.3_c-20250723-140832.png" alt="1.3_c-20250723-140832.png" width="120" onclick="showModal(this.src)"></div></td><td ac:local-id="e38a99202e43"><p local-id="9912a23fd96f"><strong>Mostra / Nascondi fresature</strong><br>Abilita o disabilita la visualizzazione delle fresature su tutte le figure nell’area di lavoro.</p></td></tr><tr ac:local-id="92c3f6309280"><td ac:local-id="6a07c29a8d35"><div class="TextAlignCenter"><img src="attachments/3.10_visualizzazione_delle_entità_di_lavoro/1.4_c-20250723-140948.png" alt="1.4_c-20250723-140948.png" width="120" onclick="showModal(this.src)"></div></td><td ac:local-id="24724e4438fa"><p local-id="ad3f658be4a5"><strong>Mostra / Nascondi ribassi</strong><br>Abilita o disabilita la visualizzazione dei ribassi su tutte le figure nell’area di lavoro.</p></td></tr><tr ac:local-id="6c3aefa76064"><td ac:local-id="c7ca0b1de0e5"><div class="TextAlignCenter"><img src="attachments/3.10_visualizzazione_delle_entità_di_lavoro/merged-image-1781867971053-20260619-111931.png" alt="merged-image-1781867971053-20260619-111931.png" width="116" onclick="showModal(this.src)"></div></td><td ac:local-id="06d579c74518"><p local-id="394f4b55a9e8"><strong>Mostra / Nascondi frecce</strong><br>Abilità o disabilità la visualizzazione delle frecce su tutte le figure nell’area di lavoro.</p></td></tr><tr ac:local-id="05c763ba7687"><td ac:local-id="5fddbce6275c"><div class="TextAlignCenter"><img src="attachments/3.10_visualizzazione_delle_entità_di_lavoro/1.5_c-20250723-142043.png" alt="1.5_c-20250723-142043.png" width="119" onclick="showModal(this.src)"></div></td><td ac:local-id="408b7b6adc7b"><p local-id="b9bf21ee00f3"><strong>Mostra / Nascondi Dynamic Tags</strong><br>Abilita o disabilita la visualizzazione dei Dynamic Tags presenti sull’area di lavoro.</p></td></tr><tr ac:local-id="4bebde588299"><td ac:local-id="4e41711d7979"><div class="TextAlignCenter"><img src="attachments/3.10_visualizzazione_delle_entità_di_lavoro/InvertedImgae-20260615-095847.png" alt="InvertedImgae-20260615-095847.png" width="120" onclick="showModal(this.src)"></div></td><td ac:local-id="1e6d36e8900d"><p local-id="204a745f8421"><strong>Evidenzia perimetro </strong><br>Abilita o disabilita la visualizzazione evidenziata del perimetro.</p></td></tr></tbody></table><!--Label="nty"-->
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Machine technical documentation</span><span class="maintenance-status"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Operational document</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="310-visualizzazione-delle-entitÀ-di-lavoro" style="margin:0;" class="maintenance-main-title"><a class="header" href="#310-visualizzazione-delle-entitÀ-di-lavoro"><span class="maintenance-code">DOC</span><span class="maintenance-name">3.10 VISUALIZZAZIONE DELLE ENTITÀ DI LAVORO</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document DOC" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="3.10 VISUALIZZAZIONE DELLE ENTITÀ DI LAVORO"--><p local-id="6385126ad153">Questa funzione apre un pannellino con degli strumenti di visualizzazione.</p><p local-id="4880797c4f8e"></p><div class="TextAlignCenter"><img src="attachments/3.10_visualizzazione_delle_entità_di_lavoro/Menu3.10-20260619-111436.png" alt="Menu3.10-20260619-111436.png" width="420" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p>
+</p><h1 local-id="6afd1d7d76fa">Pulsanti</h1><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="72ae8552-e87a-4e25-975d-219baa20120d"><colgroup><col style="width: 267.0px;"><col style="width: 1531.0px;"></colgroup><tbody><tr ac:local-id="cda6a102ae56"><td ac:local-id="1d1b3176316f"><div class="TextAlignCenter"><img src="attachments/3.10_visualizzazione_delle_entità_di_lavoro/1.1_c-20250723-140513.png" alt="1.1_c-20250723-140513.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="e96fcec7f3b1"><p local-id="fbc6a092b815"><strong>Mostra / Nascondi tagli</strong><br>Abilita o disabilita la visualizzazione dei tagli con disco su tutte le figure nell’area di lavoro.</p></td></tr><tr ac:local-id="65bcfdbbf42f"><td ac:local-id="884b1825c191"><div class="TextAlignCenter"><img src="attachments/3.10_visualizzazione_delle_entità_di_lavoro/1.2_c-20250723-140653.png" alt="1.2_c-20250723-140653.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="08715dae0603"><p local-id="903f6cca4082"><strong>Mostra / Nascondi fori</strong><br>Abilita o disabilita la visualizzazione dei fori su tutte le figure nell’area di lavoro.</p></td></tr><tr ac:local-id="2773f960b8ce"><td ac:local-id="e8e34190e8f8"><div class="TextAlignCenter"><img src="attachments/3.10_visualizzazione_delle_entità_di_lavoro/1.3_c-20250723-140832.png" alt="1.3_c-20250723-140832.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="e38a99202e43"><p local-id="9912a23fd96f"><strong>Mostra / Nascondi fresature</strong><br>Abilita o disabilita la visualizzazione delle fresature su tutte le figure nell’area di lavoro.</p></td></tr><tr ac:local-id="92c3f6309280"><td ac:local-id="6a07c29a8d35"><div class="TextAlignCenter"><img src="attachments/3.10_visualizzazione_delle_entità_di_lavoro/1.4_c-20250723-140948.png" alt="1.4_c-20250723-140948.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="24724e4438fa"><p local-id="ad3f658be4a5"><strong>Mostra / Nascondi ribassi</strong><br>Abilita o disabilita la visualizzazione dei ribassi su tutte le figure nell’area di lavoro.</p></td></tr><tr ac:local-id="6c3aefa76064"><td ac:local-id="c7ca0b1de0e5"><div class="TextAlignCenter"><img src="attachments/3.10_visualizzazione_delle_entità_di_lavoro/merged-image-1781867971053-20260619-111931.png" alt="merged-image-1781867971053-20260619-111931.png" width="116" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="06d579c74518"><p local-id="394f4b55a9e8"><strong>Mostra / Nascondi frecce</strong><br>Abilità o disabilità la visualizzazione delle frecce su tutte le figure nell’area di lavoro.</p></td></tr><tr ac:local-id="05c763ba7687"><td ac:local-id="5fddbce6275c"><div class="TextAlignCenter"><img src="attachments/3.10_visualizzazione_delle_entità_di_lavoro/1.5_c-20250723-142043.png" alt="1.5_c-20250723-142043.png" width="119" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="408b7b6adc7b"><p local-id="b9bf21ee00f3"><strong>Mostra / Nascondi Dynamic Tags</strong><br>Abilita o disabilita la visualizzazione dei Dynamic Tags presenti sull’area di lavoro.</p></td></tr><tr ac:local-id="4bebde588299"><td ac:local-id="4e41711d7979"><div class="TextAlignCenter"><img src="attachments/3.10_visualizzazione_delle_entità_di_lavoro/InvertedImgae-20260615-095847.png" alt="InvertedImgae-20260615-095847.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="1e6d36e8900d"><p local-id="204a745f8421"><strong>Evidenzia perimetro </strong><br>Abilita o disabilita la visualizzazione evidenziata del perimetro.</p></td></tr></tbody></table><!--Label="nty"-->
                         </main>
 
                     </div>
@@ -278,5 +280,12 @@
     </div>;
 
 
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
 </body>
 </html>

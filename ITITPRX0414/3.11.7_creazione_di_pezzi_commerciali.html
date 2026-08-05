@@ -40,7 +40,7 @@
     <script>
       const path_to_root = "";
       const default_light_theme = "light";
-      const default_dark_theme = "navy";
+      const default_dark_theme = "light";
     </script>
     <!-- Start loading toc.js asap -->
     <script src="toc.js"></script>
@@ -86,8 +86,10 @@
     });
   });
 })();
-</script></head>
-<body>
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-document" data-technical-styler-flow="html">
     <header class="header-main">
         <div class="header-flex">
             <div class="donatoni-flex">
@@ -110,6 +112,15 @@
                 </div>
                 <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                     <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
                 </button>
 
                 <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
@@ -144,17 +155,8 @@
 
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script>
-            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
-                .matches
-                ? default_dark_theme
-                : default_light_theme;
-            let theme;
-            try {
-                theme = localStorage.getItem("mdbook-theme");
-            } catch (e) { }
-            if (theme === null || theme === undefined) {
-                theme = default_theme;
-            }
+            const default_theme = "light";
+            let theme = default_theme;
             const html = document.documentElement;
             html.classList.remove("light");
             html.classList.add(theme);
@@ -214,9 +216,9 @@
 
                         <img src="images/donatoni_111.jpg">
 
-                        <main style="margin-left: 20px;">
-                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="3117-creazione-di-pezzi-commerciali" style="margin:0;"><a class="header" href="#3117-creazione-di-pezzi-commerciali">3.11.7 CREAZIONE DI PEZZI COMMERCIALI</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="3.11.7 CREAZIONE DI PEZZI COMMERCIALI"--><p>In questa sezione del pannello “Crea Pezzi“ è possibile creare i pezzi commerciali. Le caratteristiche di questa tipologia di pezzi sono le seguenti:</p><ul><li><p>vengono creati con un elevato numero di copie;</p></li><li><p>le dimensioni di larghezza e altezza sono modificabili anche quando un pezzo viene inserito nella zona di lavoro.</p></li></ul><div class="TextAlignCenter"><img src="attachments/3.11.7_creazione_di_pezzi_commerciali/0_0_CreaPezziCC.png" alt="0_0_CreaPezziCC.png" width="800" onclick="showModal(this.src)"></div><p></p><p>
-</p><p></p><h1 id="parametri"><a class="header" href="#parametri">Parametri</a></h1><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="bce60155-f4bf-44ac-8cca-2116cd4a9dc5"><colgroup><col style="width: 526.0px;"><col style="width: 1262.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/3.11.7_creazione_di_pezzi_commerciali/casella_larghezza.png" alt="casella_larghezza.png" width="282" onclick="showModal(this.src)"></div></td><td><p><strong>Larghezza</strong><br>Larghezza del rettangolo. Viene misurata con l’unità di misura riportata alla sua destra.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.11.7_creazione_di_pezzi_commerciali/casella_altezza.png" alt="casella_altezza.png" width="282" onclick="showModal(this.src)"></div></td><td><p><strong>Altezza</strong><br>Altezza del rettangolo. Viene misurata con l’unità di misura riportata alla sua destra.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.11.7_creazione_di_pezzi_commerciali/casella_etichetta_pulita.png" alt="casella_etichetta_pulita.png" width="282" onclick="showModal(this.src)"></div></td><td><p><strong>Marca</strong><br>Etichetta che viene aggiunta al pezzo per identificarlo. È un parametro opzionale, in quanto non fondamentale per la creazione del pezzo.</p></td></tr></tbody></table><p></p><h1 id="importazione-di-un-pezzo-commerciale"><a class="header" href="#importazione-di-un-pezzo-commerciale">Importazione di un pezzo commerciale</a></h1><p>Per concludere correttamente la creazione di un pezzo commerciale, è necessario utilizzare il seguente pulsante:</p><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="03a9cd82-cd4e-4141-aaed-d545c93c5aa5"><colgroup><col style="width: 199.0px;"><col style="width: 1590.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/3.11.7_creazione_di_pezzi_commerciali/__B-20250324-130506.png" alt="__B-20250324-130506.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Importa pezzi commerciali</strong><br>Conferma la creazione del pezzo commerciale e lo inserisce nella lista dei pezzi da lavorare.</p></td></tr></tbody></table><p>La procedura di creazione inoltre, aggiornerà sia la lista dei pezzi commerciali a sinistra, che la lista dei pezzi da lavorare sul lato destro. Il seguente esempio mostra entrambe le liste aggiornate:</p><div class="TextAlignCenter"><img src="attachments/3.11.7_creazione_di_pezzi_commerciali/0_2_CreaPezziCC_B.png" alt="0_2_CreaPezziCC_B.png" width="800" onclick="showModal(this.src)"></div><p>Come si può notare osservando la colonna sul lato sinistro della schermata, un’icona verde precede il nome del pezzo. Cliccando quell’icona, diventerà di colore rosso, e il pezzo verrà rimosso dalla lista sul lato destro.</p><div class="TextAlignCenter"><img src="attachments/3.11.7_creazione_di_pezzi_commerciali/0_3_PezzoCCDisattivato.png" alt="0_3_PezzoCCDisattivato.png" width="800" onclick="showModal(this.src)"></div><p></p><!--Label="crt_pcc"-->
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Machine technical documentation</span><span class="maintenance-status"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Operational document</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="3117-creazione-di-pezzi-commerciali" style="margin:0;" class="maintenance-main-title"><a class="header" href="#3117-creazione-di-pezzi-commerciali"><span class="maintenance-code">DOC</span><span class="maintenance-name">3.11.7 CREAZIONE DI PEZZI COMMERCIALI</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document DOC" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="3.11.7 CREAZIONE DI PEZZI COMMERCIALI"--><p>In questa sezione del pannello “Crea Pezzi“ è possibile creare i pezzi commerciali. Le caratteristiche di questa tipologia di pezzi sono le seguenti:</p><ul><li><p>vengono creati con un elevato numero di copie;</p></li><li><p>le dimensioni di larghezza e altezza sono modificabili anche quando un pezzo viene inserito nella zona di lavoro.</p></li></ul><div class="TextAlignCenter"><img src="attachments/3.11.7_creazione_di_pezzi_commerciali/0_0_CreaPezziCC.png" alt="0_0_CreaPezziCC.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><p>
+</p><p></p><h1 id="parametri"><a class="header" href="#parametri">Parametri</a></h1><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="bce60155-f4bf-44ac-8cca-2116cd4a9dc5"><colgroup><col style="width: 526.0px;"><col style="width: 1262.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/3.11.7_creazione_di_pezzi_commerciali/casella_larghezza.png" alt="casella_larghezza.png" width="282" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Larghezza</strong><br>Larghezza del rettangolo. Viene misurata con l’unità di misura riportata alla sua destra.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.11.7_creazione_di_pezzi_commerciali/casella_altezza.png" alt="casella_altezza.png" width="282" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Altezza</strong><br>Altezza del rettangolo. Viene misurata con l’unità di misura riportata alla sua destra.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.11.7_creazione_di_pezzi_commerciali/casella_etichetta_pulita.png" alt="casella_etichetta_pulita.png" width="282" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Marca</strong><br>Etichetta che viene aggiunta al pezzo per identificarlo. È un parametro opzionale, in quanto non fondamentale per la creazione del pezzo.</p></td></tr></tbody></table><p></p><h1 id="importazione-di-un-pezzo-commerciale"><a class="header" href="#importazione-di-un-pezzo-commerciale">Importazione di un pezzo commerciale</a></h1><p>Per concludere correttamente la creazione di un pezzo commerciale, è necessario utilizzare il seguente pulsante:</p><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="03a9cd82-cd4e-4141-aaed-d545c93c5aa5"><colgroup><col style="width: 199.0px;"><col style="width: 1590.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/3.11.7_creazione_di_pezzi_commerciali/__B-20250324-130506.png" alt="__B-20250324-130506.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Importa pezzi commerciali</strong><br>Conferma la creazione del pezzo commerciale e lo inserisce nella lista dei pezzi da lavorare.</p></td></tr></tbody></table><p>La procedura di creazione inoltre, aggiornerà sia la lista dei pezzi commerciali a sinistra, che la lista dei pezzi da lavorare sul lato destro. Il seguente esempio mostra entrambe le liste aggiornate:</p><div class="TextAlignCenter"><img src="attachments/3.11.7_creazione_di_pezzi_commerciali/0_2_CreaPezziCC_B.png" alt="0_2_CreaPezziCC_B.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p>Come si può notare osservando la colonna sul lato sinistro della schermata, un’icona verde precede il nome del pezzo. Cliccando quell’icona, diventerà di colore rosso, e il pezzo verrà rimosso dalla lista sul lato destro.</p><div class="TextAlignCenter"><img src="attachments/3.11.7_creazione_di_pezzi_commerciali/0_3_PezzoCCDisattivato.png" alt="0_3_PezzoCCDisattivato.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><!--Label="crt_pcc"-->
                         </main>
 
                     </div>
@@ -278,5 +280,12 @@
     </div>;
 
 
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
 </body>
 </html>

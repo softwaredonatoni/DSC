@@ -1,0 +1,87 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light" dir="ltr">
+    <head>
+        <!-- sidebar iframe generated using mdBook
+
+        This is a frame, and not included directly in the page, to control the total size of the
+        book. The TOC contains an entry for each page, so if each page includes a copy of the TOC,
+        the total size of the page becomes O(n**2).
+
+        The frame is only used as a fallback when JS is turned off. When it's on, the sidebar is
+        instead added to the main page by `toc.js` instead. The JavaScript mode is better
+        because, when running in a `file:///` URL, the iframed page would not be Same-Origin as
+        the rest of the page, so the sidebar and the main page theme would fall out of sync.
+        -->
+        <meta charset="UTF-8">
+        <meta name="robots" content="noindex">
+        <!-- Custom HTML head -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="./mdbook-admonish.css">
+        <link rel="stylesheet" href="theme/custom.css">
+        <link rel="stylesheet" href="search.html">
+        <link rel="stylesheet" href="login.html">
+    <script>(function () {
+  const SUFFIX = "#2utHhOLI7Iz0";
+
+  function buildUrl() {
+    const base = window.location.href.split("#")[0];
+    return base + SUFFIX;
+  }
+
+  function fallbackCopy(text) {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.top = "-1000px";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+
+  async function copyUrl() {
+    const url = buildUrl();
+
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(url);
+        return;
+      } catch (e) {}
+    }
+
+    fallbackCopy(url);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.getElementById("copy-link-btn");
+    if (!btn) return;
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      copyUrl();
+    });
+  });
+})();
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+    <body class="sidebar-iframe-inner">
+        <ol class="chapter"><li class="chapter-item "><a href="en-gb_d-mes_2.0.html" target="_parent"><strong aria-hidden="true">1.</strong> EN-GB D-MES 2.0</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="1_introduction.html" target="_parent"><strong aria-hidden="true">1.1.</strong> 1 INTRODUCTION</a></li><li class="chapter-item "><a href="2_dmes.html" target="_parent"><strong aria-hidden="true">1.2.</strong> 2 DMES</a></li><li class="chapter-item "><a href="3_dmes_core.html" target="_parent"><strong aria-hidden="true">1.3.</strong> 3 DMES CORE</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="3.1_machine_info.html" target="_parent"><strong aria-hidden="true">1.3.1.</strong> 3.1 MACHINE INFO</a></li><li class="chapter-item "><a href="3.2_production.html" target="_parent"><strong aria-hidden="true">1.3.2.</strong> 3.2 PRODUCTION</a></li><li class="chapter-item "><a href="3.3_statistics.html" target="_parent"><strong aria-hidden="true">1.3.3.</strong> 3.3 STATISTICS</a></li><li class="chapter-item "><a href="3.4_tools.html" target="_parent"><strong aria-hidden="true">1.3.4.</strong> 3.4 TOOLS</a></li></ol></li><li class="chapter-item "><a href="4_dmes_trace.html" target="_parent"><strong aria-hidden="true">1.4.</strong> 4 DMES TRACE</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="4.1_managing_a_processing_operation.html" target="_parent"><strong aria-hidden="true">1.4.1.</strong> 4.1 MANAGING A PROCESSING OPERATION</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="4.1.1_processing_stages.html" target="_parent"><strong aria-hidden="true">1.4.1.1.</strong> 4.1.1 PROCESSING STAGES</a></li><li class="chapter-item "><a href="4.1.2_processing_info.html" target="_parent"><strong aria-hidden="true">1.4.1.2.</strong> 4.1.2 PROCESSING INFO</a></li><li class="chapter-item "><a href="4.1.3_label_printing.html" target="_parent"><strong aria-hidden="true">1.4.1.3.</strong> 4.1.3 LABEL PRINTING</a></li></ol></li><li class="chapter-item "><a href="4.2_contacts.html" target="_parent"><strong aria-hidden="true">1.4.2.</strong> 4.2 CONTACTS</a></li><li class="chapter-item "><a href="4.3_customers.html" target="_parent"><strong aria-hidden="true">1.4.3.</strong> 4.3 CUSTOMERS</a></li><li class="chapter-item "><a href="4.4_suppliers.html" target="_parent"><strong aria-hidden="true">1.4.4.</strong> 4.4 SUPPLIERS</a></li></ol></li><li class="chapter-item "><a href="5_dmes_matrix.html" target="_parent"><strong aria-hidden="true">1.5.</strong> 5 DMES MATRIX</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="5.1_material_categories.html" target="_parent"><strong aria-hidden="true">1.5.1.</strong> 5.1 MATERIAL CATEGORIES</a></li><li class="chapter-item "><a href="5.2_materials.html" target="_parent"><strong aria-hidden="true">1.5.2.</strong> 5.2 MATERIALS</a></li><li class="chapter-item "><a href="5.3_material_colours.html" target="_parent"><strong aria-hidden="true">1.5.3.</strong> 5.3 MATERIAL COLOURS</a></li><li class="chapter-item "><a href="5.4_slabs.html" target="_parent"><strong aria-hidden="true">1.5.4.</strong> 5.4 SLABS</a></li><li class="chapter-item "><a href="5.5_blocks.html" target="_parent"><strong aria-hidden="true">1.5.5.</strong> 5.5 BLOCKS</a></li><li class="chapter-item "><a href="5.6_slabs.html" target="_parent"><strong aria-hidden="true">1.5.6.</strong> 5.6 SLABS</a></li><li class="chapter-item "><a href="5.7_slab_search.html" target="_parent"><strong aria-hidden="true">1.5.7.</strong> 5.7 SLAB SEARCH</a></li></ol></li><li class="chapter-item "><a href="6_dmes_pro.html" target="_parent"><strong aria-hidden="true">1.6.</strong> 6 DMES PRO</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="6.1_processing_options.html" target="_parent"><strong aria-hidden="true">1.6.1.</strong> 6.1 PROCESSING OPTIONS</a></li><li class="chapter-item "><a href="6.2_users.html" target="_parent"><strong aria-hidden="true">1.6.2.</strong> 6.2 USERS</a></li><li class="chapter-item "><a href="6.3_users.html" target="_parent"><strong aria-hidden="true">1.6.3.</strong> 6.3 USERS</a></li><li class="chapter-item "><a href="6.4_user_groups.html" target="_parent"><strong aria-hidden="true">1.6.4.</strong> 6.4 USER GROUPS</a></li><li class="chapter-item "><a href="6.5_activities.html" target="_parent"><strong aria-hidden="true">1.6.5.</strong> 6.5 ACTIVITIES</a></li><li class="chapter-item "><a href="6.6_running_activities.html" target="_parent"><strong aria-hidden="true">1.6.6.</strong> 6.6 RUNNING ACTIVITIES</a></li></ol></li><li class="chapter-item "><a href="7_stations.html" target="_parent"><strong aria-hidden="true">1.7.</strong> 7 STATIONS</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="7.1_production.html" target="_parent"><strong aria-hidden="true">1.7.1.</strong> 7.1 PRODUCTION</a></li><li class="chapter-item "><a href="7.2_user_management.html" target="_parent"><strong aria-hidden="true">1.7.2.</strong> 7.2 USER MANAGEMENT</a></li><li class="chapter-item "><a href="7.3_activity_management.html" target="_parent"><strong aria-hidden="true">1.7.3.</strong> 7.3 ACTIVITY MANAGEMENT</a></li></ol></li><li class="chapter-item "><a href="8_settings.html" target="_parent"><strong aria-hidden="true">1.8.</strong> 8 SETTINGS</a></li></ol></li></ol>
+    
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
+</body>
+</html>

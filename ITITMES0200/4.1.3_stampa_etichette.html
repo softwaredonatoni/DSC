@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+<head>
+    <!-- Book generated using mdBook -->
+    <meta charset="UTF-8">
+    <title>4.1.3 STAMPA ETICHETTE - IT-IT D-MES 2.0</title>
+
+    <!-- Custom HTML head -->
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="icon" href="favicon.svg">
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/chrome.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Fonts -->
+    <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+    <link rel="stylesheet" href="fonts/fonts.css">
+
+    <!-- Highlight.js Stylesheets -->
+    <link rel="stylesheet" id="highlight-css" href="highlight.css">
+    <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+    <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+    <!-- Custom theme stylesheets -->
+    <link rel="stylesheet" href="./mdbook-admonish.css">
+    <link rel="stylesheet" href="theme/custom.css">
+    <link rel="stylesheet" href="search.html">
+    <link rel="stylesheet" href="login.html">
+    <link rel="stylesheet" href="searchlogin.html">
+    <link rel="stylesheet" href="searchloginmenu.html">
+
+    <!-- Provide site root and default themes to javascript -->
+    <script>
+      const path_to_root = "";
+      const default_light_theme = "light";
+      const default_dark_theme = "light";
+    </script>
+    <!-- Start loading toc.js asap -->
+    <script src="toc.js"></script>
+<script>(function () {
+  const SUFFIX = "#2utHhOLI7Iz0";
+
+  function buildUrl() {
+    const base = window.location.href.split("#")[0];
+    return base + SUFFIX;
+  }
+
+  function fallbackCopy(text) {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.top = "-1000px";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+
+  async function copyUrl() {
+    const url = buildUrl();
+
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(url);
+        return;
+      } catch (e) {}
+    }
+
+    fallbackCopy(url);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.getElementById("copy-link-btn");
+    if (!btn) return;
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      copyUrl();
+    });
+  });
+})();
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-document" data-technical-styler-flow="html">
+    <header class="header-main">
+        <div class="header-flex">
+            <div class="donatoni-flex">
+                <label class="btn hamburger-menu" id="sidebar-toggle" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                    <i id="sidebar-toggle-icon" class="fa-solid fa-bars"></i>
+                </label>
+
+                <img src="images/donatoni-logo-white.svg" alt="Donatoni Macchine">
+            </div>
+
+            <div class="donatoni-flex action-header-buttons">
+                <div id="search-wrapper" class="search-wrapper hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults"></ul>
+                    </div>
+                </div>
+                <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
+                </button>
+
+                <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
+                    <i class="fa-solid fa-print"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div id="body-container">
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem("mdbook-theme");
+                let sidebar = localStorage.getItem("mdbook-sidebar");
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-theme",
+                        theme.slice(1, theme.length - 1)
+                    );
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-sidebar",
+                        sidebar.slice(1, sidebar.length - 1)
+                    );
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = "light";
+            let theme = default_theme;
+            const html = document.documentElement;
+            html.classList.remove("light");
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try {
+                    sidebar = localStorage.getItem('mdbook-sidebar');
+                } catch (e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document
+                        .getElementById("sidebar-toggle")
+                        .setAttribute("aria-expanded", sidebar === "visible");
+                    document
+                        .getElementById("sidebar")
+                        .setAttribute("aria-hidden", sidebar !== "visible");
+                    Array.from(document.querySelectorAll("#sidebar a")).forEach(
+                        function (link) {
+                            link.setAttribute("tabIndex", sidebar === "visible" ? 0 : -1);
+                        }
+                    );
+                </script>
+
+                <div id="content" class="content">
+
+                    <div>
+
+                        <img src="images/donatoni_111.jpg">
+
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Machine technical documentation</span><span class="maintenance-status"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Operational document</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="413-stampa-etichette" style="margin:0;" class="maintenance-main-title"><a class="header" href="#413-stampa-etichette"><span class="maintenance-code">DOC</span><span class="maintenance-name">4.1.3 STAMPA ETICHETTE</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document DOC" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="4.1.3 STAMPA ETICHETTE"--><p local-id="7bf887260fdd">Per stampare un’etichetta per una singola fase di lavorazione, fare clic con il tasto destro del mouse sulla fase desiderata e selezionare la voce <strong>Labels printing</strong>. Si aprirà una schermata simile a quella mostrata di seguito. Selezionare quindi il pezzo per cui si vuole stampare l’etichetta.</p><div class="TextAlignCenter"><img src="attachments/4.1.3_stampa_etichette/Screenshot_2026-07-07_134910-20260707-114920.png" alt="Screenshot_2026-07-07_134910-20260707-114920.png" width="832" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p>
+</p><h2 local-id="822856f83841" class="maintenance-section-title" data-section-number="01">PIECES PARAMETERS</h2><p local-id="acbd5b506eae">Il pannello <strong>PIECES PARAMETERS</strong> permette di configurare i parametri grafici e di visualizzazione dei pezzi e delle geometrie sul layout di lavorazione, regolando distanze, spessori, testi e colori</p><div class="TextAlignCenter"><img src="attachments/4.1.3_stampa_etichette/pieces_parameters__.png" alt="pieces_parameters__.png" width="199" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="04a1c6654cf6"></p><h3 local-id="44508c81576b">OPZIONI PIECES PARAMETERS</h3><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="cfe606b1-4961-44a6-84a1-9135f48bd170"><colgroup><col style="width: 368.0px;"><col style="width: 1428.0px;"></colgroup><tbody><tr ac:local-id="c53ac0370b8f"><td ac:local-id="32bfbcedae16"><p local-id="48ac8370008c"><strong>Distanza entità vicine</strong></p></td><td ac:local-id="f126998a403e"><p local-id="c5a74657c23d">Regola la distanza minima di tolleranza o prossimità tra le diverse entità o geometrie sul piano di lavoro.</p></td></tr><tr ac:local-id="dfd3db33e1bc"><td ac:local-id="af01cf07eb1f"><p local-id="f54b607e60b3"><strong>Spessore perimetri</strong></p></td><td ac:local-id="75057ecb645d"><p local-id="51eba817acf7">Imposta lo spessore delle linee che definiscono i contorni e i perimetri dei pezzi visualizzati a schermo.</p></td></tr><tr ac:local-id="459e681d9027"><td ac:local-id="3d3fae4e3b9e"><p local-id="367c75bb8dc7"><strong>Modalità Bianco e Nero</strong></p></td><td ac:local-id="49a5b29e30d0"><p local-id="2d6a68fd1610">Interruttore (On/Off) per attivare la visualizzazione monocromatica dell'interfaccia grafica o del disegno.</p></td></tr><tr ac:local-id="b9f2beb10a20"><td ac:local-id="4b9d6e9cac3b"><p local-id="a88434fc95a8"><strong>Dimensione del testo</strong></p></td><td ac:local-id="6b203beabd63"><p local-id="6a64fac5b0d1">Modifica la grandezza dei caratteri per le etichette di testo e le quote informative associate ai pezzi.</p></td></tr><tr ac:local-id="1cb41761376c"><td ac:local-id="b6e79806d885"><p local-id="fb854260d137"><strong>Colore dei pezzi</strong></p></td><td ac:local-id="ac14f2eef57c"><p local-id="58d817b888ed">Consente di definire il colore del perimetro o del riempimento dei pezzi tramite codice esadecimale o selettore grafico.</p></td></tr><tr ac:local-id="63865a90c4bf"><td ac:local-id="783eb64c4102"><p local-id="357f321b7167"><strong>Colore del testo</strong></p></td><td ac:local-id="9fef18957956"><p local-id="549cc4418da1">Permette di scegliere la tonalità del testo informativo sovrapposto ai pezzi (es. identificativi o misure).</p></td></tr><tr ac:local-id="27df373816ef"><td ac:local-id="fc5f5e49e93a"><p local-id="6a1bb389ad95"><strong>Mostra entità vicine</strong></p></td><td ac:local-id="663b725b9aec"><p local-id="d8df0c900be1">Attiva o disattiva l'evidenziazione visiva delle geometrie o dei pezzi che si trovano in prossimità tra loro.</p></td></tr></tbody></table><p local-id="74a2cf3fa2d6"></p><h2 local-id="17c7b43b248c" class="maintenance-section-title" data-section-number="02">QUOTES PARAMETERS</h2><p local-id="355aee646be9">Il pannello <strong>QUOTES PARAMETERS</strong> consente di gestire e configurare i parametri di generazione, stile e posizionamento delle quotature grafiche all'interno del layout di lavorazione.</p><div class="TextAlignCenter"><img src="attachments/4.1.3_stampa_etichette/quotes_parameters.png" alt="quotes_parameters.png" width="188" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="5677ded1e873"></p><h3 local-id="792bde285d48">OPZIONI QUOTES PARAMETERS</h3><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="22cfef85-4f53-4d95-b5e9-cb3bd8ad2452"><colgroup><col style="width: 358.0px;"><col style="width: 1441.0px;"></colgroup><tbody><tr ac:local-id="14f03fbbf7b6"><td ac:local-id="e9864a1e07d5"><p local-id="7ccd12ac5f25"><strong>Tipo di generatore</strong></p></td><td ac:local-id="ed0e21b65393"><p local-id="d7de0e999f72">Menu a tendina per selezionare la tipologia di quotature automatiche da applicare</p></td></tr><tr ac:local-id="40f5a26bd362"><td ac:local-id="7e8a6f6aa813"><p local-id="c806135617ac"><strong>Modalità di generazione</strong></p></td><td ac:local-id="139143244419"><p local-id="4447d97a179d">Definisce la logica di inserimento delle quote</p></td></tr><tr ac:local-id="acf9232f25bc"><td ac:local-id="8b73d3cb6528"><p local-id="26107995ed77"><strong>Modalità Bianco e Nero</strong></p></td><td ac:local-id="f1241d5a3692"><p local-id="37cc01daba31">Interruttore (On/Off) per forzare la visualizzazione delle quote in bianco e nero anziché a colori.</p></td></tr><tr ac:local-id="c850fb35a257"><td ac:local-id="906113e184ac"><p local-id="81027363b59b"><strong>Distanza quote angolari</strong></p></td><td ac:local-id="83f54d1ffe78"><p local-id="ed0b6025bb32">Regola tramite cursore la distanza visiva delle linee di quota lineari rispetto al profilo del pezzo.</p></td></tr><tr ac:local-id="7907c0104bc6"><td ac:local-id="7f4da4dba580"><p local-id="cb6376d54e8e"><strong>Distanza quote angolari</strong></p></td><td ac:local-id="3dc502337ab2"><p local-id="1b97806feb87">Regola tramite cursore lo spazio e il posizionamento delle quote relative agli angoli sul disegno.</p></td></tr><tr ac:local-id="f7e7a98295cc"><td ac:local-id="701045e34380"><p local-id="3112f3cdcf5c"><strong>Dimensione del testo</strong></p></td><td ac:local-id="f2d2bf714783"><p local-id="cb4c90c92b3a">Imposta la grandezza dei caratteri numerici e dei testi delle quotature per garantirne la leggibilità.</p></td></tr><tr ac:local-id="ca86ef919bd4"><td ac:local-id="e77f5da4e33a"><p local-id="e6ecc86de337"><strong>Spessore linee di quota</strong></p></td><td ac:local-id="87e5c44c707f"><p local-id="0d42fb516df4">Modifica lo spessore grafico delle linee e dei tratti che compongono la quotatura.</p></td></tr><tr ac:local-id="a6d10ae0cb5b"><td ac:local-id="3c59e79cc30a"><p local-id="63d5fc36957e"><strong>Colore delle linee</strong></p></td><td ac:local-id="6688c22b61fd"><p local-id="c919892ef60e">Permette di scegliere la tinta delle linee di quota e di riferimento tramite tavolozza o codice colore esadecimale.</p></td></tr><tr ac:local-id="9be2214449ff"><td ac:local-id="294b05ba9aa4"><p local-id="8d71910c3e6e"><strong>Colore del testo</strong></p></td><td ac:local-id="78267e3762f4"><p local-id="33c86ba737d5">Consente di definire il colore specifico per i testi e i valori numerici delle quote.</p></td></tr><tr ac:local-id="ab0dc509a2a2"><td ac:local-id="f7f9550108ee"><p local-id="62bf5b0450e3"><strong>Dimensione delle frecce</strong></p></td><td ac:local-id="3efc3446cba0"><p local-id="d3b96f31124a">Regola la grandezza delle frecce o dei terminali posti alle estremità delle linee di quota.</p></td></tr><tr ac:local-id="234be16fe613"><td ac:local-id="db8801ac5746"><p local-id="a12af4f93897"><strong>Posizionamento frecce</strong></p></td><td ac:local-id="4d5f0ea8-16f8-47f7-85a9-18ad9be4101f"><p local-id="9be9dbecbbc5">Menu a tendina per impostare dove collocare le frecce (es. in automatico, interne o esterne alla linea di quota).</p></td></tr></tbody></table><!--Label="mst_stm"-->
+                        </main>
+
+                    </div>
+
+                    <img src="images/donatoni_222.jpg">
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="4.1.2_info_lavorazione.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="4.2_contatti.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+
+
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                <a rel="prev" href="4.1.2_info_lavorazione.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="4.2_contatti.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="mermaid.min.js"></script>
+        <script src="mermaid-init.js"></script>
+        <script src="hidemenu.js"></script>
+        <script src="imagemodal.js"></script>
+        <script src="login.js"></script>
+    </div>
+
+    <!-- Modale -->
+    <div id="modal" onclick="closeModal()">
+        <img id="modal-img" src="">
+    </div>;
+
+
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
+</body>
+</html>

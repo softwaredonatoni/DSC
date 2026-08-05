@@ -40,7 +40,7 @@
     <script>
       const path_to_root = "";
       const default_light_theme = "light";
-      const default_dark_theme = "navy";
+      const default_dark_theme = "light";
     </script>
     <!-- Start loading toc.js asap -->
     <script src="toc.js"></script>
@@ -86,8 +86,10 @@
     });
   });
 })();
-</script></head>
-<body>
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-document" data-technical-styler-flow="html">
     <header class="header-main">
         <div class="header-flex">
             <div class="donatoni-flex">
@@ -110,6 +112,15 @@
                 </div>
                 <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                     <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
                 </button>
 
                 <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
@@ -144,17 +155,8 @@
 
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script>
-            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
-                .matches
-                ? default_dark_theme
-                : default_light_theme;
-            let theme;
-            try {
-                theme = localStorage.getItem("mdbook-theme");
-            } catch (e) { }
-            if (theme === null || theme === undefined) {
-                theme = default_theme;
-            }
+            const default_theme = "light";
+            let theme = default_theme;
             const html = document.documentElement;
             html.classList.remove("light");
             html.classList.add(theme);
@@ -214,9 +216,9 @@
 
                         <img src="images/donatoni_111.jpg">
 
-                        <main style="margin-left: 20px;">
-                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="37-aggiungere-una-foto-allarea-di-lavoro" style="margin:0;"><a class="header" href="#37-aggiungere-una-foto-allarea-di-lavoro">3.7 AGGIUNGERE UNA FOTO ALLAREA DI LAVORO</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="3.7 AGGIUNGERE UNA FOTO ALLAREA DI LAVORO"--><p local-id="4bc43276af26">Questa funzione permette di aggiungere una foto sull’area di lavoro.<br>Nel caso in cui Parametrix sia collegato ad un dispositivo fotografico, viene scattata la foto della lastra sul banco di lavoro.  <br>Altrimenti, viene richiesto di selezionare una fotografia tra i file del computer.</p><div class="TextAlignCenter"><img src="attachments/3.7_aggiungere_una_foto_allarea_di_lavoro/1-20260619-140042.png" alt="1-20260619-140042.png" width="800" onclick="showModal(this.src)"></div><p local-id="9edc55a28738"></p><p>
-</p><p local-id="33d3afe066b6"></p><h1 local-id="30ed07a1641e">Scattare una foto</h1><p local-id="76c743a944b8">Generalmente, questa funzionalità permette scattare una foto del banco di lavoro della macchina utilizzando il dispositivo fotografico incorporato.<br>Premendo il pulsante, si apre una finestra dove viene richiesto di inserire lo spessore della lastra che sta per essere catturata.</p><div class="TextAlignCenter"><img src="attachments/3.7_aggiungere_una_foto_allarea_di_lavoro/1.4.png" alt="1.4.png" width="500" onclick="showModal(this.src)"></div><p local-id="d9308299bef1">La foto viene scattata, e successivamente si apre il pannello che consente all’operatore di decidere il perimetro della lastra.</p><p local-id="df8d14cee090"></p><h1 local-id="895e8319f801">Scegliere una foto dai file del computer</h1><p local-id="e43e5c3ef17e">Questa modalità permette a computer non collegati ad un dispositivo fotografico, solitamente disposti in ufficio, di inserire all’interno del programma foto da file.<br>Premendo il pulsante si apre la finestra per l’esplorazione delle risorse, in modo da poter scegliere un file da caricare.</p><div class="TextAlignCenter"><img src="attachments/3.7_aggiungere_una_foto_allarea_di_lavoro/2.04.png" alt="2.04.png" width="800" onclick="showModal(this.src)"></div><p local-id="9293a5a7302c">L’utente viene quindi indirizzato al pannello per la selezione del perimetro della lastra.</p><p local-id="177b57eb0492"></p><h1 local-id="a091dcd5274c">Selezione del perimetro</h1><p local-id="96145227c42e">Dopo aver selezionato o scattato la foto, apparirà questa schermata dove l’operatore deve indicare un perimetro all’interno del quale si potranno posizionare i pezzi.</p><div class="TextAlignCenter"><img src="attachments/3.7_aggiungere_una_foto_allarea_di_lavoro/2-20260619-140153.png" alt="2-20260619-140153.png" width="800" onclick="showModal(this.src)"></div><p local-id="12ca03482fc1">Una volta confermato il perimetro, la foto della lastra verrà aggiunta sull’area di lavoro di Parametrix.</p><div class="TextAlignCenter"><img src="attachments/3.7_aggiungere_una_foto_allarea_di_lavoro/3-20260619-140247.png" alt="3-20260619-140247.png" width="800" onclick="showModal(this.src)"></div><p local-id="3a31e5c27985"></p><!--Label="sht"--><!--Label="sht_cho"--><!--Label="sht_sho"--><!--Label="sht_per"-->
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Machine technical documentation</span><span class="maintenance-status"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Operational document</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="37-aggiungere-una-foto-allarea-di-lavoro" style="margin:0;" class="maintenance-main-title"><a class="header" href="#37-aggiungere-una-foto-allarea-di-lavoro"><span class="maintenance-code">DOC</span><span class="maintenance-name">3.7 AGGIUNGERE UNA FOTO ALLAREA DI LAVORO</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document DOC" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="3.7 AGGIUNGERE UNA FOTO ALLAREA DI LAVORO"--><p local-id="4bc43276af26">Questa funzione permette di aggiungere una foto sull’area di lavoro.<br>Nel caso in cui Parametrix sia collegato ad un dispositivo fotografico, viene scattata la foto della lastra sul banco di lavoro.  <br>Altrimenti, viene richiesto di selezionare una fotografia tra i file del computer.</p><div class="TextAlignCenter"><img src="attachments/3.7_aggiungere_una_foto_allarea_di_lavoro/1-20260619-140042.png" alt="1-20260619-140042.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="9edc55a28738"></p><p>
+</p><p local-id="33d3afe066b6"></p><h1 local-id="30ed07a1641e">Scattare una foto</h1><p local-id="76c743a944b8">Generalmente, questa funzionalità permette scattare una foto del banco di lavoro della macchina utilizzando il dispositivo fotografico incorporato.<br>Premendo il pulsante, si apre una finestra dove viene richiesto di inserire lo spessore della lastra che sta per essere catturata.</p><div class="TextAlignCenter"><img src="attachments/3.7_aggiungere_una_foto_allarea_di_lavoro/1.4.png" alt="1.4.png" width="500" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="d9308299bef1">La foto viene scattata, e successivamente si apre il pannello che consente all’operatore di decidere il perimetro della lastra.</p><p local-id="df8d14cee090"></p><h1 local-id="895e8319f801">Scegliere una foto dai file del computer</h1><p local-id="e43e5c3ef17e">Questa modalità permette a computer non collegati ad un dispositivo fotografico, solitamente disposti in ufficio, di inserire all’interno del programma foto da file.<br>Premendo il pulsante si apre la finestra per l’esplorazione delle risorse, in modo da poter scegliere un file da caricare.</p><div class="TextAlignCenter"><img src="attachments/3.7_aggiungere_una_foto_allarea_di_lavoro/2.04.png" alt="2.04.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="9293a5a7302c">L’utente viene quindi indirizzato al pannello per la selezione del perimetro della lastra.</p><p local-id="177b57eb0492"></p><h1 local-id="a091dcd5274c">Selezione del perimetro</h1><p local-id="96145227c42e">Dopo aver selezionato o scattato la foto, apparirà questa schermata dove l’operatore deve indicare un perimetro all’interno del quale si potranno posizionare i pezzi.</p><div class="TextAlignCenter"><img src="attachments/3.7_aggiungere_una_foto_allarea_di_lavoro/2-20260619-140153.png" alt="2-20260619-140153.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="12ca03482fc1">Una volta confermato il perimetro, la foto della lastra verrà aggiunta sull’area di lavoro di Parametrix.</p><div class="TextAlignCenter"><img src="attachments/3.7_aggiungere_una_foto_allarea_di_lavoro/3-20260619-140247.png" alt="3-20260619-140247.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="3a31e5c27985"></p><!--Label="sht"--><!--Label="sht_cho"--><!--Label="sht_sho"--><!--Label="sht_per"-->
                         </main>
 
                     </div>
@@ -278,5 +280,12 @@
     </div>;
 
 
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
 </body>
 </html>

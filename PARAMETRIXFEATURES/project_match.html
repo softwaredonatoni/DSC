@@ -40,7 +40,7 @@
     <script>
       const path_to_root = "";
       const default_light_theme = "light";
-      const default_dark_theme = "navy";
+      const default_dark_theme = "light";
     </script>
     <!-- Start loading toc.js asap -->
     <script src="toc.js"></script>
@@ -86,8 +86,10 @@
     });
   });
 })();
-</script></head>
-<body>
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-document" data-technical-styler-flow="html">
     <header class="header-main">
         <div class="header-flex">
             <div class="donatoni-flex">
@@ -110,6 +112,15 @@
                 </div>
                 <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                     <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
                 </button>
 
                 <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
@@ -144,17 +155,8 @@
 
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script>
-            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
-                .matches
-                ? default_dark_theme
-                : default_light_theme;
-            let theme;
-            try {
-                theme = localStorage.getItem("mdbook-theme");
-            } catch (e) { }
-            if (theme === null || theme === undefined) {
-                theme = default_theme;
-            }
+            const default_theme = "light";
+            let theme = default_theme;
             const html = document.documentElement;
             html.classList.remove("light");
             html.classList.add(theme);
@@ -214,8 +216,8 @@
 
                         <img src="images/donatoni_111.jpg">
 
-                        <main style="margin-left: 20px;">
-                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="project-match" style="margin:0;"><a class="header" href="#project-match">PROJECT MATCH</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="PROJECT MATCH"--><p local-id="cbc9c53b-7df8-4d77-987d-7393fed645a2">Permette di gestire la programmazione simultanea di più lastre con la possibilità di generare simulazioni di taglio o preventivi e stampare un report di riepilogo, inoltre offre una finestra di render per eseguire il macchia aperta.</p><div class="TextAlignCenter"><img src="attachments/project_match/image-20250620-143152.png" alt="image-20250620-143152.png" width="760" onclick="showModal(this.src)"></div><div class="TextAlignCenter"><img src="attachments/project_match/image-20250620-143218.png" alt="image-20250620-143218.png" width="760" onclick="showModal(this.src)"></div><p local-id="79ecb9a8-3b65-4caf-abc0-9b6d7abf669e"></p><h2 local-id="ed449c37-8fa6-46c0-b548-f1f227600328">VIDEO</h2><div class="TextAlignCenter"><video controls src="attachments/project_match/ProjectMatch_Creation.mp4" width="760" aria-label="attachments/project_match/ProjectMatch_Creation.mp4"></video></div><p local-id="a82635f5-519f-4cd9-b34e-8b468fb28a18"></p><h2 local-id="3d326dc8-9330-4ac5-ad48-1a099961d1ba">FOTO</h2><table class="my-table2" data-table-width="760" data-layout="default" ac:local-id="6945f489-9e14-4761-82c9-9e5df324d380"><tbody><tr ac:local-id="048375f7-eb15-4ec0-8c9f-63ee4c3d1984"><td ac:local-id="a7ea37a2-fa83-4b7b-a15a-68362c98f753"><div class="TextAlignCenter"><img src="attachments/project_match/BM_01B.jpg" alt="BM_01B.jpg" width="200" onclick="showModal(this.src)"></div><p local-id="b7519540-61ad-4a34-87a1-661ef7e02f9e"></p></td><td ac:local-id="5c1bc5b8-7527-47b5-8fe3-6fbf1e1fbfbc"><div class="TextAlignCenter"><img src="attachments/project_match/BM_01A.jpg" alt="BM_01A.jpg" width="200" onclick="showModal(this.src)"></div></td><td ac:local-id="ac0a697b-a196-42c6-9dae-9812a0b2ba3e"><div class="TextAlignCenter"><img src="attachments/project_match/BM_01C.jpg" alt="BM_01C.jpg" width="200" onclick="showModal(this.src)"></div><p local-id="a4588551-bd6c-48cd-b3b0-2f239571fb46"></p></td></tr><tr ac:local-id="a4c912d6-7e53-455f-aab5-bfd89e67657a"><td ac:local-id="3616a562-14c7-4571-b40f-22a0ca106b63"><div class="TextAlignCenter"><img src="attachments/project_match/BM_02A.jpg" alt="BM_02A.jpg" width="200" onclick="showModal(this.src)"></div><p local-id="a75213b3-7eb7-4d4c-9d07-fe12dc9a3a8b"></p></td><td ac:local-id="557a58df-c190-4714-b2e1-7a7944d941c5"><div class="TextAlignCenter"><img src="attachments/project_match/BM_01D.jpg" alt="BM_01D.jpg" width="200" onclick="showModal(this.src)"></div><p local-id="163ae723-54b1-4d40-a8f9-0c3dc7979d9a"></p></td><td ac:local-id="68fe3930-b085-4b82-b9bc-20352e59af22"><div class="TextAlignCenter"><img src="attachments/project_match/BM_02A.jpg" alt="BM_02A.jpg" width="200" onclick="showModal(this.src)"></div><p local-id="2ffd674d-77a2-4ba7-9030-02cbfad9a2c2"></p></td></tr></tbody></table><p local-id="e04c21d2-98eb-47f1-91a3-aa9eb677a3d1"></p><h2 local-id="f117bb89-3ee4-4b91-8ae2-75b9f02fd2b4">ALLEGATI</h2><p class="media-group"><p><a href='attachments/project_match/BookMatchMedium.dxf'>BookMatchMedium.dxf</a></p><p><a href='attachments/project_match/BookMatchBig.dxf'>BookMatchBig.dxf</a></p><p><a href='attachments/project_match/BookMatchSmall.dxf'>BookMatchSmall.dxf</a></p><p local-id="373ae20e-6e53-43db-a68c-4c666d686234"></p><!--Label="project_match"-->
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Machine technical documentation</span><span class="maintenance-status"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Operational document</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="project-match" style="margin:0;" class="maintenance-main-title"><a class="header" href="#project-match"><span class="maintenance-code">DOC</span><span class="maintenance-name">PROJECT MATCH</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document DOC" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="PROJECT MATCH"--><p local-id="cbc9c53b-7df8-4d77-987d-7393fed645a2">Permette di gestire la programmazione simultanea di più lastre con la possibilità di generare simulazioni di taglio o preventivi e stampare un report di riepilogo, inoltre offre una finestra di render per eseguire il macchia aperta.</p><div class="TextAlignCenter"><img src="attachments/project_match/image-20250620-143152.png" alt="image-20250620-143152.png" width="760" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><div class="TextAlignCenter"><img src="attachments/project_match/image-20250620-143218.png" alt="image-20250620-143218.png" width="760" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="79ecb9a8-3b65-4caf-abc0-9b6d7abf669e"></p><h2 local-id="ed449c37-8fa6-46c0-b548-f1f227600328" class="maintenance-section-title" data-section-number="01">VIDEO</h2><div class="TextAlignCenter"><video controls src="attachments/project_match/ProjectMatch_Creation.mp4" width="760" aria-label="attachments/project_match/ProjectMatch_Creation.mp4" class="technical-media"></video></div><p local-id="a82635f5-519f-4cd9-b34e-8b468fb28a18"></p><h2 local-id="3d326dc8-9330-4ac5-ad48-1a099961d1ba" class="maintenance-section-title" data-section-number="02">FOTO</h2><table class="my-table2" data-table-width="760" data-layout="default" ac:local-id="6945f489-9e14-4761-82c9-9e5df324d380"><tbody><tr ac:local-id="048375f7-eb15-4ec0-8c9f-63ee4c3d1984"><td ac:local-id="a7ea37a2-fa83-4b7b-a15a-68362c98f753"><div class="TextAlignCenter"><img src="attachments/project_match/BM_01B.jpg" alt="BM_01B.jpg" width="200" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="b7519540-61ad-4a34-87a1-661ef7e02f9e"></p></td><td ac:local-id="5c1bc5b8-7527-47b5-8fe3-6fbf1e1fbfbc"><div class="TextAlignCenter"><img src="attachments/project_match/BM_01A.jpg" alt="BM_01A.jpg" width="200" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="ac0a697b-a196-42c6-9dae-9812a0b2ba3e"><div class="TextAlignCenter"><img src="attachments/project_match/BM_01C.jpg" alt="BM_01C.jpg" width="200" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="a4588551-bd6c-48cd-b3b0-2f239571fb46"></p></td></tr><tr ac:local-id="a4c912d6-7e53-455f-aab5-bfd89e67657a"><td ac:local-id="3616a562-14c7-4571-b40f-22a0ca106b63"><div class="TextAlignCenter"><img src="attachments/project_match/BM_02A.jpg" alt="BM_02A.jpg" width="200" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="a75213b3-7eb7-4d4c-9d07-fe12dc9a3a8b"></p></td><td ac:local-id="557a58df-c190-4714-b2e1-7a7944d941c5"><div class="TextAlignCenter"><img src="attachments/project_match/BM_01D.jpg" alt="BM_01D.jpg" width="200" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="163ae723-54b1-4d40-a8f9-0c3dc7979d9a"></p></td><td ac:local-id="68fe3930-b085-4b82-b9bc-20352e59af22"><div class="TextAlignCenter"><img src="attachments/project_match/BM_02A.jpg" alt="BM_02A.jpg" width="200" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="2ffd674d-77a2-4ba7-9030-02cbfad9a2c2"></p></td></tr></tbody></table><p local-id="e04c21d2-98eb-47f1-91a3-aa9eb677a3d1"></p><h2 local-id="f117bb89-3ee4-4b91-8ae2-75b9f02fd2b4" class="maintenance-section-title" data-section-number="03">ALLEGATI</h2><p class="media-group"><p><a href='attachments/project_match/BookMatchMedium.dxf'>BookMatchMedium.dxf</a></p><p><a href='attachments/project_match/BookMatchBig.dxf'>BookMatchBig.dxf</a></p><p><a href='attachments/project_match/BookMatchSmall.dxf'>BookMatchSmall.dxf</a></p><p local-id="373ae20e-6e53-43db-a68c-4c666d686234"></p><!--Label="project_match"-->
                         </main>
 
                     </div>
@@ -277,5 +279,12 @@
     </div>;
 
 
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
 </body>
 </html>

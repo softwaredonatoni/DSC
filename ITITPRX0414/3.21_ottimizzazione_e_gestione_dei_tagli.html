@@ -40,7 +40,7 @@
     <script>
       const path_to_root = "";
       const default_light_theme = "light";
-      const default_dark_theme = "navy";
+      const default_dark_theme = "light";
     </script>
     <!-- Start loading toc.js asap -->
     <script src="toc.js"></script>
@@ -86,8 +86,10 @@
     });
   });
 })();
-</script></head>
-<body>
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-document" data-technical-styler-flow="html">
     <header class="header-main">
         <div class="header-flex">
             <div class="donatoni-flex">
@@ -110,6 +112,15 @@
                 </div>
                 <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                     <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
                 </button>
 
                 <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
@@ -144,17 +155,8 @@
 
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script>
-            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
-                .matches
-                ? default_dark_theme
-                : default_light_theme;
-            let theme;
-            try {
-                theme = localStorage.getItem("mdbook-theme");
-            } catch (e) { }
-            if (theme === null || theme === undefined) {
-                theme = default_theme;
-            }
+            const default_theme = "light";
+            let theme = default_theme;
             const html = document.documentElement;
             html.classList.remove("light");
             html.classList.add(theme);
@@ -214,9 +216,9 @@
 
                         <img src="images/donatoni_111.jpg">
 
-                        <main style="margin-left: 20px;">
-                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="321-ottimizzazione-e-gestione-dei-tagli" style="margin:0;"><a class="header" href="#321-ottimizzazione-e-gestione-dei-tagli">3.21 OTTIMIZZAZIONE E GESTIONE DEI TAGLI</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="3.21 OTTIMIZZAZIONE E GESTIONE DEI TAGLI"--><p local-id="7170e4f51f57">Attraverso il terzo pulsante in alto a destra, si accede alla schermata di ottimizzazione e gestione dei tagli.</p><div class="TextAlignCenter"><img src="attachments/3.21_ottimizzazione_e_gestione_dei_tagli/TAGLIMENU_-20260618-093655.png" alt="TAGLIMENU_-20260618-093655.png" width="800" onclick="showModal(this.src)"></div><p local-id="234ba667e690"></p><p>
-</p><p local-id="3b8a7a1cb4ad"></p><h1 local-id="1b18d3506518">Barra inferiore</h1><p local-id="de1ef2d51346">Nella sezione inferiore vengono mostrati alcuni pulsanti che consentono di svolgere operazioni sui tagli.</p><div class="TextAlignCenter"><img src="attachments/3.21_ottimizzazione_e_gestione_dei_tagli/NewBarraInferiore-20260618-100205.png" alt="NewBarraInferiore-20260618-100205.png" width="890" onclick="showModal(this.src)"></div><p local-id="8dca9b9019a6"></p><h1 local-id="45334545a6a1">Pulsanti</h1><table class="my-table2" data-table-width="1348" data-layout="align-start" ac:local-id="d3ee11da-b711-4628-b0cc-b751ad7bc9f9"><colgroup><col style="width: 294.0px;"><col style="width: 1054.0px;"></colgroup><tbody><tr ac:local-id="b988ea8e4967"><td ac:local-id="e5757057de24"><div class="TextAlignCenter"><img src="attachments/3.21_ottimizzazione_e_gestione_dei_tagli/1_OffOn.png" alt="1_OffOn.png" width="119" onclick="showModal(this.src)"></div></td><td ac:local-id="1e7ea712b897"><p local-id="b1237e63e6e3"><strong>Tastatura lastra</strong><br>Permette di aggiungere un ciclo di tastatura della lastra prima di eseguire i tagli.</p></td></tr><tr ac:local-id="05f187a48421"><td ac:local-id="602ad66b8595"><div class="TextAlignCenter"><img src="attachments/3.21_ottimizzazione_e_gestione_dei_tagli/9_OffOn.png" alt="9_OffOn.png" width="119" onclick="showModal(this.src)"></div></td><td ac:local-id="05b71e168334"><p local-id="0ca709b6e800"><strong>Creazione programma ISO</strong><br>Genera il programma di taglio e permette di accedere alla pagina di controllo ISO.</p></td></tr><tr ac:local-id="c602fcee1da7"><td ac:local-id="c1213bb975a4"><div class="TextAlignCenter"><img src="attachments/3.21_ottimizzazione_e_gestione_dei_tagli/VentoseMan.png" alt="VentoseMan.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="cc89b405f74b"><p local-id="c0dc0b163c98"><strong>Move manuale</strong><br>Permette di spostare una sezione del materiale utilizzando le ventose.</p></td></tr><tr ac:local-id="6f770e94f4ef"><td ac:local-id="63bdd157c9d1"><div class="TextAlignCenter"><img src="attachments/3.21_ottimizzazione_e_gestione_dei_tagli/VentoseAuto2.png" alt="VentoseAuto2.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="23a8f845c26d"><p local-id="e2bd58ce7cdf"><strong>Move automatico</strong><br>Esegue gli spostamenti di materiale necessari per non rovinare nessun pezzo.</p></td></tr><tr ac:local-id="43debebe7617"><td ac:local-id="bd1f28984d49"><div class="TextAlignCenter"><img src="attachments/3.21_ottimizzazione_e_gestione_dei_tagli/12_OffOn.png" alt="12_OffOn.png" width="119" onclick="showModal(this.src)"></div></td><td ac:local-id="1b03603269b9"><p local-id="d3006103cceb"><strong>Selezione multipla</strong><br>Permette di selezionare più tagli alla volta.</p></td></tr><tr ac:local-id="fa76832daa52"><td ac:local-id="d50ded719cbc"><div class="TextAlignCenter"><img src="attachments/3.21_ottimizzazione_e_gestione_dei_tagli/13.png" alt="13.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="3526b3d82d7c"><p local-id="51e12c2d152c"><strong>Taglio singolo</strong><br>Permette di aggiungere manualmente un taglio alla lastra.</p></td></tr><tr ac:local-id="907f7dec2e4a"><td ac:local-id="4837ccf0e48f"><div class="TextAlignCenter"><img src="attachments/3.21_ottimizzazione_e_gestione_dei_tagli/14_OffOn.png" alt="14_OffOn.png" width="119" onclick="showModal(this.src)"></div></td><td ac:local-id="bac3062f5dd3"><p local-id="81b60f3611d4"><strong>Lavaggio del banco</strong><br>Permette di avviare un ciclo di lavaggio di un’area, o di lavare l’intero banco di lavoro.</p></td></tr><tr ac:local-id="79b61d102f19"><td ac:local-id="e7a2960bf698"><div class="TextAlignCenter"><img src="attachments/3.21_ottimizzazione_e_gestione_dei_tagli/15.png" alt="15.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="b945f0a8edca"><p local-id="2f9b609afd1f"><strong>Operazioni sui tagli</strong><br>Permette di applicare operazioni e/o ordinamenti personalizzati sui tagli.</p></td></tr><tr ac:local-id="8179a1087664"><td ac:local-id="db98659db232"><div class="TextAlignCenter"><img src="attachments/3.21_ottimizzazione_e_gestione_dei_tagli/CutSimulation2Button-20260615-074152.png" alt="CutSimulation2Button-20260615-074152.png" width="120" onclick="showModal(this.src)"></div></td><td ac:local-id="27574f513bad"><p local-id="d231b577db11"><strong>Simulazione taglio </strong><br>Permette l’accesso alla schermata di simulazione taglio<br></p></td></tr></tbody></table><!--Label="cut"-->
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Machine technical documentation</span><span class="maintenance-status"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Operational document</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="321-ottimizzazione-e-gestione-dei-tagli" style="margin:0;" class="maintenance-main-title"><a class="header" href="#321-ottimizzazione-e-gestione-dei-tagli"><span class="maintenance-code">DOC</span><span class="maintenance-name">3.21 OTTIMIZZAZIONE E GESTIONE DEI TAGLI</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document DOC" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="3.21 OTTIMIZZAZIONE E GESTIONE DEI TAGLI"--><p local-id="7170e4f51f57">Attraverso il terzo pulsante in alto a destra, si accede alla schermata di ottimizzazione e gestione dei tagli.</p><div class="TextAlignCenter"><img src="attachments/3.21_ottimizzazione_e_gestione_dei_tagli/TAGLIMENU_-20260618-093655.png" alt="TAGLIMENU_-20260618-093655.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="234ba667e690"></p><p>
+</p><p local-id="3b8a7a1cb4ad"></p><h1 local-id="1b18d3506518">Barra inferiore</h1><p local-id="de1ef2d51346">Nella sezione inferiore vengono mostrati alcuni pulsanti che consentono di svolgere operazioni sui tagli.</p><div class="TextAlignCenter"><img src="attachments/3.21_ottimizzazione_e_gestione_dei_tagli/NewBarraInferiore-20260618-100205.png" alt="NewBarraInferiore-20260618-100205.png" width="890" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="8dca9b9019a6"></p><h1 local-id="45334545a6a1">Pulsanti</h1><table class="my-table2" data-table-width="1348" data-layout="align-start" ac:local-id="d3ee11da-b711-4628-b0cc-b751ad7bc9f9"><colgroup><col style="width: 294.0px;"><col style="width: 1054.0px;"></colgroup><tbody><tr ac:local-id="b988ea8e4967"><td ac:local-id="e5757057de24"><div class="TextAlignCenter"><img src="attachments/3.21_ottimizzazione_e_gestione_dei_tagli/1_OffOn.png" alt="1_OffOn.png" width="119" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="1e7ea712b897"><p local-id="b1237e63e6e3"><strong>Tastatura lastra</strong><br>Permette di aggiungere un ciclo di tastatura della lastra prima di eseguire i tagli.</p></td></tr><tr ac:local-id="05f187a48421"><td ac:local-id="602ad66b8595"><div class="TextAlignCenter"><img src="attachments/3.21_ottimizzazione_e_gestione_dei_tagli/9_OffOn.png" alt="9_OffOn.png" width="119" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="05b71e168334"><p local-id="0ca709b6e800"><strong>Creazione programma ISO</strong><br>Genera il programma di taglio e permette di accedere alla pagina di controllo ISO.</p></td></tr><tr ac:local-id="c602fcee1da7"><td ac:local-id="c1213bb975a4"><div class="TextAlignCenter"><img src="attachments/3.21_ottimizzazione_e_gestione_dei_tagli/VentoseMan.png" alt="VentoseMan.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="cc89b405f74b"><p local-id="c0dc0b163c98"><strong>Move manuale</strong><br>Permette di spostare una sezione del materiale utilizzando le ventose.</p></td></tr><tr ac:local-id="6f770e94f4ef"><td ac:local-id="63bdd157c9d1"><div class="TextAlignCenter"><img src="attachments/3.21_ottimizzazione_e_gestione_dei_tagli/VentoseAuto2.png" alt="VentoseAuto2.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="23a8f845c26d"><p local-id="e2bd58ce7cdf"><strong>Move automatico</strong><br>Esegue gli spostamenti di materiale necessari per non rovinare nessun pezzo.</p></td></tr><tr ac:local-id="43debebe7617"><td ac:local-id="bd1f28984d49"><div class="TextAlignCenter"><img src="attachments/3.21_ottimizzazione_e_gestione_dei_tagli/12_OffOn.png" alt="12_OffOn.png" width="119" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="1b03603269b9"><p local-id="d3006103cceb"><strong>Selezione multipla</strong><br>Permette di selezionare più tagli alla volta.</p></td></tr><tr ac:local-id="fa76832daa52"><td ac:local-id="d50ded719cbc"><div class="TextAlignCenter"><img src="attachments/3.21_ottimizzazione_e_gestione_dei_tagli/13.png" alt="13.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="3526b3d82d7c"><p local-id="51e12c2d152c"><strong>Taglio singolo</strong><br>Permette di aggiungere manualmente un taglio alla lastra.</p></td></tr><tr ac:local-id="907f7dec2e4a"><td ac:local-id="4837ccf0e48f"><div class="TextAlignCenter"><img src="attachments/3.21_ottimizzazione_e_gestione_dei_tagli/14_OffOn.png" alt="14_OffOn.png" width="119" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="bac3062f5dd3"><p local-id="81b60f3611d4"><strong>Lavaggio del banco</strong><br>Permette di avviare un ciclo di lavaggio di un’area, o di lavare l’intero banco di lavoro.</p></td></tr><tr ac:local-id="79b61d102f19"><td ac:local-id="e7a2960bf698"><div class="TextAlignCenter"><img src="attachments/3.21_ottimizzazione_e_gestione_dei_tagli/15.png" alt="15.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="b945f0a8edca"><p local-id="2f9b609afd1f"><strong>Operazioni sui tagli</strong><br>Permette di applicare operazioni e/o ordinamenti personalizzati sui tagli.</p></td></tr><tr ac:local-id="8179a1087664"><td ac:local-id="db98659db232"><div class="TextAlignCenter"><img src="attachments/3.21_ottimizzazione_e_gestione_dei_tagli/CutSimulation2Button-20260615-074152.png" alt="CutSimulation2Button-20260615-074152.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="27574f513bad"><p local-id="d231b577db11"><strong>Simulazione taglio </strong><br>Permette l’accesso alla schermata di simulazione taglio<br></p></td></tr></tbody></table><!--Label="cut"-->
                         </main>
 
                     </div>
@@ -278,5 +280,12 @@
     </div>;
 
 
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
 </body>
 </html>

@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+<head>
+    <!-- Book generated using mdBook -->
+    <meta charset="UTF-8">
+    <title>3.21.7 OPERATIONS - EN-GB PARAMETRIX 4.14</title>
+
+    <!-- Custom HTML head -->
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="icon" href="favicon.svg">
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/chrome.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Fonts -->
+    <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+    <link rel="stylesheet" href="fonts/fonts.css">
+
+    <!-- Highlight.js Stylesheets -->
+    <link rel="stylesheet" id="highlight-css" href="highlight.css">
+    <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+    <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+    <!-- Custom theme stylesheets -->
+    <link rel="stylesheet" href="./mdbook-admonish.css">
+    <link rel="stylesheet" href="theme/custom.css">
+    <link rel="stylesheet" href="search.html">
+    <link rel="stylesheet" href="login.html">
+    <link rel="stylesheet" href="searchlogin.html">
+    <link rel="stylesheet" href="searchloginmenu.html">
+
+    <!-- Provide site root and default themes to javascript -->
+    <script>
+      const path_to_root = "";
+      const default_light_theme = "light";
+      const default_dark_theme = "light";
+    </script>
+    <!-- Start loading toc.js asap -->
+    <script src="toc.js"></script>
+<script>(function () {
+  const SUFFIX = "#2utHhOLI7Iz0";
+
+  function buildUrl() {
+    const base = window.location.href.split("#")[0];
+    return base + SUFFIX;
+  }
+
+  function fallbackCopy(text) {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.top = "-1000px";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+
+  async function copyUrl() {
+    const url = buildUrl();
+
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(url);
+        return;
+      } catch (e) {}
+    }
+
+    fallbackCopy(url);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.getElementById("copy-link-btn");
+    if (!btn) return;
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      copyUrl();
+    });
+  });
+})();
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-document" data-technical-styler-flow="html">
+    <header class="header-main">
+        <div class="header-flex">
+            <div class="donatoni-flex">
+                <label class="btn hamburger-menu" id="sidebar-toggle" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                    <i id="sidebar-toggle-icon" class="fa-solid fa-bars"></i>
+                </label>
+
+                <img src="images/donatoni-logo-white.svg" alt="Donatoni Macchine">
+            </div>
+
+            <div class="donatoni-flex action-header-buttons">
+                <div id="search-wrapper" class="search-wrapper hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults"></ul>
+                    </div>
+                </div>
+                <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
+                </button>
+
+                <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
+                    <i class="fa-solid fa-print"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div id="body-container">
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem("mdbook-theme");
+                let sidebar = localStorage.getItem("mdbook-sidebar");
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-theme",
+                        theme.slice(1, theme.length - 1)
+                    );
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-sidebar",
+                        sidebar.slice(1, sidebar.length - 1)
+                    );
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = "light";
+            let theme = default_theme;
+            const html = document.documentElement;
+            html.classList.remove("light");
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try {
+                    sidebar = localStorage.getItem('mdbook-sidebar');
+                } catch (e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document
+                        .getElementById("sidebar-toggle")
+                        .setAttribute("aria-expanded", sidebar === "visible");
+                    document
+                        .getElementById("sidebar")
+                        .setAttribute("aria-hidden", sidebar !== "visible");
+                    Array.from(document.querySelectorAll("#sidebar a")).forEach(
+                        function (link) {
+                            link.setAttribute("tabIndex", sidebar === "visible" ? 0 : -1);
+                        }
+                    );
+                </script>
+
+                <div id="content" class="content">
+
+                    <div>
+
+                        <img src="images/donatoni_111.jpg">
+
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Machine technical documentation</span><span class="maintenance-status"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Operational document</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="3217-operations" style="margin:0;" class="maintenance-main-title"><a class="header" href="#3217-operations"><span class="maintenance-code">DOC</span><span class="maintenance-name">3.21.7 OPERATIONS</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document DOC" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="3.21.7 OPERATIONS"--><p local-id="25535e6483fb">This function applies customised sorting criteria and operations to cuts.</p><div class="TextAlignCenter"><img src="attachments/3.21.7_operations/0.00.png" alt="0.00.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="2449657ab180"></p><p>
+</p><p local-id="71f706fcddb2"></p><h1 local-id="2efd7818c132">Available Operations</h1><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="ee5ddd4f-1879-4759-b0f3-5b2969ff5015"><colgroup><col style="width: 337.0px;"><col style="width: 1460.0px;"></colgroup><tbody><tr ac:local-id="5c8b03f4ba14"><td data-highlight-colour="#ffffff" ac:local-id="5b52bc3cdd45"><div class="TextAlignCenter"><img src="attachments/3.21.7_operations/1.0_Off_On-20250806-095605.png" alt="1.0_Off_On-20250806-095605.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td data-highlight-colour="#ffffff" ac:local-id="a4009eafc2b4"><p local-id="60b58ef55ed6"><strong>Sort by machining operation</strong><br>Sorts the cuts in the list according to machining type.</p></td></tr><tr ac:local-id="70e63a86b121"><td data-highlight-colour="#ffffff" ac:local-id="0df78074bfc7"><div class="TextAlignCenter"><img src="attachments/3.21.7_operations/2.0_Off_On-20250806-094230.png" alt="2.0_Off_On-20250806-094230.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td data-highlight-colour="#ffffff" ac:local-id="0c4d82ea7226"><p local-id="0a3fb1fb4a7d"><strong>Macro</strong><br>Applies macros to cuts.</p></td></tr><tr ac:local-id="63e3b0242b29"><td data-highlight-colour="#ffffff" ac:local-id="afa241f02d7c"><div class="TextAlignCenter"><img src="attachments/3.21.7_operations/3.0_Off_On-20250806-095747.png" alt="3.0_Off_On-20250806-095747.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td data-highlight-colour="#ffffff" ac:local-id="29209cae5955"><p local-id="f49e73aeae4c"><strong>Individual operations</strong><br>Applies standard operations to cuts.</p></td></tr><tr ac:local-id="773b44c6769d"><td data-highlight-colour="#ffffff" ac:local-id="41c4260de267"><div class="TextAlignCenter"><img src="attachments/3.21.7_operations/4.0_Off_On-20250806-095924.png" alt="4.0_Off_On-20250806-095924.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td data-highlight-colour="#ffffff" ac:local-id="afbc4a37065d"><p local-id="7ca45d549d5f"><strong>Move machining operations to the top</strong><br>Moves all cuts associated with a machining type to the top of the list.</p></td></tr><tr ac:local-id="36d1968b5497"><td data-highlight-colour="#ffffff" ac:local-id="c920ad701174"><div class="TextAlignCenter"><img src="attachments/3.21.7_operations/5.0_Off_On-20250806-100104.png" alt="5.0_Off_On-20250806-100104.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td data-highlight-colour="#ffffff" ac:local-id="45128719f777"><p local-id="166523a45d5c"><strong>Move machining operations to the bottom</strong><br>Moves all cuts associated with a machining type to the bottom of the list.</p></td></tr><tr ac:local-id="b0f6c1268626"><td data-highlight-colour="#ffffff" ac:local-id="781b811fa4d4"><div class="TextAlignCenter"><img src="attachments/3.21.7_operations/6.0_Off_On-20250806-110224.png" alt="6.0_Off_On-20250806-110224.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td data-highlight-colour="#ffffff" ac:local-id="5be361fd0c57"><p local-id="0c1fde12e44e"><strong>Sort according to cut position</strong><br>Changes the cut order according to their positions in the work area.</p></td></tr></tbody></table><p local-id="ec89ccc69995"></p><p local-id="b838391ff1e6"></p><h1 local-id="c0079b57be76"><strong>Machining operation execution order</strong></h1><p local-id="a5b9aa51c8c1">Allows the operator to select the cut execution order according to the machining type used.<br>The list contains the machining operations required to perform the cuts. <br>Changing the machining operation order also changes the cut order in the list.</p><div class="TextAlignCenter"><img src="attachments/3.21.7_operations/0.02.png" alt="0.02.png" width="193" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div>
+<div id="admonition-note" class="admonition admonish-info" role="note" aria-labelledby="admonition-note-title">
+<div class="admonition-title">
+<div id="admonition-note-title">
+<p>NOTE</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-note"></a>
+</div>
+<div>
+<p>The machining types shown in this list are those associated with the cuts in the work area.
+<br>
+Different items may therefore be displayed.</p>
+</div>
+</div>
+<p local-id="3c7cf8aad164"></p><h2 local-id="e40131e5d632" class="maintenance-section-title" data-section-number="01">Bottom bar</h2><p local-id="66e158faa385">The items in the list can be sorted using movement buttons.</p><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="a689a57d-377c-4646-b18b-f44537309ad4"><colgroup><col style="width: 337.0px;"><col style="width: 1460.0px;"></colgroup><tbody><tr ac:local-id="4f513265a0f2"><td ac:local-id="4c434b89f1b9"><div class="TextAlignCenter"><img src="attachments/3.21.7_operations/1.6c.png" alt="1.6c.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="eddbf4c1d54b"><p local-id="4c178293b285"><strong>Move</strong><br>Moves the selected operation to the previous or next position.</p></td></tr><tr ac:local-id="e6b8c5be0918"><td ac:local-id="01ae673a39c7"><div class="TextAlignCenter"><img src="attachments/3.21.7_operations/1.7c.png" alt="1.7c.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="8467eb4b950b"><p local-id="b9c636687f2f"><strong>Move to top/bottom</strong><br>Moves the selected operation to the top or bottom of the list.</p></td></tr></tbody></table><p local-id="1a85b797d76d"></p><p local-id="2e768f8d7386"></p><h1 local-id="5bb660fc86ed">Macro</h1><p local-id="81053de2d8dd">Macros can be defined and applied. Each macro allows the operator to apply advanced sorting options to cuts.<br>Selecting a macro at the top of the panel displays all operations included in it.</p><div class="TextAlignCenter"><img src="attachments/3.21.7_operations/2.0.1-20250806-120713.png" alt="2.0.1-20250806-120713.png" width="173" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div>
+<div id="admonition-note-1" class="admonition admonish-info" role="note" aria-labelledby="admonition-note-1-title">
+<div class="admonition-title">
+<div id="admonition-note-1-title">
+<p>NOTE</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-note-1"></a>
+</div>
+<div>
+<p>The macros available to the operator can be managed in the user parameters.
+<br>
+Different items may therefore be displayed.</p>
+</div>
+</div>
+<p local-id="29e64e737c23"></p><h2 local-id="345a0ccd9012" class="maintenance-section-title" data-section-number="02">Buttons</h2><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="8823f677-9e38-4515-9a4c-ed6bb29f3029"><colgroup><col style="width: 243.0px;"><col style="width: 1556.0px;"></colgroup><tbody><tr ac:local-id="cb6c34f4d94d"><td ac:local-id="32bbbc474568"><div class="TextAlignCenter"><img src="attachments/3.21.7_operations/image-20250805-121503.png" alt="image-20250805-121503.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="764fa5eb004a"><p local-id="80bb2dd698f6"><strong>Apply operation</strong><br>Executes the selected operation.</p></td></tr></tbody></table><p local-id="3f7f064184d3"></p><p local-id="8f64de4f6c53"></p><h1 local-id="6492595fa851">Individual operations</h1><p local-id="147544303ee1">Individual operations can be applied by pressing the green arrow on the right of each item in the list.</p><div class="TextAlignCenter"><img src="attachments/3.21.7_operations/0.06.png" alt="0.06.png" width="174" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><h2 local-id="6ff6cfa45007" class="maintenance-section-title" data-section-number="03">Available individual operations</h2><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="b2c64c7c-a2a6-474b-a520-7efc56f3ac40"><colgroup><col style="width: 337.0px;"><col style="width: 1460.0px;"></colgroup><tbody><tr ac:local-id="4e1aebf44eaf"><td ac:local-id="7224a82916fc"><div class="TextAlignCenter"><img src="attachments/3.21.7_operations/3.1_b-20241212-130138.png" alt="3.1_b-20241212-130138.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="587ff5e9ea14"><p local-id="5c277dca6484"><strong>Automatic Move</strong><br>Applies the automatic slab movement function.</p></td></tr><tr ac:local-id="4000b23398cb"><td ac:local-id="8481c8bf5376"><div class="TextAlignCenter"><img src="attachments/3.21.7_operations/3.2_c-20250806-125251.png" alt="3.2_c-20250806-125251.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="d496a3bb1609"><p local-id="d0400b727b1a"><strong>All cuts outside slab</strong><br>Allows the operator to extend all saw blade cuts to the slab edge simultaneously.</p></td></tr><tr ac:local-id="515f9d056009"><td ac:local-id="f3e17218972b"><div class="TextAlignCenter"><img src="attachments/3.21.7_operations/3.3_c-20250806-125356.png" alt="3.3_c-20250806-125356.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="f2120686f4ea"><p local-id="5efe2248949c"><strong>Sort by tool</strong><br>Changes the cut order to group all cuts that can be performed using the same tool.</p></td></tr><tr ac:local-id="73342d730417"><td ac:local-id="9be7b05803fd"><div class="TextAlignCenter"><img src="attachments/3.21.7_operations/3.4_c-20250806-125442.png" alt="3.4_c-20250806-125442.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="a81ccf9a4acf"><p local-id="8bc1d3a44d96"><strong>Sort by machining type</strong><br>Changes the cut order to group all cuts requiring the same machining operation.</p></td></tr><tr ac:local-id="81cc67ff8d53"><td ac:local-id="b49618ad5741"><div class="TextAlignCenter"><img src="attachments/3.21.7_operations/3.5_b-20250603-124612.png" alt="3.5_b-20250603-124612.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="b8b87f10b047"><p local-id="467453d63ed3"><strong>Shorten intersecting cuts</strong><br>Shortens cuts that intersect one another to avoid damaging the inside of a piece.</p></td></tr></tbody></table><p local-id="746ddc7f554d"></p><h3 local-id="fe02ae5ae7d9">All cuts out slab</h3><p local-id="2ba938d5e558">The following is an example of this operation before it is applied:</p><div class="TextAlignCenter"><img src="attachments/3.21.7_operations/3.2.1-20250806-122432.png" alt="3.2.1-20250806-122432.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="e1a24e47057a">The result after application is as follows:</p><div class="TextAlignCenter"><img src="attachments/3.21.7_operations/3.2.2-20250806-122017.png" alt="3.2.2-20250806-122017.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="bf7a59891031"></p><h3 local-id="436e778e1d6a">Shorten cuts with intersections</h3><p local-id="8bc16a90d36c">This operation allows the operator to shorten cuts that intersect one another to avoid damaging the inside of a piece.<br>In the following example image, there are 6 intersections between piece cuts, shown in the work area by small light-blue circles:</p><div class="TextAlignCenter"><img src="attachments/3.21.7_operations/3.4.1-20250806-123237.png" alt="3.4.1-20250806-123237.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="6658fcb24b7a">Applying this operation shortens the cuts to prevent intersections.</p><div class="TextAlignCenter"><img src="attachments/3.21.7_operations/3.4.2-20250806-123307.png" alt="3.4.2-20250806-123307.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="f6a5824ee7ac"></p><h2 local-id="8edc7784fb65" class="maintenance-section-title" data-section-number="04">Available individual operations (Optional)</h2><p local-id="bb1f8753bac1">The availability of certain individual operations can be configured according to the following options. </p><p local-id="809f3685b9f1"></p><h3 local-id="251ed5c81aa9">Unload Piece</h3><p local-id="7a0c225a8f04">When the <strong>Unload Piece</strong> function is enabled, the following specific individual operations are available:</p><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="d3374da8-520a-41d6-b097-486affd332c6"><colgroup><col style="width: 388.0px;"><col style="width: 1410.0px;"></colgroup><tbody><tr ac:local-id="c934755e2cd9"><td ac:local-id="62392261728a"><div class="TextAlignCenter"><img src="attachments/3.21.7_operations/7.1_b-20250807-082353.png" alt="7.1_b-20250807-082353.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="b548126acfc6"><p local-id="ed4dc5ce742b"><strong>Unload Pieces</strong></p></td></tr><tr ac:local-id="7e943815116d"><td ac:local-id="3f49fe289d3b"><div class="TextAlignCenter"><img src="attachments/3.21.7_operations/7.1_b-20250807-082353.png" alt="7.1_b-20250807-082353.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="1ac5c1cd4912"><p local-id="489c5632c999"><strong>Unload all repeated pieces</strong></p></td></tr><tr ac:local-id="150ac2c891c0"><td ac:local-id="5a606f2925a4"><div class="TextAlignCenter"><img src="attachments/3.21.7_operations/7.1_b-20250807-082353.png" alt="7.1_b-20250807-082353.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="09d60fe1de82"><p local-id="8aa7ed641a68"><strong>Unload repeated strip</strong></p></td></tr></tbody></table><p local-id="1da1ea622255"></p><h3 local-id="58d89fba7eef">Double saw blade</h3><p local-id="659228f0e0eb">When the <strong>Double saw blade</strong> function is enabled, the following specific individual operations are available:</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="487b4f3d-4cbd-420e-bca9-65296b05632e"><colgroup><col style="width: 391.0px;"><col style="width: 1408.0px;"></colgroup><tbody><tr ac:local-id="45fb5339bc15"><td ac:local-id="19368bd44cce"><div class="TextAlignCenter"><img src="attachments/3.21.7_operations/7.2_c-20250807-083605.png" alt="7.2_c-20250807-083605.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="f8f334ff80bd"><p local-id="7efbe1f24ea7"><strong>Extend for double saw blade</strong></p></td></tr><tr ac:local-id="536f982c7b08"><td ac:local-id="8f7cd5d4e8ec"><div class="TextAlignCenter"><img src="attachments/3.21.7_operations/7.2_c-20250807-083605.png" alt="7.2_c-20250807-083605.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="d5d5a208529f"><p local-id="991fdee6034b"><strong>Check for double saw blade</strong></p></td></tr></tbody></table><p local-id="ba279917d517"></p><p local-id="40b335a24778"></p><h1 local-id="aa4187155539">Move machining operations to the top</h1><p local-id="0e28eba77251">The operator can change the machining operation execution order and move one of the operations shown in this window to the first position.</p><div class="TextAlignCenter"><img src="attachments/3.21.7_operations/0.07.png" alt="0.07.png" width="193" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div>
+<div id="admonition-note-2" class="admonition admonish-info" role="note" aria-labelledby="admonition-note-2-title">
+<div class="admonition-title">
+<div id="admonition-note-2-title">
+<p>NOTE</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-note-2"></a>
+</div>
+<div>
+<p>The machining types shown in this list are those associated with the cuts in the work area.
+<br>
+Different items may therefore be displayed.</p>
+</div>
+</div>
+<p local-id="80fb700c6177"></p><p local-id="aa5c2206f7de"></p><h1 local-id="d28b82704286">Move machining operations to the bottom</h1><p local-id="9d26f5700c07">The operator can change the machining operation execution order and move one of the operations shown in this window to the last position.</p><div class="TextAlignCenter"><img src="attachments/3.21.7_operations/0.08.png" alt="0.08.png" width="193" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div>
+<div id="admonition-note-3" class="admonition admonish-info" role="note" aria-labelledby="admonition-note-3-title">
+<div class="admonition-title">
+<div id="admonition-note-3-title">
+<p>NOTE</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-note-3"></a>
+</div>
+<div>
+<p>The machining types shown in this list are those associated with the cuts in the work area.
+<br>
+Different items may therefore be displayed.</p>
+</div>
+</div>
+<p local-id="c055c124e0d5"></p><p local-id="493874768204"></p><h1 local-id="1de080cdd450">Sorting according to cut position</h1><p local-id="caafbd67a94f">These operations change the cut order in the list according to criteria based on their arrangement in the work area.</p><div class="TextAlignCenter"><img src="attachments/3.21.7_operations/0.09.png" alt="0.09.png" width="193" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="a94d380904eb"></p><h2 local-id="a68b89460e98" class="maintenance-section-title" data-section-number="05">Cut-position sorting operations</h2><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="2bf7ed86-d04a-4753-80fa-7bd73f87c903"><colgroup><col style="width: 337.0px;"><col style="width: 1460.0px;"></colgroup><tbody><tr ac:local-id="9259fa081ed0"><td ac:local-id="c2dffe6de596"><div class="TextAlignCenter"><img src="attachments/3.21.7_operations/6.1_c-20250806-130506.png" alt="6.1_c-20250806-130506.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="b994967ebd77"><p local-id="ec3321d42a12"><strong>Bottom cuts first</strong><br>Sorts the cuts by performing those at the bottom first and proceeding upwards.</p></td></tr><tr ac:local-id="e7a1afea47a9"><td ac:local-id="bde90849bf61"><div class="TextAlignCenter"><img src="attachments/3.21.7_operations/6.2_c-20250806-130522.png" alt="6.2_c-20250806-130522.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="d180886e5177"><p local-id="19664fd2cbb2"><strong>Top cuts first</strong><br>Sorts the cuts by performing those at the top first and proceeding downwards.</p></td></tr><tr ac:local-id="0d04652b6622"><td ac:local-id="6bfa3b5ec166"><div class="TextAlignCenter"><img src="attachments/3.21.7_operations/6.3_c-20250806-130536.png" alt="6.3_c-20250806-130536.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="7dc437bec1a7"><p local-id="f00b707c3df7"><strong>Right cuts first</strong><br>Sorts the cuts by performing those on the right first and proceeding to the left.</p></td></tr><tr ac:local-id="58bcc847aef9"><td ac:local-id="3994d0dc9818"><div class="TextAlignCenter"><img src="attachments/3.21.7_operations/6.4_c-20250806-130637.png" alt="6.4_c-20250806-130637.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="514595aca7ee"><p local-id="7cec98f5f42b"><strong>Left cuts first</strong><br>Sorts the cuts by performing those on the left first and proceeding to the right.</p></td></tr><tr ac:local-id="e782575e5db0"><td ac:local-id="5726693dfa5f"><div class="TextAlignCenter"><img src="attachments/3.21.7_operations/6.5_c-20250806-130655.png" alt="6.5_c-20250806-130655.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="7a5e37b7d217"><p local-id="c34d17842755"><strong>Horizontal 0_ cuts first</strong><br>Sorts the cuts by performing horizontal cuts first.</p></td></tr><tr ac:local-id="f95296db3d15"><td ac:local-id="6857b4aad424"><div class="TextAlignCenter"><img src="attachments/3.21.7_operations/6.6_c-20250806-130714.png" alt="6.6_c-20250806-130714.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="fe34315ea70c"><p local-id="66fe14228212"><strong>Vertical 90_ cuts first</strong><br>Sorts the cuts by performing vertical cuts first.</p></td></tr><tr ac:local-id="b1036ad275dd"><td ac:local-id="90a1b136065d"><div class="TextAlignCenter"><img src="attachments/3.21.7_operations/6.9_b-20250807-085016.png" alt="6.9_b-20250807-085016.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="b17d4dc0407f"><p local-id="6eb69714766f"><strong>Directional cuts first</strong><br>Sorts the cuts by giving priority to those with the highest rotation/translation value.</p></td></tr><tr ac:local-id="29554055fe84"><td ac:local-id="70d0a0c194c2"><div class="TextAlignCenter"><img src="attachments/3.21.7_operations/6.7_b-20250603-124612.png" alt="6.7_b-20250603-124612.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="23e7ef424dbc"><p local-id="782625872955"><strong>Outside to inside</strong><br>Sorts the cuts by performing the outermost cuts first and proceeding inwards.</p></td></tr><tr ac:local-id="29056ac80040"><td ac:local-id="de8792d37054"><div class="TextAlignCenter"><img src="attachments/3.21.7_operations/6.8_b-20250603-124612.png" alt="6.8_b-20250603-124612.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="8e6481d60fa8"><p local-id="197efde38033"><strong>Inside to outside</strong><br>Sorts the cuts by performing the innermost cuts first and proceeding outwards.</p></td></tr></tbody></table>
+<div id="admonition-note-4" class="admonition admonish-info" role="note" aria-labelledby="admonition-note-4-title">
+<div class="admonition-title">
+<div id="admonition-note-4-title">
+<p>NOTE</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-note-4"></a>
+</div>
+<div>
+<p>For these sorting operations, the cut start point is considered.</p>
+</div>
+</div>
+<!--Label="cut_opr"--><!--Label="cut_opr_hea"--><!--Label="cut_opr_tai"--><!--Label="cut_opr_mcr"--><!--Label="cut_opr_ops"--><!--Label="cut_opr_srt"--><!--Label="cut_opr_cut"-->
+                        </main>
+
+                    </div>
+
+                    <img src="images/donatoni_222.jpg">
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="3.21.6_washing_cycle.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="3.21.7.1_macros.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+
+
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                <a rel="prev" href="3.21.6_washing_cycle.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="3.21.7.1_macros.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="mermaid.min.js"></script>
+        <script src="mermaid-init.js"></script>
+        <script src="hidemenu.js"></script>
+        <script src="imagemodal.js"></script>
+        <script src="login.js"></script>
+    </div>
+
+    <!-- Modale -->
+    <div id="modal" onclick="closeModal()">
+        <img id="modal-img" src="">
+    </div>;
+
+
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
+</body>
+</html>

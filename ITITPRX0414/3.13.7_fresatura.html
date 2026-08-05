@@ -40,7 +40,7 @@
     <script>
       const path_to_root = "";
       const default_light_theme = "light";
-      const default_dark_theme = "navy";
+      const default_dark_theme = "light";
     </script>
     <!-- Start loading toc.js asap -->
     <script src="toc.js"></script>
@@ -86,8 +86,10 @@
     });
   });
 })();
-</script></head>
-<body>
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-document" data-technical-styler-flow="html">
     <header class="header-main">
         <div class="header-flex">
             <div class="donatoni-flex">
@@ -110,6 +112,15 @@
                 </div>
                 <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                     <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
                 </button>
 
                 <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
@@ -144,17 +155,8 @@
 
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script>
-            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
-                .matches
-                ? default_dark_theme
-                : default_light_theme;
-            let theme;
-            try {
-                theme = localStorage.getItem("mdbook-theme");
-            } catch (e) { }
-            if (theme === null || theme === undefined) {
-                theme = default_theme;
-            }
+            const default_theme = "light";
+            let theme = default_theme;
             const html = document.documentElement;
             html.classList.remove("light");
             html.classList.add(theme);
@@ -214,8 +216,8 @@
 
                         <img src="images/donatoni_111.jpg">
 
-                        <main style="margin-left: 20px;">
-                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="3137-fresatura" style="margin:0;"><a class="header" href="#3137-fresatura">3.13.7 FRESATURA</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="3.13.7 FRESATURA"--><p local-id="2e47c0afce81">La funzione ‘Fresatura’ permette di creare una fresatura sul pezzo, sul lato, sul bordo oppure sull'intero perimetro.<br>L’interfaccia per questa funzione assomiglia alla seguente immagine:</p><div class="TextAlignCenter"><img src="attachments/3.13.7_fresatura/{6A83EEC1-8199-469C-9A0E-53EE7C45B3BC}-20260615-145631.png" alt="{6A83EEC1-8199-469C-9A0E-53EE7C45B3BC}-20260615-145631.png" width="800" onclick="showModal(this.src)"></div><p local-id="6b1684794de9"></p><p>
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Machine technical documentation</span><span class="maintenance-status"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Operational document</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="3137-fresatura" style="margin:0;" class="maintenance-main-title"><a class="header" href="#3137-fresatura"><span class="maintenance-code">DOC</span><span class="maintenance-name">3.13.7 FRESATURA</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document DOC" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="3.13.7 FRESATURA"--><p local-id="2e47c0afce81">La funzione ‘Fresatura’ permette di creare una fresatura sul pezzo, sul lato, sul bordo oppure sull'intero perimetro.<br>L’interfaccia per questa funzione assomiglia alla seguente immagine:</p><div class="TextAlignCenter"><img src="attachments/3.13.7_fresatura/{6A83EEC1-8199-469C-9A0E-53EE7C45B3BC}-20260615-145631.png" alt="{6A83EEC1-8199-469C-9A0E-53EE7C45B3BC}-20260615-145631.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="6b1684794de9"></p><p>
 </p><p local-id="4e1946752dc5"></p><h1 local-id="b8e85cac9313">Parametri</h1>
 <div id="admonition-nota" class="admonition admonish-info" role="note" aria-labelledby="admonition-nota-title">
 <div class="admonition-title">
@@ -244,7 +246,7 @@ Per la modalità Vertice la variazione dello spessore del materiale oppure la va
 In caso la Fresa sia troppo grande per tagliare il lato selezionato verrà, visualizzato a video un messaggio di errore.</p>
 </div>
 </div>
-<table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="002450e2-39b5-4605-a52d-385e450b311e"><colgroup><col style="width: 230.0px;"><col style="width: 1568.0px;"></colgroup><tbody><tr ac:local-id="a011908779bf"><td ac:local-id="b3618a54dd45"><p local-id="744aed0685bb"><strong>Spessore</strong></p></td><td ac:local-id="d352f8105b9b"><p local-id="0807ec67818e">Viene mostrato lo spessore della lastra attualmente impostato in Parametrix, per aiutare l’operatore ad applicare la lavorazione.</p></td></tr><tr ac:local-id="7458da30f876"><td ac:local-id="ac41bc8e8d47"><div class="TextAlignCenter"><img src="attachments/3.13.7_fresatura/PenetrazioneFresatura-20260611-114150.png" alt="PenetrazioneFresatura-20260611-114150.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="1be9126397a8"><p local-id="ab79439c4384"><strong>Penetrazione</strong><br>Normalmente il valore di penetrazione coincide con lo spessore, in caso si voglia cambiare manualmente si prema il bottone mostrato a sinistra e apparirà la variabile modificabile. </p></td></tr><tr ac:local-id="17450b6e43d0"><td ac:local-id="e166fabb942b"><div class="TextAlignCenter"><img src="attachments/3.13.7_fresatura/{0F9B96F3-41AB-423E-A8F5-7613FB58F9C9}-20260611-121920.png" alt="{0F9B96F3-41AB-423E-A8F5-7613FB58F9C9}-20260611-121920.png" width="60" onclick="showModal(this.src)"></div></td><td ac:local-id="c45a5c50544b"><p local-id="ff1ad18d7545"><strong>Fresatura su angoli interni</strong><br>Applica la fresatura sugli angoli interni.</p></td></tr></tbody></table><p local-id="9c0d5633e05c"></p><p local-id="2af0d9defded"></p><h1 local-id="892ac3bc3b15">Esecuzione della lavorazione</h1>
+<table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="002450e2-39b5-4605-a52d-385e450b311e"><colgroup><col style="width: 230.0px;"><col style="width: 1568.0px;"></colgroup><tbody><tr ac:local-id="a011908779bf"><td ac:local-id="b3618a54dd45"><p local-id="744aed0685bb"><strong>Spessore</strong></p></td><td ac:local-id="d352f8105b9b"><p local-id="0807ec67818e">Viene mostrato lo spessore della lastra attualmente impostato in Parametrix, per aiutare l’operatore ad applicare la lavorazione.</p></td></tr><tr ac:local-id="7458da30f876"><td ac:local-id="ac41bc8e8d47"><div class="TextAlignCenter"><img src="attachments/3.13.7_fresatura/PenetrazioneFresatura-20260611-114150.png" alt="PenetrazioneFresatura-20260611-114150.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="1be9126397a8"><p local-id="ab79439c4384"><strong>Penetrazione</strong><br>Normalmente il valore di penetrazione coincide con lo spessore, in caso si voglia cambiare manualmente si prema il bottone mostrato a sinistra e apparirà la variabile modificabile. </p></td></tr><tr ac:local-id="17450b6e43d0"><td ac:local-id="e166fabb942b"><div class="TextAlignCenter"><img src="attachments/3.13.7_fresatura/{0F9B96F3-41AB-423E-A8F5-7613FB58F9C9}-20260611-121920.png" alt="{0F9B96F3-41AB-423E-A8F5-7613FB58F9C9}-20260611-121920.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="c45a5c50544b"><p local-id="ff1ad18d7545"><strong>Fresatura su angoli interni</strong><br>Applica la fresatura sugli angoli interni.</p></td></tr></tbody></table><p local-id="9c0d5633e05c"></p><p local-id="2af0d9defded"></p><h1 local-id="892ac3bc3b15">Esecuzione della lavorazione</h1>
 <div id="admonition-nota-2" class="admonition admonish-info" role="note" aria-labelledby="admonition-nota-2-title">
 <div class="admonition-title">
 <div id="admonition-nota-2-title">
@@ -258,7 +260,7 @@ In caso la Fresa sia troppo grande per tagliare il lato selezionato verrà, visu
 Un’icona rossa con una 'X' indica che la lavorazione non può essere applicata al taglio desiderato.</p>
 </div>
 </div>
-<p local-id="4793bf75b724">Le conseguenze dell’applicazione di una fresatura variano in base alla modalità selezionata e presentano alcune differenze, descritte nei paragrafi seguenti.<br>La fresatura ha inizio dal punto di attacco indicato nella figura, identificabile con il cerchio colorato pieno posizionato sull'origine.</p><p local-id="b19f8eafb499">Ogni fresatura applicata a un pezzo viene inserita nella lista dei tagli associata a un poligono e rappresentata graficamente in colore azzurro.</p><ul local-id="c7d2624647af"><li local-id="5947e9432f63"><p local-id="d4a2e6a7df2b">Nella modalità <strong>Vertice</strong>, la fresatura viene allineata al vertice selezionato.</p></li><li local-id="1201136ccfec"><p local-id="d96869ce38c0">Nelle modalità <strong>Lato</strong> e <strong>Perimetro</strong>, vengono sostituiti rispettivamente <strong>uno</strong> o <strong>tutti</strong> i tagli del poligono.</p></li></ul><p local-id="ea51a14c1ea9"></p><h2 local-id="7218b5435a72"><strong>Esecuzione su un vertice</strong></h2><p local-id="053c2a750691">La fresatura viene applicata al vertice più vicino al punto selezionato di un taglio nell’anteprima.<br>L’applicazione avverrà tra due tagli consecutivi.</p><p local-id="b1a5dbf9afb2">Nella seguente immagine di esempio sono mostrate due lavorazioni di fresatura su vertice: la prima su un vertice superiore sinistro del poligono interno; la seconda su un vertice del poligono esterno.</p><div class="TextAlignCenter"><img src="attachments/3.13.7_fresatura/{E3AB9414-D311-47E1-8372-A3C8F997E2F4}-20260615-145724.png" alt="{E3AB9414-D311-47E1-8372-A3C8F997E2F4}-20260615-145724.png" width="800" onclick="showModal(this.src)"></div><p local-id="1058cf585b0c"></p><p local-id="a4b627901054"></p><h2 local-id="50791370115e"><strong>Esecuzione su un lato</strong></h2><p local-id="75d5ebcbbf5c">Selezionando un punto qualsiasi di un taglio sull’anteprima, la fresatura verrà applicata lungo l’intero lato corrispondente.</p><p local-id="558bc19aa4c8">Nell'immagine seguente sono mostrate due lavorazioni di fresatura su lato: la prima sul lato sinistro del poligono interno; la seconda su un lato inferiore del poligono esterno.</p><div class="TextAlignCenter"><img src="attachments/3.13.7_fresatura/{C8B86567-B354-45E6-B53A-DF6151361FC9}-20260616-071042.png" alt="{C8B86567-B354-45E6-B53A-DF6151361FC9}-20260616-071042.png" width="800" onclick="showModal(this.src)"></div><p local-id="6a4f794d07c9"></p><h2 local-id="ac6e3280dfa5"><strong>Esecuzione sul perimetro</strong></h2><p local-id="626fafac1f41">Indipendentemente dal punto o dal taglio selezionato, la fresatura verrà eseguita lungo l’intero perimetro del poligono selezionato.</p><div class="TextAlignCenter"><img src="attachments/3.13.7_fresatura/{E7147DCE-21C3-4934-9533-86B3F74D06D1}-20260616-072618.png" alt="{E7147DCE-21C3-4934-9533-86B3F74D06D1}-20260616-072618.png" width="800" onclick="showModal(this.src)"></div><p local-id="106819a6273e"></p><!--Label="mdf_mll"--><!--Label="mdf_mll_sid"--><!--Label="mdf_mll_ver"--><!--Label="mdf_mll_per"-->
+<p local-id="4793bf75b724">Le conseguenze dell’applicazione di una fresatura variano in base alla modalità selezionata e presentano alcune differenze, descritte nei paragrafi seguenti.<br>La fresatura ha inizio dal punto di attacco indicato nella figura, identificabile con il cerchio colorato pieno posizionato sull'origine.</p><p local-id="b19f8eafb499">Ogni fresatura applicata a un pezzo viene inserita nella lista dei tagli associata a un poligono e rappresentata graficamente in colore azzurro.</p><ul local-id="c7d2624647af"><li local-id="5947e9432f63"><p local-id="d4a2e6a7df2b">Nella modalità <strong>Vertice</strong>, la fresatura viene allineata al vertice selezionato.</p></li><li local-id="1201136ccfec"><p local-id="d96869ce38c0">Nelle modalità <strong>Lato</strong> e <strong>Perimetro</strong>, vengono sostituiti rispettivamente <strong>uno</strong> o <strong>tutti</strong> i tagli del poligono.</p></li></ul><p local-id="ea51a14c1ea9"></p><h2 local-id="7218b5435a72" class="maintenance-section-title" data-section-number="01"><strong>Esecuzione su un vertice</strong></h2><p local-id="053c2a750691">La fresatura viene applicata al vertice più vicino al punto selezionato di un taglio nell’anteprima.<br>L’applicazione avverrà tra due tagli consecutivi.</p><p local-id="b1a5dbf9afb2">Nella seguente immagine di esempio sono mostrate due lavorazioni di fresatura su vertice: la prima su un vertice superiore sinistro del poligono interno; la seconda su un vertice del poligono esterno.</p><div class="TextAlignCenter"><img src="attachments/3.13.7_fresatura/{E3AB9414-D311-47E1-8372-A3C8F997E2F4}-20260615-145724.png" alt="{E3AB9414-D311-47E1-8372-A3C8F997E2F4}-20260615-145724.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="1058cf585b0c"></p><p local-id="a4b627901054"></p><h2 local-id="50791370115e" class="maintenance-section-title" data-section-number="02"><strong>Esecuzione su un lato</strong></h2><p local-id="75d5ebcbbf5c">Selezionando un punto qualsiasi di un taglio sull’anteprima, la fresatura verrà applicata lungo l’intero lato corrispondente.</p><p local-id="558bc19aa4c8">Nell'immagine seguente sono mostrate due lavorazioni di fresatura su lato: la prima sul lato sinistro del poligono interno; la seconda su un lato inferiore del poligono esterno.</p><div class="TextAlignCenter"><img src="attachments/3.13.7_fresatura/{C8B86567-B354-45E6-B53A-DF6151361FC9}-20260616-071042.png" alt="{C8B86567-B354-45E6-B53A-DF6151361FC9}-20260616-071042.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="6a4f794d07c9"></p><h2 local-id="ac6e3280dfa5" class="maintenance-section-title" data-section-number="03"><strong>Esecuzione sul perimetro</strong></h2><p local-id="626fafac1f41">Indipendentemente dal punto o dal taglio selezionato, la fresatura verrà eseguita lungo l’intero perimetro del poligono selezionato.</p><div class="TextAlignCenter"><img src="attachments/3.13.7_fresatura/{E7147DCE-21C3-4934-9533-86B3F74D06D1}-20260616-072618.png" alt="{E7147DCE-21C3-4934-9533-86B3F74D06D1}-20260616-072618.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="106819a6273e"></p><!--Label="mdf_mll"--><!--Label="mdf_mll_sid"--><!--Label="mdf_mll_ver"--><!--Label="mdf_mll_per"-->
                         </main>
 
                     </div>
@@ -320,5 +322,12 @@ Un’icona rossa con una 'X' indica che la lavorazione non può essere applicata
     </div>;
 
 
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
 </body>
 </html>

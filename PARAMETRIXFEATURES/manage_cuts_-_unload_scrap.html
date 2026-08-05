@@ -40,7 +40,7 @@
     <script>
       const path_to_root = "";
       const default_light_theme = "light";
-      const default_dark_theme = "navy";
+      const default_dark_theme = "light";
     </script>
     <!-- Start loading toc.js asap -->
     <script src="toc.js"></script>
@@ -86,8 +86,10 @@
     });
   });
 })();
-</script></head>
-<body>
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-document" data-technical-styler-flow="html">
     <header class="header-main">
         <div class="header-flex">
             <div class="donatoni-flex">
@@ -110,6 +112,15 @@
                 </div>
                 <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                     <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
                 </button>
 
                 <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
@@ -144,17 +155,8 @@
 
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script>
-            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
-                .matches
-                ? default_dark_theme
-                : default_light_theme;
-            let theme;
-            try {
-                theme = localStorage.getItem("mdbook-theme");
-            } catch (e) { }
-            if (theme === null || theme === undefined) {
-                theme = default_theme;
-            }
+            const default_theme = "light";
+            let theme = default_theme;
             const html = document.documentElement;
             html.classList.remove("light");
             html.classList.add(theme);
@@ -214,8 +216,8 @@
 
                         <img src="images/donatoni_111.jpg">
 
-                        <main style="margin-left: 20px;">
-                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="manage-cuts---unload-scrap" style="margin:0;"><a class="header" href="#manage-cuts---unload-scrap">MANAGE CUTS - UNLOAD SCRAP</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="MANAGE CUTS - UNLOAD SCRAP"--><p local-id="03144fe5-b1c9-49bc-8b9f-adb39fe522e7">Procedura tramite cui vengono rimossi gli sfridi generati dai tagli di detensionamento della lastra.</p><div class="TextAlignCenter"><img src="attachments/manage_cuts_-_unload_scrap/MANAGE_CUTS_-_UNLOAD_SCRAP_0.png" alt="MANAGE_CUTS_-_UNLOAD_SCRAP_0.png" width="760" onclick="showModal(this.src)"></div><p local-id="7f484811-599d-4512-a4b9-928855efa5f4"></p><h2 local-id="e6b5bebf-0ed0-4cdd-accd-3ec9d9acfa68">VIDEO</h2><div class="TextAlignCenter"><video controls src="attachments/manage_cuts_-_unload_scrap/MANAGE_CUTS_-_UNLOAD_SCRAP_1_R.mp4" width="760" aria-label="attachments/manage_cuts_-_unload_scrap/MANAGE_CUTS_-_UNLOAD_SCRAP_1_R.mp4"></video></div><p local-id="f7f6579f-68f1-436b-98fe-4bc42dc10519"></p><!--Label="manage_cuts_unload_scrap"-->
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Machine technical documentation</span><span class="maintenance-status"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Operational document</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="manage-cuts---unload-scrap" style="margin:0;" class="maintenance-main-title"><a class="header" href="#manage-cuts---unload-scrap"><span class="maintenance-code">DOC</span><span class="maintenance-name">MANAGE CUTS - UNLOAD SCRAP</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document DOC" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="MANAGE CUTS - UNLOAD SCRAP"--><p local-id="03144fe5-b1c9-49bc-8b9f-adb39fe522e7">Procedura tramite cui vengono rimossi gli sfridi generati dai tagli di detensionamento della lastra.</p><div class="TextAlignCenter"><img src="attachments/manage_cuts_-_unload_scrap/MANAGE_CUTS_-_UNLOAD_SCRAP_0.png" alt="MANAGE_CUTS_-_UNLOAD_SCRAP_0.png" width="760" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="7f484811-599d-4512-a4b9-928855efa5f4"></p><h2 local-id="e6b5bebf-0ed0-4cdd-accd-3ec9d9acfa68" class="maintenance-section-title" data-section-number="01">VIDEO</h2><div class="TextAlignCenter"><video controls src="attachments/manage_cuts_-_unload_scrap/MANAGE_CUTS_-_UNLOAD_SCRAP_1_R.mp4" width="760" aria-label="attachments/manage_cuts_-_unload_scrap/MANAGE_CUTS_-_UNLOAD_SCRAP_1_R.mp4" class="technical-media"></video></div><p local-id="f7f6579f-68f1-436b-98fe-4bc42dc10519"></p><!--Label="manage_cuts_unload_scrap"-->
                         </main>
 
                     </div>
@@ -277,5 +279,12 @@
     </div>;
 
 
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
 </body>
 </html>

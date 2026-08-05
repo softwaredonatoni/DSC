@@ -40,7 +40,7 @@
     <script>
       const path_to_root = "";
       const default_light_theme = "light";
-      const default_dark_theme = "navy";
+      const default_dark_theme = "light";
     </script>
     <!-- Start loading toc.js asap -->
     <script src="toc.js"></script>
@@ -86,8 +86,10 @@
     });
   });
 })();
-</script></head>
-<body>
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-document" data-technical-styler-flow="html">
     <header class="header-main">
         <div class="header-flex">
             <div class="donatoni-flex">
@@ -110,6 +112,15 @@
                 </div>
                 <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                     <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
                 </button>
 
                 <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
@@ -144,17 +155,8 @@
 
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script>
-            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
-                .matches
-                ? default_dark_theme
-                : default_light_theme;
-            let theme;
-            try {
-                theme = localStorage.getItem("mdbook-theme");
-            } catch (e) { }
-            if (theme === null || theme === undefined) {
-                theme = default_theme;
-            }
+            const default_theme = "light";
+            let theme = default_theme;
             const html = document.documentElement;
             html.classList.remove("light");
             html.classList.add(theme);
@@ -214,9 +216,9 @@
 
                         <img src="images/donatoni_111.jpg">
 
-                        <main style="margin-left: 20px;">
-                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="24-spianatura" style="margin:0;"><a class="header" href="#24-spianatura">2.4 SPIANATURA</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="2.4 SPIANATURA"--><p>Il ciclo spianatura dà la possibilità di eseguire una spianatura del banco o del materiale. Questo programma è utile quando il banco è reso irregolare dai tagli, o si voglia eguagliare lo spessore del materiale.</p><div class="TextAlignCenter"><img src="attachments/2.4_spianatura/0_C.png" alt="0_C.png" width="800" onclick="showModal(this.src)"></div><p></p><p>
-</p><p></p><h1 id="parametri-spianatura"><a class="header" href="#parametri-spianatura">Parametri spianatura</a></h1><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="d6f4ec65-d537-4952-b8ac-0ddfb72e6e49" data-table-display-mode="default"><colgroup><col style="width: 170.0px;"><col style="width: 1630.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/2.4_spianatura/1.2-20250630-090234.png" alt="1.2-20250630-090234.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Quota dello spostamento rispetto l’asse X</strong><br>È possibile impostare valori positivi e negativi.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.4_spianatura/1.3-20250630-090126.png" alt="1.3-20250630-090126.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Quota dello spostamento rispetto l’asse Y</strong><br>È possibile impostare valori positivi e negativi.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.4_spianatura/Sposta_B-20250310-134209.png" alt="Sposta_B-20250310-134209.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Misura spostamento</strong><br>Indica la distanza tra un taglio e il successivo in questo campo è possibile impostare solo valori positivi. Per effettuare la spianatura è consigliato impostare una “misura di spostamento” circa l’80% rispetto lo spessore dell’utensile.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.4_spianatura/Profondita_B-20250310-130727.png" alt="Profondita_B-20250310-130727.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Profondità</strong><br>Indica quanto scendere in profondità durante il ciclo di spianatura rispetto alla quota acquisita.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.4_spianatura/IncrementiDiscesa_B-20250310-130623.png" alt="IncrementiDiscesa_B-20250310-130623.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Passo Z</strong><br>Indica lo step massimo di discesa nel materiale. In base alla profondità della spianatura, l’incremento in Z può diminuire in modo tale da effettuare tutte le passate alla medesima profondità.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.4_spianatura/VelocitaDiscesa_B-20250310-130319.png" alt="VelocitaDiscesa_B-20250310-130319.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Velocità di taglio in affondo</strong><br>Indica la velocità di lavoro sull’asse Z durante il ciclo automatico, è espressa in (mm/Min).</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.4_spianatura/VelocitaAvanti_B-20250310-130749.png" alt="VelocitaAvanti_B-20250310-130749.png" width="60" onclick="showModal(this.src)"></div></td><td><p><strong>Velocità di taglio in avanti</strong><br>Indica la velocità di lavoro sul piano XY durante il ciclo automatico, è espressa in (mm/Min).</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.4_spianatura/1_2-20250320-143715.png" alt="1_2-20250320-143715.png" width="120" onclick="showModal(this.src)"></div></td><td><p><strong>Modifica origine utensile</strong><br>Premendo questo bottone viene effettuato lo switch tra origine del disco calcolato con laser a linea, oppure origine del foretto calcolato con laser a croce.</p></td></tr></tbody></table><p></p><h1 id="esecuzione-della-lavorazione"><a class="header" href="#esecuzione-della-lavorazione">Esecuzione della lavorazione</a></h1><p>Il programma “SPIANATURA” non ha bisogno di azzeramento origine X, Y e Z.<br>Per determinare la posizione di partenza viene considerata la posizione dell’utensile nel momento in cui verrà avviato il ciclo.<br>Dopo aver impostato i vari parametri portarsi con il disco acceso sulla massima profondità desiderata del banco o materiale e avviare il ciclo con il pulsante START CICLO.</p>
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Machine technical documentation</span><span class="maintenance-status"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Operational document</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="24-spianatura" style="margin:0;" class="maintenance-main-title"><a class="header" href="#24-spianatura"><span class="maintenance-code">DOC</span><span class="maintenance-name">2.4 SPIANATURA</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document DOC" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="2.4 SPIANATURA"--><p>Il ciclo spianatura dà la possibilità di eseguire una spianatura del banco o del materiale. Questo programma è utile quando il banco è reso irregolare dai tagli, o si voglia eguagliare lo spessore del materiale.</p><div class="TextAlignCenter"><img src="attachments/2.4_spianatura/0_C.png" alt="0_C.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><p>
+</p><p></p><h1 id="parametri-spianatura"><a class="header" href="#parametri-spianatura">Parametri spianatura</a></h1><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="d6f4ec65-d537-4952-b8ac-0ddfb72e6e49" data-table-display-mode="default"><colgroup><col style="width: 170.0px;"><col style="width: 1630.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/2.4_spianatura/1.2-20250630-090234.png" alt="1.2-20250630-090234.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Quota dello spostamento rispetto l’asse X</strong><br>È possibile impostare valori positivi e negativi.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.4_spianatura/1.3-20250630-090126.png" alt="1.3-20250630-090126.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Quota dello spostamento rispetto l’asse Y</strong><br>È possibile impostare valori positivi e negativi.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.4_spianatura/Sposta_B-20250310-134209.png" alt="Sposta_B-20250310-134209.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Misura spostamento</strong><br>Indica la distanza tra un taglio e il successivo in questo campo è possibile impostare solo valori positivi. Per effettuare la spianatura è consigliato impostare una “misura di spostamento” circa l’80% rispetto lo spessore dell’utensile.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.4_spianatura/Profondita_B-20250310-130727.png" alt="Profondita_B-20250310-130727.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Profondità</strong><br>Indica quanto scendere in profondità durante il ciclo di spianatura rispetto alla quota acquisita.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.4_spianatura/IncrementiDiscesa_B-20250310-130623.png" alt="IncrementiDiscesa_B-20250310-130623.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Passo Z</strong><br>Indica lo step massimo di discesa nel materiale. In base alla profondità della spianatura, l’incremento in Z può diminuire in modo tale da effettuare tutte le passate alla medesima profondità.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.4_spianatura/VelocitaDiscesa_B-20250310-130319.png" alt="VelocitaDiscesa_B-20250310-130319.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Velocità di taglio in affondo</strong><br>Indica la velocità di lavoro sull’asse Z durante il ciclo automatico, è espressa in (mm/Min).</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.4_spianatura/VelocitaAvanti_B-20250310-130749.png" alt="VelocitaAvanti_B-20250310-130749.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Velocità di taglio in avanti</strong><br>Indica la velocità di lavoro sul piano XY durante il ciclo automatico, è espressa in (mm/Min).</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.4_spianatura/1_2-20250320-143715.png" alt="1_2-20250320-143715.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Modifica origine utensile</strong><br>Premendo questo bottone viene effettuato lo switch tra origine del disco calcolato con laser a linea, oppure origine del foretto calcolato con laser a croce.</p></td></tr></tbody></table><p></p><h1 id="esecuzione-della-lavorazione"><a class="header" href="#esecuzione-della-lavorazione">Esecuzione della lavorazione</a></h1><p>Il programma “SPIANATURA” non ha bisogno di azzeramento origine X, Y e Z.<br>Per determinare la posizione di partenza viene considerata la posizione dell’utensile nel momento in cui verrà avviato il ciclo.<br>Dopo aver impostato i vari parametri portarsi con il disco acceso sulla massima profondità desiderata del banco o materiale e avviare il ciclo con il pulsante START CICLO.</p>
 <div id="admonition-nota" class="admonition admonish-info" role="note" aria-labelledby="admonition-nota-title">
 <div class="admonition-title">
 <div id="admonition-nota-title">
@@ -290,5 +292,12 @@
     </div>;
 
 
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
 </body>
 </html>
