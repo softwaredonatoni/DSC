@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+<head>
+    <!-- Book generated using mdBook -->
+    <meta charset="UTF-8">
+    <title>PE0021 TILTING WORKTABLE NOT IN POSITION - Troubleshootings EN-GB</title>
+
+    <!-- Custom HTML head -->
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="icon" href="favicon.svg">
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/chrome.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Fonts -->
+    <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+    <link rel="stylesheet" href="fonts/fonts.css">
+
+    <!-- Highlight.js Stylesheets -->
+    <link rel="stylesheet" id="highlight-css" href="highlight.css">
+    <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+    <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+    <!-- Custom theme stylesheets -->
+    <link rel="stylesheet" href="./mdbook-admonish.css">
+    <link rel="stylesheet" href="theme/custom.css">
+    <link rel="stylesheet" href="search.html">
+    <link rel="stylesheet" href="login.html">
+    <link rel="stylesheet" href="searchlogin.html">
+    <link rel="stylesheet" href="searchloginmenu.html">
+
+    <!-- Provide site root and default themes to javascript -->
+    <script>
+      const path_to_root = "";
+      const default_light_theme = "light";
+      const default_dark_theme = "light";
+    </script>
+    <!-- Start loading toc.js asap -->
+    <script src="toc.js"></script>
+<script>(function () {
+  const SUFFIX = "#2utHhOLI7Iz0";
+
+  function buildUrl() {
+    const base = window.location.href.split("#")[0];
+    return base + SUFFIX;
+  }
+
+  function fallbackCopy(text) {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.top = "-1000px";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+
+  async function copyUrl() {
+    const url = buildUrl();
+
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(url);
+        return;
+      } catch (e) {}
+    }
+
+    fallbackCopy(url);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.getElementById("copy-link-btn");
+    if (!btn) return;
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      copyUrl();
+    });
+  });
+})();
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-troubleshooting technical-troubleshooting-emergency" data-technical-styler-flow="html">
+    <header class="header-main">
+        <div class="header-flex">
+            <div class="donatoni-flex">
+                <label class="btn hamburger-menu" id="sidebar-toggle" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                    <i id="sidebar-toggle-icon" class="fa-solid fa-bars"></i>
+                </label>
+
+                <img src="images/donatoni-logo-white.svg" alt="Donatoni Macchine">
+            </div>
+
+            <div class="donatoni-flex action-header-buttons">
+                <div id="search-wrapper" class="search-wrapper hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults"></ul>
+                    </div>
+                </div>
+                <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
+                </button>
+
+                <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
+                    <i class="fa-solid fa-print"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div id="body-container">
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem("mdbook-theme");
+                let sidebar = localStorage.getItem("mdbook-sidebar");
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-theme",
+                        theme.slice(1, theme.length - 1)
+                    );
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-sidebar",
+                        sidebar.slice(1, sidebar.length - 1)
+                    );
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = "light";
+            let theme = default_theme;
+            const html = document.documentElement;
+            html.classList.remove("light");
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try {
+                    sidebar = localStorage.getItem('mdbook-sidebar');
+                } catch (e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document
+                        .getElementById("sidebar-toggle")
+                        .setAttribute("aria-expanded", sidebar === "visible");
+                    document
+                        .getElementById("sidebar")
+                        .setAttribute("aria-hidden", sidebar !== "visible");
+                    Array.from(document.querySelectorAll("#sidebar a")).forEach(
+                        function (link) {
+                            link.setAttribute("tabIndex", sidebar === "visible" ? 0 : -1);
+                        }
+                    );
+                </script>
+
+                <div id="content" class="content">
+
+                    <div>
+
+                        <img src="images/donatoni_111.jpg">
+
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Technical troubleshooting sheet</span><span class="maintenance-status"><i class="fa-solid fa-screwdriver-wrench" aria-hidden="true"></i> Emergency diagnostic procedure</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="pe0021-tilting-worktable-not-in-position" style="margin:0;" class="maintenance-main-title"><a class="header" href="#pe0021-tilting-worktable-not-in-position"><span class="maintenance-code">PE0021</span><span class="maintenance-name">TILTING WORKTABLE NOT IN POSITION</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document PE0021" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="PE0021 TILTING WORKTABLE NOT IN POSITION"--><layout><layout-section ac:type="fixed-width" ac:breakout-mode="default"><layout-cell><table class="my-table2 troubleshooting-template-grid maintenance-data-grid" data-table-width="760" data-layout="default" ac:local-id="85e18120-421b-48c4-b375-dfbfdc4e6731" aria-label="Technical data for document PE0021"><colgroup><col style="width: 380.0px;"><col style="width: 380.0px;"></colgroup><tbody><tr ac:local-id="d4064c0f-6217-4836-927d-dc9c68a8c8af" class="maintenance-safety-row"><td data-highlight-colour="#f4f5f7" colspan="2" ac:local-id="b776354f-e551-4a09-aea5-fd46f7e46c74"><p local-id="5b3603f33cde" style="text-align: center;">Before proceeding, carefully read the <p><a href='safety_instructions.html'>SAFETY INSTRUCTIONS</a></p></td></tr><tr ac:local-id="189a596d-fd8a-4ec3-8699-44e3c49b54e9"><td data-highlight-colour="#f4f5f7" ac:local-id="77e0ba54-2fdd-4f2f-9d0f-54e46c44956d"><p local-id="da70c672bd62" class="maintenance-data-layout"><i class="maintenance-data-icon fa-solid fa-file-lines" aria-hidden="true"></i><span class="maintenance-data-content"><strong class="maintenance-data-label">Description</strong><span class="maintenance-data-value">Tilting worktable out of position</span></span></p></td><td data-highlight-colour="#f4f5f7" ac:local-id="e8b06940-f283-4fb7-a45c-55151e367ed6"><p local-id="1d2999ac149f" class="maintenance-data-layout"><i class="maintenance-data-icon fa-solid fa-triangle-exclamation" aria-hidden="true"></i><span class="maintenance-data-content"><strong class="maintenance-data-label">Severity</strong><span class="severity-indicator severity-level-2" aria-label="Severity Moderate, level 2 of 5"><span class="severity-scale" aria-hidden="true"><i class="severity-segment is-active"></i><i class="severity-segment is-active"></i><i class="severity-segment"></i><i class="severity-segment"></i><i class="severity-segment"></i></span><span class="severity-readout"><span class="severity-level-name">Moderate</span><span class="severity-score">02 / 05</span></span></span></span></p></td></tr><tr ac:local-id="9ae0d0ed-c146-4964-b01b-9313a8cff152"><td data-highlight-colour="#f4f5f7" ac:local-id="24da7c7e-5cd8-40cd-9221-fb79600cc6ef"><p local-id="ee4da62d835a" class="maintenance-data-layout"><i class="maintenance-data-icon fa-solid fa-user-gear" aria-hidden="true"></i><span class="maintenance-data-content"><strong class="maintenance-data-label">Authorized personnel</strong><span class="maintenance-data-value">Machine operator</span></span></p></td><td data-highlight-colour="#f4f5f7" ac:local-id="22a1c615-029b-4c3a-af78-689ac302a9f3"><p local-id="0201f1c2a49f"><i class="maintenance-data-icon fa-solid fa-shield-halved" aria-hidden="true"></i><strong>Required PPE</strong>:   <div><img src="attachments/pe0021_tilting_worktable_not_in_position/5c50dea6-c18e-4b4c-af4e-4a88d2222111.png" alt="image-20240327-084216.png" onclick="showModal(this.src)" class="inline-img"></div> </td></tr></tbody></table><h2 local-id="6806ed909efc" class="maintenance-section-title" data-section-number="01">Description</h2><p local-id="ecf481f7dc8a">The tilting worktable is outside its parking position.</p></layout-cell></layout-section><layout-section ac:breakout-mode="wide" ac:breakout-width="855" ac:local-id="3a4eae3c15ac"><layout-cell ac:local-id="e4e2da487794" ac:width="39.01"><div class="TextAlignCenter"><img src="attachments/pe0021_tilting_worktable_not_in_position/IMG_0020.JPG" alt="IMG_0020.JPG" width="300" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></layout-cell><layout-cell ac:local-id="dcd1502f74f4" ac:width="60.99"><div class="TextAlignCenter"><img src="attachments/pe0021_tilting_worktable_not_in_position/IMG_0018.JPG" alt="IMG_0018.JPG" width="300" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></layout-cell></layout-section><layout-section ac:type="fixed-width" ac:breakout-mode="default"><layout-cell><h2 local-id="6186578e2836" class="maintenance-section-title" data-section-number="02">Symptoms</h2><p local-id="2fcf1d2faa32">…..</p><h2 local-id="422f509ea73a" class="maintenance-section-title" data-section-number="03">Possible causes</h2><p local-id="bef46fbeedca">This alarm may have several causes, either mechanical or electrical:</p><div class='panelContent' style='background-color: #fff; border: 1px solid #D3D3D3; padding: 5px;'><p local-id="9b83f8296cb9">The machine detects that the worktable is not in the parking position. Possible reasons include:<br></p><ol start="1" local-id="242c7d8e1162" type="1"><li local-id="c3c10d1e1577"><p local-id="dc9f7d280b0a">The worktable is tilted and does not actuate the limit switch;</p></li><li local-id="a4cf13dd6c80"><p local-id="e899d13fd5d6">The worktable is in the parking position but does not actuate the limit switch;</p></li><li local-id="4205492c710b"><p local-id="1685f35e8730">Faulty worktable limit switch;</p></li><li local-id="494d351c33a2"><p local-id="776cf4e20fd2">Fault in the connection between the worktable limit switch and the electrical cabinet.</p></li><li local-id="7d194b2ef3f1"><p local-id="017b059ebca2">The worktable cannot be returned to the parking position because of a mechanical problem, such as broken hoses, insufficient oil, or a faulty pump</p></li></ol></div><h2 local-id="981693dc089a" class="maintenance-section-title" data-section-number="04">Possible solutions</h2>
+<div id="admonition-warning" class="admonition admonish-warning" role="note" aria-labelledby="admonition-warning-title">
+<div class="admonition-title">
+<div id="admonition-warning-title">
+<p>WARNING!</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-warning"></a>
+</div>
+<div>
+<p>When the alarm is active, the machine cannot be moved. Therefore, if the machine is not in the parking position, it will be locked. In Parametrix, open the first "Padlock", press the "Spanner_Screwdriver" button, and disable the worktable. (For older Parametrix versions, open KvIsoGui.exe, access the restricted area using the password "esagv", and disable the "Worktable" option.)</p>
+</div>
+</div>
+<div class="TextAlignCenter"><img src="attachments/pe0021_tilting_worktable_not_in_position/e2698132-bebb-40c8-a131-372ef106e38e.png" alt="e2698132-bebb-40c8-a131-372ef106e38e.png" width="500" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="f11569dc58f1"></p><p local-id="a0a965bc87ee"><br> After ensuring that the machine is in the parking position, perform the following procedures:<br></p><div class='panelContent resolution-panel-content' style='background-color: #fff; border: 1px solid #D3D3D3; padding: 5px;'><ol start="1" local-id="b303d2492b28" type="1" class="procedure-steps"><li local-id="c8dabc1688eb"><p local-id="b31559c4c4c7">Use the dedicated selector on the console to move the worktable to the parking position;</p></li><li local-id="e25a10c74529"><p local-id="338bf92d1837">Physically check whether the worktable actuates the sensor when in the parking position. If it does not, check whether the worktable rests against the stop bolts; if so, adjust the sensor so that it is actuated by the worktable;</p></li><li local-id="a8b15ef4a064"><p local-id="4b8d16d10b61">Open KvIsoGui.exe, press the "Menu" button, open "I/O Monitor", and verify that the corresponding input changes when the limit switch is pressed. (FC_SUPP_LOW   AT %IW4.13; * IW4.13 lower worktable limit switch)</p><ol start="1" local-id="b6f943f9a817" type="a"><li local-id="5f4305b83f72"><p local-id="55f93ae2ff63">If the input does not change state, use a tester to check whether the limit switch operates correctly (for example, place the probes on the NO terminals; pressing the limit switch must close the contact)</p></li><li local-id="3d81446f4784"><p local-id="778a06e467a5">If the limit switch operates correctly, check the connections by following the <p><a href='schema_elettrico_jet.html'>Electrical diagram</a></p></li></ol></li><li local-id="a150dc64c8c8"><p local-id="18bdecc422b2">Check pump operation and verify that the system is not faulty;</p></li></ol></div><h2 local-id="5a74a5fe232f" class="maintenance-section-title" data-section-number="05">NOTE: Remember to re-enable the worktable</h2></layout-cell></layout-section></layout><!--Label="elettrico"--><!--Label="banco"--><!--Label="pe0021"-->
+                        </main>
+
+                    </div>
+
+                    <img src="images/donatoni_222.jpg">
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="pe0019_drive_error.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="pe0023_mute_enabled.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+
+
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                <a rel="prev" href="pe0019_drive_error.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="pe0023_mute_enabled.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="mermaid.min.js"></script>
+        <script src="mermaid-init.js"></script>
+        <script src="hidemenu.js"></script>
+        <script src="imagemodal.js"></script>
+        <script src="login.js"></script>
+    </div>
+
+    <!-- Modale -->
+    <div id="modal" onclick="closeModal()">
+        <img id="modal-img" src="">
+    </div>;
+
+
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
+</body>
+</html>
