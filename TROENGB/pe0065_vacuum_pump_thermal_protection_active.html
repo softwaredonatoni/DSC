@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+<head>
+    <!-- Book generated using mdBook -->
+    <meta charset="UTF-8">
+    <title>PE0065 VACUUM PUMP THERMAL PROTECTION ACTIVE - Troubleshootings EN-GB</title>
+
+    <!-- Custom HTML head -->
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="icon" href="favicon.svg">
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/chrome.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Fonts -->
+    <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+    <link rel="stylesheet" href="fonts/fonts.css">
+
+    <!-- Highlight.js Stylesheets -->
+    <link rel="stylesheet" id="highlight-css" href="highlight.css">
+    <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+    <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+    <!-- Custom theme stylesheets -->
+    <link rel="stylesheet" href="./mdbook-admonish.css">
+    <link rel="stylesheet" href="theme/custom.css">
+    <link rel="stylesheet" href="search.html">
+    <link rel="stylesheet" href="login.html">
+    <link rel="stylesheet" href="searchlogin.html">
+    <link rel="stylesheet" href="searchloginmenu.html">
+
+    <!-- Provide site root and default themes to javascript -->
+    <script>
+      const path_to_root = "";
+      const default_light_theme = "light";
+      const default_dark_theme = "light";
+    </script>
+    <!-- Start loading toc.js asap -->
+    <script src="toc.js"></script>
+<script>(function () {
+  const SUFFIX = "#2utHhOLI7Iz0";
+
+  function buildUrl() {
+    const base = window.location.href.split("#")[0];
+    return base + SUFFIX;
+  }
+
+  function fallbackCopy(text) {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.top = "-1000px";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+
+  async function copyUrl() {
+    const url = buildUrl();
+
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(url);
+        return;
+      } catch (e) {}
+    }
+
+    fallbackCopy(url);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.getElementById("copy-link-btn");
+    if (!btn) return;
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      copyUrl();
+    });
+  });
+})();
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-troubleshooting technical-troubleshooting-emergency" data-technical-styler-flow="html">
+    <header class="header-main">
+        <div class="header-flex">
+            <div class="donatoni-flex">
+                <label class="btn hamburger-menu" id="sidebar-toggle" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                    <i id="sidebar-toggle-icon" class="fa-solid fa-bars"></i>
+                </label>
+
+                <img src="images/donatoni-logo-white.svg" alt="Donatoni Macchine">
+            </div>
+
+            <div class="donatoni-flex action-header-buttons">
+                <div id="search-wrapper" class="search-wrapper hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults"></ul>
+                    </div>
+                </div>
+                <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
+                </button>
+
+                <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
+                    <i class="fa-solid fa-print"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div id="body-container">
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem("mdbook-theme");
+                let sidebar = localStorage.getItem("mdbook-sidebar");
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-theme",
+                        theme.slice(1, theme.length - 1)
+                    );
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-sidebar",
+                        sidebar.slice(1, sidebar.length - 1)
+                    );
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = "light";
+            let theme = default_theme;
+            const html = document.documentElement;
+            html.classList.remove("light");
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try {
+                    sidebar = localStorage.getItem('mdbook-sidebar');
+                } catch (e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document
+                        .getElementById("sidebar-toggle")
+                        .setAttribute("aria-expanded", sidebar === "visible");
+                    document
+                        .getElementById("sidebar")
+                        .setAttribute("aria-hidden", sidebar !== "visible");
+                    Array.from(document.querySelectorAll("#sidebar a")).forEach(
+                        function (link) {
+                            link.setAttribute("tabIndex", sidebar === "visible" ? 0 : -1);
+                        }
+                    );
+                </script>
+
+                <div id="content" class="content">
+
+                    <div>
+
+                        <img src="images/donatoni_111.jpg">
+
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Technical troubleshooting sheet</span><span class="maintenance-status"><i class="fa-solid fa-screwdriver-wrench" aria-hidden="true"></i> Emergency diagnostic procedure</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="pe0065-vacuum-pump-thermal-protection-active" style="margin:0;" class="maintenance-main-title"><a class="header" href="#pe0065-vacuum-pump-thermal-protection-active"><span class="maintenance-code">PE0065</span><span class="maintenance-name">VACUUM PUMP THERMAL PROTECTION ACTIVE</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document PE0065" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="PE0065 VACUUM PUMP THERMAL PROTECTION ACTIVE"--><layout><layout-section ac:type="fixed-width" ac:breakout-mode="default"><layout-cell><table class="my-table2 troubleshooting-template-grid maintenance-data-grid" data-table-width="760" data-layout="default" ac:local-id="85e18120-421b-48c4-b375-dfbfdc4e6731" aria-label="Technical data for document PE0065"><colgroup><col style="width: 380.0px;"><col style="width: 380.0px;"></colgroup><tbody><tr ac:local-id="507652b2-994c-44ab-8635-d4c294c28230" class="maintenance-safety-row"><td data-highlight-colour="#f4f5f7" colspan="2" ac:local-id="fb970b36-1ef9-4d64-9aaa-196c8fa198b8"><p local-id="08b5d7be26ea" style="text-align: center;">Before proceeding, carefully read the <p><a href='safety_instructions.html'>SAFETY INSTRUCTIONS</a></p></td></tr><tr ac:local-id="70cd0489-9aad-4c3f-a0d7-4de223f1f396"><td data-highlight-colour="#f4f5f7" ac:local-id="01998d7d-f95f-4a3f-8f34-f882f85d1541"><p local-id="4bfdb07164ab" class="maintenance-data-layout"><i class="maintenance-data-icon fa-solid fa-file-lines" aria-hidden="true"></i><span class="maintenance-data-content"><strong class="maintenance-data-label">Description</strong><span class="maintenance-data-value">Vacuum pump thermal circuit breaker active</span></span></p></td><td data-highlight-colour="#f4f5f7" ac:local-id="7485960f-ebc1-45d8-83ff-d7987fd942fb"><p local-id="228901bb4f6c" class="maintenance-data-layout"><i class="maintenance-data-icon fa-solid fa-triangle-exclamation" aria-hidden="true"></i><span class="maintenance-data-content"><strong class="maintenance-data-label">Severity</strong><span class="severity-indicator severity-level-2" aria-label="Severity Moderate, level 2 of 5"><span class="severity-scale" aria-hidden="true"><i class="severity-segment is-active"></i><i class="severity-segment is-active"></i><i class="severity-segment"></i><i class="severity-segment"></i><i class="severity-segment"></i></span><span class="severity-readout"><span class="severity-level-name">Moderate</span><span class="severity-score">02 / 05</span></span></span></span></p></td></tr><tr ac:local-id="ddbba918-4d0a-4d25-91d5-94382a943ad1"><td data-highlight-colour="#f4f5f7" ac:local-id="ad9a543d-68fa-478c-b455-b524a8f8b51a"><p local-id="bbb7d4a74d0b" class="maintenance-data-layout"><i class="maintenance-data-icon fa-solid fa-user-gear" aria-hidden="true"></i><span class="maintenance-data-content"><strong class="maintenance-data-label">Authorized personnel</strong><span class="maintenance-data-value">Machine operator</span></span></p></td><td data-highlight-colour="#f4f5f7" ac:local-id="35da272d-602b-4b1c-a1ca-c76c0e8e51a2"><p local-id="65b0830c3aae"><i class="maintenance-data-icon fa-solid fa-shield-halved" aria-hidden="true"></i><strong>Required PPE</strong>:   <div><img src="attachments/pe0065_vacuum_pump_thermal_protection_active/5c50dea6-c18e-4b4c-af4e-4a88d2222111.png" alt="image-20240327-084216.png" onclick="showModal(this.src)" class="inline-img"></div> </td></tr></tbody></table><h2 local-id="6806ed909efc" class="maintenance-section-title" data-section-number="01">Description</h2><p local-id="6bb1e47c8f11">Fault in the worktable lifting system; the motor protection circuit breaker for the vacuum pump has tripped. It protects the system against both short circuits and overloads. To reset the circuit breaker, move the selector to 0 and then to 1;</p><h2 local-id="6186578e2836" class="maintenance-section-title" data-section-number="02">Symptoms</h2><p local-id="a9d8ef524488">…..</p><h2 local-id="7ba6b779b955" class="maintenance-section-title" data-section-number="03">Possible causes</h2><p local-id="39275192eea7">The causes can be divided into problems <strong>Mechanical</strong> or <strong>Electrical</strong></p><div class='panelContent' style='background-color: #fff; border: 1px solid #D3D3D3; padding: 5px;'><p local-id="e5e193dc9791"><strong>Mechanical problems:</strong></p><ol start="1" local-id="b9254ee66358" type="1"><li local-id="0e27c7592299"><p local-id="f269840f21a2">Vacuum pump motor jammed; try starting the vacuum pump and check whether it actually rotates.</p></li><li local-id="2f1c2493a15a"><p local-id="2626fc266228">The vacuum pump tank is empty</p></li></ol></div><p local-id="51ff4c866990"></p><div class='panelContent' style='background-color: #fff; border: 1px solid #D3D3D3; padding: 5px;'><p local-id="d9ae03894c4d"><strong>Electrical problems:</strong></p><ol start="1" local-id="66b4a62454b4" type="1"><li local-id="6aa1633c2f50"><p local-id="c8552dfba9c5">Short circuit between motor phases;</p></li><li local-id="daf21106f4f3"><p local-id="cfcc03c895cc">Missing phase;</p></li><li local-id="40b051c2e90b"><p local-id="1cbc14b6532b">Short circuit in the motor windings;</p></li><li local-id="eafc79f5bd1d"><p local-id="c40ad8248bc7">Faulty circuit breaker or current threshold set to an incorrect value</p></li></ol></div></layout-cell></layout-section><layout-section ac:type="three_equal" ac:breakout-mode="wide" ac:breakout-width="760" ac:local-id="c857ed166745"><layout-cell ac:local-id="9620be5ab80e"><p local-id="2a6c8343c713"></p></layout-cell><layout-cell ac:local-id="4550e6e1dfe4"><p local-id="bd1150f83ff7"></p></layout-cell><layout-cell ac:local-id="174ad11c3695"><p local-id="7e909960b04c"><br></p></layout-cell></layout-section><layout-section ac:type="fixed-width" ac:breakout-mode="default"><layout-cell><div class='panelContent' style='background-color: #fff; border: 1px solid #D3D3D3; padding: 5px;'><h2 local-id="8d7d011d58a3" class="maintenance-section-title" data-section-number="04">Possible solutions</h2><p local-id="e194d49c2b96"></p><p local-id="1634801673ab"><strong>MECHANICAL</strong><br></p><ol start="1" local-id="3fdbd1e2220c" type="1" class="procedure-steps"><li local-id="17173a81d13a"><p local-id="fd6bce4bb926">First, check that the motor cooling fan rotates freely; for example, try moving the fan with a screwdriver. If it is jammed, it is necessary to</p></li><li local-id="d2005f3dd455"><p local-id="7566f70c2aa3">Fill the tank up to the overflow level</p></li></ol></div><p local-id="caad054b236d"><br>    <strong>ELECTRICAL</strong> </p>
+<div id="admonition-warning-" class="admonition admonish-warning" role="note" aria-labelledby="admonition-warning--title">
+<div class="admonition-title">
+<div id="admonition-warning--title">
+<p>WARNING !</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-warning-"></a>
+</div>
+<div>
+<p>Assistance from an electrician or a Donatoni technician on site is recommended</p>
+</div>
+</div>
+<div class='panelContent' style='background-color: #fff; border: 1px solid #D3D3D3; padding: 5px;'><p local-id="2ebf911bdd1c"></p><ol start="1" local-id="57e44bb1cbfc" type="1"><li local-id="22da6bca4cc7"><p local-id="0160fde6e5c0">Check that there is no continuity between the phases; disconnect the cable from the pump electrical box, insulate the terminals, reset the circuit breaker and activate the oil pump. If it trips, the problem may be the cable;</p></li><li local-id="7f2b027ee09f"><p local-id="bb31d6139dba">Measure the input voltage with a multimeter and verify that all phases are present. If, for example, one phase is missing, check that all terminals are tightened;</p></li><li local-id="70d6e1eb7214"><p local-id="a9d400512dbe">If, when carrying out the test in point 1, the circuit breaker does not trip, connect the cable to the pump. If the circuit breaker trips when the pump is started, the problem is the pump and it must be replaced;</p></li><li local-id="047d04248fcb"><p local-id="dedb329adc58">If, after carrying out the previous tests, the motor protection circuit breaker continues to trip, the problem may be the circuit breaker itself. In addition, the threshold must be set to 4 A</p></li></ol></div></layout-cell></layout-section></layout><!--Label="elettrico"--><!--Label="quadro"--><!--Label="pe0065"-->
+                        </main>
+
+                    </div>
+
+                    <img src="images/donatoni_222.jpg">
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="pe0041_ch_0_program_without_m2-m30.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="pe0066_air_missing.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+
+
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                <a rel="prev" href="pe0041_ch_0_program_without_m2-m30.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="pe0066_air_missing.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="mermaid.min.js"></script>
+        <script src="mermaid-init.js"></script>
+        <script src="hidemenu.js"></script>
+        <script src="imagemodal.js"></script>
+        <script src="login.js"></script>
+    </div>
+
+    <!-- Modale -->
+    <div id="modal" onclick="closeModal()">
+        <img id="modal-img" src="">
+    </div>;
+
+
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
+</body>
+</html>

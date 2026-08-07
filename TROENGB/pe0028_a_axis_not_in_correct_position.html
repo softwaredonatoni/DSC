@@ -2,103 +2,135 @@
 <html lang="en" class="light sidebar-visible" dir="ltr">
 <head>
     <!-- Book generated using mdBook -->
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8">
     <title>PE0028 A AXIS NOT IN CORRECT POSITION - Troubleshootings EN-GB</title>
 
     <!-- Custom HTML head -->
 
-    <meta name="description" content="" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#ffffff" />
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
 
-    <link rel="icon" href="favicon.svg" />
-    <link rel="shortcut icon" href="favicon.png" />
-    <link rel="stylesheet" href="css/variables.css" />
-    <link rel="stylesheet" href="css/general.css" />
-    <link rel="stylesheet" href="css/chrome.css" />
-    <link rel="stylesheet" href="css/print.css" media="print" />
-    <link rel="stylesheet" href="css/custom.css" />
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="icon" href="favicon.svg">
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/chrome.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <!-- Fonts -->
-    <link rel="stylesheet" href="FontAwesome/css/font-awesome.css" />
-    <link rel="stylesheet" href="fonts/fonts.css" />
+    <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+    <link rel="stylesheet" href="fonts/fonts.css">
 
     <!-- Highlight.js Stylesheets -->
-    <link rel="stylesheet" id="highlight-css" href="highlight.css" />
-    <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css" />
-    <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css" />
+    <link rel="stylesheet" id="highlight-css" href="highlight.css">
+    <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+    <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
 
     <!-- Custom theme stylesheets -->
-    <link rel="stylesheet" href="./mdbook-admonish.css" />
-    <link rel="stylesheet" href="theme/custom.css" />
-    <link rel="stylesheet" href="search.html" />
-    <link rel="stylesheet" href="login.html" />
-    <link rel="stylesheet" href="searchlogin.html" />
-    <link rel="stylesheet" href="searchloginmenu.html" />
+    <link rel="stylesheet" href="./mdbook-admonish.css">
+    <link rel="stylesheet" href="theme/custom.css">
+    <link rel="stylesheet" href="search.html">
+    <link rel="stylesheet" href="login.html">
+    <link rel="stylesheet" href="searchlogin.html">
+    <link rel="stylesheet" href="searchloginmenu.html">
 
     <!-- Provide site root and default themes to javascript -->
     <script>
       const path_to_root = "";
       const default_light_theme = "light";
-      const default_dark_theme = "navy";
+      const default_dark_theme = "light";
     </script>
     <!-- Start loading toc.js asap -->
     <script src="toc.js"></script>
+<script>(function () {
+  const SUFFIX = "#2utHhOLI7Iz0";
+
+  function buildUrl() {
+    const base = window.location.href.split("#")[0];
+    return base + SUFFIX;
+  }
+
+  function fallbackCopy(text) {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.top = "-1000px";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+
+  async function copyUrl() {
+    const url = buildUrl();
+
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(url);
+        return;
+      } catch (e) {}
+    }
+
+    fallbackCopy(url);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.getElementById("copy-link-btn");
+    if (!btn) return;
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      copyUrl();
+    });
+  });
+})();
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
 </head>
-<body>
+<body class="maintenance-page technical-troubleshooting technical-troubleshooting-emergency" data-technical-styler-flow="html">
     <header class="header-main">
         <div class="header-flex">
             <div class="donatoni-flex">
-                <label class="btn hamburger-menu"
-                       id="sidebar-toggle"
-                       for="sidebar-toggle-anchor"
-                       title="Toggle Table of Contents"
-                       aria-label="Toggle Table of Contents"
-                       aria-controls="sidebar">
+                <label class="btn hamburger-menu" id="sidebar-toggle" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
                     <i id="sidebar-toggle-icon" class="fa-solid fa-bars"></i>
                 </label>
 
-                <img src="images/donatoni-logo-white.svg" alt="Donatoni Macchine" />
+                <img src="images/donatoni-logo-white.svg" alt="Donatoni Macchine">
             </div>
 
             <div class="donatoni-flex action-header-buttons">
                 <div id="search-wrapper" class="search-wrapper hidden">
                     <form id="searchbar-outer" class="searchbar-outer">
-                        <input type="search"
-                               id="searchbar"
-                               name="searchbar"
-                               placeholder="Search this book ..."
-                               aria-controls="searchresults-outer"
-                               aria-describedby="searchresults-header" />
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
                     </form>
                     <div id="searchresults-outer" class="searchresults-outer hidden">
                         <div id="searchresults-header" class="searchresults-header"></div>
                         <ul id="searchresults"></ul>
                     </div>
                 </div>
-                <button class="btn btn-sm"
-                        id="search-toggle"
-                        type="button"
-                        title="Search. (Shortkey: s)"
-                        aria-label="Toggle Searchbar"
-                        aria-expanded="false"
-                        aria-keyshortcuts="S"
-                        aria-controls="searchbar">
+                <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
+                </button>
 
-                <button class="btn btn-sm me-2"
-                        onclick="window.location.href='print.html'"
-                        title="Print this book"
-                        aria-label="Print this book">
+                <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
                     <i class="fa-solid fa-print"></i>
                 </button>
             </div>
         </div>
     </header>
     <div id="body-container">
-        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden" />
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
         <script>
             try {
@@ -123,17 +155,8 @@
 
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script>
-            const default_theme = window.matchMedia("(prefers-color-scheme: dark)")
-                .matches
-                ? default_dark_theme
-                : default_light_theme;
-            let theme;
-            try {
-                theme = localStorage.getItem("mdbook-theme");
-            } catch (e) { }
-            if (theme === null || theme === undefined) {
-                theme = default_theme;
-            }
+            const default_theme = "light";
+            let theme = default_theme;
             const html = document.documentElement;
             html.classList.remove("light");
             html.classList.add(theme);
@@ -191,30 +214,15 @@
 
                     <div>
 
-                        <img src="images/donatoni_111.jpg" />
+                        <img src="images/donatoni_111.jpg">
 
-                        <main style="margin-left: 20px;">
-                            <h1 id="pe0028-a-axis-not-in-correct-position"><a class="header" href="#pe0028-a-axis-not-in-correct-position">PE0028 A AXIS NOT IN CORRECT POSITION</a></h1>
-<ul>
-<li><a href="#spiegazione-dellerrore">Spiegazione dell'errore</a></li>
-<li><a href="#possibili-cause">Possibili cause</a></li>
-<li><a href="#possibili-soluzioni">Possibili soluzioni</a></li>
-<li><a href="#articoli-collegati">Articoli collegati</a></li>
-</ul>
-<!--Page="PE0028 A AXIS NOT IN CORRECT POSITION"-->
-<h2 id="spiegazione-dellerrore"><a class="header" href="#spiegazione-dellerrore">Spiegazione dell'errore</a></h2>
-<p>Il sistema genera il messaggio "Asse A non in posizione corretta" ogni volta che viene premuto il pulsante "Parcheggio" o il pulsante "Cambio utensile manuale" e l'asse "A" non si trova in posizione corretta (Zero gradi).</p>
-<h2 id="possibili-cause"><a class="header" href="#possibili-cause">Possibili cause</a></h2>
-<p><br></p><div class='panelContent' style='background-color: #fff; border: 1px solid #D3D3D3; padding: 5px;'><p><!-- <placeholder>You may want to use a panel to highlight important steps.</placeholder> --></p><ol start="1" type="1"><li><p>Si è premuto il pulsante P di parcheggio e l'asse A non si trova a 0.00° .</p><div class="TextAlignCenter"><img src="attachments/pe0028_a_axis_not_in_correct_position/PulsanteP.png" alt="PulsanteP.png" width="190" onclick="showModal(this.src)"></div><hr></li><li><p>Si è premuto il pulsante cambio utensile manuale e l'asse A non si trova a 0.00°</p><div class="TextAlignCenter"><img src="attachments/pe0028_a_axis_not_in_correct_position/pulsante_cambio_utensile_manuale.png" alt="pulsante_cambio_utensile_manuale.png" width="190" onclick="showModal(this.src)"></div><hr></li></ol></div>
-<h2 id="possibili-soluzioni"><a class="header" href="#possibili-soluzioni">Possibili soluzioni</a></h2>
-<p><!-- <placeholder>Provide steps that the user can take to solve the problem. For example &quot;The level 7 printer will flash red when it is out of paper. Add paper to tray 1&quot;.</placeholder> --></p><div class='panelContent' style='background-color: #fff; border: 1px solid #D3D3D3; padding: 5px;'><p><!-- <placeholder>You may want to use a panel to highlight important steps.</placeholder> --></p><ol start="1" type="1"><li><p>Movimentare asse A in posizione di 0.00° prima di premere i pulsanti di parcheggio o cambio utensile manuale<br><br></p></li></ol></div>
-<h2 id="articoli-collegati"><a class="header" href="#articoli-collegati">Articoli collegati</a></h2>
-<p><!-- <placeholder>Related articles appear here based on the labels you select. Click to edit the macro and add or change labels.</placeholder> --></p><div class='panelContent' style='background-color: #fff; border: 1px solid #D3D3D3; padding: 5px;'><p><br></p></div><p><br></p><!--Label="testa"--><!--Label="pe0028"-->
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Technical troubleshooting sheet</span><span class="maintenance-status"><i class="fa-solid fa-screwdriver-wrench" aria-hidden="true"></i> Emergency diagnostic procedure</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="pe0028-a-axis-not-in-correct-position" style="margin:0;" class="maintenance-main-title"><a class="header" href="#pe0028-a-axis-not-in-correct-position"><span class="maintenance-code">PE0028</span><span class="maintenance-name">A AXIS NOT IN CORRECT POSITION</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document PE0028" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="PE0028 A AXIS NOT IN CORRECT POSITION"--><table class="my-table2 troubleshooting-template-grid maintenance-data-grid" data-table-width="760" data-layout="default" ac:local-id="85e18120-421b-48c4-b375-dfbfdc4e6731" aria-label="Technical data for document PE0028"><colgroup><col style="width: 380.0px;"><col style="width: 380.0px;"></colgroup><tbody><tr ac:local-id="594d5231-1225-41ef-8b72-61ebc9a96c0b" class="maintenance-safety-row"><td data-highlight-colour="#f4f5f7" colspan="2" ac:local-id="4c666608-14c2-45d4-a99f-98de156ec1cd"><p local-id="f38ae5c4782e" style="text-align: center;">Before proceeding, carefully read the <p><a href='safety_instructions.html'>SAFETY INSTRUCTIONS</a></p></td></tr><tr ac:local-id="501f2cb4-267b-47e1-9ceb-b7ae29274b0b"><td data-highlight-colour="#f4f5f7" ac:local-id="19fb5879-485b-451c-acd2-10a70ee1d708"><p local-id="2b38e4567b72" class="maintenance-data-layout"><i class="maintenance-data-icon fa-solid fa-file-lines" aria-hidden="true"></i><span class="maintenance-data-content"><strong class="maintenance-data-label">Description</strong><span class="maintenance-data-value">A axis out of position</span></span></p></td><td data-highlight-colour="#f4f5f7" ac:local-id="3401b0e8-c481-4de6-a432-c283c70fbc39"><p local-id="797a02fc0da1" class="maintenance-data-layout"><i class="maintenance-data-icon fa-solid fa-triangle-exclamation" aria-hidden="true"></i><span class="maintenance-data-content"><strong class="maintenance-data-label">Severity</strong><span class="severity-indicator severity-level-1" aria-label="Severity Low, level 1 of 5"><span class="severity-scale" aria-hidden="true"><i class="severity-segment is-active"></i><i class="severity-segment"></i><i class="severity-segment"></i><i class="severity-segment"></i><i class="severity-segment"></i></span><span class="severity-readout"><span class="severity-level-name">Low</span><span class="severity-score">01 / 05</span></span></span></span></p></td></tr><tr ac:local-id="6afa24bc-7f2b-4755-963d-88716c4386f3"><td data-highlight-colour="#f4f5f7" ac:local-id="052c18b9-964b-4214-8cc8-b1dadefe2f53"><p local-id="741d51e2f268" class="maintenance-data-layout"><i class="maintenance-data-icon fa-solid fa-user-gear" aria-hidden="true"></i><span class="maintenance-data-content"><strong class="maintenance-data-label">Authorized personnel</strong><span class="maintenance-data-value">Machine operator</span></span></p></td><td data-highlight-colour="#f4f5f7" ac:local-id="c98fa4dc-e450-471b-a1ab-306d134da5c2"><p local-id="2b6f89e7e089"><i class="maintenance-data-icon fa-solid fa-shield-halved" aria-hidden="true"></i><strong>Required PPE</strong>:   <div><img src="attachments/pe0028_a_axis_not_in_correct_position/5c50dea6-c18e-4b4c-af4e-4a88d2222111.png" alt="image-20240327-084216.png" onclick="showModal(this.src)" class="inline-img"></div> </td></tr></tbody></table><h2 local-id="6806ed909efc" class="maintenance-section-title" data-section-number="01">Description</h2><p local-id="bf59b69fcae1">The system generates the message "A axis not in correct position" whenever the "Parking" button or the "Manual tool change" button is pressed and the "A" axis is not in the correct position (zero degrees).</p><h2 local-id="6186578e2836" class="maintenance-section-title" data-section-number="02">Symptoms</h2><p local-id="88305e5bc776">…..</p><h2 local-id="c556480ac391" class="maintenance-section-title" data-section-number="03">Possible causes</h2><div class='panelContent' style='background-color: #fff; border: 1px solid #D3D3D3; padding: 5px;'><p local-id="67050a9397b7">The P parking button was pressed while the A axis was not at 0.00_.</p><div class="TextAlignCenter"><img src="attachments/pe0028_a_axis_not_in_correct_position/PulsanteP.png" alt="PulsanteP.png" width="600" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="cf839ca3cd88">The manual tool change button was pressed while the A axis was not at 0.00_</p><div class="TextAlignCenter"><img src="attachments/pe0028_a_axis_not_in_correct_position/pulsante_cambio_utensile_manuale.png" alt="pulsante_cambio_utensile_manuale.png" width="600" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></div><h2 local-id="53eaf313b4a3" class="maintenance-section-title" data-section-number="04">Possible solutions</h2><div class='panelContent resolution-panel-content' style='background-color: #fff; border: 1px solid #D3D3D3; padding: 5px;'><ol start="1" local-id="9ab4d01b7c19" type="1" class="procedure-steps"><li local-id="7c1db554c586"><p local-id="54d33b9f7a9a">Move the A axis to the 0.00_ position before pressing the parking or manual tool change buttons<br><br></p></li></ol></div><!--Label="testa"--><!--Label="pe0028"-->
                         </main>
 
                     </div>
 
-                    <img src="images/donatoni_222.jpg" />
+                    <img src="images/donatoni_222.jpg">
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
@@ -222,7 +230,7 @@
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
-                            <a rel="next prefetch" href="pe0029_faulty_lubrication_system.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next prefetch" href="pe0029_lubrication_system_fault.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
 
@@ -238,7 +246,7 @@
                         <i class="fa fa-angle-left"></i>
                     </a>
 
-                    <a rel="next prefetch" href="pe0029_faulty_lubrication_system.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next prefetch" href="pe0029_lubrication_system_fault.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>
@@ -271,5 +279,12 @@
     </div>;
 
 
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
 </body>
 </html>
