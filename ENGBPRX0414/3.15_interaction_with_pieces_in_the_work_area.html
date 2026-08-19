@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+<head>
+    <!-- Book generated using mdBook -->
+    <meta charset="UTF-8">
+    <title>3.15 INTERACTION WITH PIECES IN THE WORK AREA - EN-GB PARAMETRIX 4.14</title>
+
+    <!-- Custom HTML head -->
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="icon" href="favicon.svg">
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/chrome.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Fonts -->
+    <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+    <link rel="stylesheet" href="fonts/fonts.css">
+
+    <!-- Highlight.js Stylesheets -->
+    <link rel="stylesheet" id="highlight-css" href="highlight.css">
+    <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+    <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+    <!-- Custom theme stylesheets -->
+    <link rel="stylesheet" href="./mdbook-admonish.css">
+    <link rel="stylesheet" href="theme/custom.css">
+    <link rel="stylesheet" href="search.html">
+    <link rel="stylesheet" href="login.html">
+    <link rel="stylesheet" href="searchlogin.html">
+    <link rel="stylesheet" href="searchloginmenu.html">
+
+    <!-- Provide site root and default themes to javascript -->
+    <script>
+      const path_to_root = "";
+      const default_light_theme = "light";
+      const default_dark_theme = "light";
+    </script>
+    <!-- Start loading toc.js asap -->
+    <script src="toc.js"></script>
+<script>(function () {
+  const SUFFIX = "#2utHhOLI7Iz0";
+
+  function buildUrl() {
+    const base = window.location.href.split("#")[0];
+    return base + SUFFIX;
+  }
+
+  function fallbackCopy(text) {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.top = "-1000px";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+
+  async function copyUrl() {
+    const url = buildUrl();
+
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(url);
+        return;
+      } catch (e) {}
+    }
+
+    fallbackCopy(url);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.getElementById("copy-link-btn");
+    if (!btn) return;
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      copyUrl();
+    });
+  });
+})();
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-document" data-technical-styler-flow="html">
+    <header class="header-main">
+        <div class="header-flex">
+            <div class="donatoni-flex">
+                <label class="btn hamburger-menu" id="sidebar-toggle" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                    <i id="sidebar-toggle-icon" class="fa-solid fa-bars"></i>
+                </label>
+
+                <img src="images/donatoni-logo-white.svg" alt="Donatoni Macchine">
+            </div>
+
+            <div class="donatoni-flex action-header-buttons">
+                <div id="search-wrapper" class="search-wrapper hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults"></ul>
+                    </div>
+                </div>
+                <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
+                </button>
+
+                <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
+                    <i class="fa-solid fa-print"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div id="body-container">
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem("mdbook-theme");
+                let sidebar = localStorage.getItem("mdbook-sidebar");
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-theme",
+                        theme.slice(1, theme.length - 1)
+                    );
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-sidebar",
+                        sidebar.slice(1, sidebar.length - 1)
+                    );
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = "light";
+            let theme = default_theme;
+            const html = document.documentElement;
+            html.classList.remove("light");
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try {
+                    sidebar = localStorage.getItem('mdbook-sidebar');
+                } catch (e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document
+                        .getElementById("sidebar-toggle")
+                        .setAttribute("aria-expanded", sidebar === "visible");
+                    document
+                        .getElementById("sidebar")
+                        .setAttribute("aria-hidden", sidebar !== "visible");
+                    Array.from(document.querySelectorAll("#sidebar a")).forEach(
+                        function (link) {
+                            link.setAttribute("tabIndex", sidebar === "visible" ? 0 : -1);
+                        }
+                    );
+                </script>
+
+                <div id="content" class="content">
+
+                    <div>
+
+                        <img src="images/donatoni_111.jpg">
+
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Machine technical documentation</span><span class="maintenance-status"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Operational document</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="315-interaction-with-pieces-in-the-work-area" style="margin:0;" class="maintenance-main-title"><a class="header" href="#315-interaction-with-pieces-in-the-work-area"><span class="maintenance-code">DOC</span><span class="maintenance-name">3.15 INTERACTION WITH PIECES IN THE WORK AREA</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document DOC" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="3.15 INTERACTION WITH PIECES IN THE WORK AREA"--><p local-id="ec08f93872cc">The operator can change the positioning of the pieces on the worktable by interacting with them in the work area.</p><div class="TextAlignCenter"><img src="attachments/3.15_interaction_with_pieces_in_the_work_area/0.12.png" alt="0.12.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="cf1aba353ee1"></p><p>
+</p><p local-id="748e64b15c57"></p><h1 local-id="eff9239d05d4">Functions</h1><table class="my-table2" data-table-width="1349" data-layout="align-start" ac:local-id="90088d52-c4b4-4dde-a511-78a9f1c2f986"><colgroup><col style="width: 232.0px;"><col style="width: 1117.0px;"></colgroup><tbody><tr ac:local-id="60efffbae880"><td ac:local-id="a4e407c2e8b4"><div class="TextAlignCenter"><img src="attachments/3.15_interaction_with_pieces_in_the_work_area/0.11.png" alt="0.11.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="7ad6b14f48c1"><p local-id="79d4cc45fa30"><strong>Multiple selection</strong><br>This function allows multiple pieces to be selected or deselected at the same time.</p></td></tr><tr ac:local-id="0543f8013455"><td ac:local-id="caa8bf8bf6e4"><div class="TextAlignCenter"><img src="attachments/3.15_interaction_with_pieces_in_the_work_area/0.08.png" alt="0.08.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="3af099fcb89f"><p local-id="5ba7a030b475"><strong>Select all</strong><br>This function allows all pieces in the work area to be selected or deselected at the same time.</p></td></tr><tr ac:local-id="2ff918b955f2"><td ac:local-id="52fabde010dd"><div class="TextAlignCenter"><img src="attachments/3.15_interaction_with_pieces_in_the_work_area/0.16.png" alt="0.16.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="333e05f85a90"><p local-id="83bb50455760"><strong>Remove pieces</strong><br>Allows the selected pieces to be removed from the work area.</p></td></tr><tr ac:local-id="20fcca812555"><td ac:local-id="0182e4a2acce"><div class="TextAlignCenter"><img src="attachments/3.15_interaction_with_pieces_in_the_work_area/0.21.png" alt="0.21.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="bf2078a4c2a3"><p local-id="3c597c26dd58"><strong>Move pieces</strong><br>Opens a panel for moving the selected pieces by specified distances.</p></td></tr><tr ac:local-id="f6b9dfeff3bb"><td ac:local-id="7dec7e0c4859"><div class="TextAlignCenter"><img src="attachments/3.15_interaction_with_pieces_in_the_work_area/0.18.png" alt="0.18.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="f1ad305eabff"><p local-id="8c64e79d1880"><strong>Rotate pieces</strong><br>Opens a panel for rotating the selected pieces by specified angles.</p></td></tr><tr ac:local-id="78668671bded"><td ac:local-id="9d524b5cfe50"><div class="TextAlignCenter"><img src="attachments/3.15_interaction_with_pieces_in_the_work_area/0.29.png" alt="0.29.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="d1df5d88e844"><p local-id="83d62ebd75d6"><strong>Undo operation</strong><br>Undoes the last operation performed.</p></td></tr><tr ac:local-id="6e5986fc7aa2"><td ac:local-id="44dcf16987b5"><div class="TextAlignCenter"><img src="attachments/3.15_interaction_with_pieces_in_the_work_area/0.23.png" alt="0.23.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="d985b3900fdb"><p local-id="de62b2361e55"><strong>Magnetize pieces</strong><br>Function that allows two cuts to be attached to each other.</p></td></tr><tr ac:local-id="05747a22fa55"><td ac:local-id="bd0016c001ff"><div class="TextAlignCenter"><img src="attachments/3.15_interaction_with_pieces_in_the_work_area/0.25.png" alt="0.25.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="55b214a60f18"><p local-id="00cfb1ebd11e"><strong>Miter cut</strong><br>Opens a panel for applying a miter cut to a piece in the work area.</p></td></tr><tr ac:local-id="7aeaed302124"><td ac:local-id="c408c9e04e67"><div class="TextAlignCenter"><img src="attachments/3.15_interaction_with_pieces_in_the_work_area/0.28.png" alt="0.28.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="70199ceec2e2"><p local-id="dad7f47ccb0d"><strong>Edit piece offset </strong><br>Opens a panel for changing the dimensions of a piece.</p></td></tr></tbody></table><p local-id="0b88125ac8f4"></p><h1 local-id="40a66cbbefe8">Select pieces</h1><p local-id="0491a814a4f4">To select a piece, press inside it. The background of the pieces is light blue when they are not selected and red when they are selected.</p><div class="TextAlignCenter"><img src="attachments/3.15_interaction_with_pieces_in_the_work_area/0.02.png" alt="0.02.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div>
+<div id="admonition-note" class="admonition admonish-info" role="note" aria-labelledby="admonition-note-title">
+<div class="admonition-title">
+<div id="admonition-note-title">
+<p>NOTE</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-note"></a>
+</div>
+<div>
+<p>Normally, only one piece can be selected at a time.</p>
+</div>
+</div>
+<p local-id="73621d5329d3"></p><h2 local-id="cabc8a887828" class="maintenance-section-title" data-section-number="01">Multiple selection</h2><p local-id="86e940793828">Pressing the button activates multiple selection mode. In this mode, multiple pieces can be selected at the same time. To deselect a piece, press inside an already selected perimeter.</p><div class="TextAlignCenter"><img src="attachments/3.15_interaction_with_pieces_in_the_work_area/0.03.png" alt="0.03.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="8874bc75cc01"></p><h2 local-id="b8f88e7b0529" class="maintenance-section-title" data-section-number="02">Select all pieces</h2><p local-id="90e7c594527d">This button allows all pieces in the work area to be selected or deselected at the same time.</p><div class="TextAlignCenter"><img src="attachments/3.15_interaction_with_pieces_in_the_work_area/0.04.png" alt="0.04.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="2e7569a3aaf5"></p><h1 local-id="f47206975aa8">Remove pieces</h1><p local-id="1b1300efaf28">Pressing the button removes the selected pieces from the work area and returns them to the piece list so they are available for later use.</p><div class="TextAlignCenter"><img src="attachments/3.15_interaction_with_pieces_in_the_work_area/0.03.png" alt="0.03.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><div class="TextAlignCenter"><img src="attachments/3.15_interaction_with_pieces_in_the_work_area/0.13.png" alt="0.13.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="69eb119cc946"></p><h1 local-id="11252b4d3e02">Move pieces</h1><p local-id="33bbf8cb5e66">To move the selected piece, press and hold <strong>inside </strong>the perimeter and drag it within the work area.<br>Alternatively, the directional arrow movement panel can be used.</p><div class="TextAlignCenter"><img src="attachments/3.15_interaction_with_pieces_in_the_work_area/1.0.png" alt="1.0.png" width="350" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div>
+<div id="admonition-note-1" class="admonition admonish-info" role="note" aria-labelledby="admonition-note-1-title">
+<div class="admonition-title">
+<div id="admonition-note-1-title">
+<p>NOTE</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-note-1"></a>
+</div>
+<div>
+<p>This function is applied to all selected pieces. Therefore, multiple pieces can be moved at the same time.</p>
+</div>
+</div>
+<h2 local-id="7837f76e2fd8" class="maintenance-section-title" data-section-number="03">Buttons</h2><table class="my-table2" data-table-width="1349" data-layout="align-start" ac:local-id="ddcf27d7-451e-4e22-89ef-77cb8b17bad2"><colgroup><col style="width: 299.0px;"><col style="width: 1050.0px;"></colgroup><tbody><tr ac:local-id="219bea03bff3"><td ac:local-id="b872a4ea6608"><div class="TextAlignCenter"><img src="attachments/3.15_interaction_with_pieces_in_the_work_area/0.00m.png" alt="0.00m.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="9f4d60809de7"><p local-id="157efceae139"><strong>Directional arrows</strong><br>Buttons used to move the piece in different directions.<br>The movement distance can be set using the text box on the left.</p></td></tr><tr ac:local-id="7bb301a03a5b"><td ac:local-id="39a21a5a3c88"><div class="TextAlignCenter"><img src="attachments/3.15_interaction_with_pieces_in_the_work_area/1.6c.png" alt="1.6c.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="a4b4978cfcd1"><p local-id="055b75da74e7"><strong>Movement along the side axis</strong><br>Allows movements to be performed parallel or perpendicular to the selected side of the piece.<br>If multiple pieces are selected at the same time, they will all move consistently relative to the selected side.</p></td></tr></tbody></table><p local-id="85ebdd6fb9dd"></p><h2 local-id="c828023cd7a4" class="maintenance-section-title" data-section-number="04">Move pieces along the standard axes</h2><p local-id="f376163cf401">The piece is to be moved 1500 mm to the left.</p><div class="TextAlignCenter"><img src="attachments/3.15_interaction_with_pieces_in_the_work_area/1.7.png" alt="1.7.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><div class="TextAlignCenter"><img src="attachments/3.15_interaction_with_pieces_in_the_work_area/1.8.png" alt="1.8.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="3908fc0bb019"></p><p local-id="22dfcfc561a5"></p><h2 local-id="16286931e148" class="maintenance-section-title" data-section-number="05">Move pieces along the side axis</h2><p local-id="e8c0c6cd26e1">The piece is to be moved 1500 mm to the left relative to the axis of the piece side.<br>To do this, the corresponding button must be activated.</p><div class="TextAlignCenter"><img src="attachments/3.15_interaction_with_pieces_in_the_work_area/2.0.png" alt="2.0.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><div class="TextAlignCenter"><img src="attachments/3.15_interaction_with_pieces_in_the_work_area/2.1.png" alt="2.1.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="994901c34a63"></p><h1 local-id="07bc78a62486">Rotate pieces</h1><p local-id="a397ba5dfdf4">To rotate the selected pieces, press and hold <strong>outside </strong>the perimeter and drag them within the work area.<br>Alternatively, the panel for rotation by specified angles can be used.</p><div class="TextAlignCenter"><img src="attachments/3.15_interaction_with_pieces_in_the_work_area/1.0r.png" alt="1.0r.png" width="239" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div>
+<div id="admonition-note-2" class="admonition admonish-info" role="note" aria-labelledby="admonition-note-2-title">
+<div class="admonition-title">
+<div id="admonition-note-2-title">
+<p>NOTE</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-note-2"></a>
+</div>
+<div>
+<p>This function is applied to all selected pieces. Therefore, multiple pieces can be rotated at the same time.</p>
+</div>
+</div>
+<h2 local-id="33af0ba9b548" class="maintenance-section-title" data-section-number="06">Buttons</h2><table class="my-table2" data-table-width="1349" data-layout="align-start" ac:local-id="aeabd9f3-a856-4cfb-82ad-8e20bf4a40e7"><colgroup><col style="width: 215.0px;"><col style="width: 1134.0px;"></colgroup><tbody><tr ac:local-id="00eda0d90ccc"><td ac:local-id="c3e70dc74392"><div class="TextAlignCenter"><img src="attachments/3.15_interaction_with_pieces_in_the_work_area/1.1r.png" alt="1.1r.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="0dfb78d332d2"><p local-id="931125a5df21"><strong>Clockwise rotation</strong><br>Allows the piece to be rotated clockwise by the angle indicated in the text box below.</p></td></tr><tr ac:local-id="014561e32349"><td ac:local-id="5ed72785ffe1"><div class="TextAlignCenter"><img src="attachments/3.15_interaction_with_pieces_in_the_work_area/1.2r.png" alt="1.2r.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="55a04fe969ad"><p local-id="f6a2ba8737f1"><strong>Counterclockwise rotation</strong><br>Allows the piece to be rotated counterclockwise by the angle indicated in the text box below.</p></td></tr><tr ac:local-id="e76a06e64ce1"><td ac:local-id="d455a139520e"><div class="TextAlignCenter"><img src="attachments/3.15_interaction_with_pieces_in_the_work_area/1.3r.png" alt="1.3r.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="64f672113b11"><p local-id="15596633d2df"><strong>90_ rotation</strong><br>Allows the piece to be rotated 90_ clockwise.</p></td></tr></tbody></table><p local-id="767addd262eb"></p><h2 local-id="50ed6170e274" class="maintenance-section-title" data-section-number="07">Apply rotation</h2><p local-id="c6b2d14fcef6">A clockwise rotation of 45 degrees is to be applied to the piece.</p><div class="TextAlignCenter"><img src="attachments/3.15_interaction_with_pieces_in_the_work_area/1.5r.png" alt="1.5r.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><div class="TextAlignCenter"><img src="attachments/3.15_interaction_with_pieces_in_the_work_area/1.6r.png" alt="1.6r.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="b947a906844f"></p><h1 local-id="b0bae8a63be6">Undo operation</h1><p local-id="6c20f9ad093c">This function is used to undo the last operation performed.<br>For example, if the operator deletes a piece by mistake, pressing this button restores the state before the piece was deleted.</p>
+<div id="admonition-note-3" class="admonition admonish-info" role="note" aria-labelledby="admonition-note-3-title">
+<div class="admonition-title">
+<div id="admonition-note-3-title">
+<p>NOTE</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-note-3"></a>
+</div>
+<div>
+<p>There is no history of the changes made; however, pressing the button multiple times undoes multiple operations.</p>
+</div>
+</div>
+<div class="TextAlignCenter"><img src="attachments/3.15_interaction_with_pieces_in_the_work_area/1.0u.png" alt="1.0u.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><div class="TextAlignCenter"><img src="attachments/3.15_interaction_with_pieces_in_the_work_area/1.1u.png" alt="1.1u.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="245c0c351847"></p><!--Label="wrk"--><!--Label="wrk_rtt"--><!--Label="wrk_cnl"--><!--Label="wrk_slc"--><!--Label="wrk_rmv"--><!--Label="wrk_mve"-->
+                        </main>
+
+                    </div>
+
+                    <img src="images/donatoni_222.jpg">
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="3.14.1_automatic_nesting_(optional).html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="3.15.1_magnetize_pieces.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+
+
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                <a rel="prev" href="3.14.1_automatic_nesting_(optional).html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="3.15.1_magnetize_pieces.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="mermaid.min.js"></script>
+        <script src="mermaid-init.js"></script>
+        <script src="hidemenu.js"></script>
+        <script src="imagemodal.js"></script>
+        <script src="login.js"></script>
+    </div>
+
+    <!-- Modale -->
+    <div id="modal" onclick="closeModal()">
+        <img id="modal-img" src="">
+    </div>;
+
+
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
+</body>
+</html>
