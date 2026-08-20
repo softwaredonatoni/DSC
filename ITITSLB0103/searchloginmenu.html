@@ -75,7 +75,7 @@
 
 
         document.addEventListener("DOMContentLoaded", async () => {
-            const fragment = window.location.hash.substring(1); // Prende il valore dopo #
+            const fragment = decodeURIComponent(window.location.hash.substring(1)); // Prende il valore dopo #
             const [parametro1, parametro2, parametro3] = fragment.split("|"); // Divide i valori
             const output = document.getElementById("parametro");
             const outputh = document.getElementById("erroreerror");
