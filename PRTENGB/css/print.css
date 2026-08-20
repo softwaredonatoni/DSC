@@ -48,3 +48,15 @@ pre, code {
 .fa {
     display: none !important;
 }
+
+/* PRINT-IMAGES-CSS-FIX:START */
+@media print {
+    img {
+        max-width: 100%;
+        height: auto;
+        visibility: visible !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+}
+/* PRINT-IMAGES-CSS-FIX:END */

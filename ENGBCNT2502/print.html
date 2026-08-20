@@ -537,9 +537,7 @@ tool numbers.</p>
         <script src="login.js"></script>
 
         <script>
-        window.addEventListener('load', function() {
-            window.setTimeout(window.print, 100);
-        });
+        
         </script>
 
     </div>
@@ -550,5 +548,57 @@ tool numbers.</p>
 
 <script src="SimpleKeyboard/index.js"></script>
 <script src="SimpleKeyboard/qwerty-keyboard.js"></script>
+
+        <!-- PRINT-IMAGES-FIX:START -->
+        <script>
+        (function () {
+            const images = Array.from(document.images);
+
+            // Le immagini fuori dal viewport devono essere caricate prima della stampa.
+            images.forEach(function (image) {
+                image.loading = 'eager';
+                image.removeAttribute('loading');
+            });
+
+            function waitForImage(image) {
+                const loaded = image.complete
+                    ? Promise.resolve()
+                    : new Promise(function (resolve) {
+                        image.addEventListener('load', resolve, { once: true });
+                        image.addEventListener('error', resolve, { once: true });
+                    });
+
+                return loaded.then(function () {
+                    if (typeof image.decode !== 'function') {
+                        return undefined;
+                    }
+
+                    return image.decode().catch(function () {
+                        // Un'immagine non decodificabile non deve bloccare la stampa.
+                    });
+                });
+            }
+
+            function printWhenReady() {
+                const fontsReady = document.fonts ? document.fonts.ready : Promise.resolve();
+                const imagesReady = Promise.all(images.map(waitForImage));
+
+                Promise.all([fontsReady, imagesReady]).then(function () {
+                    requestAnimationFrame(function () {
+                        requestAnimationFrame(function () {
+                            window.print();
+                        });
+                    });
+                });
+            }
+
+            if (document.readyState === 'complete') {
+                printWhenReady();
+            } else {
+                window.addEventListener('load', printWhenReady, { once: true });
+            }
+        }());
+        </script>
+        <!-- PRINT-IMAGES-FIX:END -->
 </body>
 </html>
