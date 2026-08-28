@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+<head>
+    <!-- Book generated using mdBook -->
+    <meta charset="UTF-8">
+    <title>3.11.3 CREATE PARAMETRIC FIGURES - EN-GB PARAMETRIX 4.14</title>
+
+    <!-- Custom HTML head -->
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="icon" href="favicon.svg">
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/chrome.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Fonts -->
+    <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+    <link rel="stylesheet" href="fonts/fonts.css">
+
+    <!-- Highlight.js Stylesheets -->
+    <link rel="stylesheet" id="highlight-css" href="highlight.css">
+    <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+    <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+    <!-- Custom theme stylesheets -->
+    <link rel="stylesheet" href="./mdbook-admonish.css">
+    <link rel="stylesheet" href="theme/custom.css">
+    <link rel="stylesheet" href="search.html">
+    <link rel="stylesheet" href="login.html">
+    <link rel="stylesheet" href="searchlogin.html">
+    <link rel="stylesheet" href="searchloginmenu.html">
+
+    <!-- Provide site root and default themes to javascript -->
+    <script>
+      const path_to_root = "";
+      const default_light_theme = "light";
+      const default_dark_theme = "light";
+    </script>
+    <!-- Start loading toc.js asap -->
+    <script src="toc.js"></script>
+<script>(function () {
+  const SUFFIX = "#2utHhOLI7Iz0";
+
+  function buildUrl() {
+    const base = window.location.href.split("#")[0];
+    return base + SUFFIX;
+  }
+
+  function fallbackCopy(text) {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.top = "-1000px";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+
+  async function copyUrl() {
+    const url = buildUrl();
+
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(url);
+        return;
+      } catch (e) {}
+    }
+
+    fallbackCopy(url);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.getElementById("copy-link-btn");
+    if (!btn) return;
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      copyUrl();
+    });
+  });
+})();
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-document" data-technical-styler-flow="html">
+    <header class="header-main">
+        <div class="header-flex">
+            <div class="donatoni-flex">
+                <label class="btn hamburger-menu" id="sidebar-toggle" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                    <i id="sidebar-toggle-icon" class="fa-solid fa-bars"></i>
+                </label>
+
+                <img src="images/donatoni-logo-white.svg" alt="Donatoni Macchine">
+            </div>
+
+            <div class="donatoni-flex action-header-buttons">
+                <div id="search-wrapper" class="search-wrapper hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults"></ul>
+                    </div>
+                </div>
+                <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
+                </button>
+
+                <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
+                    <i class="fa-solid fa-print"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div id="body-container">
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem("mdbook-theme");
+                let sidebar = localStorage.getItem("mdbook-sidebar");
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-theme",
+                        theme.slice(1, theme.length - 1)
+                    );
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-sidebar",
+                        sidebar.slice(1, sidebar.length - 1)
+                    );
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = "light";
+            let theme = default_theme;
+            const html = document.documentElement;
+            html.classList.remove("light");
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try {
+                    sidebar = localStorage.getItem('mdbook-sidebar');
+                } catch (e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document
+                        .getElementById("sidebar-toggle")
+                        .setAttribute("aria-expanded", sidebar === "visible");
+                    document
+                        .getElementById("sidebar")
+                        .setAttribute("aria-hidden", sidebar !== "visible");
+                    Array.from(document.querySelectorAll("#sidebar a")).forEach(
+                        function (link) {
+                            link.setAttribute("tabIndex", sidebar === "visible" ? 0 : -1);
+                        }
+                    );
+                </script>
+
+                <div id="content" class="content">
+
+                    <div>
+
+                        <img src="images/donatoni_111.jpg">
+
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Machine technical documentation</span><span class="maintenance-status"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Operational document</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="3113-create-parametric-figures" style="margin:0;" class="maintenance-main-title"><a class="header" href="#3113-create-parametric-figures"><span class="maintenance-code">DOC</span><span class="maintenance-name">3.11.3 CREATE PARAMETRIC FIGURES</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document DOC" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="3.11.3 CREATE PARAMETRIC FIGURES"--><p local-id="adc33a2a275a">In this section, pieces can be created using parametric figures with predefined shapes. To draw a figure, simply enter the values that define it.</p><div class="TextAlignCenter"><img src="attachments/3.11.3_create_parametric_figures/{547410C1-BD0D-4AD8-961F-B9FB7F547395}-20260610-075210.png" alt="{547410C1-BD0D-4AD8-961F-B9FB7F547395}-20260610-075210.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="ce5592c90c4f"></p><p>
+</p><h1 local-id="2bea07dc5931">Parametric figure categories</h1><p local-id="6c428c88478f">Referring to the image above, the main categories of parametric shapes are shown in the left column.</p><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="15df6239-51c6-4289-a4ec-32556dddae3f"><colgroup><col style="width: 217.0px;"><col style="width: 1579.0px;"></colgroup><tbody><tr ac:local-id="e049be8e9f6e"><td ac:local-id="8c9087a44bfc"><div class="TextAlignCenter"><img src="attachments/3.11.3_create_parametric_figures/MenuQuadrati-20260610-090527.png" alt="MenuQuadrati-20260610-090527.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="6c873bcd7e62"><p local-id="21e6697cdf91"><strong>Rectangular figures</strong><br>Such as rectangles and squares with and without an internal break.</p></td></tr><tr ac:local-id="be56f6478c27"><td ac:local-id="3b7adeb9a1b5"><div class="TextAlignCenter"><img src="attachments/3.11.3_create_parametric_figures/MenuTrapezzi-20260610-090624.png" alt="MenuTrapezzi-20260610-090624.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="5dd33b55a937"><p local-id="ea807cf6774e"><strong>Quadrilaterals</strong><br>Such as scalene trapezoids, also intended for kitchen worktops.</p></td></tr><tr ac:local-id="f9b423d9d651"><td ac:local-id="c674b977ab0f"><div class="TextAlignCenter"><img src="attachments/3.11.3_create_parametric_figures/MenuTriangoli-20260610-090825.png" alt="MenuTriangoli-20260610-090825.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="8f0f425e83a7"><p local-id="6e3b8da130d8"><strong>Triangular figures</strong><br>Such as regular and curved triangles.</p></td></tr><tr ac:local-id="adc0b73f165e"><td ac:local-id="b61d67aeef2c"><div class="TextAlignCenter"><img src="attachments/3.11.3_create_parametric_figures/MenuPianiCucina-20260610-090426.png" alt="MenuPianiCucina-20260610-090426.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="4d70d03be8ba"><p local-id="4664a1884ad3"><strong>Kitchen worktops</strong><br>Different kitchen worktop shapes with internal breaks.</p></td></tr><tr ac:local-id="3e5580f6df37"><td ac:local-id="2e83f67e9adc"><div class="TextAlignCenter"><img src="attachments/3.11.3_create_parametric_figures/MenuArco-20260610-085928.png" alt="MenuArco-20260610-085928.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="8a8e8ab9f895"><p local-id="8cecfe749334"><strong>Sector-type figures</strong><br>Such as sectors and partial circular crowns.</p></td></tr><tr ac:local-id="a52d10f1c8f5"><td ac:local-id="0eac982cae81"><div class="TextAlignCenter"><img src="attachments/3.11.3_create_parametric_figures/MenuCerchio-20260610-090137.png" alt="MenuCerchio-20260610-090137.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="77989aae83a8"><p local-id="f69d1927c2a2"><strong>Elliptical figures </strong><br>Such as circles and ellipses.</p></td></tr><tr ac:local-id="1aebb258d00f"><td ac:local-id="bf1a2593a99d"><div class="TextAlignCenter"><img src="attachments/3.11.3_create_parametric_figures/MenuEsagoni-20260610-090331.png" alt="MenuEsagoni-20260610-090331.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="8969c7a10f2a"><p local-id="8a22637d693a"><strong>Polygonal figures </strong><br>Such as regular and curved hexagons.</p></td></tr><tr ac:local-id="d34e7b14fa08"><td ac:local-id="e2f69d631b0c"><div class="TextAlignCenter"><img src="attachments/3.11.3_create_parametric_figures/MenuCucineArrotondate-20260610-085708.png" alt="MenuCucineArrotondate-20260610-085708.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="e64831baf700"><p local-id="acdff07b7a0e"><strong>Bathrooms</strong><br>Different curved shapes for bathrooms.</p></td></tr><tr ac:local-id="e599f86babc3"><td ac:local-id="757ea09aa205"><div class="TextAlignCenter"><img src="attachments/3.11.3_create_parametric_figures/MenuPiedoca-20260610-082059.png" alt="MenuPiedoca-20260610-082059.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="a301f43c9db9"><p local-id="45260b533e15"><strong>Stone or memorial figures </strong><br>Such as pentagons and Latin crosses.</p></td></tr><tr ac:local-id="81e42c46bdea"><td ac:local-id="11c160a88767"><div class="TextAlignCenter"><img src="attachments/3.11.3_create_parametric_figures/MenuRettangoliCurvilinei-20260610-092256.png" alt="MenuRettangoliCurvilinei-20260610-092256.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="7536114eb36b"><p local-id="91495f1610b5"><strong>Tables</strong><br>Figures such as rounded rectangles and irregular octagons.</p></td></tr><tr ac:local-id="94327326bc72"><td ac:local-id="6fe00b35ff1d"><div class="TextAlignCenter"><img src="attachments/3.11.3_create_parametric_figures/MenuFigureSpeciali-20260610-092951.png" alt="MenuFigureSpeciali-20260610-092951.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="731f05782f68"><p local-id="c1236c789c69"><strong>Special figures</strong><br>Such as stars and arcs.</p></td></tr></tbody></table><p local-id="7e1860231e8a"></p><h1 local-id="01d82ea44b51">Preview and parameter values</h1><p local-id="fd7f5350aacd">Depending on the selected category, the next column to the right opens the selection of the correct shape to use. <br> An image in the centre of the screen provides detailed indications of the dimensions to be entered. To the right of the reference image, a preview of the figure being drawn is displayed and updated in real time whenever the values defining the figure are changed.<br>As in the previous paragraphs, once the dimensions have been entered, it is possible to enter the mark (or label) displayed on the piece when it is inserted in the work area, the number of copies of the piece, and decide whether to perform a single import.<br>The following image shows an example of creating a kitchen worktop.</p><p local-id="daed36c97418"></p><div class="TextAlignCenter"><img src="attachments/3.11.3_create_parametric_figures/{9F46349F-3586-43EC-90F0-C28518B605D6}-20260610-094009.png" alt="{9F46349F-3586-43EC-90F0-C28518B605D6}-20260610-094009.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="08ea2f4a0824"></p><h2 local-id="49a26f223917" class="maintenance-section-title" data-section-number="01">Create internal breaks</h2><p local-id="65d949a134b8">To create internal breaks, press one of the internal rectangles in the central image. The window shown below opens, where the break can be edited as required before being inserted into the original image.</p><p local-id="41c506329565"> </p><div class="TextAlignCenter"><img src="attachments/3.11.3_create_parametric_figures/{CF8F2CB7-F1B0-4DBC-9B62-FF32968C5759}-20260610-133756.png" alt="{CF8F2CB7-F1B0-4DBC-9B62-FF32968C5759}-20260610-133756.png" width="450" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="62436e1ce568"></p><h1 local-id="4e2bbc6ee958">Additional settings</h1><h2 local-id="75352652d809" class="maintenance-section-title" data-section-number="02">Additional parameters</h2><p local-id="e027ea5fe4ba">The following data is required to create rectangular pieces:</p><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="bce60155-f4bf-44ac-8cca-2116cd4a9dc5"><colgroup><col style="width: 537.0px;"><col style="width: 1251.0px;"></colgroup><tbody><tr ac:local-id="4d00f130cc94"><td ac:local-id="14227bafecc0"><div class="TextAlignCenter"><img src="attachments/3.11.3_create_parametric_figures/casella_numero_pezzi.png" alt="casella_numero_pezzi.png" width="282" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="d317c4408ec2"><p local-id="0730ffd47bac"><strong>Number of pieces</strong><br>Number of copies of the piece with the same dimensions.</p></td></tr><tr ac:local-id="a7aedb22dcb3"><td ac:local-id="69e8884e7c8e"><div class="TextAlignCenter"><img src="attachments/3.11.3_create_parametric_figures/casella_etichetta_pulita.png" alt="casella_etichetta_pulita.png" width="282" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="e767c9b25e02"><p local-id="c59de0ed3c3a"><strong>Mark</strong><br>Label added to the piece for identification. This parameter is optional because it is not essential for creating the piece.</p></td></tr></tbody></table><p local-id="4c25f6c40632"></p><h2 local-id="7be722070db9" class="maintenance-section-title" data-section-number="03">Additional buttons</h2><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="ac05b40b-6f10-472b-a607-a899ae79050b"><colgroup><col style="width: 325.0px;"><col style="width: 1472.0px;"></colgroup><tbody><tr ac:local-id="d056f117db25"><td ac:local-id="bc9d1de752b8"><div class="TextAlignCenter"><img src="attachments/3.11.3_create_parametric_figures/5_1_OnOff-20250617-065030.png" alt="5_1_OnOff-20250617-065030.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="c782835d467d"><p local-id="a3cc641545dd"><strong>Single import</strong><br>When this button is enabled, multiple separate pieces can be created in a quantity of one each instead of a single piece with multiple copies.</p></td></tr><tr ac:local-id="e6047ddadc14"><td ac:local-id="89ee35fbb572"><div class="TextAlignCenter"><img src="attachments/3.11.3_create_parametric_figures/5_2_OnOff-20250617-064639.png" alt="5_2_OnOff-20250617-064639.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><div class="TextAlignCenter"><img src="attachments/3.11.3_create_parametric_figures/5_3_OnOff-20250617-064829.png" alt="5_3_OnOff-20250617-064829.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="fa1ec633d261"><p local-id="02517f6a52cb"><strong>Mirror</strong><br>When enabled, these two buttons flip the piece vertically and horizontally respectively.</p></td></tr><tr ac:local-id="38dad83075c7"><td ac:local-id="afc960f1188e"><div class="TextAlignCenter"><img src="attachments/3.11.3_create_parametric_figures/{A5090F9B-9899-4ABF-9D47-9D4E7A86AC10}-20260610-094413.png" alt="{A5090F9B-9899-4ABF-9D47-9D4E7A86AC10}-20260610-094413.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="52e0efb5f7ba"><p local-id="4ceeb8439341"><strong>Restore</strong><br>This button restores the figure being edited to its original state.</p></td></tr></tbody></table><p local-id="79fbb76af022"></p><h2 local-id="2fe5e0f91c28" class="maintenance-section-title" data-section-number="04">Out-of-square piece bar</h2><p local-id="63012fcd6c7b">Some pieces can be created using non-square angles (i.e. angles other than 90 degrees).<br>To use this option, a bar above the central image contains all modification versions of that image. Editable parameters are coloured green.</p><div class="TextAlignCenter"><img src="attachments/3.11.3_create_parametric_figures/{42FFBA5F-A03B-4348-8FDA-5B72CAFF28FF}-20260610-125606.png" alt="{42FFBA5F-A03B-4348-8FDA-5B72CAFF28FF}-20260610-125606.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="efe082acadeb"></p><p local-id="b48f992e45ef"></p><h3 local-id="eabed07da40e">Mirror</h3><p local-id="2f41a5fd51b4">Pressing the two dedicated buttons flips the result displayed on screen along the vertical or horizontal axis respectively. This function allows the display to be adapted according to operating requirements or the type of working in progress.</p><p local-id="8236bdce99c4">Some examples of horizontal and vertical flipping are shown below:</p><table class="my-table2" data-table-width="990" data-layout="center" ac:local-id="9c9472e2-cd9c-4a1c-ac2a-81a11df5f0b3"><colgroup><col style="width: 330.0px;"><col style="width: 330.0px;"><col style="width: 330.0px;"></colgroup><tbody><tr ac:local-id="e634bd28b9ae"><td ac:local-id="52fa68520a7e"><p local-id="a43e23a732d2"><strong>Horizontal flip only</strong></p></td><td ac:local-id="0c627e2cdb67"><p local-id="4e013066a20d"><strong>Vertical flip only</strong></p></td><td ac:local-id="b1bc5f4cf31d"><p local-id="6d9b158533aa"><strong>Horizontal and Vertical flip</strong></p></td></tr><tr ac:local-id="77a1027851bc"><td ac:local-id="04815aebe883"><div class="TextAlignCenter"><img src="attachments/3.11.3_create_parametric_figures/6b-20250617-091829.png" alt="6b-20250617-091829.png" width="121" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="e86cd72e3636"><div class="TextAlignCenter"><img src="attachments/3.11.3_create_parametric_figures/6c-20250617-091859.png" alt="6c-20250617-091859.png" width="121" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="bbbb4ee88e4b"><div class="TextAlignCenter"><img src="attachments/3.11.3_create_parametric_figures/6d-20250617-091926.png" alt="6d-20250617-091926.png" width="121" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td></tr><tr ac:local-id="31c2560ca245"><td ac:local-id="11c750f6c8fc"><div class="TextAlignCenter"><img src="attachments/3.11.3_create_parametric_figures/1.1b.png" alt="1.1b.png" width="300" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="946621005d7a"><div class="TextAlignCenter"><img src="attachments/3.11.3_create_parametric_figures/1.1c.png" alt="1.1c.png" width="300" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="13ddd0d0d242"><div class="TextAlignCenter"><img src="attachments/3.11.3_create_parametric_figures/1.1d.png" alt="1.1d.png" width="300" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td></tr></tbody></table><p local-id="6852410a6b6d"></p><!--Label="crt_prm"-->
+                        </main>
+
+                    </div>
+
+                    <img src="images/donatoni_222.jpg">
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="3.11.2_create_rectangles.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="3.11.4_excel_file_(csv)_import.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+
+
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                <a rel="prev" href="3.11.2_create_rectangles.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="3.11.4_excel_file_(csv)_import.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="mermaid.min.js"></script>
+        <script src="mermaid-init.js"></script>
+        <script src="hidemenu.js"></script>
+        <script src="imagemodal.js"></script>
+        <script src="login.js"></script>
+    </div>
+
+    <!-- Modale -->
+    <div id="modal" onclick="closeModal()">
+        <img id="modal-img" src="">
+    </div>;
+
+
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
+</body>
+</html>
