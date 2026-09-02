@@ -318,6 +318,15 @@
 <script src="SimpleKeyboard/index.js"></script>
 <script src="SimpleKeyboard/qwerty-keyboard.js"></script>
 
+<script>
+document.addEventListener("input", function (e) {
+    const t = e.target;
+    if (t && t.id === "searchbar" && e.isTrusted !== true) {
+        t.dispatchEvent(new KeyboardEvent("keyup", { bubbles: true }));
+    }
+});
+</script>
+
         <!-- PRINT-IMAGES-FIX:START -->
         <script>
         (function () {
@@ -369,5 +378,14 @@
         }());
         </script>
         <!-- PRINT-IMAGES-FIX:END -->
+
+<script id="virtual-keyboard-searchbar-fix">
+document.addEventListener("input", function (e) {
+    const t = e.target;
+    if (t && t.id === "searchbar" && e.isTrusted !== true) {
+        t.dispatchEvent(new KeyboardEvent("keyup", { bubbles: true }));
+    }
+});
+</script>
 </body>
 </html>

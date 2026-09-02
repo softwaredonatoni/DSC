@@ -2817,5 +2817,14 @@ objective the center of the disk; the current quota will differ for half soul of
         }());
         </script>
         <!-- PRINT-IMAGES-FIX:END -->
+
+<script id="virtual-keyboard-searchbar-fix">
+document.addEventListener("input", function (e) {
+    const t = e.target;
+    if (t && t.id === "searchbar" && e.isTrusted !== true) {
+        t.dispatchEvent(new KeyboardEvent("keyup", { bubbles: true }));
+    }
+});
+</script>
 </body>
 </html>

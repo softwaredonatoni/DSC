@@ -71,6 +71,8 @@ async function fetchToken(parametro1) {
         <style>
             p#mapping { display: none; }
         </style>
+    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
 </head>
 <body>
     <h1>Ricerca della Pagina</h1>
@@ -86,5 +88,12 @@ async function fetchToken(parametro1) {
 <p id="mapping">test_etichetta=sotto_pagina.html</p>
 <p id="mapping">e2=test_elenchi_puntati.html</p>
 <p id="mapping">mn0001=mn0001_test_del_circuito_di_emergenza.html</p>
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
 </body>
 </html>

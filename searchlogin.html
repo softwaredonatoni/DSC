@@ -113,7 +113,9 @@ async function fetchToken(parametro1) {
     });
   });
 })();
-</script></head>
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
 <body>
     <h1>Ricerca della Pagina</h1>
     <p id="parametro">Attendi mentre cerchiamo la pagina corrispondente...</p>
@@ -126,5 +128,12 @@ async function fetchToken(parametro1) {
 <p id="mapping">e2=test_pagina_sotto_pagina.html</p>
 <p id="mapping">e2=test_elenchi_puntati.html</p>
 <p id="mapping">test_etichetta=sotto_pagina.html</p>
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
 </body>
 </html>

@@ -612,5 +612,14 @@ Der Wert null entspricht genau dem Zeitpunkt, an dem die Aktion mit den Basispar
         }());
         </script>
         <!-- PRINT-IMAGES-FIX:END -->
+
+<script id="virtual-keyboard-searchbar-fix">
+document.addEventListener("input", function (e) {
+    const t = e.target;
+    if (t && t.id === "searchbar" && e.isTrusted !== true) {
+        t.dispatchEvent(new KeyboardEvent("keyup", { bubbles: true }));
+    }
+});
+</script>
 </body>
 </html>

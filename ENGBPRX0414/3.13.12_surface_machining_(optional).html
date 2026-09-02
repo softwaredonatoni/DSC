@@ -339,5 +339,14 @@ If either is enabled, the program also forces disk raising at the end of each pa
 
 <script src="SimpleKeyboard/index.js"></script>
 <script src="SimpleKeyboard/qwerty-keyboard.js"></script>
+
+<script id="virtual-keyboard-searchbar-fix">
+document.addEventListener("input", function (e) {
+    const t = e.target;
+    if (t && t.id === "searchbar" && e.isTrusted !== true) {
+        t.dispatchEvent(new KeyboardEvent("keyup", { bubbles: true }));
+    }
+});
+</script>
 </body>
 </html>
