@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+<head>
+    <!-- Book generated using mdBook -->
+    <meta charset="UTF-8">
+    <title>2.3 PROGRAMA ISO - ES-ES PARAMETRIX 4.14</title>
+
+    <!-- Custom HTML head -->
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="icon" href="favicon.svg">
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/chrome.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Fonts -->
+    <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+    <link rel="stylesheet" href="fonts/fonts.css">
+
+    <!-- Highlight.js Stylesheets -->
+    <link rel="stylesheet" id="highlight-css" href="highlight.css">
+    <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+    <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+    <!-- Custom theme stylesheets -->
+    <link rel="stylesheet" href="./mdbook-admonish.css">
+    <link rel="stylesheet" href="theme/custom.css">
+    <link rel="stylesheet" href="search.html">
+    <link rel="stylesheet" href="login.html">
+    <link rel="stylesheet" href="searchlogin.html">
+    <link rel="stylesheet" href="searchloginmenu.html">
+
+    <!-- Provide site root and default themes to javascript -->
+    <script>
+      const path_to_root = "";
+      const default_light_theme = "light";
+      const default_dark_theme = "light";
+    </script>
+    <!-- Start loading toc.js asap -->
+    <script src="toc.js"></script>
+<script>(function () {
+  const SUFFIX = "#2utHhOLI7Iz0";
+
+  function buildUrl() {
+    const base = window.location.href.split("#")[0];
+    return base + SUFFIX;
+  }
+
+  function fallbackCopy(text) {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.top = "-1000px";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+
+  async function copyUrl() {
+    const url = buildUrl();
+
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(url);
+        return;
+      } catch (e) {}
+    }
+
+    fallbackCopy(url);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.getElementById("copy-link-btn");
+    if (!btn) return;
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      copyUrl();
+    });
+  });
+})();
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-document" data-technical-styler-flow="html">
+    <header class="header-main">
+        <div class="header-flex">
+            <div class="donatoni-flex">
+                <label class="btn hamburger-menu" id="sidebar-toggle" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                    <i id="sidebar-toggle-icon" class="fa-solid fa-bars"></i>
+                </label>
+
+                <img src="images/donatoni-logo-white.svg" alt="Donatoni Macchine">
+            </div>
+
+            <div class="donatoni-flex action-header-buttons">
+                <div id="search-wrapper" class="search-wrapper hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults"></ul>
+                    </div>
+                </div>
+                <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
+                </button>
+
+                <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
+                    <i class="fa-solid fa-print"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div id="body-container">
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem("mdbook-theme");
+                let sidebar = localStorage.getItem("mdbook-sidebar");
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-theme",
+                        theme.slice(1, theme.length - 1)
+                    );
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-sidebar",
+                        sidebar.slice(1, sidebar.length - 1)
+                    );
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = "light";
+            let theme = default_theme;
+            const html = document.documentElement;
+            html.classList.remove("light");
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try {
+                    sidebar = localStorage.getItem('mdbook-sidebar');
+                } catch (e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document
+                        .getElementById("sidebar-toggle")
+                        .setAttribute("aria-expanded", sidebar === "visible");
+                    document
+                        .getElementById("sidebar")
+                        .setAttribute("aria-hidden", sidebar !== "visible");
+                    Array.from(document.querySelectorAll("#sidebar a")).forEach(
+                        function (link) {
+                            link.setAttribute("tabIndex", sidebar === "visible" ? 0 : -1);
+                        }
+                    );
+                </script>
+
+                <div id="content" class="content">
+
+                    <div>
+
+                        <img src="images/donatoni_111.jpg">
+
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Machine technical documentation</span><span class="maintenance-status"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Operational document</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="23-programa-iso" style="margin:0;" class="maintenance-main-title"><a class="header" href="#23-programa-iso"><span class="maintenance-code">DOC</span><span class="maintenance-name">2.3 PROGRAMA ISO</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document DOC" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="2.3 PROGRAMA ISO"--><p>La página de programación de archivos ISO permite gestionar e iniciar mecanizados mediante archivos .pgm creados previamente con programas CAD-CAM.</p><div class="TextAlignCenter"><img src="attachments/2.3_programa_iso/ProgrammaISO_C.png" alt="ProgrammaISO_C.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><p>
+</p><p></p><h1 id="lista"><a class="header" href="#lista">Lista</a></h1><p>La lista del programa ISO, inicialmente vacía, contiene todos los programas ISO que pueden ejecutarse secuencialmente.</p><div class="TextAlignCenter"><img src="attachments/2.3_programa_iso/1_0_Lista_D.png" alt="1_0_Lista_D.png" width="350" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><h2 id="botones" class="maintenance-section-title" data-section-number="01"><a class="header" href="#botones">Botones</a></h2><p>Hay una serie de botones para gestionar la lista.</p><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="ce861441-fdab-41fc-a274-1cc4945cbe30"><colgroup><col style="width: 263.0px;"><col style="width: 1537.0px;"></colgroup><tbody><tr><td data-highlight-colour="var(--ds-surface, #FFFFFF)"><div class="TextAlignCenter"><img src="attachments/2.3_programa_iso/ListaApri_B.png" alt="ListaApri_B.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td data-highlight-colour="var(--ds-surface, #FFFFFF)"><p><strong>Abrir archivo</strong><br>Abre el explorador de archivos para crear una lista de archivos que deben ejecutarse.</p></td></tr><tr><td data-highlight-colour="var(--ds-surface, #FFFFFF)"><div class="TextAlignCenter"><img src="attachments/2.3_programa_iso/ListaNuovo_B.png" alt="ListaNuovo_B.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td data-highlight-colour="var(--ds-surface, #FFFFFF)"><p><strong>Nueva lista ISO</strong><br>Añade un archivo a la lista de archivos que deben ejecutarse.</p></td></tr><tr><td data-highlight-colour="var(--ds-surface, #FFFFFF)"><div class="TextAlignCenter"><img src="attachments/2.3_programa_iso/ListaPausa_B.png" alt="ListaPausa_B.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td data-highlight-colour="var(--ds-surface, #FFFFFF)"><p><strong>Añadir pausa</strong><br>Añade una pausa a la lista de archivos que deben ejecutarse.</p></td></tr><tr><td data-highlight-colour="var(--ds-surface, #FFFFFF)"><div class="TextAlignCenter"><img src="attachments/2.3_programa_iso/DeleteOneElement_B.png" alt="DeleteOneElement_B.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td data-highlight-colour="var(--ds-surface, #FFFFFF)"><p><strong>Eliminar elemento seleccionado</strong><br>Elimina un archivo de la lista de archivos que deben ejecutarse.</p></td></tr><tr><td data-highlight-colour="var(--ds-surface, #FFFFFF)"><div class="TextAlignCenter"><img src="attachments/2.3_programa_iso/EmptyList_B.png" alt="EmptyList_B.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td data-highlight-colour="var(--ds-surface, #FFFFFF)"><p><strong>Vaciar lista</strong><br>Elimina toda la lista de archivos que deben ejecutarse.</p></td></tr><tr><td data-highlight-colour="var(--ds-surface, #FFFFFF)"><div class="TextAlignCenter"><img src="attachments/2.3_programa_iso/SpostaInAlto_B.png" alt="SpostaInAlto_B.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td data-highlight-colour="var(--ds-surface, #FFFFFF)"><p><strong>Mover elemento seleccionado hacia arriba</strong><br>Desplaza hacia arriba el archivo ISO seleccionado dentro de la lista de archivos que deben ejecutarse.</p></td></tr><tr><td data-highlight-colour="var(--ds-surface, #FFFFFF)"><div class="TextAlignCenter"><img src="attachments/2.3_programa_iso/SpostaInBasso_B.png" alt="SpostaInBasso_B.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td data-highlight-colour="var(--ds-surface, #FFFFFF)"><p><strong>Mover elemento seleccionado hacia abajo</strong><br>Desplaza hacia abajo el archivo ISO seleccionado dentro de la lista de archivos que deben ejecutarse.</p></td></tr></tbody></table><p></p><p>En la parte inferior se encuentran además los dos botones relativos a los modos de ejecución de los programas:</p><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="6b8d2cdf-dc87-4b02-ab50-e6369bb0efdf"><colgroup><col style="width: 386.0px;"><col style="width: 1413.0px;"></colgroup><tbody><tr><td data-highlight-colour="var(--ds-surface, #FFFFFF)"><div class="TextAlignCenter"><img src="attachments/2.3_programa_iso/4_manuale_b-20250714-082707.png" alt="4_manuale_b-20250714-082707.png" width="165" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><div class="TextAlignCenter"><img src="attachments/2.3_programa_iso/4_automatico_b-20250714-080533.png" alt="4_automatico_b-20250714-080533.png" width="165" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td data-highlight-colour="var(--ds-surface, #FFFFFF)"><p><strong>Manual / automático</strong><br>Define si el estado de la máquina es manual o automático.</p></td></tr><tr><td data-highlight-colour="var(--ds-surface, #FFFFFF)"><div class="TextAlignCenter"><img src="attachments/2.3_programa_iso/5_singolo_b-20250714-082752.png" alt="5_singolo_b-20250714-082752.png" width="165" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><div class="TextAlignCenter"><img src="attachments/2.3_programa_iso/5_prossimo_in_automatico_b-20250714-082728.png" alt="5_prossimo_in_automatico_b-20250714-082728.png" width="165" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td data-highlight-colour="var(--ds-surface, #FFFFFF)"><p><strong>Individual / siguiente automático</strong><br>Define si el siguiente programa se iniciará automáticamente o no.</p></td></tr></tbody></table><p></p><h3 id="abrir-archivo"><a class="header" href="#abrir-archivo">Abrir archivo</a></h3><p>Al pulsar este botón aparecerá una ventana «Apertura de archivo», como se muestra en la siguiente imagen:</p><div class="TextAlignCenter"><img src="attachments/2.3_programa_iso/2_0_FormAperturaFile_D-20250325-121043.png" alt="2_0_FormAperturaFile_D-20250325-121043.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p>Esta ventana se divide en los siguientes componentes:</p><ul><li><p>Lista de archivos </p><ul><li><p>incluye todos los archivos con formato .pgm presentes en el directorio seleccionado actualmente</p></li></ul></li><li><p>Botones entre la lista Archivos y la lista Archivos seleccionados</p></li><li><p>Lista de archivos seleccionados</p><ul><li><p>Lista inicialmente vacía</p></li></ul></li><li><p>vista previa del archivo seleccionado</p><ul><li><p>Muestra una vista previa de un archivo .pgm seleccionado en Archivos o Archivos seleccionados</p></li></ul></li><li><p>Barra inferior y filtro de búsqueda</p></li></ul><p></p><p>Botones centrales, situados entre la lista «ARCHIVOS» y la lista «ARCHIVOS SELECCIONADOS»</p><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="6127af85-24dc-402f-b9d1-e8f2ad446464"><colgroup><col style="width: 213.0px;"><col style="width: 1583.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/2.3_programa_iso/AggiungiIso_B-20250320-132850.png" alt="AggiungiIso_B-20250320-132850.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Seleccionar elemento</strong><br>Mueve el elemento seleccionado de la lista ARCHIVOS a la lista ARCHIVOS SELECCIONADOS.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.3_programa_iso/RimuoviIso_B.png" alt="RimuoviIso_B.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Eliminar elemento</strong><br>Elimina el elemento seleccionado de la lista ARCHIVOS SELECCIONADOS.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.3_programa_iso/ListaPausa_B.png" alt="ListaPausa_B.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Insertar pausa</strong><br>Añade una pausa en la posición posterior al elemento seleccionado en ARCHIVOS SELECCIONADOS.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.3_programa_iso/ApriFileIsoMuoviAlto_B.png" alt="ApriFileIsoMuoviAlto_B.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Mover elemento seleccionado hacia arriba</strong><br>Desplaza el elemento seleccionado una posición hacia arriba en la lista ARCHIVOS SELECCIONADOS.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.3_programa_iso/ApriFileIsoMuoviBasso_B.png" alt="ApriFileIsoMuoviBasso_B.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Mover elemento seleccionado hacia abajo</strong><br>Desplaza el elemento seleccionado una posición hacia abajo en la lista ARCHIVOS SELECCIONADOS.</p></td></tr></tbody></table><p></p><p>A continuación se muestra el contenido de la barra inferior:</p><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="1dc9c429-e587-4fef-8966-4d5528e40058"><colgroup><col style="width: 212.0px;"><col style="width: 1580.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/2.3_programa_iso/5.3-20250718-143027.png" alt="5.3-20250718-143027.png" width="63" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Borrar filtro de búsqueda</strong><br>Vacía la barra de texto situada a la izquierda de este botón.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.3_programa_iso/3_1_PiuMeno-20250320-140359.png" alt="3_1_PiuMeno-20250320-140359.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Ordenar por última modificación</strong><br>Ordena los archivos de ARCHIVOS según las modificaciones más recientes (primera imagen) o menos recientes (segunda imagen).</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.3_programa_iso/3_2_AZ_ZA-20250320-140427.png" alt="3_2_AZ_ZA-20250320-140427.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Orden alfabético</strong><br>Ordena los archivos de ARCHIVOS en orden alfabético o en orden alfabético inverso.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.3_programa_iso/3_3-20250320-135917.png" alt="3_3-20250320-135917.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Visualizar archivos de la memoria USB</strong><br>Muestra todos los archivos con extensión .pgm presentes en la memoria USB.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.3_programa_iso/3_4-20250320-135940.png" alt="3_4-20250320-135940.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Visualizar carpeta ISO</strong><br>Muestra el contenido de la carpeta ISO.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.3_programa_iso/3_5-20250320-135957.png" alt="3_5-20250320-135957.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Visualizar contenidos</strong><br>Muestra las unidades presentes en el ordenador y la carpeta Escritorio.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.3_programa_iso/5.1-20250718-140237.png" alt="5.1-20250718-140237.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Eliminar archivo</strong><br>Activa el modo de eliminación de archivos, que permite eliminar archivos .pgm de ARCHIVOS.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.3_programa_iso/5.2-20250718-141133.png" alt="5.2-20250718-141133.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Activar/Desactivar copia</strong><br>Permite activar/desactivar la función de copia (copia el archivo seleccionado en la carpeta ISO).</p></td></tr></tbody></table><p></p><p></p><h1 id="código-del-programa-iso"><a class="header" href="#código-del-programa-iso">Código del programa ISO</a></h1><p>El código del programa ISO en ejecución se muestra en esta ventana:</p><div class="TextAlignCenter"><img src="attachments/2.3_programa_iso/CodiceProgrammaIso_C-20250325-120115.png" alt="CodiceProgrammaIso_C-20250325-120115.png" width="400" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><h2 id="botones-1" class="maintenance-section-title" data-section-number="02"><a class="header" href="#botones-1">Botones</a></h2><p>En esta sección del programa ISO se encuentran los siguientes botones y sus respectivas funciones.</p><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="58bd48f9-0dd0-4179-81be-cc9dae04be81"><colgroup><col style="width: 314.0px;"><col style="width: 1482.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/2.3_programa_iso/image-20250304-091349.png" alt="image-20250304-091349.png" width="172" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Temporizador y Reset</strong><br>Indica el tiempo de ejecución de todo el archivo .pgm. <br>Al pulsar el botón se restablece el temporizador</p></td></tr><tr><td data-highlight-colour="var(--ds-surface, #FFFFFF)"><div class="TextAlignCenter"><img src="attachments/2.3_programa_iso/AnteprimaIso_B-20250320-134224.png" alt="AnteprimaIso_B-20250320-134224.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td data-highlight-colour="var(--ds-surface, #FFFFFF)"><p><strong>Vista previa ISO</strong><br>Activa o desactiva la visualización de la vista previa ISO.</p></td></tr><tr><td data-highlight-colour="var(--ds-surface, #FFFFFF)"><div class="TextAlignCenter"><img src="attachments/2.3_programa_iso/RicercaBlocco_B.png" alt="RicercaBlocco_B.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td data-highlight-colour="var(--ds-surface, #FFFFFF)"><p><strong>Búsqueda de bloque</strong><br>Este botón solo se mostrará después de cargar al menos un programa en la lista; permite buscar un bloque por línea.</p></td></tr><tr><td data-highlight-colour="var(--ds-surface, #FFFFFF)"><div class="TextAlignCenter"><img src="attachments/2.3_programa_iso/GoToLine_B.png" alt="GoToLine_B.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td data-highlight-colour="var(--ds-surface, #FFFFFF)"><p><strong>Búsqueda de bloque por línea</strong><br>Este botón sustituirá al botón «Búsqueda de bloque» después de pulsar este último.<br>El operador puede buscar una línea de código específica en una pequeña ventana que se mostrará en la pantalla.</p><p>Tras introducir un número en el campo «Número de línea» y pulsar el botón «Ir a», la visualización del código del programa ISO se desplazará hasta la línea deseada o hasta la última línea disponible si el número introducido supera el número de líneas del programa ISO seleccionado.</p><p>Es posible finalizar la búsqueda de un bloque y restablecer la visibilidad del botón «Búsqueda de bloque» pulsando el botón Cerrar:</p></td></tr><tr><td data-highlight-colour="var(--ds-surface, #FFFFFF)"><div class="TextAlignCenter"><img src="attachments/2.3_programa_iso/DryRunOnOff_B.png" alt="DryRunOnOff_B.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td data-highlight-colour="var(--ds-surface, #FFFFFF)"><p><strong>Función Dry Run (Activada / desactivada)</strong><br>Al seleccionar este modo de trabajo, es posible realizar un mecanizado a la velocidad máxima de la máquina.</p>
+<div id="admonition-atenciÓn" class="admonition admonish-warning" role="note" aria-labelledby="admonition-atenciÓn-title">
+<div class="admonition-title">
+<div id="admonition-atenciÓn-title">
+<p>¡ATENCIÓN!</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-atenciÓn"></a>
+</div>
+<div>
+<p>El uso de esta función obliga a NO utilizar NINGÚN tipo de material durante el mecanizado, ya que durante la ejecución no se respetan las velocidades del programa ISO; el control numérico ejecutará todo el programa a la velocidad nominal máxima alcanzable con ejes interpolados.</p>
+</div>
+</div>
+</td></tr><tr><td data-highlight-colour="var(--ds-surface, #FFFFFF)"><div class="TextAlignCenter"><img src="attachments/2.3_programa_iso/TestIsoOnOff_B-20250320-134901.png" alt="TestIsoOnOff_B-20250320-134901.png" width="118" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td data-highlight-colour="var(--ds-surface, #FFFFFF)"><p><strong>Función Test ISO (Activada / desactivada)</strong><br>Con esta opción es posible probar el archivo cargado para comprobar que no contenga errores de sintaxis.<br>Pulse el botón «START CICLO» y la máquina ejecutará virtualmente todas las líneas de código sin mover los ejes.</p></td></tr><tr><td data-highlight-colour="var(--ds-surface, #FFFFFF)"><div class="TextAlignCenter"><img src="attachments/2.3_programa_iso/PannelloVentose_B.png" alt="PannelloVentose_B.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td data-highlight-colour="var(--ds-surface, #FFFFFF)"><p><strong>Panel de ventosas</strong><br>Acceso al panel para gestionar las ventosas.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.3_programa_iso/6_Salva_B.png" alt="6_Salva_B.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Guardar</strong><br>Al pulsar el botón aparece un teclado que permite modificar el archivo .pgm cargado antes de ejecutarlo.</p></td></tr></tbody></table><p></p><h3 id="búsqueda-de-bloque"><a class="header" href="#búsqueda-de-bloque">Búsqueda de bloque</a></h3><p>Durante la ejecución de archivos (.pgm), la función de búsqueda de bloque puede resultar útil para reposicionar la herramienta en el punto donde la máquina haya interrumpido la ejecución del programa, por ejemplo si la herramienta se bloquea dentro del material o por otros tipos de bloqueo.<br><br>Una vez pulsado el botón, es posible buscar la línea desde la que se desea continuar/iniciar el mecanizado mediante el número de línea, pulsando el botón «Búsqueda de bloque por línea», o desplazándose por el archivo con la barra situada al lado y seleccionando la línea deseada.<br>Después de seleccionar el punto del programa desde el que la máquina reanudará el trabajo interrumpido, pulse el botón «Start ciclo»; la máquina volverá a calcular todas las líneas de código del archivo .pgm sin efectuar ningún movimiento. La velocidad de esta operación depende del número de líneas de código que deban generarse sin realizar ningún movimiento.</p><p>Una vez finalizado el recálculo, la máquina activa una pausa automática y solicita volver a pulsar el botón «Start ciclo» para iniciar el mecanizado.<br>Antes de iniciar el ciclo se recomienda tener en cuenta el posicionamiento inicial de la máquina, que implica todos los ejes simultáneamente.<br>Esto es necesario porque la máquina se desplaza desde la posición actual hasta el punto en el que empieza a trabajar buscando la trayectoria más corta y, para ello, todos los ejes se mueven para llegar exactamente a dicho punto.</p><p><br>Esto significa, por ejemplo, que el eje Z no baja una vez alcanzado el punto inicial, sino que desciende gradualmente durante el recorrido. Esto podría dañar la máquina o el material si la máquina colisionara con material situado en medio de la trayectoria.<br>Por tanto, en función de la situación, es posible deseleccionar el movimiento de uno o varios ejes para evitar daños.<br>Para ello, basta con seleccionar los botones situados encima de cada eje, que pasarán de verde a rojo.</p><p>Los botones volverán automáticamente a verde al pulsar «Start Ciclo».</p><p></p><p></p><h1 id="vista-previa-iso"><a class="header" href="#vista-previa-iso">Vista previa ISO</a></h1><p>Si se ha activado la vista previa ISO, a la derecha del cuadro «Código del programa ISO» se mostrará otro cuadro similar al representado a continuación:</p><div class="TextAlignCenter"><img src="attachments/2.3_programa_iso/0_D.png" alt="0_D.png" width="400" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p>La vista previa ISO ofrece los siguientes botones:</p><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="5d4f4705-046b-43ad-8611-31bf94f4eb0d"><colgroup><col style="width: 199.0px;"><col style="width: 1599.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/2.3_programa_iso/3_B-20250320-141913.png" alt="3_B-20250320-141913.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Vista en perspectiva</strong><br>Permite obtener una representación 3D de la imagen.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.3_programa_iso/4_B-20250320-141929.png" alt="4_B-20250320-141929.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Vista ortogonal al plano XY</strong><br>Permite obtener una representación de la pieza respecto al plano XY.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.3_programa_iso/5_B-20250320-141944.png" alt="5_B-20250320-141944.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Vista ortogonal al plano ZX</strong><br>Permite obtener una representación de la pieza respecto al plano ZX.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.3_programa_iso/6_B-20250320-141956.png" alt="6_B-20250320-141956.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Vista ortogonal al plano ZY</strong><br>Permite obtener una representación de la pieza respecto al plano ZY.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.3_programa_iso/7_8-20250320-142244.png" alt="7_8-20250320-142244.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Activar o desactivar la visualización de la vista previa</strong><br>Permite activar/desactivar la visualización de la vista previa.</p><div class="TextAlignCenter"><img src="attachments/2.3_programa_iso/0_F-20250722-092710.png" alt="0_F-20250722-092710.png" width="241" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td></tr></tbody></table><p></p><p></p><h1 id="ejecución-del-mecanizado"><a class="header" href="#ejecución-del-mecanizado">Ejecución del mecanizado</a></h1><p>El operador puede crear una lista de archivos PGM abriendo los archivos deseados mediante la función de carga correspondiente.</p><p>Antes de iniciar la ejecución, es posible —opcionalmente— modificar el orden de los archivos en la lista e insertar pausas entre una ejecución y la siguiente. Estas pausas permiten gestionar el proceso con mayor flexibilidad y, si es necesario, interrumpirlo de forma segura.</p><p>Al configurar el modo de ejecución como «Automático», también está disponible la función «Test ISO», útil para comprobar la corrección del programa ISO seleccionado antes de la ejecución real.</p><p>Para iniciar el ciclo de ejecución, el operador debe pulsar el botón «Iniciar ciclo». De este modo se ejecutará el primer programa ISO cargado y mostrado en la lista.</p><p>Los programas ISO pueden ejecutarse según dos modos operativos:</p><p>El modo «Individual» permite interrumpir la ejecución de la programación al finalizar cada archivo ISO. Es necesario volver a pulsar el botón «Iniciar ciclo» para proceder con la ejecución del siguiente archivo de la lista.</p><p>El modo «Siguiente automático» permite ejecutar los archivos ISO secuencialmente, sin intervención manual, hasta el final de la lista.</p><p>En ambos modos, las pausas insertadas entre los archivos permiten al operador interrumpir el ciclo en cualquier momento, garantizando así un control continuo de la ejecución.</p><!--Label="pbm_iso"--><!--Label="pbm_iso_lst"--><!--Label="pbm_iso_exe"--><!--Label="pbm_iso_prw"--><!--Label="pbm_iso_cod"-->
+                        </main>
+
+                    </div>
+
+                    <img src="images/donatoni_222.jpg">
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="2.2_corte_individual.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="2.4_planeado.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+
+
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                <a rel="prev" href="2.2_corte_individual.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="2.4_planeado.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="mermaid.min.js"></script>
+        <script src="mermaid-init.js"></script>
+        <script src="hidemenu.js"></script>
+        <script src="imagemodal.js"></script>
+        <script src="login.js"></script>
+    </div>
+
+    <!-- Modale -->
+    <div id="modal" onclick="closeModal()">
+        <img id="modal-img" src="">
+    </div>;
+
+
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
+
+<script id="virtual-keyboard-searchbar-fix">
+document.addEventListener("input", function (e) {
+    const t = e.target;
+    if (t && t.id === "searchbar" && e.isTrusted !== true) {
+        t.dispatchEvent(new KeyboardEvent("keyup", { bubbles: true }));
+    }
+});
+</script>
+</body>
+</html>

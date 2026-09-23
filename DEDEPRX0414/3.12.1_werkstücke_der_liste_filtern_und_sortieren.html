@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+<head>
+    <!-- Book generated using mdBook -->
+    <meta charset="UTF-8">
+    <title>3.12.1 WERKSTÜCKE DER LISTE FILTERN UND SORTIEREN - DE-DE PARAMETRIX 4.14</title>
+
+    <!-- Custom HTML head -->
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="icon" href="favicon.svg">
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/chrome.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Fonts -->
+    <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+    <link rel="stylesheet" href="fonts/fonts.css">
+
+    <!-- Highlight.js Stylesheets -->
+    <link rel="stylesheet" id="highlight-css" href="highlight.css">
+    <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+    <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+    <!-- Custom theme stylesheets -->
+    <link rel="stylesheet" href="./mdbook-admonish.css">
+    <link rel="stylesheet" href="theme/custom.css">
+    <link rel="stylesheet" href="search.html">
+    <link rel="stylesheet" href="login.html">
+    <link rel="stylesheet" href="searchlogin.html">
+    <link rel="stylesheet" href="searchloginmenu.html">
+
+    <!-- Provide site root and default themes to javascript -->
+    <script>
+      const path_to_root = "";
+      const default_light_theme = "light";
+      const default_dark_theme = "light";
+    </script>
+    <!-- Start loading toc.js asap -->
+    <script src="toc.js"></script>
+<script>(function () {
+  const SUFFIX = "#2utHhOLI7Iz0";
+
+  function buildUrl() {
+    const base = window.location.href.split("#")[0];
+    return base + SUFFIX;
+  }
+
+  function fallbackCopy(text) {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.top = "-1000px";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+
+  async function copyUrl() {
+    const url = buildUrl();
+
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(url);
+        return;
+      } catch (e) {}
+    }
+
+    fallbackCopy(url);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.getElementById("copy-link-btn");
+    if (!btn) return;
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      copyUrl();
+    });
+  });
+})();
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-document" data-technical-styler-flow="html">
+    <header class="header-main">
+        <div class="header-flex">
+            <div class="donatoni-flex">
+                <label class="btn hamburger-menu" id="sidebar-toggle" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                    <i id="sidebar-toggle-icon" class="fa-solid fa-bars"></i>
+                </label>
+
+                <img src="images/donatoni-logo-white.svg" alt="Donatoni Macchine">
+            </div>
+
+            <div class="donatoni-flex action-header-buttons">
+                <div id="search-wrapper" class="search-wrapper hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults"></ul>
+                    </div>
+                </div>
+                <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
+                </button>
+
+                <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
+                    <i class="fa-solid fa-print"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div id="body-container">
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem("mdbook-theme");
+                let sidebar = localStorage.getItem("mdbook-sidebar");
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-theme",
+                        theme.slice(1, theme.length - 1)
+                    );
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-sidebar",
+                        sidebar.slice(1, sidebar.length - 1)
+                    );
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = "light";
+            let theme = default_theme;
+            const html = document.documentElement;
+            html.classList.remove("light");
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try {
+                    sidebar = localStorage.getItem('mdbook-sidebar');
+                } catch (e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document
+                        .getElementById("sidebar-toggle")
+                        .setAttribute("aria-expanded", sidebar === "visible");
+                    document
+                        .getElementById("sidebar")
+                        .setAttribute("aria-hidden", sidebar !== "visible");
+                    Array.from(document.querySelectorAll("#sidebar a")).forEach(
+                        function (link) {
+                            link.setAttribute("tabIndex", sidebar === "visible" ? 0 : -1);
+                        }
+                    );
+                </script>
+
+                <div id="content" class="content">
+
+                    <div>
+
+                        <img src="images/donatoni_111.jpg">
+
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Machine technical documentation</span><span class="maintenance-status"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Operational document</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="3121-werkstÜcke-der-liste-filtern-und-sortieren" style="margin:0;" class="maintenance-main-title"><a class="header" href="#3121-werkstÜcke-der-liste-filtern-und-sortieren"><span class="maintenance-code">DOC</span><span class="maintenance-name">3.12.1 WERKSTÜCKE DER LISTE FILTERN UND SORTIEREN</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document DOC" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="3.12.1 WERKSTÜCKE DER LISTE FILTERN UND SORTIEREN"--><p>Mit dieser Funktion kann der Bediener die Werkstücke in der Liste filtern und/oder sortieren. <br>Beim Drücken der Schaltfläche öffnet sich das folgende Fenster.</p><div class="TextAlignCenter"><img src="attachments/3.12.1_werkstücke_der_liste_filtern_und_sortieren/1.1-20250613-142111.png" alt="1.1-20250613-142111.png" width="400" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><p>
+</p><p></p><h1 id="gefilterte-werkstückliste"><a class="header" href="#gefilterte-werkstückliste">Gefilterte Werkstückliste</a></h1><p>Nachdem Kriterien zum Filtern oder Sortieren der Werkstücke eingestellt wurden, können sie über die Schaltfläche oben rechts angewendet werden.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="436b9109-611f-4400-98c3-e31d14473d09"><colgroup><col style="width: 298.0px;"><col style="width: 1495.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/3.12.1_werkstücke_der_liste_filtern_und_sortieren/1.1.4b-20250703-124218.png" alt="1.1.4b-20250703-124218.png" width="128" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Aktivieren/Deaktivieren</strong><br>Ermöglicht das Anwenden/Entfernen des Filters und/oder der Sortierung auf die Werkstücke in der Liste.</p></td></tr></tbody></table><p>Werkstücke, die den gewählten Filterkriterien nicht entsprechen, werden nicht in der Werkstückliste angezeigt.</p>
+<div id="admonition-achtung" class="admonition admonish-warning" role="note" aria-labelledby="admonition-achtung-title">
+<div class="admonition-title">
+<div id="admonition-achtung-title">
+<p>ACHTUNG!</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-achtung"></a>
+</div>
+<div>
+<p>Werkstücke im Arbeitsbereich, die die festgelegten Filterkriterien nicht erfüllen, werden entfernt.</p>
+</div>
+</div>
+<p><br>Im folgenden Beispiel sollen nur Werkstücke mit einer Höhe größer als 600 mm angezeigt und in aufsteigender alphabetischer Reihenfolge angeordnet werden.</p><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="3947d9eb-5386-47b2-a516-c208ed7bce3d"><tbody><tr><td><p style="text-align: center;"><strong>Vor Anwendung von Filter und Sortierung</strong></p></td><td><p style="text-align: center;"><strong>Nach Anwendung von Filter und Sortierung</strong></p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.12.1_werkstücke_der_liste_filtern_und_sortieren/0.0.png" alt="0.0.png" width="225" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><div class="TextAlignCenter"><img src="attachments/3.12.1_werkstücke_der_liste_filtern_und_sortieren/0.1.png" alt="0.1.png" width="225" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td></tr></tbody></table>
+<div id="admonition-hinweis" class="admonition admonish-info" role="note" aria-labelledby="admonition-hinweis-title">
+<div class="admonition-title">
+<div id="admonition-hinweis-title">
+<p>HINWEIS</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-hinweis"></a>
+</div>
+<div>
+<p>Die Filter- und Sortierfunktion funktioniert nicht mit Handelswerkstücken.
+<br>
+Die Filter- und Sortierkriterien werden auch von der Nesting-Funktion berücksichtigt.</p>
+</div>
+</div>
+<p></p><p></p><h1 id="werkstücke-filtern"><a class="header" href="#werkstücke-filtern">Werkstücke filtern</a></h1><p>Im oberen Bereich dieses Fensters kann der Bediener einen Filter auf Grundlage verschiedener Werkstückeigenschaften hinzufügen.</p><div class="TextAlignCenter"><img src="attachments/3.12.1_werkstücke_der_liste_filtern_und_sortieren/1.1_a.png" alt="1.1_a.png" width="500" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p>Wie zu sehen ist, stehen folgende Schaltflächen zur Verfügung.</p><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="d31caaa4-1f8b-48af-bf71-7fb0edae509f"><colgroup><col style="width: 248.0px;"><col style="width: 1549.0px;"></colgroup><tbody><tr><td data-highlight-colour="#ffffff"><div class="TextAlignCenter"><img src="attachments/3.12.1_werkstücke_der_liste_filtern_und_sortieren/3.0-20250707-080552.png" alt="3.0-20250707-080552.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><div class="TextAlignCenter"><img src="attachments/3.12.1_werkstücke_der_liste_filtern_und_sortieren/3.1-20250707-080618.png" alt="3.1-20250707-080618.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td data-highlight-colour="#ffffff"><p><strong>Filteranwendungsmodus „Ausschluss“</strong><br>Die Werkstücke müssen gleichzeitig die zuletzt erstellte logische Bedingung und das Ergebnis der vorherigen Bedingungen erfüllen.<br><br><strong>Filteranwendungsmodus „Einschluss“</strong><br>Die Werkstücke müssen mindestens eine der zuletzt erstellten logischen Bedingung oder das Ergebnis der vorherigen Bedingungen erfüllen.</p></td></tr><tr><td data-highlight-colour="#ffffff"><div class="TextAlignCenter"><img src="attachments/3.12.1_werkstücke_der_liste_filtern_und_sortieren/2.8-20250707-080523.png" alt="2.8-20250707-080523.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td data-highlight-colour="#ffffff"><p><strong>Filter hinzufügen</strong><br>Fügt die erstellte logische Bedingung zur Filterliste hinzu.</p></td></tr><tr><td data-highlight-colour="#ffffff"><div class="TextAlignCenter"><img src="attachments/3.12.1_werkstücke_der_liste_filtern_und_sortieren/2.9-20250707-081950.png" alt="2.9-20250707-081950.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td data-highlight-colour="#ffffff"><p><strong>Filter löschen</strong><br>Löscht alle in der Filterliste vorhandenen Filter.</p></td></tr></tbody></table><p></p><h2 id="filter-erstellen" class="maintenance-section-title" data-section-number="01"><a class="header" href="#filter-erstellen">Filter erstellen</a></h2><p>Zum Erstellen eines Filters im ersten Dropdown-Menü links die zu verwendende Eigenschaft aus den angebotenen auswählen.</p><div class="TextAlignCenter"><img src="attachments/3.12.1_werkstücke_der_liste_filtern_und_sortieren/1.1.1.png" alt="1.1.1.png" width="500" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p>Nachdem die unterscheidende Eigenschaft gewählt wurde, im zweiten Menü einen Vergleichsoperator auswählen.</p><div class="TextAlignCenter"><img src="attachments/3.12.1_werkstücke_der_liste_filtern_und_sortieren/1.1.2.png" alt="1.1.2.png" width="500" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p>Anschließend einen zur Eigenschaft passenden Wert in das danebenliegende Feld eingeben, um eine logische Bedingung zu erstellen.</p><div class="TextAlignCenter"><img src="attachments/3.12.1_werkstücke_der_liste_filtern_und_sortieren/1.1.3.png" alt="1.1.3.png" width="500" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p>Über die Schaltfläche rechts neben dem Textfeld wird festgelegt, wie der neu erstellte Filter mit anderen gegebenenfalls vorhandenen Filtern in der Liste verknüpft wird. </p>
+<div id="admonition-hinweis-1" class="admonition admonish-info" role="note" aria-labelledby="admonition-hinweis-1-title">
+<div class="admonition-title">
+<div id="admonition-hinweis-1-title">
+<p>HINWEIS</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-hinweis-1"></a>
+</div>
+<div>
+<p>Im Modus „Ausschluss“ muss ein Werkstück
+<br>
+gleichzeitig
+<br>
+die neu zu erstellende logische Bedingung und das Ergebnis der vorherigen Bedingungen erfüllen.
+<br>
+Im Modus „Einschluss“ muss ein Werkstück die neu zu erstellende Bedingung
+<br>
+oder
+<br>
+das Ergebnis der vorherigen Bedingungen erfüllen.</p>
+</div>
+</div>
+<p></p><p>Um die Erstellung des Filters abzuschließen, die letzte Schaltfläche in dieser Zeile verwenden. Der Filter wird der darunterliegenden Liste hinzugefügt.</p><div class="TextAlignCenter"><img src="attachments/3.12.1_werkstücke_der_liste_filtern_und_sortieren/1.1_b.png" alt="1.1_b.png" width="500" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><p></p><h1 id="werkstücke-sortieren"><a class="header" href="#werkstücke-sortieren">Werkstücke sortieren</a></h1><p>Im unteren Bereich des Fensters kann der Bediener festlegen, die Werkstücke nach bestimmten Eigenschaften zu sortieren.</p><div class="TextAlignCenter"><img src="attachments/3.12.1_werkstücke_der_liste_filtern_und_sortieren/1.2.1_a.png" alt="1.2.1_a.png" width="500" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p>Nach Auswahl eines Eintrags aus dem Dropdown-Menü können folgende Aktionen ausgeführt werden:</p><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="3613fabf-5fb6-43a4-97e3-96901ab720e3"><colgroup><col style="width: 284.0px;"><col style="width: 1514.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/3.12.1_werkstücke_der_liste_filtern_und_sortieren/2.7-20250707-080431.png" alt="2.7-20250707-080431.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Aufsteigend/absteigend sortieren</strong><br>Der Bediener kann festlegen, die Werkstücke für eine bestimmte Kategorie auf- oder absteigend zu sortieren.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.12.1_werkstücke_der_liste_filtern_und_sortieren/2.4-20250707-080209.png" alt="2.4-20250707-080209.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Sortierung löschen</strong><br>Der Bediener kann die ursprüngliche Sortierung wiederherstellen, indem die zuvor ausgewählte Sortierung gelöscht wird.</p></td></tr></tbody></table><p></p><p></p><h1 id="mehrfachsortierung-optional"><a class="header" href="#mehrfachsortierung-optional">Mehrfachsortierung (Optional)</a></h1><p>Mit dieser Funktion können die Werkstücke in der Liste nach mehreren Kriterien sortiert werden.</p><div class="TextAlignCenter"><img src="attachments/3.12.1_werkstücke_der_liste_filtern_und_sortieren/1.7-20250616-135403.png" alt="1.7-20250616-135403.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p>In diesem Modus können mit den folgenden Schaltflächen Sortierkriterien hinzugefügt werden:</p><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="5d49b804-94f1-41bb-bf50-4484e4ec04f9"><colgroup><col style="width: 281.0px;"><col style="width: 1516.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/3.12.1_werkstücke_der_liste_filtern_und_sortieren/2.3-20250707-080144.png" alt="2.3-20250707-080144.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Sortierkriterium hinzufügen</strong><br>Schaltfläche zum Hinzufügen eines Sortierkriteriums zur Liste.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.12.1_werkstücke_der_liste_filtern_und_sortieren/2.2-20250707-080119.png" alt="2.2-20250707-080119.png" width="121" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Position ändern</strong><br>Die Position der erstellten Sortierungen in der Liste kann geändert werden.</p></td></tr></tbody></table>
+<div id="admonition-hinweis-2" class="admonition admonish-info" role="note" aria-labelledby="admonition-hinweis-2-title">
+<div class="admonition-title">
+<div id="admonition-hinweis-2-title">
+<p>HINWEIS</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-hinweis-2"></a>
+</div>
+<div>
+<p>Die Kriterien in dieser Liste werden von oben nach unten berücksichtigt.
+<br>
+Das bedeutet, dass die Werkstücke nach dem ersten Kriterium sortiert werden. Wenn zwei oder mehr Werkstücke für die dem ersten Kriterium zugeordnete Eigenschaft denselben Wert haben, werden sie nach dem nächsten Kriterium sortiert. Dies wird für jedes weitere Kriterium in der Liste fortgesetzt.</p>
+</div>
+</div>
+<p><br>Die folgende Abbildung zeigt ein Beispiel für eine Mehrfachsortierung.</p><div class="TextAlignCenter"><img src="attachments/3.12.1_werkstücke_der_liste_filtern_und_sortieren/1.6-20250616-135207.png" alt="1.6-20250616-135207.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><!--Label="lst_fao_flt"--><!--Label="lst_fao"--><!--Label="lst_fao_ord"--><!--Label="lst_fao_mor"-->
+                        </main>
+
+                    </div>
+
+                    <img src="images/donatoni_222.jpg">
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="3.12_werkstückliste.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="3.12.2_zusätzliche_werkstückeigenschaften.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+
+
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                <a rel="prev" href="3.12_werkstückliste.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="3.12.2_zusätzliche_werkstückeigenschaften.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="mermaid.min.js"></script>
+        <script src="mermaid-init.js"></script>
+        <script src="hidemenu.js"></script>
+        <script src="imagemodal.js"></script>
+        <script src="login.js"></script>
+    </div>
+
+    <!-- Modale -->
+    <div id="modal" onclick="closeModal()">
+        <img id="modal-img" src="">
+    </div>;
+
+
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
+
+<script id="virtual-keyboard-searchbar-fix">
+document.addEventListener("input", function (e) {
+    const t = e.target;
+    if (t && t.id === "searchbar" && e.isTrusted !== true) {
+        t.dispatchEvent(new KeyboardEvent("keyup", { bubbles: true }));
+    }
+});
+</script>
+</body>
+</html>

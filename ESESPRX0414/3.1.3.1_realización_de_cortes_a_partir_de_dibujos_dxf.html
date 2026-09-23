@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+<head>
+    <!-- Book generated using mdBook -->
+    <meta charset="UTF-8">
+    <title>3.1.3.1 REALIZACIÓN DE CORTES A PARTIR DE DIBUJOS DXF - ES-ES PARAMETRIX 4.14</title>
+
+    <!-- Custom HTML head -->
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="icon" href="favicon.svg">
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/chrome.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Fonts -->
+    <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+    <link rel="stylesheet" href="fonts/fonts.css">
+
+    <!-- Highlight.js Stylesheets -->
+    <link rel="stylesheet" id="highlight-css" href="highlight.css">
+    <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+    <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+    <!-- Custom theme stylesheets -->
+    <link rel="stylesheet" href="./mdbook-admonish.css">
+    <link rel="stylesheet" href="theme/custom.css">
+    <link rel="stylesheet" href="search.html">
+    <link rel="stylesheet" href="login.html">
+    <link rel="stylesheet" href="searchlogin.html">
+    <link rel="stylesheet" href="searchloginmenu.html">
+
+    <!-- Provide site root and default themes to javascript -->
+    <script>
+      const path_to_root = "";
+      const default_light_theme = "light";
+      const default_dark_theme = "light";
+    </script>
+    <!-- Start loading toc.js asap -->
+    <script src="toc.js"></script>
+<script>(function () {
+  const SUFFIX = "#2utHhOLI7Iz0";
+
+  function buildUrl() {
+    const base = window.location.href.split("#")[0];
+    return base + SUFFIX;
+  }
+
+  function fallbackCopy(text) {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.top = "-1000px";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+
+  async function copyUrl() {
+    const url = buildUrl();
+
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(url);
+        return;
+      } catch (e) {}
+    }
+
+    fallbackCopy(url);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.getElementById("copy-link-btn");
+    if (!btn) return;
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      copyUrl();
+    });
+  });
+})();
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-document" data-technical-styler-flow="html">
+    <header class="header-main">
+        <div class="header-flex">
+            <div class="donatoni-flex">
+                <label class="btn hamburger-menu" id="sidebar-toggle" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                    <i id="sidebar-toggle-icon" class="fa-solid fa-bars"></i>
+                </label>
+
+                <img src="images/donatoni-logo-white.svg" alt="Donatoni Macchine">
+            </div>
+
+            <div class="donatoni-flex action-header-buttons">
+                <div id="search-wrapper" class="search-wrapper hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults"></ul>
+                    </div>
+                </div>
+                <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
+                </button>
+
+                <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
+                    <i class="fa-solid fa-print"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div id="body-container">
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem("mdbook-theme");
+                let sidebar = localStorage.getItem("mdbook-sidebar");
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-theme",
+                        theme.slice(1, theme.length - 1)
+                    );
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-sidebar",
+                        sidebar.slice(1, sidebar.length - 1)
+                    );
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = "light";
+            let theme = default_theme;
+            const html = document.documentElement;
+            html.classList.remove("light");
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try {
+                    sidebar = localStorage.getItem('mdbook-sidebar');
+                } catch (e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document
+                        .getElementById("sidebar-toggle")
+                        .setAttribute("aria-expanded", sidebar === "visible");
+                    document
+                        .getElementById("sidebar")
+                        .setAttribute("aria-hidden", sidebar !== "visible");
+                    Array.from(document.querySelectorAll("#sidebar a")).forEach(
+                        function (link) {
+                            link.setAttribute("tabIndex", sidebar === "visible" ? 0 : -1);
+                        }
+                    );
+                </script>
+
+                <div id="content" class="content">
+
+                    <div>
+
+                        <img src="images/donatoni_111.jpg">
+
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Machine technical documentation</span><span class="maintenance-status"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Operational document</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="3131-realizaciÓn-de-cortes-a-partir-de-dibujos-dxf" style="margin:0;" class="maintenance-main-title"><a class="header" href="#3131-realizaciÓn-de-cortes-a-partir-de-dibujos-dxf"><span class="maintenance-code">DOC</span><span class="maintenance-name">3.1.3.1 REALIZACIÓN DE CORTES A PARTIR DE DIBUJOS DXF</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document DOC" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="3.1.3.1 REALIZACIÓN DE CORTES A PARTIR DE DIBUJOS DXF"--><p>La máquina puede ejecutar cortes, fresados y orificios a partir de dibujos creados con software CAD y guardados en formato «.dxf», con el reconocimiento automático de algunos mecanizados útiles para simplificar y agilizar el trabajo del operador de la máquina.</p>
+<div id="admonition-nota" class="admonition admonish-info" role="note" aria-labelledby="admonition-nota-title">
+<div class="admonition-title">
+<div id="admonition-nota-title">
+<p>NOTA</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-nota"></a>
+</div>
+<div>
+<p>Para que Parametrix pueda interpretar esta información, deben respetarse algunas convenciones durante la realización del dibujo:
+<br>
+Todas las piezas dibujadas deben estar cerradas y convertidas en polilíneas formando un polígono.
+<br>
+Si se desea insertar la marca de la pieza para identificarla, deberá colocarse dentro del polígono.</p>
+</div>
+</div>
+<div class="TextAlignCenter"><img src="attachments/3.1.3.1_realización_de_cortes_a_partir_de_dibujos_dxf/0.0.png" alt="0.0.png" width="600" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><p>
+</p><h1 id="configuración-de-parametrix-para-el-reconocimiento-de-las-capas-importadas"><a class="header" href="#configuración-de-parametrix-para-el-reconocimiento-de-las-capas-importadas">Configuración de Parametrix para el reconocimiento de las capas importadas</a></h1><p>Para acceder a la ventana de configuración de personalización relativa a la importación de archivos DXF, pulse el botón Parámetros de usuario situado en la barra superior de Parametrix.<br>Desde aquí, vaya a la sección dedicada a la gestión de los nombres de las capas.</p><p>Para cada tipo de función enumerado, el usuario puede asignar un nombre (correspondiente al nombre de la capa configurada en el software CAD utilizado) y asignar algunos parámetros relativos a los valores predeterminados para determinados mecanizados.</p><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="e4ea2044-658d-4187-bdac-59c197e7ac76"><tbody><tr><td data-highlight-colour="#ffffff"><p style="text-align: center;"><strong>Función</strong></p></td><td data-highlight-colour="#ffffff"><p style="text-align: center;"><strong>Nombre de la capa</strong></p></td></tr><tr><td data-highlight-colour="#ffffff"><p>Cortes inclinados</p></td><td data-highlight-colour="#ffffff"><p>Inclinado</p></td></tr><tr><td data-highlight-colour="#ffffff"><p>Alzada</p></td><td data-highlight-colour="#ffffff"><p>Alzada</p></td></tr><tr><td data-highlight-colour="#ffffff"><p>Revestimiento</p></td><td data-highlight-colour="#ffffff"><p>Revestimiento</p></td></tr><tr><td data-highlight-colour="#ffffff"><p>Offset</p></td><td data-highlight-colour="#ffffff"><p>Offset</p></td></tr><tr><td data-highlight-colour="#ffffff"><p>Cortes bajo el material</p></td><td data-highlight-colour="#ffffff"><p>Debajo</p></td></tr><tr><td data-highlight-colour="#ffffff"><p>Goterón</p></td><td data-highlight-colour="#ffffff"><p>Goterón</p></td></tr><tr><td data-highlight-colour="#ffffff"><p>Fresado</p></td><td data-highlight-colour="#ffffff"><p>Fresado</p></td></tr><tr><td data-highlight-colour="#ffffff"><p>Rebaje</p></td><td data-highlight-colour="#ffffff"><p>Rebaje</p></td></tr><tr><td data-highlight-colour="#ffffff"><p>Taladrado</p></td><td data-highlight-colour="#ffffff"><p>Taladrado</p></td></tr><tr><td data-highlight-colour="#ffffff"><p>Corte añadido</p></td><td data-highlight-colour="#ffffff"><p>Añadido</p></td></tr><tr><td data-highlight-colour="#ffffff"><p>Orificio de anclaje</p></td><td data-highlight-colour="#ffffff"><p>Keil</p></td></tr><tr><td data-highlight-colour="#ffffff"><p>Bisel</p></td><td data-highlight-colour="#ffffff"><p>Bisel</p></td></tr><tr><td data-highlight-colour="#ffffff"><p>Bisel inferior</p></td><td data-highlight-colour="#ffffff"><p>Bisel inferior</p></td></tr><tr><td data-highlight-colour="#ffffff"><p>Desactivar</p></td><td data-highlight-colour="#ffffff"><p>Desactivar</p></td></tr><tr><td data-highlight-colour="#ffffff"><p>Eliminar</p></td><td data-highlight-colour="#ffffff"><p>Eliminar</p></td></tr></tbody></table><p></p><h1 id="botones"><a class="header" href="#botones">Botones</a></h1><p>Los botones situados a la izquierda de cada mecanizado permiten:</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="9c5ac8e5-ae22-44e8-9a43-2570c039f23a" data-table-display-mode="default"><colgroup><col style="width: 193.0px;"><col style="width: 1606.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/3.1.3.1_realización_de_cortes_a_partir_de_dibujos_dxf/0.1.png" alt="0.1.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Ventana informativa</strong><br>Muestra una representación gráfica de la información necesaria para crear una capa asociada al mecanizado.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.1.3.1_realización_de_cortes_a_partir_de_dibujos_dxf/0.2.png" alt="0.2.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Descargar ejemplo</strong><br>Permite descargar un archivo DXF que contiene un ejemplo de capa asociada al mecanizado.</p></td></tr></tbody></table><p></p><p></p><h1 id="modo-de-corte-inclinado"><a class="header" href="#modo-de-corte-inclinado">Modo de corte inclinado</a></h1><p>Para insertar automáticamente un corte inclinado es necesario respetar algunas convenciones:</p><ul><li><p>Los cortes inclinados solo pueden insertarse en los lados de las piezas; si el corte inclinado no se aplica a todo el tramo, puede dividirse en varias partes.</p></li><li><p>El corte inclinado puede aplicarse a arcos exteriores (p. ej.: mesa circular o encimeras curvas, únicamente en lo que respecta al corte exterior).</p></li><li><p>En cuanto a los arcos interiores (p. ej.: encimeras curvas), el corte se realiza por pasadas; se ejecutará inclinando automáticamente el disco, evitando problemas de colisión con el material.</p></li></ul><p>El procedimiento para quienes utilizan sistemas CAD requiere crear una capa con las siguientes propiedades:</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="21f548b7-1105-4b01-9b59-5a113f8e7d77"><colgroup><col style="width: 385.0px;"><col style="width: 1413.0px;"></colgroup><tbody><tr><td><p><strong>Nombre de la capa</strong></p></td><td><p>Inclinato _ (seguido del número que identifica los grados de inclinación deseados).</p>
+<div id="admonition-nota-1" class="admonition admonish-info" role="note" aria-labelledby="admonition-nota-1-title">
+<div class="admonition-title">
+<div id="admonition-nota-1-title">
+<p>NOTA</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-nota-1"></a>
+</div>
+<div>
+<p>La inclinación se expresa en grados sexagesimales.</p>
+</div>
+</div>
+</td></tr><tr><td><p><strong>Ejemplo</strong></p></td><td><p>Inclinato45 o Inclinato-45</p></td></tr></tbody></table><p>Cuando se introduce un valor negativo, la inclinación se refiere a un corte divergente; si el valor es positivo, el corte será convergente hacia el interior del polígono.</p><p></p><p></p><h1 id="modo-alzada"><a class="header" href="#modo-alzada">Modo Alzada</a></h1><p>La función de alzado es un mecanizado que permite obtener una pieza rectangular de longitud igual a la línea definida como lado de referencia.</p><p>Para insertar automáticamente los cortes al crear un alzado, es necesario crear una capa con el nombre «<strong>Alzata</strong>» e introducir a continuación la medida de la altura.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="33e1914f-c126-41e2-8837-90c67ac04205"><colgroup><col style="width: 385.0px;"><col style="width: 1413.0px;"></colgroup><tbody><tr><td><p><strong>Nombre de la capa</strong></p></td><td><p>Alzata _ (seguido de la medida de la altura del alzado).</p>
+<div id="admonition-nota-2" class="admonition admonish-info" role="note" aria-labelledby="admonition-nota-2-title">
+<div class="admonition-title">
+<div id="admonition-nota-2-title">
+<p>NOTA</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-nota-2"></a>
+</div>
+<div>
+<p>La medida se expresa en milímetros.</p>
+</div>
+</div>
+</td></tr><tr><td><p><strong>Ejemplo</strong></p></td><td><p>Alzata100</p></td></tr></tbody></table><p>Este automatismo de Parametrix crea una nueva pieza con una anchura igual a la longitud de la línea que identifica el lado del alzado deseado, con los dos lados que se pegarán entre sí cortados con la misma inclinación y preparados para un acabado a inglete.<br>La inclinación asociada a estos lados puede configurarse mediante el parámetro situado al lado.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="9886c091-0578-44d1-91c9-e97c9d8a9e07"><colgroup><col style="width: 390.0px;"><col style="width: 1409.0px;"></colgroup><tbody><tr><td><p><strong>Grados</strong></p></td><td><p>Permite configurar la inclinación con la que se importan los lados inclinados del mecanizado.</p></td></tr></tbody></table><p></p><p></p><h1 id="modo-revestimiento"><a class="header" href="#modo-revestimiento">Modo Revestimiento</a></h1><p>La función de revestimiento/alzado es un mecanizado que permite obtener una pieza rectangular de longitud igual a la línea definida como lado de referencia.</p><p>De forma análoga, para insertar automáticamente los cortes al crear un revestimiento, es necesario crear una capa con el nombre «<strong>Rivestimento</strong>» e introducir a continuación la medida de la altura.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="8dd0b814-c37e-445e-a0f7-7b1e6883c9d8"><colgroup><col style="width: 385.0px;"><col style="width: 1413.0px;"></colgroup><tbody><tr><td><p><strong>Nombre de la capa</strong></p></td><td><p>Rivestimento _ (seguido de la medida de la altura del revestimiento).</p>
+<div id="admonition-nota-3" class="admonition admonish-info" role="note" aria-labelledby="admonition-nota-3-title">
+<div class="admonition-title">
+<div id="admonition-nota-3-title">
+<p>NOTA</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-nota-3"></a>
+</div>
+<div>
+<p>La medida se expresa en milímetros.</p>
+</div>
+</div>
+</td></tr><tr><td><p><strong>Ejemplo</strong></p></td><td><p>Rivestimento150</p></td></tr></tbody></table><p>Este automatismo de Parametrix crea una nueva pieza con una anchura igual a la longitud de la línea que identifica el lado del revestimiento deseado, sin corte inclinado y preparada para un acabado en ángulo recto con mecanizado del canto.</p><p></p><p></p><h1 id="modo-offset"><a class="header" href="#modo-offset">Modo Offset</a></h1><p>La función offset es muy útil cuando se desea dejar más material que las dimensiones de la pieza terminada; mediante el dibujo de líneas sobre los lados deseados, las funciones asociadas a los lados indicados se desplazarán automáticamente en la dirección correcta.</p><p>Para insertar automáticamente el sobrematerial deseado, es necesario crear una capa con el nombre «<strong>Offset</strong>» e insertar todas las líneas correspondientes a los lados en los que se desea aplicar automáticamente el ajuste.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="193ae8cf-8821-4276-9c34-21012d107805"><colgroup><col style="width: 385.0px;"><col style="width: 1413.0px;"></colgroup><tbody><tr><td><p><strong>Nombre de la capa</strong></p></td><td><p>Offset _ (seguido del número que identifica la medida de offset).</p>
+<div id="admonition-nota-4" class="admonition admonish-info" role="note" aria-labelledby="admonition-nota-4-title">
+<div class="admonition-title">
+<div id="admonition-nota-4-title">
+<p>NOTA</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-nota-4"></a>
+</div>
+<div>
+<p>La medida se expresa en milímetros.</p>
+</div>
+</div>
+</td></tr><tr><td><p><strong>Ejemplo</strong></p></td><td><p>Offset3</p></td></tr></tbody></table><p></p><p></p><h1 id="modo-corte-inferior"><a class="header" href="#modo-corte-inferior">Modo Corte inferior</a></h1><p>La función de corte inferior solo es válida para máquinas equipadas con el opcional mecánico que permite realizar un corte por debajo de la superficie visible de la losa.</p><p>Para insertar automáticamente un corte inferior, es necesario crear una capa con el nombre «<strong>Sotto</strong>» e insertar una línea que represente el corte.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="3ae54069-44a9-45b2-8d02-1e942c891bad"><colgroup><col style="width: 385.0px;"><col style="width: 1413.0px;"></colgroup><tbody><tr><td><p><strong>Nombre de la capa</strong></p></td><td><p>Debajo</p></td></tr><tr><td><p><strong>Ejemplo</strong></p></td><td><p>Debajo</p></td></tr></tbody></table>
+<div id="admonition-nota-5" class="admonition admonish-info" role="note" aria-labelledby="admonition-nota-5-title">
+<div class="admonition-title">
+<div id="admonition-nota-5-title">
+<p>NOTA</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-nota-5"></a>
+</div>
+<div>
+<p>La longitud del corte resultante también depende del diámetro del disco y del espesor del material configurados en Parametrix.</p>
+</div>
+</div>
+<p></p><p></p><h1 id="modo-goterón"><a class="header" href="#modo-goterón">Modo Goterón</a></h1><p>La función de goterón permite insertar un corte con una anchura mayor que el espesor del disco y una profundidad menor que el espesor del material.</p><p>Para insertar automáticamente un goterón, es necesario crear una capa con el nombre «<strong>Gocciola</strong>» e insertar una línea o un arco que represente el centro de la anchura.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="6c4610d8-4f9a-4e88-8412-9ec2f12ffb04"><colgroup><col style="width: 385.0px;"><col style="width: 1413.0px;"></colgroup><tbody><tr><td><p><strong>Nombre de la capa</strong></p></td><td><p>Gocciola _ (seguido del número que identifica la anchura del goterón).</p>
+<div id="admonition-nota-6" class="admonition admonish-info" role="note" aria-labelledby="admonition-nota-6-title">
+<div class="admonition-title">
+<div id="admonition-nota-6-title">
+<p>NOTA</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-nota-6"></a>
+</div>
+<div>
+<p>La anchura se expresa en milímetros.</p>
+</div>
+</div>
+</td></tr><tr><td><p><strong>Ejemplo</strong></p></td><td><p>Gocciola10</p></td></tr></tbody></table><p>De este modo, la profundidad del goterón se establece mediante el parámetro específico.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="caede460-852a-4354-a649-5229715bb290"><colgroup><col style="width: 381.0px;"><col style="width: 1418.0px;"></colgroup><tbody><tr><td><p><strong>Cajeado</strong></p></td><td><p>Profundidad del corte asociado al goterón. Este valor no se tiene en cuenta si el usuario configura un valor en el DXF.</p></td></tr></tbody></table><p>La profundidad del corte puede gestionarse automáticamente tomando como valor el parámetro específico de Parametrix o dejando que el usuario configure un valor introduciendo el carácter «<strong>&</strong>» seguido del espesor deseado.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="58e21c7f-7fdd-487a-9c65-1b6262db1443"><colgroup><col style="width: 385.0px;"><col style="width: 1413.0px;"></colgroup><tbody><tr><td><p><strong>Nombre de la capa</strong></p></td><td><p>Gocciola _ (anchura del goterón) _ & _ (profundidad del goterón).</p>
+<div id="admonition-nota-7" class="admonition admonish-info" role="note" aria-labelledby="admonition-nota-7-title">
+<div class="admonition-title">
+<div id="admonition-nota-7-title">
+<p>NOTA</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-nota-7"></a>
+</div>
+<div>
+<p>La profundidad se expresa en milímetros.</p>
+</div>
+</div>
+</td></tr><tr><td><p><strong>Ejemplo</strong></p></td><td><p>Gocciola10&5</p></td></tr></tbody></table>
+<div id="admonition-nota-8" class="admonition admonish-info" role="note" aria-labelledby="admonition-nota-8-title">
+<div class="admonition-title">
+<div id="admonition-nota-8-title">
+<p>NOTA</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-nota-8"></a>
+</div>
+<div>
+<p>La longitud del corte resultante también depende del diámetro del disco y del espesor del material configurados en Parametrix.</p>
+</div>
+</div>
+<div id="admonition-nota-9" class="admonition admonish-info" role="note" aria-labelledby="admonition-nota-9-title">
+<div class="admonition-title">
+<div id="admonition-nota-9-title">
+<p>NOTA</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-nota-9"></a>
+</div>
+<div>
+<p>Para goterones curvos se realiza un único corte con el disco por el exterior del propio arco.
+<br>
+Los parámetros eventualmente indicados en el nombre de la capa no se tienen en cuenta.</p>
+</div>
+</div>
+<p></p><p></p><h1 id="modo-fresado"><a class="header" href="#modo-fresado">Modo Fresado</a></h1><p>Para insertar un fresado automático es necesario respetar algunas convenciones.</p><p>Si se crea una geometría de fresado que afecte a uno o varios lados del polígono exterior, la fresa realizará el mecanizado por fuera del perímetro dibujado; esto también se aplica a un único lado del perímetro. Si el mecanizado prevé el corte de todo el perímetro con la fresa, se eliminan los posibles cortes con disco.</p><p>La profundidad del corte puede definirse mediante la creación de una capa específica.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="13f7a894-6d2f-4555-8087-f4e3d68c7a76"><colgroup><col style="width: 385.0px;"><col style="width: 1413.0px;"></colgroup><tbody><tr><td><p><strong>Nombre de la capa</strong></p></td><td><p>Fresatura _ (seguido del número que identifica el espesor del fresado).</p>
+<div id="admonition-nota-10" class="admonition admonish-info" role="note" aria-labelledby="admonition-nota-10-title">
+<div class="admonition-title">
+<div id="admonition-nota-10-title">
+<p>NOTA</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-nota-10"></a>
+</div>
+<div>
+<p>La medida se expresa en milímetros.</p>
+</div>
+</div>
+</td></tr><tr><td><p><strong>Ejemplo</strong></p></td><td><p>Fresatura10</p></td></tr></tbody></table><p>Si no se indica ningún valor de profundidad en el nombre de la capa «<strong>Fresatura</strong>», se toma como referencia el espesor del mecanizado en curso.</p><p>Otra función disponible es la inserción de una polilínea (abierta/cerrada, por ejemplo un círculo o un recorrido individual compuesto por una polilínea lineal) para fresar una forma dentro del perímetro mayor.</p><p></p><p></p><h1 id="modo-rebaje--filo-top"><a class="header" href="#modo-rebaje--filo-top">Modo Rebaje / Filo Top</a></h1><p>La función rebaje/Filo Top es un mecanizado que permite rebajar un perímetro, normalmente para empotrar electrodomésticos o fregaderos.</p><p>Para insertar automáticamente el rebaje deseado, es necesario crear una capa con el nombre «<strong>Ribasso</strong>».</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="51b85066-6056-4b28-8fee-172da9288914"><colgroup><col style="width: 385.0px;"><col style="width: 1413.0px;"></colgroup><tbody><tr><td><p><strong>Nombre de la capa</strong></p></td><td><p>Ribasso _ (seguido del número que identifica la anchura del rebaje).</p>
+<div id="admonition-nota-11" class="admonition admonish-info" role="note" aria-labelledby="admonition-nota-11-title">
+<div class="admonition-title">
+<div id="admonition-nota-11-title">
+<p>NOTA</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-nota-11"></a>
+</div>
+<div>
+<p>La anchura se expresa en milímetros.</p>
+</div>
+</div>
+</td></tr><tr><td><p><strong>Ejemplo</strong></p></td><td><p>Ribasso20</p></td></tr></tbody></table><p>De este modo, la profundidad del rebaje se establece mediante el parámetro específico.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="e7044dd0-4290-44ce-b937-6ca80e5dc902"><colgroup><col style="width: 381.0px;"><col style="width: 1418.0px;"></colgroup><tbody><tr><td><p><strong>Cajeado</strong></p></td><td><p>Profundidad del rebaje. Este valor no se tiene en cuenta si el usuario configura un valor en el DXF.</p></td></tr></tbody></table><p>La profundidad del rebaje puede gestionarse automáticamente tomando como valor el parámetro específico de Parametrix o configurando un valor por parte del usuario mediante el carácter «<strong>&</strong>» seguido del espesor deseado.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="c4edab7e-04f2-40d8-a363-a1db6e72e18b"><colgroup><col style="width: 385.0px;"><col style="width: 1413.0px;"></colgroup><tbody><tr><td><p><strong>Nombre de la capa</strong></p></td><td><p>Ribasso _ (anchura del rebaje) _ & _ (espesor del rebaje).</p>
+<div id="admonition-nota-12" class="admonition admonish-info" role="note" aria-labelledby="admonition-nota-12-title">
+<div class="admonition-title">
+<div id="admonition-nota-12-title">
+<p>NOTA</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-nota-12"></a>
+</div>
+<div>
+<p>El espesor se expresa en milímetros.</p>
+</div>
+</div>
+</td></tr><tr><td><p><strong>Ejemplo</strong></p></td><td><p>Ribasso20&3</p></td></tr></tbody></table>
+<div id="admonition-nota-13" class="admonition admonish-info" role="note" aria-labelledby="admonition-nota-13-title">
+<div class="admonition-title">
+<div id="admonition-nota-13-title">
+<p>NOTA</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-nota-13"></a>
+</div>
+<div>
+<p>El usuario no puede modificar el radio de empalme entre los lados del perímetro; este viene determinado por el radio de la fresa.</p>
+</div>
+</div>
+<p>El rebaje puede realizarse sobre un recorrido cerrado que no se superponga a los lados de la pieza; en este caso se realizará un fresado dentro del perímetro dibujado.</p><p></p><p></p><h1 id="modo-taladrado"><a class="header" href="#modo-taladrado">Modo Taladrado</a></h1><p>La función de taladrado permite al software Parametrix añadir mecanizados de taladrado a las piezas.</p><p>Para insertar automáticamente un mecanizado de taladrado, es necesario crear una capa con el nombre «<strong>Foratura</strong>» y dibujar un círculo donde se desea realizar el orificio.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="be98b3cf-4169-4935-9952-05ffa58ae5d0"><colgroup><col style="width: 385.0px;"><col style="width: 1413.0px;"></colgroup><tbody><tr><td><p><strong>Nombre de la capa</strong></p></td><td><p>Foratura _ (seguido del número que identifica la profundidad del orificio).</p>
+<div id="admonition-nota-14" class="admonition admonish-info" role="note" aria-labelledby="admonition-nota-14-title">
+<div class="admonition-title">
+<div id="admonition-nota-14-title">
+<p>NOTA</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-nota-14"></a>
+</div>
+<div>
+<p>La medida se expresa en milímetros.</p>
+</div>
+</div>
+</td></tr><tr><td><p><strong>Ejemplo</strong></p></td><td><p>Foratura5</p></td></tr></tbody></table><p>Si no se especifica la profundidad, el orificio se aplicará con el espesor del material utilizado actualmente por Parametrix.</p><p>En el modo básico, el radio del círculo corresponde al radio de la herramienta configurada actualmente en Parametrix.</p><p></p><p></p><h1 id="modo-corte-añadido"><a class="header" href="#modo-corte-añadido">Modo Corte añadido</a></h1><p>La función de corte añadido permite al software Parametrix añadir un corte.</p><p>Para insertar automáticamente un corte añadido, es necesario crear una capa con el nombre «<strong>Aggiunto</strong>» y dibujar una nueva línea sobre la línea que representa el lado en el que se desea crear el corte añadido.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="f531d35f-6cb7-4acb-b6a6-7376b001a86a"><colgroup><col style="width: 385.0px;"><col style="width: 1413.0px;"></colgroup><tbody><tr><td><p><strong>Nombre de la capa</strong></p></td><td><p>Aggiunto _ (seguido del número que identifica la distancia a la que se añadirá el corte).</p>
+<div id="admonition-nota-15" class="admonition admonish-info" role="note" aria-labelledby="admonition-nota-15-title">
+<div class="admonition-title">
+<div id="admonition-nota-15-title">
+<p>NOTA</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-nota-15"></a>
+</div>
+<div>
+<p>La medida se expresa en milímetros.</p>
+</div>
+</div>
+</td></tr><tr><td><p><strong>Ejemplo</strong></p></td><td><p>Aggiunto50</p></td></tr></tbody></table><p>El corte se añadirá dentro (donde hay material) o fuera (donde no hay material) de la pieza, según el signo de la distancia:</p><ul><li><p>Si el signo de la distancia es positivo, el corte se añadirá en el exterior de la pieza</p></li><li><p>En caso contrario, si el signo de la distancia es negativo, el corte se añadirá en el interior de la pieza</p></li></ul><p>Al aplicar un corte añadido sobre cortes internos, por ejemplo los de un vaciado, el corte se añadirá dentro de la pieza, donde no hay material.</p><p></p><p></p><h1 id="modo-orificio-de-anclaje"><a class="header" href="#modo-orificio-de-anclaje">Modo Orificio de anclaje</a></h1><p>La función de orificio de anclaje permite al software Parametrix añadir mecanizados de orificio de anclaje a las piezas.</p><p>Para insertar automáticamente un mecanizado de orificio de anclaje, es necesario crear una capa con el nombre «<strong>Keil</strong>» y dibujar un círculo donde se desea realizar el orificio de anclaje.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="b6ba90f1-4182-412c-9819-5ffbfc4820d2"><colgroup><col style="width: 385.0px;"><col style="width: 1413.0px;"></colgroup><tbody><tr><td><p><strong>Nombre de la capa</strong></p></td><td><p>Keil _ (seguido del número que identifica la profundidad del orificio de anclaje).</p>
+<div id="admonition-nota-16" class="admonition admonish-info" role="note" aria-labelledby="admonition-nota-16-title">
+<div class="admonition-title">
+<div id="admonition-nota-16-title">
+<p>NOTA</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-nota-16"></a>
+</div>
+<div>
+<p>La medida se expresa en milímetros.</p>
+</div>
+</div>
+</td></tr><tr><td><p><strong>Ejemplo</strong></p></td><td><p>Keil5</p></td></tr></tbody></table><p>En el modo básico, el radio del círculo corresponde al radio de la herramienta configurada actualmente en Parametrix.</p><p></p><p></p><h1 id="modo-bisel"><a class="header" href="#modo-bisel">Modo Bisel</a></h1><p>La función de bisel permite al software Parametrix añadir mecanizados de bisel a las piezas.</p><p>Para insertar automáticamente un mecanizado de bisel, es necesario crear una capa con el nombre «<strong>Smusso</strong>» y dibujar una nueva línea sobre la línea que representa el lado en el que se desea crear un corte añadido.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="b37602b2-9759-4df5-bfd8-52784c549708"><colgroup><col style="width: 385.0px;"><col style="width: 1413.0px;"></colgroup><tbody><tr><td><p><strong>Nombre de la capa</strong></p></td><td><p>Smusso _ (distancia a lo largo del eje X) _ & _ (distancia a lo largo del eje Y) _ & _ (ángulo de inclinación).</p>
+<div id="admonition-nota-17" class="admonition admonish-info" role="note" aria-labelledby="admonition-nota-17-title">
+<div class="admonition-title">
+<div id="admonition-nota-17-title">
+<p>NOTA</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-nota-17"></a>
+</div>
+<div>
+<p>Las medidas se expresan en:
+<br>
+X: milímetros
+<br>
+Y: milímetros
+<br>
+A: grados sexagesimales</p>
+</div>
+</div>
+</td></tr><tr><td><p><strong>Ejemplo</strong></p></td><td><p>Smusso10&10&45</p></td></tr></tbody></table><p>Si los tres valores no son geométricamente compatibles entre sí, el mecanizado no se aplicará.</p><p></p><p></p><h1 id="modo-bisel-inferior"><a class="header" href="#modo-bisel-inferior">Modo Bisel inferior</a></h1><p>La función de bisel inferior permite al software Parametrix añadir mecanizados de bisel a las piezas.</p><p>Para insertar automáticamente un mecanizado de bisel inferior, es necesario crear una capa con el nombre «<strong>Becco</strong>» y dibujar una nueva línea sobre la línea que representa el lado en el que se desea crear un corte añadido.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="e814d72a-a7d1-4dec-83c2-8fd7d8e6dc28"><colgroup><col style="width: 385.0px;"><col style="width: 1413.0px;"></colgroup><tbody><tr><td><p><strong>Nombre de la capa</strong></p></td><td><p>Becco _ (distancia a lo largo del eje X) _ & _ (distancia a lo largo del eje Y) _ & _ (ángulo de inclinación).</p>
+<div id="admonition-nota-18" class="admonition admonish-info" role="note" aria-labelledby="admonition-nota-18-title">
+<div class="admonition-title">
+<div id="admonition-nota-18-title">
+<p>NOTA</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-nota-18"></a>
+</div>
+<div>
+<p>Las medidas se expresan en:
+<br>
+X: milímetros
+<br>
+Y: milímetros
+<br>
+A: grados sexagesimales</p>
+</div>
+</div>
+</td></tr><tr><td><p><strong>Ejemplo</strong></p></td><td><p>Becco10&10&45</p></td></tr></tbody></table><p>Si los tres valores no son geométricamente compatibles entre sí, el mecanizado no se aplicará.</p><p></p><p></p><h1 id="modo-desactivar"><a class="header" href="#modo-desactivar">Modo Desactivar</a></h1><p>La función desactivar permite al software Parametrix desactivar cortes de las piezas.</p><p>Para insertar automáticamente una función de desactivación, es necesario crear una capa con el nombre «<strong>Disattiva</strong>» y dibujar una nueva línea sobre la que representa el lado que se desea desactivar.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="f6c568d2-e4cd-47f4-8ff1-4d14ae6befe7"><colgroup><col style="width: 385.0px;"><col style="width: 1413.0px;"></colgroup><tbody><tr><td><p><strong>Nombre de la capa</strong></p></td><td><p>Desactivar</p></td></tr><tr><td><p><strong>Ejemplo</strong></p></td><td><p>Desactivar</p></td></tr></tbody></table><p></p><p></p><h1 id="modo-eliminar"><a class="header" href="#modo-eliminar">Modo Eliminar</a></h1><p>La función eliminar permite al software Parametrix eliminar cortes de las piezas.</p><p>Para insertar automáticamente un mecanizado de eliminación, es necesario crear una capa con el nombre «<strong>Rimuovi</strong>» y dibujar una nueva línea sobre la que representa el lado que se desea eliminar.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="009be8f3-0065-43d9-9f9a-9df0b29b7b1d"><colgroup><col style="width: 385.0px;"><col style="width: 1413.0px;"></colgroup><tbody><tr><td><p><strong>Nombre de la capa</strong></p></td><td><p>Eliminar</p></td></tr><tr><td><p><strong>Ejemplo</strong></p></td><td><p>Eliminar</p></td></tr></tbody></table><p></p><p></p><h1 id="modo-orificio"><a class="header" href="#modo-orificio">Modo Orificio</a></h1><p>La función de taladrado permite al software Parametrix reconocer cualquier círculo con un radio inferior al parámetro «Radio máximo de la broca hueca» situado dentro del área de la pieza.</p><p>Los orificios pueden insertarse libremente en todas las capas (excepto las identificadas como neutras).</p><p>Otra opción relacionada con el uso de la broca hueca permite eliminar una isla de material que haya quedado unida después de realizar los cortes con el disco; para que el software Parametrix tenga en cuenta esta opción, deben dibujarse uno o varios círculos que intersecten los lados de la isla cortada con el disco y, mediante el parámetro «Distancia de orificios automáticos», se posicionará una serie de orificios calculados automáticamente según el material que quede por cortar después del corte con el disco.</p><p></p><p></p><h1 id="gestión-de-capas-neutras"><a class="header" href="#gestión-de-capas-neutras">Gestión de capas neutras</a></h1><p>Si se desea mantener en el archivo DXF algunas partes del dibujo que no deben considerarse cortes ni otras funciones que deba gestionar el software Parametrix, pueden asignarse a determinadas capas reconocidas como neutras.</p><p>Cree las capas con los nombres asignados en los campos Capas neutras (1,2,3) de la página «Nombres de capas» de los parámetros de usuario de Parametrix, teniendo en cuenta que el carácter «*» hará que todas las capas importadas con el mismo nombre antes y después del símbolo «*» no se tengan en cuenta durante la importación.</p><p></p><p></p><h1 id="ejemplos"><a class="header" href="#ejemplos">Ejemplos</a></h1><p class="media-group"><p><a href='attachments/3.1.3.1_realización_de_cortes_a_partir_de_dibujos_dxf/WorkingDetails.dxf'>WorkingDetails.dxf</a></p><p><a href='attachments/3.1.3.1_realización_de_cortes_a_partir_de_dibujos_dxf/VeinDirections.dxf'>VeinDirections.dxf</a></p><p><a href='attachments/3.1.3.1_realización_de_cortes_a_partir_de_dibujos_dxf/Top.dxf'>Top.dxf</a></p><p><a href='attachments/3.1.3.1_realización_de_cortes_a_partir_de_dibujos_dxf/Kitchen_WithLayout.dxf'>Kitchen_WithLayout.dxf</a></p><p><a href='attachments/3.1.3.1_realización_de_cortes_a_partir_de_dibujos_dxf/Kitchen_Curve.dxf'>Kitchen_Curve.dxf</a></p><p><a href='attachments/3.1.3.1_realización_de_cortes_a_partir_de_dibujos_dxf/BookMatch_Wall.dxf'>BookMatch_Wall.dxf</a></p><p><a href='attachments/3.1.3.1_realización_de_cortes_a_partir_de_dibujos_dxf/BookMatch_Floor.dxf'>BookMatch_Floor.dxf</a></p><p><a href='attachments/3.1.3.1_realización_de_cortes_a_partir_de_dibujos_dxf/Bathroom.dxf'>Bathroom.dxf</a></p><p></p><!--Label="dxf_rcn"--><!--Label="dxf_rcn_bcc"--><!--Label="dxf_rcn_ntr"--><!--Label="dxf_rcn_lwr"--><!--Label="dxf_rcn_mtr"--><!--Label="dxf_rcn_dwn"--><!--Label="dxf_rcn_mll"--><!--Label="dxf_rcn_anc"--><!--Label="dxf_rcn_rmv"--><!--Label="dxf_rcn_hol"--><!--Label="dxf_rcn_ffs"--><!--Label="dxf_rcn_dct"--><!--Label="dxf_rcn_drp"--><!--Label="dxf_rcn_rim"--><!--Label="dxf_rcn_sms"--><!--Label="dxf_rcn_frt"--><!--Label="dxf_rcn_add"-->
+                        </main>
+
+                    </div>
+
+                    <img src="images/donatoni_222.jpg">
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="3.1.3_nombres_de_capas.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="3.1.3.2_colorear_las_capas.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+
+
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                <a rel="prev" href="3.1.3_nombres_de_capas.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="3.1.3.2_colorear_las_capas.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="mermaid.min.js"></script>
+        <script src="mermaid-init.js"></script>
+        <script src="hidemenu.js"></script>
+        <script src="imagemodal.js"></script>
+        <script src="login.js"></script>
+    </div>
+
+    <!-- Modale -->
+    <div id="modal" onclick="closeModal()">
+        <img id="modal-img" src="">
+    </div>;
+
+
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
+
+<script id="virtual-keyboard-searchbar-fix">
+document.addEventListener("input", function (e) {
+    const t = e.target;
+    if (t && t.id === "searchbar" && e.isTrusted !== true) {
+        t.dispatchEvent(new KeyboardEvent("keyup", { bubbles: true }));
+    }
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+<head>
+    <!-- Book generated using mdBook -->
+    <meta charset="UTF-8">
+    <title>4.1 PAGE DES COMMANDES MANUELLES - FR-FR PARAMETRIX 4.14</title>
+
+    <!-- Custom HTML head -->
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="icon" href="favicon.svg">
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/chrome.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Fonts -->
+    <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+    <link rel="stylesheet" href="fonts/fonts.css">
+
+    <!-- Highlight.js Stylesheets -->
+    <link rel="stylesheet" id="highlight-css" href="highlight.css">
+    <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+    <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+    <!-- Custom theme stylesheets -->
+    <link rel="stylesheet" href="./mdbook-admonish.css">
+    <link rel="stylesheet" href="theme/custom.css">
+    <link rel="stylesheet" href="search.html">
+    <link rel="stylesheet" href="login.html">
+    <link rel="stylesheet" href="searchlogin.html">
+    <link rel="stylesheet" href="searchloginmenu.html">
+
+    <!-- Provide site root and default themes to javascript -->
+    <script>
+      const path_to_root = "";
+      const default_light_theme = "light";
+      const default_dark_theme = "light";
+    </script>
+    <!-- Start loading toc.js asap -->
+    <script src="toc.js"></script>
+<script>(function () {
+  const SUFFIX = "#2utHhOLI7Iz0";
+
+  function buildUrl() {
+    const base = window.location.href.split("#")[0];
+    return base + SUFFIX;
+  }
+
+  function fallbackCopy(text) {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.top = "-1000px";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+
+  async function copyUrl() {
+    const url = buildUrl();
+
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(url);
+        return;
+      } catch (e) {}
+    }
+
+    fallbackCopy(url);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.getElementById("copy-link-btn");
+    if (!btn) return;
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      copyUrl();
+    });
+  });
+})();
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-document" data-technical-styler-flow="html">
+    <header class="header-main">
+        <div class="header-flex">
+            <div class="donatoni-flex">
+                <label class="btn hamburger-menu" id="sidebar-toggle" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                    <i id="sidebar-toggle-icon" class="fa-solid fa-bars"></i>
+                </label>
+
+                <img src="images/donatoni-logo-white.svg" alt="Donatoni Macchine">
+            </div>
+
+            <div class="donatoni-flex action-header-buttons">
+                <div id="search-wrapper" class="search-wrapper hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults"></ul>
+                    </div>
+                </div>
+                <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
+                </button>
+
+                <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
+                    <i class="fa-solid fa-print"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div id="body-container">
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem("mdbook-theme");
+                let sidebar = localStorage.getItem("mdbook-sidebar");
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-theme",
+                        theme.slice(1, theme.length - 1)
+                    );
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-sidebar",
+                        sidebar.slice(1, sidebar.length - 1)
+                    );
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = "light";
+            let theme = default_theme;
+            const html = document.documentElement;
+            html.classList.remove("light");
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try {
+                    sidebar = localStorage.getItem('mdbook-sidebar');
+                } catch (e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document
+                        .getElementById("sidebar-toggle")
+                        .setAttribute("aria-expanded", sidebar === "visible");
+                    document
+                        .getElementById("sidebar")
+                        .setAttribute("aria-hidden", sidebar !== "visible");
+                    Array.from(document.querySelectorAll("#sidebar a")).forEach(
+                        function (link) {
+                            link.setAttribute("tabIndex", sidebar === "visible" ? 0 : -1);
+                        }
+                    );
+                </script>
+
+                <div id="content" class="content">
+
+                    <div>
+
+                        <img src="images/donatoni_111.jpg">
+
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Machine technical documentation</span><span class="maintenance-status"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Operational document</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="41-page-des-commandes-manuelles" style="margin:0;" class="maintenance-main-title"><a class="header" href="#41-page-des-commandes-manuelles"><span class="maintenance-code">DOC</span><span class="maintenance-name">4.1 PAGE DES COMMANDES MANUELLES</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document DOC" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="4.1 PAGE DES COMMANDES MANUELLES"--><p>Au démarrage de l’application, si le référencement des axes a déjà été effectué, l’écran initial suivant s’affiche :</p><div class="TextAlignCenter"><img src="attachments/4.1_page_des_commandes_manuelles/0.0-20250808-071213.png" alt="0.0-20250808-071213.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div>
+<div id="admonition-attention-" class="admonition admonish-warning" role="note" aria-labelledby="admonition-attention--title">
+<div class="admonition-title">
+<div id="admonition-attention--title">
+<p>ATTENTION !</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-attention-"></a>
+</div>
+<div>
+<p>Lors du démarrage de la machine, il est indispensable de faire preuve de la plus grande attention lors des déplacements des axes si la phase de référencement n’a pas encore été effectuée ; des collisions avec les butées mécaniques de la machine pourraient se produire et compromettre son bon fonctionnement.</p>
+</div>
+</div>
+<p></p><p>
+</p><p></p><h1 id="barre-supérieure"><a class="header" href="#barre-supérieure">Barre supérieure</a></h1><div class="TextAlignCenter"><img src="attachments/4.1_page_des_commandes_manuelles/Barra_superiore.png" alt="Barra_superiore.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="fb7be448-ebb4-41fe-97ae-182bb9f3d0fb"><colgroup><col style="width: 272.0px;"><col style="width: 1528.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/4.1_page_des_commandes_manuelles/1_ParametriUtente_B-20250320-094536.png" alt="1_ParametriUtente_B-20250320-094536.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Paramètres</strong><br>Permet d’accéder aux paramètres du programme Parametrix.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/4.1_page_des_commandes_manuelles/1_ToolPanel_B.png" alt="1_ToolPanel_B.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Paramètres outil</strong><br>Appuyer sur le bouton pour accéder à la page des paramètres de l’outil. Se reporter au chapitre « Configuration de l’outil » pour une description détaillée de la page des paramètres.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/4.1_page_des_commandes_manuelles/1_RotazAutom_0-90__B.png" alt="1_RotazAutom_0-90__B.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Rotation automatique 0/ 90 degrés</strong><br>L’axe « C » est automatiquement déplacé à 0 ou 90 degrés lorsque le bouton est enfoncé.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/4.1_page_des_commandes_manuelles/1_Park_B.png" alt="1_Park_B.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Mise en position de stationnement automatique</strong><br>Lorsque ce bouton est enfoncé, la machine déplace automatiquement les axes « X », « Y », « Z » et « C » en position zéro.<br>Les déplacements sont effectués par la machine dans l’ordre suivant :<br>(A) - Axe « Z » en position zéro absolu ;<br>(B) - Axe « C » en position 0 absolu ;<br>(C) - Axes « X » et « Y » simultanément en position zéro absolu ;</p><div class="TextAlignCenter"><img src="attachments/4.1_page_des_commandes_manuelles/1_parcheggio_B.png" alt="1_parcheggio_B.png" width="261" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div>
+<div id="admonition-attention--1" class="admonition admonish-warning" role="note" aria-labelledby="admonition-attention--1-title">
+<div class="admonition-title">
+<div id="admonition-attention--1-title">
+<p>ATTENTION !</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-attention--1"></a>
+</div>
+<div>
+<p>Pour effectuer la mise en position de stationnement automatique, certaines conditions de sécurité doivent être respectées :
+<br>
+La position de l’axe « A » doit être à 0_.
+<br>
+S’assurer que la zone de déplacement concernée par le positionnement (voir figure ci-contre) est libre.</p>
+</div>
+</div>
+</td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/4.1_page_des_commandes_manuelles/1_Zero_D-20250320-121702.png" alt="1_Zero_D-20250320-121702.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Zéro</strong><br>Effectue le référencement des axes (cette opération est nécessaire lors du démarrage de la machine ou lorsque les indicateurs rectangulaires sont rouges).<br>Lorsque le cycle de référencement est terminé, les indicateurs deviennent gris.<br>La phase de référencement prévoit le déplacement séquentiel des axes :</p><ol start="1" type="1"><li><p>Axe Z</p></li><li><p>Axe A</p></li><li><p>Axe C</p></li><li><p>Axes X et Y simultanément</p></li><li><p>Axe B (Option : tour contrôlé)</p></li></ol>
+<div id="admonition-remarque" class="admonition admonish-info" role="note" aria-labelledby="admonition-remarque-title">
+<div class="admonition-title">
+<div id="admonition-remarque-title">
+<p>REMARQUE</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-remarque"></a>
+</div>
+<div>
+<p>Le référencement n’est autorisé que lorsque la clé codée est insérée dans le poste prévu à cet effet, repérable sur la console opérateur.</p>
+</div>
+</div>
+</td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/4.1_page_des_commandes_manuelles/1_H2OIntern.png" alt="1_H2OIntern.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Activation / Désactivation de l’eau interne</strong><br>Appuyer sur ce bouton pour activer l’eau à l’intérieur de l’outil.<br>Le témoin au-dessus du bouton change de couleur : Vert = Activée ; Rouge = Désactivée.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/4.1_page_des_commandes_manuelles/1_H2O_Est-20250320-092600.png" alt="1_H2O_Est-20250320-092600.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Activation / Désactivation de l’eau</strong><br>Appuyer sur ce bouton pour activer l’eau du circuit principal.<br>Le témoin au-dessus du bouton change de couleur : Vert = Activée ; Rouge = Désactivée.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/4.1_page_des_commandes_manuelles/1_CambiaTool_B-20250320-093047.png" alt="1_CambiaTool_B-20250320-093047.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Changement manuel d’outil</strong><br>Appuyer sur le bouton pour lancer la procédure de changement d’outil.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/4.1_page_des_commandes_manuelles/1_Manutenzioni_B.png" alt="1_Manutenzioni_B.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Maintenance</strong><br>Appuyer sur ce bouton pour afficher une fenêtre contenant toutes les opérations de maintenance de la machine.<br>Les opérations de maintenance à effectuer ainsi que celles qui sont dans la norme s’affichent.<br>Si au moins une opération de maintenance l’exige.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/4.1_page_des_commandes_manuelles/1_help_B.png" alt="1_help_B.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Aide</strong><br>Appuyer sur ce bouton modifie légèrement l’aspect graphique et le comportement de tous les boutons actuellement visibles. Il est alors possible d’appuyer sur n’importe quel bouton portant un petit point d’interrogation dans l’angle supérieur gauche pour afficher un bref message décrivant sa fonction. Pour quitter ce mode d’assistance, il suffit d’appuyer de nouveau sur le bouton « Aide ».</p></td></tr></tbody></table><p></p><p></p><h1 id="barre-latérale-droite"><a class="header" href="#barre-latérale-droite">Barre latérale droite</a></h1><p>Au démarrage de l’application, la fonction présélectionnée est MANUEL.<br>Cette barre latérale contient les commandes et programmes/fonctions disponibles suivants :</p><div class="TextAlignCenter"><img src="attachments/4.1_page_des_commandes_manuelles/0.1-20250808-085811.png" alt="0.1-20250808-085811.png" width="339" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><p></p><h1 id="zone-centrale"><a class="header" href="#zone-centrale">Zone centrale</a></h1><p>La zone centrale comprend les éléments suivants, décrits en détail ci-dessous :</p><ul><li><p>Axes</p></li><li><p>Commandes</p></li><li><p>Gestion des disques</p></li><li><p>Feed</p></li><li><p>Ventouses</p></li></ul><p></p><h2 id="axes" class="maintenance-section-title" data-section-number="01"><a class="header" href="#axes">Axes</a></h2><p>Cette interface affiche les valeurs des axes de la machine.</p><p>Exemple de l’élément d’interface « Axes » avec origine 0 et référencement des axes déjà effectué :</p><div class="TextAlignCenter"><img src="attachments/4.1_page_des_commandes_manuelles/Assi_Azzerato_B.png" alt="Assi_Azzerato_B.png" width="600" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p>Exemple de l’élément d’interface « Axes » avec origine 0 et référencement des axes restant à effectuer :</p><div class="TextAlignCenter"><img src="attachments/4.1_page_des_commandes_manuelles/Assi_DaAzzerare_B.png" alt="Assi_DaAzzerare_B.png" width="600" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p>Les éléments qui composent cette section de l’interface commune sont expliqués ci-dessous, en prenant comme référence le cas où les axes ont déjà été référencés.</p><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="851608de-c044-44ca-a7f0-875c9fafd94d"><colgroup><col style="width: 676.0px;"><col style="width: 1122.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/4.1_page_des_commandes_manuelles/asseX_b-20250714-074727.png" alt="asseX_b-20250714-074727.png" width="425" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p></td><td><p><strong>Cote réelle</strong> : indique la position de l’axe par rapport à l’origine active.<br><strong>Cote cible</strong> : indique la cote à régler pour effectuer le déplacement de l’axe en appuyant sur le bouton MDI ou RTCP.<br><strong>F</strong> :  Feed, vitesse de déplacement exprimée en mm/minute.<br><strong>DTG</strong> :  Distance To Go, distance jusqu’à la cible. <br><strong>A</strong> :  Ampère.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/4.1_page_des_commandes_manuelles/ResetAsse_B.png" alt="ResetAsse_B.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Réinitialisation de l’axe</strong><br>Appuyer sur ce bouton pour définir le zéro de l’origine active à la position actuelle de l’axe correspondant (X, Y ou Z).<br>La réinitialisation de l’axe ne peut être effectuée que sur des origines différentes de 0 (zéro).<br>Pour utiliser l’origine en coordonnées outil (TCP), il est nécessaire d’avoir réglé les dimensions correctes de l’outil monté avant d’appuyer sur le bouton Réinitialisation de l’axe.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/4.1_page_des_commandes_manuelles/RotazAutom__-90_B.png" alt="RotazAutom__-90_B.png" width="138" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Rotation automatique _90 degrés</strong><br>La position de l’axe « C » est augmentée de 90 degrés dans le sens horaire.<br>Exemple : la machine se trouve à 12 degrés ; en appuyant sur le bouton « Rotation automatique _90 degrés », la machine se positionne à 102 degrés : 12 _ 90.</p><p><strong>Rotation automatique -90 degrés</strong><br>La position de l’axe « C » est diminuée de 90 degrés dans le sens antihoraire.<br>Exemple : la machine se trouve à 102 degrés ; en appuyant sur le bouton « Rotation automatique -90 degrés », la machine se positionne à 12 degrés : 102 - 90.</p></td></tr></tbody></table><p></p><h2 id="commandes" class="maintenance-section-title" data-section-number="02"><a class="header" href="#commandes">Commandes</a></h2><p>Ce panneau contient plusieurs boutons dont le fonctionnement est expliqué ci-dessous :</p><div class="TextAlignCenter"><img src="attachments/4.1_page_des_commandes_manuelles/0-20250808-075317.png" alt="0-20250808-075317.png" width="219" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="0e2a9fd0-e663-41cc-9054-a901f928945f"><colgroup><col style="width: 457.0px;"><col style="width: 1340.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/4.1_page_des_commandes_manuelles/1-20250808-074444.png" alt="1-20250808-074444.png" width="243" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>MAN (Activer le déplacement manuel)</strong><br>Pour utiliser la machine en mode manuel, les broches doivent être correctement positionnées et certaines fonctions doivent être activées. Le bouton est prévu à cet effet.</p>
+<div id="admonition-remarque-1" class="admonition admonish-info" role="note" aria-labelledby="admonition-remarque-1-title">
+<div class="admonition-title">
+<div id="admonition-remarque-1-title">
+<p>REMARQUE</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-remarque-1"></a>
+</div>
+<div>
+<p>Lorsque le mode manuel est activé, le voyant situé à côté devient vert.</p>
+</div>
+</div>
+</td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/4.1_page_des_commandes_manuelles/2-20250808-074538.png" alt="2-20250808-074538.png" width="244" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Axe des ventouses</strong><br>Axe de référence sur lequel les ventouses sont montées.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/4.1_page_des_commandes_manuelles/3-20250808-074944.png" alt="3-20250808-074944.png" width="243" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Seuil d’alarme</strong><br>Indique le seuil au-delà duquel l’alarme est activée et la rotation de la broche est bloquée.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/4.1_page_des_commandes_manuelles/4_b-20250808-075507.png" alt="4_b-20250808-075507.png" width="94" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Origine sélectionnée</strong><br>Cliquer sur le champ « Origine » permet à l’opérateur de modifier l’origine de travail.<br>La modification de ce champ déclenche la mise à jour des valeurs des <strong>Axes</strong>.<br>Les valeurs d’Origine peuvent varier de 0 à 19 inclus.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/4.1_page_des_commandes_manuelles/Untitled-20250718-135707.png" alt="Untitled-20250718-135707.png" width="182" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>MDI</strong><br>Lorsqu’il est enfoncé, la machine se déplace jusqu’à atteindre les cotes définies comme cotes cibles (voir ci-dessus).<br>La vitesse des axes X et Y est commandée par leurs potentiomètres respectifs, tandis que les autres axes sont commandés par le potentiomètre interpolé.</p></td></tr></tbody></table><p></p><h2 id="gestion-des-disques" class="maintenance-section-title" data-section-number="03"><a class="header" href="#gestion-des-disques">Gestion des disques</a></h2><p>Une seule des fenêtres disponibles pour l’opérateur lors de la gestion des disques installés est illustrée ci-dessous, les autres présentant des fonctions analogues.</p><div class="TextAlignCenter"><img src="attachments/4.1_page_des_commandes_manuelles/0-20250808-080429.png" alt="0-20250808-080429.png" width="387" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="ef137cd8-bfae-441c-85d2-e77cc7550f5e"><colgroup><col style="width: 478.0px;"><col style="width: 1319.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/4.1_page_des_commandes_manuelles/1-20250808-080612.png" alt="1-20250808-080612.png" width="130" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Premier axe de référence</strong><br>Premier axe de référence pour chaque disque (dans l’exemple X1 pour DISQUE1)</p>
+<div id="admonition-remarque-2" class="admonition admonish-info" role="note" aria-labelledby="admonition-remarque-2-title">
+<div class="admonition-title">
+<div id="admonition-remarque-2-title">
+<p>REMARQUE</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-remarque-2"></a>
+</div>
+<div>
+<p>Lors du positionnement des axes X, la référence utilisée pour la cote
+<br>
+cible est le centre du disque ; la cote actuelle diffère d’une demi-épaisseur de l’âme du disque.</p>
+</div>
+</div>
+</td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/4.1_page_des_commandes_manuelles/2-20250808-080644.png" alt="2-20250808-080644.png" width="130" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Deuxième axe de référence</strong><br>Deuxième axe de référence pour chaque disque (dans l’exemple Z1 pour DISQUE1)</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/4.1_page_des_commandes_manuelles/3-20250808-080535.png" alt="3-20250808-080535.png" width="130" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Démarrer/Arrêter la rotation de la broche</strong><br>Commande l’activation et la désactivation du disque de la broche correspondante. <br>La vitesse du disque est sélectionnée dans les paramètres outil.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/4.1_page_des_commandes_manuelles/4-20250808-080733.png" alt="4-20250808-080733.png" width="130" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Activer/Désactiver l’eau externe de la broche</strong><br>Permet de gérer l’activation et la désactivation de l’eau associée à l’outil choisi.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/4.1_page_des_commandes_manuelles/5_b-20250808-083330.png" alt="5_b-20250808-083330.png" width="279" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Consommation</strong><br>Indique le courant absorbé par le moteur de broche.</p></td></tr></tbody></table><p></p><h2 id="feed" class="maintenance-section-title" data-section-number="04"><a class="header" href="#feed">Feed</a></h2><p>La valeur Feed représente le déplacement interpolé de la machine.</p><div class="TextAlignCenter"><img src="attachments/4.1_page_des_commandes_manuelles/Feed_B-20250321-072835.png" alt="Feed_B-20250321-072835.png" width="400" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><h2 id="ventouses" class="maintenance-section-title" data-section-number="05"><a class="header" href="#ventouses">Ventouses</a></h2><p>Il est possible d’utiliser les ventouses en mode manuel pour déplacer des pièces d’une zone de travail à une autre.</p><div class="TextAlignCenter"><img src="attachments/4.1_page_des_commandes_manuelles/0.0-20250808-071657.png" alt="0.0-20250808-071657.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><h3 id="boutons-des-ventouses"><a class="header" href="#boutons-des-ventouses">Boutons des ventouses</a></h3><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="ada2e4e9-da09-4c33-abee-f3cc36949e35"><colgroup><col style="width: 559.0px;"><col style="width: 1240.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/4.1_page_des_commandes_manuelles/1-20250808-071906.png" alt="1-20250808-071906.png" width="300" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p></td><td><p><strong>Activation / désactivation des ventouses</strong><br>L’écran affiche le groupe de ventouses vu de dessus, réparti dans les différentes zones qui le composent. Appuyer sur la zone concernée pour en changer l’état.<br>En vert, la zone est configurée pour créer le vide.<br>En rouge, la zone est configurée pour le soufflage.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/4.1_page_des_commandes_manuelles/1.3.png" alt="1.3.png" width="167" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>VENTOUSES : MONTER  -  Stationnement des ventouses</strong><br>Appuyer sur le bouton rétracte les ventouses afin de les ramener dans la zone de repos/stationnement.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/4.1_page_des_commandes_manuelles/2.3.png" alt="2.3.png" width="167" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>VENTOUSES : DESCENDRE  -  Préparer les ventouses</strong><br>Appuyer sur le bouton fait descendre les ventouses de la zone de stationnement jusqu’à la butée. Il est important que les ventouses disposent de l’espace nécessaire pour sortir complètement.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/4.1_page_des_commandes_manuelles/4.3.png" alt="4.3.png" width="167" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>SOULEVER LA PIÈCE : RELÂCHER  -  Déchargement de la pièce</strong><br>Appuyer sur le bouton abaisse l’axe Z jusqu’à ce que le matériau entre en contact avec le plan de travail, arrête la pompe à vide et active le soufflage de toutes les ventouses pour détacher la pièce. Après l’écoulement d’un délai, l’axe est relevé jusqu’à la cote de sécurité.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/4.1_page_des_commandes_manuelles/3.3.png" alt="3.3.png" width="167" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>SOULEVER LA PIÈCE : DÉMARRER  -  Levage de la pièce</strong><br>Avec cette commande, les ventouses sont amenées au contact du matériau, la pompe à vide est activée dans les zones indiquées en vert et le soufflage dans les zones indiquées en rouge ; lorsque le vacuostat signale que le vide est établi, l’axe est relevé jusqu’à la position définie pour les déplacements.</p>
+<div id="admonition-attention--2" class="admonition admonish-warning" role="note" aria-labelledby="admonition-attention--2-title">
+<div class="admonition-title">
+<div id="admonition-attention--2-title">
+<p>ATTENTION !</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-attention--2"></a>
+</div>
+<div>
+<p>Faire attention aux ventouses actives et utiliser la plus grande surface possible pour soulever la pièce.</p>
+</div>
+</div>
+</td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/4.1_page_des_commandes_manuelles/6.2_off.png" alt="6.2_off.png" width="131" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><div class="TextAlignCenter"><img src="attachments/4.1_page_des_commandes_manuelles/6.2_on.png" alt="6.2_on.png" width="131" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>VIDE  -  Commande de la pompe à vide</strong><br>Ce bouton active et désactive la pompe à vide. L’indicateur signale si la pompe est activée (vert) ou désactivée (rouge).</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/4.1_page_des_commandes_manuelles/5.2_off.png" alt="5.2_off.png" width="131" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><div class="TextAlignCenter"><img src="attachments/4.1_page_des_commandes_manuelles/5.2_on.png" alt="5.2_on.png" width="131" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>SOUFFLAGE  -  Commande de soufflage</strong><br>Ce bouton active ou désactive le soufflage des ventouses qui ne sont pas configurées pour le vide. L’indicateur signale si le soufflage est activé (vert) ou désactivé (rouge).</p></td></tr></tbody></table><p></p><h3 id="conditions-de-sécurité"><a class="header" href="#conditions-de-sécurité">Conditions de sécurité</a></h3><p>Faire particulièrement attention aux ventouses actives pendant le levage et s’assurer que les zones utilisées sont suffisantes pour soulever la pièce à manutentionner. Toujours utiliser la plus grande surface de vide disponible pour saisir la pièce et vérifier que le matériau ne présente aucun défaut ni aucune rupture susceptible de créer des dangers ou des problèmes de fonctionnement de la machine.<br>Une fois la pompe à vide activée, sa désactivation n’est autorisée qu’au moyen des fonctions automatiques prévues à cet effet. L’appui sur le bouton de réinitialisation ou sur le bouton d’arrêt d’urgence n’a aucun effet sur la pompe à vide, qui continue de fonctionner. L’arrêt de la pompe peut être forcé à l’aide du bouton prévu à cet effet dans la page « Commandes supplémentaires ».<br>Dans les procédures automatiques, avant de soulever la pièce, l’état du vide est contrôlé par un capteur dédié : si une valeur de vide suffisante n’est pas détectée, l’alarme « manque de vide » apparaît. La pompe reste active jusqu’à ce que le vacuostat détecte une valeur correcte, sauf si elle est désactivée depuis la page « Commandes supplémentaires ».</p>
+<div id="admonition-attention--3" class="admonition admonish-warning" role="note" aria-labelledby="admonition-attention--3-title">
+<div class="admonition-title">
+<div id="admonition-attention--3-title">
+<p>ATTENTION !</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-attention--3"></a>
+</div>
+<div>
+<p>Une coupure de l’alimentation de la pompe à vide entraîne une perte rapide du vide et, par conséquent, la chute du matériau soulevé par les ventouses.</p>
+</div>
+</div>
+<p></p><p></p><h1 id="barre-inférieure"><a class="header" href="#barre-inférieure">Barre inférieure</a></h1><p>La barre inférieure affiche des messages d’information et d’erreur ainsi que certains boutons destinés à des fonctions spécifiques.<br>Trois exemples de barre inférieure sont présentés ci-dessous :</p><ul><li><p>Sans alarmes actives.</p></li></ul><div class="TextAlignCenter"><img src="attachments/4.1_page_des_commandes_manuelles/image-20250304-101029.png" alt="image-20250304-101029.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><ul><li><p>Avec une urgence générale activée, signalée par une icône, un code d’erreur (dans cet exemple PE0000), sa description et le bouton des alarmes clignotant à droite.</p></li></ul><div class="TextAlignCenter"><img src="attachments/4.1_page_des_commandes_manuelles/image-20250304-101937.png" alt="image-20250304-101937.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><ul><li><p>Avec un message affiché, dans l’exemple JOG direct actif.</p></li></ul><div class="TextAlignCenter"><img src="attachments/4.1_page_des_commandes_manuelles/image-20250320-123843.png" alt="image-20250320-123843.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><p> </p><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="e02c1e28-cc40-40ed-9b63-4f2c36277abd"><colgroup><col style="width: 275.0px;"><col style="width: 1525.0px;"></colgroup><tbody><tr><td data-highlight-colour="var(--ds-surface, #FFFFFF)"><div class="TextAlignCenter"><img src="attachments/4.1_page_des_commandes_manuelles/3_allarmi_B.png" alt="3_allarmi_B.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td data-highlight-colour="var(--ds-surface, #FFFFFF)"><p><strong>Alarmes</strong><br>Permet à l’opérateur d’accéder à la fenêtre des alarmes.</p></td></tr><tr><td data-highlight-colour="var(--ds-surface, #FFFFFF)"><div class="TextAlignCenter"><img src="attachments/4.1_page_des_commandes_manuelles/3_Minimizzazione_B.png" alt="3_Minimizzazione_B.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td data-highlight-colour="var(--ds-surface, #FFFFFF)"><p><strong>Réduction du logiciel</strong><br>Permet à l’opérateur de quitter la page du logiciel.</p></td></tr><tr><td data-highlight-colour="var(--ds-surface, #FFFFFF)"><div class="TextAlignCenter"><img src="attachments/4.1_page_des_commandes_manuelles/3_TurnOffMachine_B.png" alt="3_TurnOffMachine_B.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td data-highlight-colour="var(--ds-surface, #FFFFFF)"><p><strong>Arrêt de la machine</strong><br>Permet à l’opérateur d’arrêter définitivement la machine.</p></td></tr></tbody></table><p></p><h2 id="alarmes" class="maintenance-section-title" data-section-number="06"><a class="header" href="#alarmes">Alarmes</a></h2><p>La page des alarmes indique les Alarmes/Messages actifs du système.<br>Si la machine ne présente aucune alarme active, la page est vide ; sinon, une ligne est affichée pour chaque erreur présente. <br>La page d’exemple suivante, relative à la gestion et à l’affichage des alarmes, présente une alarme active dans le système :</p><div class="TextAlignCenter"><img src="attachments/4.1_page_des_commandes_manuelles/3_0_Allarmi_Form_C-20250722-113201.png" alt="3_0_Allarmi_Form_C-20250722-113201.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><h3 id="boutons-des-alarmes"><a class="header" href="#boutons-des-alarmes">Boutons des alarmes</a></h3><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="2786906e-58e4-4f16-883d-5080c02e820d"><colgroup><col style="width: 334.0px;"><col style="width: 1465.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/4.1_page_des_commandes_manuelles/3.1.1-20250722-111950.png" alt="3.1.1-20250722-111950.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Actualiser</strong><br>Permet d’actualiser l’état des alarmes de la machine.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/4.1_page_des_commandes_manuelles/image-20250722-112105.png" alt="image-20250722-112105.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Historique des alarmes</strong><br>Permet d’afficher l’historique quotidien des alarmes.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/4.1_page_des_commandes_manuelles/image-20250722-112140.png" alt="image-20250722-112140.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Messages / Alarmes</strong><br>Permet de choisir d’afficher les alarmes ou les messages.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/4.1_page_des_commandes_manuelles/image-20250722-112148.png" alt="image-20250722-112148.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Groupes d’alarmes</strong><br>Affiche les informations complètes relatives aux alarmes actuellement présentes sur la machine.</p></td></tr></tbody></table><p></p><h4 id="affichage-des-alarmes---standard"><a class="header" href="#affichage-des-alarmes---standard">Affichage des alarmes - Standard</a></h4><p>L’affichage standard d’une alarme comprend : </p><div class="TextAlignCenter"><img src="attachments/4.1_page_des_commandes_manuelles/3.1-20250722-113312.png" alt="3.1-20250722-113312.png" width="366" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="13fba903-ec25-4736-94b7-dda5444f6972"><colgroup><col style="width: 515.0px;"><col style="width: 1279.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/4.1_page_des_commandes_manuelles/3.0-20250722-125105.png" alt="3.0-20250722-125105.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Lien en ligne</strong><br>Bouton comportant un lien vers le guide en ligne correspondant.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/4.1_page_des_commandes_manuelles/image-20250722-130053.png" alt="image-20250722-130053.png" width="94" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Code alarme</strong><br>Code d’identification du problème à l’origine de l’alarme.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/4.1_page_des_commandes_manuelles/4.3-20250722-130309.png" alt="4.3-20250722-130309.png" width="220" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Description</strong><br>Brève description de l’erreur détectée.</p></td></tr></tbody></table><p></p><p></p><h4 id="affichage-des-alarmes---historique"><a class="header" href="#affichage-des-alarmes---historique">Affichage des alarmes - Historique</a></h4><p>L’historique quotidien des alarmes comprend, outre les éléments déjà décrits, les données suivantes :</p><div class="TextAlignCenter"><img src="attachments/4.1_page_des_commandes_manuelles/3.2-20250722-115737.png" alt="3.2-20250722-115737.png" width="661" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="5864afff-aff9-4d2c-a7c1-5648c67d0287"><colgroup><col style="width: 422.0px;"><col style="width: 1376.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/4.1_page_des_commandes_manuelles/5.1-20250722-130446.png" alt="5.1-20250722-130446.png" width="216" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Moment du changement d’état </strong><br>Date et heure du changement d’état de l’alarme.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/4.1_page_des_commandes_manuelles/5.2-20250722-130505.png" alt="5.2-20250722-130505.png" width="49" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>État de l’alarme</strong><br>État atteint par l’alarme (ON / OFF).</p></td></tr></tbody></table><p></p><p></p><h4 id="affichage-des-alarmes---groupes"><a class="header" href="#affichage-des-alarmes---groupes">Affichage des alarmes - Groupes</a></h4><p>Le système de regroupement affiche une seule entrée pour chaque alarme, afin d’éviter les doublons.</p><div class="TextAlignCenter"><img src="attachments/4.1_page_des_commandes_manuelles/3.3-20250722-120218.png" alt="3.3-20250722-120218.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="f2a11484-cc58-49a5-9f54-2d24701ba1ff"><colgroup><col style="width: 422.0px;"><col style="width: 1374.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/4.1_page_des_commandes_manuelles/6.1-20250722-133531.png" alt="6.1-20250722-133531.png" width="30" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Nombre d’occurrences</strong><br>Nombre d’occurrences d’activation de l’alarme.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/4.1_page_des_commandes_manuelles/6.2-20250722-133731.png" alt="6.2-20250722-133731.png" width="220" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Moment de la première activation</strong><br>Date et heure de la première activation de l’alarme.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/4.1_page_des_commandes_manuelles/6.3-20250722-133814.png" alt="6.3-20250722-133814.png" width="220" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Moment de la dernière activation</strong><br>Date et heure de la dernière activation de l’alarme.</p></td></tr></tbody></table><p></p><!--Label="psx_man"--><!--Label="psx_man_rgh"--><!--Label="psx_man_cnt"--><!--Label="psx_man_abv"--><!--Label="psx_man_blw"-->
+                        </main>
+
+                    </div>
+
+                    <img src="images/donatoni_222.jpg">
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="4_parametrix_sx.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="4.1.1_liste_des_programmes_iso.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+
+
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                <a rel="prev" href="4_parametrix_sx.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="4.1.1_liste_des_programmes_iso.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="mermaid.min.js"></script>
+        <script src="mermaid-init.js"></script>
+        <script src="hidemenu.js"></script>
+        <script src="imagemodal.js"></script>
+        <script src="login.js"></script>
+    </div>
+
+    <!-- Modale -->
+    <div id="modal" onclick="closeModal()">
+        <img id="modal-img" src="">
+    </div>;
+
+
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
+
+<script id="virtual-keyboard-searchbar-fix">
+document.addEventListener("input", function (e) {
+    const t = e.target;
+    if (t && t.id === "searchbar" && e.isTrusted !== true) {
+        t.dispatchEvent(new KeyboardEvent("keyup", { bubbles: true }));
+    }
+});
+</script>
+</body>
+</html>

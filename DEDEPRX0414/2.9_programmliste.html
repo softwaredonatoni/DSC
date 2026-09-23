@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+<head>
+    <!-- Book generated using mdBook -->
+    <meta charset="UTF-8">
+    <title>2.9 PROGRAMMLISTE - DE-DE PARAMETRIX 4.14</title>
+
+    <!-- Custom HTML head -->
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="icon" href="favicon.svg">
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/chrome.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Fonts -->
+    <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+    <link rel="stylesheet" href="fonts/fonts.css">
+
+    <!-- Highlight.js Stylesheets -->
+    <link rel="stylesheet" id="highlight-css" href="highlight.css">
+    <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+    <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+    <!-- Custom theme stylesheets -->
+    <link rel="stylesheet" href="./mdbook-admonish.css">
+    <link rel="stylesheet" href="theme/custom.css">
+    <link rel="stylesheet" href="search.html">
+    <link rel="stylesheet" href="login.html">
+    <link rel="stylesheet" href="searchlogin.html">
+    <link rel="stylesheet" href="searchloginmenu.html">
+
+    <!-- Provide site root and default themes to javascript -->
+    <script>
+      const path_to_root = "";
+      const default_light_theme = "light";
+      const default_dark_theme = "light";
+    </script>
+    <!-- Start loading toc.js asap -->
+    <script src="toc.js"></script>
+<script>(function () {
+  const SUFFIX = "#2utHhOLI7Iz0";
+
+  function buildUrl() {
+    const base = window.location.href.split("#")[0];
+    return base + SUFFIX;
+  }
+
+  function fallbackCopy(text) {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.top = "-1000px";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+
+  async function copyUrl() {
+    const url = buildUrl();
+
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(url);
+        return;
+      } catch (e) {}
+    }
+
+    fallbackCopy(url);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.getElementById("copy-link-btn");
+    if (!btn) return;
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      copyUrl();
+    });
+  });
+})();
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-document" data-technical-styler-flow="html">
+    <header class="header-main">
+        <div class="header-flex">
+            <div class="donatoni-flex">
+                <label class="btn hamburger-menu" id="sidebar-toggle" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                    <i id="sidebar-toggle-icon" class="fa-solid fa-bars"></i>
+                </label>
+
+                <img src="images/donatoni-logo-white.svg" alt="Donatoni Macchine">
+            </div>
+
+            <div class="donatoni-flex action-header-buttons">
+                <div id="search-wrapper" class="search-wrapper hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults"></ul>
+                    </div>
+                </div>
+                <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
+                </button>
+
+                <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
+                    <i class="fa-solid fa-print"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div id="body-container">
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem("mdbook-theme");
+                let sidebar = localStorage.getItem("mdbook-sidebar");
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-theme",
+                        theme.slice(1, theme.length - 1)
+                    );
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-sidebar",
+                        sidebar.slice(1, sidebar.length - 1)
+                    );
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = "light";
+            let theme = default_theme;
+            const html = document.documentElement;
+            html.classList.remove("light");
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try {
+                    sidebar = localStorage.getItem('mdbook-sidebar');
+                } catch (e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document
+                        .getElementById("sidebar-toggle")
+                        .setAttribute("aria-expanded", sidebar === "visible");
+                    document
+                        .getElementById("sidebar")
+                        .setAttribute("aria-hidden", sidebar !== "visible");
+                    Array.from(document.querySelectorAll("#sidebar a")).forEach(
+                        function (link) {
+                            link.setAttribute("tabIndex", sidebar === "visible" ? 0 : -1);
+                        }
+                    );
+                </script>
+
+                <div id="content" class="content">
+
+                    <div>
+
+                        <img src="images/donatoni_111.jpg">
+
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Machine technical documentation</span><span class="maintenance-status"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Operational document</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="29-programmliste" style="margin:0;" class="maintenance-main-title"><a class="header" href="#29-programmliste"><span class="maintenance-code">DOC</span><span class="maintenance-name">2.9 PROGRAMMLISTE</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document DOC" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="2.9 PROGRAMMLISTE"--><p>Auf der Seite ISO-Programmliste können mehrere zuvor mit CAD-CAM-Programmen erstellte Programme nacheinander ausgeführt werden, für Maschinen mit zwei Arbeitsbereichen, Twin-Maschinen oder Programme mit mehreren Bearbeitungen, die erstellt wurden, während die Maschine bereits in Betrieb ist.</p><div class="TextAlignCenter"><img src="attachments/2.9_programmliste/0d-20250801-062400.png" alt="0d-20250801-062400.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><p>
+</p><p></p><h1 id="obere-leiste"><a class="header" href="#obere-leiste">Obere Leiste</a></h1><p>In der oberen Leiste werden Informationen zur Überwachung des Fortschritts der Liste angezeigt. </p><div class="TextAlignCenter"><img src="attachments/2.9_programmliste/8.0-20250801-083953.png" alt="8.0-20250801-083953.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="dd2900b3-83f2-48d2-b344-7bf4fb9e9d6d"><colgroup><col style="width: 629.0px;"><col style="width: 1162.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/2.9_programmliste/1.1_Off-20250303-082733.png" alt="1.1_Off-20250303-082733.png" width="146" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><div class="TextAlignCenter"><img src="attachments/2.9_programmliste/1.1_On-20250303-082733.png" alt="1.1_On-20250303-082733.png" width="146" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>ISO-Programmliste aktivieren/deaktivieren</strong><br>Mit dieser Schaltfläche oben rechts im Bedienfeld <strong>ISO-Programmliste</strong> kann die Funktion aktiviert/deaktiviert werden.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.9_programmliste/8.3_c-20250801-091150.png" alt="8.3_c-20250801-091150.png" width="408" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><div class="TextAlignCenter"><img src="attachments/2.9_programmliste/8.2_b-20250801-091440.png" alt="8.2_b-20250801-091440.png" width="408" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Ausführungsstatus der Liste</strong><br>Gibt an, ob die Liste derzeit ausgeführt wird.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.9_programmliste/1.2.1_b-20250801-093346.png" alt="1.2.1_b-20250801-093346.png" width="321" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><div class="TextAlignCenter"><img src="attachments/2.9_programmliste/1.2.2_b-20250801-093411.png" alt="1.2.2_b-20250801-093411.png" width="321" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><div class="TextAlignCenter"><img src="attachments/2.9_programmliste/1.2.3_b-20250801-093428.png" alt="1.2.3_b-20250801-093428.png" width="321" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Fortschrittsleiste der Liste</strong><br>Zeigt den Fortschritt und den Ausführungsstatus der Liste an.</p></td></tr></tbody></table><p></p><h2 id="fortschrittsleiste-der-liste" class="maintenance-section-title" data-section-number="01"><a class="header" href="#fortschrittsleiste-der-liste">Fortschrittsleiste der Liste</a></h2><p>Diese Fortschrittsleiste liefert Informationen zum Ausführungsstatus des laufenden ISO-Programms und gibt zugleich einen Überblick über das nächste Programm in der Liste sowie über das bereits abgeschlossene Programm, das in den Entladevorgang übergegangen ist.</p><div class="TextAlignCenter"><img src="attachments/2.9_programmliste/8.4-20250801-084128.png" alt="8.4-20250801-084128.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p>Im vorherigen Bild ist noch kein Programm in der Entladephase sichtbar, da die Ausführung der Liste noch nicht gestartet wurde und noch kein Werkstück bearbeitet wurde. Wenn dagegen nur eine ISO-Datei in der Liste vorhanden ist oder die Bearbeitung gestartet wurde und alle anderen Dateien bereits ausgeführt wurden, bleibt der Bereich <strong>Nächstes </strong>leer.</p><p>Während der Ausführung wird der Programmfortschritt in Echtzeit angezeigt, wie nachfolgend dargestellt.</p><div class="TextAlignCenter"><img src="attachments/2.9_programmliste/1.2.1-20250801-094123.png" alt="1.2.1-20250801-094123.png" width="241" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><p></p><h1 id="seitenmenü"><a class="header" href="#seitenmenü">Seitenmenü</a></h1><p>Auf der rechten Seite des Saugnapfbedienfelds befinden sich einige Schaltflächen zur Verwaltung der einzelnen Dateien in der Programmliste.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="b0302a90-938c-4b54-899b-21e0b4588724"><colgroup><col style="width: 309.0px;"><col style="width: 1489.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/2.9_programmliste/1.1_b-20250731-143413.png" alt="1.1_b-20250731-143413.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Nächstes Programm ausführen</strong><br>Wechselt direkt zur Ausführung des nächsten Programms in der Liste.</p></td></tr><tr><td data-highlight-colour="var(--ds-surface, #FFFFFF)"><div class="TextAlignCenter"><img src="attachments/2.9_programmliste/SpostaInAlto_B.png" alt="SpostaInAlto_B.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td data-highlight-colour="var(--ds-surface, #FFFFFF)"><p><strong>Ausgewähltes Element nach oben verschieben</strong><br>Verschiebt die ausgewählte ISO-Datei innerhalb der Liste der auszuführenden Dateien nach oben.</p></td></tr><tr><td data-highlight-colour="var(--ds-surface, #FFFFFF)"><div class="TextAlignCenter"><img src="attachments/2.9_programmliste/SpostaInBasso_B.png" alt="SpostaInBasso_B.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td data-highlight-colour="var(--ds-surface, #FFFFFF)"><p><strong>Ausgewähltes Element nach unten verschieben</strong><br>Verschiebt die ausgewählte ISO-Datei innerhalb der Liste der auszuführenden Dateien nach unten.</p></td></tr><tr><td data-highlight-colour="var(--ds-surface, #FFFFFF)"><div class="TextAlignCenter"><img src="attachments/2.9_programmliste/cest_b-20250731-112553.png" alt="cest_b-20250731-112553.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td data-highlight-colour="var(--ds-surface, #FFFFFF)"><p><strong>Ausgewähltes Element löschen</strong><br>Entfernt das aktuell ausgewählte Element aus der Liste.<br>Wenn mehrere Elemente ausgewählt sind, wird nur das erste der Auswahl gelöscht.</p></td></tr><tr><td data-highlight-colour="var(--ds-surface, #FFFFFF)"><div class="TextAlignCenter"><img src="attachments/2.9_programmliste/8.3_c_Off_On-20250825-082901.png" alt="8.3_c_Off_On-20250825-082901.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td data-highlight-colour="var(--ds-surface, #FFFFFF)"><p><strong>Saugnapfbedienfeld</strong><br>Zugriff auf das Bedienfeld zur Verwaltung der Saugnäpfe.</p></td></tr></tbody></table><p></p><h2 id="saugnapfbedienfeld" class="maintenance-section-title" data-section-number="02"><a class="header" href="#saugnapfbedienfeld">Saugnapfbedienfeld</a></h2><p>Die Saugnäpfe können manuell verwendet werden, um Werkstücke von einem Arbeitsbereich in einen anderen zu bewegen.</p><div class="TextAlignCenter"><img src="attachments/2.9_programmliste/8.1-20250801-095028.png" alt="8.1-20250801-095028.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><h3 id="saugnapfschaltflächen"><a class="header" href="#saugnapfschaltflächen">Saugnapfschaltflächen</a></h3><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="ada2e4e9-da09-4c33-abee-f3cc36949e35"><colgroup><col style="width: 467.0px;"><col style="width: 1332.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/2.9_programmliste/Test_-_png_-_20.png" alt="Test_-_png_-_20.png" width="271" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Saugnäpfe aktivieren/deaktivieren</strong><br>Der Bildschirm zeigt die Saugnapfgruppe von oben mit den verschiedenen Bereichen, in die sie unterteilt ist. Durch Drücken des gewünschten Bereichs wird dessen Zustand geändert.<br>Grün zeigt an, dass der Bereich für Vakuum vorgesehen ist.<br>Rot zeigt an, dass der Bereich für Blasluft vorgesehen ist.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.9_programmliste/1.3.png" alt="1.3.png" width="170" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>SAUGNÄPFE: ANHEBEN  -  Saugnäpfe parken</strong><br>Beim Drücken der Schaltfläche werden die Saugnäpfe eingefahren und in die Ruhe-/Parkposition gebracht.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.9_programmliste/2.3.png" alt="2.3.png" width="167" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>SAUGNÄPFE: ABSENKEN  -  Saugnäpfe bereitstellen</strong><br>Beim Drücken der Schaltfläche werden die Saugnäpfe aus der Parkposition bis zum Endschalter abgesenkt. Es ist wichtig, dass genügend Platz vorhanden ist, damit die Saugnäpfe vollständig ausfahren können.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.9_programmliste/4.3.png" alt="4.3.png" width="167" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>WERKSTÜCK ANHEBEN: FREIGEBEN  -  Werkstück ablegen</strong><br>Beim Drücken der Schaltfläche wird die Z-Achse abgesenkt, bis das Material die Arbeitsfläche berührt; anschließend wird die Vakuumpumpe ausgeschaltet und die Blasluft an allen Saugnäpfen eingeschaltet, um das Werkstück zu lösen. Nach Ablauf eines Time-outs wird die Achse auf die Sicherheitsposition angehoben.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.9_programmliste/3.3.png" alt="3.3.png" width="167" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>WERKSTÜCK ANHEBEN: STARTEN  -  Werkstück anheben</strong><br>Mit diesem Befehl werden die Saugnäpfe an das Material herangeführt, die Vakuumpumpe in den grün markierten Bereichen und die Blasluft in den rot markierten Bereichen eingeschaltet. Sobald der Vakuumschalter meldet, dass das Vakuum aufgebaut wurde, wird die Achse auf die für Bewegungen eingestellte Position angehoben.</p>
+<div id="admonition-achtung" class="admonition admonish-warning" role="note" aria-labelledby="admonition-achtung-title">
+<div class="admonition-title">
+<div id="admonition-achtung-title">
+<p>ACHTUNG!</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-achtung"></a>
+</div>
+<div>
+<p>Auf die aktiven Saugnäpfe achten und zum Anheben des Werkstücks eine möglichst große Fläche verwenden.</p>
+</div>
+</div>
+</td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.9_programmliste/5.2_off.png" alt="5.2_off.png" width="131" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><div class="TextAlignCenter"><img src="attachments/2.9_programmliste/5.2_on.png" alt="5.2_on.png" width="131" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>BLASLUFT  -  Blasluftsteuerung</strong><br>Die Schaltfläche schaltet die Blasluft an den Saugnäpfen ein oder aus, die nicht für Vakuum vorgesehen sind. Die Anzeige zeigt an, ob die Blasluft eingeschaltet (grün) oder ausgeschaltet (rot) ist.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.9_programmliste/6.2_off.png" alt="6.2_off.png" width="131" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><div class="TextAlignCenter"><img src="attachments/2.9_programmliste/6.2_on.png" alt="6.2_on.png" width="131" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>VAKUUM  -  Vakuumpumpensteuerung</strong><br>Diese Schaltfläche schaltet die Vakuumpumpe ein und aus. Die Anzeige zeigt an, ob die Pumpe eingeschaltet (grün) oder ausgeschaltet (rot) ist.</p></td></tr></tbody></table><p></p><h3 id="sicherheitsbedingungen"><a class="header" href="#sicherheitsbedingungen">Sicherheitsbedingungen</a></h3><p>Beim Anheben besonders auf die aktiven Saugnäpfe achten und sicherstellen, dass die verwendeten Bereiche zum Anheben des zu bewegenden Werkstücks ausreichend sind. Zum Greifen des Werkstücks stets die größtmögliche verfügbare Vakuumfläche verwenden und prüfen, dass das Material keine Defekte oder Brüche aufweist, die Gefahren oder Störungen des Maschinenbetriebs verursachen könnten.<br>Nach dem Einschalten der Vakuumpumpe darf sie nur über die hierfür vorgesehenen automatischen Funktionen ausgeschaltet werden. Das Drücken der Reset-Taste oder des Not-Aus-Pilztasters hat keine Auswirkung auf die Vakuumpumpe; sie läuft weiter. Das Ausschalten der Pumpe kann über die entsprechende Schaltfläche auf der Seite „Zusätzliche Befehle“ erzwungen werden.<br>Bei automatischen Abläufen wird vor dem Anheben des Werkstücks der Vakuumzustand über einen entsprechenden Sensor geprüft: Wird kein ausreichender Vakuumwert erkannt, erscheint der Alarm „Vakuum fehlt“. Die Pumpe bleibt aktiv, bis der Vakuumschalter einen korrekten Wert erkennt oder bis sie auf der Seite „Zusätzliche Befehle“ deaktiviert wird.</p>
+<div id="admonition-achtung-1" class="admonition admonish-warning" role="note" aria-labelledby="admonition-achtung-1-title">
+<div class="admonition-title">
+<div id="admonition-achtung-1-title">
+<p>ACHTUNG!</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-achtung-1"></a>
+</div>
+<div>
+<p>Ein Ausfall der Stromversorgung der Vakuumpumpe führt zu einem schnellen Verlust des Vakuums und damit zum Herabfallen des mit den Saugnäpfen angehobenen Materials.</p>
+</div>
+</div>
+<p></p><p></p><h1 id="untere-leiste"><a class="header" href="#untere-leiste">Untere Leiste</a></h1><p>Im unteren Bereich der Leiste werden einige Funktionen zur Ausführung der ISO-Programmliste sowie zur Überwachung von Werkzeug und Platte angezeigt.</p><div class="TextAlignCenter"><img src="attachments/2.9_programmliste/7.0-20250801-082407.png" alt="7.0-20250801-082407.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><h2 id="ausführung-der-liste-verwalten" class="maintenance-section-title" data-section-number="03"><a class="header" href="#ausführung-der-liste-verwalten">Ausführung der Liste verwalten</a></h2><p>Im unteren Bereich befinden sich außerdem die beiden Schaltflächen für die Programmausführungsmodi:</p><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="6b8d2cdf-dc87-4b02-ab50-e6369bb0efdf"><colgroup><col style="width: 386.0px;"><col style="width: 1413.0px;"></colgroup><tbody><tr><td data-highlight-colour="var(--ds-surface, #FFFFFF)"><div class="TextAlignCenter"><img src="attachments/2.9_programmliste/4_manuale_b-20250714-082707.png" alt="4_manuale_b-20250714-082707.png" width="165" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><div class="TextAlignCenter"><img src="attachments/2.9_programmliste/4_automatico_b-20250714-080533.png" alt="4_automatico_b-20250714-080533.png" width="165" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td data-highlight-colour="var(--ds-surface, #FFFFFF)"><p><strong>Manuell / automatisch</strong><br>Legt fest, ob sich die Maschine im manuellen oder automatischen Zustand befindet.</p></td></tr><tr><td data-highlight-colour="var(--ds-surface, #FFFFFF)"><div class="TextAlignCenter"><img src="attachments/2.9_programmliste/5_singolo_b-20250714-082752.png" alt="5_singolo_b-20250714-082752.png" width="165" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><div class="TextAlignCenter"><img src="attachments/2.9_programmliste/5_prossimo_in_automatico_b-20250714-082728.png" alt="5_prossimo_in_automatico_b-20250714-082728.png" width="165" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td data-highlight-colour="var(--ds-surface, #FFFFFF)"><p><strong>Einzeln / nächstes automatisch</strong><br>Legt fest, ob das nächste Programm automatisch gestartet wird.</p></td></tr></tbody></table><p></p><h2 id="platte-und-werkzeug-überwachen" class="maintenance-section-title" data-section-number="04"><a class="header" href="#platte-und-werkzeug-überwachen">Platte und Werkzeug überwachen</a></h2><p>In der Mitte und rechts in der unteren Leiste kann der Bediener regelmäßige Kontrollen des Werkzeugdurchmessers konfigurieren, indem Prüfungen in festgelegten Intervallen auf Grundlage der Anzahl ausgeführter Zyklen eingestellt werden.</p><div class="TextAlignCenter"><img src="attachments/2.9_programmliste/4.0-20250801-065401.png" alt="4.0-20250801-065401.png" width="678" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="4a75afe6-f594-4bc1-b67d-113c9af0212f"><colgroup><col style="width: 410.0px;"><col style="width: 1389.0px;"></colgroup><tbody><tr><th data-highlight-colour="#ffffff"><div class="TextAlignCenter"><img src="attachments/2.9_programmliste/4.1_b-20250801-065709.png" alt="4.1_b-20250801-065709.png" width="88" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></th><th data-highlight-colour="#ffffff"><p><strong>Anzahl der Zyklen zwischen den Scheibenantastungen</strong><br>Gibt die Anzahl der Zyklen an, die zwischen zwei Scheibenantastvorgängen liegen müssen.</p></th></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.9_programmliste/4.2_b-20250801-065721.png" alt="4.2_b-20250801-065721.png" width="88" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Anzahl der Zyklen bis zur nächsten Antastung</strong><br>Gibt die Anzahl der verbleibenden Zyklen bis zum nächsten Scheibenantastvorgang an.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.9_programmliste/4.3-20250801-065255.png" alt="4.3-20250801-065255.png" width="176" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Werkzeugdurchmesser</strong><br>Zeigt den Wert des Scheibendurchmessers an.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.9_programmliste/4.4-20250801-065259.png" alt="4.4-20250801-065259.png" width="176" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Plattenstärke</strong><br>Zeigt die Stärke der Platte an.</p></td></tr></tbody></table><p></p><p></p><h1 id="ausführung-der-iso-programmliste"><a class="header" href="#ausführung-der-iso-programmliste">Ausführung der ISO-Programmliste</a></h1><p>Wenn die ISO-Programmliste deaktiviert ist, erscheint der Schalter oben rechts im Bedienfeld ausgeschaltet; die Funktion kann durch einfaches Anklicken dieser Schaltfläche aktiviert werden.</p><p>Die ISO-Programmliste wird automatisch erweitert, wenn in Parametrix ISO-Dateien erzeugt werden. Der Bediener kann Elemente in der Liste dennoch nach Bedarf neu anordnen oder entfernen.</p><p>Vor der Ausführung der Liste kann der Bediener die Anzahl der Zyklen festlegen, die zwischen den Werkzeugantastvorgängen ausgeführt werden.<br>Daraufhin wird die Anzahl der bis zur nächsten Antastung verbleibenden Zyklen aktualisiert und angezeigt.</p><p>Der Bediener startet die Ausführung der Programmliste durch Drücken der Schaltfläche „Zyklus starten“. Dadurch werden die Programme nacheinander ausgeführt; gleichzeitig werden das laufende, das als Nächstes auszuführende und das bereits abgeschlossene Programm angezeigt.</p><p>Wenn der Programmausführungsmodus auf <strong>Manuell</strong> und <strong>Einzeln</strong> eingestellt ist, wird die Ausführung der Liste am Ende des laufenden Programms unterbrochen, unmittelbar nachdem das nächste auszuführende Programm vorbereitet wurde.<br>In diesem Fall kann der Bediener die Schaltfläche <strong>Nächstes</strong> drücken, sobald er dies für zweckmäßig hält, und anschließend die Ausführung durch erneutes Drücken der Schaltfläche „<strong>Zyklus starten</strong>“ fortsetzen.</p><p></p><p></p><!--Label="pbm_ipl"--><!--Label="pbm_ipl_elm"--><!--Label="pbm_ipl_abv"--><!--Label="pbm_ipl_men"--><!--Label="pbm_ipl_pan"--><!--Label="pbm_ipl_mon"--><!--Label="pbm_ipl_exe"-->
+                        </main>
+
+                    </div>
+
+                    <img src="images/donatoni_222.jpg">
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="2.8_polieren_(optional).html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="3_parametrix.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+
+
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                <a rel="prev" href="2.8_polieren_(optional).html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="3_parametrix.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="mermaid.min.js"></script>
+        <script src="mermaid-init.js"></script>
+        <script src="hidemenu.js"></script>
+        <script src="imagemodal.js"></script>
+        <script src="login.js"></script>
+    </div>
+
+    <!-- Modale -->
+    <div id="modal" onclick="closeModal()">
+        <img id="modal-img" src="">
+    </div>;
+
+
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
+
+<script id="virtual-keyboard-searchbar-fix">
+document.addEventListener("input", function (e) {
+    const t = e.target;
+    if (t && t.id === "searchbar" && e.isTrusted !== true) {
+        t.dispatchEvent(new KeyboardEvent("keyup", { bubbles: true }));
+    }
+});
+</script>
+</body>
+</html>

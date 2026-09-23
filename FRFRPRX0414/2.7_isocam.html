@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+<head>
+    <!-- Book generated using mdBook -->
+    <meta charset="UTF-8">
+    <title>2.7 ISOCAM - FR-FR PARAMETRIX 4.14</title>
+
+    <!-- Custom HTML head -->
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="icon" href="favicon.svg">
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/chrome.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Fonts -->
+    <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+    <link rel="stylesheet" href="fonts/fonts.css">
+
+    <!-- Highlight.js Stylesheets -->
+    <link rel="stylesheet" id="highlight-css" href="highlight.css">
+    <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+    <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+    <!-- Custom theme stylesheets -->
+    <link rel="stylesheet" href="./mdbook-admonish.css">
+    <link rel="stylesheet" href="theme/custom.css">
+    <link rel="stylesheet" href="search.html">
+    <link rel="stylesheet" href="login.html">
+    <link rel="stylesheet" href="searchlogin.html">
+    <link rel="stylesheet" href="searchloginmenu.html">
+
+    <!-- Provide site root and default themes to javascript -->
+    <script>
+      const path_to_root = "";
+      const default_light_theme = "light";
+      const default_dark_theme = "light";
+    </script>
+    <!-- Start loading toc.js asap -->
+    <script src="toc.js"></script>
+<script>(function () {
+  const SUFFIX = "#2utHhOLI7Iz0";
+
+  function buildUrl() {
+    const base = window.location.href.split("#")[0];
+    return base + SUFFIX;
+  }
+
+  function fallbackCopy(text) {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.top = "-1000px";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+
+  async function copyUrl() {
+    const url = buildUrl();
+
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(url);
+        return;
+      } catch (e) {}
+    }
+
+    fallbackCopy(url);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.getElementById("copy-link-btn");
+    if (!btn) return;
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      copyUrl();
+    });
+  });
+})();
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-document" data-technical-styler-flow="html">
+    <header class="header-main">
+        <div class="header-flex">
+            <div class="donatoni-flex">
+                <label class="btn hamburger-menu" id="sidebar-toggle" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                    <i id="sidebar-toggle-icon" class="fa-solid fa-bars"></i>
+                </label>
+
+                <img src="images/donatoni-logo-white.svg" alt="Donatoni Macchine">
+            </div>
+
+            <div class="donatoni-flex action-header-buttons">
+                <div id="search-wrapper" class="search-wrapper hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults"></ul>
+                    </div>
+                </div>
+                <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
+                </button>
+
+                <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
+                    <i class="fa-solid fa-print"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div id="body-container">
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem("mdbook-theme");
+                let sidebar = localStorage.getItem("mdbook-sidebar");
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-theme",
+                        theme.slice(1, theme.length - 1)
+                    );
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-sidebar",
+                        sidebar.slice(1, sidebar.length - 1)
+                    );
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = "light";
+            let theme = default_theme;
+            const html = document.documentElement;
+            html.classList.remove("light");
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try {
+                    sidebar = localStorage.getItem('mdbook-sidebar');
+                } catch (e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document
+                        .getElementById("sidebar-toggle")
+                        .setAttribute("aria-expanded", sidebar === "visible");
+                    document
+                        .getElementById("sidebar")
+                        .setAttribute("aria-hidden", sidebar !== "visible");
+                    Array.from(document.querySelectorAll("#sidebar a")).forEach(
+                        function (link) {
+                            link.setAttribute("tabIndex", sidebar === "visible" ? 0 : -1);
+                        }
+                    );
+                </script>
+
+                <div id="content" class="content">
+
+                    <div>
+
+                        <img src="images/donatoni_111.jpg">
+
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Machine technical documentation</span><span class="maintenance-status"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Operational document</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="27-isocam" style="margin:0;" class="maintenance-main-title"><a class="header" href="#27-isocam"><span class="maintenance-code">DOC</span><span class="maintenance-name">2.7 ISOCAM</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document DOC" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="2.7 ISOCAM"--><p>IsoCam est le logiciel d’exécution de profilages avec le disque ; il permet de dessiner ou d’importer des formes, de définir le profil et d’appliquer différents modes d’usinage.<br>La gestion de la programmation du travail est divisée en plusieurs phases décrites dans les paragraphes suivants.</p><p>À l’ouverture du programme Isocam, si aucun usinage n’a été créé précédemment, l’opérateur peut en créer un nouveau à partir de la première étape d’usinage.<br>Si, au contraire, un usinage a déjà été créé, il est automatiquement chargé et l’opérateur accède directement à la dernière étape de l’usinage :</p><div class="TextAlignCenter"><img src="attachments/2.7_isocam/0.0-20250806-060119.png" alt="0.0-20250806-060119.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p>
+</p><p></p><h1 id="Éléments-communs-aux-différentes-étapes"><a class="header" href="#Éléments-communs-aux-différentes-étapes">Éléments communs aux différentes étapes</a></h1><p>L’interface utilisateur est composée de plusieurs zones.</p><ul><li><p><strong>Menu : </strong>outils rapides.</p></li><li><p><strong>Barre supérieure</strong> : fonctions spécifiques de la page active.</p></li><li><p><strong>Partie centrale</strong> : contient le dessin ou la zone active selon la page.</p></li><li><p><strong>Barre latérale</strong> : fenêtre contenant les paramètres à modifier.</p></li><li><p><strong>Barre inférieure</strong> : boutons généralement valables dans plusieurs zones du logiciel.</p></li></ul>
+<div id="admonition-remarque" class="admonition admonish-info" role="note" aria-labelledby="admonition-remarque-title">
+<div class="admonition-title">
+<div id="admonition-remarque-title">
+<p>REMARQUE</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-remarque"></a>
+</div>
+<div>
+<p>Tous ces éléments varient selon le contexte d’utilisation.</p>
+</div>
+</div>
+<p>Les éléments suivants restent toujours visibles, quelle que soit la phase actuelle du processus.</p><p></p><h2 id="menu" class="maintenance-section-title" data-section-number="01"><a class="header" href="#menu">Menu</a></h2><p>La barre de menus est située en haut, au-dessus de tous les autres éléments de cette interface.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="6f224507-9283-43b4-9c55-ad455f9c443f"><colgroup><col style="width: 269.0px;"><col style="width: 1530.0px;"></colgroup><tbody><tr><td><p><strong>Affichage</strong></p></td><td><p>Plusieurs paramètres relatifs à la visibilité des pièces présentes dans la zone de travail sont mis à la disposition de l’opérateur.</p></td></tr><tr><td><p><strong>Options</strong></p></td><td><p>Permet de modifier les paramètres relatifs aux couleurs.</p></td></tr><tr><td><p><strong>Langue</strong></p></td><td><p>ISOCAM est actuellement disponible dans les langues suivantes :</p><ul><li><p>Allemand</p></li><li><p>Anglais</p></li><li><p>Espagnol</p></li><li><p>Français</p></li><li><p>Italien</p></li><li><p>Portugais</p></li></ul></td></tr></tbody></table><p></p><h2 id="barre-latérale-droite" class="maintenance-section-title" data-section-number="02"><a class="header" href="#barre-latérale-droite">Barre latérale droite</a></h2><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="15f40c20-d2ea-44bb-a67a-08553ab225b9"><colgroup><col style="width: 557.0px;"><col style="width: 1239.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/1.2.1-20250730-093200.png" alt="1.2.1-20250730-093200.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Paramètres</strong><br>Ouvre le panneau des paramètres au centre de la page.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/1.2.2-20250730-093321.png" alt="1.2.2-20250730-093321.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Infos</strong><br>Ouvre un petit panneau contenant des informations utiles et des coordonnées de contact.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/1.2.3-20250730-093452.png" alt="1.2.3-20250730-093452.png" width="337" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Gestion des étapes</strong><br>Cette section permet de naviguer vers l’avant et vers l’arrière entre les différentes étapes du flux de travail.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/1.2.4-20250730-093522.png" alt="1.2.4-20250730-093522.png" width="337" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Fermer</strong><br>Appuyer sur le bouton ferme le programme <strong>IsoCam</strong>.</p></td></tr></tbody></table><p></p><h3 id="paramètres"><a class="header" href="#paramètres">Paramètres</a></h3><p>Ce panneau permet de passer au mode Avancé de <strong>IsoCam</strong>, de revenir à la version <strong>de base</strong> et de modifier les valeurs du <strong>Pas de grille en X et Y.</strong></p><div class="TextAlignCenter"><img src="attachments/2.7_isocam/1.2.1.0-20250801-124523.png" alt="1.2.1.0-20250801-124523.png" width="293" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><h2 id="barre-inférieure" class="maintenance-section-title" data-section-number="03"><a class="header" href="#barre-inférieure">Barre inférieure</a></h2><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="20375b56-8f17-42f3-bf9d-853b728e762c"><colgroup><col style="width: 393.0px;"><col style="width: 1404.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/PulsanteNuovaLavorazione-20250612-071704.png" alt="PulsanteNuovaLavorazione-20250612-071704.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Nouvel usinage</strong><br>Ouvre une nouvelle fenêtre IsoCam vide et réinitialise le flux de travail à l’Étape 1 sur 4.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/5_OffOn-20250714-111837.png" alt="5_OffOn-20250714-111837.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Ouvrir un usinage</strong><br>Permet d’ouvrir un usinage précédemment enregistré.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/4_OffOn-20250714-111851.png" alt="4_OffOn-20250714-111851.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Enregistrer l’usinage</strong><br>Permet d’enregistrer les modifications apportées à un usinage.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/1.3.4-20250730-094226.png" alt="1.3.4-20250730-094226.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Modifier l’usinage</strong><br>Ramène le flux de travail à l’Étape 1 sur 4 et permet d’apporter des modifications à l’usinage actuellement utilisé.</p></td></tr></tbody></table><p></p><p></p><h1 id="dessin-de-la-section-étape-1-sur-4"><a class="header" href="#dessin-de-la-section-étape-1-sur-4">Dessin de la section (étape 1 sur 4)</a></h1><p>La première phase de la programmation consiste à dessiner la section à usiner. La fenêtre propose les commandes typiques d’un logiciel de CAO : tracé de ligne, tracé d’arc, accrochage, déplacement, etc.<br>Le principe du logiciel consiste à créer rapidement la section sous forme d’esquisse, puis à la modifier entité par entité à l’aide des commandes prévues. Il reste toujours possible d’importer des dessins .dxf générés par des logiciels de CAO externes.</p><div class="TextAlignCenter"><img src="attachments/2.7_isocam/0.1-20250806-060204.png" alt="0.1-20250806-060204.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><p></p><p></p><h2 id="barre-supérieure" class="maintenance-section-title" data-section-number="04"><a class="header" href="#barre-supérieure">Barre supérieure</a></h2><p></p><div class="TextAlignCenter"><img src="attachments/2.7_isocam/2.1.0-20250730-095852.png" alt="2.1.0-20250730-095852.png" width="452" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="d2c344f9-d1f9-4ef0-b5f7-a82171f28e51"><colgroup><col style="width: 302.0px;"><col style="width: 1496.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/2.1.1_Off_On-20250730-113243.png" alt="2.1.1_Off_On-20250730-113243.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Commande de tracé de ligne</strong><br>Active/Désactive la commande de tracé de ligne.<br>Lorsqu’elle est activée, crée une nouvelle ligne partant du point final de la dernière entité insérée, s’il est disponible ; sinon, la ligne est générée au point sélectionné.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/2.1.2_Off_On-20250730-113307.png" alt="2.1.2_Off_On-20250730-113307.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Commande de tracé d’arc</strong><br>Active/Désactive la commande de tracé d’arc.<br>Lorsqu’elle est activée, crée un nouvel arc partant du point final de la dernière entité insérée, s’il est disponible ; sinon, l’arc est généré à partir du point sélectionné.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/2.1.3_Off_On-20250730-114034.png" alt="2.1.3_Off_On-20250730-114034.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Déplacer les segments sélectionnés</strong><br>Après avoir sélectionné une entité, appuyer sur ce bouton permet de la déplacer dans la zone de travail.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/2.1.4_Off_On-20250730-114358.png" alt="2.1.4_Off_On-20250730-114358.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Figure en miroir</strong><br>Après avoir sélectionné une entité, ce bouton permet de la retourner horizontalement et/ou verticalement dans la zone de travail.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/2.1.5_Off_On-20250730-112017.png" alt="2.1.5_Off_On-20250730-112017.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Raccorder</strong><br>Après avoir activé la fonction, régler les paramètres à droite</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/2.1.6_Off_On-20250730-114854.png" alt="2.1.6_Off_On-20250730-114854.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Inverser la sélection active</strong><br>Inverse la sélection active au moment où le bouton est enfoncé</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/2.1.7_Off_On-20250730-115136.png" alt="2.1.7_Off_On-20250730-115136.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Supprimer les segments sélectionnés</strong><br>Supprime les entités sélectionnées</p></td></tr></tbody></table><p></p><h2 id="barre-latérale-droite-1" class="maintenance-section-title" data-section-number="05"><a class="header" href="#barre-latérale-droite-1">Barre latérale droite</a></h2><h3 id="propriétés-de-la-ligne"><a class="header" href="#propriétés-de-la-ligne">Propriétés de la ligne</a></h3><p>Lorsqu’une ligne est sélectionnée dans la zone de travail, la colonne latérale droite est mise à jour pour afficher les caractéristiques de l’entité sélectionnée, que l’utilisateur peut modifier :</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="105be186-f7bd-4afb-b874-64172eb9fb09"><colgroup><col style="width: 487.0px;"><col style="width: 1306.0px;"></colgroup><tbody><tr><td><p><strong>Longueur</strong></p></td><td><p>Indique la distance linéaire entre les deux extrémités de la ligne sélectionnée, calculée à partir des coordonnées dans l’espace de travail.</p></td></tr><tr><td><p><strong>Angle</strong></p></td><td><p>Indique l’orientation de la ligne par rapport à l’axe horizontal du système de référence.</p></td></tr><tr><td><p><strong>Δx</strong></p></td><td><p>Indique la variation de la coordonnée X entre le point initial et le point final d’une ligne ou d’une entité, c’est-à-dire la distance horizontale parcourue par rapport à l’axe X du système de référence.</p></td></tr><tr><td><p><strong>Δy</strong></p></td><td><p>Indique la variation de la coordonnée Y entre le point initial et le point final d’une ligne ou d’une entité, c’est-à-dire la distance verticale parcourue par rapport à l’axe Y du système de référence.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/2.3.1.2_b-20250801-141232.png" alt="2.3.1.2_b-20250801-141232.png" width="319" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Allonger/Raccourcir la ligne sélectionnée</strong><br>Permet d’allonger ou de raccourcir la ligne sélectionnée d’une valeur spécifiée, en modifiant sa longueur tout en conservant la direction de l’angle. La variation est définie dans le champ de saisie prévu à cet effet.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/2.3.1.1_c-20250801-141229.png" alt="2.3.1.1_c-20250801-141229.png" width="319" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Arrondir l’angle</strong><br>Permet d’arrondir automatiquement l’angle de la ligne au multiple de 90_ le plus proche (0_, 90_, 180_, 270_), afin de faciliter l’alignement sur les directions orthogonales du système de référence.</p></td></tr><tr><td><p><strong>Mettre à l’échelle les segments connectés</strong></p></td><td><p>Permet d’appliquer une mise à l’échelle proportionnelle à toutes les entités directement ou indirectement reliées à la ligne sélectionnée.<br>Lorsque cette option est active pendant l’allongement ou le raccourcissement de la ligne, la cohérence spatiale entre les éléments reliés est maintenue et leurs positions relatives sont conservées dans l’aperçu.</p></td></tr></tbody></table><p></p><h3 id="propriétés-de-larc"><a class="header" href="#propriétés-de-larc">Propriétés de l’arc</a></h3><p>Lorsqu’un arc est sélectionné dans la zone de travail, la colonne latérale droite est mise à jour pour afficher les caractéristiques de l’entité sélectionnée, que l’utilisateur peut modifier.<br>L’arc peut être défini de différentes manières : par points, par centre, rayon et arc, etc.<br>Les différentes caractéristiques sont affichées dans la fenêtre qui apparaît à droite.<br>La modification de certaines caractéristiques peut être effectuée de différentes manières, par exemple en modifiant le rayon ou le point initial/final ; le paramètre « Centre fixe » permet de déterminer le mode de modification.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="89969649-a12f-497f-aa87-75127a920161"><colgroup><col style="width: 319.0px;"><col style="width: 1480.0px;"></colgroup><tbody><tr><td><p><strong>Rayon</strong></p></td><td><p>Indique la distance constante entre le centre d’une courbe circulaire ou d’un arc et n’importe quel point de sa circonférence.</p></td></tr><tr><td><p><strong>Angle initial/final</strong></p></td><td><p>Angle du point initial ou final par rapport au centre.</p></td></tr><tr><td><p><strong>Tangente Préc. / Suiv.</strong></p></td><td><p>Modifie l’angle initial ou final de sorte que l’arc soit tangent à l’entité précédente ou suivante.</p></td></tr><tr><td><p><strong>Centre fixe</strong></p></td><td><p>Permet de déterminer les conséquences d’une modification (rayon ou angle).</p></td></tr></tbody></table><p></p><h3 id="déplacer--déplacer-la-sélection"><a class="header" href="#déplacer--déplacer-la-sélection">Déplacer / Déplacer la sélection</a></h3><p>Lorsque la commande « déplacer » est activée, la fenêtre contenant les paramètres de déplacement apparaît. Le déplacement peut être effectué directement en cliquant dans la zone de dessin (y compris avec les accrochages actifs) ou en réglant les paramètres.<br>Le déplacement doit être confirmé avec le bouton « OK ».</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="04cc1745-ccf8-4b7c-a6d1-68b1259a3955"><colgroup><col style="width: 330.0px;"><col style="width: 1464.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/2.3.3.1-20250730-140447.png" alt="2.3.3.1-20250730-140447.png" width="200" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Sélecteur de position</strong><br>Déplace de la valeur « Delta » définie dans la direction de la flèche.<br>Le bouton central remet le déplacement à zéro</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/2.4.2-20250730-130907.png" alt="2.4.2-20250730-130907.png" width="200" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Translation</strong><br>Déplacement total par rapport à la position initiale.<br>Les nombres figurant dans les cases de droite sont utilisés pour la commande « copie matricielle »</p></td></tr><tr><td><p><strong>Déplacer la copie</strong></p></td><td><p>Lorsqu’elle est activée, cette fonction crée une copie de l’entité sélectionnée et applique le déplacement uniquement à cette copie, en laissant l’entité d’origine inchangée.</p>
+<div id="admonition-remarque-1" class="admonition admonish-info" role="note" aria-labelledby="admonition-remarque-1-title">
+<div class="admonition-title">
+<div id="admonition-remarque-1-title">
+<p>REMARQUE</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-remarque-1"></a>
+</div>
+<div>
+<p>Cette commande n’est visible que si les valeurs de la deuxième colonne du paramètre « Translation » sont égales à 1.</p>
+</div>
+</div>
+</td></tr></tbody></table><p></p><h3 id="miroir"><a class="header" href="#miroir">Miroir</a></h3><p>Après avoir activé la commande, définir le centre de symétrie en cliquant dans la zone de travail ou en saisissant les cotes, sélectionner la direction du miroir puis appuyer sur le bouton « OK » pour confirmer.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="137bb05b-527d-4baa-a8ca-728c6f10926e"><colgroup><col style="width: 293.0px;"><col style="width: 1506.0px;"></colgroup><tbody><tr><td><p><strong>Centre de symétrie</strong></p></td><td><p>Permet de modifier les coordonnées du centre de symétrie utilisé pour le retournement horizontal ou vertical de l’entité sélectionnée.</p></td></tr><tr><td><p><strong>Coordonnées à inverser</strong></p></td><td><p>Indique si le retournement doit être effectué horizontalement, verticalement ou dans les deux directions.</p></td></tr><tr><td><p><strong>Créer une copie miroir</strong></p></td><td><p>Si cette option est activée, l’opération de mise en miroir crée une copie symétrique de l’entité sélectionnée tout en conservant l’original intact.</p></td></tr></tbody></table><p></p><h3 id="raccorder"><a class="header" href="#raccorder">Raccorder</a></h3><p>Un premier message, affiché dans la colonne de droite, permet à l’opérateur de définir le rayon de raccordement et de confirmer la sélection.</p><div class="TextAlignCenter"><img src="attachments/2.7_isocam/2.1.5.1-20250804-061131.png" alt="2.1.5.1-20250804-061131.png" width="288" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p>Un deuxième message informe l’opérateur qu’il est désormais possible d’insérer des raccordements entre deux lignes, opération disponible jusqu’à la désactivation de la fonction.</p><div class="TextAlignCenter"><img src="attachments/2.7_isocam/2.1.5.2-20250804-061226.png" alt="2.1.5.2-20250804-061226.png" width="288" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p>Voici un exemple d’application de raccordements sur deux lignes adjacentes et sur une ligne adjacente à un arc :</p><div class="TextAlignCenter"><img src="attachments/2.7_isocam/2.1.5.3-20250804-061606.png" alt="2.1.5.3-20250804-061606.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p>Après l’application des raccordements :</p><div class="TextAlignCenter"><img src="attachments/2.7_isocam/2.1.5.4-20250804-061702.png" alt="2.1.5.4-20250804-061702.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><h2 id="barre-inférieure-1" class="maintenance-section-title" data-section-number="06"><a class="header" href="#barre-inférieure-1">Barre inférieure</a></h2><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="ee37faf0-e1dc-4a46-bcf1-162ad00e56f2"><colgroup><col style="width: 270.0px;"><col style="width: 1528.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/2.4.1-20250730-140958.png" alt="2.4.1-20250730-140958.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Importer un fichier DXF</strong><br>Importe un fichier DXF. Le format du fichier n’est soumis à aucune contrainte, mais il est recommandé d’importer des fichiers de petite taille au format R12.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/2.4.2-20250730-141038.png" alt="2.4.2-20250730-141038.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Exporter un fichier DXF</strong><br>Exporte le dessin au format DXF.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/2.4.3-20250730-141114.png" alt="2.4.3-20250730-141114.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Annuler la modification</strong><br>Annule la dernière commande exécutée. </p>
+<div id="admonition-remarque-2" class="admonition admonish-info" role="note" aria-labelledby="admonition-remarque-2-title">
+<div class="admonition-title">
+<div id="admonition-remarque-2-title">
+<p>REMARQUE</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-remarque-2"></a>
+</div>
+<div>
+<p>La touche « Esc » du clavier exécute la même fonction.</p>
+</div>
+</div>
+</td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/2.4.4_Off_On-20250804-064138.png" alt="2.4.4_Off_On-20250804-064138.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Accrochage début/fin</strong><br>Facilite la sélection du point initial ou final d’un arc ou d’une ligne.<br>Lorsque le curseur s’approche d’un sommet, le point le plus proche est mis en évidence par un cadre jaune contenant un <strong>X</strong> et les coordonnées du sommet.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/2.4.5_Off_On-20250804-064117.png" alt="2.4.5_Off_On-20250804-064117.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Commande Ortho</strong><br>Active/Désactive la commande « Ortho » afin de maintenir les segments orthogonaux.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/2.4.6_Off_On-20250804-064055.png" alt="2.4.6_Off_On-20250804-064055.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Commande Segments connectés</strong><br>Active/Désactive la commande « Segments connectés ». Le point initial du segment suivant correspond au point final du segment précédent.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/2.4.7_Off_On-20250804-064033.png" alt="2.4.7_Off_On-20250804-064033.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Grille de dessin</strong><br>Active/Désactive la grille dans la fenêtre de dessin. Les paramètres de la grille sont accessibles à l’aide du bouton des paramètres.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/2.4.15-20250804-070203.png" alt="2.4.15-20250804-070203.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Annuler le zoom</strong><br>Rétablit le zoom précédent.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/2.4.16-20250804-070239.png" alt="2.4.16-20250804-070239.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Sélectionner une zone pour le zoom</strong><br>Sélectionne une zone de mise au point pour le zoom.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/2.4.17-20250804-070308.png" alt="2.4.17-20250804-070308.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Réinitialiser le zoom</strong><br>Rétablit le zoom à son état d’origine.</p></td></tr></tbody></table><p></p><p></p><h1 id="sélection-du-profil-étape-2-sur-4"><a class="header" href="#sélection-du-profil-étape-2-sur-4">Sélection du profil (étape 2 sur 4)</a></h1><p>La section dessinée précédemment doit être appliquée à un profil approprié.<br>Le profil peut être linéaire ou en arc, dans le plan X/Y ou également vertical ; selon la sélection, certains modes de travail sont ensuite activés ou désactivés. Ainsi, par exemple, un profil en arc dans le plan XY ne peut être usiné qu’avec le disque vertical, et inversement pour un profil en arc dans le plan XZ ou YZ.<br>Le type de profil est sélectionné à l’aide des boutons situés à gauche ; les paramètres permettant de décrire géométriquement le profil sont affichés en haut au centre, tandis que l’aperçu du résultat est affiché en bas au centre.</p><div class="TextAlignCenter"><img src="attachments/2.7_isocam/0.2-20250806-063626.png" alt="0.2-20250806-063626.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><p></p><h2 id="partie-centrale" class="maintenance-section-title" data-section-number="07"><a class="header" href="#partie-centrale"><strong>Partie centrale</strong></a></h2><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="ac8a5d93-b842-46c3-8a09-49199894f094"><colgroup><col style="width: 394.0px;"><col style="width: 1405.0px;"></colgroup><tbody><tr><td><p><strong>Profil linéaire</strong></p></td><td><p>Définir la direction et la longueur.<br>Le signe de la valeur « Delta Z » suit celui de l’axe Z (positif vers le haut, négatif vers le bas).</p></td></tr><tr><td><p><strong>Profil en arc</strong></p></td><td><p>Définir : la direction, le plan de travail, la concavité et les caractéristiques géométriques.<br>Toute modification des caractéristiques géométriques a une incidence sur les autres variables.</p>
+<div id="admonition-remarque-3" class="admonition admonish-info" role="note" aria-labelledby="admonition-remarque-3-title">
+<div class="admonition-title">
+<div id="admonition-remarque-3-title">
+<p>REMARQUE</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-remarque-3"></a>
+</div>
+<div>
+<p>Le rayon maximal pouvant être défini est de 9999mm</p>
+</div>
+</div>
+</td></tr><tr><td><p><strong>Profil circulaire</strong></p></td><td><p>Il est usiné uniquement à l’extérieur avec le disque horizontal.<br></p></td></tr></tbody></table><p></p><h3 id="paramètres-du-profil-linéaire"><a class="header" href="#paramètres-du-profil-linéaire">Paramètres du profil linéaire</a></h3><div class="TextAlignCenter"><img src="attachments/2.7_isocam/3.1.1.png" alt="3.1.1.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="79f1d4dc-94b6-4051-ad7e-5221a80c1c6b"><colgroup><col style="width: 387.0px;"><col style="width: 1412.0px;"></colgroup><tbody><tr><td><p><strong>Exécution du profil</strong></p></td><td><p>Deux modes sont disponibles : « <strong>Le long de X</strong> » et « <strong>Le long de Y</strong> ».</p></td></tr><tr><td><p><strong>Longueur de la ligne (L)</strong></p></td><td><p>Longueur horizontale de la base du segment incliné, mesurée entre le point de départ et le point final projeté horizontalement.</p></td></tr><tr><td><p><strong>Delta Z du point final (H)</strong></p></td><td><p>Hauteur du segment incliné, c’est-à-dire la différence de cote entre le début et la fin du segment.</p></td></tr></tbody></table><p></p><h3 id="paramètres-du-profil-en-arc"><a class="header" href="#paramètres-du-profil-en-arc">Paramètres du profil en arc</a></h3><div class="TextAlignCenter"><img src="attachments/2.7_isocam/3.1.2.png" alt="3.1.2.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="25a6fcde-25c6-4891-9c3a-cd943526af08"><colgroup><col style="width: 390.0px;"><col style="width: 1409.0px;"></colgroup><tbody><tr><td><p><strong>Exécution du profil</strong></p></td><td><p>Choix entre « <strong>Le long de X</strong> » ou « <strong>Le long de Y</strong> ».</p></td></tr><tr><td><p><strong>Orientation de l’usinage</strong></p></td><td><p>Choix entre « <strong>Plan XZ</strong> » ou « <strong>Plan XY</strong> ».</p></td></tr><tr><td><p><strong>Type d’usinage</strong></p></td><td><p>Choix entre « <strong>Concave</strong> » ou « <strong>Convexe</strong> ».</p></td></tr><tr><td><p><strong>Longueur (L)</strong></p></td><td><p>Distance horizontale entre les deux extrémités de l’arc, c’est-à-dire la corde reliant le début et la fin de l’arc.</p></td></tr><tr><td><p><strong>Rayon initial (R)</strong></p></td><td><p>Distance entre le centre de l’arc et un point de l’arc. Détermine la courbure globale de l’arc.</p></td></tr><tr><td><p><strong>Développement vertical (H)</strong></p></td><td><p>Hauteur maximale de l’arc par rapport à la corde L ; représente la distance verticale entre le point le plus haut de l’arc et la corde.</p></td></tr><tr><td><p><strong>Amplitude de l’angle (A)</strong></p></td><td><p>Angle au centre sous-tendu par l’arc, exprimé en degrés.</p></td></tr></tbody></table>
+<div id="admonition-remarque-4" class="admonition admonish-info" role="note" aria-labelledby="admonition-remarque-4-title">
+<div class="admonition-title">
+<div id="admonition-remarque-4-title">
+<p>REMARQUE</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-remarque-4"></a>
+</div>
+<div>
+<p>La modification de l’une des valeurs suivantes : « Longueur », « Rayon initial », « Développement vertical » ou « Amplitude de l’angle » entraîne le recalcul automatique des paramètres restants.</p>
+</div>
+</div>
+<p></p><p></p><p><strong>Paramètres du profil circulaire</strong></p><div class="TextAlignCenter"><img src="attachments/2.7_isocam/3.1.3.png" alt="3.1.3.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="1394e894-2567-43c0-bb3d-91447cd98e95"><colgroup><col style="width: 389.0px;"><col style="width: 1410.0px;"></colgroup><tbody><tr><td><p><strong>Rayon initial (R)</strong></p></td><td><p>Détermine le rayon à partir du point de départ.</p></td></tr><tr><td><p><strong>Carter</strong></p></td><td><p>Cette option indique si, pendant l’usinage, l’axe C tourne (carter actif) ou reste immobile avec C=0_ (carter absent).</p></td></tr></tbody></table><p></p><h2 id="barre-inférieure-2" class="maintenance-section-title" data-section-number="08"><a class="header" href="#barre-inférieure-2">Barre inférieure</a></h2><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="e9d4d382-5821-4542-be9c-fb4895f486d5"><colgroup><col style="width: 393.0px;"><col style="width: 1404.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/3.3.1-20250804-074510.png" alt="3.3.1-20250804-074510.png" width="56" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Vue du plateau</strong><br>Active/Désactive la vue du plateau.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/3.3.2-20250804-073744.png" alt="3.3.2-20250804-073744.png" width="56" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Éclairages supplémentaires</strong><br>Active/Désactive des éclairages supplémentaires pour la vue 3D.<br></p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/3.3.4-20250804-074411.png" alt="3.3.4-20250804-074411.png" width="236" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Gestion des vues par défaut</strong><br>Permet de modifier le point de vue.</p></td></tr></tbody></table><p></p><p></p><h1 id="paramètres-dusinage-étape-3-sur-4"><a class="header" href="#paramètres-dusinage-étape-3-sur-4">Paramètres d’usinage (étape 3 sur 4)</a></h1><p>La page est divisée en cadres contenant différents types de données à définir pour l’usinage</p><div class="TextAlignCenter"><img src="attachments/2.7_isocam/0.3-20250806-063601.png" alt="0.3-20250806-063601.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><h2 id="paramètres-outil" class="maintenance-section-title" data-section-number="09"><a class="header" href="#paramètres-outil"><strong>Paramètres outil</strong></a></h2><p>L’opérateur peut définir les paramètres de l’outil :</p><div class="TextAlignCenter"><img src="attachments/2.7_isocam/4.1-20250804-080346.png" alt="4.1-20250804-080346.png" width="250" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p>S’il s’agit d’un nouveau projet, les données sont chargées automatiquement en fonction de l’outil physiquement installé ; s’il s’agit d’un usinage précédemment enregistré, les données de l’outil correspondent à celles déjà enregistrées dans le programme précédent.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="178f4104-1b35-4d87-8695-fe482ddf8b4e"><colgroup><col style="width: 287.0px;"><col style="width: 1511.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/4.1.1-20250804-083117.png" alt="4.1.1-20250804-083117.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Nom de l’outil</strong><br>Affiche le nom de l’outil sélectionné.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/4.1.2-20250804-083315.png" alt="4.1.2-20250804-083315.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Épaisseur</strong><br>Indique l’épaisseur de la lame dans le sens de coupe (épaisseur du corps du disque).</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/4.1.3-20250804-083441.png" alt="4.1.3-20250804-083441.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Diamètre</strong><br>Diamètre maximal du disque, mesuré d’une extrémité à l’autre du bord denté.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/4.1.4-20250804-083610.png" alt="4.1.4-20250804-083610.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>CRF (Centre de rotation de la bride)</strong><br>Permet de mesurer la distance entre le bord intérieur de la dent du disque actuellement monté sur la machine et l’axe de rotation C.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/4.1.5-20250804-083657.png" alt="4.1.5-20250804-083657.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Cote de sécurité</strong><br>Distance de sécurité entre le disque et le plan de travail.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/4.1.6-20250804-083753.png" alt="4.1.6-20250804-083753.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>RPM (Tours par minute)</strong><br>Nombre de rotations par minute du disque pendant le fonctionnement.</p></td></tr></tbody></table><p></p><h2 id="orientation-de-lusinage" class="maintenance-section-title" data-section-number="10"><a class="header" href="#orientation-de-lusinage">Orientation de l’usinage</a></h2><div class="TextAlignCenter"><img src="attachments/2.7_isocam/4.2.0.png" alt="4.2.0.png" width="250" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><h3 id="profil-linéaire"><a class="header" href="#profil-linéaire">Profil linéaire</a></h3><p>Pour les profils linéaires, il est possible de choisir d’effectuer l’usinage avec le disque vertical ou avec le disque horizontal (de face ou depuis la gauche).</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="4abdee3c-13ec-473f-ac8c-470997b24b9e"><tbody><tr><td><p><strong>Orientation verticale</strong></p></td><td><p><strong>Orientation horizontale</strong></p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/4.2.1-20250804-100010.png" alt="4.2.1-20250804-100010.png" width="297" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/4.2.2-20250804-100204.png" alt="4.2.2-20250804-100204.png" width="297" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td></tr></tbody></table><p></p><h3 id="profil-en-arc"><a class="header" href="#profil-en-arc">Profil en arc</a></h3><p>Pour les profils courbes, l’orientation est imposée par le type de profil :</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="5ed2b7b7-6676-42f4-a803-0f2ff3f62c41"><colgroup><col style="width: 238.0px;"><col style="width: 735.0px;"><col style="width: 825.0px;"></colgroup><tbody><tr><td><p><strong>Type d’usinage</strong></p></td><td><p><strong>Orientation verticale</strong></p></td><td><p><strong>Orientation horizontale</strong></p></td></tr><tr><td><p><strong>Concave</strong></p></td><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/4.2.3-20250804-110311.png" alt="4.2.3-20250804-110311.png" width="297" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/4.2.6-20250804-110644.png" alt="4.2.6-20250804-110644.png" width="297" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td></tr><tr><td><p><strong>Convexe</strong></p></td><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/4.2.5-20250804-110505.png" alt="4.2.5-20250804-110505.png" width="297" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/4.2.4-20250804-110410.png" alt="4.2.4-20250804-110410.png" width="297" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td></tr></tbody></table><p></p><h2 id="type-dusinage" class="maintenance-section-title" data-section-number="11"><a class="header" href="#type-dusinage">Type d’usinage</a></h2><div class="TextAlignCenter"><img src="attachments/2.7_isocam/4.6.0.png" alt="4.6.0.png" width="535" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p>L’usinage peut être effectué selon deux modes :</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="7ea1c737-446b-4e26-9c13-7a4d42cdaaf0" data-table-display-mode="default"><colgroup><col style="width: 384.0px;"><col style="width: 1415.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/4.6.1.png" alt="4.6.1.png" width="115" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Mode par coupes</strong><br>Permet d’effectuer des coupes parallèles qui suivent le profil sélectionné.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/4.6.2.png" alt="4.6.2.png" width="115" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Mode lissage</strong><br>Permet d’effectuer des coupes parallèles entre elles, transversales à la direction du profil.</p></td></tr></tbody></table><p></p><h3 id="configuration-par-coupes"><a class="header" href="#configuration-par-coupes">Configuration par coupes</a></h3><p>Des coupes parallèles suivant le profil sélectionné sont effectuées à une distance entre les coupes définie par un paramètre.</p><div class="TextAlignCenter"><img src="attachments/2.7_isocam/4.6.3.png" alt="4.6.3.png" width="409" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="76cec607-fe43-4e11-83e9-cff64f0b277c"><colgroup><col style="width: 366.0px;"><col style="width: 1433.0px;"></colgroup><tbody><tr><td><p><strong>Pas</strong></p></td><td><p>Indique la distance entre la position d’une coupe et celle de la coupe adjacente. Si cette distance est supérieure à l’épaisseur du disque, du matériau reste entre les passes.</p></td></tr><tr><td><p><strong>Extension début / fin</strong></p></td><td><p>Permet de prolonger une coupe dans sa partie initiale / finale de la valeur définie.</p></td></tr><tr><td><p><strong>Plus Auto</strong></p></td><td><p>L’activation de cette option entraîne une augmentation automatique de la valeur d’extension, sur la base d’une valeur définie par le système.</p></td></tr><tr><td><p><strong>Surépaisseur</strong></p></td><td><p>Épaisseur de matériau à laisser au-dessus de la section finale souhaitée.</p></td></tr><tr><td><p><strong>Direction des coupes</strong></p></td><td><p>La coupe peut être effectuée de droite à gauche ou de gauche à droite, selon la configuration sélectionnée.</p></td></tr></tbody></table><p></p><h3 id="configuration-lissage"><a class="header" href="#configuration-lissage">Configuration Lissage</a></h3><p>Le mouvement est transversal à la direction du profil ; il est utilisé pour la finition de surface de la pièce.</p><div class="TextAlignCenter"><img src="attachments/2.7_isocam/4.6.4.png" alt="4.6.4.png" width="409" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="d0e9dece-7cd7-4ea3-96d1-db66e652849a"><colgroup><col style="width: 368.0px;"><col style="width: 1431.0px;"></colgroup><tbody><tr><th data-highlight-colour="#ffffff"><p><strong>Pas de lissage</strong></p></th><td data-highlight-colour="#ffffff"><p>Indique la distance entre un mouvement transversal et le suivant le long de la direction du profil.</p></td></tr></tbody></table><p></p><h2 id="vitesse-et-mode-de-coupe" class="maintenance-section-title" data-section-number="12"><a class="header" href="#vitesse-et-mode-de-coupe">Vitesse et mode de coupe </a></h2><p>Selon les sélections précédentes, différents menus apparaissent pour sélectionner les paramètres nécessaires à la définition de l’usinage.</p><div class="TextAlignCenter"><img src="attachments/2.7_isocam/4.4.png" alt="4.4.png" width="611" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p>Si le type d’usinage sélectionné est la <strong>Configuration par coupes</strong>, deux types de paramètres d’usinage sont disponibles :</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="def0ed26-1234-49cd-8760-ab7e5440c67a"><colgroup><col style="width: 367.0px;"><col style="width: 1432.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/4.4.1_Off_On_b-20250804-121406.png" alt="4.4.1_Off_On_b-20250804-121406.png" width="210" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Mode Marbre </strong><br>La coupe est effectuée en une seule passe.<br></p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/4.4.2_Off_On_b-20250804-121500.png" alt="4.4.2_Off_On_b-20250804-121500.png" width="210" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Mode Granit</strong><br>La coupe est effectuée par pas.<br></p></td></tr></tbody></table><p></p><h3 id="mode-marbre"><a class="header" href="#mode-marbre">Mode Marbre</a></h3><div class="TextAlignCenter"><img src="attachments/2.7_isocam/4.4.png" alt="4.4.png" width="611" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p>Paramètres généraux :</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="dbec0ded-672b-411b-9963-a1533367c765"><colgroup><col style="width: 368.0px;"><col style="width: 1431.0px;"></colgroup><tbody><tr><td><p><strong>Coupes dans les deux sens (finition)</strong></p></td><td><p>Cette option permet de régler une vitesse de <strong>retour</strong> différente de la vitesse d’<strong>aller</strong>.</p></td></tr><tr><td><p><strong>Ne jamais relever (finition)</strong></p></td><td>
+<div id="admonition-attention-" class="admonition admonish-warning" role="note" aria-labelledby="admonition-attention--title">
+<div class="admonition-title">
+<div id="admonition-attention--title">
+<p>ATTENTION !</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-attention-"></a>
+</div>
+<div>
+<p>Lorsque ce paramètre est activé, le disque doit sortir complètement de la section de coupe.</p>
+</div>
+</div>
+</td></tr></tbody></table><p>Paramètres de vitesse :</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="24424499-2873-4023-921b-3071ef3df351"><colgroup><col style="width: 372.0px;"><col style="width: 1427.0px;"></colgroup><tbody><tr><td><p><strong>Aller</strong></p></td><td><p>Vitesse d’exécution de la passe à l’aller.</p></td></tr><tr><td><p><strong>Retour</strong></p></td><td><p>Vitesse d’exécution de la passe au retour.</p></td></tr><tr><td><p><strong>Pénétration</strong></p></td><td><p>Vitesse d’exécution de la pénétration de la passe.</p></td></tr><tr><td><p><strong>Minimale</strong></p></td><td><p>En définissant une valeur différente de zéro, la vitesse de coupe dépend de la profondeur de la coupe : le mouvement s’effectue à la vitesse d’aller pour les coupes de profondeur nulle et à la vitesse minimale lorsque la coupe atteint la profondeur maximale pour la section sélectionnée.</p></td></tr></tbody></table><p></p><h3 id="mode-granit"><a class="header" href="#mode-granit">Mode Granit</a></h3><div class="TextAlignCenter"><img src="attachments/2.7_isocam/4.4.3.png" alt="4.4.3.png" width="516" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p>Paramètres généraux :</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="a118572f-2676-4dce-bbc4-89c538f4a19a"><colgroup><col style="width: 368.0px;"><col style="width: 1431.0px;"></colgroup><tbody><tr><td><p><strong>Enlèvement de matière en coupe</strong></p></td><td><p>Quantité de matériau enlevée lors de la passe d’aller.</p></td></tr><tr><td><p><strong>Enlèvement de matière au retour</strong></p></td><td><p>Quantité de matériau enlevée lors de la passe de retour.</p></td></tr></tbody></table><p></p><p>Si le type d’usinage sélectionné est la <strong>Configuration Lissage</strong>, un seul paramètre d’usinage est disponible :</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="4621747e-1498-49d1-b9c4-62de1fdcaaca"><colgroup><col style="width: 379.0px;"><col style="width: 1420.0px;"></colgroup><tbody><tr><th data-highlight-colour="#ffffff"><p><strong>Vitesse - Usinage</strong></p></th><td data-highlight-colour="#ffffff"><p>Définit la vitesse à laquelle l’usinage de type lissage est exécuté.</p></td></tr></tbody></table><p></p><h2 id="paramètres-dusinage-avancés" class="maintenance-section-title" data-section-number="13"><a class="header" href="#paramètres-dusinage-avancés">Paramètres d’usinage (avancés)</a></h2><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="ba16bc93-1f99-47bf-b640-dcac17f3ff5b"><colgroup><col style="width: 257.0px;"><col style="width: 1542.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/4.5.1.png" alt="4.5.1.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Paramètres d’usinage (avancés)</strong><br>Ce bouton permet d’accéder à la fenêtre des paramètres avancés de l’usinage.</p></td></tr></tbody></table><p>Cet écran permet de vérifier et de modifier différents paramètres, dont beaucoup ont été définis aux étapes 2 et 3.</p><div class="TextAlignCenter"><img src="attachments/2.7_isocam/4.5-20250804-082714.png" alt="4.5-20250804-082714.png" width="400" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p>La première opération consiste à sélectionner le <strong>type de profil</strong> à utiliser :</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="c0b7d274-2dc6-4004-a29d-6c71cb07f8c2"><colgroup><col style="width: 398.0px;"><col style="width: 1401.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/4.5.1.1_b-20250804-085943.png" alt="4.5.1.1_b-20250804-085943.png" width="139" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Linéaire</strong><br>Une coupe linéaire est effectuée.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/4.5.1.2_b-20250804-090056.png" alt="4.5.1.2_b-20250804-090056.png" width="139" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>En arc</strong><br>Une coupe en arc est effectuée.</p></td></tr></tbody></table><p>Puis les paramètres suivants :</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="70a14959-ae8f-48af-811d-3c9181390a9c"><colgroup><col style="width: 400.0px;"><col style="width: 1399.0px;"></colgroup><tbody><tr><td><p><strong>Usinage</strong></p></td><td><p>Peut être effectué par <strong>coupes</strong> ou par <strong>lissage</strong>.</p></td></tr><tr><td><p><strong>Orientation de l’usinage</strong></p></td><td><p>L’usinage peut être effectué à la <strong>verticale</strong> ou à l’<strong>horizontale</strong>.</p></td></tr><tr><td><p><strong>Exécution du profil le long de</strong></p></td><td><p>Le long de <strong>X</strong> ou <strong>Y</strong>.</p></td></tr></tbody></table><p></p><h3 id="données-dusinage"><a class="header" href="#données-dusinage">Données d’usinage</a></h3><p>Pour le profil linéaire, les paramètres suivants peuvent être définis :</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="dff87c51-566c-487d-a9be-e8decdce84f0"><colgroup><col style="width: 417.0px;"><col style="width: 1382.0px;"></colgroup><tbody><tr><td><p><strong>Épaisseur du matériau</strong></p></td><td><p>Définit l’épaisseur du matériau (en mm)</p></td></tr><tr><td><p><strong>Inclinaison du profil (mm)</strong></p></td><td><p>Permet de définir l’inclinaison du profil en indiquant la différence de hauteur entre le point final et le point initial.</p></td></tr></tbody></table><p></p><p>Pour le profil en arc, les paramètres définis aux étapes précédentes sont disponibles.</p><p></p><p>Les deux profils ont également en commun les <strong>données d’usinage</strong> suivantes :</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="8059b6df-c5d7-4150-9e25-e8c3573cb40a"><colgroup><col style="width: 411.0px;"><col style="width: 1388.0px;"></colgroup><tbody><tr><td><p><strong>Pas</strong></p></td><td><p><strong>Fixe en Y : </strong>maintient une distance fixe entre les coupes, indépendamment de la section sous-jacente<br><strong>Le long de la corde :</strong> le pas se rapporte à la distance entre les points de contact sur la section ; le déplacement varie donc en fonction de la pente de la section</p></td></tr><tr><td><p><strong>Direction des coupes</strong></p></td><td><p>Choix entre « <strong>Y_</strong> » ou « <strong>Y-</strong> ».</p></td></tr><tr><td><p><strong>Usinage complet du profil</strong></p></td><td><p>Permet de choisir d’effectuer ou non l’usinage complet du profil.</p></td></tr><tr><td><p><strong>Forcer les coupes aux angles</strong></p></td><td><p>Ajoute des coupes aux points de changement de pente. </p></td></tr><tr><td><p><strong>Supprimer les chevauchements</strong></p></td><td><p>Si cette option est activée et que la valeur « <strong>Pas</strong> » est supérieure à la valeur « <strong>Épaisseur</strong> », les coupes qui se chevauchent sont supprimées.</p></td></tr><tr><td><p><strong>Pas optimisé (teinture) % Recouv.</strong></p></td><td><p>Si la valeur « <strong>Pas</strong> » est inférieure à la valeur « <strong>Épaisseur</strong> », le pas est optimisé sur les lignes horizontales.</p></td></tr><tr><td><p><strong>Exécuter une coupe au début</strong></p></td><td><p>Permet de choisir d’effectuer ou non une coupe au début du profil. La zone située à côté permet de définir la profondeur de cette coupe.</p></td></tr><tr><td><p><strong>Exécuter une coupe à la fin</strong></p></td><td><p>Permet de choisir d’effectuer ou non une coupe à la fin du profil. La zone située à côté permet de définir la profondeur de cette coupe.</p></td></tr></tbody></table><p></p><h3 id="données-de-loutil"><a class="header" href="#données-de-loutil">Données de l’outil</a></h3><p>Cette section présente certaines données précédemment définies ainsi que d’autres paramètres spécifiques à l’outil.</p><div class="TextAlignCenter"><img src="attachments/2.7_isocam/4.5.3.0-20250804-092838.png" alt="4.5.3.0-20250804-092838.png" width="160" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="d0a65bef-7547-4a29-91da-5963c2924f61"><colgroup><col style="width: 361.0px;"><col style="width: 1437.0px;"></colgroup><tbody><tr><td><p><strong>Description de l’outil</strong></p></td><td><p>Brève description de l’outil</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/4.5.3.1.0-20250804-093318.png" alt="4.5.3.1.0-20250804-093318.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Magasin d’outils</strong><br>L’ouverture de ce panneau permet de gérer les outils : il est possible de créer de nouveaux outils, de modifier ceux qui existent, de changer leur ordre dans la liste ou de les supprimer.</p></td></tr><tr><td><p><strong>N_ Position</strong></p></td><td><p>Indique le numéro de position dans le magasin de l’outil sélectionné.</p></td></tr><tr><td><p><strong>N_ Correcteur</strong></p></td><td><p>Indique le numéro identifiant le nom de l’outil sélectionné.</p></td></tr><tr><td><p><strong>Épaisseur de l’âme du disque (SA)</strong></p></td><td><p>Épaisseur du corps porteur central du disque.</p></td></tr><tr><td><p><strong>Forme de la dent</strong></p></td><td><p>L’opérateur peut choisir parmi trois formes de dent :</p><ul><li><p>Carrée</p></li><li><p>Sphérique</p></li><li><p>Biseautée (dans ce cas, il est possible de définir les valeurs de biseautage)</p></li></ul></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/4.5.3.2_b-20250804-094307.png" alt="4.5.3.2_b-20250804-094307.png" width="68" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Choix du matériau</strong><br>Ce bouton, placé juste à gauche de la valeur de la <strong>vitesse de pénétration</strong>, permet de sélectionner le matériau parmi :</p><ul><li><p>Granits à forte teneur en quartz</p></li><li><p>Granits à faible teneur en quartz</p></li><li><p>Marbre</p></li><li><p>Travertin</p></li><li><p>Grès</p></li></ul></td></tr><tr><td><p><strong>Priorité</strong></p></td><td><p>Il est possible de définir une valeur de priorité (strictement positive).</p></td></tr><tr><td><p><strong>Profondeur</strong></p></td><td><p>Indique la profondeur de coupe de l’outil.</p></td></tr></tbody></table><p></p><p></p><h1 id="usinage-étape-4-sur-4"><a class="header" href="#usinage-étape-4-sur-4">Usinage (étape 4 sur 4)</a></h1><p>En fonction des sélections précédentes, un aperçu des coupes calculées est affiché. La page est divisée en plusieurs zones contenant les commandes permettant de gérer les modifications.</p><div class="TextAlignCenter"><img src="attachments/2.7_isocam/0.4-20250806-063532.png" alt="0.4-20250806-063532.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p>Après avoir vérifié les coupes ou effectué les modifications souhaitées, appuyer sur le bouton « SUIVANT » pour ouvrir la page permettant de générer le programme de coupe.</p><p></p><h2 id="menu-1" class="maintenance-section-title" data-section-number="14"><a class="header" href="#menu-1">Menu</a></h2><p>À la quatrième étape, une entrée supplémentaire devient visible dans le menu supérieur :</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="ef535af7-f4b6-4c58-bc05-78443898ec1f"><colgroup><col style="width: 269.0px;"><col style="width: 1530.0px;"></colgroup><tbody><tr><th data-highlight-colour="#ffffff"><p><strong>Coupes</strong></p></th><td data-highlight-colour="#ffffff"><p>Ce menu propose à l’opérateur plusieurs réglages rapides pour les coupes générées.</p></td></tr></tbody></table><p></p><h2 id="barre-supérieure-1" class="maintenance-section-title" data-section-number="15"><a class="header" href="#barre-supérieure-1">Barre supérieure</a></h2>
+<div id="admonition-remarque-5" class="admonition admonish-info" role="note" aria-labelledby="admonition-remarque-5-title">
+<div class="admonition-title">
+<div id="admonition-remarque-5-title">
+<p>REMARQUE</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-remarque-5"></a>
+</div>
+<div>
+<p>Certains boutons restent désactivés tant qu’aucune coupe n’est sélectionnée.</p>
+</div>
+</div>
+<table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="60a0a742-1ebb-403a-9efe-2df311002d71"><colgroup><col style="width: 291.0px;"><col style="width: 1508.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/5.1.1-20250804-141449.png" alt="5.1.1-20250804-141449.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Génération des coupes</strong><br>Régénère les coupes avec les paramètres par défaut.</p>
+<div id="admonition-remarque-6" class="admonition admonish-info" role="note" aria-labelledby="admonition-remarque-6-title">
+<div class="admonition-title">
+<div id="admonition-remarque-6-title">
+<p>REMARQUE</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-remarque-6"></a>
+</div>
+<div>
+<p>Cette opération est effectuée automatiquement à l’arrivée à l’étape 4 sur 4.</p>
+</div>
+</div>
+</td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/5.1.2_Off_On-20250804-142945.png" alt="5.1.2_Off_On-20250804-142945.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Modifier la position de la coupe</strong><br>Permet de modifier la position de la coupe sélectionnée</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/5.1.3-20250804-141717.png" alt="5.1.3-20250804-141717.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Ajouter une coupe de tête pour séparer les pièces</strong><br>Insère une coupe au point initial de l’usinage.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/5.1.4-20250804-141752.png" alt="5.1.4-20250804-141752.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Ajouter une coupe de fin pour séparer les pièces</strong><br>Insère une coupe au point final de l’usinage.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/5.1.5-20250804-141826.png" alt="5.1.5-20250804-141826.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Ajouter une coupe à la position de la souris (Ins)</strong><br>Ajoute une nouvelle coupe à la position indiquée par la souris.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/5.1.6_Off_On-20250804-142922.png" alt="5.1.6_Off_On-20250804-142922.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Supprimer la coupe sélectionnée</strong><br>Supprime la coupe sélectionnée de l’aperçu et recalcule le numéro progressif de toutes les coupes restantes.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/5.1.7_Off_On-20250804-142901.png" alt="5.1.7_Off_On-20250804-142901.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Supprimer les coupes précédant la coupe sélectionnée</strong><br>En prenant la coupe sélectionnée comme référence, les coupes ayant un numéro progressif inférieur sont supprimées.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/5.1.8_Off_On-20250804-142834.png" alt="5.1.8_Off_On-20250804-142834.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Supprimer les coupes suivant la coupe sélectionnée</strong><br>En prenant la coupe sélectionnée comme référence, les coupes ayant un numéro progressif supérieur sont supprimées.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/5.1.9-20250804-142145.png" alt="5.1.9-20250804-142145.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Simulation des coupes</strong><br>Toutes les coupes sont sélectionnées une à une selon leur numéro progressif.</p>
+<div id="admonition-remarque-7" class="admonition admonish-info" role="note" aria-labelledby="admonition-remarque-7-title">
+<div class="admonition-title">
+<div id="admonition-remarque-7-title">
+<p>REMARQUE</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-remarque-7"></a>
+</div>
+<div>
+<p>Pour accélérer le défilement des coupes, appuyer sur la touche
+<br>
+flèche gauche
+<br>
+; pour le ralentir, appuyer sur la touche
+<br>
+flèche droite
+<br>
+.</p>
+</div>
+</div>
+</td></tr></tbody></table><p></p><h2 id="partie-centrale-1" class="maintenance-section-title" data-section-number="16"><a class="header" href="#partie-centrale-1"><strong>Partie centrale</strong></a></h2><p></p><h2 id="barre-latérale-droite-2" class="maintenance-section-title" data-section-number="17"><a class="header" href="#barre-latérale-droite-2">Barre latérale droite</a></h2><p>À la quatrième étape, cette barre contient les informations suivantes :</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="27ea8784-afd9-45f2-9324-38de2934b0de"><colgroup><col style="width: 326.0px;"><col style="width: 1473.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/5.2.1_b-20250805-054658.png" alt="5.2.1_b-20250805-054658.png" width="200" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Numéro progressif de la coupe</strong><br>Pour chaque coupe sélectionnée, le numéro progressif de la coupe, les coordonnées spatiales des arêtes et l’état de contact des arêtes avec les entités sont affichés, en indiquant si une arête ou les deux sont en contact.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/5.2.2-20250805-054501.png" alt="5.2.2-20250805-054501.png" width="200" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Données générales</strong><br>Affiche une série de données relatives à l’usinage, définies lors des étapes précédentes.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/5.2.3-20250805-054524.png" alt="5.2.3-20250805-054524.png" width="200" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Données des coupes</strong><br>À l’étape 4, certaines données calculées sont automatiquement affichées, notamment la direction et le nombre de coupes ainsi que la pénétration de la coupe avec sa valeur maximale.</p></td></tr></tbody></table><p></p><h2 id="barre-inférieure-3" class="maintenance-section-title" data-section-number="18"><a class="header" href="#barre-inférieure-3">Barre inférieure</a></h2><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="54ca7dc9-e822-48a5-b0b7-80998e37712e"><colgroup><col style="width: 422.0px;"><col style="width: 1376.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/5.3.1-20250805-063514.png" alt="5.3.1-20250805-063514.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Options de coupe</strong><br>Alternative au bouton droit de la souris pour afficher les options de coupe</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/5.3.2_Off-20250805-064206.png" alt="5.3.2_Off-20250805-064206.png" width="251" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><div class="TextAlignCenter"><img src="attachments/2.7_isocam/5.3.2-20250805-063733.png" alt="5.3.2-20250805-063733.png" width="251" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Déplacer/allonger les coupes</strong><br>Alternative aux touches fléchées du clavier pour déplacer/allonger les coupes</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.7_isocam/5.3.3_Off_On-20250805-064544.png" alt="5.3.3_Off_On-20250805-064544.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Shift</strong><br>Alternative à la touche Shift du clavier.</p></td></tr></tbody></table><p></p><p></p><h1 id="création-du-programme"><a class="header" href="#création-du-programme">Création du programme</a></h1><p>Une fois la préparation terminée à la quatrième étape, il est possible d’accéder à la phase finale, qui comprend l’affichage du résultat obtenu et la génération du fichier ISO.<br>La partie centrale affiche en 3D l’usinage généré en tenant compte du mode d’usinage. Cliquer dans la zone permet de faire pivoter la vue et de gérer le zoom.</p>
+<div id="admonition-remarque-8" class="admonition admonish-info" role="note" aria-labelledby="admonition-remarque-8-title">
+<div class="admonition-title">
+<div id="admonition-remarque-8-title">
+<p>REMARQUE</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-remarque-8"></a>
+</div>
+<div>
+<p>Au démarrage du programme, le dernier usinage créé est affiché.</p>
+</div>
+</div>
+<div class="TextAlignCenter"><img src="attachments/2.7_isocam/image-20250718-055517.png" alt="image-20250718-055517.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><p></p><h1 id="procédure-de-base"><a class="header" href="#procédure-de-base">Procédure de base</a></h1><h2 id="Étape-1" class="maintenance-section-title" data-section-number="19"><a class="header" href="#Étape-1">Étape 1</a></h2><p>Pour commencer, appuyer sur le bouton « Nouvel usinage ». S’assurer que la fonction « Segments connectés » est active, puis activer la commande « ligne ». Effectuer ensuite une série de clics dans la zone de travail pour dessiner la section souhaitée. Une fois le dessin terminé, cliquer de nouveau sur la commande « ligne » pour la désactiver. Sélectionner ensuite chaque entité individuellement afin de vérifier ses paramètres et, si nécessaire, de les modifier.</p><p></p><h2 id="Étape-2" class="maintenance-section-title" data-section-number="20"><a class="header" href="#Étape-2">Étape 2</a></h2><p>À cette étape, l’opérateur peut définir plusieurs paramètres généraux de base liés au type d’usinage recherché.</p><p></p><h2 id="Étape-3" class="maintenance-section-title" data-section-number="21"><a class="header" href="#Étape-3">Étape 3</a></h2><p>Il est alors possible de définir les paramètres relatifs à l’outil, au type, à l’orientation et aux paramètres de l’usinage sélectionné.<br>Le panneau « Paramètres d’usinage (avancés) » permet également d’obtenir une vue d’ensemble de tous les paramètres définis jusqu’à présent.</p><p></p><h2 id="Étape-4" class="maintenance-section-title" data-section-number="22"><a class="header" href="#Étape-4">Étape 4</a></h2><p>Une liste de coupes est automatiquement générée pour l’usinage actuel. Il est possible d’insérer, de modifier et de supprimer des coupes selon les besoins opérationnels.<br></p><h2 id="génération-iso" class="maintenance-section-title" data-section-number="23"><a class="header" href="#génération-iso">Génération ISO</a></h2><p>La dernière étape de l’usinage permet à l’opérateur de créer un fichier ISO à partir de l’usinage obtenu ou de recommencer la procédure.</p><!--Label="pbm_scm_two"--><!--Label="pbm_scm_one"--><!--Label="pbm_scm_fou"--><!--Label="pbm_scm"--><!--Label="pbm_scm_thr"--><!--Label="pbm_scm_crt"-->
+                        </main>
+
+                    </div>
+
+                    <img src="images/donatoni_222.jpg">
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="2.6_coupes.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="2.8_polissage_(option).html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+
+
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                <a rel="prev" href="2.6_coupes.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="2.8_polissage_(option).html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="mermaid.min.js"></script>
+        <script src="mermaid-init.js"></script>
+        <script src="hidemenu.js"></script>
+        <script src="imagemodal.js"></script>
+        <script src="login.js"></script>
+    </div>
+
+    <!-- Modale -->
+    <div id="modal" onclick="closeModal()">
+        <img id="modal-img" src="">
+    </div>;
+
+
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
+
+<script id="virtual-keyboard-searchbar-fix">
+document.addEventListener("input", function (e) {
+    const t = e.target;
+    if (t && t.id === "searchbar" && e.isTrusted !== true) {
+        t.dispatchEvent(new KeyboardEvent("keyup", { bubbles: true }));
+    }
+});
+</script>
+</body>
+</html>

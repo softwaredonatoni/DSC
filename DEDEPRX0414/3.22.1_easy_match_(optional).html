@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+<head>
+    <!-- Book generated using mdBook -->
+    <meta charset="UTF-8">
+    <title>3.22.1 EASY MATCH (OPTIONAL) - DE-DE PARAMETRIX 4.14</title>
+
+    <!-- Custom HTML head -->
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="icon" href="favicon.svg">
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/chrome.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Fonts -->
+    <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+    <link rel="stylesheet" href="fonts/fonts.css">
+
+    <!-- Highlight.js Stylesheets -->
+    <link rel="stylesheet" id="highlight-css" href="highlight.css">
+    <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+    <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+    <!-- Custom theme stylesheets -->
+    <link rel="stylesheet" href="./mdbook-admonish.css">
+    <link rel="stylesheet" href="theme/custom.css">
+    <link rel="stylesheet" href="search.html">
+    <link rel="stylesheet" href="login.html">
+    <link rel="stylesheet" href="searchlogin.html">
+    <link rel="stylesheet" href="searchloginmenu.html">
+
+    <!-- Provide site root and default themes to javascript -->
+    <script>
+      const path_to_root = "";
+      const default_light_theme = "light";
+      const default_dark_theme = "light";
+    </script>
+    <!-- Start loading toc.js asap -->
+    <script src="toc.js"></script>
+<script>(function () {
+  const SUFFIX = "#2utHhOLI7Iz0";
+
+  function buildUrl() {
+    const base = window.location.href.split("#")[0];
+    return base + SUFFIX;
+  }
+
+  function fallbackCopy(text) {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.top = "-1000px";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+
+  async function copyUrl() {
+    const url = buildUrl();
+
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(url);
+        return;
+      } catch (e) {}
+    }
+
+    fallbackCopy(url);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.getElementById("copy-link-btn");
+    if (!btn) return;
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      copyUrl();
+    });
+  });
+})();
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-document" data-technical-styler-flow="html">
+    <header class="header-main">
+        <div class="header-flex">
+            <div class="donatoni-flex">
+                <label class="btn hamburger-menu" id="sidebar-toggle" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                    <i id="sidebar-toggle-icon" class="fa-solid fa-bars"></i>
+                </label>
+
+                <img src="images/donatoni-logo-white.svg" alt="Donatoni Macchine">
+            </div>
+
+            <div class="donatoni-flex action-header-buttons">
+                <div id="search-wrapper" class="search-wrapper hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults"></ul>
+                    </div>
+                </div>
+                <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
+                </button>
+
+                <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
+                    <i class="fa-solid fa-print"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div id="body-container">
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem("mdbook-theme");
+                let sidebar = localStorage.getItem("mdbook-sidebar");
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-theme",
+                        theme.slice(1, theme.length - 1)
+                    );
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-sidebar",
+                        sidebar.slice(1, sidebar.length - 1)
+                    );
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = "light";
+            let theme = default_theme;
+            const html = document.documentElement;
+            html.classList.remove("light");
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try {
+                    sidebar = localStorage.getItem('mdbook-sidebar');
+                } catch (e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document
+                        .getElementById("sidebar-toggle")
+                        .setAttribute("aria-expanded", sidebar === "visible");
+                    document
+                        .getElementById("sidebar")
+                        .setAttribute("aria-hidden", sidebar !== "visible");
+                    Array.from(document.querySelectorAll("#sidebar a")).forEach(
+                        function (link) {
+                            link.setAttribute("tabIndex", sidebar === "visible" ? 0 : -1);
+                        }
+                    );
+                </script>
+
+                <div id="content" class="content">
+
+                    <div>
+
+                        <img src="images/donatoni_111.jpg">
+
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Machine technical documentation</span><span class="maintenance-status"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Operational document</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="3221-easy-match-optional" style="margin:0;" class="maintenance-main-title"><a class="header" href="#3221-easy-match-optional"><span class="maintenance-code">DOC</span><span class="maintenance-name">3.22.1 EASY MATCH (OPTIONAL)</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document DOC" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="3.22.1 EASY MATCH (OPTIONAL)"--><p>Mit der Funktion Easy Match kann in Echtzeit der Hintergrund angezeigt werden, den die Werkstücke an ihrer ursprünglichen Konstruktionsposition erhalten, während sie auf dem Arbeitstisch über einer Platte verschoben werden.</p>
+<div id="admonition-hinweis" class="admonition admonish-info" role="note" aria-labelledby="admonition-hinweis-title">
+<div class="admonition-title">
+<div id="admonition-hinweis-title">
+<p>HINWEIS</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-hinweis"></a>
+</div>
+<div>
+<p>Der Easy-Match-Modus funktioniert nur bei Werkstücken, die aus DXF-Dateien importiert wurden.</p>
+</div>
+</div>
+<div class="TextAlignCenter"><img src="attachments/3.22.1_easy_match_(optional)/0.00.png" alt="0.00.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><p>
+</p><p></p><h1 id="schaltflächen"><a class="header" href="#schaltflächen">Schaltflächen</a></h1><p>Nach Drücken der Schaltfläche öffnet sich das folgende Panel:</p><div class="TextAlignCenter"><img src="attachments/3.22.1_easy_match_(optional)/image-20250623-092224.png" alt="image-20250623-092224.png" width="316" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="b4145f2b-5668-4187-9948-6e9fdea460a4"><colgroup><col style="width: 337.0px;"><col style="width: 1460.0px;"></colgroup><tbody><tr><td data-highlight-colour="#ffffff"><div class="TextAlignCenter"><img src="attachments/3.22.1_easy_match_(optional)/1.2-20250623-092621.png" alt="1.2-20250623-092621.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td data-highlight-colour="#ffffff"><p><strong>Geteilte Ansicht</strong><br>Ermöglicht die gleichzeitige Anzeige der Projektvorschau und des Arbeitstischs auf demselben Bildschirm.</p></td></tr><tr><td data-highlight-colour="#ffffff"><div class="TextAlignCenter"><img src="attachments/3.22.1_easy_match_(optional)/1.3-20250623-092752.png" alt="1.3-20250623-092752.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td data-highlight-colour="#ffffff"><p><strong>Vorschauansicht</strong><br>Ermöglicht das Verschieben der Werkstücke durch Klicken innerhalb des Werkstückumfangs, sodass das Werkstück präziser an der gewünschten Position platziert werden kann.</p></td></tr><tr><td data-highlight-colour="#ffffff"><div class="TextAlignCenter"><img src="attachments/3.22.1_easy_match_(optional)/1.4-20250623-092845.png" alt="1.4-20250623-092845.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td data-highlight-colour="#ffffff"><p><strong>Arbeitstischansicht</strong><br>Ermöglicht das Verschieben der Werkstücke auf dem Arbeitstisch unter Nutzung des gesamten Bildschirms.</p></td></tr><tr><td data-highlight-colour="#ffffff"><div class="TextAlignCenter"><img src="attachments/3.22.1_easy_match_(optional)/1.5-20250623-092940.png" alt="1.5-20250623-092940.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td data-highlight-colour="#ffffff"><p><strong>Vorschau speichern</strong><br>Ermöglicht das Speichern eines Bilds der Vorschau des aktuellen Projekts.</p></td></tr><tr><td data-highlight-colour="#ffffff"><div class="TextAlignCenter"><img src="attachments/3.22.1_easy_match_(optional)/1.6-20250623-093138.png" alt="1.6-20250623-093138.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td data-highlight-colour="#ffffff"><p><strong>Vorschau bearbeiten</strong><br>Öffnet einen Bildschirm zum Ändern der Anordnung der Elemente innerhalb der Projektvorschau.</p></td></tr></tbody></table><p></p><h2 id="vorschauansicht" class="maintenance-section-title" data-section-number="01"><a class="header" href="#vorschauansicht">Vorschauansicht</a></h2><p>Ermöglicht das Verschieben der Werkstücke durch Klicken innerhalb des Werkstückumfangs, sodass das Werkstück präziser an der gewünschten Position platziert werden kann.</p><div class="TextAlignCenter"><img src="attachments/3.22.1_easy_match_(optional)/0.01.png" alt="0.01.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p>In der Vorschau werden alle Werkstücke aus der importierten Datei exakt an ihrer konstruierten Position angezeigt. <br>Die Größe der Vorschau entspricht im Maßstab 1:1 der Größe der konstruierten Werkstücke.<br>Auf dem Arbeitstisch hinzugefügte Werkstücke übernehmen die Farbe der Platte, während noch hinzuzufügende Werkstücke einen einfarbigen Hintergrund haben.</p><p>In der Vorschau können folgende Aktionen ausgeführt werden:</p><ul><li><p>Ein Werkstück zum Arbeitsbereich hinzufügen, indem in den zu bearbeitenden Bereich geklickt wird.</p></li><li><p>Ein Werkstück auf dem Arbeitstisch verschieben.</p></li><li><p>Ein Werkstück auf dem Arbeitstisch auswählen, indem in das Werkstück geklickt wird.</p></li><li><p>Ein Werkstück aus der Vorschau löschen, indem zuerst der Radiergummi unter der Werkstückliste und anschließend das zu löschende Werkstück in der Vorschau ausgewählt wird. In diesem Fall wird das Werkstück auch vom Arbeitstisch und aus der Werkstückliste entfernt.</p></li></ul><p></p><h2 id="arbeitstischansicht" class="maintenance-section-title" data-section-number="02"><a class="header" href="#arbeitstischansicht">Arbeitstischansicht</a></h2><p>Klassische Ansicht des Parametrix-Arbeitstischs. Ermöglicht das Verschieben der Werkstücke auf dem Arbeitstisch unter Nutzung des gesamten Bildschirms.</p><div class="TextAlignCenter"><img src="attachments/3.22.1_easy_match_(optional)/0.02.png" alt="0.02.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><h2 id="geteilte-ansicht" class="maintenance-section-title" data-section-number="03"><a class="header" href="#geteilte-ansicht">Geteilte Ansicht</a></h2><p>Ermöglicht die gleichzeitige Anzeige der Projektvorschau und des Arbeitstischs auf demselben Bildschirm.</p><div class="TextAlignCenter"><img src="attachments/3.22.1_easy_match_(optional)/0.03.png" alt="0.03.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><h2 id="vorschau-speichern" class="maintenance-section-title" data-section-number="04"><a class="header" href="#vorschau-speichern">Vorschau speichern</a></h2><p>Ermöglicht das Speichern der Vorschau der aktuellen Bearbeitung.<br>Der folgende Bildschirm wird geöffnet:</p><div class="TextAlignCenter"><img src="attachments/3.22.1_easy_match_(optional)/image-20250623-094436.png" alt="image-20250623-094436.png" width="600" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p>Es muss gewählt werden, wie die Vorschau heißen soll, ob sie als Bild oder PDF gespeichert wird, wo sie gespeichert werden soll und welche Auflösung verwendet wird.<br>Für die Auflösung stehen auto (automatische Auflösung), low, medium, high, ultra und custom (genaue Auflösung durch den Bediener) zur Verfügung.<br>Nach der Bestätigung wird das Foto bzw. PDF der Vorschau automatisch geöffnet.</p><div class="TextAlignCenter"><img src="attachments/3.22.1_easy_match_(optional)/image-20250623-094751.png" alt="image-20250623-094751.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><div class="TextAlignCenter"><img src="attachments/3.22.1_easy_match_(optional)/image-20250623-094847.png" alt="image-20250623-094847.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><h2 id="vorschau-bearbeiten" class="maintenance-section-title" data-section-number="05"><a class="header" href="#vorschau-bearbeiten">Vorschau bearbeiten</a></h2><p>Auf diesem Bildschirm können die Werkstücke der Vorschau frei angeordnet werden.<br>Alle vorgenommenen Änderungen werden anschließend auch in den anderen Ansichten angezeigt.</p><div class="TextAlignCenter"><img src="attachments/3.22.1_easy_match_(optional)/image-20250623-095011.png" alt="image-20250623-095011.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p>In der oberen Leiste befinden sich folgende Schaltflächen.</p><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="d3cf84d8-faa0-4168-9b87-17b4df9a1674"><colgroup><col style="width: 285.0px;"><col style="width: 1511.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/3.22.1_easy_match_(optional)/2.02.png" alt="2.02.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Werkstücke bewegen</strong><br>Ermöglicht das Verschieben der Werkstücke in der Vorschau.<br>Die Schaltflächen der unteren Fensterleiste werden angezeigt.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.22.1_easy_match_(optional)/2.03.png" alt="2.03.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Ansicht verschieben</strong><br>Dient zum Verschieben der Ansicht der Vorschau mit allen Werkstücken.</p></td></tr></tbody></table><p></p><h1 id="vorschau-anpassen"><a class="header" href="#vorschau-anpassen">Vorschau anpassen</a></h1><p>Im Panel der Programmparameter kann auf der Registerkarte Benutzerwerte die Farbe einiger Elemente der Projektvorschau geändert werden.</p><div class="TextAlignCenter"><img src="attachments/3.22.1_easy_match_(optional)/4.00-20251008-084143.png" alt="4.00-20251008-084143.png" width="644" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><table class="my-table2" data-table-width="1034" data-layout="align-start" ac:local-id="a9407378-2cf3-4f0d-b35f-a48654996d64"><colgroup><col style="width: 231.0px;"><col style="width: 803.0px;"></colgroup><tbody><tr><td><p><strong>Umfang</strong></p></td><td><p>Ermöglicht das Anzeigen/Ausblenden der Werkstückumrisse in der Vorschau.<br>Die Darstellungsfarbe kann über die danebenliegende Schaltfläche geändert werden.</p></td></tr><tr><td><p><strong>Name</strong></p></td><td><p>Ermöglicht das Anzeigen/Ausblenden der Werkstücknamen in der Vorschau.<br>Die Darstellungsfarbe kann über die danebenliegende Schaltfläche geändert werden.</p></td></tr><tr><td><p><strong>Hintergrund</strong></p></td><td><p>Ermöglicht das Einstellen der Hintergrundfarbe der Vorschau.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.22.1_easy_match_(optional)/4.01-20251008-084153.png" alt="4.01-20251008-084153.png" width="76" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Hintergrund entfernen</strong><br>Entfernt den Hintergrund aus der Vorschau.</p></td></tr></tbody></table><p></p><h1 id="arbeitsablauf"><a class="header" href="#arbeitsablauf">Arbeitsablauf</a></h1><p>Um Easy Match zu verwenden, muss das Projekt aus einer DXF-Datei in Parametrix importiert werden.<br>Das Programm zeigt eine Book-Match-Vorschau der in der Datei enthaltenen Werkstücke an.</p><div class="TextAlignCenter"><img src="attachments/3.22.1_easy_match_(optional)/3.00.png" alt="3.00.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p>Nach Aufnahme eines Fotos des Arbeitstischs können die zu schneidenden Werkstücke auf der Platte positioniert werden.<br>Dazu kann das klassische Verfahren über die Werkstückliste verwendet oder innerhalb des Umfangs eines der in der Vorschau angezeigten Werkstücke gedrückt werden.</p><p>Wird das Werkstück aus der Vorschau gezogen, bewegt es sich auch auf der Platte. Dies ist nützlich, um die Maserungen der verschiedenen Werkstücke aufeinander abzustimmen. <br>Der Vorgang ist auch umgekehrt möglich: Das Werkstück kann von der Platte gezogen werden, und in der Vorschau ist anhand seiner Position erkennbar, ob die Maserungen übereinstimmen.</p><div class="TextAlignCenter"><img src="attachments/3.22.1_easy_match_(optional)/3.01.png" alt="3.01.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p>Anschließend mit dem Standardverfahren für die Bearbeitung fortfahren: ISO-Programm erstellen und Platte schneiden.<br>Nach Abschluss die Schaltfläche drücken, um zur nächsten Bearbeitung zu wechseln.<br>Der Fortschrittsstand des Projekts bleibt in der Vorschau gespeichert.<br>Anschließend ein Foto einer neuen Platte aufnehmen und die Werkstücke innerhalb des Umfangs positionieren.</p><div class="TextAlignCenter"><img src="attachments/3.22.1_easy_match_(optional)/3.02.png" alt="3.02.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p>Diesen Vorgang fortsetzen, bis das Projekt abgeschlossen ist.</p><p></p><!--Label="bkm_esy_wkb"--><!--Label="bkm_esy"--><!--Label="bkm_esy_prw"-->
+                        </main>
+
+                    </div>
+
+                    <img src="images/donatoni_222.jpg">
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="3.22_book_match_(optional).html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="3.22.2_project_match_(optional).html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+
+
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                <a rel="prev" href="3.22_book_match_(optional).html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="3.22.2_project_match_(optional).html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="mermaid.min.js"></script>
+        <script src="mermaid-init.js"></script>
+        <script src="hidemenu.js"></script>
+        <script src="imagemodal.js"></script>
+        <script src="login.js"></script>
+    </div>
+
+    <!-- Modale -->
+    <div id="modal" onclick="closeModal()">
+        <img id="modal-img" src="">
+    </div>;
+
+
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
+
+<script id="virtual-keyboard-searchbar-fix">
+document.addEventListener("input", function (e) {
+    const t = e.target;
+    if (t && t.id === "searchbar" && e.isTrusted !== true) {
+        t.dispatchEvent(new KeyboardEvent("keyup", { bubbles: true }));
+    }
+});
+</script>
+</body>
+</html>

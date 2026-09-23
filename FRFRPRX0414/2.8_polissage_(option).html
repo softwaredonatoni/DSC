@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+<head>
+    <!-- Book generated using mdBook -->
+    <meta charset="UTF-8">
+    <title>2.8 POLISSAGE (OPTION) - FR-FR PARAMETRIX 4.14</title>
+
+    <!-- Custom HTML head -->
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="icon" href="favicon.svg">
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/chrome.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Fonts -->
+    <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+    <link rel="stylesheet" href="fonts/fonts.css">
+
+    <!-- Highlight.js Stylesheets -->
+    <link rel="stylesheet" id="highlight-css" href="highlight.css">
+    <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+    <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+    <!-- Custom theme stylesheets -->
+    <link rel="stylesheet" href="./mdbook-admonish.css">
+    <link rel="stylesheet" href="theme/custom.css">
+    <link rel="stylesheet" href="search.html">
+    <link rel="stylesheet" href="login.html">
+    <link rel="stylesheet" href="searchlogin.html">
+    <link rel="stylesheet" href="searchloginmenu.html">
+
+    <!-- Provide site root and default themes to javascript -->
+    <script>
+      const path_to_root = "";
+      const default_light_theme = "light";
+      const default_dark_theme = "light";
+    </script>
+    <!-- Start loading toc.js asap -->
+    <script src="toc.js"></script>
+<script>(function () {
+  const SUFFIX = "#2utHhOLI7Iz0";
+
+  function buildUrl() {
+    const base = window.location.href.split("#")[0];
+    return base + SUFFIX;
+  }
+
+  function fallbackCopy(text) {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.top = "-1000px";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+
+  async function copyUrl() {
+    const url = buildUrl();
+
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(url);
+        return;
+      } catch (e) {}
+    }
+
+    fallbackCopy(url);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.getElementById("copy-link-btn");
+    if (!btn) return;
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      copyUrl();
+    });
+  });
+})();
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-document" data-technical-styler-flow="html">
+    <header class="header-main">
+        <div class="header-flex">
+            <div class="donatoni-flex">
+                <label class="btn hamburger-menu" id="sidebar-toggle" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                    <i id="sidebar-toggle-icon" class="fa-solid fa-bars"></i>
+                </label>
+
+                <img src="images/donatoni-logo-white.svg" alt="Donatoni Macchine">
+            </div>
+
+            <div class="donatoni-flex action-header-buttons">
+                <div id="search-wrapper" class="search-wrapper hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults"></ul>
+                    </div>
+                </div>
+                <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
+                </button>
+
+                <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
+                    <i class="fa-solid fa-print"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div id="body-container">
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem("mdbook-theme");
+                let sidebar = localStorage.getItem("mdbook-sidebar");
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-theme",
+                        theme.slice(1, theme.length - 1)
+                    );
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-sidebar",
+                        sidebar.slice(1, sidebar.length - 1)
+                    );
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = "light";
+            let theme = default_theme;
+            const html = document.documentElement;
+            html.classList.remove("light");
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try {
+                    sidebar = localStorage.getItem('mdbook-sidebar');
+                } catch (e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document
+                        .getElementById("sidebar-toggle")
+                        .setAttribute("aria-expanded", sidebar === "visible");
+                    document
+                        .getElementById("sidebar")
+                        .setAttribute("aria-hidden", sidebar !== "visible");
+                    Array.from(document.querySelectorAll("#sidebar a")).forEach(
+                        function (link) {
+                            link.setAttribute("tabIndex", sidebar === "visible" ? 0 : -1);
+                        }
+                    );
+                </script>
+
+                <div id="content" class="content">
+
+                    <div>
+
+                        <img src="images/donatoni_111.jpg">
+
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Machine technical documentation</span><span class="maintenance-status"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Operational document</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="28-polissage-option" style="margin:0;" class="maintenance-main-title"><a class="header" href="#28-polissage-option"><span class="maintenance-code">DOC</span><span class="maintenance-name">2.8 POLISSAGE (OPTION)</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document DOC" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="2.8 POLISSAGE (OPTION)"--><p>Le programme Polissage permet d’effectuer le polissage selon différents types d’usinage. Il est également possible de choisir le mode d’acquisition de la géométrie de la dalle : soit en relevant les points qui déterminent les sommets de la surface (de trois à six au maximum), soit en utilisant une surface régulière (rectangle) en saisissant la cote zéro et la valeur des deux côtés.</p><div class="TextAlignCenter"><img src="attachments/2.8_polissage_(option)/1.1-20250731-080428.png" alt="1.1-20250731-080428.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><p>
+</p><p></p><h1 id="mode-dusinage"><a class="header" href="#mode-dusinage">Mode d’usinage</a></h1><p>Pour utiliser cet usinage, il faut d’abord choisir l’un des deux modes disponibles en sélectionnant le bouton correspondant :</p>
+<div id="admonition-remarque" class="admonition admonish-info" role="note" aria-labelledby="admonition-remarque-title">
+<div class="admonition-title">
+<div id="admonition-remarque-title">
+<p>REMARQUE</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-remarque"></a>
+</div>
+<div>
+<p>Les modes «
+<br>
+Sélection rectangle
+<br>
+» et «
+<br>
+Sélection libre des points
+<br>
+» sont mutuellement exclusifs : l’activation de l’un désactive automatiquement l’autre.</p>
+</div>
+</div>
+<table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="82d6d08e-c0aa-4f0a-b966-6055a8c6b45d"><colgroup><col style="width: 375.0px;"><col style="width: 1422.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/2.8_polissage_(option)/1.1-20250303-082732.png" alt="1.1-20250303-082732.png" width="86" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Passer au mode Sélection libre des points</strong><br>Appuyer sur le bouton illustré permet de passer du mode de travail utilisant le rectangle comme forme prédéfinie au mode dans lequel la surface est acquise en sélectionnant des points.</p></td></tr><tr><td data-highlight-colour="#ffffff"><div class="TextAlignCenter"><img src="attachments/2.8_polissage_(option)/1.2-20250303-082732.png" alt="1.2-20250303-082732.png" width="85" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td data-highlight-colour="#ffffff"><p><strong>Passer au mode Sélection rectangulaire</strong><br>Appuyer sur le bouton illustré permet de passer du mode de travail dans lequel la surface est acquise en sélectionnant des points au mode utilisant le rectangle comme forme prédéfinie.</p></td></tr></tbody></table><p></p><p></p><h1 id="mode-entréesortie"><a class="header" href="#mode-entréesortie">Mode entrée/sortie</a></h1><p>Les boutons illustrés permettent de modifier l’entrée et la sortie de l’outil entre les modes progressif et standard.</p>
+<div id="admonition-remarque-1" class="admonition admonish-info" role="note" aria-labelledby="admonition-remarque-1-title">
+<div class="admonition-title">
+<div id="admonition-remarque-1-title">
+<p>REMARQUE</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-remarque-1"></a>
+</div>
+<div>
+<p>Les modes «
+<br>
+Progressif
+<br>
+» et «
+<br>
+Standard
+<br>
+» sont mutuellement exclusifs : l’activation de l’un désactive automatiquement l’autre.</p>
+</div>
+</div>
+<table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="2b92fbc1-9ba9-45bc-8ad8-26a7224a1742"><colgroup><col style="width: 378.0px;"><col style="width: 1419.0px;"></colgroup><tbody><tr><th data-highlight-colour="#ffffff"><div class="TextAlignCenter"><img src="attachments/2.8_polissage_(option)/2.1_b-20250731-113844.png" alt="2.1_b-20250731-113844.png" width="100" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p></th><td data-highlight-colour="#ffffff"><p><strong>Passage au mode progressif</strong><br>Lorsque ce mode est activé, au démarrage du programme, la machine se déplace de la cote Z de travail à la cote Z de sécurité, puis se dirige vers le premier point de la surface à polir (pour le rectangle, il s’agit du point en haut à gauche). Elle se déplace ensuite le long du périmètre de la surface en abaissant progressivement la cote Z de sorte qu’à la fin du parcours l’outil se trouve à la cote de travail. La machine effectue alors un polissage du périmètre, puis exécute successivement les usinages sélectionnés. À la fin des séquences de travail, la machine effectue un passage sur le périmètre de la surface à polir, puis parcourt le même trajet en remontant progressivement en Z jusqu’à atteindre la cote de sécurité à la fin du parcours.</p></td></tr><tr><th data-highlight-colour="#ffffff"><div class="TextAlignCenter"><img src="attachments/2.8_polissage_(option)/2.2_b-20250731-113804.png" alt="2.2_b-20250731-113804.png" width="100" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></th><td data-highlight-colour="#ffffff"><p><strong>Passage au mode standard</strong><br>Lorsque ce mode est activé, au démarrage du programme, la machine se déplace de la cote Z de travail à la cote Z de sécurité, puis se dirige vers le premier point de la surface à polir (pour le rectangle, il s’agit du point en haut à gauche). Ensuite, en maintenant les axes X et Y immobiles, elle descend en Z jusqu’à la cote de travail, puis les opérations de polissage sélectionnées commencent. À la fin des séquences de travail définies, la machine se déplace vers le premier point de la surface à polir puis remonte en Z jusqu’à la cote de sécurité.</p></td></tr></tbody></table><p></p><p></p><h1 id="mode-sélection-libre-des-points"><a class="header" href="#mode-sélection-libre-des-points"><strong>Mode Sélection libre des points</strong></a></h1><p>Ce mode s’affiche comme suit :</p><div class="TextAlignCenter"><img src="attachments/2.8_polissage_(option)/c-20250731-120333.png" alt="c-20250731-120333.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><h2 id="paramètres" class="maintenance-section-title" data-section-number="01"><a class="header" href="#paramètres">Paramètres</a></h2><h3 id="position-des-points"><a class="header" href="#position-des-points">Position des points</a></h3><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="57c5b004-786f-4769-bf6a-65d8c8685669"><colgroup><col style="width: 398.0px;"><col style="width: 1398.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/2.8_polissage_(option)/3.1.1.1-20250731-111822.png" alt="3.1.1.1-20250731-111822.png" width="234" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><div class="TextAlignCenter"><img src="attachments/2.8_polissage_(option)/3.1.1.2-20250731-111843.png" alt="3.1.1.2-20250731-111843.png" width="234" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Set (Définir)</strong><br>Ce bouton permet de saisir les coordonnées de chaque point. Lorsque la position a été acquise, l’état de la figure située à côté passe du rouge au vert. </p>
+<div id="admonition-remarque-2" class="admonition admonish-info" role="note" aria-labelledby="admonition-remarque-2-title">
+<div class="admonition-title">
+<div id="admonition-remarque-2-title">
+<p>REMARQUE</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-remarque-2"></a>
+</div>
+<div>
+<p>Le nombre de points à saisir va de trois au minimum à six au maximum.</p>
+</div>
+</div>
+</td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.8_polissage_(option)/3.1.1.3_b-20250731-112553.png" alt="3.1.1.3_b-20250731-112553.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Effacer</strong><br>Ce bouton permet d’effacer toutes les cotes enregistrées si le réglage est incorrect afin de pouvoir acquérir de nouveau les points.</p></td></tr></tbody></table><p></p><h3 id="types-dusinage"><a class="header" href="#types-dusinage">Types d’usinage</a></h3><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="5c7d8833-59d0-49d3-89c1-7f639f8cec09"><colgroup><col style="width: 403.0px;"><col style="width: 1396.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/2.8_polissage_(option)/3.1.2.1_b-20250731-114156.png" alt="3.1.2.1_b-20250731-114156.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Contour</strong><br>L’opération de polissage concerne exclusivement la zone périphérique de la figure géométrique définie.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.8_polissage_(option)/3.1.2.2_b-20250731-114218.png" alt="3.1.2.2_b-20250731-114218.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Passes horizontales</strong><br>Plusieurs passes horizontales sont effectuées.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.8_polissage_(option)/3.1.2.3_b-20250731-114252.png" alt="3.1.2.3_b-20250731-114252.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Passes verticales</strong><br>Plusieurs passes verticales sont effectuées.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.8_polissage_(option)/3.1.2.5_b-20250731-114340.png" alt="3.1.2.5_b-20250731-114340.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Répétition globale</strong><br>Il est possible de recommencer les cycles d’usinage en saisissant le nombre de répétitions dans la case prévue à cet effet. La case de la colonne « Effectuées » affiche quant à elle le nombre de répétitions exécutées pour l’usinage complet.</p></td></tr></tbody></table><p></p><h3 id="paramètres-dusinage"><a class="header" href="#paramètres-dusinage">Paramètres d’usinage</a></h3><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="9d204189-71ac-43a1-9b51-b5f38f3911ab"><colgroup><col style="width: 407.0px;"><col style="width: 1392.0px;"></colgroup><tbody><tr><td><p><strong>Répétitions</strong></p></td><td><p>Chaque type d’usinage peut être répété un nombre de fois défini dans ce champ.<br>Si la valeur est réglée sur « 0 », l’usinage concerné n’est pas effectué.</p></td></tr><tr><td><p><strong>Effectuées</strong></p></td><td><p>Affiche le nombre de répétitions effectuées.</p></td></tr><tr><td><p><strong>Pas [mm]</strong></p></td><td><p>Indique la distance entre une passe et la suivante, pouvant être sélectionnée pour chaque type d’usinage.</p></td></tr></tbody></table><p></p><h2 id="paramètres-de-loutil-pour-le-polissage" class="maintenance-section-title" data-section-number="02"><a class="header" href="#paramètres-de-loutil-pour-le-polissage">Paramètres de l’outil pour le polissage</a></h2><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="e1a56029-5c99-44f6-a1b4-2c344231a151"><colgroup><col style="width: 414.0px;"><col style="width: 1385.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/2.8_polissage_(option)/3.2.1_b-20250731-114407.png" alt="3.2.1_b-20250731-114407.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Vitesse d’usinage</strong><br>Indique la vitesse à laquelle l’usinage est effectué.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.8_polissage_(option)/3.2.2_b-20250731-114433.png" alt="3.2.2_b-20250731-114433.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Vitesse de descente</strong><br>Indique la vitesse souhaitée lors du positionnement le long de l’axe Z à la coordonnée sélectionnée.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.8_polissage_(option)/3.2.3_b-20250731-114455.png" alt="3.2.3_b-20250731-114455.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Usure de l’outil</strong><br>Permet de tenir compte de l’usure de l’outil pendant l’usinage en saisissant sa valeur de compensation.</p></td></tr></tbody></table><p></p><h2 id="exécution-en-mode-sélection-libre-des-points" class="maintenance-section-title" data-section-number="03"><a class="header" href="#exécution-en-mode-sélection-libre-des-points">Exécution en mode Sélection libre des points</a></h2>
+<div id="admonition-attention-" class="admonition admonish-warning" role="note" aria-labelledby="admonition-attention--title">
+<div class="admonition-title">
+<div id="admonition-attention--title">
+<p>ATTENTION !</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-attention-"></a>
+</div>
+<div>
+<p>Entre deux usinages, la machine effectue les déplacements sans remonter à la cote de sécurité.</p>
+</div>
+</div>
+<p>L’opérateur définit la position d’un minimum de trois à un maximum de six points disponibles en déplaçant manuellement la machine et en utilisant les commandes d’enregistrement correspondantes. Une fois les points définis, il configure les paramètres d’usinage pour chaque type de polissage souhaité. Les paramètres spécifiques de l’outil à utiliser pour le polissage sont également définis.</p><p>À tout moment avant le démarrage du cycle de polissage, l’opérateur peut modifier le mode d’entrée et de sortie de l’outil en sélectionnant l’une des deux options disponibles.</p><p>Une fois la configuration terminée, incliner l’axe <strong>A</strong> de la machine à <strong>90_</strong> et démarrer la rotation du disque. L’opérateur peut alors exécuter les cycles programmés en appuyant sur le bouton « <strong>Démarrer cycle</strong> ». Pendant l’exécution, l’avancement peut être surveillé dans la colonne « <strong>Effectuées</strong> », qui indique les cycles terminés pour chaque type de polissage sélectionné.</p><p></p><p></p><h1 id="mode-sélection-rectangulaire"><a class="header" href="#mode-sélection-rectangulaire"><strong>Mode Sélection rectangulaire</strong></a></h1><p>Ce mode s’affiche comme suit :</p><div class="TextAlignCenter"><img src="attachments/2.8_polissage_(option)/d-20250731-120352.png" alt="d-20250731-120352.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><h2 id="paramètres-1" class="maintenance-section-title" data-section-number="04"><a class="header" href="#paramètres-1">Paramètres</a></h2><h3 id="position-du-rectangle"><a class="header" href="#position-du-rectangle">Position du rectangle</a></h3><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="cb7b083d-3d23-4490-a1bc-5f01197a79b7"><colgroup><col style="width: 405.0px;"><col style="width: 1394.0px;"></colgroup><tbody><tr><th data-highlight-colour="#ffffff"><div class="TextAlignCenter"><img src="attachments/2.8_polissage_(option)/4.1.1.2-20250731-115103.png" alt="4.1.1.2-20250731-115103.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></th><td data-highlight-colour="#ffffff"><p><strong>Côtés du rectangle</strong><br>La figure sur laquelle l’usinage est effectué est déterminée par les valeurs attribuées à <strong>Y</strong> et <strong>X</strong>, qui correspondent aux côtés du rectangle. Les coordonnées du sommet inférieur gauche du rectangle sont acquises à l’aide des boutons de réinitialisation correspondants situés sous chaque axe. Les deux valeurs doivent être réinitialisées.</p></td></tr></tbody></table><p></p><h3 id="paramètres-dusinage-1"><a class="header" href="#paramètres-dusinage-1">Paramètres d’usinage</a></h3><p>Se reporter aux <strong>paramètres d’usinage du mode Sélection libre</strong> des points pour les usinages : <strong>Contour, Passes horizontales/verticales et Répétition globale.</strong></p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="dc18b19d-ba74-43be-80e3-95ebe7f72045"><colgroup><col style="width: 403.0px;"><col style="width: 1396.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/2.8_polissage_(option)/3.1.2.4_b-20250731-114318.png" alt="3.1.2.4_b-20250731-114318.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>En zigzag</strong><br>Des passes en zigzag sont effectuées.</p></td></tr></tbody></table><p></p><h2 id="paramètres-de-loutil-pour-le-polissage-1" class="maintenance-section-title" data-section-number="05"><a class="header" href="#paramètres-de-loutil-pour-le-polissage-1">Paramètres de l’outil pour le polissage</a></h2><p>Se reporter à <strong>Paramètres disque - Sélection libre des points</strong> pour les paramètres du disque : <strong>Vitesse d’usinage, Vitesse de descente et Usure du disque</strong>.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="d2da20eb-113b-4fc7-8b05-f8110dc8187e"><colgroup><col style="width: 408.0px;"><col style="width: 1390.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/2.8_polissage_(option)/3.2.4_b-20250731-114520.png" alt="3.2.4_b-20250731-114520.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Pas de l’axe Y pour Zigzag</strong><br>Pour le mode de polissage en zigzag, il est possible de modifier le pas d’usinage en Y afin de diviser la trajectoire d’usinage en plusieurs passes. Si la valeur reste à zéro ou si une valeur supérieure à celle attribuée au paramètre B est définie, le pas de polissage le long de l’axe Y est égal à la valeur de B.</p></td></tr></tbody></table><p></p><h2 id="exécution-en-mode-sélection-rectangulaire" class="maintenance-section-title" data-section-number="06"><a class="header" href="#exécution-en-mode-sélection-rectangulaire">Exécution en mode Sélection rectangulaire</a></h2>
+<div id="admonition-attention--1" class="admonition admonish-warning" role="note" aria-labelledby="admonition-attention--1-title">
+<div class="admonition-title">
+<div id="admonition-attention--1-title">
+<p>ATTENTION !</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-attention--1"></a>
+</div>
+<div>
+<p>Entre deux usinages, la machine effectue les déplacements sans remonter à la cote de sécurité.</p>
+</div>
+</div>
+<p>L’opérateur définit la position du rectangle à polir en déplaçant manuellement la machine et en modifiant les valeurs des coordonnées correspondantes. Une fois le rectangle défini, il configure les paramètres d’usinage pour chaque type de polissage souhaité. Les paramètres spécifiques de l’outil utilisé pour le polissage sont également définis.</p><p>À tout moment avant le démarrage du cycle de polissage, l’opérateur peut modifier le mode d’entrée et de sortie de l’outil en sélectionnant l’une des deux options disponibles.</p><p>Une fois la configuration terminée, incliner l’axe <strong>A</strong> de la machine à <strong>90_</strong> et démarrer la rotation du disque. L’opérateur peut alors exécuter les cycles programmés en appuyant sur le bouton « <strong>Démarrer cycle</strong> ». Pendant l’exécution, l’avancement peut être surveillé dans la colonne « <strong>Effectuées</strong> », qui indique les cycles terminés pour chaque type de polissage sélectionné.</p><!--Label="pbm_pls"--><!--Label="pbm_pls_fre"--><!--Label="pbm_pls_rct"-->
+                        </main>
+
+                    </div>
+
+                    <img src="images/donatoni_222.jpg">
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="2.7_isocam.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="2.9_liste_des_programmes.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+
+
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                <a rel="prev" href="2.7_isocam.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="2.9_liste_des_programmes.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="mermaid.min.js"></script>
+        <script src="mermaid-init.js"></script>
+        <script src="hidemenu.js"></script>
+        <script src="imagemodal.js"></script>
+        <script src="login.js"></script>
+    </div>
+
+    <!-- Modale -->
+    <div id="modal" onclick="closeModal()">
+        <img id="modal-img" src="">
+    </div>;
+
+
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
+
+<script id="virtual-keyboard-searchbar-fix">
+document.addEventListener("input", function (e) {
+    const t = e.target;
+    if (t && t.id === "searchbar" && e.isTrusted !== true) {
+        t.dispatchEvent(new KeyboardEvent("keyup", { bubbles: true }));
+    }
+});
+</script>
+</body>
+</html>

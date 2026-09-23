@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+<head>
+    <!-- Book generated using mdBook -->
+    <meta charset="UTF-8">
+    <title>3.22.2 PROJECT MATCH (OPTIONNEL) - FR-FR PARAMETRIX 4.14</title>
+
+    <!-- Custom HTML head -->
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="icon" href="favicon.svg">
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/chrome.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Fonts -->
+    <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+    <link rel="stylesheet" href="fonts/fonts.css">
+
+    <!-- Highlight.js Stylesheets -->
+    <link rel="stylesheet" id="highlight-css" href="highlight.css">
+    <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+    <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+    <!-- Custom theme stylesheets -->
+    <link rel="stylesheet" href="./mdbook-admonish.css">
+    <link rel="stylesheet" href="theme/custom.css">
+    <link rel="stylesheet" href="search.html">
+    <link rel="stylesheet" href="login.html">
+    <link rel="stylesheet" href="searchlogin.html">
+    <link rel="stylesheet" href="searchloginmenu.html">
+
+    <!-- Provide site root and default themes to javascript -->
+    <script>
+      const path_to_root = "";
+      const default_light_theme = "light";
+      const default_dark_theme = "light";
+    </script>
+    <!-- Start loading toc.js asap -->
+    <script src="toc.js"></script>
+<script>(function () {
+  const SUFFIX = "#2utHhOLI7Iz0";
+
+  function buildUrl() {
+    const base = window.location.href.split("#")[0];
+    return base + SUFFIX;
+  }
+
+  function fallbackCopy(text) {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.top = "-1000px";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+
+  async function copyUrl() {
+    const url = buildUrl();
+
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(url);
+        return;
+      } catch (e) {}
+    }
+
+    fallbackCopy(url);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.getElementById("copy-link-btn");
+    if (!btn) return;
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      copyUrl();
+    });
+  });
+})();
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-document" data-technical-styler-flow="html">
+    <header class="header-main">
+        <div class="header-flex">
+            <div class="donatoni-flex">
+                <label class="btn hamburger-menu" id="sidebar-toggle" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                    <i id="sidebar-toggle-icon" class="fa-solid fa-bars"></i>
+                </label>
+
+                <img src="images/donatoni-logo-white.svg" alt="Donatoni Macchine">
+            </div>
+
+            <div class="donatoni-flex action-header-buttons">
+                <div id="search-wrapper" class="search-wrapper hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults"></ul>
+                    </div>
+                </div>
+                <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
+                </button>
+
+                <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
+                    <i class="fa-solid fa-print"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div id="body-container">
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem("mdbook-theme");
+                let sidebar = localStorage.getItem("mdbook-sidebar");
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-theme",
+                        theme.slice(1, theme.length - 1)
+                    );
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-sidebar",
+                        sidebar.slice(1, sidebar.length - 1)
+                    );
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = "light";
+            let theme = default_theme;
+            const html = document.documentElement;
+            html.classList.remove("light");
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try {
+                    sidebar = localStorage.getItem('mdbook-sidebar');
+                } catch (e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document
+                        .getElementById("sidebar-toggle")
+                        .setAttribute("aria-expanded", sidebar === "visible");
+                    document
+                        .getElementById("sidebar")
+                        .setAttribute("aria-hidden", sidebar !== "visible");
+                    Array.from(document.querySelectorAll("#sidebar a")).forEach(
+                        function (link) {
+                            link.setAttribute("tabIndex", sidebar === "visible" ? 0 : -1);
+                        }
+                    );
+                </script>
+
+                <div id="content" class="content">
+
+                    <div>
+
+                        <img src="images/donatoni_111.jpg">
+
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Machine technical documentation</span><span class="maintenance-status"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Operational document</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="3222-project-match-optionnel" style="margin:0;" class="maintenance-main-title"><a class="header" href="#3222-project-match-optionnel"><span class="maintenance-code">DOC</span><span class="maintenance-name">3.22.2 PROJECT MATCH (OPTIONNEL)</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document DOC" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="3.22.2 PROJECT MATCH (OPTIONNEL)"--><p>Project Match est conçu pour la planification de projets de grande envergure.<br>Il permet de gérer plusieurs dalles simultanément afin de programmer tous les usinages nécessaires au projet avec une vue d’ensemble.</p><div class="TextAlignCenter"><img src="attachments/3.22.2_project_match_(optionnel)/0.12.png" alt="0.12.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><div class="TextAlignCenter"><img src="attachments/3.22.2_project_match_(optionnel)/0.13.png" alt="0.13.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><p>
+</p><p></p><p></p><h1 id="panneau-de-commande"><a class="header" href="#panneau-de-commande">Panneau de commande</a></h1><p>En appuyant sur le bouton de la barre inférieure, un panneau s’ouvre et permet de naviguer dans la fonction.</p><p>Pour accéder à Project Match, les boutons suivants sont affichés.</p><div class="TextAlignCenter"><img src="attachments/3.22.2_project_match_(optionnel)/image-20250623-112213.png" alt="image-20250623-112213.png" width="192" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="ec48a02a-f2a4-409a-a677-5837d253d005"><colgroup><col style="width: 337.0px;"><col style="width: 1460.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/3.22.2_project_match_(optionnel)/2.1-20250623-112413.png" alt="2.1-20250623-112413.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Nouveau projet</strong><br>Permet de créer un nouveau projet.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.22.2_project_match_(optionnel)/2.2-20250623-112446.png" alt="2.2-20250623-112446.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Charger projet</strong><br>Permet de charger un projet existant.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.22.2_project_match_(optionnel)/2.3-20250623-112528.png" alt="2.3-20250623-112528.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Afficher aperçu</strong><br>Permet d’ouvrir un écran affichant l’aperçu de l’ensemble du projet.</p></td></tr></tbody></table><p>À l’intérieur d’un projet, le panneau dispose en revanche de boutons différents.</p><div class="TextAlignCenter"><img src="attachments/3.22.2_project_match_(optionnel)/0.03.png" alt="0.03.png" width="293" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="9d56fd4a-324d-46fb-bc1e-f6cee1bff50e"><colgroup><col style="width: 337.0px;"><col style="width: 1460.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/3.22.2_project_match_(optionnel)/2.6-20250623-113918.png" alt="2.6-20250623-113918.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Enregistrer zone de travail</strong><br>Permet d’enregistrer dans le projet les modifications apportées à la zone de travail sélectionnée.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.22.2_project_match_(optionnel)/2.7-20250623-114009.png" alt="2.7-20250623-114009.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Enregistrer toutes les zones de travail</strong><br>Enregistre simultanément les modifications apportées à toutes les zones de travail du projet.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.22.2_project_match_(optionnel)/2.8-20250623-114101.png" alt="2.8-20250623-114101.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Enregistrer et fermer projet</strong><br>Permet de quitter le projet Book Match en laissant le choix d’enregistrer ou non.</p></td></tr></tbody></table>
+<div id="admonition-remarque" class="admonition admonish-info" role="note" aria-labelledby="admonition-remarque-title">
+<div class="admonition-title">
+<div id="admonition-remarque-title">
+<p>REMARQUE</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-remarque"></a>
+</div>
+<div>
+<p>Le panneau peut être déplacé en le faisant glisser sur l’écran.</p>
+</div>
+</div>
+<p></p><h2 id="nouveau-projet" class="maintenance-section-title" data-section-number="01"><a class="header" href="#nouveau-projet">Nouveau projet</a></h2><p>En appuyant sur le bouton, une fenêtre s’ouvre et permet de créer un projet Book Match multi-dalles.</p><div class="TextAlignCenter"><img src="attachments/3.22.2_project_match_(optionnel)/2.4.png" alt="2.4.png" width="350" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="efe8181a-dc36-498f-ad9f-b3694d1629e6"><colgroup><col style="width: 296.0px;"><col style="width: 1503.0px;"></colgroup><tbody><tr><td><p><strong>Nom</strong></p></td><td><p>Nom sous lequel enregistrer le projet.</p></td></tr><tr><td><p><strong>Lignes</strong></p></td><td><p>Permet de définir le nombre de lignes du projet.</p></td></tr><tr><td><p><strong>Colonnes</strong></p></td><td><p>Permet de définir le nombre de colonnes du projet.</p></td></tr><tr><td><p><strong>Dalles</strong></p></td><td><p>Nombre total de dalles que le projet peut contenir.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.22.2_project_match_(optionnel)/0.04.png" alt="0.04.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Dimensions zone de travail</strong><br>Permet de choisir les dimensions, en largeur et en hauteur, des zones de travail composant le projet.</p></td></tr></tbody></table><p></p><h2 id="charger-un-projet" class="maintenance-section-title" data-section-number="02"><a class="header" href="#charger-un-projet">Charger un projet</a></h2><p>Cet écran affiche les projets enregistrés pouvant être ouverts.</p><div class="TextAlignCenter"><img src="attachments/3.22.2_project_match_(optionnel)/0.05.png" alt="0.05.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><h2 id="fermer-un-projet" class="maintenance-section-title" data-section-number="03"><a class="header" href="#fermer-un-projet">Fermer un projet</a></h2><p>Une fenêtre permettant de fermer le projet s’ouvre.</p><div class="TextAlignCenter"><img src="attachments/3.22.2_project_match_(optionnel)/0.06.png" alt="0.06.png" width="450" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><div class="TextAlignCenter"><img src="attachments/3.22.2_project_match_(optionnel)/0.07.png" alt="0.07.png" width="450" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p>Pour changer le mode de fermeture, utiliser le bouton :</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="c877448d-c513-4306-918d-2104edfb3afe"><colgroup><col style="width: 401.0px;"><col style="width: 1398.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/3.22.2_project_match_(optionnel)/0.10.png" alt="0.10.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Mode de fermeture</strong><br>Permet de choisir de fermer le projet en enregistrant les modifications apportées ou sans les enregistrer.</p></td></tr></tbody></table><p></p><h1 id="projet"><a class="header" href="#projet">Projet</a></h1><p>Un projet est structuré en lignes et colonnes pouvant contenir les dalles.<br>Dans cet écran, il est possible d’insérer des dalles dans le projet, de définir leurs périmètres et de positionner les pièces.<br>L’opérateur peut déplacer librement les pièces d’une dalle à l’autre.</p><div class="TextAlignCenter"><img src="attachments/3.22.2_project_match_(optionnel)/0.12.png" alt="0.12.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><h2 id="zones-de-travail" class="maintenance-section-title" data-section-number="04"><a class="header" href="#zones-de-travail">Zones de travail</a></h2><p>Les zones de travail sont représentées par les cellules du projet. <br>Chaque zone permet de gérer l’usinage d’une dalle en définissant un périmètre et en y insérant des pièces.</p><div class="TextAlignCenter"><img src="attachments/3.22.2_project_match_(optionnel)/0.11.png" alt="0.11.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p>Certaines informations sont affichées dans l’angle supérieur gauche de chaque zone de travail.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="70fee4e3-3663-4ab2-a2ea-15c728c911b8"><colgroup><col style="width: 286.0px;"><col style="width: 1513.0px;"></colgroup><tbody><tr><td><p><strong>Dalle</strong></p></td><td><p>Dimensions de la dalle (largeur x hauteur x épaisseur).</p></td></tr><tr><td><p><strong>Pièces</strong></p></td><td><p>Nombre de pièces positionnées à l’intérieur du périmètre.</p></td></tr><tr><td><p><strong>Surface dalles</strong></p></td><td><p>Surface du périmètre de la dalle.</p></td></tr><tr><td><p><strong>Surface pièces</strong></p></td><td><p>Surface des pièces positionnées à l’intérieur du périmètre.</p></td></tr><tr><td><p><strong>Pourcentage</strong></p></td><td><p>Pourcentage de la surface du périmètre occupée par les pièces.</p></td></tr><tr><td><p><strong>Coupes</strong></p></td><td><p>Longueur totale des coupes à exécuter sur la dalle.</p></td></tr><tr><td><p><strong>Minutes</strong></p></td><td><p>Estimation du temps, en minutes, nécessaire pour exécuter le programme de coupe sur la dalle.</p></td></tr></tbody></table><p></p><h2 id="paramètres-projet" class="maintenance-section-title" data-section-number="05"><a class="header" href="#paramètres-projet">Paramètres projet</a></h2><p>Dans le panneau des paramètres utilisateur, la section « Dalles » permet de modifier certaines propriétés du projet actuellement ouvert.</p><div class="TextAlignCenter"><img src="attachments/3.22.2_project_match_(optionnel)/0.00.png" alt="0.00.png" width="600" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="28d29350-98ea-47f1-a8a0-1e574a1a8e19"><colgroup><col style="width: 344.0px;"><col style="width: 1454.0px;"></colgroup><tbody><tr><td><p><strong>Lignes</strong></p></td><td><p>L’opérateur peut modifier le nombre de lignes du projet courant.</p></td></tr><tr><td><p><strong>Colonnes</strong></p></td><td><p>L’opérateur peut modifier le nombre de colonnes du projet courant.</p></td></tr><tr><td><p><strong>Totale</strong></p></td><td><p>Nombre total de zones composant le projet courant.</p></td></tr><tr><td><p><strong>Dalles</strong></p></td><td><p>Nombre de dalles insérées dans le projet courant.</p></td></tr><tr><td><p><strong>Pièces</strong></p></td><td><p>Nombre de pièces insérées dans le projet courant.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.22.2_project_match_(optionnel)/0.01.png" alt="0.01.png" width="128" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Raccourcis</strong><br>Permet d’accéder à l’écran des raccourcis de Project Match.</p></td></tr></tbody></table><p></p><h2 id="raccourcis-clavier" class="maintenance-section-title" data-section-number="06"><a class="header" href="#raccourcis-clavier">Raccourcis clavier</a></h2><p>Project Match dispose de commandes clavier permettant d’effectuer facilement des actions de routine, utiles pour simplifier le travail au bureau.</p><div class="TextAlignCenter"><img src="attachments/3.22.2_project_match_(optionnel)/0.02.png" alt="0.02.png" width="450" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="2d45e8d1-750c-43da-9670-62f25db9494b"><colgroup><col style="width: 441.0px;"><col style="width: 1358.0px;"></colgroup><tbody><tr><td><p><strong>Zoom sur projet</strong></p></td><td><p>Élargit la vue à l’ensemble du projet.</p></td></tr><tr><td><p><strong>Zoom sur zone</strong></p></td><td><p>Resserre la vue sur la zone de travail sélectionnée.</p></td></tr><tr><td><p><strong>Mode panoramique</strong></p></td><td><p>Permet de déplacer la vue en interagissant avec l’écran.</p></td></tr><tr><td><p><strong>Naviguer entre les zones</strong></p></td><td><p>Permet de changer la zone sélectionnée à l’aide des touches.</p></td></tr><tr><td><p><strong>Déplacer pièce</strong></p></td><td><p>Déplace la pièce sélectionnée dans les quatre directions.</p></td></tr><tr><td><p><strong>Tourner pièce</strong></p></td><td><p>Fait tourner la pièce sélectionnée respectivement dans le sens antihoraire et horaire.</p></td></tr><tr><td><p><strong>Tourner pièce de _90</strong></p></td><td><p>Fait tourner la pièce de 90 degrés dans le sens horaire.</p></td></tr><tr><td><p><strong>Tout sélectionner</strong></p></td><td><p>Si une zone de travail est sélectionnée, cette commande sélectionne toutes les pièces qu’elle contient.<br>Sinon, elle sélectionne toutes les pièces du projet.</p></td></tr><tr><td><p><strong>Activer sélection multiple</strong></p></td><td><p>Active la sélection multiple de pièces/zones de travail.</p></td></tr><tr><td><p><strong>Annuler</strong></p></td><td><p>Annule la dernière opération exécutée.</p></td></tr><tr><td><p><strong>Copier dalle</strong></p></td><td><p>Copie la dalle dans la zone de travail sélectionnée.</p></td></tr><tr><td><p><strong>Couper dalle</strong></p></td><td><p>Coupe la dalle dans la zone de travail sélectionnée.</p></td></tr><tr><td><p><strong>Coller dalle</strong></p></td><td><p>Colle la dalle dans la zone de travail sélectionnée.</p></td></tr><tr><td><p><strong>Désélectionner</strong></p></td><td><p>Permet de désélectionner toutes les pièces/zones de travail.</p></td></tr><tr><td><p><strong>Confirmer périmètre ou photo</strong></p></td><td><p>À utiliser pour confirmer le périmètre/la photo</p></td></tr><tr><td><p><strong>Sélection suivante</strong></p></td><td><p>Sélectionne la pièce suivante dans la zone de travail sélectionnée.</p></td></tr><tr><td><p><strong>Aimant on/off</strong></p></td><td><p>Active/désactive l’aimantation des pièces.</p></td></tr></tbody></table><h2 id="commandes-rapides" class="maintenance-section-title" data-section-number="07"><a class="header" href="#commandes-rapides">Commandes rapides</a></h2><p>Le bouton droit de la souris permet d’accéder à la fenêtre des commandes rapides.<br>Les fonctions proposées changent selon que l’on clique à l’intérieur d’une zone de travail ou à l’extérieur de toutes les zones.</p><p></p><h3 id="commandes-projet"><a class="header" href="#commandes-projet">Commandes projet</a></h3><div class="TextAlignCenter"><img src="attachments/3.22.2_project_match_(optionnel)/0.22.png" alt="0.22.png" width="150" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="1e767625-fa5b-4414-a375-2c266b057de6"><colgroup><col style="width: 278.0px;"><col style="width: 1521.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/3.22.2_project_match_(optionnel)/0.31.png" alt="0.31.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Enregistrer usinages</strong><br>Permet d’enregistrer les modifications apportées à toutes les zones de travail.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.22.2_project_match_(optionnel)/0.23.png" alt="0.23.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Rapport</strong><br>Permet d’enregistrer un fichier PDF contenant un rapport du projet.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.22.2_project_match_(optionnel)/0.29.png" alt="0.29.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Nesting</strong><br>Permet d’exécuter le Nesting des pièces sur toutes les dalles du projet.</p></td></tr></tbody></table><p></p><h3 id="commandes-zone-de-travail"><a class="header" href="#commandes-zone-de-travail">Commandes zone de travail</a></h3><div class="TextAlignCenter"><img src="attachments/3.22.2_project_match_(optionnel)/0.21.png" alt="0.21.png" width="150" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="dbdb1080-a7d9-48c0-8fe5-befe2005951c"><colgroup><col style="width: 278.0px;"><col style="width: 1521.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/3.22.2_project_match_(optionnel)/0.26.png" alt="0.26.png" width="119" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Verrouiller/Déverrouiller</strong><br>Si une zone de travail est verrouillée, il n’est pas possible de déplacer les pièces qu’elle contient ni d’en insérer de nouvelles.<br>Il n’est pas non plus possible de modifier son périmètre ou de choisir d’autres photos.<br>Il est nécessaire de la déverrouiller pour rétablir toutes les opérations.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.22.2_project_match_(optionnel)/0.27.png" alt="0.27.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Couper</strong><br>Amène l’utilisateur à l’écran de gestion et d’optimisation des coupes de la dalle sélectionnée afin de créer le programme ISO.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.22.2_project_match_(optionnel)/0.28.png" alt="0.28.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Enregistrer</strong><br>Permet d’enregistrer les modifications appliquées à la zone de travail individuelle.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.22.2_project_match_(optionnel)/0.23.png" alt="0.23.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Rapport</strong><br>Permet d’enregistrer un fichier PDF contenant un rapport de la zone de travail sélectionnée.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.22.2_project_match_(optionnel)/0.30.png" alt="0.30.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Importer fichier</strong><br>Charge dans le projet un fichier de sauvegarde de l’état d’une dalle.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.22.2_project_match_(optionnel)/0.29.png" alt="0.29.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Nesting</strong><br>Exécute le Nesting des pièces dans la zone de travail sélectionnée.</p></td></tr></tbody></table><p></p><h3 id="nesting"><a class="header" href="#nesting">Nesting </a></h3><p>Lorsque la fonction de Nesting est activée sur l’ensemble du projet, deux modes sont disponibles.</p><div class="TextAlignCenter"><img src="attachments/3.22.2_project_match_(optionnel)/0.33.png" alt="0.33.png" width="400" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="ba921eb4-d07c-4e9d-825a-16fe371c2e48"><colgroup><col style="width: 595.0px;"><col style="width: 1205.0px;"></colgroup><tbody><tr><td><p><strong>Insérer les pièces dans les dalles actuelles</strong></p></td><td><p>Insère les pièces sur les dalles déjà présentes dans le projet afin d’optimiser l’espace disponible</p></td></tr><tr><td><p><strong>Insérer dalles et pièces jusqu’à épuisement</strong></p></td><td><p>Des dalles sur lesquelles appliquer le Nesting sont créées jusqu’à épuisement de toutes les pièces de la liste.<br>Les dimensions des dalles sont identiques à celles de la première dalle définie.<br>Cette fonction donne une indication du nombre de dalles qui pourraient être nécessaires pour terminer le projet, sachant que les dalles à couper auront la même forme.</p></td></tr></tbody></table><p>Pour utiliser le Nesting jusqu’à épuisement des pièces, il est nécessaire de créer un périmètre afin d’indiquer au programme les dimensions des dalles qui seront utilisées.<br>Des dalles de même dimension sont créées jusqu’à ce que toutes les pièces de la liste aient été insérées avec le Nesting.</p><div class="TextAlignCenter"><img src="attachments/3.22.2_project_match_(optionnel)/0.32.png" alt="0.32.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><div class="TextAlignCenter"><img src="attachments/3.22.2_project_match_(optionnel)/0.34.png" alt="0.34.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><h3 id="rapport"><a class="header" href="#rapport">Rapport</a></h3><p>Enregistre un rapport au format PDF dans le dossier dédié au projet/à la zone de travail courante.<br></p><p class="media-group"><p><a href='attachments/3.22.2_project_match_(optionnel)/ReportWorkzone.pdf'>ReportWorkzone.pdf</a></p><p><a href='attachments/3.22.2_project_match_(optionnel)/ReportProject.pdf'>ReportProject.pdf</a></p><p></p><h1 id="aperçu"><a class="header" href="#aperçu">Aperçu</a></h1><p>Cette fenêtre permet d’afficher une représentation globale du projet en temps réel.<br>Il est possible d’insérer les pièces dans la zone de travail sélectionnée en cliquant à l’intérieur de leur aperçu.<br>De plus, en faisant glisser l’arrière-plan d’une pièce, l’opérateur peut modifier la position de la pièce sur le plan de travail.</p><div class="TextAlignCenter"><img src="attachments/3.22.2_project_match_(optionnel)/0.13.png" alt="0.13.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><h2 id="boutons" class="maintenance-section-title" data-section-number="08"><a class="header" href="#boutons">Boutons</a></h2><p>Les boutons suivants se trouvent à gauche.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="b25275e0-05ca-40c7-8f0d-e8b7f5b597b4"><colgroup><col style="width: 352.0px;"><col style="width: 1446.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/3.22.2_project_match_(optionnel)/2.02.png" alt="2.02.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Déplacer les pièces</strong><br>Permet de déplacer les pièces composant l’aperçu.<br>Les boutons de la barre inférieure de la fenêtre sont affichés.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.22.2_project_match_(optionnel)/2.03.png" alt="2.03.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Déplacer la vue</strong><br>Permet de déplacer la vue de l’aperçu avec toutes les pièces.</p></td></tr></tbody></table><p>Les boutons suivants se trouvent à droite.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="9aae7590-df7f-42d2-bcee-9ff1a81ce87f"><colgroup><col style="width: 348.0px;"><col style="width: 1451.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/3.22.2_project_match_(optionnel)/0.17.png" alt="0.17.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Ouvrir rendu</strong><br>Ouvre le dossier dans lequel sont enregistrés les rendus des projets.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.22.2_project_match_(optionnel)/0.16.png" alt="0.16.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Personnaliser aperçu</strong><br>Ouvre un panneau permettant de personnaliser les couleurs des entités de l’aperçu.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.22.2_project_match_(optionnel)/0.18.png" alt="0.18.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Rétablir position pièces</strong><br>Rétablit les pièces déplacées à leur position d’origine.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.22.2_project_match_(optionnel)/0.19.png" alt="0.19.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Rétablir configuration projet</strong><br>Rétablit la configuration du projet.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.22.2_project_match_(optionnel)/0.20.png" alt="0.20.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Enregistrer rendu</strong><br>Ouvre un panneau permettant d’enregistrer le rendu du projet.</p></td></tr></tbody></table><p></p><h1 id="planification-dun-projet"><a class="header" href="#planification-dun-projet">Planification d’un projet</a></h1><h2 id="créer-un-nouveau-projet" class="maintenance-section-title" data-section-number="09"><a class="header" href="#créer-un-nouveau-projet">Créer un nouveau projet</a></h2><p>L’opérateur crée un nouveau projet en indiquant son nom, le nombre de lignes et de colonnes qui le composent, en se rappelant que chaque cellule correspond à une dalle, ainsi que les dimensions des cellules. Après confirmation, l’écran suivant s’affiche :</p><div class="TextAlignCenter"><img src="attachments/3.22.2_project_match_(optionnel)/0.35.png" alt="0.35.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><h2 id="ajouter-les-dalles" class="maintenance-section-title" data-section-number="10"><a class="header" href="#ajouter-les-dalles">Ajouter les dalles</a></h2><p>Insérer ensuite les dalles dans les zones de travail. Pour ce faire, sélectionner une zone, charger une photo depuis un fichier et choisir le périmètre.</p><div class="TextAlignCenter"><img src="attachments/3.22.2_project_match_(optionnel)/0.36.png" alt="0.36.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><h2 id="importer-les-pièces" class="maintenance-section-title" data-section-number="11"><a class="header" href="#importer-les-pièces">Importer les pièces</a></h2><p>À ce stade, importer les pièces à couper. Il est possible de charger aussi bien des fichiers DXF que des pièces standard. Le nombre de fichiers pouvant être chargés n’est pas limité.</p><div class="TextAlignCenter"><img src="attachments/3.22.2_project_match_(optionnel)/0.37.png" alt="0.37.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><h2 id="ouvrir-aperçu" class="maintenance-section-title" data-section-number="12"><a class="header" href="#ouvrir-aperçu">Ouvrir aperçu</a></h2><p>Lorsque la liste contient des pièces, il est possible d’ouvrir la fenêtre d’aperçu du projet. <br>Celle-ci affiche toutes les pièces importées.</p><div class="TextAlignCenter"><img src="attachments/3.22.2_project_match_(optionnel)/0.38.png" alt="0.38.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><h2 id="insérer-les-pièces-dans-les-dalles" class="maintenance-section-title" data-section-number="13"><a class="header" href="#insérer-les-pièces-dans-les-dalles">Insérer les pièces dans les dalles</a></h2><p>Pour insérer les pièces dans les dalles, utiliser la méthode classique via la liste des pièces ou sélectionner l’intérieur des zones de pièces visibles dans l’aperçu.<br>Elles sont alors insérées sur la dalle de la zone de travail sélectionnée.<br>En faisant glisser une pièce depuis l’aperçu, elle se déplace également sur la dalle afin de choisir la meilleure partie de la dalle pour faire coïncider les veinages entre les différentes pièces. L’opération inverse est également possible : faire glisser la pièce depuis la dalle et vérifier dans l’aperçu si les veinages coïncident ou non selon sa nouvelle position.</p><div class="TextAlignCenter"><img src="attachments/3.22.2_project_match_(optionnel)/0.39.png" alt="0.39.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><div class="TextAlignCenter"><img src="attachments/3.22.2_project_match_(optionnel)/0.40.png" alt="0.40.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><p></p><p></p><!--Label="bkm_prj_cnt"--><!--Label="bkm_prj_prj"--><!--Label="bkm_prj_pln"--><!--Label="bkm_prj_prw"--><!--Label="bkm_prj"-->
+                        </main>
+
+                    </div>
+
+                    <img src="images/donatoni_222.jpg">
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="3.22.1_easy_match_(optionnel).html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="3.23_décharger_la_pièce_(option).html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+
+
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                <a rel="prev" href="3.22.1_easy_match_(optionnel).html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="3.23_décharger_la_pièce_(option).html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="mermaid.min.js"></script>
+        <script src="mermaid-init.js"></script>
+        <script src="hidemenu.js"></script>
+        <script src="imagemodal.js"></script>
+        <script src="login.js"></script>
+    </div>
+
+    <!-- Modale -->
+    <div id="modal" onclick="closeModal()">
+        <img id="modal-img" src="">
+    </div>;
+
+
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
+
+<script id="virtual-keyboard-searchbar-fix">
+document.addEventListener("input", function (e) {
+    const t = e.target;
+    if (t && t.id === "searchbar" && e.isTrusted !== true) {
+        t.dispatchEvent(new KeyboardEvent("keyup", { bubbles: true }));
+    }
+});
+</script>
+</body>
+</html>

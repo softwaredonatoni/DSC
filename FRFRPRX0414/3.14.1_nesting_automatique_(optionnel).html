@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+<head>
+    <!-- Book generated using mdBook -->
+    <meta charset="UTF-8">
+    <title>3.14.1 NESTING AUTOMATIQUE (OPTIONNEL) - FR-FR PARAMETRIX 4.14</title>
+
+    <!-- Custom HTML head -->
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="icon" href="favicon.svg">
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/chrome.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Fonts -->
+    <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+    <link rel="stylesheet" href="fonts/fonts.css">
+
+    <!-- Highlight.js Stylesheets -->
+    <link rel="stylesheet" id="highlight-css" href="highlight.css">
+    <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+    <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+    <!-- Custom theme stylesheets -->
+    <link rel="stylesheet" href="./mdbook-admonish.css">
+    <link rel="stylesheet" href="theme/custom.css">
+    <link rel="stylesheet" href="search.html">
+    <link rel="stylesheet" href="login.html">
+    <link rel="stylesheet" href="searchlogin.html">
+    <link rel="stylesheet" href="searchloginmenu.html">
+
+    <!-- Provide site root and default themes to javascript -->
+    <script>
+      const path_to_root = "";
+      const default_light_theme = "light";
+      const default_dark_theme = "light";
+    </script>
+    <!-- Start loading toc.js asap -->
+    <script src="toc.js"></script>
+<script>(function () {
+  const SUFFIX = "#2utHhOLI7Iz0";
+
+  function buildUrl() {
+    const base = window.location.href.split("#")[0];
+    return base + SUFFIX;
+  }
+
+  function fallbackCopy(text) {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.top = "-1000px";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+
+  async function copyUrl() {
+    const url = buildUrl();
+
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(url);
+        return;
+      } catch (e) {}
+    }
+
+    fallbackCopy(url);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.getElementById("copy-link-btn");
+    if (!btn) return;
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      copyUrl();
+    });
+  });
+})();
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-document" data-technical-styler-flow="html">
+    <header class="header-main">
+        <div class="header-flex">
+            <div class="donatoni-flex">
+                <label class="btn hamburger-menu" id="sidebar-toggle" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                    <i id="sidebar-toggle-icon" class="fa-solid fa-bars"></i>
+                </label>
+
+                <img src="images/donatoni-logo-white.svg" alt="Donatoni Macchine">
+            </div>
+
+            <div class="donatoni-flex action-header-buttons">
+                <div id="search-wrapper" class="search-wrapper hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults"></ul>
+                    </div>
+                </div>
+                <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
+                </button>
+
+                <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
+                    <i class="fa-solid fa-print"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div id="body-container">
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem("mdbook-theme");
+                let sidebar = localStorage.getItem("mdbook-sidebar");
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-theme",
+                        theme.slice(1, theme.length - 1)
+                    );
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-sidebar",
+                        sidebar.slice(1, sidebar.length - 1)
+                    );
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = "light";
+            let theme = default_theme;
+            const html = document.documentElement;
+            html.classList.remove("light");
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try {
+                    sidebar = localStorage.getItem('mdbook-sidebar');
+                } catch (e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document
+                        .getElementById("sidebar-toggle")
+                        .setAttribute("aria-expanded", sidebar === "visible");
+                    document
+                        .getElementById("sidebar")
+                        .setAttribute("aria-hidden", sidebar !== "visible");
+                    Array.from(document.querySelectorAll("#sidebar a")).forEach(
+                        function (link) {
+                            link.setAttribute("tabIndex", sidebar === "visible" ? 0 : -1);
+                        }
+                    );
+                </script>
+
+                <div id="content" class="content">
+
+                    <div>
+
+                        <img src="images/donatoni_111.jpg">
+
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Machine technical documentation</span><span class="maintenance-status"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Operational document</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="3141-nesting-automatique-optionnel" style="margin:0;" class="maintenance-main-title"><a class="header" href="#3141-nesting-automatique-optionnel"><span class="maintenance-code">DOC</span><span class="maintenance-name">3.14.1 NESTING AUTOMATIQUE (OPTIONNEL)</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document DOC" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="3.14.1 NESTING AUTOMATIQUE (OPTIONNEL)"--><p>L’utilisation du Nesting automatique est particulièrement utile lorsque le nombre de pièces à traiter est élevé et que les différentes combinaisons ne peuvent plus être gérées facilement par l’opérateur.<br>En fonction des paramètres définis, différentes solutions peuvent être obtenues. Elles sont affichées à l’écran et l’opérateur peut choisir la configuration souhaitée.</p><div class="TextAlignCenter"><img src="attachments/3.14.1_nesting_automatique_(optionnel)/0.00.png" alt="0.00.png" width="600" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><p>
+</p><p></p><h1 id="boutons"><a class="header" href="#boutons">Boutons</a></h1><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="721b8384-accc-4b72-9cef-1b6d1728a50a"><colgroup><col style="width: 222.0px;"><col style="width: 1575.0px;"></colgroup><tbody><tr><td data-highlight-colour="#ffffff"><div class="TextAlignCenter"><img src="attachments/3.14.1_nesting_automatique_(optionnel)/0.04.png" alt="0.04.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td data-highlight-colour="#ffffff"><p><strong>Ajouter</strong><br>L’opérateur peut créer une configuration.</p></td></tr><tr><td data-highlight-colour="#ffffff"><div class="TextAlignCenter"><img src="attachments/3.14.1_nesting_automatique_(optionnel)/0.05.png" alt="0.05.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td data-highlight-colour="#ffffff"><p><strong>Supprimer</strong><br>L’opérateur peut supprimer une configuration.</p></td></tr><tr><td data-highlight-colour="#ffffff"><div class="TextAlignCenter"><img src="attachments/3.14.1_nesting_automatique_(optionnel)/0.06.png" alt="0.06.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td data-highlight-colour="#ffffff"><p><strong>Modifier</strong><br>L’opérateur peut modifier une configuration.</p></td></tr><tr><td data-highlight-colour="#ffffff"><div class="TextAlignCenter"><img src="attachments/3.14.1_nesting_automatique_(optionnel)/0.07.png" alt="0.07.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td data-highlight-colour="#ffffff"><p><strong>Exécution</strong><br>Toutes les configurations sont calculées et les résultats sont insérés dans la liste de droite.</p></td></tr></tbody></table><p></p><h2 id="modifier-configuration" class="maintenance-section-title" data-section-number="01"><a class="header" href="#modifier-configuration">Modifier configuration</a></h2><p>Le Nesting automatique permet de personnaliser les paramètres utilisés pour calculer le positionnement des pièces dans la zone de travail associée à une configuration.<br>En effet, selon le type de pièces à traiter, certaines stratégies peuvent être plus adaptées et plus performantes.</p><div class="TextAlignCenter"><img src="attachments/3.14.1_nesting_automatique_(optionnel)/0.11.png" alt="0.11.png" width="441" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="67925cb1-974e-4263-ba87-593664e49934"><colgroup><col style="width: 566.0px;"><col style="width: 1232.0px;"></colgroup><tbody><tr><td><p><strong>Nom</strong></p></td><td><p>Nom de la configuration qui apparaît dans la liste.</p></td></tr><tr><td><p><strong>Distance dalle</strong></p></td><td><p>Distance que les pièces doivent respecter par rapport au bord de la dalle lorsqu’elles sont positionnées.</p></td></tr><tr><td><p><strong>Nb. solutions à rechercher</strong></p></td><td><p>Nombre de solutions calculées par le Nesting. La meilleure est choisie parmi toutes celles calculées.</p></td></tr><tr><td><p><strong>Nb. essais de déplacement</strong></p></td><td><p>Nombre d’essais effectués en déplaçant la pièce lorsqu’elle ne rentre pas dans le périmètre de la dalle.</p></td></tr><tr><td><p><strong>Valeur de déplacement</strong></p></td><td><p>Valeur de déplacement de la pièce pour tenter de l’insérer à l’intérieur du périmètre de la dalle.</p></td></tr><tr><td><p><strong>Nb. tentatives sur la même dalle</strong></p></td><td><p>Nombre de tentatives pour insérer la pièce dans le même périmètre lorsqu’elle n’y rentre pas.</p></td></tr><tr><td><p><strong>Timeout calcul solutions</strong></p></td><td><p>Temps maximal accordé au calcul de chaque solution individuellement.</p></td></tr><tr><td><p><strong>Utiliser ordre de la liste</strong></p></td><td><p>Impose d’essayer de positionner les pièces à l’intérieur du périmètre en suivant l’ordre dans lequel elles apparaissent dans la liste des pièces.</p></td></tr><tr><td><p><strong>Utiliser ordre personnalisé</strong></p></td><td><p>Permet de choisir l’ordre dans lequel essayer de positionner les pièces à l’intérieur du périmètre de la dalle en fonction de certaines de leurs propriétés.<br>Pour activer un critère de tri, cocher la case correspondante.<br>Les critères sont appliqués de haut en bas. Cela signifie que les pièces sont triées selon le premier critère. Si deux pièces ou plus ont la même valeur pour la propriété associée au premier critère, elles sont triées selon le critère suivant. Et ainsi de suite pour chaque critère de la liste.<br>Pour chaque critère, il est possible de choisir un tri croissant ou décroissant.</p></td></tr><tr><td><p><strong>Forcer pièce avant de passer à la suivante</strong></p></td><td><p>Permet de choisir s’il faut essayer de positionner la pièce à différents emplacements dans le périmètre de la dalle ou passer au positionnement de la suivante sans autre tentative.</p></td></tr><tr><td><p><strong>Point de départ fixe</strong></p></td><td><p>Permet de choisir le point du périmètre à partir duquel commencer à insérer les pièces.</p></td></tr><tr><td><p><strong>Fixer mode lignes - colonnes</strong></p></td><td><p>Permet de choisir si, lors de l’insertion des pièces, une logique doit être respectée afin de les disposer en lignes, en colonnes ou de manière aléatoire. </p></td></tr><tr><td><p><strong>Mode rotation pièce</strong></p></td><td><p>Permet de choisir la logique de rotation des pièces pour les essais d’insertion à l’intérieur du périmètre de la dalle.</p></td></tr><tr><td><p><strong>Utiliser rectangle intérieur maximal</strong></p></td><td><p>Si cette option est activée, les pièces sont insérées dans le rectangle de plus grande aire contenu à l’intérieur du périmètre.<br>Sinon, le Nesting essaie de disposer les pièces sur toute la surface disponible du périmètre.</p></td></tr><tr><td><p><strong>Activer Deep Nesting</strong></p></td><td><p>Si cette option est désactivée, les pièces sont insérées sur la dalle de manière à optimiser l’utilisation du système de manutention du matériau par ventouses pour la résolution des collisions.<br>Si cette option est activée, elle permet de rechercher des combinaisons de pièces plus complexes, dont la disposition peut toutefois entrer en collision avec l’utilisation du système de manutention.</p></td></tr></tbody></table><p></p><h1 id="exécution-nesting"><a class="header" href="#exécution-nesting">Exécution Nesting</a></h1><p>En appuyant sur la flèche bleue située à côté de chaque élément de la liste, le Nesting est calculé avec cette configuration.<br>Un aperçu du résultat est inséré dans la section de droite. Il affiche la disposition des pièces à l’intérieur du périmètre et le pourcentage de la surface de la dalle couvert par les pièces.</p><div class="TextAlignCenter"><img src="attachments/3.14.1_nesting_automatique_(optionnel)/0.08.png" alt="0.08.png" width="600" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p>Si la disposition des pièces n’est pas satisfaisante, il est possible d’appuyer de nouveau sur la flèche bleue pour recalculer le résultat.</p><p>Après l’exécution de toutes les configurations de Nesting, les résultats sont classés de manière à afficher en premier ceux qui permettent d’occuper la plus grande surface de la dalle.</p><div class="TextAlignCenter"><img src="attachments/3.14.1_nesting_automatique_(optionnel)/0.09.png" alt="0.09.png" width="600" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p>Une fois la configuration souhaitée choisie, appuyer sur le bouton de confirmation ; les pièces sont alors positionnées sur la dalle selon la disposition sélectionnée. La position des pièces dans la zone de travail reste modifiable par l’opérateur.</p><div class="TextAlignCenter"><img src="attachments/3.14.1_nesting_automatique_(optionnel)/0.10.png" alt="0.10.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div>
+<div id="admonition-remarque" class="admonition admonish-info" role="note" aria-labelledby="admonition-remarque-title">
+<div class="admonition-title">
+<div id="admonition-remarque-title">
+<p>REMARQUE</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-remarque"></a>
+</div>
+<div>
+<p>Les pièces sont placées sur la dalle en tenant compte de l’utilisation du système de manutention du matériau par ventouses pour résoudre les collisions entre les pièces et des défauts signalés sur la dalle elle-même.</p>
+</div>
+</div>
+<p></p><!--Label="nst_aut"-->
+                        </main>
+
+                    </div>
+
+                    <img src="images/donatoni_222.jpg">
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="3.14_nesting.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="3.15_interaction_avec_les_pièces_dans_la_zone_de_travail.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+
+
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                <a rel="prev" href="3.14_nesting.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="3.15_interaction_avec_les_pièces_dans_la_zone_de_travail.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="mermaid.min.js"></script>
+        <script src="mermaid-init.js"></script>
+        <script src="hidemenu.js"></script>
+        <script src="imagemodal.js"></script>
+        <script src="login.js"></script>
+    </div>
+
+    <!-- Modale -->
+    <div id="modal" onclick="closeModal()">
+        <img id="modal-img" src="">
+    </div>;
+
+
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
+
+<script id="virtual-keyboard-searchbar-fix">
+document.addEventListener("input", function (e) {
+    const t = e.target;
+    if (t && t.id === "searchbar" && e.isTrusted !== true) {
+        t.dispatchEvent(new KeyboardEvent("keyup", { bubbles: true }));
+    }
+});
+</script>
+</body>
+</html>

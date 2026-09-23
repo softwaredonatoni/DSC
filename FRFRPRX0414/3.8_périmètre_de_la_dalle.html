@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+<head>
+    <!-- Book generated using mdBook -->
+    <meta charset="UTF-8">
+    <title>3.8 PÉRIMÈTRE DE LA DALLE - FR-FR PARAMETRIX 4.14</title>
+
+    <!-- Custom HTML head -->
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="icon" href="favicon.svg">
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/chrome.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Fonts -->
+    <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+    <link rel="stylesheet" href="fonts/fonts.css">
+
+    <!-- Highlight.js Stylesheets -->
+    <link rel="stylesheet" id="highlight-css" href="highlight.css">
+    <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+    <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+    <!-- Custom theme stylesheets -->
+    <link rel="stylesheet" href="./mdbook-admonish.css">
+    <link rel="stylesheet" href="theme/custom.css">
+    <link rel="stylesheet" href="search.html">
+    <link rel="stylesheet" href="login.html">
+    <link rel="stylesheet" href="searchlogin.html">
+    <link rel="stylesheet" href="searchloginmenu.html">
+
+    <!-- Provide site root and default themes to javascript -->
+    <script>
+      const path_to_root = "";
+      const default_light_theme = "light";
+      const default_dark_theme = "light";
+    </script>
+    <!-- Start loading toc.js asap -->
+    <script src="toc.js"></script>
+<script>(function () {
+  const SUFFIX = "#2utHhOLI7Iz0";
+
+  function buildUrl() {
+    const base = window.location.href.split("#")[0];
+    return base + SUFFIX;
+  }
+
+  function fallbackCopy(text) {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.top = "-1000px";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+
+  async function copyUrl() {
+    const url = buildUrl();
+
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(url);
+        return;
+      } catch (e) {}
+    }
+
+    fallbackCopy(url);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.getElementById("copy-link-btn");
+    if (!btn) return;
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      copyUrl();
+    });
+  });
+})();
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-document" data-technical-styler-flow="html">
+    <header class="header-main">
+        <div class="header-flex">
+            <div class="donatoni-flex">
+                <label class="btn hamburger-menu" id="sidebar-toggle" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                    <i id="sidebar-toggle-icon" class="fa-solid fa-bars"></i>
+                </label>
+
+                <img src="images/donatoni-logo-white.svg" alt="Donatoni Macchine">
+            </div>
+
+            <div class="donatoni-flex action-header-buttons">
+                <div id="search-wrapper" class="search-wrapper hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults"></ul>
+                    </div>
+                </div>
+                <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
+                </button>
+
+                <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
+                    <i class="fa-solid fa-print"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div id="body-container">
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem("mdbook-theme");
+                let sidebar = localStorage.getItem("mdbook-sidebar");
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-theme",
+                        theme.slice(1, theme.length - 1)
+                    );
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-sidebar",
+                        sidebar.slice(1, sidebar.length - 1)
+                    );
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = "light";
+            let theme = default_theme;
+            const html = document.documentElement;
+            html.classList.remove("light");
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try {
+                    sidebar = localStorage.getItem('mdbook-sidebar');
+                } catch (e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document
+                        .getElementById("sidebar-toggle")
+                        .setAttribute("aria-expanded", sidebar === "visible");
+                    document
+                        .getElementById("sidebar")
+                        .setAttribute("aria-hidden", sidebar !== "visible");
+                    Array.from(document.querySelectorAll("#sidebar a")).forEach(
+                        function (link) {
+                            link.setAttribute("tabIndex", sidebar === "visible" ? 0 : -1);
+                        }
+                    );
+                </script>
+
+                <div id="content" class="content">
+
+                    <div>
+
+                        <img src="images/donatoni_111.jpg">
+
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Machine technical documentation</span><span class="maintenance-status"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Operational document</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="38-pÉrimÈtre-de-la-dalle" style="margin:0;" class="maintenance-main-title"><a class="header" href="#38-pÉrimÈtre-de-la-dalle"><span class="maintenance-code">DOC</span><span class="maintenance-name">3.8 PÉRIMÈTRE DE LA DALLE</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document DOC" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="3.8 PÉRIMÈTRE DE LA DALLE"--><p>Pour fonctionner, le programme doit connaître le bord de la dalle sur laquelle il doit travailler. Cette fonction permet de tracer le périmètre.</p><div class="TextAlignCenter"><img src="attachments/3.8_périmètre_de_la_dalle/2.00.png" alt="2.00.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><p>
+</p><p></p><h1 id="mode-de-création-du-périmètre"><a class="header" href="#mode-de-création-du-périmètre">Mode de création du périmètre</a></h1><p>Le programme permet à l’opérateur de dessiner le périmètre selon l’un des modes suivants :</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="8c8431ee-d2bb-4d5a-83a9-b77903014214"><colgroup><col style="width: 322.0px;"><col style="width: 1477.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/3.8_périmètre_de_la_dalle/2.12.png" alt="2.12.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Mode rectangle</strong><br>Permet de créer des périmètres rectangulaires.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.8_périmètre_de_la_dalle/2.09.png" alt="2.09.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Mode par points</strong><br>Permet de créer des polygones de forme arbitraire.</p></td></tr></tbody></table>
+<div id="admonition-remarque" class="admonition admonish-info" role="note" aria-labelledby="admonition-remarque-title">
+<div class="admonition-title">
+<div id="admonition-remarque-title">
+<p>REMARQUE</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-remarque"></a>
+</div>
+<div>
+<p>Il est possible de passer d’un mode à l’autre à tout moment pendant la création du périmètre.
+<br>
+En passant du mode « par points » au mode « rectangle », le périmètre est converti en rectangle et tous les sommets du polygone sont perdus.
+<br>
+Une confirmation est demandée avant d’effectuer cette opération.</p>
+</div>
+</div>
+<p></p><h2 id="rectangle" class="maintenance-section-title" data-section-number="01"><a class="header" href="#rectangle">Rectangle</a></h2><p>Ce mode permet de créer des périmètres rectangulaires.</p><div class="TextAlignCenter"><img src="attachments/3.8_périmètre_de_la_dalle/2.00.png" alt="2.00.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p>Pour modifier les dimensions et la position du rectangle, faire glisser les cercles jaunes dans la zone de travail ou modifier les valeurs indiquées dans la barre ci-dessous.</p><div class="TextAlignCenter"><img src="attachments/3.8_périmètre_de_la_dalle/2.06.png" alt="2.06.png" width="553" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="eba108d6-e989-49d3-bc41-4479ea3ac200"><colgroup><col style="width: 323.0px;"><col style="width: 1475.0px;"></colgroup><tbody><tr><td><p><strong>Dimensions</strong></p></td><td><p>Dimensions du périmètre sur l’axe X et sur l’axe Y.</p></td></tr><tr><td><p><strong>Position</strong></p></td><td><p>Coordonnées du sommet inférieur gauche du rectangle par rapport au sommet inférieur gauche du plan de travail.</p></td></tr></tbody></table><p></p><h2 id="par-points" class="maintenance-section-title" data-section-number="02"><a class="header" href="#par-points">Par points</a></h2><p>Ce mode permet de créer des polygones de forme arbitraire.<br>Pour ce faire, l’opérateur peut placer les points formant le périmètre aux positions souhaitées, comme illustré ci-dessous.</p><div class="TextAlignCenter"><img src="attachments/3.8_périmètre_de_la_dalle/2.03.png" alt="2.03.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p>Dans ce mode, il est possible d’interagir avec le périmètre à l’aide des boutons suivants :</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="ffcba39b-7d47-4c1b-8d17-3496033984f1"><colgroup><col style="width: 345.0px;"><col style="width: 1454.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/3.8_périmètre_de_la_dalle/8bb1cf51-228e-4987-90be-a3588d49aedf.png" alt="8bb1cf51-228e-4987-90be-a3588d49aedf.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Fermer le périmètre</strong><br>Une fois tous les points nécessaires acquis, appuyer sur ce bouton pour fermer le périmètre.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.8_périmètre_de_la_dalle/2.21.png" alt="2.21.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Supprimer le dernier point</strong><br>S’il est nécessaire de modifier un périmètre fermé, appuyer sur ce bouton pour ouvrir le périmètre.<br>En continuant d’appuyer sur le bouton, les points créés précédemment sont supprimés dans l’ordre inverse.</p></td></tr></tbody></table><p>Une fois fermé, le périmètre devient bleu et ses sommets sont indiqués par des cercles jaunes.<br>Pendant la création comme en présence d’un périmètre fermé, il est toujours possible de déplacer les sommets dans la zone de travail afin d’améliorer la précision.</p><p></p><p></p><h1 id="barre-inférieure"><a class="header" href="#barre-inférieure">Barre inférieure</a></h1><p>L’opérateur peut interagir avec un périmètre présent dans la zone de travail à l’aide des boutons situés dans la partie inférieure de l’écran.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="1f10996d-825a-49f7-b4c1-10bb0e316181"><colgroup><col style="width: 329.0px;"><col style="width: 1470.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/3.8_périmètre_de_la_dalle/2.17.png" alt="2.17.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Aimantation sur laser croix</strong><br>Permet à l’opérateur de déplacer les sommets du périmètre vers la position d’éventuelles croix laser présentes dans la zone de travail.<br>Lorsqu’un sommet est déplacé à proximité d’une croix laser, il est aimanté à cette position.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.8_périmètre_de_la_dalle/2.20.png" alt="2.20.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Déplacement du périmètre</strong><br>Permet de déplacer le périmètre sélectionné vers une nouvelle position en interagissant avec celui-ci dans la zone de travail.</p></td></tr></tbody></table><p></p><p></p><h1 id="créer-un-nouveau-périmètre"><a class="header" href="#créer-un-nouveau-périmètre">Créer un nouveau périmètre</a></h1><p>Le programme permet de créer plusieurs périmètres sur lesquels disposer les pièces à usiner. <br>Il est également possible de définir des zones de la dalle dans lesquelles aucune pièce ne peut être insérée.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="f8e41481-9cab-4f15-ba34-2c545ac9717e"><colgroup><col style="width: 320.0px;"><col style="width: 1479.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/3.8_périmètre_de_la_dalle/2.23.png" alt="2.23.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Périmètre</strong><br>Permet de créer un périmètre à l’intérieur duquel des pièces peuvent être insérées.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.8_périmètre_de_la_dalle/2.24.png" alt="2.24.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Zone à éviter</strong><br>Permet de définir le périmètre d’une zone à éviter dans laquelle aucune pièce ne peut être placée.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/3.8_périmètre_de_la_dalle/2.15.png" alt="2.15.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Supprimer le périmètre</strong><br>Active le mode de suppression individuelle, qui permet à l’opérateur de supprimer un ou plusieurs périmètres créés en cliquant dessus.</p></td></tr></tbody></table><p>Les périmètres créés sont visibles dans la liste en haut à droite. Pour modifier un périmètre, il suffit de le sélectionner dans la zone de travail ou de sélectionner l’entrée correspondante dans la liste. <br>Le périmètre actuellement sélectionné présente des contours bleus et des sommets jaunes, tandis que les autres peuvent également être distingués par leur couleur : vert pour les périmètres des dalles, orange pour les zones à éviter.</p>
+<div id="admonition-remarque-1" class="admonition admonish-info" role="note" aria-labelledby="admonition-remarque-1-title">
+<div class="admonition-title">
+<div id="admonition-remarque-1-title">
+<p>REMARQUE</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-remarque-1"></a>
+</div>
+<div>
+<p>Il n’est pas possible de superposer deux ou plusieurs périmètres de dalle.</p>
+</div>
+</div>
+<div class="TextAlignCenter"><img src="attachments/3.8_périmètre_de_la_dalle/2.04.png" alt="2.04.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p>Cet écran permet d’ajouter des coupes de détente à la dalle.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="be5c45e5-8829-4e29-a529-e84553ed0fb2"><colgroup><col style="width: 330.0px;"><col style="width: 1469.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/3.8_périmètre_de_la_dalle/2.18.png" alt="2.18.png" width="86" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Dressage de la dalle</strong><br>Permet d’ajouter des coupes de détente au périmètre de la dalle.</p></td></tr></tbody></table>
+<div id="admonition-remarque-2" class="admonition admonish-info" role="note" aria-labelledby="admonition-remarque-2-title">
+<div class="admonition-title">
+<div id="admonition-remarque-2-title">
+<p>REMARQUE</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-remarque-2"></a>
+</div>
+<div>
+<p>Chaque périmètre créé peut être dressé différemment.</p>
+</div>
+</div>
+<p>Pour terminer la création du périmètre, l’opérateur doit saisir certaines informations concernant l’usinage à effectuer.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="f8c419df-e66f-41bd-81c6-2978d641d795"><colgroup><col style="width: 329.0px;"><col style="width: 1470.0px;"></colgroup><tbody><tr><td><p><strong>Épaisseur</strong></p></td><td><p>L’opérateur doit indiquer l’épaisseur de la dalle présente sur le plan de travail.</p></td></tr><tr><td><p><strong>Nom</strong></p></td><td><p>Nom à attribuer à l’usinage de la dalle.</p></td></tr><tr><td><p><strong>Client</strong></p></td><td><p>Indique le nom du client pour lequel la commande est réalisée. Ce champ est facultatif.</p></td></tr><tr><td><p><strong>Commande</strong></p></td><td><p>Indique un identifiant de commande. Ce champ est facultatif.</p></td></tr></tbody></table>
+<div id="admonition-remarque-3" class="admonition admonish-info" role="note" aria-labelledby="admonition-remarque-3-title">
+<div class="admonition-title">
+<div id="admonition-remarque-3-title">
+<p>REMARQUE</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-remarque-3"></a>
+</div>
+<div>
+<p>L’épaisseur de la dalle et le nom de l’usinage sont des champs obligatoires à renseigner avant de confirmer le périmètre.
+<br>
+En revanche, il n’est pas nécessaire de renseigner les informations relatives aux propriétés supplémentaires ci-dessous.</p>
+</div>
+</div>
+<p></p><h2 id="zones-à-éviter" class="maintenance-section-title" data-section-number="03"><a class="header" href="#zones-à-éviter">Zones à éviter</a></h2><p>Les zones à éviter sont des zones de la dalle que l’opérateur souhaite rendre indisponibles pour le positionnement des pièces.<br>Cela peut être dû à la présence de fissures dans le matériau, de veines peu esthétiques ou à la nécessité de préserver certaines parties de la dalle.<br>Elles sont représentées par des zones bleues dans la zone de travail.</p><div class="TextAlignCenter"><img src="attachments/3.8_périmètre_de_la_dalle/2.26.png" alt="2.26.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p>Lorsque la fonction Nesting est utilisée, les pièces sont disposées de manière à n’occuper aucune de ces zones.</p><!--Label="prm"--><!--Label="prm_rct"--><!--Label="prm_ctr"--><!--Label="prm_ctr_avo"--><!--Label="prm_pts"--><!--Label="prm_blw"-->
+                        </main>
+
+                    </div>
+
+                    <img src="images/donatoni_222.jpg">
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="3.7_ajouter_une_photo_à_la_zone_de_travail.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="3.8.1_dressage_de_la_dalle.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+
+
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                <a rel="prev" href="3.7_ajouter_une_photo_à_la_zone_de_travail.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="3.8.1_dressage_de_la_dalle.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="mermaid.min.js"></script>
+        <script src="mermaid-init.js"></script>
+        <script src="hidemenu.js"></script>
+        <script src="imagemodal.js"></script>
+        <script src="login.js"></script>
+    </div>
+
+    <!-- Modale -->
+    <div id="modal" onclick="closeModal()">
+        <img id="modal-img" src="">
+    </div>;
+
+
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
+
+<script id="virtual-keyboard-searchbar-fix">
+document.addEventListener("input", function (e) {
+    const t = e.target;
+    if (t && t.id === "searchbar" && e.isTrusted !== true) {
+        t.dispatchEvent(new KeyboardEvent("keyup", { bubbles: true }));
+    }
+});
+</script>
+</body>
+</html>

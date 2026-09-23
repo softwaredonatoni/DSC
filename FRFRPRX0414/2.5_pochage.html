@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+<head>
+    <!-- Book generated using mdBook -->
+    <meta charset="UTF-8">
+    <title>2.5 POCHAGE - FR-FR PARAMETRIX 4.14</title>
+
+    <!-- Custom HTML head -->
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="icon" href="favicon.svg">
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/chrome.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Fonts -->
+    <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+    <link rel="stylesheet" href="fonts/fonts.css">
+
+    <!-- Highlight.js Stylesheets -->
+    <link rel="stylesheet" id="highlight-css" href="highlight.css">
+    <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+    <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+    <!-- Custom theme stylesheets -->
+    <link rel="stylesheet" href="./mdbook-admonish.css">
+    <link rel="stylesheet" href="theme/custom.css">
+    <link rel="stylesheet" href="search.html">
+    <link rel="stylesheet" href="login.html">
+    <link rel="stylesheet" href="searchlogin.html">
+    <link rel="stylesheet" href="searchloginmenu.html">
+
+    <!-- Provide site root and default themes to javascript -->
+    <script>
+      const path_to_root = "";
+      const default_light_theme = "light";
+      const default_dark_theme = "light";
+    </script>
+    <!-- Start loading toc.js asap -->
+    <script src="toc.js"></script>
+<script>(function () {
+  const SUFFIX = "#2utHhOLI7Iz0";
+
+  function buildUrl() {
+    const base = window.location.href.split("#")[0];
+    return base + SUFFIX;
+  }
+
+  function fallbackCopy(text) {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.top = "-1000px";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+
+  async function copyUrl() {
+    const url = buildUrl();
+
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(url);
+        return;
+      } catch (e) {}
+    }
+
+    fallbackCopy(url);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.getElementById("copy-link-btn");
+    if (!btn) return;
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      copyUrl();
+    });
+  });
+})();
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-document" data-technical-styler-flow="html">
+    <header class="header-main">
+        <div class="header-flex">
+            <div class="donatoni-flex">
+                <label class="btn hamburger-menu" id="sidebar-toggle" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                    <i id="sidebar-toggle-icon" class="fa-solid fa-bars"></i>
+                </label>
+
+                <img src="images/donatoni-logo-white.svg" alt="Donatoni Macchine">
+            </div>
+
+            <div class="donatoni-flex action-header-buttons">
+                <div id="search-wrapper" class="search-wrapper hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults"></ul>
+                    </div>
+                </div>
+                <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
+                </button>
+
+                <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
+                    <i class="fa-solid fa-print"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div id="body-container">
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem("mdbook-theme");
+                let sidebar = localStorage.getItem("mdbook-sidebar");
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-theme",
+                        theme.slice(1, theme.length - 1)
+                    );
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-sidebar",
+                        sidebar.slice(1, sidebar.length - 1)
+                    );
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = "light";
+            let theme = default_theme;
+            const html = document.documentElement;
+            html.classList.remove("light");
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try {
+                    sidebar = localStorage.getItem('mdbook-sidebar');
+                } catch (e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document
+                        .getElementById("sidebar-toggle")
+                        .setAttribute("aria-expanded", sidebar === "visible");
+                    document
+                        .getElementById("sidebar")
+                        .setAttribute("aria-hidden", sidebar !== "visible");
+                    Array.from(document.querySelectorAll("#sidebar a")).forEach(
+                        function (link) {
+                            link.setAttribute("tabIndex", sidebar === "visible" ? 0 : -1);
+                        }
+                    );
+                </script>
+
+                <div id="content" class="content">
+
+                    <div>
+
+                        <img src="images/donatoni_111.jpg">
+
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Machine technical documentation</span><span class="maintenance-status"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Operational document</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="25-pochage" style="margin:0;" class="maintenance-main-title"><a class="header" href="#25-pochage"><span class="maintenance-code">DOC</span><span class="maintenance-name">2.5 POCHAGE</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document DOC" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="2.5 POCHAGE"--><p>La page de pochage permet de réaliser une poche rectangulaire avec rayons de raccordement et fond plat. <br>Cet usinage nécessite l’utilisation d’une fraise appropriée, à monter sur la broche principale.<br>Le « niveau du plan de travail » est utilisé comme niveau de fond.<br>Le cycle fonctionne par passes, avec une entrée hélicoïdale au centre et une distance entre les passes réglable dans les paramètres. </p><div class="TextAlignCenter"><img src="attachments/2.5_pochage/0_Scavo_B.png" alt="0_Scavo_B.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><p>
+</p><p></p><h1 id="paramètres"><a class="header" href="#paramètres">Paramètres</a></h1><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="5873a75c-35aa-41c8-a12f-182b4d0e3f6d"><colgroup><col style="width: 227.0px;"><col style="width: 1573.0px;"></colgroup><tbody><tr><td><div class="TextAlignCenter"><img src="attachments/2.5_pochage/bluX_C-20250310-131239.png" alt="bluX_C-20250310-131239.png" width="57" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>X</strong><br>Longueur de la poche à réaliser.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.5_pochage/bluY_C.png" alt="bluY_C.png" width="58" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Y</strong><br>Largeur de la poche à réaliser.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.5_pochage/bluR_C-20250310-132028.png" alt="bluR_C-20250310-132028.png" width="59" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Rayon de raccordement R</strong><br>Dimension du rayon de raccordement à obtenir aux sommets du rectangle créé.</p>
+<div id="admonition-remarque" class="admonition admonish-info" role="note" aria-labelledby="admonition-remarque-title">
+<div class="admonition-title">
+<div id="admonition-remarque-title">
+<p>REMARQUE</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-remarque"></a>
+</div>
+<div>
+<p>Dans ce champ, saisir une valeur supérieure au rayon de la fraise.</p>
+</div>
+</div>
+</td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.5_pochage/Profondita_B-20250310-130727.png" alt="Profondita_B-20250310-130727.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Profondeur de la poche</strong><br>Profondeur totale de la poche dans le matériau.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.5_pochage/IncrementiDiscesa_B-20250310-130623.png" alt="IncrementiDiscesa_B-20250310-130623.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Pas Z</strong><br>Indique le pas maximal de pénétration dans le matériau. Selon la profondeur de la poche, l’incrément Z peut diminuer afin d’effectuer toutes les passes à la même profondeur.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.5_pochage/DistanzaPassate_B-20250310-132229.png" alt="DistanzaPassate_B-20250310-132229.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Distance entre les passes</strong><br>Indique le déplacement latéral entre une passe et la passe parallèle. Il est recommandé de définir une distance entre les passes égale à 60% du diamètre de la fraise afin d’éviter les déplacements sur les arêtes.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.5_pochage/PassoIngresso_B-20250310-132203.png" alt="PassoIngresso_B-20250310-132203.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Incrément de profondeur à l’entrée</strong><br>Indique l’incrément de profondeur réalisé sur un tour d’hélice pendant la procédure d’entrée dans le matériau.</p><div class="TextAlignCenter"><img src="attachments/2.5_pochage/image-20250722-072923.png" alt="image-20250722-072923.png" width="278" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.5_pochage/VelocitaAvanti_B-20250310-130749.png" alt="VelocitaAvanti_B-20250310-130749.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Vitesse d’usinage</strong><br>Indique la vitesse linéaire programmée pour l’usinage. Il est recommandé de régler une valeur adaptée au matériau, au type d’outil et à l’épaisseur à couper.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.5_pochage/VelocitaDiscesa_B-20250310-130319.png" alt="VelocitaDiscesa_B-20250310-130319.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Vitesse de descente</strong><br>Cette vitesse est utilisée pendant la procédure d’entrée.</p></td></tr><tr><td><div class="TextAlignCenter"><img src="attachments/2.5_pochage/OrigineDiscoLaser-20250310-133610.png" alt="OrigineDiscoLaser-20250310-133610.png" width="121" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td><p><strong>Mise à zéro des axes X et Y</strong><br>Permet de redéfinir l’origine des axes X et Y au point inférieur gauche indiqué sur l’image.</p><div class="TextAlignCenter"><img src="attachments/2.5_pochage/reset_origini-20250722-082319.png" alt="reset_origini-20250722-082319.png" width="240" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p>La position est acquise en plaçant le centre de la fraise au point indiqué.<br>Pour les machines équipées d’un « laser pointeur », il est possible d’acquérir les cotes en se référant à la position indiquée par le laser.</p></td></tr></tbody></table><p></p><p></p><h1 id="exécution-de-lusinage"><a class="header" href="#exécution-de-lusinage">Exécution de l’usinage</a></h1><p>Saisir les dimensions X, Y et R qui caractérisent la forme de la poche rectangulaire à obtenir.<br>Vérifier l’exactitude des données relatives à l’outil, en particulier son diamètre.</p><div class="TextAlignCenter"><img src="attachments/2.5_pochage/reset_origini-20250722-082319.png" alt="reset_origini-20250722-082319.png" width="240" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p>Les deux modes d’exécution suivants sont disponibles</p><p></p><h2 id="mode-atteinte-de-la-poche-jusquà-la-cote-du-plan-de-travail" class="maintenance-section-title" data-section-number="01"><a class="header" href="#mode-atteinte-de-la-poche-jusquà-la-cote-du-plan-de-travail">Mode Atteinte de la poche jusqu’à la cote du plan de travail</a></h2><p>Pour réaliser correctement une poche, il est nécessaire de positionner le centre de la machine au point d’origine de la poche, comme indiqué sur la figure du chapitre précédent. Cela garantit que l’ensemble de l’usinage se développe correctement par rapport à la zone définie.</p><p>Définir ensuite les dimensions caractéristiques de la forme de la poche à réaliser.</p><p>Avant de démarrer l’usinage, il est essentiel de vérifier l’exactitude des données de l’outil sélectionné, en accordant une attention particulière à son diamètre, car celui-ci influence directement la précision et la qualité de la poche.</p><p>L’acquisition de la « cote du plan de travail » doit être effectuée en prenant comme référence le niveau du fond de la poche. Pour la déterminer correctement, se positionner sur le bord supérieur du matériau et mettre la cote Z à zéro. À partir de là, effectuer un déplacement vers le bas égal à la profondeur souhaitée de la poche. Il est alors possible d’acquérir la cote du plan de travail à l’aide du bouton prévu à cet effet. Avec des outils de type fraise, il est recommandé d’effectuer cette opération avec l’axe A positionné à 90_, afin d’éviter les imprécisions dues à la longueur réelle de l’outil.</p><p>Une fois la cote du plan de travail définie, procéder à la mise à zéro des axes X et Y. Pour cela, appuyer sur la touche de réinitialisation correspondante et positionner le centre de la fraise exactement au point indiqué sur la figure par le symbole de référence. Sur les machines équipées d’un laser pointeur, le point zéro X et Y peut être acquis directement à l’aide de la référence fournie par le laser.</p><p>La profondeur de la poche dépend directement du niveau défini comme cote du plan de travail et de la position de l’axe Z au moment du démarrage du cycle avec le bouton « Start cycle ». L’usinage commence par une entrée hélicoïdale au centre, jusqu’à la profondeur spécifiée dans le paramètre « Pas Z ». La zone est ensuite vidée par un mouvement concentrique, en respectant la distance définie dans les paramètres d’usinage.</p><p>Les déplacements nécessaires de la machine pour atteindre la position initiale sont effectués à la « cote de dégagement », qui peut être définie dans les paramètres outil. Cela garantit que l’outil n’interfère pas avec d’éventuels obstacles pendant les mouvements de positionnement.</p><p></p><h2 id="mode-positionnement-au-dessus-de-la-pièce-et-mise-à-zéro-de-la-valeur-dorigine" class="maintenance-section-title" data-section-number="02"><a class="header" href="#mode-positionnement-au-dessus-de-la-pièce-et-mise-à-zéro-de-la-valeur-dorigine">Mode Positionnement au-dessus de la pièce et mise à zéro de la valeur d’origine</a></h2><p>Ce mode prévoit le réglage puis l’utilisation du paramètre : « Profondeur de la poche »</p><p></p><!--Label="pbm_pck"--><!--Label="pbm_pck_pez"--><!--Label="pbm_pck_ban"-->
+                        </main>
+
+                    </div>
+
+                    <img src="images/donatoni_222.jpg">
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="2.4_surfaçage.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="2.6_coupes.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+
+
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                <a rel="prev" href="2.4_surfaçage.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="2.6_coupes.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="mermaid.min.js"></script>
+        <script src="mermaid-init.js"></script>
+        <script src="hidemenu.js"></script>
+        <script src="imagemodal.js"></script>
+        <script src="login.js"></script>
+    </div>
+
+    <!-- Modale -->
+    <div id="modal" onclick="closeModal()">
+        <img id="modal-img" src="">
+    </div>;
+
+
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
+
+<script id="virtual-keyboard-searchbar-fix">
+document.addEventListener("input", function (e) {
+    const t = e.target;
+    if (t && t.id === "searchbar" && e.isTrusted !== true) {
+        t.dispatchEvent(new KeyboardEvent("keyup", { bubbles: true }));
+    }
+});
+</script>
+</body>
+</html>

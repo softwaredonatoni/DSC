@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+<head>
+    <!-- Book generated using mdBook -->
+    <meta charset="UTF-8">
+    <title>3.13.10 AUFKANTUNG - DE-DE PARAMETRIX 4.14</title>
+
+    <!-- Custom HTML head -->
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="icon" href="favicon.svg">
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/chrome.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Fonts -->
+    <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+    <link rel="stylesheet" href="fonts/fonts.css">
+
+    <!-- Highlight.js Stylesheets -->
+    <link rel="stylesheet" id="highlight-css" href="highlight.css">
+    <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+    <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+    <!-- Custom theme stylesheets -->
+    <link rel="stylesheet" href="./mdbook-admonish.css">
+    <link rel="stylesheet" href="theme/custom.css">
+    <link rel="stylesheet" href="search.html">
+    <link rel="stylesheet" href="login.html">
+    <link rel="stylesheet" href="searchlogin.html">
+    <link rel="stylesheet" href="searchloginmenu.html">
+
+    <!-- Provide site root and default themes to javascript -->
+    <script>
+      const path_to_root = "";
+      const default_light_theme = "light";
+      const default_dark_theme = "light";
+    </script>
+    <!-- Start loading toc.js asap -->
+    <script src="toc.js"></script>
+<script>(function () {
+  const SUFFIX = "#2utHhOLI7Iz0";
+
+  function buildUrl() {
+    const base = window.location.href.split("#")[0];
+    return base + SUFFIX;
+  }
+
+  function fallbackCopy(text) {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.top = "-1000px";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+
+  async function copyUrl() {
+    const url = buildUrl();
+
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(url);
+        return;
+      } catch (e) {}
+    }
+
+    fallbackCopy(url);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.getElementById("copy-link-btn");
+    if (!btn) return;
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      copyUrl();
+    });
+  });
+})();
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-document" data-technical-styler-flow="html">
+    <header class="header-main">
+        <div class="header-flex">
+            <div class="donatoni-flex">
+                <label class="btn hamburger-menu" id="sidebar-toggle" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                    <i id="sidebar-toggle-icon" class="fa-solid fa-bars"></i>
+                </label>
+
+                <img src="images/donatoni-logo-white.svg" alt="Donatoni Macchine">
+            </div>
+
+            <div class="donatoni-flex action-header-buttons">
+                <div id="search-wrapper" class="search-wrapper hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults"></ul>
+                    </div>
+                </div>
+                <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
+                </button>
+
+                <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
+                    <i class="fa-solid fa-print"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div id="body-container">
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem("mdbook-theme");
+                let sidebar = localStorage.getItem("mdbook-sidebar");
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-theme",
+                        theme.slice(1, theme.length - 1)
+                    );
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-sidebar",
+                        sidebar.slice(1, sidebar.length - 1)
+                    );
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = "light";
+            let theme = default_theme;
+            const html = document.documentElement;
+            html.classList.remove("light");
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try {
+                    sidebar = localStorage.getItem('mdbook-sidebar');
+                } catch (e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document
+                        .getElementById("sidebar-toggle")
+                        .setAttribute("aria-expanded", sidebar === "visible");
+                    document
+                        .getElementById("sidebar")
+                        .setAttribute("aria-hidden", sidebar !== "visible");
+                    Array.from(document.querySelectorAll("#sidebar a")).forEach(
+                        function (link) {
+                            link.setAttribute("tabIndex", sidebar === "visible" ? 0 : -1);
+                        }
+                    );
+                </script>
+
+                <div id="content" class="content">
+
+                    <div>
+
+                        <img src="images/donatoni_111.jpg">
+
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Machine technical documentation</span><span class="maintenance-status"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Operational document</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="31310-aufkantung" style="margin:0;" class="maintenance-main-title"><a class="header" href="#31310-aufkantung"><span class="maintenance-code">DOC</span><span class="maintenance-name">3.13.10 AUFKANTUNG</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document DOC" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="3.13.10 AUFKANTUNG"--><p>Mit dieser Funktion kann ausgehend von der Seite eines Objekts ein rechteckiges Werkstück erstellt werden, um eine Aufkantung zu erhalten.</p>
+<div id="admonition-hinweis" class="admonition admonish-info" role="note" aria-labelledby="admonition-hinweis-title">
+<div class="admonition-title">
+<div id="admonition-hinweis-title">
+<p>HINWEIS</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-hinweis"></a>
+</div>
+<div>
+<p>Diese Bearbeitung ist nur für gerade Schnitte verfügbar.</p>
+</div>
+</div>
+<div class="TextAlignCenter"><img src="attachments/3.13.10_aufkantung/1.1.png" alt="1.1.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><p>
+</p><p></p><h1 id="bearbeitungsarten"><a class="header" href="#bearbeitungsarten">Bearbeitungsarten</a></h1><p>Um diese Bearbeitung zu verwenden, muss zunächst einer der beiden verfügbaren Modi über die entsprechende Schaltfläche ausgewählt werden:</p><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="e7d39e1c-0595-435f-8306-f6854371a9d8"><colgroup><col style="width: 286.0px;"><col style="width: 1513.0px;"></colgroup><tbody><tr><td data-highlight-colour="#ffffff"><div class="TextAlignCenter"><img src="attachments/3.13.10_aufkantung/2_OnOff-20250617-095337.png" alt="2_OnOff-20250617-095337.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td data-highlight-colour="#ffffff"><p><strong>Modus Rückwand</strong><br>Ermöglicht das Erstellen rechteckiger Werkstücke mit ausschließlich geraden Seiten.</p></td></tr><tr><td data-highlight-colour="#ffffff"><div class="TextAlignCenter"><img src="attachments/3.13.10_aufkantung/3_OnOff-20250617-110233.png" alt="3_OnOff-20250617-110233.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td data-highlight-colour="#ffffff"><p><strong>Modus Aufkantung</strong><br>In diesem Modus werden die beiden miteinander zu verbindenden Seiten mit demselben Winkel geneigt. </p></td></tr></tbody></table><h1 id="parameter"><a class="header" href="#parameter">Parameter</a></h1><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="3525926a-cef6-4cc5-b17d-4901c39a9aa6"><colgroup><col style="width: 286.0px;"><col style="width: 1513.0px;"></colgroup><tbody><tr><td><p><strong>Höhe</strong></p></td><td><p>Höhe der Aufkantung, die bei Ausführung der Bearbeitung eingefügt wird.<br>Die Breite wird im Voraus durch den ausgewählten Schnitt bestimmt.</p></td></tr><tr><td><p><strong>Werkstückseiten neigen</strong></p></td><td><p>Wenn aktiviert, werden automatisch Gehrungsschnitte eingefügt, falls andernfalls Schnitte kollidieren würden.</p></td></tr></tbody></table><p></p><h2 id="zusätzlicher-parameter-für-den-modus-aufkantung" class="maintenance-section-title" data-section-number="01"><a class="header" href="#zusätzlicher-parameter-für-den-modus-aufkantung">Zusätzlicher Parameter für den Modus Aufkantung</a></h2><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="0608f7b5-6781-4748-aadb-10021d711f17"><colgroup><col style="width: 286.0px;"><col style="width: 1513.0px;"></colgroup><tbody><tr><td><p><strong>Grad</strong></p></td><td><p>Dieser Parameter ist nur aktiv, wenn der Modus Rückwand ausgewählt ist.<br>Ermöglicht die Angabe des Winkels, mit dem die Bearbeitung angewendet wird.</p></td></tr></tbody></table><p></p><p></p><h1 id="ausführung-der-bearbeitung"><a class="header" href="#ausführung-der-bearbeitung">Ausführung der Bearbeitung</a></h1>
+<div id="admonition-hinweis-1" class="admonition admonish-info" role="note" aria-labelledby="admonition-hinweis-1-title">
+<div class="admonition-title">
+<div id="admonition-hinweis-1-title">
+<p>HINWEIS</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-hinweis-1"></a>
+</div>
+<div>
+<p>Die Bearbeitung kann angewendet werden, indem die Schaltfläche links neben dem entsprechenden Schnitt in der Polygonliste gedrückt wird.
+<br>
+Ein rotes Symbol mit einem „X“ zeigt an, dass die Bearbeitung nicht auf den gewünschten Schnitt angewendet werden kann.</p>
+</div>
+</div>
+<p>Durch direktes Anklicken des Schnitts in der Vorschau oder, sofern möglich, des Symbols links neben dem Schnitt in der entsprechenden Liste auf der linken Seite wird die ausgewählte Bearbeitung ausgeführt.<br>Bei jeder erfolgreich auf das Material angewendeten Aufkantung oder Verbindung werden die Vorschau und die Schnittliste links aktualisiert.</p><p>Jedes mit dieser Funktion erstellte Werkstück wird der Werkstückliste von Parametrix hinzugefügt.<br>Die neu hinzugefügten Werkstücke werden außerdem in eine Liste unmittelbar oberhalb der Vorschau im Panel „Werkstück bearbeiten“ aufgenommen; </p><div class="TextAlignCenter"><img src="attachments/3.13.10_aufkantung/barraPezzi-20250620-061148.png" alt="barraPezzi-20250620-061148.png" width="440" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p>Aus dieser Liste kann das gewünschte Werkstück des Blocks ausgewählt werden, um dessen Vorschau und die zugehörigen Schnitte in der Schnittliste anzuzeigen.</p><p></p><h2 id="ausführung-rückwand" class="maintenance-section-title" data-section-number="02"><a class="header" href="#ausführung-rückwand">Ausführung Rückwand</a></h2><p>Nun wird die Anwendung von zwei Rückwänden gezeigt, wenn der Parameter „Werkstückseiten neigen“ aktiviert bzw. deaktiviert ist. <br>Zunächst wird eine Rückwand mit einer Höhe von 1000 mm an der unteren Seite des Rechtecks angewendet und anschließend eine zweite Rückwand an der rechten Seite desselben Rechtecks.</p><p></p><h3 id="werkstückseiten-neigen-deaktiviert"><a class="header" href="#werkstückseiten-neigen-deaktiviert">Werkstückseiten neigen deaktiviert</a></h3><p>Im resultierenden Werkstück erscheinen keine geneigten Seiten und die Schnitte des ursprünglichen Werkstücks werden in der Schnittliste nicht geändert:</p><div class="TextAlignCenter"><img src="attachments/3.13.10_aufkantung/3.2.png" alt="3.2.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><h3 id="werkstückseiten-neigen-aktiviert"><a class="header" href="#werkstückseiten-neigen-aktiviert">Werkstückseiten neigen aktiviert</a></h3><p>Bei einer Eckpunktausrichtung der neuen Werkstücke, d. h. Pezzo_1 und Pezzo_2, werden die nicht an das ursprüngliche Werkstück angrenzenden Seiten mit gemeinsamem Eckpunkt durch Gehrungsschnitte ersetzt:</p><div class="TextAlignCenter"><img src="attachments/3.13.10_aufkantung/3.1.png" alt="3.1.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><h2 id="ausführung-aufkantung" class="maintenance-section-title" data-section-number="03"><a class="header" href="#ausführung-aufkantung">Ausführung Aufkantung</a></h2><p>Nun wird die Anwendung von zwei Aufkantungen gezeigt, wenn der Parameter „Werkstückseiten neigen“ aktiviert bzw. deaktiviert ist. <br>Zunächst wird eine Aufkantung mit einer Höhe von 50 mm an der unteren Seite des Rechtecks angewendet und anschließend eine zweite Aufkantung an der rechten Seite desselben Rechtecks.<br>In diesem Modus werden auf das ursprüngliche Werkstück (Pezzo) und jedes eventuell erzeugte Werkstück (Pezzo_1 und Pezzo_2) automatisch <strong>Gehrungsschnitte</strong> auf allen Seiten angewendet, die <strong>aneinander angrenzen</strong>.<br>Der Neigungswinkel wird durch den Parameter <strong>Grad</strong> bestimmt.</p><p></p><h3 id="werkstückseiten-neigen-deaktiviert-1"><a class="header" href="#werkstückseiten-neigen-deaktiviert-1">Werkstückseiten neigen deaktiviert</a></h3><p>In diesem Fall werden die angrenzenden Seiten zwischen dem ursprünglichen Werkstück und den neu erstellten Werkstücken automatisch durch Gehrungsschnitte ersetzt.<br>Die Neigung des Schnitts hängt vom eingestellten Parameter <strong>Grad</strong> ab.</p><div class="TextAlignCenter"><img src="attachments/3.13.10_aufkantung/4.1.png" alt="4.1.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><h3 id="werkstückseiten-neigen-aktiviert-1"><a class="header" href="#werkstückseiten-neigen-aktiviert-1">Werkstückseiten neigen aktiviert</a></h3><p>Wie im vorherigen Fall werden Gehrungsschnitte an den aneinander angrenzenden Schnitten der verschiedenen Werkstücke eingefügt, wobei die Neigung vom Wert des Parameters <strong>Grad</strong> abhängt.<br>Wenn zusätzlich der Parameter <strong>„Werkstückseiten neigen“</strong> aktiviert wird, werden wie bei den Rückwänden bei einer <strong>Ausrichtung der Eckpunkte</strong> der neuen Werkstücke die <strong>nicht an das ursprüngliche Werkstück angrenzenden Seiten mit gemeinsamem Eckpunkt</strong> automatisch <strong>durch Gehrungsschnitte ersetzt</strong>.</p><div class="TextAlignCenter"><img src="attachments/3.13.10_aufkantung/5.1.png" alt="5.1.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><p></p><h1 id="werkstücke-teilen"><a class="header" href="#werkstücke-teilen">Werkstücke teilen</a></h1><p>Wenn dem ausgewählten Werkstück über Bearbeitungen vom Typ <strong>Aufkantung</strong> oder <strong>Rückwand</strong> ein oder mehrere Werkstücke zugeordnet wurden, erscheint oben im Panel <strong>„Werkstück bearbeiten“</strong> eine <strong>spezielle Schaltfläche</strong> zur Verwaltung der zugeordneten Werkstücke.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="fb9a6cca-1001-48da-b768-943421d8b4cb"><colgroup><col style="width: 230.0px;"><col style="width: 1568.0px;"></colgroup><tbody><tr><th data-highlight-colour="#ffffff"><div class="TextAlignCenter"><img src="attachments/3.13.10_aufkantung/lock_b-20250618-063201.png" alt="lock_b-20250618-063201.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></th><td data-highlight-colour="#ffffff"><p><strong>Werkstücke teilen</strong><br>Schaltfläche zum Trennen der Aufkantungen und Rückwände vom ursprünglichen Werkstück.</p></td></tr></tbody></table><p></p><p>Vor dem Teilen werden die zugeordneten Werkstücke im Arbeitsbereich als Einheit verwaltet. In diesem Zustand wird ein Block aus mehreren Elementen erstellt, auf die dieselben Vorgänge angewendet werden, ohne dass sie bereits getrennt sind.</p><p>Wird beispielsweise das ursprüngliche Werkstück, eine Aufkantung oder eine Rückwand aus der Werkstückliste dem Arbeitsbereich hinzugefügt, werden automatisch auch alle anderen zugeordneten Elemente eingefügt.</p><div class="TextAlignCenter"><img src="attachments/3.13.10_aufkantung/z1.1.png" alt="z1.1.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p>Beim Drücken der Schaltfläche <strong>Werkstücke teilen, </strong>wird jedes durch <strong>Aufkantung </strong>oder <strong>Rückwand </strong>erzeugte Werkstück vom ursprünglichen Werkstück getrennt und als unabhängiges Element behandelt.</p><p>Anschließend verschwinden sowohl die Liste der zugeordneten Werkstücke, die zuvor oberhalb der Vorschau im Panel <strong>Werkstück bearbeiten</strong> sichtbar war, als auch die <strong>Schaltfläche zum Teilen der Werkstücke</strong> aus der Benutzeroberfläche.</p>
+<div id="admonition-hinweis-2" class="admonition admonish-info" role="note" aria-labelledby="admonition-hinweis-2-title">
+<div class="admonition-title">
+<div id="admonition-hinweis-2-title">
+<p>HINWEIS</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-hinweis-2"></a>
+</div>
+<div>
+<p>Beim Teilen behält jedes Werkstück die bei der Erzeugung durch Aufkantung oder Rückwand erhaltenen Gehrungsschnitte sowie alle Anpassungen und Änderungen bei, die vorgenommen wurden, solange es noch dem ursprünglichen Werkstück zugeordnet war.</p>
+</div>
+</div>
+<p></p><p>Die folgende Abbildung zeigt die getrennte Verwaltung der einzelnen Werkstücke, die zuvor zum selben Block gehörten.<br>Insbesondere wurden nur zwei der drei Werkstücke in den Arbeitsbereich eingefügt (das ursprüngliche Werkstück und das erste durch Anwendung der ersten Aufkantung erzeugte Werkstück), und das zweite Werkstück wurde neu positioniert und gedreht, ohne eine Beeinträchtigung des ursprünglichen Werkstücks zu verursachen:</p><div class="TextAlignCenter"><img src="attachments/3.13.10_aufkantung/z2.2.png" alt="z2.2.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div>
+<div id="admonition-achtung" class="admonition admonish-warning" role="note" aria-labelledby="admonition-achtung-title">
+<div class="admonition-title">
+<div id="admonition-achtung-title">
+<p>ACHTUNG</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-achtung"></a>
+</div>
+<div>
+<p>!
+<br>
+Das Teilen der Werkstücke kann nach der Ausführung nicht rückgängig gemacht werden.</p>
+</div>
+</div>
+<!--Label="mdr_dwn"--><!--Label="mdr_dwn_riv"--><!--Label="mdr_dwn_alz"-->
+                        </main>
+
+                    </div>
+
+                    <img src="images/donatoni_222.jpg">
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="3.13.9_unterschnitt_(optional).html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="3.13.11_randprofil.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+
+
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                <a rel="prev" href="3.13.9_unterschnitt_(optional).html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="3.13.11_randprofil.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="mermaid.min.js"></script>
+        <script src="mermaid-init.js"></script>
+        <script src="hidemenu.js"></script>
+        <script src="imagemodal.js"></script>
+        <script src="login.js"></script>
+    </div>
+
+    <!-- Modale -->
+    <div id="modal" onclick="closeModal()">
+        <img id="modal-img" src="">
+    </div>;
+
+
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
+
+<script id="virtual-keyboard-searchbar-fix">
+document.addEventListener("input", function (e) {
+    const t = e.target;
+    if (t && t.id === "searchbar" && e.isTrusted !== true) {
+        t.dispatchEvent(new KeyboardEvent("keyup", { bubbles: true }));
+    }
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+<head>
+    <!-- Book generated using mdBook -->
+    <meta charset="UTF-8">
+    <title>2.2 COUPE UNIQUE - FR-FR PARAMETRIX 4.14</title>
+
+    <!-- Custom HTML head -->
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="icon" href="favicon.svg">
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/chrome.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Fonts -->
+    <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+    <link rel="stylesheet" href="fonts/fonts.css">
+
+    <!-- Highlight.js Stylesheets -->
+    <link rel="stylesheet" id="highlight-css" href="highlight.css">
+    <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+    <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+    <!-- Custom theme stylesheets -->
+    <link rel="stylesheet" href="./mdbook-admonish.css">
+    <link rel="stylesheet" href="theme/custom.css">
+    <link rel="stylesheet" href="search.html">
+    <link rel="stylesheet" href="login.html">
+    <link rel="stylesheet" href="searchlogin.html">
+    <link rel="stylesheet" href="searchloginmenu.html">
+
+    <!-- Provide site root and default themes to javascript -->
+    <script>
+      const path_to_root = "";
+      const default_light_theme = "light";
+      const default_dark_theme = "light";
+    </script>
+    <!-- Start loading toc.js asap -->
+    <script src="toc.js"></script>
+<script>(function () {
+  const SUFFIX = "#2utHhOLI7Iz0";
+
+  function buildUrl() {
+    const base = window.location.href.split("#")[0];
+    return base + SUFFIX;
+  }
+
+  function fallbackCopy(text) {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.top = "-1000px";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+
+  async function copyUrl() {
+    const url = buildUrl();
+
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(url);
+        return;
+      } catch (e) {}
+    }
+
+    fallbackCopy(url);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.getElementById("copy-link-btn");
+    if (!btn) return;
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      copyUrl();
+    });
+  });
+})();
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-document" data-technical-styler-flow="html">
+    <header class="header-main">
+        <div class="header-flex">
+            <div class="donatoni-flex">
+                <label class="btn hamburger-menu" id="sidebar-toggle" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                    <i id="sidebar-toggle-icon" class="fa-solid fa-bars"></i>
+                </label>
+
+                <img src="images/donatoni-logo-white.svg" alt="Donatoni Macchine">
+            </div>
+
+            <div class="donatoni-flex action-header-buttons">
+                <div id="search-wrapper" class="search-wrapper hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults"></ul>
+                    </div>
+                </div>
+                <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
+                </button>
+
+                <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
+                    <i class="fa-solid fa-print"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div id="body-container">
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem("mdbook-theme");
+                let sidebar = localStorage.getItem("mdbook-sidebar");
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-theme",
+                        theme.slice(1, theme.length - 1)
+                    );
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-sidebar",
+                        sidebar.slice(1, sidebar.length - 1)
+                    );
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = "light";
+            let theme = default_theme;
+            const html = document.documentElement;
+            html.classList.remove("light");
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try {
+                    sidebar = localStorage.getItem('mdbook-sidebar');
+                } catch (e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document
+                        .getElementById("sidebar-toggle")
+                        .setAttribute("aria-expanded", sidebar === "visible");
+                    document
+                        .getElementById("sidebar")
+                        .setAttribute("aria-hidden", sidebar !== "visible");
+                    Array.from(document.querySelectorAll("#sidebar a")).forEach(
+                        function (link) {
+                            link.setAttribute("tabIndex", sidebar === "visible" ? 0 : -1);
+                        }
+                    );
+                </script>
+
+                <div id="content" class="content">
+
+                    <div>
+
+                        <img src="images/donatoni_111.jpg">
+
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Machine technical documentation</span><span class="maintenance-status"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Operational document</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="22-coupe-unique" style="margin:0;" class="maintenance-main-title"><a class="header" href="#22-coupe-unique"><span class="maintenance-code">DOC</span><span class="maintenance-name">2.2 COUPE UNIQUE</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document DOC" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="2.2 COUPE UNIQUE"--><p>Dans les nouvelles versions de Parametrix, il est possible d’utiliser la fonction « Coupe unique ». En sélectionnant l’entrée « Coupe unique » dans la liste, une page semblable à celle-ci s’affiche.</p><p>La Coupe unique permet d’effectuer une coupe rectiligne (ou inclinée) sur la dalle en partant de la position actuelle de la machine et en terminant à la longueur demandée par l’utilisateur. Cette fonction NE permet PAS d’effectuer des coupes en arc ou en cercle.</p><div class="TextAlignCenter"><img src="attachments/2.2_coupe_unique/0_1_TaglioSingoloPulito_C-20250321-074655.png" alt="0_1_TaglioSingoloPulito_C-20250321-074655.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p></p><p>
+</p><p></p><h1 id="boutons"><a class="header" href="#boutons">Boutons</a></h1><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="c4fab402-a14d-4ce2-aade-c0e1ae1a90ce"><colgroup><col style="width: 262.0px;"><col style="width: 1538.0px;"></colgroup><tbody><tr><td data-highlight-colour="#ffffff"><div class="TextAlignCenter"><img src="attachments/2.2_coupe_unique/1_MoveForwardBackward.png" alt="1_MoveForwardBackward.png" width="118" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td data-highlight-colour="#ffffff"><p><strong>Boutons de coupes parallèles</strong><br>Permet le déplacement parallèle de la machine.</p></td></tr><tr><td data-highlight-colour="#ffffff"><div class="TextAlignCenter"><img src="attachments/2.2_coupe_unique/5_Max_B.png" alt="5_Max_B.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td data-highlight-colour="#ffffff"><p><strong>Max</strong><br>Lorsque l’opérateur appuie sur ce bouton, la longueur de coupe effective pouvant être réalisée est déterminée par la position actuelle de la machine et la fin de la dalle (la fin de la dalle est calculée par rapport à la direction actuelle de la machine).<br>Cette valeur peut être différente de celle saisie par l’utilisateur dans la zone de texte.</p></td></tr><tr><td data-highlight-colour="#ffffff"><div class="TextAlignCenter"><img src="attachments/2.2_coupe_unique/5_Stop_B.png" alt="5_Stop_B.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td data-highlight-colour="#ffffff"><p><strong>Stop</strong><br>À utiliser une fois que la machine a commencé à couper lorsqu’il est décidé de réduire la longueur de coupe. Appuyer sur ce bouton arrête la machine et renseigne dans la zone de texte « Longueur » la longueur du parcours déjà coupé.<br>Il est également possible d’appuyer sur le bouton prévu à cet effet sur la console pour obtenir le même comportement que le bouton STOP.</p></td></tr><tr><td data-highlight-colour="#ffffff"><div class="TextAlignCenter"><img src="attachments/2.2_coupe_unique/5_PassataPienaStep.png" alt="5_PassataPienaStep.png" width="119" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td data-highlight-colour="#ffffff"><p><strong>Changer le mode des passes</strong><br>Permet de passer du mode « passe pleine » au mode « passe par pas » et inversement.</p></td></tr><tr><td data-highlight-colour="#ffffff"><div class="TextAlignCenter"><img src="attachments/2.2_coupe_unique/6_Salva_B.png" alt="6_Salva_B.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td data-highlight-colour="#ffffff"><p><strong>Enregistrer</strong><br>Appuyer sur ce bouton permet d’enregistrer tous les paramètres dans un fichier afin de pouvoir les récupérer ultérieurement.</p></td></tr><tr><td data-highlight-colour="#ffffff"><div class="TextAlignCenter"><img src="attachments/2.2_coupe_unique/6_Open_B.png" alt="6_Open_B.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td data-highlight-colour="#ffffff"><p><strong>Ouvrir</strong><br>Appuyer sur ce bouton affiche une fenêtre contenant tous les usinages précédemment enregistrés par l’utilisateur.<br>Il est possible de gérer les usinages, de charger les valeurs, de supprimer les usinages ou d’annuler l’opération et de fermer le panneau.</p></td></tr></tbody></table><p></p><p></p><h1 id="paramètres"><a class="header" href="#paramètres">Paramètres</a></h1><p>Selon le type de matériau à usiner, les paramètres peuvent être réglés différemment et enregistrés pour de futurs usinages similaires.</p><p> </p><h2 id="paramètres-communs" class="maintenance-section-title" data-section-number="01"><a class="header" href="#paramètres-communs">Paramètres communs</a></h2><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="ba0f58e7-0c69-49b0-94cf-6ed82e323273"><colgroup><col style="width: 463.0px;"><col style="width: 1334.0px;"></colgroup><tbody><tr><td data-highlight-colour="var(--ds-surface, #FFFFFF)"><div class="TextAlignCenter"><img src="attachments/2.2_coupe_unique/parametroLunghezza.png" alt="parametroLunghezza.png" width="285" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td data-highlight-colour="var(--ds-surface, #FFFFFF)"><p><strong>Longueur de la coupe unique</strong><br>Il est nécessaire de saisir la longueur de la coupe à effectuer pour pouvoir lancer l’usinage. Si la valeur dépasse naturellement la longueur qui peut réellement être coupée, la machine s’arrête auparavant.</p></td></tr><tr><td data-highlight-colour="var(--ds-surface, #FFFFFF)"><div class="TextAlignCenter"><img src="attachments/2.2_coupe_unique/parametroSposta.png" alt="parametroSposta.png" width="285" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td data-highlight-colour="var(--ds-surface, #FFFFFF)"><p><strong>Distance de déplacement</strong><br>Indique la distance entre une coupe et la suivante. Seules des valeurs positives peuvent être définies dans ce champ. Pour le surfaçage, il est recommandé de régler une « distance de déplacement » correspondant à environ 80% de l’épaisseur de l’outil.</p></td></tr></tbody></table><p></p><h2 id="paramètres-de-configuration-de-lusinage-par-passes" class="maintenance-section-title" data-section-number="02"><a class="header" href="#paramètres-de-configuration-de-lusinage-par-passes">Paramètres de configuration de l’usinage par passes</a></h2><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="92f05718-3ef2-411c-b907-a5a43d11edac"><colgroup><col style="width: 447.0px;"><col style="width: 1351.0px;"></colgroup><tbody><tr><td data-highlight-colour="var(--ds-surface, #FFFFFF)"><div class="TextAlignCenter"><img src="attachments/2.2_coupe_unique/parametroPenetrazioneAvanti.png" alt="parametroPenetrazioneAvanti.png" width="285" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td data-highlight-colour="var(--ds-surface, #FFFFFF)"><p><strong>Pénétration dans le matériau en avançant</strong><br>Indique la profondeur de coupe dans le matériau lorsque la machine coupe dans le sens de rotation du disque.</p></td></tr><tr><td data-highlight-colour="var(--ds-surface, #FFFFFF)"><div class="TextAlignCenter"><img src="attachments/2.2_coupe_unique/parametroPenetrazioneIndietro.png" alt="parametroPenetrazioneIndietro.png" width="285" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td data-highlight-colour="var(--ds-surface, #FFFFFF)"><p><strong>Pénétration dans le matériau en reculant</strong><br>Indique la profondeur de coupe dans le matériau lors de la phase de coupe dans le sens opposé au sens de l’outil.</p></td></tr><tr><td data-highlight-colour="var(--ds-surface, #FFFFFF)"><div class="TextAlignCenter"><img src="attachments/2.2_coupe_unique/parametroPenetrazioneUltimo.png" alt="parametroPenetrazioneUltimo.png" width="285" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td data-highlight-colour="var(--ds-surface, #FFFFFF)"><p><strong>Pénétration dans le matériau pour la dernière passe</strong><br>Indique la profondeur de coupe de la dernière passe de l’outil dans le matériau. Cette coupe est toujours effectuée dans le sens opposé au mouvement du disque.</p></td></tr><tr><td data-highlight-colour="var(--ds-surface, #FFFFFF)"><div class="TextAlignCenter"><img src="attachments/2.2_coupe_unique/parametroVelocitaAvanti.png" alt="parametroVelocitaAvanti.png" width="285" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td data-highlight-colour="var(--ds-surface, #FFFFFF)"><p><strong>Vitesse d’usinage en avançant</strong><br>Indique la vitesse souhaitée pendant la phase de coupe en aller. <br>Cette valeur est exprimée en millimètres par minute.</p></td></tr><tr><td data-highlight-colour="var(--ds-surface, #FFFFFF)"><div class="TextAlignCenter"><img src="attachments/2.2_coupe_unique/parametroVelocitaIndietro.png" alt="parametroVelocitaIndietro.png" width="285" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td data-highlight-colour="var(--ds-surface, #FFFFFF)"><p><strong>Vitesse d’usinage en reculant</strong><br>Indique la vitesse souhaitée pendant la phase de coupe au retour. <br>Cette valeur est exprimée en millimètres par minute.</p></td></tr><tr><td data-highlight-colour="var(--ds-surface, #FFFFFF)"><div class="TextAlignCenter"><img src="attachments/2.2_coupe_unique/parametroVelocitaIngresso.png" alt="parametroVelocitaIngresso.png" width="285" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td data-highlight-colour="var(--ds-surface, #FFFFFF)"><p><strong>Vitesse d’entrée dans le matériau</strong><br>Détermine la vitesse pendant la phase de pénétration de l’outil dans le matériau. <br>Cette valeur est exprimée en millimètres par minute.</p></td></tr><tr><td data-highlight-colour="var(--ds-surface, #FFFFFF)"><div class="TextAlignCenter"><img src="attachments/2.2_coupe_unique/parametroVelocitaUltimo.png" alt="parametroVelocitaUltimo.png" width="285" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td data-highlight-colour="var(--ds-surface, #FFFFFF)"><p><strong>Vitesse d’usinage de la dernière passe</strong><br>Indique la vitesse que la machine doit maintenir sur la coupe pendant la dernière passe. <br>Cette valeur est exprimée en millimètres par minute.</p></td></tr></tbody></table><p> </p><h2 id="paramètres-de-configuration-de-lusinage-à-passe-pleine" class="maintenance-section-title" data-section-number="03"><a class="header" href="#paramètres-de-configuration-de-lusinage-à-passe-pleine">Paramètres de configuration de l’usinage à passe pleine</a></h2><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="adaa2d48-880c-49f3-a7a5-749e79c0baa9"><colgroup><col style="width: 447.0px;"><col style="width: 1352.0px;"></colgroup><tbody><tr><td data-highlight-colour="var(--ds-surface, #FFFFFF)"><div class="TextAlignCenter"><img src="attachments/2.2_coupe_unique/image-20250304-082454.png" alt="image-20250304-082454.png" width="287" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td data-highlight-colour="var(--ds-surface, #FFFFFF)"><p><strong>Vitesse d’entrée dans le matériau</strong><br>Détermine la vitesse pendant la phase de pénétration de l’outil dans le matériau. <br>Cette valeur est exprimée en millimètres par minute.</p></td></tr><tr><td data-highlight-colour="var(--ds-surface, #FFFFFF)"><div class="TextAlignCenter"><img src="attachments/2.2_coupe_unique/image-20250304-082538.png" alt="image-20250304-082538.png" width="295" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td data-highlight-colour="var(--ds-surface, #FFFFFF)"><p><strong>Vitesse d’usinage en avançant</strong><br>Indique la vitesse souhaitée pendant la phase de coupe en aller. <br>Cette valeur est exprimée en millimètres par minute.</p></td></tr></tbody></table><p></p><p></p><h1 id="exécution-de-lusinage"><a class="header" href="#exécution-de-lusinage">Exécution de l’usinage</a></h1><p>Pour commencer l’usinage, positionner tout d’abord la machine au point de départ souhaité. Une fois correctement positionnée, saisir la valeur de la longueur de coupe dans le champ prévu à cet effet.</p><p>Il est alors possible de mettre le disque en marche à l’aide des commandes présentes sur le pupitre du moniteur. Lorsque tout est prêt, lancer le processus en appuyant sur la touche « Start cycle ».</p><p>L’usinage commence dans la direction dans laquelle la machine est orientée au moment de l’activation de la coupe ; il est donc important d’en vérifier l’orientation avant de démarrer le cycle.</p><!--Label="pbm_sng"-->
+                        </main>
+
+                    </div>
+
+                    <img src="images/donatoni_222.jpg">
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="2.1_manuel_(ventouses).html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="2.3_programme_iso.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+
+
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                <a rel="prev" href="2.1_manuel_(ventouses).html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="2.3_programme_iso.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="mermaid.min.js"></script>
+        <script src="mermaid-init.js"></script>
+        <script src="hidemenu.js"></script>
+        <script src="imagemodal.js"></script>
+        <script src="login.js"></script>
+    </div>
+
+    <!-- Modale -->
+    <div id="modal" onclick="closeModal()">
+        <img id="modal-img" src="">
+    </div>;
+
+
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
+
+<script id="virtual-keyboard-searchbar-fix">
+document.addEventListener("input", function (e) {
+    const t = e.target;
+    if (t && t.id === "searchbar" && e.isTrusted !== true) {
+        t.dispatchEvent(new KeyboardEvent("keyup", { bubbles: true }));
+    }
+});
+</script>
+</body>
+</html>
