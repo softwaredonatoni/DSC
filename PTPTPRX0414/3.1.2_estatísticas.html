@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+<head>
+    <!-- Book generated using mdBook -->
+    <meta charset="UTF-8">
+    <title>3.1.2 ESTATÍSTICAS - PT-PT PARAMETRIX 4.14</title>
+
+    <!-- Custom HTML head -->
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="icon" href="favicon.svg">
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/chrome.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Fonts -->
+    <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+    <link rel="stylesheet" href="fonts/fonts.css">
+
+    <!-- Highlight.js Stylesheets -->
+    <link rel="stylesheet" id="highlight-css" href="highlight.css">
+    <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+    <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+    <!-- Custom theme stylesheets -->
+    <link rel="stylesheet" href="./mdbook-admonish.css">
+    <link rel="stylesheet" href="theme/custom.css">
+    <link rel="stylesheet" href="search.html">
+    <link rel="stylesheet" href="login.html">
+    <link rel="stylesheet" href="searchlogin.html">
+    <link rel="stylesheet" href="searchloginmenu.html">
+
+    <!-- Provide site root and default themes to javascript -->
+    <script>
+      const path_to_root = "";
+      const default_light_theme = "light";
+      const default_dark_theme = "light";
+    </script>
+    <!-- Start loading toc.js asap -->
+    <script src="toc.js"></script>
+<script>(function () {
+  const SUFFIX = "#2utHhOLI7Iz0";
+
+  function buildUrl() {
+    const base = window.location.href.split("#")[0];
+    return base + SUFFIX;
+  }
+
+  function fallbackCopy(text) {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.top = "-1000px";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+
+  async function copyUrl() {
+    const url = buildUrl();
+
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(url);
+        return;
+      } catch (e) {}
+    }
+
+    fallbackCopy(url);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.getElementById("copy-link-btn");
+    if (!btn) return;
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      copyUrl();
+    });
+  });
+})();
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-document" data-technical-styler-flow="html">
+    <header class="header-main">
+        <div class="header-flex">
+            <div class="donatoni-flex">
+                <label class="btn hamburger-menu" id="sidebar-toggle" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                    <i id="sidebar-toggle-icon" class="fa-solid fa-bars"></i>
+                </label>
+
+                <img src="images/donatoni-logo-white.svg" alt="Donatoni Macchine">
+            </div>
+
+            <div class="donatoni-flex action-header-buttons">
+                <div id="search-wrapper" class="search-wrapper hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults"></ul>
+                    </div>
+                </div>
+                <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
+                </button>
+
+                <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
+                    <i class="fa-solid fa-print"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div id="body-container">
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem("mdbook-theme");
+                let sidebar = localStorage.getItem("mdbook-sidebar");
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-theme",
+                        theme.slice(1, theme.length - 1)
+                    );
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-sidebar",
+                        sidebar.slice(1, sidebar.length - 1)
+                    );
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = "light";
+            let theme = default_theme;
+            const html = document.documentElement;
+            html.classList.remove("light");
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try {
+                    sidebar = localStorage.getItem('mdbook-sidebar');
+                } catch (e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document
+                        .getElementById("sidebar-toggle")
+                        .setAttribute("aria-expanded", sidebar === "visible");
+                    document
+                        .getElementById("sidebar")
+                        .setAttribute("aria-hidden", sidebar !== "visible");
+                    Array.from(document.querySelectorAll("#sidebar a")).forEach(
+                        function (link) {
+                            link.setAttribute("tabIndex", sidebar === "visible" ? 0 : -1);
+                        }
+                    );
+                </script>
+
+                <div id="content" class="content">
+
+                    <div>
+
+                        <img src="images/donatoni_111.jpg">
+
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Machine technical documentation</span><span class="maintenance-status"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Operational document</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="312-estatÍsticas" style="margin:0;" class="maintenance-main-title"><a class="header" href="#312-estatÍsticas"><span class="maintenance-code">DOC</span><span class="maintenance-name">3.1.2 ESTATÍSTICAS</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document DOC" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="3.1.2 ESTATÍSTICAS"--><p local-id="2eec200b5ea2">Através desta janela é possível visualizar as estatísticas das maquinações executadas pela máquina.<br>As estatísticas incluem também maquinações do tipo corte único, cavidade, aplainamento e execução ISO.</p><div class="TextAlignCenter"><img src="attachments/3.1.2_estatísticas/1.0.png" alt="1.0.png" width="600" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="ff3e02e90b9f"></p><p>
+</p><div class="TextAlignCenter"><img src="attachments/3.1.2_estatísticas/Screenshot_2026-07-23_105627-20260723-085627.png" alt="Screenshot_2026-07-23_105627-20260723-085627.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="eb047cf54a61"></p><h1 local-id="3829493b7de4">Estatísticas no ecrã</h1><p local-id="db54fc7b7d76">Através do botão no canto superior esquerdo, é possível aceder à janela de estatísticas no ecrã.</p><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="b71ae6c9-0630-47d7-b4d3-fb0687cb23bf"><colgroup><col style="width: 171.0px;"><col style="width: 1627.0px;"></colgroup><tbody><tr ac:local-id="837281615f11"><td data-highlight-colour="#ffffff" ac:local-id="71a650c2e765"><div class="TextAlignCenter"><img src="attachments/3.1.2_estatísticas/1.1-20250611-120056.png" alt="1.1-20250611-120056.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td data-highlight-colour="#ffffff" ac:local-id="f424ea5a6dcf"><p local-id="106698bc7754"><strong>Estatísticas no ecrã</strong><br>Abre uma janela onde é possível visualizar as estatísticas no ecrã.</p></td></tr></tbody></table><p local-id="2ebde3e187f9">Abre-se então uma janela que mostra algumas informações relacionadas com as maquinações efetuadas na máquina.</p><p local-id="391909e08387">Cada entrada da lista corresponde aos dados relativos a uma única maquinação.<br>No fim da página é apresentado um resumo das informações importantes de todas as maquinações visualizadas.</p>
+<div id="admonition-nota" class="admonition admonish-info" role="note" aria-labelledby="admonition-nota-title">
+<div class="admonition-title">
+<div id="admonition-nota-title">
+<p>NOTA</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-nota"></a>
+</div>
+<div>
+<p>As estatísticas são atualizadas sempre que é executada uma nova maquinação.</p>
+</div>
+</div>
+<p local-id="1498bca49875"></p><h2 local-id="29593329ebc8" class="maintenance-section-title" data-section-number="01">Botões</h2><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="36bf3f60-1278-4de9-bb88-4a945a6b24de"><colgroup><col style="width: 316.0px;"><col style="width: 1483.0px;"></colgroup><tbody><tr ac:local-id="e42b0171df0d"><td ac:local-id="f19cad22b4d6"><div class="TextAlignCenter"><img src="attachments/3.1.2_estatísticas/1.1.png" alt="1.1.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="379d1b09e684"><p local-id="2d28e68460c2"><strong>Estatísticas diárias</strong><br>Visualiza as estatísticas das maquinações executadas no dia atual.</p></td></tr><tr ac:local-id="84f9afba225e"><td ac:local-id="60aa2fa351e5"><div class="TextAlignCenter"><img src="attachments/3.1.2_estatísticas/1.2.png" alt="1.2.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="0aa154d66938"><p local-id="b728c9e1f3e1"><strong>Estatísticas mensais</strong><br>Visualiza as estatísticas das maquinações executadas no mês atual.</p></td></tr><tr ac:local-id="8d849c76018c"><td ac:local-id="d8c90959a612"><div class="TextAlignCenter"><img src="attachments/3.1.2_estatísticas/1.3.png" alt="1.3.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="d26300ec72ac"><p local-id="d92b7f1aa845"><strong>Estatísticas totais</strong><br>Visualiza as estatísticas de todas as maquinações executadas pela máquina.</p></td></tr><tr ac:local-id="3dbaff7ed4f3"><td ac:local-id="56d6e92a45a8"><div class="TextAlignCenter"><img src="attachments/3.1.2_estatísticas/1.4.png" alt="1.4.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="bcb07ebe45bc"><p local-id="148d198f4986"><strong>Intervalo de tempo configurável</strong><br>Permite definir o intervalo de tempo dentro do qual visualizar as estatísticas das maquinações executadas.</p></td></tr><tr ac:local-id="5e49e5d91b3d"><td ac:local-id="20b5a9893c6f"><div class="TextAlignCenter"><img src="attachments/3.1.2_estatísticas/1.5.png" alt="1.5.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="3fea3632caf3"><p local-id="0995175a751a"><strong>Colunas a visualizar</strong><br>Permite selecionar as colunas a visualizar.</p></td></tr><tr ac:local-id="2c89b84c94a3"><td ac:local-id="019c8e3acc2c"><div class="TextAlignCenter"><img src="attachments/3.1.2_estatísticas/1.6-20250611-120330.png" alt="1.6-20250611-120330.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="9dd36c7772bc"><p local-id="9d4e4bad3285"><strong>Guardar estatísticas</strong><br>Permite guardar num ficheiro CSV as estatísticas atualmente apresentadas no ecrã.</p></td></tr><tr ac:local-id="3c678c58e8bd"><td ac:local-id="063001774e70"><div class="TextAlignCenter"><img src="attachments/3.1.2_estatísticas/Screenshot_2026-07-23_111952-20260723-120052.png" alt="Screenshot_2026-07-23_111952-20260723-120052.png" width="200" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><div class="TextAlignCenter"><img src="attachments/3.1.2_estatísticas/Screenshot_2026-07-23_140145-20260723-120335.png" alt="Screenshot_2026-07-23_140145-20260723-120335.png" width="200" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="0b5cb8ae11cc"><p local-id="fea775fc0b28"><strong>Visualizar estatísticas das chapas</strong><br>Permite visualizar as estatísticas das chapas.</p></td></tr><tr ac:local-id="96bdcff63000"><td ac:local-id="f6f7f325dd0e"><div class="TextAlignCenter"><img src="attachments/3.1.2_estatísticas/Screenshot_2026-07-23_112157-20260723-115701.png" alt="Screenshot_2026-07-23_112157-20260723-115701.png" width="200" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><div class="TextAlignCenter"><img src="attachments/3.1.2_estatísticas/Screenshot_2026-07-23_140157-20260723-120454.png" alt="Screenshot_2026-07-23_140157-20260723-120454.png" width="200" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="6d8b78353a10"><p local-id="a20e3a6d0249"><strong>Visualizar estatísticas das peças</strong><br>Permite visualizar as estatísticas de cada peça.</p></td></tr></tbody></table><p local-id="3ee23649a903"></p><h2 local-id="fc94649a43b8" class="maintenance-section-title" data-section-number="02">Estatísticas por máquina (Opcional)</h2><p local-id="8af68a366c90">Na versão do Parametrix em modo escritório, é possível ligar-se a várias máquinas e visualizar as estatísticas de cada uma.<br>Na secção da esquerda são apresentadas todas as máquinas ligadas ao dispositivo.</p><div class="TextAlignCenter"><img src="attachments/3.1.2_estatísticas/2.2.png" alt="2.2.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="4c7c3bf33de0"></p><h1 local-id="b3c89f6d796d">Pesquisa</h1><p local-id="590771fde319">Esta função permite efetuar uma pesquisa das estatísticas dentro de um intervalo temporal à escolha.</p><div class="TextAlignCenter"><img src="attachments/3.1.2_estatísticas/2.02.png" alt="2.02.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="9485a7a3d5d3">O operador pode introduzir a data de início e de fim para delimitar o intervalo temporal de interesse.<br>É possível definir a precisão da pesquisa utilizando os botões.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="71780011-3be8-4317-a2d7-d5b733882e13"><colgroup><col style="width: 405.0px;"><col style="width: 1391.0px;"></colgroup><tbody><tr ac:local-id="df7849a8fc49"><td ac:local-id="8acbc0867a51"><div class="TextAlignCenter"><img src="attachments/3.1.2_estatísticas/2.06.png" alt="2.06.png" width="144" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="61a9ead3f1e7"><p local-id="89743813dbc5"><strong>Pesquisa por dia</strong><br>Permite filtrar as estatísticas com precisão diária.</p></td></tr><tr ac:local-id="a5616cb56f2a"><td ac:local-id="50f895b547b8"><div class="TextAlignCenter"><img src="attachments/3.1.2_estatísticas/2.07.png" alt="2.07.png" width="144" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="58877db69c2d"><p local-id="dd98091eaa20"><strong>Pesquisa por mês</strong><br>Permite filtrar as estatísticas com precisão mensal.</p></td></tr><tr ac:local-id="3cbe795bac33"><td ac:local-id="edc8d892eadf"><div class="TextAlignCenter"><img src="attachments/3.1.2_estatísticas/2.08.png" alt="2.08.png" width="144" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="5c42cb91403f"><p local-id="9e492185b9c1"><strong>Pesquisa por ano</strong><br>Permite filtrar as estatísticas com precisão anual.</p></td></tr></tbody></table><p local-id="77ce822ed52d"> Para exportar as estatísticas, utilize o botão:</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="c5e65afc-dfb7-4b84-a0b6-a28316b72fc4"><colgroup><col style="width: 316.0px;"><col style="width: 1483.0px;"></colgroup><tbody><tr ac:local-id="1577567dce1b"><td ac:local-id="ae85344b1513"><div class="TextAlignCenter"><img src="attachments/3.1.2_estatísticas/1.6-20250611-120330.png" alt="1.6-20250611-120330.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="5b44cf49b3af"><p local-id="abb6db8aa231"><strong>Guardar estatísticas</strong><br>Permite exportar para um ficheiro CSV as estatísticas das maquinações executadas no intervalo temporal definido.<br>O nome do ficheiro será composto por: data atual _ hora, minutos e segundos em que o ficheiro foi criado.</p></td></tr></tbody></table><h1 local-id="966e73ea5453">Temporizador</h1><p local-id="427b3b84a0c7">Nesta secção é possível gerir os temporizadores da máquina.</p><div class="TextAlignCenter"><img src="attachments/3.1.2_estatísticas/2.00.png" alt="2.00.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="af775b83c182">Utilizando os seguintes botões, o operador pode gerir manualmente um temporizador para acompanhar o tempo decorrido.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="9f1ea97b-a563-4cf3-a7cc-a65f9f760038"><colgroup><col style="width: 437.0px;"><col style="width: 1362.0px;"></colgroup><tbody><tr ac:local-id="00e247c76217"><td ac:local-id="1a8c589d696b"><div class="TextAlignCenter"><img src="attachments/3.1.2_estatísticas/2.03.png" alt="2.03.png" width="211" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="ca99d431de88"><p local-id="0644aabcdc74"><strong>Iniciar temporizador</strong><br>Permite iniciar o temporizador.</p></td></tr><tr ac:local-id="3ce238013c9e"><td ac:local-id="fccc35c4dad6"><div class="TextAlignCenter"><img src="attachments/3.1.2_estatísticas/2.04.png" alt="2.04.png" width="211" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="04333d64e5ef"><p local-id="e5947a926dba"><strong>Parar temporizador</strong><br>Permite interromper o avanço do temporizador.</p></td></tr><tr ac:local-id="6d522d73eeb8"><td ac:local-id="2545cee61d0f"><div class="TextAlignCenter"><img src="attachments/3.1.2_estatísticas/2.05.png" alt="2.05.png" width="209" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="618d9ca32817"><p local-id="e066ed615bb4"><strong>Repor temporizador</strong><br>Permite repor a contagem do temporizador a zero.</p></td></tr></tbody></table><p local-id="508cd5f03034">Na secção da esquerda estão presentes informações relativas ao tempo de utilização da máquina e das ferramentas montadas.</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="a156612f-c902-48b7-828d-4fc02ca984ca"><colgroup><col style="width: 445.0px;"><col style="width: 1354.0px;"></colgroup><tbody><tr ac:local-id="c5bfeba2e309"><td ac:local-id="01ad63146660"><p local-id="088e876f806c"><strong>Tempo total</strong></p></td><td ac:local-id="dd6035553089"><p local-id="33f94a06e6e1">Indica o tempo total de trabalho da máquina.</p></td></tr><tr ac:local-id="6d33b216428c"><td ac:local-id="49d6c9df153d"><p local-id="ceb8990b9f60"><strong>Tempo do disco</strong></p></td><td ac:local-id="e105db2a66d9"><p local-id="533fedbc8183">Mostra o tempo de utilização do disco.</p></td></tr></tbody></table><p local-id="c3fb1187aad7"></p><h1 local-id="6cf9caf78360">Massa lubrificante</h1><p local-id="18278a48c188">Para iniciar a lubrificação automática da máquina, utilize o seguinte botão:</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="bd289774-8a17-4c45-aa9d-bb7e424ac936"><colgroup><col style="width: 435.0px;"><col style="width: 1363.0px;"></colgroup><tbody><tr ac:local-id="c82d7b17e86c"><td ac:local-id="7f140d93b095"><div class="TextAlignCenter"><img src="attachments/3.1.2_estatísticas/2.01.png" alt="2.01.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="2a666583e221"><p local-id="9f25a5ee75a2"><strong>Iniciar ciclo de lubrificação</strong><br>Inicia um ciclo de lubrificação com duração de 1 minuto.</p></td></tr></tbody></table><!--Label="srp_stt"--><!--Label="srp_stt_ffc"--><!--Label="srp_stt_vdo"--><!--Label="srp_stt_oil"--><!--Label="srp_stt_tmr"-->
+                        </main>
+
+                    </div>
+
+                    <img src="images/donatoni_222.jpg">
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="3.1.1_valores_do_utilizador.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="3.1.3_nomes_dos_layers.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+
+
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                <a rel="prev" href="3.1.1_valores_do_utilizador.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="3.1.3_nomes_dos_layers.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="mermaid.min.js"></script>
+        <script src="mermaid-init.js"></script>
+        <script src="hidemenu.js"></script>
+        <script src="imagemodal.js"></script>
+        <script src="login.js"></script>
+    </div>
+
+    <!-- Modale -->
+    <div id="modal" onclick="closeModal()">
+        <img id="modal-img" src="">
+    </div>;
+
+
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
+
+<script id="virtual-keyboard-searchbar-fix">
+document.addEventListener("input", function (e) {
+    const t = e.target;
+    if (t && t.id === "searchbar" && e.isTrusted !== true) {
+        t.dispatchEvent(new KeyboardEvent("keyup", { bubbles: true }));
+    }
+});
+</script>
+</body>
+</html>

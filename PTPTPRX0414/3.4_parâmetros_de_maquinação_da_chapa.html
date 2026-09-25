@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+<head>
+    <!-- Book generated using mdBook -->
+    <meta charset="UTF-8">
+    <title>3.4 PARÂMETROS DE MAQUINAÇÃO DA CHAPA - PT-PT PARAMETRIX 4.14</title>
+
+    <!-- Custom HTML head -->
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="icon" href="favicon.svg">
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/chrome.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Fonts -->
+    <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+    <link rel="stylesheet" href="fonts/fonts.css">
+
+    <!-- Highlight.js Stylesheets -->
+    <link rel="stylesheet" id="highlight-css" href="highlight.css">
+    <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+    <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+    <!-- Custom theme stylesheets -->
+    <link rel="stylesheet" href="./mdbook-admonish.css">
+    <link rel="stylesheet" href="theme/custom.css">
+    <link rel="stylesheet" href="search.html">
+    <link rel="stylesheet" href="login.html">
+    <link rel="stylesheet" href="searchlogin.html">
+    <link rel="stylesheet" href="searchloginmenu.html">
+
+    <!-- Provide site root and default themes to javascript -->
+    <script>
+      const path_to_root = "";
+      const default_light_theme = "light";
+      const default_dark_theme = "light";
+    </script>
+    <!-- Start loading toc.js asap -->
+    <script src="toc.js"></script>
+<script>(function () {
+  const SUFFIX = "#2utHhOLI7Iz0";
+
+  function buildUrl() {
+    const base = window.location.href.split("#")[0];
+    return base + SUFFIX;
+  }
+
+  function fallbackCopy(text) {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.top = "-1000px";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+
+  async function copyUrl() {
+    const url = buildUrl();
+
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(url);
+        return;
+      } catch (e) {}
+    }
+
+    fallbackCopy(url);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.getElementById("copy-link-btn");
+    if (!btn) return;
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      copyUrl();
+    });
+  });
+})();
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-document" data-technical-styler-flow="html">
+    <header class="header-main">
+        <div class="header-flex">
+            <div class="donatoni-flex">
+                <label class="btn hamburger-menu" id="sidebar-toggle" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                    <i id="sidebar-toggle-icon" class="fa-solid fa-bars"></i>
+                </label>
+
+                <img src="images/donatoni-logo-white.svg" alt="Donatoni Macchine">
+            </div>
+
+            <div class="donatoni-flex action-header-buttons">
+                <div id="search-wrapper" class="search-wrapper hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults"></ul>
+                    </div>
+                </div>
+                <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
+                </button>
+
+                <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
+                    <i class="fa-solid fa-print"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div id="body-container">
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem("mdbook-theme");
+                let sidebar = localStorage.getItem("mdbook-sidebar");
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-theme",
+                        theme.slice(1, theme.length - 1)
+                    );
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-sidebar",
+                        sidebar.slice(1, sidebar.length - 1)
+                    );
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = "light";
+            let theme = default_theme;
+            const html = document.documentElement;
+            html.classList.remove("light");
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try {
+                    sidebar = localStorage.getItem('mdbook-sidebar');
+                } catch (e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document
+                        .getElementById("sidebar-toggle")
+                        .setAttribute("aria-expanded", sidebar === "visible");
+                    document
+                        .getElementById("sidebar")
+                        .setAttribute("aria-hidden", sidebar !== "visible");
+                    Array.from(document.querySelectorAll("#sidebar a")).forEach(
+                        function (link) {
+                            link.setAttribute("tabIndex", sidebar === "visible" ? 0 : -1);
+                        }
+                    );
+                </script>
+
+                <div id="content" class="content">
+
+                    <div>
+
+                        <img src="images/donatoni_111.jpg">
+
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Machine technical documentation</span><span class="maintenance-status"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Operational document</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="34-parÂmetros-de-maquinaÇÃo-da-chapa" style="margin:0;" class="maintenance-main-title"><a class="header" href="#34-parÂmetros-de-maquinaÇÃo-da-chapa"><span class="maintenance-code">DOC</span><span class="maintenance-name">3.4 PARÂMETROS DE MAQUINAÇÃO DA CHAPA</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document DOC" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="3.4 PARÂMETROS DE MAQUINAÇÃO DA CHAPA"--><p local-id="d01e7ee939aa">Ao abrir o painel “Parâmetros da Chapa“, será apresentado o ecrã de parâmetros de maquinação que permite ao operador gerir os dados relativos à maquinação.<br>Os dados de maquinação podem ser definidos e modificados através do painel de parâmetros.</p><div class="TextAlignCenter"><img src="attachments/3.4_parâmetros_de_maquinação_da_chapa/FinestraParametriLastra_B-20250325-122554.png" alt="FinestraParametriLastra_B-20250325-122554.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="1cff9141b92b"></p><p>
+</p><p local-id="c1d5af327ef4"></p><h1 local-id="1a0c4a6d8fe9">Gestão do material selecionado</h1><p local-id="0c10a663abc2">Na parte superior do painel “parâmetros de maquinação da chapa” encontram-se alguns elementos que permitem gerir os materiais:</p><div class="TextAlignCenter"><img src="attachments/3.4_parâmetros_de_maquinação_da_chapa/barra_materiale_e_spessore-20250715-054752.png" alt="barra_materiale_e_spessore-20250715-054752.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="3f3580087ba3"></p><p local-id="a8aeba4a60b3">A seguir são descritos os elementos que compõem esta secção dos parâmetros de maquinação da chapa</p><table class="my-table2" data-table-width="1351" data-layout="align-start" ac:local-id="353cc8ea-0506-4761-b7af-d83a562877b8"><colgroup><col style="width: 251.0px;"><col style="width: 1100.0px;"></colgroup><tbody><tr ac:local-id="3431194ab579"><td ac:local-id="1b3b5ee08d91"><div class="TextAlignCenter"><img src="attachments/3.4_parâmetros_de_maquinação_da_chapa/materiale-20250715-054838.png" alt="materiale-20250715-054838.png" width="126" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="ac065393742a"><p local-id="dc665664eb7c"><strong>Material Selecionado</strong><br>É apresentado o nome do material atualmente selecionado.</p></td></tr><tr ac:local-id="ec8e166b0a2f"><td ac:local-id="9ca36baacea5"><div class="TextAlignCenter"><img src="attachments/3.4_parâmetros_de_maquinação_da_chapa/__B-20250320-154920.png" alt="__B-20250320-154920.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="c043337fc593"><p local-id="c249cf830597"><strong>Botão criar novo material</strong><br>Ao premir este botão, abre-se uma janela que permite criar um novo material.<br>A respetiva janela é apresentada a seguir.</p></td></tr><tr ac:local-id="790cec06d1f1"><td ac:local-id="7fa2e6254590"><div class="TextAlignCenter"><img src="attachments/3.4_parâmetros_de_maquinação_da_chapa/Apri-20250320-154953.png" alt="Apri-20250320-154953.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="0081b32c99e1"><p local-id="9cf6599b60cf"><strong>Botão</strong> <strong>aceder ao painel Gestão de Materiais</strong><br>Ao premir este botão, abre-se uma janela que permite gerir os materiais disponíveis.<br>A respetiva janela é apresentada a seguir.</p></td></tr><tr ac:local-id="f6a8d02a315c"><td ac:local-id="137b97398c01"><div class="TextAlignCenter"><img src="attachments/3.4_parâmetros_de_maquinação_da_chapa/materiale_spessore-20250715-054920.png" alt="materiale_spessore-20250715-054920.png" width="197" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="b2788838a802"><p local-id="5d87d0fabbe9"><strong>Espessura do material selecionado</strong><br>O valor deste campo apresenta a espessura do material selecionado.<br>Este valor é essencial para todos os cálculos efetuados pelo programa.</p></td></tr></tbody></table><p local-id="22b2ccca5a90"></p><h2 local-id="c17e0359cb97" class="maintenance-section-title" data-section-number="01">Adicionar um novo material</h2><p local-id="cbc90be32b07">Esta pequena janela gráfica permite compor o nome de um novo material:</p><div class="TextAlignCenter"><img src="attachments/3.4_parâmetros_de_maquinação_da_chapa/image-20250325-122740.png" alt="image-20250325-122740.png" width="400" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="388b369dcdc7">Se for confirmada a criação do novo material, este será automaticamente selecionado.<br>Os parâmetros e a espessura do material serão atualizados em conformidade.</p><p local-id="0af99356635a"></p><h2 local-id="0de7b902617a" class="maintenance-section-title" data-section-number="02">Abrir o painel de gestão de materiais</h2><p local-id="b6ab4eb91f2b">A partir deste painel é possível gerir os materiais:</p><div class="TextAlignCenter"><img src="attachments/3.4_parâmetros_de_maquinação_da_chapa/image-20250325-122848.png" alt="image-20250325-122848.png" width="400" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="6bd90d7e-994e-44a9-b0af-c62e673fdaa1"><colgroup><col style="width: 215.0px;"><col style="width: 1583.0px;"></colgroup><tbody><tr ac:local-id="98cb36a24508"><td ac:local-id="5d12512f46ec"><div class="TextAlignCenter"><img src="attachments/3.4_parâmetros_de_maquinação_da_chapa/1C-20250314-152532.png" alt="1C-20250314-152532.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="de71ef27d5e4"><p local-id="c2419c067577"><strong>Barra de pesquisa</strong><br>Através da barra de texto situada imediatamente à direita deste ícone, é possível aplicar filtros de pesquisa com base no nome dos materiais disponíveis.</p></td></tr><tr ac:local-id="26f5d9c19dab"><td ac:local-id="c2e26c79013f"><div class="TextAlignCenter"><img src="attachments/3.4_parâmetros_de_maquinação_da_chapa/2C.png" alt="2C.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="6359103066cd"><p local-id="7d83044ed3f4"><strong>Remover filtro</strong><br>Este botão só será ativado após a aplicação de um filtro e, ao ser premido, eliminará o filtro aplicado.</p></td></tr><tr ac:local-id="36ccf5744c3f"><td ac:local-id="00cb4c7f6862"><div class="TextAlignCenter"><img src="attachments/3.4_parâmetros_de_maquinação_da_chapa/3C.png" alt="3C.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="54ab5761b391"><p local-id="a95c8d7385f3"><strong>Remover material</strong><br>Este botão permite eliminar um material presente na lista.<br>Para que um material possa ser eliminado, é necessário que esse material não seja o atualmente selecionado (isto é visível e destacado na primeira imagem desta secção).<br>Um pop-up de confirmação adicional permite eliminar o material.</p></td></tr><tr ac:local-id="9724c63c85db"><td ac:local-id="7d8596b59b64"><div class="TextAlignCenter"><img src="attachments/3.4_parâmetros_de_maquinação_da_chapa/4C.png" alt="4C.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="3ec98f01e31b"><p local-id="cdb841c527cc"><strong>Duplicar material</strong><br>Este botão permite duplicar o material selecionado na lista e os respetivos parâmetros.</p></td></tr><tr ac:local-id="cd135efdbe09"><td ac:local-id="b4b4f0c3aa1b"><div class="TextAlignCenter"><img src="attachments/3.4_parâmetros_de_maquinação_da_chapa/5C.png" alt="5C.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="d91d818931b6"><p local-id="6d6f0008fe28"><strong>Modificar material</strong><br>Este botão permite modificar os parâmetros do material selecionado na lista.</p></td></tr></tbody></table><p local-id="f44c0dda0fbe"></p><p local-id="0eaab2025d3d"></p><h1 local-id="c4b0b75ecec8">Seleção do tipo de maquinação</h1><p local-id="fd383f85ea9b">A seleção do tipo de maquinação regula o conteúdo da janela de gestão dos parâmetros.</p><div class="TextAlignCenter"><img src="attachments/3.4_parâmetros_de_maquinação_da_chapa/0.png" alt="0.png" width="308" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="9b5955002434">Para cada tipo de maquinação, são visíveis na respetiva pré-visualização o modo de incremento escolhido, a velocidade de corte para a frente (de penetração / entrada no caso do tipo de maquinação Furo) e o diâmetro da ferramenta.</p><p local-id="db8a21cd876c"></p><h2 local-id="0a0e982144b2" class="maintenance-section-title" data-section-number="03">Tipo de passagens</h2><table class="my-table2" data-table-width="1351" data-layout="align-start" ac:local-id="b24519c4-b680-4007-a488-d3372b001c67"><colgroup><col style="width: 231.0px;"><col style="width: 1120.0px;"></colgroup><tbody><tr ac:local-id="7c7f33f54800"><td ac:local-id="a5bf2675da7b"><div class="TextAlignCenter"><img src="attachments/3.4_parâmetros_de_maquinação_da_chapa/NoStep_D-20250829-061915.png" alt="NoStep_D-20250829-061915.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="bab571c947fb"><p local-id="5b9fce6de85b"><strong>Passagem Completa</strong><br>A Passagem Completa prevê a execução de toda a maquinação numa única passagem. Consequentemente, a ferramenta entra imediatamente em toda a espessura do material e executa a maquinação.</p></td></tr><tr ac:local-id="b52916035cac"><td ac:local-id="fca2f6d72a75"><div class="TextAlignCenter"><img src="attachments/3.4_parâmetros_de_maquinação_da_chapa/passate_a_spirale_e_a_step_D-20250613-061504.png" alt="passate_a_spirale_e_a_step_D-20250613-061504.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="e3153c751bce"><p local-id="f27bcfb1da08"><strong>Passagem por Step / em espiral</strong><br>Estas passagens preveem que a ferramenta não entre imediatamente até ao fundo do material, mas sim gradualmente.<br>Isto implica executar a maquinação várias vezes a alturas diferentes, até atingir a cota da bancada (fim do material) ou a altura definida.</p></td></tr></tbody></table><p local-id="590ac99e135c"></p><p local-id="348525c47c49"></p><h1 local-id="7a62d43fac81">Tipos de maquinação</h1><h2 local-id="877c4392d5ac" class="maintenance-section-title" data-section-number="04">Linear</h2><div class="TextAlignLeft"><img src="attachments/3.4_parâmetros_de_maquinação_da_chapa/1B-20250314-145227.png" alt="1B-20250314-145227.png" width="311" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="e787b5cefadb"></p><h3 local-id="882bacff7ebe">Passagem completa</h3><div class="TextAlignCenter"><img src="attachments/3.4_parâmetros_de_maquinação_da_chapa/TipoLavorazione1_Lineare_PassataPiena.png" alt="TipoLavorazione1_Lineare_PassataPiena.png" width="640" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="52ded64fd936"></p><h3 local-id="5500f5b885a3">Passagem por step</h3><div class="TextAlignCenter"><img src="attachments/3.4_parâmetros_de_maquinação_da_chapa/TipoLavorazione1_Lineare_PassataStep.png" alt="TipoLavorazione1_Lineare_PassataStep.png" width="640" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="363f28d8da39"></p><h3 local-id="31b7502f64c8">Descrição dos parâmetros de incrementos</h3><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="3357862c-c5ce-461d-99fd-43fec2c96037"><colgroup><col style="width: 564.0px;"><col style="width: 1236.0px;"></colgroup><tbody><tr ac:local-id="c0f81b2af358"><td ac:local-id="5f6f5c4b60f0"><div class="TextAlignCenter"><img src="attachments/3.4_parâmetros_de_maquinação_da_chapa/Inc_Avanti_B.png" alt="Inc_Avanti_B.png" width="394" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="a987009a23a1"><p local-id="da4244381129"><strong>Para a frente</strong><br>Indica a profundidade de corte no material quando a máquina corta no sentido de rotação do disco.</p></td></tr><tr ac:local-id="6c9235f7b0b2"><td ac:local-id="1f250d76eb0a"><div class="TextAlignCenter"><img src="attachments/3.4_parâmetros_de_maquinação_da_chapa/Inc_Indietro_B.png" alt="Inc_Indietro_B.png" width="394" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="f43cf6cac13f"><p local-id="d5d750dad484"><strong>Para trás</strong><br>Indica a profundidade de corte no material durante a fase de corte na direção oposta ao sentido da ferramenta.</p></td></tr><tr ac:local-id="aa484832b9e3"><td ac:local-id="4b1d3ba404b4"><div class="TextAlignCenter"><img src="attachments/3.4_parâmetros_de_maquinação_da_chapa/Inc_Ultima_B.png" alt="Inc_Ultima_B.png" width="394" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="c13ebc77be3f"><p local-id="b0fe628348c1"><strong>Última</strong><br>Indica a profundidade de corte que a última passagem da ferramenta deve ter no material. Este corte é sempre efetuado na direção oposta ao movimento do disco.</p></td></tr></tbody></table><p local-id="e5e268bc9cc6"></p><h3 local-id="601fb5d1b684">Descrição dos parâmetros de velocidade</h3><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="36f19461-ae61-4c64-be3b-c515fa5945c4"><colgroup><col style="width: 567.0px;"><col style="width: 1233.0px;"></colgroup><tbody><tr ac:local-id="3c3d2849ff79"><td ac:local-id="d872ba3280d6"><div class="TextAlignCenter"><img src="attachments/3.4_parâmetros_de_maquinação_da_chapa/Vel_Affondo_B.png" alt="Vel_Affondo_B.png" width="394" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="84be2364f9d2"><p local-id="dec266239c02"><strong>Penetração</strong><br>Determina a velocidade durante a fase de penetração da ferramenta no material. <br>Esta medida é expressa em milímetros por minuto.</p></td></tr><tr ac:local-id="5b356fbd5d57"><td ac:local-id="df6ac2c63bda"><div class="TextAlignCenter"><img src="attachments/3.4_parâmetros_de_maquinação_da_chapa/Vel_Avanti_B.png" alt="Vel_Avanti_B.png" width="394" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="53ad8843d6d3"><p local-id="ae67cf24d702"><strong>Para a frente</strong><br>Indica a velocidade pretendida para a fase de corte no movimento de ida. <br>Esta medida é expressa em milímetros por minuto.</p></td></tr><tr ac:local-id="d6b5258eb112"><td ac:local-id="2b66d2805107"><div class="TextAlignCenter"><img src="attachments/3.4_parâmetros_de_maquinação_da_chapa/Vel_Indietro_B.png" alt="Vel_Indietro_B.png" width="394" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="52702aef4481"><p local-id="31e18a8a435e"><strong>Para trás</strong><br>Indica a velocidade pretendida para a fase de corte no movimento de retorno. <br>Esta medida é expressa em milímetros por minuto.</p></td></tr><tr ac:local-id="7a0936de5ab0"><td ac:local-id="84d1de09b7a8"><div class="TextAlignCenter"><img src="attachments/3.4_parâmetros_de_maquinação_da_chapa/Inc_Ultima_B.png" alt="Inc_Ultima_B.png" width="394" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="296ccee12d58"><p local-id="f68aac765300"><strong>Última</strong><br>Indica a velocidade que a máquina deve manter no corte durante a última passagem. <br>Esta medida é expressa em milímetros por minuto.</p></td></tr><tr ac:local-id="ca24404486fa"><td ac:local-id="2489b31c29ce"><div class="TextAlignCenter"><img src="attachments/3.4_parâmetros_de_maquinação_da_chapa/Vel_AcceleraTagli_B.png" alt="Vel_AcceleraTagli_B.png" width="394" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="0371b32169e2"><p local-id="a4dec7c43506"><strong>Acelerar cortes</strong><br>Se este parâmetro for definido com um valor superior a zero, a velocidade de rotação do disco será aumentada progressivamente, desde o início do corte até à distância pretendida.<br>Em seguida, o resto do corte será efetuado à velocidade máxima.</p></td></tr><tr ac:local-id="a18f6f56969c"><td ac:local-id="61fd97a6ebef"><div class="TextAlignCenter"><img src="attachments/3.4_parâmetros_de_maquinação_da_chapa/Vel_RallentaTagli_B.png" alt="Vel_RallentaTagli_B.png" width="394" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="cae4fe4e4367"><p local-id="3a2572cc731e"><strong>Abrandar cortes</strong><br>Se este parâmetro for definido com um valor superior a zero, a velocidade de rotação do disco será reduzida progressivamente a partir da distância definida que separa do fim do corte, até ao término do corte.</p></td></tr></tbody></table>
+<div id="admonition-nota" class="admonition admonish-info" role="note" aria-labelledby="admonition-nota-title">
+<div class="admonition-title">
+<div id="admonition-nota-title">
+<p>NOTA</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-nota"></a>
+</div>
+<div>
+<p>No que diz respeito aos incrementos e às velocidades, os parâmetros “Para trás” e “Última” podem estar presentes ou não, ou pode estar presente apenas um dos dois.
+<br>
+Normalmente, estas opções são definidas no momento da instalação do programa e são decididas em função da maquinação do cliente.
+<br>
+É possível alterar estas opções, caso se prefira trabalhar de outra forma, contactando a Assistência Donatoni.</p>
+</div>
+</div>
+<p local-id="b3f2ccb8e66d"></p><p local-id="97a01c36400a"></p><h2 local-id="0ca2415c6ac0" class="maintenance-section-title" data-section-number="05">Arco</h2><div class="TextAlignLeft"><img src="attachments/3.4_parâmetros_de_maquinação_da_chapa/TipoLavorazione2_Arco_B.png" alt="TipoLavorazione2_Arco_B.png" width="307" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="756be92158ab"></p><h3 local-id="ad3781368dab">Passagem por step</h3><div class="TextAlignCenter"><img src="attachments/3.4_parâmetros_de_maquinação_da_chapa/TipoLavorazione2_Arco_PassataStep.png" alt="TipoLavorazione2_Arco_PassataStep.png" width="640" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="7f8b1d21f1f3"></p><p local-id="926ff89fe2d4"></p><h2 local-id="b845722fc7a5" class="maintenance-section-title" data-section-number="06">Inclinado</h2><div class="TextAlignLeft"><img src="attachments/3.4_parâmetros_de_maquinação_da_chapa/3B-20250314-150104.png" alt="3B-20250314-150104.png" width="319" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="161d3b1fa7fb"></p><h3 local-id="faf3635e89df">Passagem completa</h3><div class="TextAlignCenter"><img src="attachments/3.4_parâmetros_de_maquinação_da_chapa/TipoLavorazione3_Inclinato_PassataPiena.png" alt="TipoLavorazione3_Inclinato_PassataPiena.png" width="640" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="75bbb7e38ee3"></p><h3 local-id="669ae1e937fa">Passagem por step</h3><div class="TextAlignCenter"><img src="attachments/3.4_parâmetros_de_maquinação_da_chapa/TipoLavorazione3_Inc_B.png" alt="TipoLavorazione3_Inc_B.png" width="640" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="d6e0730386f5"></p><h3 local-id="e63a476646da">Descrição dos parâmetros de incrementos</h3><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="d9c03eae-4468-4fc5-98a0-d5b8bd98d93b"><colgroup><col style="width: 564.0px;"><col style="width: 1236.0px;"></colgroup><tbody><tr ac:local-id="733cac1ad71b"><td ac:local-id="e9439e136d29"><div class="TextAlignCenter"><img src="attachments/3.4_parâmetros_de_maquinação_da_chapa/Inc_TaglioConTastaturaOff_B-20250314-064648.png" alt="Inc_TaglioConTastaturaOff_B-20250314-064648.png" width="395" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><div class="TextAlignCenter"><img src="attachments/3.4_parâmetros_de_maquinação_da_chapa/Inc_TaglioConTastaturaOn_B.png" alt="Inc_TaglioConTastaturaOn_B.png" width="395" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="668855b02020"><p local-id="bf84592b5e56"><strong>Corte com medição (ativado / desativado)</strong><br>Se ativado, antes da execução do corte inclinado efetua duas medições com a sonda da chapa nas extremidades do corte pretendido e calcula a média obtida.<br>Este valor será utilizado durante a maquinação do corte inclinado.</p></td></tr></tbody></table><p local-id="a05d81eb74d4"></p><p local-id="8ba2ca495f7c"></p><h2 local-id="dcde214a6124" class="maintenance-section-title" data-section-number="07">Fresagem</h2><div class="TextAlignLeft"><img src="attachments/3.4_parâmetros_de_maquinação_da_chapa/TipoLavorazione4_Fresatura_B.png" alt="TipoLavorazione4_Fresatura_B.png" width="307" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="45cd9b28e0b3"></p><h3 local-id="0f16eb794c37">Passagem Completa</h3><div class="TextAlignCenter"><img src="attachments/3.4_parâmetros_de_maquinação_da_chapa/TipoLavorazione4_Fresatura_PassataPiena.png" alt="TipoLavorazione4_Fresatura_PassataPiena.png" width="640" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="93e2e1add8f1"></p><h3 local-id="c132a5908a2f">Passagem por step e passagem em espiral</h3><div class="TextAlignCenter"><img src="attachments/3.4_parâmetros_de_maquinação_da_chapa/TipoLavorazione4_Fresatura_PassataStep.png" alt="TipoLavorazione4_Fresatura_PassataStep.png" width="640" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><div class="TextAlignCenter"><img src="attachments/3.4_parâmetros_de_maquinação_da_chapa/TipoLavorazione4_Fresatura_PassataSpirale.png" alt="TipoLavorazione4_Fresatura_PassataSpirale.png" width="640" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="6aa2641cc524"></p><p local-id="3bcf870553b6"></p><h2 local-id="edbc79f7c4df" class="maintenance-section-title" data-section-number="08">Furo</h2><div class="TextAlignLeft"><img src="attachments/3.4_parâmetros_de_maquinação_da_chapa/TipoLavorazione5_Foro_B.png" alt="TipoLavorazione5_Foro_B.png" width="307" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="0904b88d1f02"></p><h3 local-id="f547a3befaa3">Passagem completa</h3><div class="TextAlignCenter"><img src="attachments/3.4_parâmetros_de_maquinação_da_chapa/TipoLavorazione5_Foro_PassataPiena.png" alt="TipoLavorazione5_Foro_PassataPiena.png" width="640" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="074b4413e1ed"></p><h3 local-id="2d123455cbcc">Passagem por step</h3><div class="TextAlignCenter"><img src="attachments/3.4_parâmetros_de_maquinação_da_chapa/TipoLavorazione5_Foro_PassataStep.png" alt="TipoLavorazione5_Foro_PassataStep.png" width="640" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="15539680dfd9"></p><h3 local-id="588b76c0d51b">Execução da maquinação com passagem por step:</h3><ul local-id="7ba26fca503c"><li local-id="79c97fa14177"><p local-id="fe5db9414443">A máquina aproximar-se-á do material à velocidade máxima até atingir a distância ao material especificada no parâmetro APROXIMAÇÃO.</p></li><li local-id="fc56d9cc406b"><p local-id="de4745de1da3">O número de passos será calculado como: </p><ul local-id="7766d01583d1"><li local-id="346e6cba2f2b"><p local-id="8000f83a09f4">Espessura do material dividida pela espessura dos steps</p><ul local-id="ee77721a219f"><li local-id="9ec919f0c13c"><p local-id="a671bb87e466">eventualmente arredondado por excesso</p></li></ul></li></ul></li><li local-id="1c39774e4e2d"><p local-id="b7ab4fd81e7d">A máquina começará a mover-se à velocidade de maquinação.</p><ul local-id="e04e0e5f7594"><li local-id="b90b6a92c231"><p local-id="a7860869de85">Se o valor do parâmetro STEP ENTRADA estiver definido (diferente e superior a zero), a máquina trabalhará à velocidade definida no segundo campo ENTRADA até atingir a distância definida no campo STEP ENTRADA</p></li></ul></li><li local-id="59074ab1c608"><p local-id="250b7c282451">A máquina executará os steps calculados no segundo ponto à velocidade Step</p></li><li local-id="7b97ed406fb2"><p local-id="4c8fa3af1215">Após cada step (incluindo o primeiro), a máquina regressará à cota do material à velocidade máxima e, em seguida, voltará à velocidade máxima para uma curta distância antes do início do step seguinte.</p></li><li local-id="8bcb26ff55c6"><p local-id="65cd5761d19b">Se o parâmetro STEP SAÍDA estiver definido (diferente e superior a zero), a máquina trabalhará à velocidade definida no segundo campo STEP até atingir a distância definida no primeiro campo SAÍDA</p><ul local-id="0eaee6e3c441"><li local-id="a161246b7248"><p local-id="df198df02d72">O restante step será executado à velocidade SAÍDA</p></li></ul></li></ul><p local-id="890d5b91c94a"></p><h3 local-id="54d89e8a76f4">Descrição dos parâmetros de Furo com passagem por step</h3><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="56a51fbd-3eac-4397-a2f4-3cb4454763ed"><colgroup><col style="width: 413.0px;"><col style="width: 1382.0px;"></colgroup><tbody><tr ac:local-id="c34b3f292455"><td ac:local-id="cdee5ff4a48a"><div class="TextAlignCenter"><img src="attachments/3.4_parâmetros_de_maquinação_da_chapa/ParForo_Avvicinamento_C.png" alt="ParForo_Avvicinamento_C.png" width="254" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="d59c23572fed"><p local-id="4fb69f06cb76"><strong>Cota de aproximação</strong><br>A máquina aproximar-se-á do material à velocidade máxima até atingir a distância ao material definida neste parâmetro. A partir desse momento, a broca craniana começará a mover-se à velocidade de maquinação.</p></td></tr><tr ac:local-id="c0570722cb52"><td ac:local-id="9bbb37478e35"><div class="TextAlignCenter"><img src="attachments/3.4_parâmetros_de_maquinação_da_chapa/ParForo_2B.png" alt="ParForo_2B.png" width="254" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="6d4c64f7c182"><p local-id="212957d86e9a"><strong>Step</strong><br>Estes parâmetros definem a espessura dos steps de trabalho e a velocidade de trabalho. Além disso, o número de steps de trabalho é calculado em função da espessura dos steps de trabalho e da espessura do material. <br>Por exemplo, se para uma espessura de material de 20 mm o utilizador definir o parâmetro como 3 mm, o furo será executado em 7 steps.</p></td></tr><tr ac:local-id="c85baa69aa0d"><td ac:local-id="e63c34f7745d"><div class="TextAlignCenter"><img src="attachments/3.4_parâmetros_de_maquinação_da_chapa/ParForo_1B.png" alt="ParForo_1B.png" width="254" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="2371a841e2c0"><p local-id="437bc71896e1"><strong>Entrada</strong><br>Se este valor for definido como diferente de 0, será definido um intervalo a partir do primeiro step e, eventualmente, para os steps seguintes, no qual a máquina trabalhará a uma velocidade diferente da definida em “STEP“</p></td></tr><tr ac:local-id="56c035821851"><td ac:local-id="b1308ecc17d5"><div class="TextAlignCenter"><img src="attachments/3.4_parâmetros_de_maquinação_da_chapa/ParForo_3_B.png" alt="ParForo_3_B.png" width="254" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="b45a3dadb660"><p local-id="2eafa9a2a5ab"><strong>Saída</strong><br>Se este valor for definido como diferente de 0, será definido um intervalo a partir do último step e, eventualmente, para os steps anteriores, no qual a máquina trabalhará a uma velocidade diferente da definida em “STEP“</p></td></tr><tr ac:local-id="5f05332c1d5b"><td ac:local-id="1b3bbaccf1d4"><div class="TextAlignCenter"><img src="attachments/3.4_parâmetros_de_maquinação_da_chapa/ParForo_PauseOn_B.png" alt="ParForo_PauseOn_B.png" width="254" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><div class="TextAlignCenter"><img src="attachments/3.4_parâmetros_de_maquinação_da_chapa/ParForo_PauseOff_B.png" alt="ParForo_PauseOff_B.png" width="254" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="66cbdf3936d5"><p local-id="3c41428d2756"><strong>Pausa depois</strong><br>Se este parâmetro for ativado, a máquina efetuará uma pausa após cada execução de um furo para permitir ao operador verificar eventuais resíduos de material presos no interior da ferramenta.<br>O operador deverá premir novamente o botão START para permitir a continuação do programa.</p></td></tr></tbody></table><p local-id="5ac99770109a"></p><p local-id="ace741234a3e"></p><h1 local-id="6cc7761a4a1b">Alteração dos parâmetros de corte</h1><p local-id="47a4ec321ed8">É possível modificar os parâmetros anteriormente descritos para o disco, a fresa e a broca craniana, se o utilizador estiver autorizado a utilizá-los.</p><div class="TextAlignCenter"><img src="attachments/3.4_parâmetros_de_maquinação_da_chapa/image-20250314-151025.png" alt="image-20250314-151025.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="8ee2829bc5b0">Para decidir de que ferramenta se pretende modificar os parâmetros, é necessário selecionar uma através do botão visível na parte direita do painel “Selecionar ferramenta“.</p><table class="my-table2" data-table-width="1351" data-layout="align-start" ac:local-id="7cc7efe6-b534-43f6-9a11-dc093ac1082c"><colgroup><col style="width: 199.0px;"><col style="width: 1152.0px;"></colgroup><tbody><tr ac:local-id="f9ba39569ce1"><td ac:local-id="cfff9856e88a"><div class="TextAlignCenter"><img src="attachments/3.4_parâmetros_de_maquinação_da_chapa/BottoneApri.png" alt="BottoneApri.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="9961b8bfec06"><p local-id="c174d3baba66"><strong>Alterar parâmetros de corte</strong><br>Permite aceder ao ecrã de alteração dos parâmetros de corte da ferramenta selecionada.</p></td></tr></tbody></table><p local-id="7473dabfa12c">Ao premir este botão, será apresentada uma janela que conterá uma configuração de parâmetros guardada para cada material existente. Os resultados dependem também do tipo de maquinação selecionado.</p><p local-id="1ead51c01bc1">Será aberta uma janela “Alteração dos Parâmetros de Corte“ semelhante à seguinte imagem de exemplo:</p><div class="TextAlignCenter"><img src="attachments/3.4_parâmetros_de_maquinação_da_chapa/image-20250325-123240.png" alt="image-20250325-123240.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="b4738e36783a">Na parte inferior esquerda do painel “Alteração dos Parâmetros de Corte“ existe uma barra de texto inicialmente vazia que permite aplicar um filtro de pesquisa.<br>O botão à direita da barra só é ativado quando existe texto na barra e, portanto, quando está aplicado um filtro de pesquisa. Ao premi-lo, o filtro é eliminado e a barra de texto é esvaziada.</p><p local-id="3b8f83d2676e"></p><p local-id="8303682dddfc"></p><h1 local-id="3cc03e66a2dc">Barra inferior</h1><p local-id="178dabcca337">A barra inferior do painel Parâmetros da Chapa tem um aspeto semelhante a este:</p><div class="TextAlignCenter"><img src="attachments/3.4_parâmetros_de_maquinação_da_chapa/Elemento_6_BarraInferiore_E-20250828-125415.png" alt="Elemento_6_BarraInferiore_E-20250828-125415.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="3c120257d40c">Esta barra é constituída pelos seguintes elementos:</p><table class="my-table2" data-table-width="1351" data-layout="align-start" ac:local-id="25c559c8-0393-406f-a6cc-05269253be54"><colgroup><col style="width: 365.0px;"><col style="width: 986.0px;"></colgroup><tbody><tr ac:local-id="eba862f88935"><td ac:local-id="b5810c60843c"><div class="TextAlignCenter"><img src="attachments/3.4_parâmetros_de_maquinação_da_chapa/Elemento_6_BarraInferiore_E_1-20250828-125722.png" alt="Elemento_6_BarraInferiore_E_1-20250828-125722.png" width="229" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="41060ce9bc1e"><p local-id="f3009e831688"><strong>Pré-visualização do disco</strong><br>É apresentada a ferramenta de disco atualmente montada na máquina.</p></td></tr><tr ac:local-id="94795887195a"><td ac:local-id="7acdc5e9bab2"><div class="TextAlignCenter"><img src="attachments/3.4_parâmetros_de_maquinação_da_chapa/Elemento_6_BarraInferiore_E_2-20250828-125750.png" alt="Elemento_6_BarraInferiore_E_2-20250828-125750.png" width="229" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="e02e7e0bbf6b"><p local-id="bd41a0b6a05c"><strong>Pré-visualização da fresa/furo</strong><br>É apresentada a ferramenta de fresa ou broca craniana atualmente montada na máquina.</p></td></tr><tr ac:local-id="fc4372eea981"><td ac:local-id="e08f8859670a"><div class="TextAlignCenter"><img src="attachments/3.4_parâmetros_de_maquinação_da_chapa/Elemento_6_BarraInferiore_E_2_b-20250320-064243.png" alt="Elemento_6_BarraInferiore_E_2_b-20250320-064243.png" width="56" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="d7164b834252"><p local-id="2cea8e5b72f5"><strong>Painel da Ferramenta</strong><br>Ao premir este botão, é possível aceder diretamente ao <strong>Painel da Ferramenta</strong>.</p></td></tr></tbody></table><p local-id="02646542a345"></p><!--Label="swp"--><!--Label="swp_mng"--><!--Label="swp_tpl_mtr"--><!--Label="swp_tpl_lnc"--><!--Label="swp_blw"--><!--Label="swp_mng_add"--><!--Label="swp_tpl_lnr"--><!--Label="swp_tpl_mil"--><!--Label="swp_tpl_hol"--><!--Label="swp_tpp"--><!--Label="swp_tpl"--><!--Label="swp_chp"--><!--Label="swp_mng_opn"--><!--Label="swp_stp"-->
+                        </main>
+
+                    </div>
+
+                    <img src="images/donatoni_222.jpg">
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="3.3.3_máquina_de_disco_duplo.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="3.5_acesso_ao_comando_manual.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+
+
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                <a rel="prev" href="3.3.3_máquina_de_disco_duplo.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="3.5_acesso_ao_comando_manual.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="mermaid.min.js"></script>
+        <script src="mermaid-init.js"></script>
+        <script src="hidemenu.js"></script>
+        <script src="imagemodal.js"></script>
+        <script src="login.js"></script>
+    </div>
+
+    <!-- Modale -->
+    <div id="modal" onclick="closeModal()">
+        <img id="modal-img" src="">
+    </div>;
+
+
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
+
+<script id="virtual-keyboard-searchbar-fix">
+document.addEventListener("input", function (e) {
+    const t = e.target;
+    if (t && t.id === "searchbar" && e.isTrusted !== true) {
+        t.dispatchEvent(new KeyboardEvent("keyup", { bubbles: true }));
+    }
+});
+</script>
+</body>
+</html>

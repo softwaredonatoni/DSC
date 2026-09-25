@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+<head>
+    <!-- Book generated using mdBook -->
+    <meta charset="UTF-8">
+    <title>3.13 MODIFICAR PEÇA - PT-PT PARAMETRIX 4.14</title>
+
+    <!-- Custom HTML head -->
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="icon" href="favicon.svg">
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/chrome.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Fonts -->
+    <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+    <link rel="stylesheet" href="fonts/fonts.css">
+
+    <!-- Highlight.js Stylesheets -->
+    <link rel="stylesheet" id="highlight-css" href="highlight.css">
+    <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+    <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+    <!-- Custom theme stylesheets -->
+    <link rel="stylesheet" href="./mdbook-admonish.css">
+    <link rel="stylesheet" href="theme/custom.css">
+    <link rel="stylesheet" href="search.html">
+    <link rel="stylesheet" href="login.html">
+    <link rel="stylesheet" href="searchlogin.html">
+    <link rel="stylesheet" href="searchloginmenu.html">
+
+    <!-- Provide site root and default themes to javascript -->
+    <script>
+      const path_to_root = "";
+      const default_light_theme = "light";
+      const default_dark_theme = "light";
+    </script>
+    <!-- Start loading toc.js asap -->
+    <script src="toc.js"></script>
+<script>(function () {
+  const SUFFIX = "#2utHhOLI7Iz0";
+
+  function buildUrl() {
+    const base = window.location.href.split("#")[0];
+    return base + SUFFIX;
+  }
+
+  function fallbackCopy(text) {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.top = "-1000px";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+
+  async function copyUrl() {
+    const url = buildUrl();
+
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(url);
+        return;
+      } catch (e) {}
+    }
+
+    fallbackCopy(url);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.getElementById("copy-link-btn");
+    if (!btn) return;
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      copyUrl();
+    });
+  });
+})();
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-document" data-technical-styler-flow="html">
+    <header class="header-main">
+        <div class="header-flex">
+            <div class="donatoni-flex">
+                <label class="btn hamburger-menu" id="sidebar-toggle" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                    <i id="sidebar-toggle-icon" class="fa-solid fa-bars"></i>
+                </label>
+
+                <img src="images/donatoni-logo-white.svg" alt="Donatoni Macchine">
+            </div>
+
+            <div class="donatoni-flex action-header-buttons">
+                <div id="search-wrapper" class="search-wrapper hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults"></ul>
+                    </div>
+                </div>
+                <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
+                </button>
+
+                <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
+                    <i class="fa-solid fa-print"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div id="body-container">
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem("mdbook-theme");
+                let sidebar = localStorage.getItem("mdbook-sidebar");
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-theme",
+                        theme.slice(1, theme.length - 1)
+                    );
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-sidebar",
+                        sidebar.slice(1, sidebar.length - 1)
+                    );
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = "light";
+            let theme = default_theme;
+            const html = document.documentElement;
+            html.classList.remove("light");
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try {
+                    sidebar = localStorage.getItem('mdbook-sidebar');
+                } catch (e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document
+                        .getElementById("sidebar-toggle")
+                        .setAttribute("aria-expanded", sidebar === "visible");
+                    document
+                        .getElementById("sidebar")
+                        .setAttribute("aria-hidden", sidebar !== "visible");
+                    Array.from(document.querySelectorAll("#sidebar a")).forEach(
+                        function (link) {
+                            link.setAttribute("tabIndex", sidebar === "visible" ? 0 : -1);
+                        }
+                    );
+                </script>
+
+                <div id="content" class="content">
+
+                    <div>
+
+                        <img src="images/donatoni_111.jpg">
+
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Machine technical documentation</span><span class="maintenance-status"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Operational document</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="313-modificar-peÇa" style="margin:0;" class="maintenance-main-title"><a class="header" href="#313-modificar-peÇa"><span class="maintenance-code">DOC</span><span class="maintenance-name">3.13 MODIFICAR PEÇA</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document DOC" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="3.13 MODIFICAR PEÇA"--><p local-id="9c5b466d87c8">Este painel permite ao operador aplicar diferentes tipos de maquinação a uma peça designada.<br>Ao ser aberto, é apresentado o seguinte ecrã:</p><div class="TextAlignCenter"><img src="attachments/3.13_modificar_peça/7.0.png" alt="7.0.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="98da3f106b05"></p><p>
+</p><p local-id="1325b5fda843"></p>
+<div id="admonition-atenÇÃo" class="admonition admonish-warning" role="note" aria-labelledby="admonition-atenÇÃo-title">
+<div class="admonition-title">
+<div id="admonition-atenÇÃo-title">
+<p>ATENÇÃO!</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-atenÇÃo"></a>
+</div>
+<div>
+<p>Algumas das funções descritas nesta secção estão também presentes na página principal do Parametrix, mas com uma diferença.
+<br>
+Se uma peça ou um corte for modificado através do painel ‘Modificar Peça’, todas as peças da linha selecionada serão modificadas em conformidade com as mesmas maquinações.
+<br>
+Pelo contrário, se a maquinação for definida a partir da área de trabalho, apenas a peça selecionada será modificada.</p>
+</div>
+</div>
+<h1 local-id="a513e74be58b">Tipos de maquinação</h1><p local-id="9c49af57b9bd">Através do painel “Modificar Peça“ é possível aplicar uma ou mais das seguintes maquinações, que serão descritas individualmente a seguir. Em particular, o Parametrix permite:</p><table class="my-table2" data-table-width="1351" data-layout="align-start" ac:local-id="d92192f2-92dc-4db5-b9c0-e50c433f88e2"><colgroup><col style="width: 125.0px;"><col style="width: 544.0px;"><col style="width: 119.0px;"><col style="width: 563.0px;"></colgroup><tbody><tr ac:local-id="04bac872-ed21-4799-8f1b-fb70a1465c58"><td data-highlight-colour="initial" ac:local-id="955c6c21-1d9d-4c03-a765-86bc88cba28d"><div class="TextAlignCenter"><img src="attachments/3.13_modificar_peça/0_b-20250611-085820.png" alt="0_b-20250611-085820.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td data-highlight-colour="initial" ac:local-id="2b45e8f3-a8f1-4eed-af06-a0746ad2a459"><p local-id="c5ac154bdc15"><strong>Inclinar</strong><br>Modificar a inclinação dos cortes, tanto abaixo como acima do esquadro.</p></td><td data-highlight-colour="initial" ac:local-id="79a83ce0-5997-40c4-abd2-6b32151372dd"><div class="TextAlignCenter"><img src="attachments/3.13_modificar_peça/0_b-20250611-090132.png" alt="0_b-20250611-090132.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td data-highlight-colour="initial" ac:local-id="b9862d83-9ee4-4baa-91f6-16bb2d707f27"><p local-id="4f1d6d31339a"><strong>Goteira</strong><br>Adicionar uma goteira ao lado de um corte.</p></td></tr><tr ac:local-id="e13cd8b7-a7d5-4a01-9b87-86d5e7a342b4"><td data-highlight-colour="initial" ac:local-id="9e29c990-41cf-4010-8923-e394f111d998"><div class="TextAlignCenter"><img src="attachments/3.13_modificar_peça/0_b-20250611-090404.png" alt="0_b-20250611-090404.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td data-highlight-colour="initial" ac:local-id="d5674bbc-6eaf-4dca-83b1-87b8aaf925f1"><p local-id="bfa431c684de"><strong>Adicionar</strong><br>Adicionar um corte paralelo a um lado da peça.</p></td><td data-highlight-colour="initial" ac:local-id="c27a9907-1217-47d0-aef4-08f976f04a0c"><div class="TextAlignCenter"><img src="attachments/3.13_modificar_peça/0_b-20250611-090725.png" alt="0_b-20250611-090725.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td data-highlight-colour="initial" ac:local-id="fd2d5041-f4f6-451f-a4fb-fb5319b28d55"><p local-id="bca8ddafec59"><strong>Eliminar</strong><br>Eliminar os cortes da peça.</p></td></tr><tr ac:local-id="12bd6f27-176c-4751-8b9b-30addac4ba91"><td data-highlight-colour="initial" ac:local-id="8bf0b9ca-aee5-4e7f-bcf0-ade21d8829ca"><div class="TextAlignCenter"><img src="attachments/3.13_modificar_peça/0_b-20250611-091914.png" alt="0_b-20250611-091914.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td data-highlight-colour="initial" ac:local-id="18b11c0a-0042-4bd8-93d8-bc96cc41b65e"><p local-id="80657510c43f"><strong>Offset</strong><br>Modificar as dimensões da peça aplicando offset aos seus lados.</p></td><td data-highlight-colour="initial" ac:local-id="f1f854ff-35b0-46b2-b593-c807ecf855b6"><div class="TextAlignCenter"><img src="attachments/3.13_modificar_peça/0_b-20250611-092003.png" alt="0_b-20250611-092003.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td data-highlight-colour="initial" ac:local-id="1db1ea35-c336-4d0e-938a-85dc45496256"><p local-id="4bb5a5ad2c80"><strong>Furo</strong><br>Adicionar furos no material, inclusive para remover o que o disco não conseguiu cortar.</p></td></tr><tr ac:local-id="a74f41d6-c3bc-4564-91c3-38057b3a2deb"><td data-highlight-colour="initial" ac:local-id="5e44059e-68c5-47b4-b019-8d63b7e26abe"><div class="TextAlignCenter"><img src="attachments/3.13_modificar_peça/0_b-20250611-092106.png" alt="0_b-20250611-092106.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td data-highlight-colour="initial" ac:local-id="fcb2d3e9-c357-4e78-941c-d8146c50f59d"><p local-id="9969cf25fba1"><strong>Fresagem</strong><br>Substituir maquinações com disco por cortes de fresagem.</p></td><td data-highlight-colour="initial" ac:local-id="fc4bc004-1536-4a06-b8cb-4f97a876ec61"><div class="TextAlignCenter"><img src="attachments/3.13_modificar_peça/0_b-20250611-092147.png" alt="0_b-20250611-092147.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td data-highlight-colour="initial" ac:local-id="a9515641-aed5-48fc-a245-20f572e3448d"><p local-id="5491315fc25c"><strong>Rebaixo</strong><br>Aplicar rebaixos por fresagem. Utiliza-se, por exemplo, para criar encaixes para lava-loiças em tampos de cozinha.</p></td></tr><tr ac:local-id="9fbcbedb-6592-400a-b489-136fb21be6c5"><td data-highlight-colour="initial" ac:local-id="6fef5de3-ada5-433f-9be0-77a7a4fce602"><div class="TextAlignCenter"><img src="attachments/3.13_modificar_peça/1-20250616-092820.png" alt="1-20250616-092820.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td data-highlight-colour="initial" ac:local-id="25506200-6739-430a-9e13-9b826ecf3186"><p local-id="275e19c747a2"><strong>Corte Inferior - (Opcional)</strong><br>Executar um corte na superfície inferior da peça utilizando um opcional mecânico específico.</p></td><td data-highlight-colour="initial" ac:local-id="c118256d-f492-47e8-a827-b4c4cc81d05e"><div class="TextAlignCenter"><img src="attachments/3.13_modificar_peça/0_b-20250611-092343.png" alt="0_b-20250611-092343.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td data-highlight-colour="initial" ac:local-id="919966f6-45a9-48de-8acb-c77df4744e07"><p local-id="caec2c430d4e"><strong>Espelho</strong><br>Adicionar espelhos ou painéis rebaixados aos lados da peça.</p></td></tr><tr ac:local-id="ec2b1ebe-33ce-4c09-bb12-1b854640f066"><td data-highlight-colour="initial" ac:local-id="7acd82e9-9bbf-49af-b046-32093fc78b8f"><div class="TextAlignCenter"><img src="attachments/3.13_modificar_peça/0_b-20250611-093644.png" alt="0_b-20250611-093644.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td data-highlight-colour="initial" ac:local-id="de4031e1-9bd2-4a4e-a856-f8d59505df5d"><p local-id="f1b605ba5c5a"><strong>Lancil</strong><br>Adicionar um corte chanfrado a um lado da peça.</p></td><td data-highlight-colour="initial" ac:local-id="34149850-27dc-43de-b0b2-32555d37ac0e"><div class="TextAlignCenter"><img src="attachments/3.13_modificar_peça/1.1.png" alt="1.1.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td data-highlight-colour="initial" ac:local-id="38dcdc61-ff7c-434a-9852-fa73dfe21c00"><p local-id="f3f9083f9777"><strong>Superfície - (Opcional)</strong><br>Aplicar passagens superficiais com cortes verticais e disco horizontal.</p></td></tr><tr ac:local-id="c235c74d-54a4-4d6f-9953-a178ace40359"><td data-highlight-colour="initial" ac:local-id="bb291fd0-d046-4da3-b2e8-f8f865c1b761"><div class="TextAlignCenter"><img src="attachments/3.13_modificar_peça/1.1.png" alt="1.1.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td data-highlight-colour="initial" ac:local-id="6aa57568-6f13-4d1a-aedc-3f189b204be3"><p local-id="31801840d403"><strong>Aplainamento - (Opcional)</strong><br>Aplicar um ciclo de aplainamento com cortes verticais e disco horizontal.</p></td><td data-highlight-colour="initial" ac:local-id="12692800-277a-4ac2-a99e-13340a5b8d7e"><div class="TextAlignCenter"><img src="attachments/3.13_modificar_peça/1-20250616-092944.png" alt="1-20250616-092944.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td data-highlight-colour="initial" ac:local-id="fa5b589d-8f6a-4bdf-8a78-9d4f4aa66a65"><p local-id="2a1ed53396ad"><strong>Canaleta - (Opcional)</strong><br>Adicionar uma canaleta de drenagem à peça utilizando o disco.</p></td></tr><tr ac:local-id="d6b734b1-8546-4380-a94f-b0674f281588"><td data-highlight-colour="initial" ac:local-id="0336892d-0a4f-426a-aacd-529a25f1c20b"><div class="TextAlignCenter"><img src="attachments/3.13_modificar_peça/0_b-20250611-093855.png" alt="0_b-20250611-093855.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td data-highlight-colour="initial" ac:local-id="64088e13-07b7-4284-b658-6c77e7216f83"><p local-id="5e2ce4d68fe0"><strong>Concordância</strong><br>Arredondar um vértice ou um lado da peça através da aplicação de uma concordância.</p></td><td data-highlight-colour="initial" ac:local-id="54e10c44-80ae-45a7-b71b-84be2ed8fc04"><div class="TextAlignCenter"><img src="attachments/3.13_modificar_peça/0_b-20250611-094004.png" alt="0_b-20250611-094004.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td data-highlight-colour="initial" ac:local-id="d1c6a7d1-0acb-4639-8d3d-b66a38fbea95"><p local-id="58cb7d9dd1ce"><strong>Dividir</strong><br>Cortar a peça utilizando como referência um lado ou uma linha personalizada.</p></td></tr><tr ac:local-id="5f7261d5-9e07-47f7-b54b-70849395bd45"><td data-highlight-colour="initial" ac:local-id="67e98ad0-4aa4-4c3c-8441-5757f7dc0cca"><div class="TextAlignCenter"><img src="attachments/3.13_modificar_peça/0_b-20250611-094317.png" alt="0_b-20250611-094317.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td data-highlight-colour="initial" ac:local-id="ec9e6e6b-ce5d-430e-8223-471474acaf89"><p local-id="fd2979a1d284"><strong>Rebaixo interno</strong><br>Adicionar um rebaixo interno à peça, de forma retangular, circular ou elíptica.</p></td><td data-highlight-colour="initial" ac:local-id="29e998b5-c9ab-4a12-8e75-ddc355c61fe9"><div class="TextAlignCenter"><img src="attachments/3.13_modificar_peça/0_b-20250611-094500.png" alt="0_b-20250611-094500.png" width="61" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td data-highlight-colour="initial" ac:local-id="726261a6-f152-4be4-a931-a2fec9ce3945"><p local-id="607f6e876a47"><strong>Flutes</strong><br>Criar ranhuras através de fresagem.</p></td></tr><tr ac:local-id="1c687a37-deba-466c-8d91-bd35558562be"><td data-highlight-colour="initial" ac:local-id="19b2a5ef-d0f7-4b68-903c-5ddb70aacf67"><div class="TextAlignCenter"><img src="attachments/3.13_modificar_peça/1.png" alt="1.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td data-highlight-colour="initial" ac:local-id="b1ca6f0f-3834-4e20-80cd-ecf5a464001e"><p local-id="9120d86b9733"><strong>Dimensão Máxima - (Opcional)</strong><br>Obter a dimensão máxima da peça.</p></td><td data-highlight-colour="initial" ac:local-id="d8dda571-dd88-4dcf-b8ff-2197ce7efc71"><div class="TextAlignCenter"><img src="attachments/3.13_modificar_peça/1-20250616-093104.png" alt="1-20250616-093104.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td data-highlight-colour="initial" ac:local-id="e89a509e-fc9e-4729-bfe7-9aa828949a4f"><p local-id="3edc0ff2bc6b"><strong>Espelho</strong><br>Obter a versão espelhada da peça.</p></td></tr></tbody></table>
+<div id="admonition-nota" class="admonition admonish-info" role="note" aria-labelledby="admonition-nota-title">
+<div class="admonition-title">
+<div id="admonition-nota-title">
+<p>NOTA</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-nota"></a>
+</div>
+<div>
+<p>Consoante a combinação de opcionais, alguns destes botões podem não estar presentes.</p>
+</div>
+</div>
+<h1 local-id="af27b7233b56">Lista de cortes</h1><p local-id="5d08fd5e9976">Os cortes da peça serão apresentados na secção inferior esquerda deste painel. </p><p local-id="906d1735d5c2">Através de uma divisão específica, é indicado se um corte pertence ao perímetro externo ou a um dos perímetros internos. Graças a esta classificação, é possível mostrar/ocultar a lista dos cortes pertencentes a um polígono premindo o ícone da secção correspondente.</p><div class="TextAlignCenter"><img src="attachments/3.13_modificar_peça/0.1.png" alt="0.1.png" width="500" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="dcd31b8bd7c3">Como se pode observar na imagem, em cada linha são apresentadas algumas informações relativas ao corte que representa. Em particular:</p><table class="my-table2" data-table-width="1351" data-layout="align-start" ac:local-id="918a1b7c-bdc1-41b0-b510-a1ff9c6ebae5"><colgroup><col style="width: 400.0px;"><col style="width: 951.0px;"></colgroup><tbody><tr ac:local-id="984b92642e7a"><td ac:local-id="0da95aabf2ec"><div class="TextAlignCenter"><img src="attachments/3.13_modificar_peça/2.3.png" alt="2.3.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="2da10498da7a"><p local-id="301b8bdce083"><strong>Gerir maquinação</strong><br>Botão através do qual é possível interagir com o corte e aplicar a maquinação atual.<br>Na página principal permite ativar/desativar o corte.</p></td></tr><tr ac:local-id="3cbd795f2850"><td ac:local-id="e8eeec40312e"><div class="TextAlignCenter"><img src="attachments/3.13_modificar_peça/0.2.png" alt="0.2.png" width="288" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="644827b4372c"></p></td><td ac:local-id="a98e2fc3c704"><p local-id="802ba5d509df"><strong>Informações do corte</strong></p><ul local-id="f3bb347207bd"><li local-id="2ef4a3fabccb"><p local-id="c929772fd990"><strong>T</strong> - indica o tipo do corte (“Linha reta”, “Curva“, “Fresagem“, etc.).</p></li><li local-id="61f044671ab0"><p local-id="beac43632b7b"><strong>D</strong> - indica o comprimento do corte.</p></li><li local-id="f70d18506255"><p local-id="2298795cfc76"><strong>I</strong> - indica a inclinação do corte.</p></li><li local-id="312bd42f586d"><p local-id="51a4e725afe8"><strong>P</strong> - indica a penetração do corte.</p></li></ul></td></tr><tr ac:local-id="a22734b90ae8"><td ac:local-id="c8d930c16359"><div class="TextAlignCenter"><img src="attachments/3.13_modificar_peça/0.3.png" alt="0.3.png" width="175" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="23cd8a7b1725"><p local-id="48d7f4c0b0d3"><strong>Informações da maquinação</strong></p><ul local-id="0c99690825ea"><li local-id="f623afc52225"><p local-id="a9f40f14e6cd">Tipo de maquinação (“Linear”, “Arco“, “Inclinado“, etc.).</p></li><li local-id="86f741bde671"><p local-id="c957788b09a1">Modo de passagens (Passagem completa ou Passagem por step).</p></li><li local-id="dca41b0f5cf0"><p local-id="21615de3910b">Velocidade de avanço do corte.</p></li><li local-id="8ae0393d9803"><p local-id="ab22e85f5aad">Diâmetro da ferramenta utilizada para a maquinação (Disco, Fresa, etc.).</p></li></ul></td></tr></tbody></table>
+<div id="admonition-nota-1" class="admonition admonish-info" role="note" aria-labelledby="admonition-nota-1-title">
+<div class="admonition-title">
+<div id="admonition-nota-1-title">
+<p>NOTA</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-nota-1"></a>
+</div>
+<div>
+<p>Estas informações variam consoante o tipo de corte que descrevem. Nem sempre são apresentadas todas as informações.
+<br>
+Por exemplo, para os furos é possível visualizar apenas a penetração no material.</p>
+</div>
+</div>
+<div id="admonition-nota-2" class="admonition admonish-info" role="note" aria-labelledby="admonition-nota-2-title">
+<div class="admonition-title">
+<div id="admonition-nota-2-title">
+<p>NOTA</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-nota-2"></a>
+</div>
+<div>
+<p>Se não existir nenhum corte numa parte da peça, é indicado com a designação “Nenhum“.</p>
+</div>
+</div>
+<p local-id="351876c4e636"></p><p local-id="a25740fdb8c3"></p><h1 local-id="fcefa6ad0819">Pré-visualização</h1><p local-id="bea66add0c7d">A parte principal da funcionalidade "Modificar Peça" disponibiliza ao operador uma pré-visualização completa da peça selecionada, mostrando todas as maquinações atualmente aplicadas.</p><div class="TextAlignCenter"><img src="attachments/3.13_modificar_peça/0.4.png" alt="0.4.png" width="600" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="e29efc2e6794">É possível interagir com a peça apresentada simplesmente movendo a pré-visualização ou utilizando os botões para alterar o zoom que se encontram à sua direita.</p><p local-id="a0b05e91248a">Além disso, nesta secção estão presentes outras funcionalidades que serão descritas a seguir.</p><table class="my-table2" data-table-width="1351" data-layout="align-start" ac:local-id="b0991553-aff6-4e6a-8227-8742d06608e1"><colgroup><col style="width: 431.0px;"><col style="width: 920.0px;"></colgroup><tbody><tr ac:local-id="c483813d3417"><td ac:local-id="61b98dc51276"><div class="TextAlignCenter"><img src="attachments/3.13_modificar_peça/0.5.png" alt="0.5.png" width="360" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="77ca94a1fa04"><p local-id="06d9589fd21d"><strong>Marca</strong><br>É disponibilizada a possibilidade de modificar a marca da peça selecionada.</p></td></tr><tr ac:local-id="bb2d78d7a9b0"><td ac:local-id="acf7fdc85230"><div class="TextAlignCenter"><img src="attachments/3.13_modificar_peça/0_4_2-20250611-095441.png" alt="0_4_2-20250611-095441.png" width="255" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="4d74b1c9c3a4"><p local-id="1992980652e4"><strong>Número de peças</strong><br>É disponibilizada a possibilidade de modificar o número de peças processadas e o número total de peças.</p></td></tr><tr ac:local-id="09290bbf39fc"><td ac:local-id="eaac254d585f"><div class="TextAlignCenter"><img src="attachments/3.13_modificar_peça/0_4_3-20250611-110520.png" alt="0_4_3-20250611-110520.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="00857901d78d"><p local-id="45e309de9d0c"><strong>Adicionar favorito</strong><br>A peça apresentada na pré-visualização será inserida na lista de peças favoritas, juntamente com todas as alterações aplicadas no momento da inserção nos favoritos.</p></td></tr></tbody></table><p local-id="9d273eda768a"></p><h2 local-id="f1734075bd24" class="maintenance-section-title" data-section-number="01">Seleção dos cortes</h2><p local-id="ece40f746431">É possível selecionar um corte diretamente na pré-visualização, observando a mudança da sua cor para amarelo como confirmação da seleção, ou selecionar a linha correspondente na lista de cortes disponível no menu inferior esquerdo.</p><p local-id="83b3f952c90f">Ao clicar no indicador verde à esquerda de cada elemento da lista, será possível desativar o respetivo corte.<br>Neste caso, o indicador ficará vermelho e a pré-visualização da peça será atualizada, com a cor do corte desativado a mudar para cinzento.<br>No exemplo seguinte foram desativados os dois primeiros cortes do polígono externo da peça:</p><div class="TextAlignCenter"><img src="attachments/3.13_modificar_peça/0.6.png" alt="0.6.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="50154fb1dec0"></p><h1 local-id="dad0d6b97018">Barra inferior</h1><p local-id="033e29e327fd">Nesta barra são disponibilizadas algumas funcionalidades que simplificam a utilização das maquinações de Modificar Peça:</p><div class="TextAlignCenter"><img src="attachments/3.13_modificar_peça/0_3-20250611-074753.png" alt="0_3-20250611-074753.png" width="417" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="95c781d8-9fec-4cb2-b85e-5d2ba95a545f"><colgroup><col style="width: 236.0px;"><col style="width: 1564.0px;"></colgroup><tbody><tr ac:local-id="aa161eb9c5ff"><td ac:local-id="069587ba0947"><div class="TextAlignCenter"><img src="attachments/3.13_modificar_peça/3_1-20250611-120434.png" alt="3_1-20250611-120434.png" width="58" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="8847a1b23c86"><p local-id="16784e0ecd0c"><strong>Cortes</strong><br>Visualizar a lista de cortes da peça. <br>É a vista predefinida deste painel.</p></td></tr><tr ac:local-id="592df0e23ea4"><td ac:local-id="1ed516ca89c3"><div class="TextAlignCenter"><img src="attachments/3.13_modificar_peça/3_2-20250611-120533.png" alt="3_2-20250611-120533.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="767e45cc1891"><p local-id="8b5e195b04f0"><strong>Lados</strong><br>Este botão permite visualizar o comprimento dos lados da Peça na lista, em vez do comprimento do corte. A seleção diretamente na imagem ou na lista irá colorir de amarelo o lado da peça selecionado.</p>
+<div id="admonition-nota-3" class="admonition admonish-info" role="note" aria-labelledby="admonition-nota-3-title">
+<div class="admonition-title">
+<div id="admonition-nota-3-title">
+<p>NOTA</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-nota-3"></a>
+</div>
+<div>
+<p>Neste modo não é possível adicionar maquinações a aplicar à peça.</p>
+</div>
+</div>
+</td></tr><tr ac:local-id="dc01c47200f9"><td ac:local-id="0566c243cd54"><div class="TextAlignCenter"><img src="attachments/3.13_modificar_peça/3_3-20250611-120611.png" alt="3_3-20250611-120611.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="7ce69788cb3e"><p local-id="910fb0847412"><strong>Histórico</strong><br>Visualizar o histórico das operações aplicadas à peça.<br>Permite também repor a peça na operação pretendida.</p></td></tr><tr ac:local-id="43543e9788d5"><td ac:local-id="e50c93a58db7"><div class="TextAlignCenter"><img src="attachments/3.13_modificar_peça/3_4-20250611-120701.png" alt="3_4-20250611-120701.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="cba647b49195"><p local-id="3f542007d239"><strong>Anular</strong><br>Permite anular as alterações efetuadas na peça.<br>Várias pressões deste botão permitem regressar às condições iniciais da peça.</p>
+<div id="admonition-atenÇÃo-1" class="admonition admonish-warning" role="note" aria-labelledby="admonition-atenÇÃo-1-title">
+<div class="admonition-title">
+<div id="admonition-atenÇÃo-1-title">
+<p>ATENÇÃO!</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-atenÇÃo-1"></a>
+</div>
+<div>
+<p>O botão funciona enquanto o painel “Modificar Peça” permanecer aberto na peça em análise.
+<br>
+Se o painel for fechado, perde-se a possibilidade de anular as alterações na peça em questão, mesmo que o painel seja aberto novamente.</p>
+</div>
+</div>
+</td></tr><tr ac:local-id="973116640934"><td ac:local-id="2f8f94b61390"><div class="TextAlignCenter"><img src="attachments/3.13_modificar_peça/3_5_OffOn-20250611-120944.png" alt="3_5_OffOn-20250611-120944.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="b99dc777986b"><p local-id="f0ce7c35a29a"><strong>Modificar vista</strong><br>Ativa ou desativa determinadas entidades da peça para facilitar a visibilidade e a modificação da peça.</p></td></tr></tbody></table><p local-id="a80e1f859d12"></p><h2 local-id="85d8a886ac10" class="maintenance-section-title" data-section-number="02">Histórico</h2><p local-id="c7d0efbe9932">Permite visualizar todas as alterações aplicadas à peça atual e, se necessário, repor a peça atual num estado anterior.<br>Se tiverem sido aplicadas alterações à peça atual, estas serão apresentadas na lista à esquerda:</p><div class="TextAlignCenter"><img src="attachments/3.13_modificar_peça/0.7.png" alt="0.7.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="ba3f0b8cd315">No menu à esquerda são apresentados os estados de maquinação da peça. </p><table class="my-table2" data-table-width="1351" data-layout="align-start" ac:local-id="0038e49f-e858-4d59-9d5f-694ab3f6e951"><colgroup><col style="width: 360.0px;"><col style="width: 991.0px;"></colgroup><tbody><tr ac:local-id="a0bde5b11f9b"><td ac:local-id="400ae1cfc745"><div class="TextAlignCenter"><img src="attachments/3.13_modificar_peça/0.8.png" alt="0.8.png" width="186" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="e4c77becc41a"><p local-id="c8be5686c906"><strong>Estado da maquinação</strong><br>Identifica um momento específico da maquinação da peça. Permite visualizar:</p><ul local-id="e55ca1db5625"><li local-id="4787ec247c0b"><p local-id="5dd099acb7c6">Nome da peça atual;</p></li><li local-id="457e9908c784"><p local-id="6eb4c981f949">Data da aplicação da maquinação;</p></li><li local-id="9f6a95722356"><p local-id="05aea45f228b">Nome da maquinação aplicada;</p></li><li local-id="f28c8a6c6c49"><p local-id="5d82cb3cccb3">Ícone que identifica a maquinação executada.</p></li></ul></td></tr></tbody></table><p local-id="f3a65ee52668">O estado da peça atual sem alterações chama-se "Default". <br>Ao selecionar uma entrada no menu à esquerda, é apresentada a pré-visualização correspondente ao momento de aplicação da maquinação.</p><div class="TextAlignCenter"><img src="attachments/3.13_modificar_peça/0.9.png" alt="0.9.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="558444fdc33a">Ao premir o botão de confirmação, a peça será reposta no estado selecionado. Desta forma, as alterações posteriores à selecionada são removidas.</p><p local-id="6d0c45bca9ee"></p><p local-id="f5ab66f058d1">Na parte inferior do painel são apresentados três botões utilitários para visualizar a peça na pré-visualização:</p><table class="my-table2" data-table-width="1444" data-layout="center" ac:local-id="28a47b0b-a784-4369-ac91-a884b47d952d"><colgroup><col style="width: 152.0px;"><col style="width: 1292.0px;"></colgroup><tbody><tr ac:local-id="6f2132bc36de"><td ac:local-id="269b2950ec8d"><div class="TextAlignCenter"><img src="attachments/3.13_modificar_peça/3_5_1_on-20250611-075706.png" alt="3_5_1_on-20250611-075706.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="346af4d209bb"><p local-id="ddefa0f21b72"><strong>Visualizar cortes</strong><br>Mostra os cortes na figura.<br>É a vista ativa por predefinição.</p></td></tr><tr ac:local-id="e54eafa62850"><td ac:local-id="1254c3968196"><div class="TextAlignCenter"><img src="attachments/3.13_modificar_peça/0_5_1-20250611-115240.png" alt="0_5_1-20250611-115240.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="661a1db32118"><p local-id="46f6ac10e2fb"><strong>Visualizar medidas</strong><br>Mostra as medidas de cada lado da figura.</p></td></tr><tr ac:local-id="7cd200929ae4"><td ac:local-id="e5ed3e944677"><div class="TextAlignCenter"><img src="attachments/3.13_modificar_peça/1.11-20250611-114215.png" alt="1.11-20250611-114215.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="993592acba12"><p local-id="e2dcf84fc786"><strong>Visualizar ângulo</strong> <br>Mostra um ângulo da figura com as respetivas medidas.</p></td></tr></tbody></table><p local-id="6660cacf5567"></p><h2 local-id="cd1bfef56b0e" class="maintenance-section-title" data-section-number="03">Modificar Vista</h2><p local-id="635357f0b533">Este modo disponibiliza ao operador alguns botões visíveis apenas quando a “modificação da vista“ está ativada.</p><div class="TextAlignCenter"><img src="attachments/3.13_modificar_peça/MenuModificaPezzo-20260611-071053.png" alt="MenuModificaPezzo-20260611-071053.png" width="496" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="5660f40dd2ba"></p><p local-id="fbd29f987033">Cada um dos seguintes botões ativa ou desativa um dos seguintes elementos da peça:</p><table class="my-table2" data-table-width="1351" data-layout="align-start" ac:local-id="99a2f5d8-4c48-41b5-9929-441eac360773"><colgroup><col style="width: 172.0px;"><col style="width: 1179.0px;"></colgroup><tbody><tr ac:local-id="883ad5b3edbc"><td ac:local-id="12c4fb6e1a35"><div class="TextAlignCenter"><img src="attachments/3.13_modificar_peça/3_5_1_OnOff-20250611-122515.png" alt="3_5_1_OnOff-20250611-122515.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="8daa67ee8c00"><p local-id="2228dd624349"><strong>Cortes</strong><br>Mostra/oculta a visualização dos cortes com disco na pré-visualização.<br></p></td></tr><tr ac:local-id="409c122f5b72"><td ac:local-id="f0040ea2a80c"><div class="TextAlignCenter"><img src="attachments/3.13_modificar_peça/3_5_2_OnOff-20250611-122541.png" alt="3_5_2_OnOff-20250611-122541.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="00e822150f38"><p local-id="7587bb7dd46c"><strong>Furos</strong><br>Mostra/oculta a visualização dos furos.</p></td></tr><tr ac:local-id="2b57c4a88497"><td ac:local-id="bca029dc20db"><div class="TextAlignCenter"><img src="attachments/3.13_modificar_peça/3_5_3_OnOff-20250611-122604.png" alt="3_5_3_OnOff-20250611-122604.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="4290a5973305"><p local-id="3bdadadb130f"><strong>Fresagens</strong><br>Mostra/oculta a visualização das fresagens.</p></td></tr><tr ac:local-id="d8fbaa47c0e6"><td ac:local-id="34647b2f4fd7"><div class="TextAlignCenter"><img src="attachments/3.13_modificar_peça/3_5_4_OnOff-20250611-122630.png" alt="3_5_4_OnOff-20250611-122630.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="7c22283103a5"><p local-id="250a83a8a8e7"><strong>Rebaixos</strong><br>Mostra/oculta a visualização dos rebaixos.</p></td></tr><tr ac:local-id="0dd950df3a09"><td ac:local-id="4aa2757b7614"><div class="TextAlignCenter"><img src="attachments/3.13_modificar_peça/3_5_5_OnOff-20250611-122657.png" alt="3_5_5_OnOff-20250611-122657.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="327c86609504"><p local-id="6645790a6330"><strong>Setas nos cortes</strong><br>Mostra/oculta a visualização das setas que indicam a direção dos cortes com disco.</p></td></tr><tr ac:local-id="4de60833b995"><td ac:local-id="299f10762e8f"><div class="TextAlignCenter"><img src="attachments/3.13_modificar_peça/3_5_6_OnOff-20250611-122718.png" alt="3_5_6_OnOff-20250611-122718.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="23fb3e763277"><p local-id="a3752a18ad49"><strong>Nome da peça</strong><br>Mostra/oculta o nome da peça.</p></td></tr><tr ac:local-id="0828d37285a3"><td ac:local-id="a2d0a8f22b8d"><div class="TextAlignCenter"><img src="attachments/3.13_modificar_peça/3_5_7_OnOff-20250611-122745.png" alt="3_5_7_OnOff-20250611-122745.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="2c6f504d31d1"><p local-id="7e26a3f616b8"><strong>Dynamic Tags</strong><br>Mostra/oculta os dynamic tags da peça.</p></td></tr><tr ac:local-id="0859bab71e5f"><td ac:local-id="b5c90109ccf3"><div class="TextAlignCenter"><img src="attachments/3.13_modificar_peça/Bothperimeter-20260611-080840.png" alt="Bothperimeter-20260611-080840.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="5994491a3e00"><p local-id="267a1ae74bbc"><strong>Destacar Perímetro</strong><br>Destaca o perímetro da peça com uma linha preta.</p></td></tr></tbody></table><!--Label="mdf"--><!--Label="mdf_blw"--><!--Label="mdf_lst"--><!--Label="mdf_prw"-->
+                        </main>
+
+                    </div>
+
+                    <img src="images/donatoni_222.jpg">
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="3.12.2_propriedades_adicionais_das_peças.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="3.13.1_inclinar.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+
+
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                <a rel="prev" href="3.12.2_propriedades_adicionais_das_peças.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="3.13.1_inclinar.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="mermaid.min.js"></script>
+        <script src="mermaid-init.js"></script>
+        <script src="hidemenu.js"></script>
+        <script src="imagemodal.js"></script>
+        <script src="login.js"></script>
+    </div>
+
+    <!-- Modale -->
+    <div id="modal" onclick="closeModal()">
+        <img id="modal-img" src="">
+    </div>;
+
+
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
+
+<script id="virtual-keyboard-searchbar-fix">
+document.addEventListener("input", function (e) {
+    const t = e.target;
+    if (t && t.id === "searchbar" && e.isTrusted !== true) {
+        t.dispatchEvent(new KeyboardEvent("keyup", { bubbles: true }));
+    }
+});
+</script>
+</body>
+</html>
