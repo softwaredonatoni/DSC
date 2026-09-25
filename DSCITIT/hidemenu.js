@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     }
     else {
-        const fragment = window.location.hash.substring(1); // Prende il valore dopo #
+        const fragment = decodeURIComponent(window.location.hash.substring(1)); // Prende il valore dopo #
         const [parametro1, parametro2] = fragment.split("|"); // Divide i valori
         const output = document.getElementById("parametro");
         const HIDEMENU = "H";

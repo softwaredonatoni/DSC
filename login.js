@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
     sessionStorage.setItem("pageName", pageName);
 
     if (sessionStorage.getItem("isLoggedIn") !== "true") {
-        const fragment = window.location.hash.substring(1);
+        const fragment = decodeURIComponent(window.location.hash.substring(1));
         const [parametro1] = fragment.split("|");
 
         if (!parametro1) {
