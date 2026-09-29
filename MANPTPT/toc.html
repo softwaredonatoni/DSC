@@ -1,0 +1,87 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light" dir="ltr">
+    <head>
+        <!-- sidebar iframe generated using mdBook
+
+        This is a frame, and not included directly in the page, to control the total size of the
+        book. The TOC contains an entry for each page, so if each page includes a copy of the TOC,
+        the total size of the page becomes O(n**2).
+
+        The frame is only used as a fallback when JS is turned off. When it's on, the sidebar is
+        instead added to the main page by `toc.js` instead. The JavaScript mode is better
+        because, when running in a `file:///` URL, the iframed page would not be Same-Origin as
+        the rest of the page, so the sidebar and the main page theme would fall out of sync.
+        -->
+        <meta charset="UTF-8">
+        <meta name="robots" content="noindex">
+        <!-- Custom HTML head -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="./mdbook-admonish.css">
+        <link rel="stylesheet" href="theme/custom.css">
+        <link rel="stylesheet" href="search.html">
+        <link rel="stylesheet" href="login.html">
+    <script>(function () {
+  const SUFFIX = "#2utHhOLI7Iz0";
+
+  function buildUrl() {
+    const base = window.location.href.split("#")[0];
+    return base + SUFFIX;
+  }
+
+  function fallbackCopy(text) {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.top = "-1000px";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+
+  async function copyUrl() {
+    const url = buildUrl();
+
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(url);
+        return;
+      } catch (e) {}
+    }
+
+    fallbackCopy(url);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.getElementById("copy-link-btn");
+    if (!btn) return;
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      copyUrl();
+    });
+  });
+})();
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+    <body class="sidebar-iframe-inner">
+        <ol class="chapter"><li class="chapter-item "><a href="maintenance_pt-pt.html" target="_parent"><strong aria-hidden="true">1.</strong> Maintenance PT-PT</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="fresadoras_standard.html" target="_parent"><strong aria-hidden="true">1.1.</strong> FRESADORAS STANDARD</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="tabela_comparativa_de_lubrificantes.html" target="_parent"><strong aria-hidden="true">1.1.1.</strong> TABELA COMPARATIVA DE LUBRIFICANTES</a></li><li class="chapter-item "><a href="mn0001_teste_do_circuito_de_emergência.html" target="_parent"><strong aria-hidden="true">1.1.2.</strong> MN0001 TESTE DO CIRCUITO DE EMERGÊNCIA</a></li><li class="chapter-item "><a href="mn0002_manutenção_mensal_da_bomba_de_vácuo.html" target="_parent"><strong aria-hidden="true">1.1.3.</strong> MN0002 MANUTENÇÃO MENSAL DA BOMBA DE VÁCUO</a></li><li class="chapter-item "><a href="mn0003_teste_de_funcionamento_do_sinal_luminoso.html" target="_parent"><strong aria-hidden="true">1.1.4.</strong> MN0003 TESTE DE FUNCIONAMENTO DO SINAL LUMINOSO</a></li><li class="chapter-item "><a href="mn0004_lubrificação_das_guias_lineares_do_sistema_move.html" target="_parent"><strong aria-hidden="true">1.1.5.</strong> MN0004 LUBRIFICAÇÃO DAS GUIAS LINEARES DO SISTEMA MOVE</a></li><li class="chapter-item "><a href="mn0005_lubrificação_do_rolamento_da_porca_do_eixo_z.html" target="_parent"><strong aria-hidden="true">1.1.6.</strong> MN0005 LUBRIFICAÇÃO DO ROLAMENTO DA PORCA DO EIXO Z</a></li><li class="chapter-item "><a href="mn0006_lubrificação_dos_rolamentos_do_veio_de_transmissão_da_ponte_do_eixo_y.html" target="_parent"><strong aria-hidden="true">1.1.7.</strong> MN0006 LUBRIFICAÇÃO DOS ROLAMENTOS DO VEIO DE TRANSMISSÃO DA PONTE DO EIXO Y</a></li><li class="chapter-item "><a href="mn0007_controlo_do_lubrificante_do_sistema_de_lubrificação_automática.html" target="_parent"><strong aria-hidden="true">1.1.8.</strong> MN0007 CONTROLO DO LUBRIFICANTE DO SISTEMA DE LUBRIFICAÇÃO AUTOMÁTICA</a></li><li class="chapter-item "><a href="mn0008_lubrificação_das_articulações_da_mesa_basculante.html" target="_parent"><strong aria-hidden="true">1.1.9.</strong> MN0008 LUBRIFICAÇÃO DAS ARTICULAÇÕES DA MESA BASCULANTE</a></li><li class="chapter-item "><a href="mn0009_lubrificação_da_articulação_do_braço_da_consola.html" target="_parent"><strong aria-hidden="true">1.1.10.</strong> MN0009 LUBRIFICAÇÃO DA ARTICULAÇÃO DO BRAÇO DA CONSOLA</a></li><li class="chapter-item "><a href="mn0010_controlo_das_tubagens_e_uniões_do_sistema_hidráulico.html" target="_parent"><strong aria-hidden="true">1.1.11.</strong> MN0010 CONTROLO DAS TUBAGENS E UNIÕES DO SISTEMA HIDRÁULICO</a></li><li class="chapter-item "><a href="mn0011_mudança_do_óleo_da_central_hidráulica.html" target="_parent"><strong aria-hidden="true">1.1.12.</strong> MN0011 MUDANÇA DO ÓLEO DA CENTRAL HIDRÁULICA</a></li><li class="chapter-item "><a href="mn0012_limpeza_dos_filtros_do_quadro_elétrico.html" target="_parent"><strong aria-hidden="true">1.1.13.</strong> MN0012 LIMPEZA DOS FILTROS DO QUADRO ELÉTRICO</a></li><li class="chapter-item "><a href="mn0013_manutenção_do_grupo_de_entrada_de_ar_comprimido.html" target="_parent"><strong aria-hidden="true">1.1.14.</strong> MN0013 MANUTENÇÃO DO GRUPO DE ENTRADA DE AR COMPRIMIDO</a></li><li class="chapter-item "><a href="mn0014_rolamentos_do_eletromandril.html" target="_parent"><strong aria-hidden="true">1.1.15.</strong> MN0014 ROLAMENTOS DO ELETROMANDRIL</a></li><li class="chapter-item "><a href="mn0041_lubrificação_das_guias_lineares_do_mandril_lateral_tool_plus.html" target="_parent"><strong aria-hidden="true">1.1.16.</strong> MN0041 LUBRIFICAÇÃO DAS GUIAS LINEARES DO MANDRIL LATERAL TOOL PLUS</a></li><li class="chapter-item "><a href="mn0042_limpeza_do_filtro_do_sistema_pneumático.html" target="_parent"><strong aria-hidden="true">1.1.17.</strong> MN0042 LIMPEZA DO FILTRO DO SISTEMA PNEUMÁTICO</a></li><li class="chapter-item "><a href="mn0043_verificação_da_estanqueidade_da_união_rotativa.html" target="_parent"><strong aria-hidden="true">1.1.18.</strong> MN0043 VERIFICAÇÃO DA ESTANQUEIDADE DA UNIÃO ROTATIVA</a></li></ol></li><li class="chapter-item "><a href="waterjet.html" target="_parent"><strong aria-hidden="true">1.2.</strong> WATERJET</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="mn0044_substituição_do_orifício.html" target="_parent"><strong aria-hidden="true">1.2.1.</strong> MN0044 SUBSTITUIÇÃO DO ORIFÍCIO</a></li><li class="chapter-item "><a href="mn0045_lubrificação_manual.html" target="_parent"><strong aria-hidden="true">1.2.2.</strong> MN0045 LUBRIFICAÇÃO MANUAL</a></li><li class="chapter-item "><a href="mn0039_limpeza_dos_filtros_das_entradas_de_ventilação_do_quadro_elétrico.html" target="_parent"><strong aria-hidden="true">1.2.3.</strong> MN0039 LIMPEZA DOS FILTROS DAS ENTRADAS DE VENTILAÇÃO DO QUADRO ELÉTRICO</a></li><li class="chapter-item "><a href="mn0015_controlo_das_tubagens_e_uniões_do_sistema_de_alta_pressão.html" target="_parent"><strong aria-hidden="true">1.2.4.</strong> MN0015 CONTROLO DAS TUBAGENS E UNIÕES DO SISTEMA DE ALTA PRESSÃO</a></li><li class="chapter-item "><a href="mn0030_controlo_do_lubrificante_do_sistema_de_lubrificação_automática.html" target="_parent"><strong aria-hidden="true">1.2.5.</strong> MN0030 CONTROLO DO LUBRIFICANTE DO SISTEMA DE LUBRIFICAÇÃO AUTOMÁTICA</a></li><li class="chapter-item "><a href="mn0016_controlo_do_estado_de_limpeza_do_tanque_e_esvaziamento.html" target="_parent"><strong aria-hidden="true">1.2.6.</strong> MN0016 CONTROLO DO ESTADO DE LIMPEZA DO TANQUE E ESVAZIAMENTO</a></li><li class="chapter-item "><a href="mn0035_verificar_a_qualidade_da_água.html" target="_parent"><strong aria-hidden="true">1.2.7.</strong> MN0035 VERIFICAR A QUALIDADE DA ÁGUA</a></li><li class="chapter-item "><a href="mn0040_manutenção_do_grupo_de_entrada_de_ar_comprimido.html" target="_parent"><strong aria-hidden="true">1.2.8.</strong> MN0040 MANUTENÇÃO DO GRUPO DE ENTRADA DE AR COMPRIMIDO</a></li><li class="chapter-item "><a href="bomba_bft.html" target="_parent"><strong aria-hidden="true">1.2.9.</strong> BOMBA BFT</a></li><li class="chapter-item "><a href="bomba_donatoni_hydrox.html" target="_parent"><strong aria-hidden="true">1.2.10.</strong> BOMBA DONATONI HYDROX</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="mn0046_verificação_eou_substituição_dos_filtros_de_água_da_bomba_hydrox.html" target="_parent"><strong aria-hidden="true">1.2.10.1.</strong> MN0046 Verificação eou substituição dos filtros de água da bomba Hydrox</a></li><li class="chapter-item "><a href="mn0048_vários_controlos_na_bomba_hydrox.html" target="_parent"><strong aria-hidden="true">1.2.10.2.</strong> MN0048 Vários controlos na bomba Hydrox</a></li><li class="chapter-item "><a href="mn0049_substituição_do_óleo_da_bomba_hydrox.html" target="_parent"><strong aria-hidden="true">1.2.10.3.</strong> MN0049 Substituição do óleo da bomba Hydrox</a></li><li class="chapter-item "><a href="mn0050_substituição_do_óleo_da_bomba_hydrox.html" target="_parent"><strong aria-hidden="true">1.2.10.4.</strong> MN0050 Substituição do óleo da bomba Hydrox</a></li><li class="chapter-item "><a href="mn0051_manutenção_do_corpo_da_bomba_de_alta_pressão.html" target="_parent"><strong aria-hidden="true">1.2.10.5.</strong> MN0051 Manutenção do corpo da bomba de alta pressão</a></li><li class="chapter-item "><a href="mn0052_substituição_das_correias_de_transmissão_da_bomba_hydrox.html" target="_parent"><strong aria-hidden="true">1.2.10.6.</strong> MN0052 Substituição das correias de transmissão da bomba Hydrox</a></li></ol></li><li class="chapter-item "><a href="bomba_hypertherm.html" target="_parent"><strong aria-hidden="true">1.2.11.</strong> BOMBA HYPERTHERM</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="grupo_obturador_para_alta_pressão.html" target="_parent"><strong aria-hidden="true">1.2.11.1.</strong> GRUPO OBTURADOR PARA ALTA PRESSÃO</a></li><li class="chapter-item "><a href="mn0029_reparar_a_válvula_de_purga.html" target="_parent"><strong aria-hidden="true">1.2.11.2.</strong> MN0029 REPARAR A VÁLVULA DE PURGA</a></li><li class="chapter-item "><a href="mn0017_reparar_as_válvulas_de_retenção_e_os_obturadores_para_baixa_pressão.html" target="_parent"><strong aria-hidden="true">1.2.11.3.</strong> MN0017 REPARAR AS VÁLVULAS DE RETENÇÃO E OS OBTURADORES PARA BAIXA PRESSÃO</a></li><li class="chapter-item "><a href="mn0018_reparar_o_cilindro_de_alta_pressão.html" target="_parent"><strong aria-hidden="true">1.2.11.4.</strong> MN0018 REPARAR O CILINDRO DE ALTA PRESSÃO</a></li><li class="chapter-item "><a href="mn0019_substituir_o_cartucho_do_elemento_de_vedação_de_alta_pressão.html" target="_parent"><strong aria-hidden="true">1.2.11.5.</strong> MN0019 SUBSTITUIR O CARTUCHO DO ELEMENTO DE VEDAÇÃO DE ALTA PRESSÃO</a></li><li class="chapter-item "><a href="mn0021_substituir_o_obturador_para_baixa_pressão.html" target="_parent"><strong aria-hidden="true">1.2.11.6.</strong> MN0021 SUBSTITUIR O OBTURADOR PARA BAIXA PRESSÃO</a></li><li class="chapter-item "><a href="mn0022_inverter_o_cilindro_de_alta_pressão.html" target="_parent"><strong aria-hidden="true">1.2.11.7.</strong> MN0022 INVERTER O CILINDRO DE ALTA PRESSÃO</a></li><li class="chapter-item "><a href="mn0023_substituir_o_cilindro_de_alta_pressão.html" target="_parent"><strong aria-hidden="true">1.2.11.8.</strong> MN0023 SUBSTITUIR O CILINDRO DE ALTA PRESSÃO</a></li><li class="chapter-item "><a href="mn0024_substituir_o_grupo_da_válvula_de_retenção.html" target="_parent"><strong aria-hidden="true">1.2.11.9.</strong> MN0024 SUBSTITUIR O GRUPO DA VÁLVULA DE RETENÇÃO</a></li><li class="chapter-item "><a href="mn0025_substituir_o_grupo_do_alojamento_do_elemento_de_vedação.html" target="_parent"><strong aria-hidden="true">1.2.11.10.</strong> MN0025 SUBSTITUIR O GRUPO DO ALOJAMENTO DO ELEMENTO DE VEDAÇÃO</a></li><li class="chapter-item "><a href="mn0026_substituir_o_adaptador_de_saída.html" target="_parent"><strong aria-hidden="true">1.2.11.11.</strong> MN0026 SUBSTITUIR O ADAPTADOR DE SAÍDA</a></li><li class="chapter-item "><a href="mn0028_reparação_da_secção_hidráulica_central.html" target="_parent"><strong aria-hidden="true">1.2.11.12.</strong> MN0028 REPARAÇÃO DA SECÇÃO HIDRÁULICA CENTRAL</a></li><li class="chapter-item "><a href="mn0034_substituir_o_filtro_de_água.html" target="_parent"><strong aria-hidden="true">1.2.11.13.</strong> MN0034 SUBSTITUIR O FILTRO DE ÁGUA</a></li><li class="chapter-item "><a href="mn0031_substituir_o_corpo_da_válvula_de_purga.html" target="_parent"><strong aria-hidden="true">1.2.11.14.</strong> MN0031 SUBSTITUIR O CORPO DA VÁLVULA DE PURGA</a></li><li class="chapter-item "><a href="mn0032_limpar_o_refrigerador_de_ar.html" target="_parent"><strong aria-hidden="true">1.2.11.15.</strong> MN0032 LIMPAR O REFRIGERADOR DE AR</a></li><li class="chapter-item "><a href="mn0036_substituir_o_elemento_do_filtro_hidráulico.html" target="_parent"><strong aria-hidden="true">1.2.11.16.</strong> MN0036 SUBSTITUIR O ELEMENTO DO FILTRO HIDRÁULICO</a></li><li class="chapter-item "><a href="mn0037_substituir_o_fluido_hidráulico.html" target="_parent"><strong aria-hidden="true">1.2.11.17.</strong> MN0037 SUBSTITUIR O FLUIDO HIDRÁULICO</a></li><li class="chapter-item "><a href="mn0038_lubrificar_os_rolamentos_do_motor_primário.html" target="_parent"><strong aria-hidden="true">1.2.11.18.</strong> MN0038 LUBRIFICAR OS ROLAMENTOS DO MOTOR PRIMÁRIO</a></li><li class="chapter-item "><a href="mn0020_substituir_o_grupo_obturador_para_alta_pressão.html" target="_parent"><strong aria-hidden="true">1.2.11.19.</strong> MN0020 SUBSTITUIR O GRUPO OBTURADOR PARA ALTA PRESSÃO</a></li></ol></li><li class="chapter-item "><a href="mn0047_substituição_do_tubo_focalizador.html" target="_parent"><strong aria-hidden="true">1.2.12.</strong> MN0047 SUBSTITUIÇÃO DO TUBO FOCALIZADOR</a></li><li class="chapter-item "><a href="mn0053_substituição_do_tubo_de_abrasivo.html" target="_parent"><strong aria-hidden="true">1.2.13.</strong> MN0053 SUBSTITUIÇÃO DO TUBO DE ABRASIVO</a></li></ol></li><li class="chapter-item "><a href="instruções_de_segurança.html" target="_parent"><strong aria-hidden="true">1.3.</strong> INSTRUÇÕES DE SEGURANÇA</a></li></ol></li></ol>
+    
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
+</body>
+</html>
