@@ -1,0 +1,87 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light" dir="ltr">
+    <head>
+        <!-- sidebar iframe generated using mdBook
+
+        This is a frame, and not included directly in the page, to control the total size of the
+        book. The TOC contains an entry for each page, so if each page includes a copy of the TOC,
+        the total size of the page becomes O(n**2).
+
+        The frame is only used as a fallback when JS is turned off. When it's on, the sidebar is
+        instead added to the main page by `toc.js` instead. The JavaScript mode is better
+        because, when running in a `file:///` URL, the iframed page would not be Same-Origin as
+        the rest of the page, so the sidebar and the main page theme would fall out of sync.
+        -->
+        <meta charset="UTF-8">
+        <meta name="robots" content="noindex">
+        <!-- Custom HTML head -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="./mdbook-admonish.css">
+        <link rel="stylesheet" href="theme/custom.css">
+        <link rel="stylesheet" href="search.html">
+        <link rel="stylesheet" href="login.html">
+    <script>(function () {
+  const SUFFIX = "#2utHhOLI7Iz0";
+
+  function buildUrl() {
+    const base = window.location.href.split("#")[0];
+    return base + SUFFIX;
+  }
+
+  function fallbackCopy(text) {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.top = "-1000px";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+
+  async function copyUrl() {
+    const url = buildUrl();
+
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(url);
+        return;
+      } catch (e) {}
+    }
+
+    fallbackCopy(url);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.getElementById("copy-link-btn");
+    if (!btn) return;
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      copyUrl();
+    });
+  });
+})();
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+    <body class="sidebar-iframe-inner">
+        <ol class="chapter"><li class="chapter-item "><a href="maintenance_de-de.html" target="_parent"><strong aria-hidden="true">1.</strong> Maintenance DE-DE</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="standard-fräsmaschinen.html" target="_parent"><strong aria-hidden="true">1.1.</strong> STANDARD-FRÄSMASCHINEN</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="vergleichstabelle_der_schmierstoffe.html" target="_parent"><strong aria-hidden="true">1.1.1.</strong> VERGLEICHSTABELLE DER SCHMIERSTOFFE</a></li><li class="chapter-item "><a href="mn0001_prüfung_des_not-halt-kreises.html" target="_parent"><strong aria-hidden="true">1.1.2.</strong> MN0001 PRÜFUNG DES NOT-HALT-KREISES</a></li><li class="chapter-item "><a href="mn0002_monatliche_wartung_der_vakuumpumpe.html" target="_parent"><strong aria-hidden="true">1.1.3.</strong> MN0002 MONATLICHE WARTUNG DER VAKUUMPUMPE</a></li><li class="chapter-item "><a href="mn0003_funktionsprüfung_der_signalleuchte.html" target="_parent"><strong aria-hidden="true">1.1.4.</strong> MN0003 FUNKTIONSPRÜFUNG DER SIGNALLEUCHTE</a></li><li class="chapter-item "><a href="mn0004_schmierung_der_linearführungen_des_move-systems.html" target="_parent"><strong aria-hidden="true">1.1.5.</strong> MN0004 SCHMIERUNG DER LINEARFÜHRUNGEN DES MOVE-SYSTEMS</a></li><li class="chapter-item "><a href="mn0005_schmierung_des_lagers_der_z-achs-mutter.html" target="_parent"><strong aria-hidden="true">1.1.6.</strong> MN0005 SCHMIERUNG DES LAGERS DER Z-ACHS-MUTTER</a></li><li class="chapter-item "><a href="mn0006_schmierung_der_lager_der_antriebswelle_der_y-achs-brücke.html" target="_parent"><strong aria-hidden="true">1.1.7.</strong> MN0006 SCHMIERUNG DER LAGER DER ANTRIEBSWELLE DER Y-ACHS-BRÜCKE</a></li><li class="chapter-item "><a href="mn0007_kontrolle_des_schmierstoffs_des_automatischen_schmiersystems.html" target="_parent"><strong aria-hidden="true">1.1.8.</strong> MN0007 KONTROLLE DES SCHMIERSTOFFS DES AUTOMATISCHEN SCHMIERSYSTEMS</a></li><li class="chapter-item "><a href="mn0008_schmierung_der_gelenke_des_kipptisches.html" target="_parent"><strong aria-hidden="true">1.1.9.</strong> MN0008 SCHMIERUNG DER GELENKE DES KIPPTISCHES</a></li><li class="chapter-item "><a href="mn0009_schmierung_des_gelenks_des_konsolenarms.html" target="_parent"><strong aria-hidden="true">1.1.10.</strong> MN0009 SCHMIERUNG DES GELENKS DES KONSOLENARMS</a></li><li class="chapter-item "><a href="mn0010_kontrolle_der_leitungen_und_anschlüsse_des_hydrauliksystems.html" target="_parent"><strong aria-hidden="true">1.1.11.</strong> MN0010 KONTROLLE DER LEITUNGEN UND ANSCHLÜSSE DES HYDRAULIKSYSTEMS</a></li><li class="chapter-item "><a href="mn0011_ölwechsel_am_hydraulikaggregat.html" target="_parent"><strong aria-hidden="true">1.1.12.</strong> MN0011 ÖLWECHSEL AM HYDRAULIKAGGREGAT</a></li><li class="chapter-item "><a href="mn0012_reinigung_der_filter_des_schaltschranks.html" target="_parent"><strong aria-hidden="true">1.1.13.</strong> MN0012 REINIGUNG DER FILTER DES SCHALTSCHRANKS</a></li><li class="chapter-item "><a href="mn0013_wartung_der_druckluft-eingangseinheit.html" target="_parent"><strong aria-hidden="true">1.1.14.</strong> MN0013 WARTUNG DER DRUCKLUFT-EINGANGSEINHEIT</a></li><li class="chapter-item "><a href="mn0014_lager_der_elektrospindel.html" target="_parent"><strong aria-hidden="true">1.1.15.</strong> MN0014 LAGER DER ELEKTROSPINDEL</a></li><li class="chapter-item "><a href="mn0041_schmierung_der_linearführungen_der_seitenspindel_tool_plus.html" target="_parent"><strong aria-hidden="true">1.1.16.</strong> MN0041 SCHMIERUNG DER LINEARFÜHRUNGEN DER SEITENSPINDEL TOOL PLUS</a></li><li class="chapter-item "><a href="mn0042_reinigung_des_filters_der_pneumatikanlage.html" target="_parent"><strong aria-hidden="true">1.1.17.</strong> MN0042 REINIGUNG DES FILTERS DER PNEUMATIKANLAGE</a></li><li class="chapter-item "><a href="mn0043_dichtheitsprüfung_der_drehdurchführung.html" target="_parent"><strong aria-hidden="true">1.1.18.</strong> MN0043 DICHTHEITSPRÜFUNG DER DREHDURCHFÜHRUNG</a></li></ol></li><li class="chapter-item "><a href="waterjet.html" target="_parent"><strong aria-hidden="true">1.2.</strong> WATERJET</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="mn0044_austausch_der_düse.html" target="_parent"><strong aria-hidden="true">1.2.1.</strong> MN0044 AUSTAUSCH DER DÜSE</a></li><li class="chapter-item "><a href="mn0045_manuelle_schmierung.html" target="_parent"><strong aria-hidden="true">1.2.2.</strong> MN0045 MANUELLE SCHMIERUNG</a></li><li class="chapter-item "><a href="mn0039_reinigung_der_filter_der_lüftungsöffnungen_des_schaltschranks.html" target="_parent"><strong aria-hidden="true">1.2.3.</strong> MN0039 REINIGUNG DER FILTER DER LÜFTUNGSÖFFNUNGEN DES SCHALTSCHRANKS</a></li><li class="chapter-item "><a href="mn0015_kontrolle_der_leitungen_und_anschlüsse_des_hochdrucksystems.html" target="_parent"><strong aria-hidden="true">1.2.4.</strong> MN0015 KONTROLLE DER LEITUNGEN UND ANSCHLÜSSE DES HOCHDRUCKSYSTEMS</a></li><li class="chapter-item "><a href="mn0030_kontrolle_des_schmierstoffs_des_automatischen_schmiersystems.html" target="_parent"><strong aria-hidden="true">1.2.5.</strong> MN0030 KONTROLLE DES SCHMIERSTOFFS DES AUTOMATISCHEN SCHMIERSYSTEMS</a></li><li class="chapter-item "><a href="mn0016_kontrolle_des_reinigungszustands_und_entleeren_des_beckens.html" target="_parent"><strong aria-hidden="true">1.2.6.</strong> MN0016 KONTROLLE DES REINIGUNGSZUSTANDS UND ENTLEEREN DES BECKENS</a></li><li class="chapter-item "><a href="mn0035_wasserqualität_prüfen.html" target="_parent"><strong aria-hidden="true">1.2.7.</strong> MN0035 WASSERQUALITÄT PRÜFEN</a></li><li class="chapter-item "><a href="mn0040_wartung_der_druckluft-eingangseinheit.html" target="_parent"><strong aria-hidden="true">1.2.8.</strong> MN0040 WARTUNG DER DRUCKLUFT-EINGANGSEINHEIT</a></li><li class="chapter-item "><a href="bft-pumpe.html" target="_parent"><strong aria-hidden="true">1.2.9.</strong> BFT-PUMPE</a></li><li class="chapter-item "><a href="donatoni-hydrox-pumpe.html" target="_parent"><strong aria-hidden="true">1.2.10.</strong> DONATONI-HYDROX-PUMPE</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="mn0046_kontrolle_undoder_austausch_der_wasserfilter_der_hydrox-pumpe.html" target="_parent"><strong aria-hidden="true">1.2.10.1.</strong> MN0046 Kontrolle undoder Austausch der Wasserfilter der Hydrox-Pumpe</a></li><li class="chapter-item "><a href="mn0048_verschiedene_kontrollen_an_der_hydrox-pumpe.html" target="_parent"><strong aria-hidden="true">1.2.10.2.</strong> MN0048 Verschiedene Kontrollen an der Hydrox-Pumpe</a></li><li class="chapter-item "><a href="mn0049_ölwechsel_der_hydrox-pumpe.html" target="_parent"><strong aria-hidden="true">1.2.10.3.</strong> MN0049 Ölwechsel der Hydrox-Pumpe</a></li><li class="chapter-item "><a href="mn0050_ölwechsel_der_hydrox-pumpe.html" target="_parent"><strong aria-hidden="true">1.2.10.4.</strong> MN0050 Ölwechsel der Hydrox-Pumpe</a></li><li class="chapter-item "><a href="mn0051_wartung_des_hochdruckpumpenkörpers.html" target="_parent"><strong aria-hidden="true">1.2.10.5.</strong> MN0051 Wartung des Hochdruckpumpenkörpers</a></li><li class="chapter-item "><a href="mn0052_austausch_der_antriebsriemen_der_hydrox-pumpe.html" target="_parent"><strong aria-hidden="true">1.2.10.6.</strong> MN0052 Austausch der Antriebsriemen der Hydrox-Pumpe</a></li></ol></li><li class="chapter-item "><a href="hypertherm-pumpe.html" target="_parent"><strong aria-hidden="true">1.2.11.</strong> HYPERTHERM-PUMPE</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="ventilkegelgruppe_für_hochdruck.html" target="_parent"><strong aria-hidden="true">1.2.11.1.</strong> VENTILKEGELGRUPPE FÜR HOCHDRUCK</a></li><li class="chapter-item "><a href="mn0029_entlüftungsventil_reparieren.html" target="_parent"><strong aria-hidden="true">1.2.11.2.</strong> MN0029 ENTLÜFTUNGSVENTIL REPARIEREN</a></li><li class="chapter-item "><a href="mn0017_rückschlagventile_und_ventilkegel_für_niederdruck_reparieren.html" target="_parent"><strong aria-hidden="true">1.2.11.3.</strong> MN0017 RÜCKSCHLAGVENTILE UND VENTILKEGEL FÜR NIEDERDRUCK REPARIEREN</a></li><li class="chapter-item "><a href="mn0018_hochdruckzylinder_reparieren.html" target="_parent"><strong aria-hidden="true">1.2.11.4.</strong> MN0018 HOCHDRUCKZYLINDER REPARIEREN</a></li><li class="chapter-item "><a href="mn0019_kartusche_des_hochdruck-dichtelements_ersetzen.html" target="_parent"><strong aria-hidden="true">1.2.11.5.</strong> MN0019 KARTUSCHE DES HOCHDRUCK-DICHTELEMENTS ERSETZEN</a></li><li class="chapter-item "><a href="mn0021_ventilkegel_für_niederdruck_ersetzen.html" target="_parent"><strong aria-hidden="true">1.2.11.6.</strong> MN0021 VENTILKEGEL FÜR NIEDERDRUCK ERSETZEN</a></li><li class="chapter-item "><a href="mn0022_hochdruckzylinder_umdrehen.html" target="_parent"><strong aria-hidden="true">1.2.11.7.</strong> MN0022 HOCHDRUCKZYLINDER UMDREHEN</a></li><li class="chapter-item "><a href="mn0023_hochdruckzylinder_ersetzen.html" target="_parent"><strong aria-hidden="true">1.2.11.8.</strong> MN0023 HOCHDRUCKZYLINDER ERSETZEN</a></li><li class="chapter-item "><a href="mn0024_rückschlagventilgruppe_ersetzen.html" target="_parent"><strong aria-hidden="true">1.2.11.9.</strong> MN0024 RÜCKSCHLAGVENTILGRUPPE ERSETZEN</a></li><li class="chapter-item "><a href="mn0025_gehäusegruppe_des_dichtelements_ersetzen.html" target="_parent"><strong aria-hidden="true">1.2.11.10.</strong> MN0025 GEHÄUSEGRUPPE DES DICHTELEMENTS ERSETZEN</a></li><li class="chapter-item "><a href="mn0026_auslassadapter_ersetzen.html" target="_parent"><strong aria-hidden="true">1.2.11.11.</strong> MN0026 AUSLASSADAPTER ERSETZEN</a></li><li class="chapter-item "><a href="mn0028_reparatur_des_zentralen_hydraulikabschnitts.html" target="_parent"><strong aria-hidden="true">1.2.11.12.</strong> MN0028 REPARATUR DES ZENTRALEN HYDRAULIKABSCHNITTS</a></li><li class="chapter-item "><a href="mn0034_wasserfilter_ersetzen.html" target="_parent"><strong aria-hidden="true">1.2.11.13.</strong> MN0034 WASSERFILTER ERSETZEN</a></li><li class="chapter-item "><a href="mn0031_körper_des_entlüftungsventils_ersetzen.html" target="_parent"><strong aria-hidden="true">1.2.11.14.</strong> MN0031 KÖRPER DES ENTLÜFTUNGSVENTILS ERSETZEN</a></li><li class="chapter-item "><a href="mn0032_luftkühler_reinigen.html" target="_parent"><strong aria-hidden="true">1.2.11.15.</strong> MN0032 LUFTKÜHLER REINIGEN</a></li><li class="chapter-item "><a href="mn0036_hydraulikfilterelement_ersetzen.html" target="_parent"><strong aria-hidden="true">1.2.11.16.</strong> MN0036 HYDRAULIKFILTERELEMENT ERSETZEN</a></li><li class="chapter-item "><a href="mn0037_hydraulikflüssigkeit_ersetzen.html" target="_parent"><strong aria-hidden="true">1.2.11.17.</strong> MN0037 HYDRAULIKFLÜSSIGKEIT ERSETZEN</a></li><li class="chapter-item "><a href="mn0038_lager_des_hauptmotors_schmieren.html" target="_parent"><strong aria-hidden="true">1.2.11.18.</strong> MN0038 LAGER DES HAUPTMOTORS SCHMIEREN</a></li><li class="chapter-item "><a href="mn0020_ventilkegelgruppe_für_hochdruck_ersetzen.html" target="_parent"><strong aria-hidden="true">1.2.11.19.</strong> MN0020 VENTILKEGELGRUPPE FÜR HOCHDRUCK ERSETZEN</a></li></ol></li><li class="chapter-item "><a href="mn0047_austausch_des_fokussierrohrs.html" target="_parent"><strong aria-hidden="true">1.2.12.</strong> MN0047 AUSTAUSCH DES FOKUSSIERROHRS</a></li><li class="chapter-item "><a href="mn0053_austausch_des_strahlmittelschlauchs.html" target="_parent"><strong aria-hidden="true">1.2.13.</strong> MN0053 AUSTAUSCH DES STRAHLMITTELSCHLAUCHS</a></li></ol></li><li class="chapter-item "><a href="sicherheitshinweise.html" target="_parent"><strong aria-hidden="true">1.3.</strong> SICHERHEITSHINWEISE</a></li></ol></li></ol>
+    
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
+</body>
+</html>
