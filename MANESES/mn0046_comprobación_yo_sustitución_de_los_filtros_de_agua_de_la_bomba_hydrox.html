@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+<head>
+    <!-- Book generated using mdBook -->
+    <meta charset="UTF-8">
+    <title>MN0046 Comprobación yo sustitución de los filtros de agua de la bomba Hydrox - Maintenance ES-ES</title>
+
+    <!-- Custom HTML head -->
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="icon" href="favicon.svg">
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/chrome.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Fonts -->
+    <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+    <link rel="stylesheet" href="fonts/fonts.css">
+
+    <!-- Highlight.js Stylesheets -->
+    <link rel="stylesheet" id="highlight-css" href="highlight.css">
+    <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+    <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+    <!-- Custom theme stylesheets -->
+    <link rel="stylesheet" href="./mdbook-admonish.css">
+    <link rel="stylesheet" href="theme/custom.css">
+    <link rel="stylesheet" href="search.html">
+    <link rel="stylesheet" href="login.html">
+    <link rel="stylesheet" href="searchlogin.html">
+    <link rel="stylesheet" href="searchloginmenu.html">
+
+    <!-- Provide site root and default themes to javascript -->
+    <script>
+      const path_to_root = "";
+      const default_light_theme = "light";
+      const default_dark_theme = "light";
+    </script>
+    <!-- Start loading toc.js asap -->
+    <script src="toc.js"></script>
+<script>(function () {
+  const SUFFIX = "#2utHhOLI7Iz0";
+
+  function buildUrl() {
+    const base = window.location.href.split("#")[0];
+    return base + SUFFIX;
+  }
+
+  function fallbackCopy(text) {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.top = "-1000px";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+
+  async function copyUrl() {
+    const url = buildUrl();
+
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(url);
+        return;
+      } catch (e) {}
+    }
+
+    fallbackCopy(url);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.getElementById("copy-link-btn");
+    if (!btn) return;
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      copyUrl();
+    });
+  });
+})();
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-maintenance" data-technical-styler-flow="html">
+    <header class="header-main">
+        <div class="header-flex">
+            <div class="donatoni-flex">
+                <label class="btn hamburger-menu" id="sidebar-toggle" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                    <i id="sidebar-toggle-icon" class="fa-solid fa-bars"></i>
+                </label>
+
+                <img src="images/donatoni-logo-white.svg" alt="Donatoni Macchine">
+            </div>
+
+            <div class="donatoni-flex action-header-buttons">
+                <div id="search-wrapper" class="search-wrapper hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults"></ul>
+                    </div>
+                </div>
+                <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
+                </button>
+
+                <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
+                    <i class="fa-solid fa-print"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div id="body-container">
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem("mdbook-theme");
+                let sidebar = localStorage.getItem("mdbook-sidebar");
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-theme",
+                        theme.slice(1, theme.length - 1)
+                    );
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-sidebar",
+                        sidebar.slice(1, sidebar.length - 1)
+                    );
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = "light";
+            let theme = default_theme;
+            const html = document.documentElement;
+            html.classList.remove("light");
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try {
+                    sidebar = localStorage.getItem('mdbook-sidebar');
+                } catch (e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document
+                        .getElementById("sidebar-toggle")
+                        .setAttribute("aria-expanded", sidebar === "visible");
+                    document
+                        .getElementById("sidebar")
+                        .setAttribute("aria-hidden", sidebar !== "visible");
+                    Array.from(document.querySelectorAll("#sidebar a")).forEach(
+                        function (link) {
+                            link.setAttribute("tabIndex", sidebar === "visible" ? 0 : -1);
+                        }
+                    );
+                </script>
+
+                <div id="content" class="content">
+
+                    <div>
+
+                        <img src="images/donatoni_111.jpg">
+
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Technical maintenance sheet</span><span class="maintenance-status"><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Controlled procedure</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="mn0046-comprobación-yo-sustitución-de-los-filtros-de-agua-de-la-bomba-hydrox" style="margin:0;" class="maintenance-main-title"><a class="header" href="#mn0046-comprobación-yo-sustitución-de-los-filtros-de-agua-de-la-bomba-hydrox"><span class="maintenance-code">MN0046</span><span class="maintenance-name">Comprobación yo sustitución de los filtros de agua de la bomba Hydrox</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document MN0046" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="MN0046 Comprobación yo sustitución de los filtros de agua de la bomba Hydrox"--><p local-id="a77a0b8b1749"></p><table class="my-table2 maintenance-data-grid" data-table-width="760" data-layout="default" ac:local-id="85e18120-421b-48c4-b375-dfbfdc4e6731" aria-label="Technical data for document MN0046"><tbody><tr ac:local-id="77431309-5d21-4000-b51a-640c2ff8334b" class="maintenance-safety-row"><td data-highlight-colour="#f4f5f7" colspan="2" ac:local-id="5b8b610d-63a5-452d-81bc-bb76f85fdc86"><p local-id="b8e663b4239e" style="text-align: center;">Antes de continuar, lea atentamente las <p><a href='instrucciones_de_seguridad.html'>INSTRUCCIONES DE SEGURIDAD</a></p></td></tr><tr ac:local-id="4ae40fde-d3d0-4e24-9385-76692288e2af"><td data-highlight-colour="#f4f5f7" ac:local-id="9659544b-c55d-49cb-9312-8eeb13689901"><p local-id="b4ef6a2c0bcb" class="maintenance-data-layout"><i class="maintenance-data-icon fa-solid fa-clock" aria-hidden="true"></i><span class="maintenance-data-content"><strong class="maintenance-data-label">Intervalo</strong><span class="maintenance-data-value">cada 150 horas de trabajo</span></span></p></td><td data-highlight-colour="#f4f5f7" ac:local-id="d8d200f9-4460-419a-9d42-cf9aabe17d75"><p local-id="141dfa34a078" class="maintenance-data-layout"><i class="maintenance-data-icon fa-solid fa-gauge-high" aria-hidden="true"></i><span class="maintenance-data-content"><strong class="maintenance-data-label">Complejidad de la operación</strong><span class="complexity-indicator complexity-level-1" aria-label="Complexity Low, level 1 of 5"><span class="complexity-scale" aria-hidden="true"><i class="complexity-segment is-active"></i><i class="complexity-segment"></i><i class="complexity-segment"></i><i class="complexity-segment"></i><i class="complexity-segment"></i></span><span class="complexity-readout"><span class="complexity-level-name">Low</span><span class="complexity-score">01 / 05</span></span></span></span></p></td></tr><tr ac:local-id="289453b7-94c3-4382-8210-296646b93803"><td data-highlight-colour="#f4f5f7" ac:local-id="72c1d577-95e3-444c-9895-1e334a99600e"><p local-id="f0d951883751" class="maintenance-data-layout"><i class="maintenance-data-icon fa-solid fa-user-gear" aria-hidden="true"></i><span class="maintenance-data-content"><strong class="maintenance-data-label">Personal autorizado</strong><span class="maintenance-data-value">Operador de máquina</span></span></p></td><td data-highlight-colour="#f4f5f7" ac:local-id="d2db0952-10ef-4559-b08e-da4a9fd0f62b"><p local-id="8e7fd2ed60f1"><i class="maintenance-data-icon fa-solid fa-shield-halved" aria-hidden="true"></i><strong>EPI previstos</strong>:   <div><img src="attachments/mn0046_comprobación_yo_sustitución_de_los_filtros_de_agua_de_la_bomba_hydrox/image-20240327-084216.png" alt="image-20240327-084216.png" onclick="showModal(this.src)" class="inline-img"></div> </td></tr></tbody></table><div class="TextAlignCenter"><img src="attachments/mn0046_comprobación_yo_sustitución_de_los_filtros_de_agua_de_la_bomba_hydrox/image-20260626-122423.png" alt="image-20260626-122423.png" width="627" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><table class="my-table2" data-table-width="760" data-layout="default" ac:local-id="bbc1a7e89fee"><tbody><tr ac:local-id="9f5aafe48a92"><th ac:local-id="f3d07e883607"><p local-id="6b96be70f8e0"><strong>Posición</strong></p></th><th ac:local-id="4a0036f7a393"><p local-id="9dcd4b04f745"><strong>Descripción</strong></p></th><th ac:local-id="fc313d257f82"><p local-id="87ed73be7845"><strong>Grado de filtración</strong></p></th></tr><tr ac:local-id="e9789dffd5bd"><td ac:local-id="67617d71e2a9"><p local-id="4fb7544923f4">A</p></td><td ac:local-id="9030fecf120f"><p local-id="a65c4588a82d">Filtro de agua con cartucho de 9/10"</p></td><td ac:local-id="416b18e81ff1"><p local-id="eee9c8ffd1c3">5 μm</p></td></tr><tr ac:local-id="49ec5b1b906f"><td ac:local-id="a428b0fe79c2"><p local-id="5a49399a9299">B</p></td><td ac:local-id="a838e67c687c"><p local-id="d70c0189795e">Filtro de agua con cartucho de 9/10"</p></td><td ac:local-id="cc0eaa146cb9"><p local-id="b4d89d97c199">1 μm</p></td></tr></tbody></table><h2 local-id="e106506d7e79" class="maintenance-section-title" data-section-number="01">Comprobación: ¿cuándo deben sustituirse?</h2><p local-id="99f58eff05f7">Es necesario sustituir los cartuchos filtrantes cuando la pérdida de carga del sistema sea superior a 1 bar (cuando la diferencia de presión entre el punto de entrada X y el de salida Y sea: X-Y > 1 bar)</p><div class="TextAlignCenter"><img src="attachments/mn0046_comprobación_yo_sustitución_de_los_filtros_de_agua_de_la_bomba_hydrox/image-20260626-125149.png" alt="image-20260626-125149.png" width="625" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="a87e78c08bd3"><br>‌</p><h2 local-id="b6887fbefe75" class="maintenance-section-title" data-section-number="02">Procedimiento de sustitución</h2><ol start="1" local-id="a0788cf6e505" type="1"><li local-id="b681903afe35"><div class="TextAlignCenter"><img src="attachments/mn0046_comprobación_yo_sustitución_de_los_filtros_de_agua_de_la_bomba_hydrox/image-20260626-125239.png" alt="image-20260626-125239.png" width="385" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></li><li local-id="120c13495d1a"><p local-id="e9753830071f">Retire el cartucho filtrante usado;</p></li><li local-id="8061311bfaee"><p local-id="ee119c638d4c">Limpie el recipiente del filtro (eliminando posibles residuos o restos);</p></li><li local-id="fb568d51190b"><p local-id="64d11619173d">Introduzca el nuevo cartucho filtrante (asegúrese de instalar en cada posición el cartucho con el grado de filtración correcto);</p></li><li local-id="7ed2b4c7f889"><p local-id="b735fbe7dd4f">Coloque el recipiente del filtro en su alojamiento y apriételo utilizando la llave;</p></li></ol><p local-id="2f3acc37c499">‌</p><p local-id="9b0304481534">‌</p><!--Label="mn0046"-->
+                        </main>
+
+                    </div>
+
+                    <img src="images/donatoni_222.jpg">
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="bomba_donatoni_hydrox.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="mn0048_comprobaciones_varias_en_la_bomba_hydrox.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+
+
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                <a rel="prev" href="bomba_donatoni_hydrox.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="mn0048_comprobaciones_varias_en_la_bomba_hydrox.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="mermaid.min.js"></script>
+        <script src="mermaid-init.js"></script>
+        <script src="hidemenu.js"></script>
+        <script src="imagemodal.js"></script>
+        <script src="login.js"></script>
+    </div>
+
+    <!-- Modale -->
+    <div id="modal" onclick="closeModal()">
+        <img id="modal-img" src="">
+    </div>;
+
+
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
+
+<script id="virtual-keyboard-searchbar-fix">
+document.addEventListener("input", function (e) {
+    const t = e.target;
+    if (t && t.id === "searchbar" && e.isTrusted !== true) {
+        t.dispatchEvent(new KeyboardEvent("keyup", { bubbles: true }));
+    }
+});
+</script>
+</body>
+</html>
