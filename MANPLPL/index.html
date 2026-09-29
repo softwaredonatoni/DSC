@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+<head>
+    <!-- Book generated using mdBook -->
+    <meta charset="UTF-8">
+    <title>Maintenance PL-PL - Maintenance PL-PL</title>
+
+    <!-- Custom HTML head -->
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="icon" href="favicon.svg">
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/chrome.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Fonts -->
+    <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+    <link rel="stylesheet" href="fonts/fonts.css">
+
+    <!-- Highlight.js Stylesheets -->
+    <link rel="stylesheet" id="highlight-css" href="highlight.css">
+    <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+    <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+    <!-- Custom theme stylesheets -->
+    <link rel="stylesheet" href="./mdbook-admonish.css">
+    <link rel="stylesheet" href="theme/custom.css">
+    <link rel="stylesheet" href="search.html">
+    <link rel="stylesheet" href="login.html">
+    <link rel="stylesheet" href="searchlogin.html">
+    <link rel="stylesheet" href="searchloginmenu.html">
+
+    <!-- Provide site root and default themes to javascript -->
+    <script>
+      const path_to_root = "";
+      const default_light_theme = "light";
+      const default_dark_theme = "light";
+    </script>
+    <!-- Start loading toc.js asap -->
+    <script src="toc.js"></script>
+<script>(function () {
+  const SUFFIX = "#2utHhOLI7Iz0";
+
+  function buildUrl() {
+    const base = window.location.href.split("#")[0];
+    return base + SUFFIX;
+  }
+
+  function fallbackCopy(text) {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.top = "-1000px";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+
+  async function copyUrl() {
+    const url = buildUrl();
+
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(url);
+        return;
+      } catch (e) {}
+    }
+
+    fallbackCopy(url);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.getElementById("copy-link-btn");
+    if (!btn) return;
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      copyUrl();
+    });
+  });
+})();
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-document" data-technical-styler-flow="html">
+    <header class="header-main">
+        <div class="header-flex">
+            <div class="donatoni-flex">
+                <label class="btn hamburger-menu" id="sidebar-toggle" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                    <i id="sidebar-toggle-icon" class="fa-solid fa-bars"></i>
+                </label>
+
+                <img src="images/donatoni-logo-white.svg" alt="Donatoni Macchine">
+            </div>
+
+            <div class="donatoni-flex action-header-buttons">
+                <div id="search-wrapper" class="search-wrapper hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults"></ul>
+                    </div>
+                </div>
+                <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
+                </button>
+
+                <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
+                    <i class="fa-solid fa-print"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div id="body-container">
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem("mdbook-theme");
+                let sidebar = localStorage.getItem("mdbook-sidebar");
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-theme",
+                        theme.slice(1, theme.length - 1)
+                    );
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-sidebar",
+                        sidebar.slice(1, sidebar.length - 1)
+                    );
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = "light";
+            let theme = default_theme;
+            const html = document.documentElement;
+            html.classList.remove("light");
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try {
+                    sidebar = localStorage.getItem('mdbook-sidebar');
+                } catch (e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document
+                        .getElementById("sidebar-toggle")
+                        .setAttribute("aria-expanded", sidebar === "visible");
+                    document
+                        .getElementById("sidebar")
+                        .setAttribute("aria-hidden", sidebar !== "visible");
+                    Array.from(document.querySelectorAll("#sidebar a")).forEach(
+                        function (link) {
+                            link.setAttribute("tabIndex", sidebar === "visible" ? 0 : -1);
+                        }
+                    );
+                </script>
+
+                <div id="content" class="content">
+
+                    <div>
+
+                        <img src="images/donatoni_111.jpg">
+
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Machine technical documentation</span><span class="maintenance-status"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Operational document</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="maintenance-pl-pl" style="margin:0;" class="maintenance-main-title"><a class="header" href="#maintenance-pl-pl"><span class="maintenance-code">DOC</span><span class="maintenance-name">Maintenance PL-PL</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document DOC" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="Maintenance PL-PL"--><div class="TextAlignCenter"><img src="attachments/maintenance_pl-pl/logo.png" alt="logo.png" width="760" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="796401442b75"></p><h1 local-id="da29727cac52">Konserwacja</h1><p local-id="b34efee98647">Niniejszy dokument opisuje procedury konserwacji bieżącej i nadzwyczajnej maszyn Donatoni oraz zawiera wskazówki dotyczące prawidłowego wykonywania kontroli, sprawdzeń i zaplanowanych czynności serwisowych.</p><p local-id="50cedc51c89f">Celem jest utrzymanie sprawności i niezawodności maszyny, zapobieganie ewentualnym nieprawidłowościom oraz ograniczenie ryzyka nieplanowanych przestojów.</p><p local-id="3bf83f00a7fd"></p>
+<ul>
+<li><a href="./standardowe_frezarki.html">STANDARDOWE FREZARKI</a>
+<ul>
+<li><a href="./tabela_por%C3%B3wnawcza_%C5%9Brodk%C3%B3w_smarnych.html">TABELA PORÓWNAWCZA ŚRODKÓW SMARNYCH</a></li>
+<li><a href="./mn0001_test_obwodu_zatrzymania_awaryjnego.html">MN0001 TEST OBWODU ZATRZYMANIA AWARYJNEGO</a></li>
+<li><a href="./mn0002_comiesi%C4%99czna_konserwacja_pompy_pr%C3%B3%C5%BCniowej.html">MN0002 COMIESIĘCZNA KONSERWACJA POMPY PRÓŻNIOWEJ</a></li>
+<li><a href="./mn0003_test_dzia%C5%82ania_sygnalizatora_%C5%9Bwietlnego.html">MN0003 TEST DZIAŁANIA SYGNALIZATORA ŚWIETLNEGO</a></li>
+<li><a href="./mn0004_smarowanie_prowadnic_liniowych_systemu_move.html">MN0004 SMAROWANIE PROWADNIC LINIOWYCH SYSTEMU MOVE</a></li>
+<li><a href="./mn0005_smarowanie_%C5%82o%C5%BCyska_nakr%C4%99tki_osi_z.html">MN0005 SMAROWANIE ŁOŻYSKA NAKRĘTKI OSI Z</a></li>
+<li><a href="./mn0006_smarowanie_%C5%82o%C5%BCysk_wa%C5%82u_nap%C4%99dowego_mostu_osi_y.html">MN0006 SMAROWANIE ŁOŻYSK WAŁU NAPĘDOWEGO MOSTU OSI Y</a></li>
+<li><a href="./mn0007_kontrola_%C5%9Brodka_smarnego_uk%C5%82adu_automatycznego_smarowania.html">MN0007 KONTROLA ŚRODKA SMARNEGO UKŁADU AUTOMATYCZNEGO SMAROWANIA</a></li>
+<li><a href="./mn0008_smarowanie_przegub%C3%B3w_sto%C5%82u_uchylnego.html">MN0008 SMAROWANIE PRZEGUBÓW STOŁU UCHYLNEGO</a></li>
+<li><a href="./mn0009_smarowanie_przegubu_ramienia_konsoli.html">MN0009 SMAROWANIE PRZEGUBU RAMIENIA KONSOLI</a></li>
+<li><a href="./mn0010_kontrola_przewod%C3%B3w_i_z%C5%82%C4%85czy_uk%C5%82adu_hydraulicznego.html">MN0010 KONTROLA PRZEWODÓW I ZŁĄCZY UKŁADU HYDRAULICZNEGO</a></li>
+<li><a href="./mn0011_wymiana_oleju_w_agregacie_hydraulicznym.html">MN0011 WYMIANA OLEJU W AGREGACIE HYDRAULICZNYM</a></li>
+<li><a href="./mn0012_czyszczenie_filtr%C3%B3w_szafy_elektrycznej.html">MN0012 CZYSZCZENIE FILTRÓW SZAFY ELEKTRYCZNEJ</a></li>
+<li><a href="./mn0013_konserwacja_zespo%C5%82u_wlotu_spr%C4%99%C5%BConego_powietrza.html">MN0013 KONSERWACJA ZESPOŁU WLOTU SPRĘŻONEGO POWIETRZA</a></li>
+<li><a href="./mn0014_%C5%82o%C5%BCyska_elektrowrzeciona.html">MN0014 ŁOŻYSKA ELEKTROWRZECIONA</a></li>
+<li><a href="./mn0041_smarowanie_prowadnic_liniowych_bocznego_wrzeciona_tool_plus.html">MN0041 SMAROWANIE PROWADNIC LINIOWYCH BOCZNEGO WRZECIONA TOOL PLUS</a></li>
+<li><a href="./mn0042_czyszczenie_filtra_uk%C5%82adu_pneumatycznego.html">MN0042 CZYSZCZENIE FILTRA UKŁADU PNEUMATYCZNEGO</a></li>
+<li><a href="./mn0043_kontrola_szczelno%C5%9Bci_z%C5%82%C4%85cza_obrotowego.html">MN0043 KONTROLA SZCZELNOŚCI ZŁĄCZA OBROTOWEGO</a></li>
+</ul>
+</li>
+<li><a href="./waterjet.html">WATERJET</a>
+<ul>
+<li><a href="./mn0044_wymiana_kryzy.html">MN0044 WYMIANA KRYZY</a></li>
+<li><a href="./mn0045_smarowanie_r%C4%99czne.html">MN0045 SMAROWANIE RĘCZNE</a></li>
+<li><a href="./mn0039_czyszczenie_filtr%C3%B3w_otwor%C3%B3w_wentylacyjnych_szafy_elektrycznej.html">MN0039 CZYSZCZENIE FILTRÓW OTWORÓW WENTYLACYJNYCH SZAFY ELEKTRYCZNEJ</a></li>
+<li><a href="./mn0015_kontrola_przewod%C3%B3w_i_z%C5%82%C4%85czy_uk%C5%82adu_wysokiego_ci%C5%9Bnienia.html">MN0015 KONTROLA PRZEWODÓW I ZŁĄCZY UKŁADU WYSOKIEGO CIŚNIENIA</a></li>
+<li><a href="./mn0030_kontrola_%C5%9Brodka_smarnego_uk%C5%82adu_automatycznego_smarowania.html">MN0030 KONTROLA ŚRODKA SMARNEGO UKŁADU AUTOMATYCZNEGO SMAROWANIA</a></li>
+<li><a href="./mn0016_kontrola_czysto%C5%9Bci_zbiornika_i_opr%C3%B3%C5%BCnianie.html">MN0016 KONTROLA CZYSTOŚCI ZBIORNIKA I OPRÓŻNIANIE</a></li>
+<li><a href="./mn0035_kontrola_jako%C5%9Bci_wody.html">MN0035 KONTROLA JAKOŚCI WODY</a></li>
+<li><a href="./mn0040_konserwacja_zespo%C5%82u_wlotu_spr%C4%99%C5%BConego_powietrza.html">MN0040 KONSERWACJA ZESPOŁU WLOTU SPRĘŻONEGO POWIETRZA</a></li>
+<li><a href="./pompa_bft.html">POMPA BFT</a></li>
+<li><a href="./pompa_donatoni_hydrox.html">POMPA DONATONI HYDROX</a>
+<ul>
+<li><a href="./mn0046_kontrola_ilub_wymiana_filtr%C3%B3w_wody_pompy_hydrox.html">MN0046 Kontrola ilub wymiana filtrów wody pompy Hydrox</a></li>
+<li><a href="./mn0048_r%C3%B3%C5%BCne_kontrole_pompy_hydrox.html">MN0048 Różne kontrole pompy Hydrox</a></li>
+<li><a href="./mn0049_wymiana_oleju_pompy_hydrox.html">MN0049 Wymiana oleju pompy Hydrox</a></li>
+<li><a href="./mn0050_wymiana_oleju_pompy_hydrox.html">MN0050 Wymiana oleju pompy Hydrox</a></li>
+<li><a href="./mn0051_konserwacja_korpusu_pompy_wysokiego_ci%C5%9Bnienia.html">MN0051 Konserwacja korpusu pompy wysokiego ciśnienia</a></li>
+<li><a href="./mn0052_wymiana_pas%C3%B3w_nap%C4%99dowych_pompy_hydrox.html">MN0052 Wymiana pasów napędowych pompy Hydrox</a></li>
+</ul>
+</li>
+<li><a href="./pompa_hypertherm.html">POMPA HYPERTHERM</a>
+<ul>
+<li><a href="./zesp%C3%B3%C5%82_zaworu_grzybkowego_wysokiego_ci%C5%9Bnienia.html">ZESPÓŁ ZAWORU GRZYBKOWEGO WYSOKIEGO CIŚNIENIA</a></li>
+<li><a href="./mn0029_naprawa_zaworu_odpowietrzaj%C4%85cego.html">MN0029 NAPRAWA ZAWORU ODPOWIETRZAJĄCEGO</a></li>
+<li><a href="./mn0017_naprawa_zawor%C3%B3w_zwrotnych_i_zawor%C3%B3w_grzybkowych_niskiego_ci%C5%9Bnienia.html">MN0017 NAPRAWA ZAWORÓW ZWROTNYCH I ZAWORÓW GRZYBKOWYCH NISKIEGO CIŚNIENIA</a></li>
+<li><a href="./mn0018_naprawa_cylindra_wysokiego_ci%C5%9Bnienia.html">MN0018 NAPRAWA CYLINDRA WYSOKIEGO CIŚNIENIA</a></li>
+<li><a href="./mn0019_wymiana_wk%C5%82adu_elementu_uszczelniaj%C4%85cego_wysokiego_ci%C5%9Bnienia.html">MN0019 WYMIANA WKŁADU ELEMENTU USZCZELNIAJĄCEGO WYSOKIEGO CIŚNIENIA</a></li>
+<li><a href="./mn0021_wymiana_zaworu_grzybkowego_niskiego_ci%C5%9Bnienia.html">MN0021 WYMIANA ZAWORU GRZYBKOWEGO NISKIEGO CIŚNIENIA</a></li>
+<li><a href="./mn0022_odwr%C3%B3cenie_cylindra_wysokiego_ci%C5%9Bnienia.html">MN0022 ODWRÓCENIE CYLINDRA WYSOKIEGO CIŚNIENIA</a></li>
+<li><a href="./mn0023_wymiana_cylindra_wysokiego_ci%C5%9Bnienia.html">MN0023 WYMIANA CYLINDRA WYSOKIEGO CIŚNIENIA</a></li>
+<li><a href="./mn0024_wymiana_zespo%C5%82u_zaworu_zwrotnego.html">MN0024 WYMIANA ZESPOŁU ZAWORU ZWROTNEGO</a></li>
+<li><a href="./mn0025_wymiana_zespo%C5%82u_obudowy_elementu_uszczelniaj%C4%85cego.html">MN0025 WYMIANA ZESPOŁU OBUDOWY ELEMENTU USZCZELNIAJĄCEGO</a></li>
+<li><a href="./mn0026_wymiana_adaptera_wylotowego.html">MN0026 WYMIANA ADAPTERA WYLOTOWEGO</a></li>
+<li><a href="./mn0028_naprawa_centralnej_sekcji_hydraulicznej.html">MN0028 NAPRAWA CENTRALNEJ SEKCJI HYDRAULICZNEJ</a></li>
+<li><a href="./mn0034_wymiana_filtra_wody.html">MN0034 WYMIANA FILTRA WODY</a></li>
+<li><a href="./mn0031_wymiana_korpusu_zaworu_odpowietrzaj%C4%85cego.html">MN0031 WYMIANA KORPUSU ZAWORU ODPOWIETRZAJĄCEGO</a></li>
+<li><a href="./mn0032_czyszczenie_ch%C5%82odnicy_powietrznej.html">MN0032 CZYSZCZENIE CHŁODNICY POWIETRZNEJ</a></li>
+<li><a href="./mn0036_wymiana_wk%C5%82adu_filtra_hydraulicznego.html">MN0036 WYMIANA WKŁADU FILTRA HYDRAULICZNEGO</a></li>
+<li><a href="./mn0037_wymiana_p%C5%82ynu_hydraulicznego.html">MN0037 WYMIANA PŁYNU HYDRAULICZNEGO</a></li>
+<li><a href="./mn0038_smarowanie_%C5%82o%C5%BCysk_silnika_g%C5%82%C3%B3wnego.html">MN0038 SMAROWANIE ŁOŻYSK SILNIKA GŁÓWNEGO</a></li>
+<li><a href="./mn0020_wymiana_zespo%C5%82u_zaworu_grzybkowego_wysokiego_ci%C5%9Bnienia.html">MN0020 WYMIANA ZESPOŁU ZAWORU GRZYBKOWEGO WYSOKIEGO CIŚNIENIA</a></li>
+</ul>
+</li>
+<li><a href="./mn0047_wymiana_rurki_ogniskuj%C4%85cej.html">MN0047 WYMIANA RURKI OGNISKUJĄCEJ</a></li>
+<li><a href="./mn0053_wymiana_przewodu_%C5%9Bcierniwa.html">MN0053 WYMIANA PRZEWODU ŚCIERNIWA</a></li>
+</ul>
+</li>
+<li><a href="./instrukcje_bezpiecze%C5%84stwa.html">INSTRUKCJE BEZPIECZEŃSTWA</a></li>
+</ul>
+<!--Label="tit_iti"-->
+                        </main>
+
+                    </div>
+
+                    <img src="images/donatoni_222.jpg">
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+
+                            <a rel="next prefetch" href="standardowe_frezarki.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+
+
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                <a rel="next prefetch" href="standardowe_frezarki.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="mermaid.min.js"></script>
+        <script src="mermaid-init.js"></script>
+        <script src="hidemenu.js"></script>
+        <script src="imagemodal.js"></script>
+        <script src="login.js"></script>
+    </div>
+
+    <!-- Modale -->
+    <div id="modal" onclick="closeModal()">
+        <img id="modal-img" src="">
+    </div>;
+
+
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
+
+<script id="virtual-keyboard-searchbar-fix">
+document.addEventListener("input", function (e) {
+    const t = e.target;
+    if (t && t.id === "searchbar" && e.isTrusted !== true) {
+        t.dispatchEvent(new KeyboardEvent("keyup", { bubbles: true }));
+    }
+});
+</script>
+</body>
+</html>

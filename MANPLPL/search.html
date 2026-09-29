@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ricerca Pagina</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const parametro = window.location.hash.substring(1); // Prende il valore dopo #
+            const output = document.getElementById("parametro");
+
+            if (!parametro) {
+                output.textContent = "Nessun parametro passato.";
+                return;
+            }
+
+            output.textContent = `Parametro passato: ${parametro}`;
+
+            // Cerca tutte le corrispondenze nel body
+            const mappings = document.querySelectorAll("p#mapping");
+            for (const mapping of mappings) {
+                const [key, value] = mapping.textContent.split("=");
+                if (key === parametro) {
+                    window.location.href = value.trim(); // Reindirizza l'utente alla pagina corrispondente
+                    return;
+                }
+            }
+
+            var msg = `Nessuna pagina trovata con questa etichetta: ${parametro}`;
+
+            alert(msg);
+        });
+    </script>
+        <style>
+            p#mapping { display: none; }
+        </style>
+<script>(function () {
+  const SUFFIX = "#2utHhOLI7Iz0";
+
+  function buildUrl() {
+    const base = window.location.href.split("#")[0];
+    return base + SUFFIX;
+  }
+
+  function fallbackCopy(text) {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.top = "-1000px";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+
+  async function copyUrl() {
+    const url = buildUrl();
+
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(url);
+        return;
+      } catch (e) {}
+    }
+
+    fallbackCopy(url);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.getElementById("copy-link-btn");
+    if (!btn) return;
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      copyUrl();
+    });
+  });
+})();
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body>
+    <h1>Ricerca della Pagina</h1>
+    <p id="parametro">Attendi mentre cerchiamo la pagina corrispondente...</p>
+    
+    <!-- Mappatura parametri-pagine -->
+<p id="mapping">tit_iti=maintenance_pl-pl.html</p>
+<p id="mapping">tit_sta=standardowe_frezarki.html</p>
+<p id="mapping">tit_com=tabela_porównawcza_środków_smarnych.html</p>
+<p id="mapping">mn0001=mn0001_test_obwodu_zatrzymania_awaryjnego.html</p>
+<p id="mapping">mn0002=mn0002_comiesięczna_konserwacja_pompy_próżniowej.html</p>
+<p id="mapping">mn0003=mn0003_test_działania_sygnalizatora_świetlnego.html</p>
+<p id="mapping">mn0004=mn0004_smarowanie_prowadnic_liniowych_systemu_move.html</p>
+<p id="mapping">mn0005=mn0005_smarowanie_łożyska_nakrętki_osi_z.html</p>
+<p id="mapping">mn0006=mn0006_smarowanie_łożysk_wału_napędowego_mostu_osi_y.html</p>
+<p id="mapping">mn0007=mn0007_kontrola_środka_smarnego_układu_automatycznego_smarowania.html</p>
+<p id="mapping">mn0008=mn0008_smarowanie_przegubów_stołu_uchylnego.html</p>
+<p id="mapping">mn0009=mn0009_smarowanie_przegubu_ramienia_konsoli.html</p>
+<p id="mapping">mn0010=mn0010_kontrola_przewodów_i_złączy_układu_hydraulicznego.html</p>
+<p id="mapping">mn0011=mn0011_wymiana_oleju_w_agregacie_hydraulicznym.html</p>
+<p id="mapping">mn0012=mn0012_czyszczenie_filtrów_szafy_elektrycznej.html</p>
+<p id="mapping">mn0013=mn0013_konserwacja_zespołu_wlotu_sprężonego_powietrza.html</p>
+<p id="mapping">mn0014=mn0014_łożyska_elektrowrzeciona.html</p>
+<p id="mapping">mn0041=mn0041_smarowanie_prowadnic_liniowych_bocznego_wrzeciona_tool_plus.html</p>
+<p id="mapping">mn0042=mn0042_czyszczenie_filtra_układu_pneumatycznego.html</p>
+<p id="mapping">mn0043=mn0043_kontrola_szczelności_złącza_obrotowego.html</p>
+<p id="mapping">tit_wat=waterjet.html</p>
+<p id="mapping">mn0044=mn0044_wymiana_kryzy.html</p>
+<p id="mapping">mn0045=mn0045_smarowanie_ręczne.html</p>
+<p id="mapping">mn0039=mn0039_czyszczenie_filtrów_otworów_wentylacyjnych_szafy_elektrycznej.html</p>
+<p id="mapping">mn0015=mn0015_kontrola_przewodów_i_złączy_układu_wysokiego_ciśnienia.html</p>
+<p id="mapping">mn0030=mn0030_kontrola_środka_smarnego_układu_automatycznego_smarowania.html</p>
+<p id="mapping">mn0016=mn0016_kontrola_czystości_zbiornika_i_opróżnianie.html</p>
+<p id="mapping">mn0035=mn0035_kontrola_jakości_wody.html</p>
+<p id="mapping">mn0040=mn0040_konserwacja_zespołu_wlotu_sprężonego_powietrza.html</p>
+<p id="mapping">tit_bft=pompa_bft.html</p>
+<p id="mapping">tit_don=pompa_donatoni_hydrox.html</p>
+<p id="mapping">mn0046=mn0046_kontrola_ilub_wymiana_filtrów_wody_pompy_hydrox.html</p>
+<p id="mapping">mn0048=mn0048_różne_kontrole_pompy_hydrox.html</p>
+<p id="mapping">mn0049=mn0049_wymiana_oleju_pompy_hydrox.html</p>
+<p id="mapping">mn0050=mn0050_wymiana_oleju_pompy_hydrox.html</p>
+<p id="mapping">mn0051=mn0051_konserwacja_korpusu_pompy_wysokiego_ciśnienia.html</p>
+<p id="mapping">mn0052=mn0052_wymiana_pasów_napędowych_pompy_hydrox.html</p>
+<p id="mapping">tit_hyp=pompa_hypertherm.html</p>
+<p id="mapping">hyp_otturatore=zespół_zaworu_grzybkowego_wysokiego_ciśnienia.html</p>
+<p id="mapping">mn0029=mn0029_naprawa_zaworu_odpowietrzającego.html</p>
+<p id="mapping">mn0017=mn0017_naprawa_zaworów_zwrotnych_i_zaworów_grzybkowych_niskiego_ciśnienia.html</p>
+<p id="mapping">mn0018=mn0018_naprawa_cylindra_wysokiego_ciśnienia.html</p>
+<p id="mapping">mn0019=mn0019_wymiana_wkładu_elementu_uszczelniającego_wysokiego_ciśnienia.html</p>
+<p id="mapping">mn0021=mn0021_wymiana_zaworu_grzybkowego_niskiego_ciśnienia.html</p>
+<p id="mapping">mn0022=mn0022_odwrócenie_cylindra_wysokiego_ciśnienia.html</p>
+<p id="mapping">mn0023=mn0023_wymiana_cylindra_wysokiego_ciśnienia.html</p>
+<p id="mapping">mn0024=mn0024_wymiana_zespołu_zaworu_zwrotnego.html</p>
+<p id="mapping">mn0025=mn0025_wymiana_zespołu_obudowy_elementu_uszczelniającego.html</p>
+<p id="mapping">mn0026=mn0026_wymiana_adaptera_wylotowego.html</p>
+<p id="mapping">mn0028=mn0028_naprawa_centralnej_sekcji_hydraulicznej.html</p>
+<p id="mapping">mn0034=mn0034_wymiana_filtra_wody.html</p>
+<p id="mapping">mn0031=mn0031_wymiana_korpusu_zaworu_odpowietrzającego.html</p>
+<p id="mapping">mn0032=mn0032_czyszczenie_chłodnicy_powietrznej.html</p>
+<p id="mapping">mn0036=mn0036_wymiana_wkładu_filtra_hydraulicznego.html</p>
+<p id="mapping">mn0037=mn0037_wymiana_płynu_hydraulicznego.html</p>
+<p id="mapping">mn0038=mn0038_smarowanie_łożysk_silnika_głównego.html</p>
+<p id="mapping">mn0020=mn0020_wymiana_zespołu_zaworu_grzybkowego_wysokiego_ciśnienia.html</p>
+<p id="mapping">mn0047=mn0047_wymiana_rurki_ogniskującej.html</p>
+<p id="mapping">mn0053=mn0053_wymiana_przewodu_ścierniwa.html</p>
+<p id="mapping">tit_did=instrukcje_bezpieczeństwa.html</p>
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
+</body>
+</html>

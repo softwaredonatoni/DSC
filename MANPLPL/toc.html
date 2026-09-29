@@ -1,0 +1,87 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light" dir="ltr">
+    <head>
+        <!-- sidebar iframe generated using mdBook
+
+        This is a frame, and not included directly in the page, to control the total size of the
+        book. The TOC contains an entry for each page, so if each page includes a copy of the TOC,
+        the total size of the page becomes O(n**2).
+
+        The frame is only used as a fallback when JS is turned off. When it's on, the sidebar is
+        instead added to the main page by `toc.js` instead. The JavaScript mode is better
+        because, when running in a `file:///` URL, the iframed page would not be Same-Origin as
+        the rest of the page, so the sidebar and the main page theme would fall out of sync.
+        -->
+        <meta charset="UTF-8">
+        <meta name="robots" content="noindex">
+        <!-- Custom HTML head -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="./mdbook-admonish.css">
+        <link rel="stylesheet" href="theme/custom.css">
+        <link rel="stylesheet" href="search.html">
+        <link rel="stylesheet" href="login.html">
+    <script>(function () {
+  const SUFFIX = "#2utHhOLI7Iz0";
+
+  function buildUrl() {
+    const base = window.location.href.split("#")[0];
+    return base + SUFFIX;
+  }
+
+  function fallbackCopy(text) {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.top = "-1000px";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+
+  async function copyUrl() {
+    const url = buildUrl();
+
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(url);
+        return;
+      } catch (e) {}
+    }
+
+    fallbackCopy(url);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.getElementById("copy-link-btn");
+    if (!btn) return;
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      copyUrl();
+    });
+  });
+})();
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+    <body class="sidebar-iframe-inner">
+        <ol class="chapter"><li class="chapter-item "><a href="maintenance_pl-pl.html" target="_parent"><strong aria-hidden="true">1.</strong> Maintenance PL-PL</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="standardowe_frezarki.html" target="_parent"><strong aria-hidden="true">1.1.</strong> STANDARDOWE FREZARKI</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="tabela_porównawcza_środków_smarnych.html" target="_parent"><strong aria-hidden="true">1.1.1.</strong> TABELA PORÓWNAWCZA ŚRODKÓW SMARNYCH</a></li><li class="chapter-item "><a href="mn0001_test_obwodu_zatrzymania_awaryjnego.html" target="_parent"><strong aria-hidden="true">1.1.2.</strong> MN0001 TEST OBWODU ZATRZYMANIA AWARYJNEGO</a></li><li class="chapter-item "><a href="mn0002_comiesięczna_konserwacja_pompy_próżniowej.html" target="_parent"><strong aria-hidden="true">1.1.3.</strong> MN0002 COMIESIĘCZNA KONSERWACJA POMPY PRÓŻNIOWEJ</a></li><li class="chapter-item "><a href="mn0003_test_działania_sygnalizatora_świetlnego.html" target="_parent"><strong aria-hidden="true">1.1.4.</strong> MN0003 TEST DZIAŁANIA SYGNALIZATORA ŚWIETLNEGO</a></li><li class="chapter-item "><a href="mn0004_smarowanie_prowadnic_liniowych_systemu_move.html" target="_parent"><strong aria-hidden="true">1.1.5.</strong> MN0004 SMAROWANIE PROWADNIC LINIOWYCH SYSTEMU MOVE</a></li><li class="chapter-item "><a href="mn0005_smarowanie_łożyska_nakrętki_osi_z.html" target="_parent"><strong aria-hidden="true">1.1.6.</strong> MN0005 SMAROWANIE ŁOŻYSKA NAKRĘTKI OSI Z</a></li><li class="chapter-item "><a href="mn0006_smarowanie_łożysk_wału_napędowego_mostu_osi_y.html" target="_parent"><strong aria-hidden="true">1.1.7.</strong> MN0006 SMAROWANIE ŁOŻYSK WAŁU NAPĘDOWEGO MOSTU OSI Y</a></li><li class="chapter-item "><a href="mn0007_kontrola_środka_smarnego_układu_automatycznego_smarowania.html" target="_parent"><strong aria-hidden="true">1.1.8.</strong> MN0007 KONTROLA ŚRODKA SMARNEGO UKŁADU AUTOMATYCZNEGO SMAROWANIA</a></li><li class="chapter-item "><a href="mn0008_smarowanie_przegubów_stołu_uchylnego.html" target="_parent"><strong aria-hidden="true">1.1.9.</strong> MN0008 SMAROWANIE PRZEGUBÓW STOŁU UCHYLNEGO</a></li><li class="chapter-item "><a href="mn0009_smarowanie_przegubu_ramienia_konsoli.html" target="_parent"><strong aria-hidden="true">1.1.10.</strong> MN0009 SMAROWANIE PRZEGUBU RAMIENIA KONSOLI</a></li><li class="chapter-item "><a href="mn0010_kontrola_przewodów_i_złączy_układu_hydraulicznego.html" target="_parent"><strong aria-hidden="true">1.1.11.</strong> MN0010 KONTROLA PRZEWODÓW I ZŁĄCZY UKŁADU HYDRAULICZNEGO</a></li><li class="chapter-item "><a href="mn0011_wymiana_oleju_w_agregacie_hydraulicznym.html" target="_parent"><strong aria-hidden="true">1.1.12.</strong> MN0011 WYMIANA OLEJU W AGREGACIE HYDRAULICZNYM</a></li><li class="chapter-item "><a href="mn0012_czyszczenie_filtrów_szafy_elektrycznej.html" target="_parent"><strong aria-hidden="true">1.1.13.</strong> MN0012 CZYSZCZENIE FILTRÓW SZAFY ELEKTRYCZNEJ</a></li><li class="chapter-item "><a href="mn0013_konserwacja_zespołu_wlotu_sprężonego_powietrza.html" target="_parent"><strong aria-hidden="true">1.1.14.</strong> MN0013 KONSERWACJA ZESPOŁU WLOTU SPRĘŻONEGO POWIETRZA</a></li><li class="chapter-item "><a href="mn0014_łożyska_elektrowrzeciona.html" target="_parent"><strong aria-hidden="true">1.1.15.</strong> MN0014 ŁOŻYSKA ELEKTROWRZECIONA</a></li><li class="chapter-item "><a href="mn0041_smarowanie_prowadnic_liniowych_bocznego_wrzeciona_tool_plus.html" target="_parent"><strong aria-hidden="true">1.1.16.</strong> MN0041 SMAROWANIE PROWADNIC LINIOWYCH BOCZNEGO WRZECIONA TOOL PLUS</a></li><li class="chapter-item "><a href="mn0042_czyszczenie_filtra_układu_pneumatycznego.html" target="_parent"><strong aria-hidden="true">1.1.17.</strong> MN0042 CZYSZCZENIE FILTRA UKŁADU PNEUMATYCZNEGO</a></li><li class="chapter-item "><a href="mn0043_kontrola_szczelności_złącza_obrotowego.html" target="_parent"><strong aria-hidden="true">1.1.18.</strong> MN0043 KONTROLA SZCZELNOŚCI ZŁĄCZA OBROTOWEGO</a></li></ol></li><li class="chapter-item "><a href="waterjet.html" target="_parent"><strong aria-hidden="true">1.2.</strong> WATERJET</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="mn0044_wymiana_kryzy.html" target="_parent"><strong aria-hidden="true">1.2.1.</strong> MN0044 WYMIANA KRYZY</a></li><li class="chapter-item "><a href="mn0045_smarowanie_ręczne.html" target="_parent"><strong aria-hidden="true">1.2.2.</strong> MN0045 SMAROWANIE RĘCZNE</a></li><li class="chapter-item "><a href="mn0039_czyszczenie_filtrów_otworów_wentylacyjnych_szafy_elektrycznej.html" target="_parent"><strong aria-hidden="true">1.2.3.</strong> MN0039 CZYSZCZENIE FILTRÓW OTWORÓW WENTYLACYJNYCH SZAFY ELEKTRYCZNEJ</a></li><li class="chapter-item "><a href="mn0015_kontrola_przewodów_i_złączy_układu_wysokiego_ciśnienia.html" target="_parent"><strong aria-hidden="true">1.2.4.</strong> MN0015 KONTROLA PRZEWODÓW I ZŁĄCZY UKŁADU WYSOKIEGO CIŚNIENIA</a></li><li class="chapter-item "><a href="mn0030_kontrola_środka_smarnego_układu_automatycznego_smarowania.html" target="_parent"><strong aria-hidden="true">1.2.5.</strong> MN0030 KONTROLA ŚRODKA SMARNEGO UKŁADU AUTOMATYCZNEGO SMAROWANIA</a></li><li class="chapter-item "><a href="mn0016_kontrola_czystości_zbiornika_i_opróżnianie.html" target="_parent"><strong aria-hidden="true">1.2.6.</strong> MN0016 KONTROLA CZYSTOŚCI ZBIORNIKA I OPRÓŻNIANIE</a></li><li class="chapter-item "><a href="mn0035_kontrola_jakości_wody.html" target="_parent"><strong aria-hidden="true">1.2.7.</strong> MN0035 KONTROLA JAKOŚCI WODY</a></li><li class="chapter-item "><a href="mn0040_konserwacja_zespołu_wlotu_sprężonego_powietrza.html" target="_parent"><strong aria-hidden="true">1.2.8.</strong> MN0040 KONSERWACJA ZESPOŁU WLOTU SPRĘŻONEGO POWIETRZA</a></li><li class="chapter-item "><a href="pompa_bft.html" target="_parent"><strong aria-hidden="true">1.2.9.</strong> POMPA BFT</a></li><li class="chapter-item "><a href="pompa_donatoni_hydrox.html" target="_parent"><strong aria-hidden="true">1.2.10.</strong> POMPA DONATONI HYDROX</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="mn0046_kontrola_ilub_wymiana_filtrów_wody_pompy_hydrox.html" target="_parent"><strong aria-hidden="true">1.2.10.1.</strong> MN0046 Kontrola ilub wymiana filtrów wody pompy Hydrox</a></li><li class="chapter-item "><a href="mn0048_różne_kontrole_pompy_hydrox.html" target="_parent"><strong aria-hidden="true">1.2.10.2.</strong> MN0048 Różne kontrole pompy Hydrox</a></li><li class="chapter-item "><a href="mn0049_wymiana_oleju_pompy_hydrox.html" target="_parent"><strong aria-hidden="true">1.2.10.3.</strong> MN0049 Wymiana oleju pompy Hydrox</a></li><li class="chapter-item "><a href="mn0050_wymiana_oleju_pompy_hydrox.html" target="_parent"><strong aria-hidden="true">1.2.10.4.</strong> MN0050 Wymiana oleju pompy Hydrox</a></li><li class="chapter-item "><a href="mn0051_konserwacja_korpusu_pompy_wysokiego_ciśnienia.html" target="_parent"><strong aria-hidden="true">1.2.10.5.</strong> MN0051 Konserwacja korpusu pompy wysokiego ciśnienia</a></li><li class="chapter-item "><a href="mn0052_wymiana_pasów_napędowych_pompy_hydrox.html" target="_parent"><strong aria-hidden="true">1.2.10.6.</strong> MN0052 Wymiana pasów napędowych pompy Hydrox</a></li></ol></li><li class="chapter-item "><a href="pompa_hypertherm.html" target="_parent"><strong aria-hidden="true">1.2.11.</strong> POMPA HYPERTHERM</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="zespół_zaworu_grzybkowego_wysokiego_ciśnienia.html" target="_parent"><strong aria-hidden="true">1.2.11.1.</strong> ZESPÓŁ ZAWORU GRZYBKOWEGO WYSOKIEGO CIŚNIENIA</a></li><li class="chapter-item "><a href="mn0029_naprawa_zaworu_odpowietrzającego.html" target="_parent"><strong aria-hidden="true">1.2.11.2.</strong> MN0029 NAPRAWA ZAWORU ODPOWIETRZAJĄCEGO</a></li><li class="chapter-item "><a href="mn0017_naprawa_zaworów_zwrotnych_i_zaworów_grzybkowych_niskiego_ciśnienia.html" target="_parent"><strong aria-hidden="true">1.2.11.3.</strong> MN0017 NAPRAWA ZAWORÓW ZWROTNYCH I ZAWORÓW GRZYBKOWYCH NISKIEGO CIŚNIENIA</a></li><li class="chapter-item "><a href="mn0018_naprawa_cylindra_wysokiego_ciśnienia.html" target="_parent"><strong aria-hidden="true">1.2.11.4.</strong> MN0018 NAPRAWA CYLINDRA WYSOKIEGO CIŚNIENIA</a></li><li class="chapter-item "><a href="mn0019_wymiana_wkładu_elementu_uszczelniającego_wysokiego_ciśnienia.html" target="_parent"><strong aria-hidden="true">1.2.11.5.</strong> MN0019 WYMIANA WKŁADU ELEMENTU USZCZELNIAJĄCEGO WYSOKIEGO CIŚNIENIA</a></li><li class="chapter-item "><a href="mn0021_wymiana_zaworu_grzybkowego_niskiego_ciśnienia.html" target="_parent"><strong aria-hidden="true">1.2.11.6.</strong> MN0021 WYMIANA ZAWORU GRZYBKOWEGO NISKIEGO CIŚNIENIA</a></li><li class="chapter-item "><a href="mn0022_odwrócenie_cylindra_wysokiego_ciśnienia.html" target="_parent"><strong aria-hidden="true">1.2.11.7.</strong> MN0022 ODWRÓCENIE CYLINDRA WYSOKIEGO CIŚNIENIA</a></li><li class="chapter-item "><a href="mn0023_wymiana_cylindra_wysokiego_ciśnienia.html" target="_parent"><strong aria-hidden="true">1.2.11.8.</strong> MN0023 WYMIANA CYLINDRA WYSOKIEGO CIŚNIENIA</a></li><li class="chapter-item "><a href="mn0024_wymiana_zespołu_zaworu_zwrotnego.html" target="_parent"><strong aria-hidden="true">1.2.11.9.</strong> MN0024 WYMIANA ZESPOŁU ZAWORU ZWROTNEGO</a></li><li class="chapter-item "><a href="mn0025_wymiana_zespołu_obudowy_elementu_uszczelniającego.html" target="_parent"><strong aria-hidden="true">1.2.11.10.</strong> MN0025 WYMIANA ZESPOŁU OBUDOWY ELEMENTU USZCZELNIAJĄCEGO</a></li><li class="chapter-item "><a href="mn0026_wymiana_adaptera_wylotowego.html" target="_parent"><strong aria-hidden="true">1.2.11.11.</strong> MN0026 WYMIANA ADAPTERA WYLOTOWEGO</a></li><li class="chapter-item "><a href="mn0028_naprawa_centralnej_sekcji_hydraulicznej.html" target="_parent"><strong aria-hidden="true">1.2.11.12.</strong> MN0028 NAPRAWA CENTRALNEJ SEKCJI HYDRAULICZNEJ</a></li><li class="chapter-item "><a href="mn0034_wymiana_filtra_wody.html" target="_parent"><strong aria-hidden="true">1.2.11.13.</strong> MN0034 WYMIANA FILTRA WODY</a></li><li class="chapter-item "><a href="mn0031_wymiana_korpusu_zaworu_odpowietrzającego.html" target="_parent"><strong aria-hidden="true">1.2.11.14.</strong> MN0031 WYMIANA KORPUSU ZAWORU ODPOWIETRZAJĄCEGO</a></li><li class="chapter-item "><a href="mn0032_czyszczenie_chłodnicy_powietrznej.html" target="_parent"><strong aria-hidden="true">1.2.11.15.</strong> MN0032 CZYSZCZENIE CHŁODNICY POWIETRZNEJ</a></li><li class="chapter-item "><a href="mn0036_wymiana_wkładu_filtra_hydraulicznego.html" target="_parent"><strong aria-hidden="true">1.2.11.16.</strong> MN0036 WYMIANA WKŁADU FILTRA HYDRAULICZNEGO</a></li><li class="chapter-item "><a href="mn0037_wymiana_płynu_hydraulicznego.html" target="_parent"><strong aria-hidden="true">1.2.11.17.</strong> MN0037 WYMIANA PŁYNU HYDRAULICZNEGO</a></li><li class="chapter-item "><a href="mn0038_smarowanie_łożysk_silnika_głównego.html" target="_parent"><strong aria-hidden="true">1.2.11.18.</strong> MN0038 SMAROWANIE ŁOŻYSK SILNIKA GŁÓWNEGO</a></li><li class="chapter-item "><a href="mn0020_wymiana_zespołu_zaworu_grzybkowego_wysokiego_ciśnienia.html" target="_parent"><strong aria-hidden="true">1.2.11.19.</strong> MN0020 WYMIANA ZESPOŁU ZAWORU GRZYBKOWEGO WYSOKIEGO CIŚNIENIA</a></li></ol></li><li class="chapter-item "><a href="mn0047_wymiana_rurki_ogniskującej.html" target="_parent"><strong aria-hidden="true">1.2.12.</strong> MN0047 WYMIANA RURKI OGNISKUJĄCEJ</a></li><li class="chapter-item "><a href="mn0053_wymiana_przewodu_ścierniwa.html" target="_parent"><strong aria-hidden="true">1.2.13.</strong> MN0053 WYMIANA PRZEWODU ŚCIERNIWA</a></li></ol></li><li class="chapter-item "><a href="instrukcje_bezpieczeństwa.html" target="_parent"><strong aria-hidden="true">1.3.</strong> INSTRUKCJE BEZPIECZEŃSTWA</a></li></ol></li></ol>
+    
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
+</body>
+</html>
