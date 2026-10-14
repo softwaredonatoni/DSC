@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+<head>
+    <!-- Book generated using mdBook -->
+    <meta charset="UTF-8">
+    <title>2.6.2 MATERIALS - EN-GB D-PLANT 1.2</title>
+
+    <!-- Custom HTML head -->
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="icon" href="favicon.svg">
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/chrome.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Fonts -->
+    <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+    <link rel="stylesheet" href="fonts/fonts.css">
+
+    <!-- Highlight.js Stylesheets -->
+    <link rel="stylesheet" id="highlight-css" href="highlight.css">
+    <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+    <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+    <!-- Custom theme stylesheets -->
+    <link rel="stylesheet" href="./mdbook-admonish.css">
+    <link rel="stylesheet" href="theme/custom.css">
+    <link rel="stylesheet" href="search.html">
+    <link rel="stylesheet" href="login.html">
+    <link rel="stylesheet" href="searchlogin.html">
+    <link rel="stylesheet" href="searchloginmenu.html">
+
+    <!-- Provide site root and default themes to javascript -->
+    <script>
+      const path_to_root = "";
+      const default_light_theme = "light";
+      const default_dark_theme = "light";
+    </script>
+    <!-- Start loading toc.js asap -->
+    <script src="toc.js"></script>
+<script>(function () {
+  const SUFFIX = "#2utHhOLI7Iz0";
+
+  function buildUrl() {
+    const base = window.location.href.split("#")[0];
+    return base + SUFFIX;
+  }
+
+  function fallbackCopy(text) {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.top = "-1000px";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+
+  async function copyUrl() {
+    const url = buildUrl();
+
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(url);
+        return;
+      } catch (e) {}
+    }
+
+    fallbackCopy(url);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.getElementById("copy-link-btn");
+    if (!btn) return;
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      copyUrl();
+    });
+  });
+})();
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-document" data-technical-styler-flow="html">
+    <header class="header-main">
+        <div class="header-flex">
+            <div class="donatoni-flex">
+                <label class="btn hamburger-menu" id="sidebar-toggle" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                    <i id="sidebar-toggle-icon" class="fa-solid fa-bars"></i>
+                </label>
+
+                <img src="images/donatoni-logo-white.svg" alt="Donatoni Macchine">
+            </div>
+
+            <div class="donatoni-flex action-header-buttons">
+                <div id="search-wrapper" class="search-wrapper hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults"></ul>
+                    </div>
+                </div>
+                <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
+                </button>
+
+                <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
+                    <i class="fa-solid fa-print"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div id="body-container">
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem("mdbook-theme");
+                let sidebar = localStorage.getItem("mdbook-sidebar");
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-theme",
+                        theme.slice(1, theme.length - 1)
+                    );
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-sidebar",
+                        sidebar.slice(1, sidebar.length - 1)
+                    );
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = "light";
+            let theme = default_theme;
+            const html = document.documentElement;
+            html.classList.remove("light");
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try {
+                    sidebar = localStorage.getItem('mdbook-sidebar');
+                } catch (e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document
+                        .getElementById("sidebar-toggle")
+                        .setAttribute("aria-expanded", sidebar === "visible");
+                    document
+                        .getElementById("sidebar")
+                        .setAttribute("aria-hidden", sidebar !== "visible");
+                    Array.from(document.querySelectorAll("#sidebar a")).forEach(
+                        function (link) {
+                            link.setAttribute("tabIndex", sidebar === "visible" ? 0 : -1);
+                        }
+                    );
+                </script>
+
+                <div id="content" class="content">
+
+                    <div>
+
+                        <img src="images/donatoni_111.jpg">
+
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Machine technical documentation</span><span class="maintenance-status"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Operational document</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="262-materials" style="margin:0;" class="maintenance-main-title"><a class="header" href="#262-materials"><span class="maintenance-code">DOC</span><span class="maintenance-name">2.6.2 MATERIALS</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document DOC" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="2.6.2 MATERIALS"--><p local-id="8bebd438-1532-3b59-b0a6-7c6b2ad00ae5">The “Materials” page is used to search for, view and edit the characteristics of a material used for the pieces to be palletised.</p><div class="TextAlignCenter"><img src="attachments/2.6.2_materials/appplant_image117_ritaglio.png" alt="appplant_image117_ritaglio.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="f6f64ee3-f734-3b2d-a312-5feac61038d5"></p><p>
+</p><p local-id="6667ed08-a4e7-3da6-a5bc-65e327cbbc46"></p><h1 local-id="0b4d4898f689">Top bar</h1><p local-id="b1a609fbdab5">The following buttons are located on the right-hand side of the top bar:</p><table class="my-table2" data-table-width="1200.0" data-layout="default" ac:local-id="5abe39f8-eea2-345b-942a-7efba8343281"><colgroup><col style="width: 300.0px;"><col style="width: 900.0px;"></colgroup><tbody><tr ac:local-id="61d2049c-14ac-3612-8ff8-ee3600060022"><td ac:local-id="74ec0f6f-de59-3979-840e-8f6ed7554506"><div class="TextAlignCenter"><img src="attachments/2.6.2_materials/appplant_image56.png" alt="appplant_image56.png" width="209" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="42ee610b-9d85-3772-b547-4183b6a42560"><p local-id="6159251a-fc3c-338f-bda1-6aafdb1d08c4"><strong>New</strong><br>Creates a new material.</p></td></tr><tr ac:local-id="c414ae47-5dd6-39a0-858c-33c6c6a1448c"><td ac:local-id="91b3fd86-4d9f-39b0-8836-d9bd1a8a1a4e"><div class="TextAlignCenter"><img src="attachments/2.6.2_materials/appplant_image57.png" alt="appplant_image57.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="4d471fe3-ac3b-3ba0-aef8-5f367921a5a6"><p local-id="c09fe462-41c3-3a54-82bc-ef1974f480d1"><strong>Delete</strong><br>Deletes the selected material.</p></td></tr><tr ac:local-id="ddd87722-9240-3762-b7c4-121c504b2f5c"><td ac:local-id="0edd5db1-ede2-3909-8af7-55625d912d5d"><div class="TextAlignCenter"><img src="attachments/2.6.2_materials/appplant_image58.png" alt="appplant_image58.png" width="61" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="e0b1c1bf-655d-321c-9066-43f632320154"><p local-id="ef1b15a0-9815-30a1-929a-9f4f8db0bb7c"><strong>Edit</strong><br>Edits the selected material.</p></td></tr><tr ac:local-id="31dc379c-a225-3ce7-a6f7-89c58fbfff1f"><td ac:local-id="3163b3e0-a8ce-3560-8d01-d0775fa0015a"><div class="TextAlignCenter"><img src="attachments/2.6.2_materials/appplant_image59.png" alt="appplant_image59.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="cf2758b3-3205-351e-9e32-71da31789d40"><p local-id="55b028a4-4407-3c4c-87a5-0f414eca8c52"><strong>Duplicate</strong><br>Creates a copy of the selected material.</p></td></tr></tbody></table><p local-id="74ca17e4fc50"></p><h2 local-id="3edfa3abc988" class="maintenance-section-title" data-section-number="01">New material</h2><div class="TextAlignCenter"><img src="attachments/2.6.2_materials/appplant_image56.png" alt="appplant_image56.png" width="209" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><div class="TextAlignCenter"><img src="attachments/2.6.2_materials/appplant_image118.png" alt="appplant_image118.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><table class="my-table2" data-table-width="1200.0" data-layout="default" ac:local-id="c5ca4f37-7be8-3d75-a436-1282fae95e30"><colgroup><col style="width: 300.0px;"><col style="width: 900.0px;"></colgroup><tbody><tr ac:local-id="383d27ea-a752-3676-a604-c630da7210ca"><td ac:local-id="6d543322-563b-38b5-9336-7b43e153677d"><p local-id="d7bdbfec-a7ce-3e17-98d5-9224b7039de4"><strong>Name</strong></p></td><td ac:local-id="7e14505c-b972-3188-8b4e-1718e8138e80"><p local-id="7a8af219-31bf-3a96-973f-5db17167f080">Code assigned to the material</p></td></tr><tr ac:local-id="39708b03-61f8-320d-a9f7-1fecccec4393"><td ac:local-id="e0ed5ea9-58f7-3a2d-84d4-9427cc85eff9"><p local-id="1e78f729-5896-35a0-95c9-0ed56d55886c"><strong>Code</strong></p></td><td ac:local-id="1bfbc108-a753-33e6-90ee-e751c435db37"><p local-id="04bc26c6-5f79-3a2f-8b08-ff13d574839a">Code assigned to the material</p></td></tr><tr ac:local-id="c4672938-0ade-3155-baa6-d4f62af64aa8"><td ac:local-id="ecdebe00-ca31-3ee8-b3dc-d859900b98bd"><p local-id="e809e964-7dd2-3731-9740-eab09f889f04"><strong>Value per m^2</strong></p></td><td ac:local-id="6f5a0717-61e6-3182-8d9f-24ba7b3dfb09"><p local-id="8ce38781-8ee5-3e9a-8ef4-c39c2ef2db96"></p></td></tr><tr ac:local-id="445558ed-d166-3ed9-910c-c61c8044fa02"><td ac:local-id="e03a7929-91c0-30d5-a8ba-dbeb5050ab28"><p local-id="6d5368a8-c12e-3fe4-9c25-099522d643c4"><strong>Specific weight</strong></p></td><td ac:local-id="ddaf3d27-943f-30d5-ba55-badae8a7e82f"><p local-id="bc049f33-086e-3db4-9a32-dba168bd035d">Specific weight of the material</p></td></tr><tr ac:local-id="46f08ecb-21b7-381d-89b6-ed920cb4e8d1"><td ac:local-id="594d8c0d-7e01-32a5-884b-3d4427486334"><p local-id="89cf85e4-992f-37d1-818b-facb4389dcdb"><strong>Category</strong></p></td><td ac:local-id="72e84271-f6c6-32b3-b0bd-dd357a2e697c"><p local-id="4a1ecb81-e066-38af-865d-0ed55784afbf">used to select the relevant material category or create a new one</p><div class="TextAlignCenter"><img src="attachments/2.6.2_materials/appplant_image119.png" alt="appplant_image119.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><div class="TextAlignCenter"><img src="attachments/2.6.2_materials/appplant_image120.png" alt="appplant_image120.png" width="114" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td></tr><tr ac:local-id="f34a3605-46f0-324e-844a-508457848141"><td ac:local-id="4ed18173-8847-38cb-ac89-9fa20f229a3d"><p local-id="48980462-53dc-3f57-9ccb-a75aa622625e"><strong>Preview</strong></p></td><td ac:local-id="e57596b8-2042-39bb-a9e5-7a81766a5497"><p local-id="dd4be3ea-e49c-33fa-a40b-9b3cf1819f39">a preview file for the new material can be uploaded, or the existing one can be deleted</p><div class="TextAlignCenter"><img src="attachments/2.6.2_materials/appplant_image121.png" alt="appplant_image121.png" width="114" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td></tr></tbody></table><!--Label="tam_maa"-->
+                        </main>
+
+                    </div>
+
+                    <img src="images/donatoni_222.jpg">
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="2.6.1_material_category.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="2.6.3_slabs.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+
+
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                <a rel="prev" href="2.6.1_material_category.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="2.6.3_slabs.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="mermaid.min.js"></script>
+        <script src="mermaid-init.js"></script>
+        <script src="hidemenu.js"></script>
+        <script src="imagemodal.js"></script>
+        <script src="login.js"></script>
+    </div>
+
+    <!-- Modale -->
+    <div id="modal" onclick="closeModal()">
+        <img id="modal-img" src="">
+    </div>;
+
+
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
+
+<script id="virtual-keyboard-searchbar-fix">
+document.addEventListener("input", function (e) {
+    const t = e.target;
+    if (t && t.id === "searchbar" && e.isTrusted !== true) {
+        t.dispatchEvent(new KeyboardEvent("keyup", { bubbles: true }));
+    }
+});
+</script>
+</body>
+</html>

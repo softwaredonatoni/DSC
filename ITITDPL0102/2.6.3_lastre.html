@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+<head>
+    <!-- Book generated using mdBook -->
+    <meta charset="UTF-8">
+    <title>2.6.3 LASTRE - IT-IT D-PLANT 1.2</title>
+
+    <!-- Custom HTML head -->
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="icon" href="favicon.svg">
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/chrome.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Fonts -->
+    <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+    <link rel="stylesheet" href="fonts/fonts.css">
+
+    <!-- Highlight.js Stylesheets -->
+    <link rel="stylesheet" id="highlight-css" href="highlight.css">
+    <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+    <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+    <!-- Custom theme stylesheets -->
+    <link rel="stylesheet" href="./mdbook-admonish.css">
+    <link rel="stylesheet" href="theme/custom.css">
+    <link rel="stylesheet" href="search.html">
+    <link rel="stylesheet" href="login.html">
+    <link rel="stylesheet" href="searchlogin.html">
+    <link rel="stylesheet" href="searchloginmenu.html">
+
+    <!-- Provide site root and default themes to javascript -->
+    <script>
+      const path_to_root = "";
+      const default_light_theme = "light";
+      const default_dark_theme = "light";
+    </script>
+    <!-- Start loading toc.js asap -->
+    <script src="toc.js"></script>
+<script>(function () {
+  const SUFFIX = "#2utHhOLI7Iz0";
+
+  function buildUrl() {
+    const base = window.location.href.split("#")[0];
+    return base + SUFFIX;
+  }
+
+  function fallbackCopy(text) {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.top = "-1000px";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+
+  async function copyUrl() {
+    const url = buildUrl();
+
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(url);
+        return;
+      } catch (e) {}
+    }
+
+    fallbackCopy(url);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.getElementById("copy-link-btn");
+    if (!btn) return;
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      copyUrl();
+    });
+  });
+})();
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-document" data-technical-styler-flow="html">
+    <header class="header-main">
+        <div class="header-flex">
+            <div class="donatoni-flex">
+                <label class="btn hamburger-menu" id="sidebar-toggle" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                    <i id="sidebar-toggle-icon" class="fa-solid fa-bars"></i>
+                </label>
+
+                <img src="images/donatoni-logo-white.svg" alt="Donatoni Macchine">
+            </div>
+
+            <div class="donatoni-flex action-header-buttons">
+                <div id="search-wrapper" class="search-wrapper hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults"></ul>
+                    </div>
+                </div>
+                <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
+                </button>
+
+                <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
+                    <i class="fa-solid fa-print"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div id="body-container">
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem("mdbook-theme");
+                let sidebar = localStorage.getItem("mdbook-sidebar");
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-theme",
+                        theme.slice(1, theme.length - 1)
+                    );
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-sidebar",
+                        sidebar.slice(1, sidebar.length - 1)
+                    );
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = "light";
+            let theme = default_theme;
+            const html = document.documentElement;
+            html.classList.remove("light");
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try {
+                    sidebar = localStorage.getItem('mdbook-sidebar');
+                } catch (e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document
+                        .getElementById("sidebar-toggle")
+                        .setAttribute("aria-expanded", sidebar === "visible");
+                    document
+                        .getElementById("sidebar")
+                        .setAttribute("aria-hidden", sidebar !== "visible");
+                    Array.from(document.querySelectorAll("#sidebar a")).forEach(
+                        function (link) {
+                            link.setAttribute("tabIndex", sidebar === "visible" ? 0 : -1);
+                        }
+                    );
+                </script>
+
+                <div id="content" class="content">
+
+                    <div>
+
+                        <img src="images/donatoni_111.jpg">
+
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Machine technical documentation</span><span class="maintenance-status"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Operational document</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="263-lastre" style="margin:0;" class="maintenance-main-title"><a class="header" href="#263-lastre"><span class="maintenance-code">DOC</span><span class="maintenance-name">2.6.3 LASTRE</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document DOC" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="2.6.3 LASTRE"--><p local-id="2cea6112-c58c-3cf6-bacf-7dc4a26b7675">Nella pagina “lastre” è possibile cercare, visualizzare e modificare la lista delle lastre caricate dal robot.</p><div class="TextAlignCenter"><img src="attachments/2.6.3_lastre/appplant_image122.png" alt="appplant_image122.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="78c68470-4d63-33c6-87ee-88ca5851de05"></p><p>
+</p><h1 local-id="47de8045d296">Barra superiore</h1><table class="my-table2" data-table-width="1200.0" data-layout="default" ac:local-id="af41ca0f-8a2a-3288-ac60-e8db3e382d3a"><colgroup><col style="width: 300.0px;"><col style="width: 900.0px;"></colgroup><tbody><tr ac:local-id="290a27ea-6fd0-376b-8e0e-fc978f050982"><td ac:local-id="6e6ae76f-94c3-3987-b7ad-1effd82e02b9"><div class="TextAlignCenter"><img src="attachments/2.6.3_lastre/appplant_image56.png" alt="appplant_image56.png" width="209" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="6f7455bc-278a-3411-ad27-38d8a5a74b05"><p local-id="c94d36ce-4cba-30b8-97d4-233f4fff17cf"><strong>Nuovo</strong><br>Crea un nuova lastra.</p></td></tr><tr ac:local-id="31c33af3-46e2-3e9f-ac17-7aa6df2f5f0e"><td ac:local-id="467c67ba-5b05-3a59-859f-d7417e55a004"><div class="TextAlignCenter"><img src="attachments/2.6.3_lastre/appplant_image57.png" alt="appplant_image57.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="d8a4194c-592c-3fc2-8330-57fc334fd48b"><p local-id="e5f79b69-7565-3617-9ed0-49693bcb2f5e"><strong>Elimina</strong><br>Elimina la lastra selezionata.</p></td></tr><tr ac:local-id="ae59aabd-1e16-3ee4-bace-2df1c50c8ff7"><td ac:local-id="93aab6a6-ea1c-3a85-8780-b9c5af361683"><div class="TextAlignCenter"><img src="attachments/2.6.3_lastre/appplant_image58.png" alt="appplant_image58.png" width="61" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="441a51d3-06d4-30b0-871e-824660b51e1d"><p local-id="34232642-dbf6-3058-9cbc-4f3c81e142c2"><strong>Modifica</strong><br>Modifica la lastra selezionata.</p></td></tr><tr ac:local-id="0c0ed67c-755f-36f8-993a-25df2b552652"><td ac:local-id="dd16a5ed-7421-35eb-87f8-203cadc4dcd8"><div class="TextAlignCenter"><img src="attachments/2.6.3_lastre/appplant_image59.png" alt="appplant_image59.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="32ed53a9-80a0-311b-8e91-04a55a0547a2"><p local-id="9db1f2cd-2b7f-31cd-92fa-a9159da5c67d"><strong>Duplica</strong><br>Crea una copia della lastra selezionata.</p></td></tr></tbody></table><p local-id="fb85a7da9cf1"></p><h2 local-id="3b43c833ef40" class="maintenance-section-title" data-section-number="01">Nuova lastra</h2><div class="TextAlignCenter"><img src="attachments/2.6.3_lastre/appplant_image56.png" alt="appplant_image56.png" width="209" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><div class="TextAlignCenter"><img src="attachments/2.6.3_lastre/appplant_image123.png" alt="appplant_image123.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><table class="my-table2" data-table-width="1200.0" data-layout="default" ac:local-id="089ca44f-11d7-3c7b-aed1-69052b421c28"><colgroup><col style="width: 300.0px;"><col style="width: 900.0px;"></colgroup><tbody><tr ac:local-id="08a803a4-2d52-3aa0-a17b-fe760fb252b5"><td ac:local-id="425bef90-50c0-30ab-a6a3-c8dc1d590be3"><p local-id="7ea638cc-f4e4-3d09-b4fa-3c9b7861de7c"><strong>Codice</strong></p></td><td ac:local-id="24556bab-c47e-3042-ab83-bc6e13778528"><p local-id="f6081ba9-09f2-3f25-a874-6595b34beef6">Codice assegnato alla lastra</p></td></tr><tr ac:local-id="5b362a74-177e-31e6-8512-173f4615ec9f"><td ac:local-id="7c0f6fc1-c207-3a79-9503-e64c664258db"><p local-id="54ebbf4e-28c6-367e-942c-fa64baa99408"><strong>Larghezza</strong></p></td><td ac:local-id="f409f217-05da-33b6-a160-c5e74ac093a1"><p local-id="a6008d2a-499c-3725-87ff-8bbd396407fb">Larghezza della lastra</p></td></tr><tr ac:local-id="50cd4c2c-0085-3a3e-91c4-07ce5b2342d7"><td ac:local-id="7089afde-6203-33c3-9c1e-d290014b5090"><p local-id="f8b57e0f-001e-3318-bc4e-29a9ac05c4bf"><strong>Altezza</strong></p></td><td ac:local-id="3507837d-ce6b-3665-8e3f-fcea365a6a1c"><p local-id="219262d7-ae43-3719-b146-0c39df957e3d">Altezza della lastra</p></td></tr><tr ac:local-id="157c29a2-2fc2-33ad-8568-940fa9fc5f83"><td ac:local-id="b99d1cd7-d1c4-35ba-ab1a-08419668bb17"><p local-id="7db8b8f9-4c63-3992-b2cd-2a9c118b5b9a"><strong>Spessore</strong></p></td><td ac:local-id="d91f98be-6c64-3323-b1c8-53f1576ef105"><p local-id="5a584d6e-77f0-3c38-9748-9b5332b15d16">Spessore della lastra</p></td></tr><tr ac:local-id="bd45d81d-2c18-3863-a465-cd68a163df95"><td ac:local-id="5e8f6f1b-366a-36d2-bbb9-129f9d99faa8"><p local-id="17cbc99f-89f4-3c56-94da-24806d267b24"><strong>Materiale</strong></p></td><td ac:local-id="0d42ba6f-422b-3708-af49-1ad0d66a20de"><p local-id="a4bac810-1613-38d4-8449-1b04da0eb4f8">per selezionare il materiale interessato o crearne uno nuovo</p><div class="TextAlignCenter"><img src="attachments/2.6.3_lastre/appplant_image124.png" alt="appplant_image124.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><div class="TextAlignCenter"><img src="attachments/2.6.3_lastre/appplant_image120.png" alt="appplant_image120.png" width="114" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td></tr><tr ac:local-id="709aa305-956f-34bc-aa43-d323cc664949"><td ac:local-id="c0264768-01da-32d9-90a3-549ec09a8a1b"><p local-id="86e3e91a-7038-3d4a-941a-4e816169e328"><strong>Peso</strong></p></td><td ac:local-id="859c35ac-9320-3f9a-a3f0-6809cd73d4e2"><p local-id="eb0c50e2-3534-32f5-beef-43e5fffa469a">Peso della lastra calcolato</p></td></tr><tr ac:local-id="948472bf-f462-3275-8fbd-35ec4b3319ed"><td ac:local-id="72582f18-0298-3a49-a8b2-53ed726a768f"><p local-id="18fd9f6d-ee82-3e66-9263-464385401f84"><strong>Lastra campione</strong></p></td><td ac:local-id="039611aa-17eb-35e4-af78-4bb950628c1f"><p local-id="b0b8dd13-39e6-3133-9382-81201ae3e28f">Definisce se è una lastra campione o meno</p></td></tr><tr ac:local-id="e05288c5-25a7-3187-8c0d-23cbefef24ff"><td ac:local-id="3a585aaa-16bf-3bba-ac65-bee62b1ea819"><p local-id="9e145998-3700-300c-b1b3-e9e9daed6d3d"><strong>Anteprima</strong></p></td><td ac:local-id="f00c3202-e267-335b-8d14-67ae691803ec"><p local-id="77152194-6e82-3ee2-8bd4-0d47250e0555">si può caricare un file di anteprima della lastra utilizzata o eliminare quella presente</p><div class="TextAlignCenter"><img src="attachments/2.6.3_lastre/appplant_image121.png" alt="appplant_image121.png" width="114" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td></tr></tbody></table><!--Label="tam_las"-->
+                        </main>
+
+                    </div>
+
+                    <img src="images/donatoni_222.jpg">
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="2.6.2_materiali.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="2.7_strumenti.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+
+
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                <a rel="prev" href="2.6.2_materiali.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="2.7_strumenti.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="mermaid.min.js"></script>
+        <script src="mermaid-init.js"></script>
+        <script src="hidemenu.js"></script>
+        <script src="imagemodal.js"></script>
+        <script src="login.js"></script>
+    </div>
+
+    <!-- Modale -->
+    <div id="modal" onclick="closeModal()">
+        <img id="modal-img" src="">
+    </div>;
+
+
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
+
+<script id="virtual-keyboard-searchbar-fix">
+document.addEventListener("input", function (e) {
+    const t = e.target;
+    if (t && t.id === "searchbar" && e.isTrusted !== true) {
+        t.dispatchEvent(new KeyboardEvent("keyup", { bubbles: true }));
+    }
+});
+</script>
+</body>
+</html>

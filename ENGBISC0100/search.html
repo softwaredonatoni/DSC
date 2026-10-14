@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ricerca Pagina</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const parametro = window.location.hash.substring(1); // Prende il valore dopo #
+            const output = document.getElementById("parametro");
+
+            if (!parametro) {
+                output.textContent = "Nessun parametro passato.";
+                return;
+            }
+
+            output.textContent = `Parametro passato: ${parametro}`;
+
+            // Cerca tutte le corrispondenze nel body
+            const mappings = document.querySelectorAll("p#mapping");
+            for (const mapping of mappings) {
+                const [key, value] = mapping.textContent.split("=");
+                if (key === parametro) {
+                    window.location.href = value.trim(); // Reindirizza l'utente alla pagina corrispondente
+                    return;
+                }
+            }
+
+            var msg = `Nessuna pagina trovata con questa etichetta: ${parametro}`;
+
+            alert(msg);
+        });
+    </script>
+        <style>
+            p#mapping { display: none; }
+        </style>
+<script>(function () {
+  const SUFFIX = "#2utHhOLI7Iz0";
+
+  function buildUrl() {
+    const base = window.location.href.split("#")[0];
+    return base + SUFFIX;
+  }
+
+  function fallbackCopy(text) {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.top = "-1000px";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+
+  async function copyUrl() {
+    const url = buildUrl();
+
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(url);
+        return;
+      } catch (e) {}
+    }
+
+    fallbackCopy(url);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.getElementById("copy-link-btn");
+    if (!btn) return;
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      copyUrl();
+    });
+  });
+})();
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body>
+    <h1>Ricerca della Pagina</h1>
+    <p id="parametro">Attendi mentre cerchiamo la pagina corrispondente...</p>
+    
+    <!-- Mappatura parametri-pagine -->
+<p id="mapping">tit_iaa=en-gb_isocam_1.0.html</p>
+<p id="mapping">tit_pre=1_introduction.html</p>
+<p id="mapping">tit_iso=2_isocam.html</p>
+<p id="mapping">tit_del=2.1_section_drawing_(step_1_of_4).html</p>
+<p id="mapping">tit_lin=2.1.1_line_properties.html</p>
+<p id="mapping">tit_arc=2.1.2_arc_properties.html</p>
+<p id="mapping">tit_muo=2.1.3_offsetmove_selection.html</p>
+<p id="mapping">tit_spe=2.1.4_mirror.html</p>
+<p id="mapping">scm_rac=2.1.5_fillet.html</p>
+<p id="mapping">tit_paa=2.2_profile_selection_(step_2_of_4).html</p>
+<p id="mapping">tit_did=2.3_machining_parameters_(step_3_of_4).html</p>
+<p id="mapping">tit_ute=2.3.1_tool_parameters.html</p>
+<p id="mapping">tit_lav=2.3.2_machining_orientation.html</p>
+<p id="mapping">tit_daa=2.3.3_machining_type.html</p>
+<p id="mapping">tit_eee=2.3.4_cutting_speed_and_mode.html</p>
+<p id="mapping">tit_dab=2.3.5_machining_parameters_(advanced).html</p>
+<p id="mapping">tit_laa=2.4_machining_(step_4_of_4).html</p>
+<p id="mapping">tit_pro=2.5_program_creation.html</p>
+<p id="mapping">tit_pez=2.6_workpiece_origin.html</p>
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+<head>
+    <!-- Book generated using mdBook -->
+    <meta charset="UTF-8">
+    <title>2.3.3 DETTAGLI CONTENITORI - IT-IT D-PLANT 1.2</title>
+
+    <!-- Custom HTML head -->
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="icon" href="favicon.svg">
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/chrome.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Fonts -->
+    <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+    <link rel="stylesheet" href="fonts/fonts.css">
+
+    <!-- Highlight.js Stylesheets -->
+    <link rel="stylesheet" id="highlight-css" href="highlight.css">
+    <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+    <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+    <!-- Custom theme stylesheets -->
+    <link rel="stylesheet" href="./mdbook-admonish.css">
+    <link rel="stylesheet" href="theme/custom.css">
+    <link rel="stylesheet" href="search.html">
+    <link rel="stylesheet" href="login.html">
+    <link rel="stylesheet" href="searchlogin.html">
+    <link rel="stylesheet" href="searchloginmenu.html">
+
+    <!-- Provide site root and default themes to javascript -->
+    <script>
+      const path_to_root = "";
+      const default_light_theme = "light";
+      const default_dark_theme = "light";
+    </script>
+    <!-- Start loading toc.js asap -->
+    <script src="toc.js"></script>
+<script>(function () {
+  const SUFFIX = "#2utHhOLI7Iz0";
+
+  function buildUrl() {
+    const base = window.location.href.split("#")[0];
+    return base + SUFFIX;
+  }
+
+  function fallbackCopy(text) {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.top = "-1000px";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+
+  async function copyUrl() {
+    const url = buildUrl();
+
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(url);
+        return;
+      } catch (e) {}
+    }
+
+    fallbackCopy(url);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.getElementById("copy-link-btn");
+    if (!btn) return;
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      copyUrl();
+    });
+  });
+})();
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-document" data-technical-styler-flow="html">
+    <header class="header-main">
+        <div class="header-flex">
+            <div class="donatoni-flex">
+                <label class="btn hamburger-menu" id="sidebar-toggle" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                    <i id="sidebar-toggle-icon" class="fa-solid fa-bars"></i>
+                </label>
+
+                <img src="images/donatoni-logo-white.svg" alt="Donatoni Macchine">
+            </div>
+
+            <div class="donatoni-flex action-header-buttons">
+                <div id="search-wrapper" class="search-wrapper hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults"></ul>
+                    </div>
+                </div>
+                <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
+                </button>
+
+                <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
+                    <i class="fa-solid fa-print"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div id="body-container">
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem("mdbook-theme");
+                let sidebar = localStorage.getItem("mdbook-sidebar");
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-theme",
+                        theme.slice(1, theme.length - 1)
+                    );
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-sidebar",
+                        sidebar.slice(1, sidebar.length - 1)
+                    );
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = "light";
+            let theme = default_theme;
+            const html = document.documentElement;
+            html.classList.remove("light");
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try {
+                    sidebar = localStorage.getItem('mdbook-sidebar');
+                } catch (e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document
+                        .getElementById("sidebar-toggle")
+                        .setAttribute("aria-expanded", sidebar === "visible");
+                    document
+                        .getElementById("sidebar")
+                        .setAttribute("aria-hidden", sidebar !== "visible");
+                    Array.from(document.querySelectorAll("#sidebar a")).forEach(
+                        function (link) {
+                            link.setAttribute("tabIndex", sidebar === "visible" ? 0 : -1);
+                        }
+                    );
+                </script>
+
+                <div id="content" class="content">
+
+                    <div>
+
+                        <img src="images/donatoni_111.jpg">
+
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Machine technical documentation</span><span class="maintenance-status"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Operational document</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="233-dettagli-contenitori" style="margin:0;" class="maintenance-main-title"><a class="header" href="#233-dettagli-contenitori"><span class="maintenance-code">DOC</span><span class="maintenance-name">2.3.3 DETTAGLI CONTENITORI</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document DOC" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="2.3.3 DETTAGLI CONTENITORI"--><p local-id="1be4b923ec61">In questa pagine è possibile gestire i dettagli dei contenitori.</p><p>
+</p><h1 local-id="f17d6710-2b05-35f4-aae0-badcaef29959">Pallet</h1><div class="TextAlignCenter"><img src="attachments/2.3.3_dettagli_contenitori/appplant_image68.png" alt="appplant_image68.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><table class="my-table2" data-table-width="1200.0" data-layout="default" ac:local-id="75ac815d-d395-3eb1-91f6-da66afbde5e7"><colgroup><col style="width: 300.0px;"><col style="width: 900.0px;"></colgroup><tbody><tr ac:local-id="5c6eb916-800a-3cb1-9a04-495a557a6407"><td ac:local-id="b6ca47e2-e3f1-3384-9c75-7ab7b33ea2c6"><p local-id="2d51d770-8f07-3e65-8b4e-00b49ebafb56"><strong>Lunghezza</strong></p></td><td ac:local-id="0e552e5e-6585-3584-883a-6739e8681a13"><p local-id="2b138720-c925-35b8-823f-9e9df5c0857e">Lunghezza del contenitore</p></td></tr><tr ac:local-id="077451e5-2e02-3ee1-b84e-7450c3196885"><td ac:local-id="ded66a2e-6871-3a96-a4e8-07d19867158e"><p local-id="ffff5028-1ea5-3aec-a401-119390eab6dc"><strong>Larghezza</strong></p></td><td ac:local-id="5823f6af-9ead-3911-af61-40feeef7e400"><p local-id="ec4e2dcd-73ad-360e-8e3a-3b2792a086de">Larghezza del contenitore</p></td></tr><tr ac:local-id="025fd6a1-9ec8-3314-8ddf-d6caaa89b8b1"><td ac:local-id="d951a86e-546d-3add-ada3-ed77aecbdfb7"><p local-id="4df4a646-8118-39e6-bc69-6be960200a2c"><strong>Altezza</strong></p></td><td ac:local-id="46f688a5-8885-397b-8eea-ccb731aff856"><p local-id="95dc3519-0dc2-3e53-97ba-ec6e73a81ccd">Altezza del contenitore</p></td></tr><tr ac:local-id="a4fddad7-2b2c-3a82-ae7f-914ec812fc52"><td ac:local-id="0991ca82-cb38-30bc-b92a-a52909cac8f1"><p local-id="94ad8256-c979-3a62-9196-9030f8e7d9e6"><strong>Righe</strong></p></td><td ac:local-id="2e8e93bd-4c84-3140-af75-72858f168480"><p local-id="f6256dac-678a-3002-9c66-23e6d2bd688b">Righe pezzi da depositare nel contenitore</p></td></tr><tr ac:local-id="6ad97751-f30c-3df5-9306-c4bbf79cad63"><td ac:local-id="e14cb848-4c61-3589-9f16-872bc91b20df"><p local-id="70b571e8-d983-3ead-a552-bd373149313e"><strong>Colonne</strong></p></td><td ac:local-id="95f1937b-cbf5-31ef-af42-52fb6990249d"><p local-id="17f4ee2c-670f-3f70-9ea9-359b1719380d">Colonne pezzi da depositare nel contenitore</p></td></tr><tr ac:local-id="c567db26-e7d7-3b0a-a209-7e73bb4f429c"><td ac:local-id="69a3e627-a2fb-3095-be2f-2f229108bdb7"><p local-id="1e92fb14-d01e-3142-99a7-52ac03ac0982"><strong>Spaziatura</strong></p></td><td ac:local-id="63d9f511-9465-316e-85df-c5050b07df6e"><p local-id="36376eeb-bfb9-3818-81b0-3fcaf7b7c8db">Distanza fra un pezzo e il suo vicino</p></td></tr><tr ac:local-id="eb332405-b12a-3414-a427-075a18fbad63"><td ac:local-id="0b9d95df-8ecc-388d-a293-88bc28ea0634"><p local-id="68f96899-eac3-33a4-a2b8-7cdafc562ce7"><strong>Inclinazione</strong></p></td><td ac:local-id="426b468e-0f89-3e92-aee8-ec3d1c95c434"><p local-id="c4a9429f-a125-3dad-9f39-f7936b5b1311">Inclinazione lungo asse X del pallet</p></td></tr><tr ac:local-id="26681467-d14b-3e63-8ef2-2382cb579a0f"><td ac:local-id="eb4a2c73-63c9-3234-919d-25a1704c8f86"><p local-id="fdfce36f-2557-3592-b03c-9bc403452c66"><strong>Orientamento pezzi</strong></p></td><td ac:local-id="b8e361aa-7f23-31b6-8495-14fbbe7ad624"><div class="TextAlignCenter"><img src="attachments/2.3.3_dettagli_contenitori/appplant_image69_ritaglio.png" alt="appplant_image69_ritaglio.png" width="371" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="1f85d62b-73d9-3168-9b43-615212c9d9cb">0: lunghezza pezzo → lunghezza pallet<br>90: lunghezza pezza → larghezza pallet</p></td></tr><tr ac:local-id="13f76b16-8e99-39c3-b8d2-5d82df305ec8"><td ac:local-id="eb0859f5-4d88-3597-ba81-f30a2058dc7c"><p local-id="5da6ab53-b555-3ff0-bbd5-a6141a6a3f9b"><strong>Riscontro</strong></p></td><td ac:local-id="3b9e2b1d-deef-3f5f-82ec-e662c239ea2a"><p local-id="09f3f1bf-5192-36cc-af4d-8fc12091d272">Numero del riscontro di appoggio del contenitore</p></td></tr><tr ac:local-id="560b46af-a5d3-3b96-9c3a-96b09c3e5bbb"><td ac:local-id="a91b9d37-a3fb-3bbf-8833-35d85a22a6f1"><p local-id="1d87fce6-e470-3f77-96db-ff501c8410d0"><strong>Offset X</strong></p></td><td ac:local-id="b4d50691-6b7b-319f-aafa-528dba2d254f"><p local-id="c87a122b-b20e-382b-aa7c-0e3486618b47">Quota X da riscontro selezionato a origine contenitore</p></td></tr><tr ac:local-id="93721e94-f14c-3988-9400-d9d78706ce5b"><td ac:local-id="4ee140ee-c333-335d-8725-5108735d45df"><p local-id="66780a07-d393-3e31-b722-b0ef96403b75"><strong>Offset Y</strong></p></td><td ac:local-id="15c18816-e3a7-3883-bff3-51ff5dce7198"><p local-id="7abdcc24-48a2-339c-ab1c-b7e0c661003e">Quota Y da riscontro selezionato a origine contenitore</p></td></tr><tr ac:local-id="7314f465-fafa-3958-b7d6-fc43d5a9aaa4"><td ac:local-id="597e88d9-ed1e-37b4-aaa9-0f6d60299813"><p local-id="1883d596-8996-35c4-85cf-16e4deb86fa8"><strong>Offset Z</strong></p></td><td ac:local-id="4df19474-2295-3de7-a45a-8b1d619c220f"><p local-id="959dd20a-f1f2-39a2-b5e0-a08efea4de0f">Quota Z da riscontro selezionato a origine contenitore</p></td></tr><tr ac:local-id="06cd2711-6c22-3277-bf2c-e7c515235024"><td ac:local-id="dcc13bab-6d10-3296-a9cd-83e86ab0f762"><p local-id="03edb734-ea97-37ad-98c4-cffdde7692a7"><strong>Massimo numero pezzi</strong></p></td><td ac:local-id="c83e730d-97f3-3479-8f4d-8a8268afc2b4"><p local-id="ce3b746b-5b44-3e74-8662-a9f06dd8302d">Massimo numero di pezzi depositabili</p></td></tr><tr ac:local-id="86128fab-ec4b-386c-9ab4-70f4f90b1153"><td ac:local-id="98b88212-59fd-3614-a55a-9448eaa2e5c0"><p local-id="b36945c8-9881-3fd5-aed6-93db9591b3fa"><strong>Massimo peso</strong></p></td><td ac:local-id="ba00443e-043f-302f-9feb-d4c1fec6091a"><p local-id="716af434-03b3-3311-bb13-230dc23560f9">Massimo peso sopportato dal contenitore</p></td></tr><tr ac:local-id="60353386-600d-31b5-9c3c-549f17d2a934"><td ac:local-id="98e3d130-b16f-394f-a2d9-1a4298270b71"><p local-id="285d2cd8-0058-3303-8416-0a41a485cfbb"><strong>Massima profondità pezzi</strong></p></td><td ac:local-id="6c9d906c-ef28-379c-a83a-e7ae288ac863"><p local-id="817ff9be-0a52-3575-948d-68c0c2dc86b6">Massima profondità/altezza pallettizzabile nel contenitore</p></td></tr><tr ac:local-id="4a874784-aa9c-338c-b167-edf55a1bf550"><td ac:local-id="fea23c77-ddc9-3de9-85fd-a202b406ea65"><p local-id="e7a57662-32e6-34a2-bfc0-5053195a97c4"><strong>Massimo debordo lunghezza</strong></p></td><td ac:local-id="4faf6839-eca8-3726-a855-ea261522029a"><p local-id="205dff89-6508-3a46-88d4-8916d428259d">Debordo/spazio disponibile in lunghezza oltre alla fine del contenitore per ogni lato</p></td></tr><tr ac:local-id="77646f5a-358f-33e4-9498-d8794a8e513b"><td ac:local-id="d44285c2-ff2d-3a46-9b88-569ff727d778"><p local-id="4310544d-cdb8-3c16-a4a6-a95dc904b4b3"><strong>Massimo debordo larghezza</strong></p></td><td ac:local-id="dc678035-a03c-3122-9e83-8e98afeea05c"><p local-id="23880653-e621-3f8e-aa0f-7f081016810c">Debordo/spazio disponibile in larghezza oltre alla fine del contenitore per ogni lato</p></td></tr></tbody></table><h1 local-id="cd4e71b8-77f8-3607-b900-9d4830da149a">Lettino</h1><div class="TextAlignCenter"><img src="attachments/2.3.3_dettagli_contenitori/appplant_image70.png" alt="appplant_image70.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><table class="my-table2" data-table-width="1200.0" data-layout="default" ac:local-id="ab6b79ca-73e3-3881-9243-d0cb4a29a91a"><colgroup><col style="width: 300.0px;"><col style="width: 900.0px;"></colgroup><tbody><tr ac:local-id="92522b0e-b600-32f3-8c4e-463c14a7193f"><td ac:local-id="f5232b6b-2123-33cc-8b73-42467dbbac66"><p local-id="d42138f3-eb01-3895-bdf8-1eb55fe9d615"><strong>Lunghezza</strong></p></td><td ac:local-id="0202b832-c0a5-3d59-acdc-99587b824899"><p local-id="8f7f67d8-1e55-335f-bff8-02179c91ae73">Lunghezza del contenitore.</p></td></tr><tr ac:local-id="95c90ba0-07c8-34dd-9e46-41fff57aa6ea"><td ac:local-id="de8030b8-6681-322b-8cd3-4287e7632277"><p local-id="a69869f5-f701-3af3-b77c-c2e29cfd2030"><strong>Larghezza</strong></p></td><td ac:local-id="9ae377ea-a1c7-3a93-b753-4e2c78cb3038"><p local-id="6de8285d-3543-354b-b9c5-5b1af75e1084">Larghezza del contenitore.</p></td></tr><tr ac:local-id="f26a4eb2-7316-3f37-a8f8-367520de14bc"><td ac:local-id="527c2941-4679-3cdf-9f60-9cc9cfac2632"><p local-id="35e2ea23-d5e5-3b03-a157-3f8751aa0dba"><strong>Altezza</strong></p></td><td ac:local-id="49840767-1177-3f57-9285-ee3f98aa7a55"><p local-id="0dab34a4-dc69-34f6-80b7-dde9311cd6bd">Altezza del contenitore.</p></td></tr><tr ac:local-id="e3c26773-864f-3713-b20b-466e674d564f"><td ac:local-id="5233e084-20b8-33c6-a19e-0d37d8e2d5fe"><p local-id="26349b2f-4d69-3a77-abd5-b57365837f2a"><strong>Righe</strong></p></td><td ac:local-id="dbb3fda5-a2f7-3e14-82da-7f6f6e01bac6"><p local-id="39fac08e-d4cc-3efd-ab9d-e53db5b8ff33">Righe pezzi da depositare nel contenitore.</p></td></tr><tr ac:local-id="45592821-7644-3578-a5da-cd8ebd15dd28"><td ac:local-id="d2099c23-3162-304b-9c43-58e4a0c4b956"><p local-id="0e0527a3-0ec1-334c-8dd1-b307653bf3d6"><strong>Colonne</strong></p></td><td ac:local-id="1325f25d-e641-3807-ab26-ed17fa3a5a27"><p local-id="a5f1c319-38fa-33e5-b86c-0cf8ee0183db">Colonne pezzi da depositare nel contenitore.</p></td></tr><tr ac:local-id="6d50ea16-110d-32d3-b5fe-e8b9f7ef8ceb"><td ac:local-id="a6c08f0f-689e-37e3-9e65-f81c2ff5399f"><p local-id="8d44496b-7677-3114-add5-503a1eb71570"><strong>Spaziatura</strong></p></td><td ac:local-id="98ad764b-9ea0-3d3c-9c8d-98d25c1a96dc"><p local-id="510b4b4e-0949-38cb-aae5-c443233e0041">Distanza fra un pezzo e il suo vicino di un’altra colonna.</p></td></tr><tr ac:local-id="0e17b39f-bbd5-383f-957b-81123fb493ad"><td ac:local-id="65b0a91d-a026-35e2-867a-f7ebe5c18420"><p local-id="fa16919a-4546-3ba5-b0f8-cd9a8f82f2de"><strong>Inclinazione</strong></p></td><td ac:local-id="4bc5a81e-080f-34bd-9897-f57b25075367"><p local-id="de76775e-6214-3a31-ad4a-d9206b4c9d1c">Inclinazione lungo asse X del pallet.</p></td></tr><tr ac:local-id="3657cdd8-f9c5-371f-a30f-cf72a75c0b98"><td ac:local-id="206f7df6-3d70-3427-9f7e-38d60827c190"><p local-id="d6b92c3d-3e01-3579-a7c7-1bb1d307d62f"><strong>Orientamento pezzi</strong></p></td><td ac:local-id="768b5dd0-49bc-31d9-9c52-e9a06ab7b0e7"><div class="TextAlignCenter"><img src="attachments/2.3.3_dettagli_contenitori/appplant_image69_ritaglio.png" alt="appplant_image69_ritaglio.png" width="371" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="633c2c1f-a4e8-3ecc-b032-9ab72bf41f55">0: lunghezza pezzo → lunghezza pallet.<br>90: lunghezza pezza → larghezza pallet.</p></td></tr><tr ac:local-id="c7587d59-847c-333e-af23-ccecfa0024cd"><td ac:local-id="1e5520fb-2d96-3585-bc1b-5197be97e1ca"><p local-id="7625d5eb-96be-325c-8feb-ae02a89c2e5f"><strong>Riscontro</strong></p></td><td ac:local-id="75750749-a589-3735-b854-28ade48df647"><p local-id="b90eb065-9d7f-3ecf-beba-89cdb872d8a8">Numero del riscontro di appoggio del contenitore.</p></td></tr><tr ac:local-id="012d9222-f19a-3484-9dce-4b61bbc09f8d"><td ac:local-id="2c5daa1c-e09d-3ce2-afad-256abe347d76"><p local-id="0e5bf4c9-5fe6-3535-9885-e0f6f586f92b"><strong>Offset X</strong></p></td><td ac:local-id="3695444c-c6f8-3968-87b2-65f842161449"><p local-id="44529402-2a9b-3490-b13c-c696e4db1773">Quota X da riscontro selezionato a origine contenitore.</p></td></tr><tr ac:local-id="789dd9ab-01e8-3756-ba20-41d69b71fc37"><td ac:local-id="df30f135-dd8d-32c8-be8d-6dcdae9099f1"><p local-id="26ea5bf7-2241-3cf6-b1e3-8ecee188275b"><strong>Offset Y</strong></p></td><td ac:local-id="b985e945-563c-3d87-8f91-0dba4239f488"><p local-id="346b1df9-84dc-34b3-ac4d-f190e3f72276">Quota Y da riscontro selezionato a origine contenitore.</p></td></tr><tr ac:local-id="b86b9bcc-53e2-316d-b5ba-99006a6602e9"><td ac:local-id="a66566a7-9c4b-38d0-a652-91a60fbe1ad1"><p local-id="6c228705-1037-3b78-bc0f-2a05ed385c30"><strong>Offset Z</strong></p></td><td ac:local-id="bdbe81dd-1082-32ce-8a36-bc8e27160a1c"><p local-id="460a78ac-8646-350a-8a9d-761b5bb65e91">Quota Z da riscontro selezionato a origine contenitore.</p></td></tr><tr ac:local-id="d7f19813-fa40-3307-bf81-acfb6278839f"><td ac:local-id="b5fcddbe-9dd9-30a5-acd5-53b2b4f153aa"><p local-id="1d41ddd6-bc5d-3531-9d2a-e449533f4312"><strong>Massimo numero pezzi</strong></p></td><td ac:local-id="f343b067-42dd-34d6-a816-9c436871a1bb"><p local-id="e66b8061-c8f5-3776-bf00-138c29588f6b">Massimo numero di pezzi depositabili.</p></td></tr><tr ac:local-id="2e3e6c87-4639-39d8-a6ce-47709e583d47"><td ac:local-id="ba53620b-ea53-330c-bf46-0adef0017c48"><p local-id="86d2aeac-b88b-381f-bec8-1dcefb73c715"><strong>Massimo peso</strong></p></td><td ac:local-id="61f6f327-5975-32cc-9f78-7f0c74f5c2cd"><p local-id="3eb5d1e8-9ae2-3050-ba52-c85bf41b6a57">Massimo peso sopportato dal contenitore.</p></td></tr><tr ac:local-id="0d5fec43-4c9c-35af-828a-bb9edadebc52"><td ac:local-id="923bd500-823d-378e-8c7b-05e2748c045b"><p local-id="4d761a53-83b5-33d4-9a9a-1af24c7cf392"><strong>Massima profondità pezzi</strong></p></td><td ac:local-id="22ccaaa0-e784-3296-97aa-ac0439d3f283"><p local-id="1793e19e-6deb-3445-8ad5-f6c2915b6181">Massima profondità/altezza pallettizzabile nel contenitore.</p></td></tr><tr ac:local-id="38a595d6-2ba1-3848-bceb-f72021c7e18f"><td ac:local-id="4640f8c4-b978-3acf-bc7c-25591acbebfe"><p local-id="93fdb11c-c3c9-3bd3-8ada-d16ff51aef3d"><strong>Massimo debordo larghezza</strong></p></td><td ac:local-id="f9c7f52e-26b2-3e69-8932-1307d925a4d7"><p local-id="12f1a67e-8272-372c-b1e4-a39f91847be4">Debordo/spazio disponibile in larghezza oltre alla fine del contenitore per ogni lato.</p></td></tr><tr ac:local-id="d3db7372-9b71-3fd7-91d8-297fe615e7c3"><td ac:local-id="fda4da68-cbdc-3c47-9a1e-18c82f84df38"><p local-id="a96e1e79-b30c-3626-80b2-c4df38bafebf"><strong>Massimo debordo altezza</strong></p></td><td ac:local-id="c744b6c1-5015-3185-aff1-617fde889f11"><p local-id="155efb0b-589c-3326-89c7-6b246bab0587">Debordo/spazio disponibile in altezza oltre alla fine del contenitore verso l’alto.</p></td></tr><tr ac:local-id="561bf82e-dcbf-3905-9ad3-6903d28b1bc9"><td ac:local-id="8cb34825-b392-3809-a328-a5dd107f18b8"><p local-id="c2c81234-1e72-3203-a8a1-71308cf6a670"><strong>Intervallo altezza min</strong></p></td><td ac:local-id="94b3193b-fac2-39b8-8f70-07d942d7543a"><p local-id="6bf6be17-7694-3023-a891-ab3d3a1651a9">Altezza minima dei pezzi depositabili nel contenitore.</p></td></tr><tr ac:local-id="08030138-4d4c-3826-ae17-1197d9e868a8"><td ac:local-id="705abc32-2d10-3ddc-b8bb-a3a5eee76d31"><p local-id="e92473e1-d70d-3c00-8668-7a1be5b8e989"><strong>Intervallo altezza max</strong></p></td><td ac:local-id="155a6bb7-bbf1-363a-b8f3-8e367efa0b10"><p local-id="824fd14a-b559-3382-a284-778eb02da097">Altezza massima dei pezzi depositati nel contenitore.</p></td></tr><tr ac:local-id="7acf81c1-5a96-3795-8b8a-884b23bf9b9c"><td ac:local-id="c98e2adb-0458-3ef0-ab5e-8b90af0e69d1"><p local-id="8e20ee13-e1e0-3584-ad6e-115c39fd0da3"><strong>Base Ortogonale</strong></p></td><td ac:local-id="c3f69f2b-10c3-3f77-aca3-3f53bd375470"><div class="TextAlignCenter"><img src="attachments/2.3.3_dettagli_contenitori/appplant_image71.png" alt="appplant_image71.png" width="350" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><div class="TextAlignCenter"><img src="attachments/2.3.3_dettagli_contenitori/appplant_image72.png" alt="appplant_image72.png" width="200" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="a5efbbcc-eb62-3680-a08d-d10f82f74b28">Con flag a ON il piano sottostante del contenitore è parallelo al pavimento.</p><div class="TextAlignCenter"><img src="attachments/2.3.3_dettagli_contenitori/appplant_image73.png" alt="appplant_image73.png" width="350" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><div class="TextAlignCenter"><img src="attachments/2.3.3_dettagli_contenitori/appplant_image74.png" alt="appplant_image74.png" width="200" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="1fe766fa-75a1-3d8d-8b96-3e90010b69e3">Con flag a OFF lo schienale del contenitore forma 90_ con il piano sottostante.</p></td></tr><tr ac:local-id="cc2707cb-cb6f-3be1-b45e-ffb4cca65876"><td ac:local-id="fb93b502-55eb-358a-adb1-6053e82b271d"><p local-id="0ccaebfc-4ba8-3dbe-9b6e-feafc2f494d6"><strong>Spaziatura interfalda</strong></p></td><td ac:local-id="55c6aad8-5725-336a-bb6b-8dd30aa11de1"><p local-id="e988d861-ce50-325f-91f7-123222d8517e">Distanza fra un pezzo e il suo vicino di un’altra riga.</p></td></tr></tbody></table><h1 local-id="f8b595f4-614a-352b-b1d5-b9f02d2e1469">Cassa</h1><div class="TextAlignCenter"><img src="attachments/2.3.3_dettagli_contenitori/appplant_image75.png" alt="appplant_image75.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><table class="my-table2" data-table-width="1200.0" data-layout="default" ac:local-id="a4d67695-7549-37f8-afcb-671c22401b77"><colgroup><col style="width: 300.0px;"><col style="width: 900.0px;"></colgroup><tbody><tr ac:local-id="4d19b3da-7c27-32b1-a2ea-94d0ca5aced6"><td ac:local-id="163cf827-5c04-3692-8240-150ae64e2089"><p local-id="be598cc2-f5d1-3d68-a5c9-87495ef27d08"><strong>Lunghezza</strong></p></td><td ac:local-id="a019fe5c-985a-3843-97cd-756d1d7b51a9"><p local-id="dd0cb66c-1bfb-32a3-ab2b-1fb46ad890cb">Lunghezza del contenitore.</p></td></tr><tr ac:local-id="7f479fc9-795c-308d-9410-262081df9392"><td ac:local-id="b1cc89cc-66ce-3efe-b921-15673fbdd020"><p local-id="0e978cc8-f9ce-34b8-bb11-8a4b4709c289"><strong>Larghezza</strong></p></td><td ac:local-id="c899524e-245d-32f2-8921-c8e07fc5330a"><p local-id="ae684a1d-86a6-3dbd-8f8b-e36149915be7">Larghezza del contenitore.</p></td></tr><tr ac:local-id="90c1fc7b-2f8a-3b1d-a084-b877025e906b"><td ac:local-id="d6835aeb-e84f-30ff-922c-e8e43dafeb49"><p local-id="f03710e6-ca7f-3511-88b3-08d45c7420e0"><strong>Altezza</strong></p></td><td ac:local-id="f5977d0d-489f-3d1c-b55f-373e80c72d86"><p local-id="5753af3a-a9fb-3e7f-98bb-cc46dc0d2552">Altezza del contenitore.</p></td></tr><tr ac:local-id="a5bee157-15de-3514-9f25-c62445000b8c"><td ac:local-id="31f82263-4437-3f49-8808-a55bf389751b"><p local-id="439aafd3-742a-3253-a09b-81af889afafb"><strong>Righe</strong></p></td><td ac:local-id="f7f657b0-c671-30c5-a11c-1456b75bc6f2"><p local-id="1a09da58-a634-39f3-a8d0-35096c408a01">Righe pezzi da depositare nel contenitore.</p></td></tr><tr ac:local-id="e4d00db6-8ca2-3a09-b234-1abb8ec71ec5"><td ac:local-id="bb777839-5818-3b85-b1da-cf7ec3866233"><p local-id="76520de1-58c7-30c5-ba0d-81cd3e976c95"><strong>Colonne</strong></p></td><td ac:local-id="9de3ea20-3702-3463-ac4b-4fc3ca95e83c"><p local-id="3313b5cb-2f8a-3edc-a44f-8cdec5b5b8c6">Colonne pezzi da depositare nel contenitore.</p></td></tr><tr ac:local-id="340c5450-4827-3b0f-828f-dad7ca1cc328"><td ac:local-id="43ffc903-9c08-3bd6-8133-85102b479cb7"><p local-id="b8211a53-8b95-3826-a60f-45b2613ef6ec"><strong>Spaziatura</strong></p></td><td ac:local-id="bd908a8d-05a6-3b10-b735-3555220e6f1b"><p local-id="5a5f52d3-cebf-3475-9007-0dd5581f0777">Distanza fra un pezzo e il suo vicino di un’altra colonna.</p></td></tr><tr ac:local-id="e3a3ecd1-dd45-322e-86f0-5062c07eadb2"><td ac:local-id="835d501d-8047-3288-b9c9-f72fa7252d31"><p local-id="551b5eb2-f1f7-37b4-95da-bc2aa41c5807"><strong>Inclinazione</strong></p></td><td ac:local-id="7b8022e7-b35e-3359-b961-00e51640083d"><p local-id="6d792d29-8a6f-3f78-8741-967d903baaa8">Inclinazione lungo asse X del pallet.</p></td></tr><tr ac:local-id="f8a93753-e2ed-3600-be2e-24fe94b2c747"><td ac:local-id="e523045e-4f63-3a35-9217-7dcad15f8b28"><p local-id="85b598d6-0081-3a97-bd6a-9f2f34b551cb"><strong>Orientamento pezzi</strong></p></td><td ac:local-id="5a054edf-e459-3aab-9956-1e8d58e731ae"><div class="TextAlignCenter"><img src="attachments/2.3.3_dettagli_contenitori/appplant_image69_ritaglio.png" alt="appplant_image69_ritaglio.png" width="371" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="ceaee973-9150-3e58-b387-b16f660b9a6c">0: lunghezza pezzo → lunghezza pallet.<br>90: lunghezza pezza → larghezza pallet.</p></td></tr><tr ac:local-id="bf482171-c930-35db-954e-f1dc0ce5b9b2"><td ac:local-id="637f3747-f874-3f42-87cf-1745c459a43e"><p local-id="c94db586-f8b8-3be0-9509-60b9b5d661cf"><strong>Riscontro</strong></p></td><td ac:local-id="8e3d71ec-2b4f-31f6-8574-d64dfb15d681"><p local-id="c7004c75-c3ed-3aa0-965d-01edb6d8cd97">Numero del riscontro di appoggio del contenitore.</p></td></tr><tr ac:local-id="f0550641-20da-3f9e-8135-21da9b1862a4"><td ac:local-id="883a86d5-b3e3-3e5f-abd8-25f8d67a5be3"><p local-id="b9c225d1-59f7-31be-9fad-5da39b864915"><strong>Offset X</strong></p></td><td ac:local-id="2dfaeaf9-f113-3d8a-9bda-36a2a039e03a"><p local-id="a62fd32f-8713-318e-9df6-ffc364e984e6">Quota X da riscontro selezionato a origine contenitore.</p></td></tr><tr ac:local-id="c115f913-34b3-3ff6-a47c-1dc5bceb5c63"><td ac:local-id="0e67d8d3-5326-3df3-9e79-9980ceaf875f"><p local-id="624d0808-14a5-33c6-be54-3bcdce8c83bc"><strong>Offset Y</strong></p></td><td ac:local-id="2f35926c-f2ed-361a-a1f0-aceb80fdf0e5"><p local-id="350dd6a6-5bff-3e3f-ab19-d22314923f2c">Quota Y da riscontro selezionato a origine contenitore.</p></td></tr><tr ac:local-id="0206dc96-1198-3c90-a637-ae06f01fd685"><td ac:local-id="d739d785-8cda-3f0d-80de-7ebc35a044c3"><p local-id="2f84b939-f2d4-393d-86a8-91f91dae1711"><strong>Offset Z</strong></p></td><td ac:local-id="2973c523-21de-3e7d-9dd9-835fbaf8309c"><p local-id="305b75e8-37a2-3b9d-a827-c7626d19cb05">Quota Z da riscontro selezionato a origine contenitore.</p></td></tr><tr ac:local-id="2f897a4d-b180-3fe4-bd49-5aefef3b74ff"><td ac:local-id="3174a26e-52b5-37a0-ba1f-4207987f068d"><p local-id="fda83589-e628-338f-98e0-dc7d3682f48d"><strong>Massimo numero pezzi</strong></p></td><td ac:local-id="77f7142b-0015-37b7-8feb-e2ac9978488f"><p local-id="48358c87-bae0-36f7-8681-96830494c4d6">Massimo numero di pezzi depositabili.</p></td></tr><tr ac:local-id="db31aa5c-df41-37a7-b18e-f229f6f2228c"><td ac:local-id="87b6ac04-8834-38d9-92ee-f8692a804460"><p local-id="0b9d0907-72f7-3aa2-964c-651b04aab9ce"><strong>Massimo peso</strong></p></td><td ac:local-id="259e456d-307f-3167-83bd-fd2b4a1f73d6"><p local-id="40f67cfb-2400-3ad7-8e0e-dc80538140b9">Massimo peso sopportato dal contenitore.</p></td></tr><tr ac:local-id="f828ebc1-089e-3350-8cc6-2e371f302fbf"><td ac:local-id="5d5a50f5-6f02-3c30-ba2e-75f503238c01"><p local-id="c745bf9b-a354-33cd-b1ad-eb9787cdc77d"><strong>Massima profondità pezzi</strong></p></td><td ac:local-id="a11daa20-b04a-3389-b3f8-58bbb79bdb79"><p local-id="6ed69ab7-5152-3b53-9baa-556104a71adf">Massima profondità/altezza pallettizzabile nel contenitore.</p></td></tr><tr ac:local-id="06762dd7-760b-3be3-93c9-abdef2d58222"><td ac:local-id="31851eeb-68ad-3a31-8c39-84617a1d5bfd"><p local-id="2e60ca83-1729-337b-9d46-550214cd6007"><strong>Massimo debordo altezza</strong></p></td><td ac:local-id="e98b1fb1-6ec8-39c3-a7bf-38112ce1c1f0"><p local-id="85a70a3c-fa48-337e-bc59-8b1fa2bac5f5">Debordo/spazio disponibile in altezza oltre alla fine del contenitore verso l’alto.</p></td></tr><tr ac:local-id="cda19f22-6b00-3365-b279-89cee857ef6c"><td ac:local-id="df5bc404-7dc0-302c-ae05-2f94d5502e91"><p local-id="4d822ba0-f25a-3b71-8caf-5c2bc7992e5d"><strong>Spaziatura interfalda</strong></p></td><td ac:local-id="300a0b5f-4d6b-3db4-b4d1-3b40257b9536"><p local-id="9fae3c6c-787b-3282-b74c-b50136f090e3">Distanza fra un pezzo e il suo vicino di un’altra riga.</p></td></tr></tbody></table><h1 local-id="73da920f-9c74-3d2c-a053-dcac056d98b5">Waste box</h1><div class="TextAlignCenter"><img src="attachments/2.3.3_dettagli_contenitori/appplant_image76.png" alt="appplant_image76.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><table class="my-table2" data-table-width="1200.0" data-layout="default" ac:local-id="41b7a574-c473-338b-9440-3f8025bba15c"><colgroup><col style="width: 300.0px;"><col style="width: 900.0px;"></colgroup><tbody><tr ac:local-id="95887999-0b8e-36c7-adf4-4a88aa0d2257"><td ac:local-id="c8ba7aee-ee28-3e84-a94d-b299dcb35d69"><p local-id="d6bc1c96-685c-354d-8dd8-6c7e28f452b4"><strong>Lunghezza</strong></p></td><td ac:local-id="2c12d25a-8274-32de-8dda-d936c3bbebef"><p local-id="53053d5a-1bc0-39c3-8de1-f2f66bd75c85">Lunghezza del contenitore.</p></td></tr><tr ac:local-id="3a189482-01c9-3273-99f2-ba7d12d7bd49"><td ac:local-id="4cdc7ab7-03a3-370c-9016-142e9f0e2986"><p local-id="fb7bbb86-c51b-3cec-8bce-34be0d78ea0a"><strong>Larghezza</strong></p></td><td ac:local-id="ea7a2ad4-bcd1-3256-aa56-f7da3d95b352"><p local-id="c358f7cd-f71b-373d-82e4-5cd60d1d92dc">Larghezza del contenitore.</p></td></tr><tr ac:local-id="3283e30e-c448-3998-8ba4-8e33ded713bb"><td ac:local-id="5ffd619f-8e63-31a2-8b4d-d6421c7e1ea1"><p local-id="b2d643ce-8963-36fc-9dba-ce9bc59445cd"><strong>Altezza</strong></p></td><td ac:local-id="890ba147-f455-355d-9d46-0d44663907c9"><p local-id="60459a24-be31-3edd-8a68-38bdd4c55741">Altezza del contenitore.</p></td></tr><tr ac:local-id="c62a0b87-95c3-31d6-bb75-0f0d00da6857"><td ac:local-id="a55564fb-80f5-319a-8787-85cc0d8c347a"><p local-id="224cf1c8-f845-3dc4-aa30-4d8fff263498"><strong>Orientamento pezzi</strong></p></td><td ac:local-id="ffa33201-83b6-34bb-aec6-8e305bb85ca0"><div class="TextAlignCenter"><img src="attachments/2.3.3_dettagli_contenitori/appplant_image69_ritaglio.png" alt="appplant_image69_ritaglio.png" width="371" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="14f5dfea-0aab-3127-97f5-c5616a0960ee">0: lunghezza pezzo → lunghezza pallet.<br>90: lunghezza pezza → larghezza pallet.</p></td></tr><tr ac:local-id="1d5b2ddb-72ff-3f49-9190-c6e4743e0e5f"><td ac:local-id="5c876428-8462-3ece-9ca8-26e99d0062ac"><p local-id="624cb542-a6e7-3aa3-bffa-841ace31c1eb"><strong>Massimo numero pezzi</strong></p></td><td ac:local-id="1bc6c04b-e730-3eb6-8e97-0dc21a51b84f"><p local-id="4ef44e80-e6d7-38a1-9bde-576c959bfb4f">Massimo numero di pezzi depositabili.</p></td></tr><tr ac:local-id="896cb524-e516-396c-bd49-06f6d24af861"><td ac:local-id="0b459c6e-0a01-3e0d-a447-7edad8d2d31c"><p local-id="b6e8a9a3-e92b-3d53-998b-f086d905b70f"><strong>Massimo peso</strong></p></td><td ac:local-id="80e94a42-2eaf-3f1e-843b-f30036319386"><p local-id="a5e5dbb3-1a48-3f79-a2bb-0f43746edd1e">Massimo peso sopportato dal contenitore.</p></td></tr><tr ac:local-id="52f63292-c88c-3f9c-8450-07a5d3560df1"><td ac:local-id="7e5bda18-3abc-36e2-95a5-738aec98d212"><p local-id="68894ede-fc05-304c-a27f-cb08db6c636f"><strong>Massima profondità pezzi</strong></p></td><td ac:local-id="8598a0c5-dcc9-3570-9ec8-97a77b39e70e"><p local-id="58530b7c-0f28-3c5e-92f1-2e51614533e0">Massima profondità/altezza pallettizzabile nel contenitore.</p></td></tr></tbody></table><p local-id="b3bfa928b905"></p><!--Label="tam_cab"-->
+                        </main>
+
+                    </div>
+
+                    <img src="images/donatoni_222.jpg">
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="2.3.2_nuovo_o_modifica_contenitore.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="2.4_grippers.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+
+
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                <a rel="prev" href="2.3.2_nuovo_o_modifica_contenitore.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="2.4_grippers.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="mermaid.min.js"></script>
+        <script src="mermaid-init.js"></script>
+        <script src="hidemenu.js"></script>
+        <script src="imagemodal.js"></script>
+        <script src="login.js"></script>
+    </div>
+
+    <!-- Modale -->
+    <div id="modal" onclick="closeModal()">
+        <img id="modal-img" src="">
+    </div>;
+
+
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
+
+<script id="virtual-keyboard-searchbar-fix">
+document.addEventListener("input", function (e) {
+    const t = e.target;
+    if (t && t.id === "searchbar" && e.isTrusted !== true) {
+        t.dispatchEvent(new KeyboardEvent("keyup", { bubbles: true }));
+    }
+});
+</script>
+</body>
+</html>

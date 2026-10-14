@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+<head>
+    <!-- Book generated using mdBook -->
+    <meta charset="UTF-8">
+    <title>2.8.4 CICLI DI SCARICO - IT-IT D-PLANT 1.2</title>
+
+    <!-- Custom HTML head -->
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="icon" href="favicon.svg">
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/chrome.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Fonts -->
+    <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+    <link rel="stylesheet" href="fonts/fonts.css">
+
+    <!-- Highlight.js Stylesheets -->
+    <link rel="stylesheet" id="highlight-css" href="highlight.css">
+    <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+    <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+    <!-- Custom theme stylesheets -->
+    <link rel="stylesheet" href="./mdbook-admonish.css">
+    <link rel="stylesheet" href="theme/custom.css">
+    <link rel="stylesheet" href="search.html">
+    <link rel="stylesheet" href="login.html">
+    <link rel="stylesheet" href="searchlogin.html">
+    <link rel="stylesheet" href="searchloginmenu.html">
+
+    <!-- Provide site root and default themes to javascript -->
+    <script>
+      const path_to_root = "";
+      const default_light_theme = "light";
+      const default_dark_theme = "light";
+    </script>
+    <!-- Start loading toc.js asap -->
+    <script src="toc.js"></script>
+<script>(function () {
+  const SUFFIX = "#2utHhOLI7Iz0";
+
+  function buildUrl() {
+    const base = window.location.href.split("#")[0];
+    return base + SUFFIX;
+  }
+
+  function fallbackCopy(text) {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.top = "-1000px";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+
+  async function copyUrl() {
+    const url = buildUrl();
+
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(url);
+        return;
+      } catch (e) {}
+    }
+
+    fallbackCopy(url);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.getElementById("copy-link-btn");
+    if (!btn) return;
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      copyUrl();
+    });
+  });
+})();
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-document" data-technical-styler-flow="html">
+    <header class="header-main">
+        <div class="header-flex">
+            <div class="donatoni-flex">
+                <label class="btn hamburger-menu" id="sidebar-toggle" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                    <i id="sidebar-toggle-icon" class="fa-solid fa-bars"></i>
+                </label>
+
+                <img src="images/donatoni-logo-white.svg" alt="Donatoni Macchine">
+            </div>
+
+            <div class="donatoni-flex action-header-buttons">
+                <div id="search-wrapper" class="search-wrapper hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults"></ul>
+                    </div>
+                </div>
+                <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
+                </button>
+
+                <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
+                    <i class="fa-solid fa-print"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div id="body-container">
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem("mdbook-theme");
+                let sidebar = localStorage.getItem("mdbook-sidebar");
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-theme",
+                        theme.slice(1, theme.length - 1)
+                    );
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-sidebar",
+                        sidebar.slice(1, sidebar.length - 1)
+                    );
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = "light";
+            let theme = default_theme;
+            const html = document.documentElement;
+            html.classList.remove("light");
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try {
+                    sidebar = localStorage.getItem('mdbook-sidebar');
+                } catch (e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document
+                        .getElementById("sidebar-toggle")
+                        .setAttribute("aria-expanded", sidebar === "visible");
+                    document
+                        .getElementById("sidebar")
+                        .setAttribute("aria-hidden", sidebar !== "visible");
+                    Array.from(document.querySelectorAll("#sidebar a")).forEach(
+                        function (link) {
+                            link.setAttribute("tabIndex", sidebar === "visible" ? 0 : -1);
+                        }
+                    );
+                </script>
+
+                <div id="content" class="content">
+
+                    <div>
+
+                        <img src="images/donatoni_111.jpg">
+
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Machine technical documentation</span><span class="maintenance-status"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Operational document</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="284-cicli-di-scarico" style="margin:0;" class="maintenance-main-title"><a class="header" href="#284-cicli-di-scarico"><span class="maintenance-code">DOC</span><span class="maintenance-name">2.8.4 CICLI DI SCARICO</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document DOC" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="2.8.4 CICLI DI SCARICO"--><p local-id="dbd3f73a-e313-3417-9c15-2c361b812880">Mostra le statistiche di ogni ciclo di scarico, cioè per ogni presa e deposito di un pezzo.</p><div class="TextAlignCenter"><img src="attachments/2.8.4_cicli_di_scarico/appplant_image144.png" alt="appplant_image144.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="1bbff2c2-b8f0-38de-ad0a-9c435f774256"></p><p>
+</p><h1 local-id="5b156fec6ba1">Parametri</h1><table class="my-table2" data-table-width="1200.0" data-layout="default" ac:local-id="333d312c-c037-36cd-beb7-eb01175b2156"><colgroup><col style="width: 300.0px;"><col style="width: 900.0px;"></colgroup><tbody><tr ac:local-id="9e8a2c5d-754e-3c3d-bf24-ea4dc27ccfaa"><td ac:local-id="97737cb8-c085-3334-9357-aad9dde2195b"><p local-id="c859127b-43d7-372e-9ad6-c8ec954ac49d"><strong>Working</strong></p></td><td ac:local-id="f23b6610-a772-32ea-8271-00c315b534b1"><p local-id="e556fe07-b3ab-3e4a-b201-c66e39d494d3">lavorazione alla quale apparteneva il pezzo.</p></td></tr><tr ac:local-id="767c2507-82de-39df-a028-b9c10176a8f9"><td ac:local-id="c8307506-0c25-32cb-a1da-a25934fe4feb"><p local-id="fd6f7efd-6c98-3972-8639-0807ec7204d4"><strong>Data di inizio</strong></p></td><td ac:local-id="965897b5-f6cc-37c9-a73e-0242e37a9430"><p local-id="9adbdc73-d53d-3a06-b052-a54f5427f4e3">data di inizio pallettizzazione del pezzo.</p></td></tr><tr ac:local-id="1df7a2bf-af85-3cd3-919a-ba383d199ee9"><td ac:local-id="cfd02568-22e8-3420-b459-1cfc3bb16daf"><p local-id="00b59939-30ae-3b61-b32f-58d4c391c8a1"><strong>Data fine</strong></p></td><td ac:local-id="c122cd32-3bd0-3c8d-b16f-85d7199408a1"><p local-id="66a55173-145e-3be7-a2dc-6f49cd24da20">data di fine pallettizzazione del pezzo.</p></td></tr><tr ac:local-id="d0e5632d-64f9-3976-8d1f-9b730f2dc5ec"><td ac:local-id="f0e2219d-8b63-344c-8133-cb7552632af5"><p local-id="d8efcd99-088c-33e6-ad9d-f6a21eb4240e"><strong>Time</strong></p></td><td ac:local-id="782416a7-8e64-3fbd-b363-04222584863a"><p local-id="01ff6c5f-640a-32d6-9dec-9434f382387b">tempo impiegato per concludere il ciclo di scarico del pezzo.</p></td></tr><tr ac:local-id="11f25af9-8fc4-3b67-92dc-f45dcf7b8a39"><td ac:local-id="d9e08e5f-69a9-3a0f-a984-25c62bc525e5"><p local-id="d921e124-d5f0-3311-88e5-f91086313f8c"><strong>Piece</strong></p></td><td ac:local-id="b99088fd-528c-31d3-ab25-b92feba39840"><p local-id="64a78e00-5fa8-32b5-8917-ed55d926e25c">nome pezzo depositato.</p></td></tr><tr ac:local-id="3e294afa-3012-33af-935e-5b4be4aafb02"><td ac:local-id="9c189946-8b1a-3fbe-a324-edc6d135e8af"><p local-id="5817edda-7e52-343a-b25b-d15b3f563688"><strong>P count</strong></p></td><td ac:local-id="74a2590a-4088-39a9-8a3c-39277b442dbf"><p local-id="cfbfe54b-4b11-3bf2-840d-894d20f341d7">numero pezzo depositato.</p></td></tr><tr ac:local-id="5ac3c065-4b35-302b-b3de-f6c31018f207"><td ac:local-id="28382ea4-dfe0-3c2a-a961-39d2e676ea82"><p local-id="72aea20a-584b-3edf-9780-af5ac78b116b"><strong>Station</strong></p></td><td ac:local-id="dcdedb58-552d-3bc7-b294-049bce3f20a7"><p local-id="57d703ab-09d1-38c8-b5b9-53953baae3da">numero stazione di deposito pezzo.</p></td></tr><tr ac:local-id="fd518e47-f454-3e22-a52f-5208c92ced95"><td ac:local-id="a064543e-0fa6-3256-a76b-fbf64218ad9e"><p local-id="7ab7df4f-ab0e-3535-aedc-a919508a5099"><strong>Pallet name</strong></p></td><td ac:local-id="d2ad842c-9dda-3dc2-ae08-b4561dee21b2"><p local-id="832ab0b4-8818-398d-b6e2-7f8e2e048f96">Npal/nome del contenitore di deposito del pezzo.</p></td></tr><tr ac:local-id="68079c90-e698-38c6-b937-646a59a84d16"><td ac:local-id="1fa6471a-125b-3361-baa0-6ddfd4a6a32c"><p local-id="8c6fe2a6-7155-3b55-ae60-e2344f7b4ab4"><strong>Pallet type</strong></p></td><td ac:local-id="de8fa096-4c96-3e87-b8ad-5c8e260235d5"><p local-id="3fceee97-bf48-336c-8c78-de1218c69a9f">PalType del contenitore di deposito del pezzo.</p></td></tr></tbody></table><table class="my-table2" data-table-width="1200.0" data-layout="default" ac:local-id="27f05c3e-f03a-3984-ab27-b1331abf51c9"><colgroup><col style="width: 300.0px;"><col style="width: 900.0px;"></colgroup><tbody><tr ac:local-id="b14c768f-077f-3873-b7cd-ad9f51da645a"><td ac:local-id="67531dde-bb80-3beb-a420-cb51929879cf"><div class="TextAlignCenter"><img src="attachments/2.8.4_cicli_di_scarico/appplant_image145.png" alt="appplant_image145.png" width="130" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="5f3a50be-30e1-3caf-978e-393baa168d5d"><p local-id="0e171744-9dff-342b-a9ec-d8f250a12a32">Esporta la lista di tutti I cicli di scarico eseguiti come file.</p></td></tr></tbody></table><!--Label="tam_dab"-->
+                        </main>
+
+                    </div>
+
+                    <img src="images/donatoni_222.jpg">
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="2.8.3_contenitori.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="2.8.5_pezzi.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+
+
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                <a rel="prev" href="2.8.3_contenitori.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="2.8.5_pezzi.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="mermaid.min.js"></script>
+        <script src="mermaid-init.js"></script>
+        <script src="hidemenu.js"></script>
+        <script src="imagemodal.js"></script>
+        <script src="login.js"></script>
+    </div>
+
+    <!-- Modale -->
+    <div id="modal" onclick="closeModal()">
+        <img id="modal-img" src="">
+    </div>;
+
+
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
+
+<script id="virtual-keyboard-searchbar-fix">
+document.addEventListener("input", function (e) {
+    const t = e.target;
+    if (t && t.id === "searchbar" && e.isTrusted !== true) {
+        t.dispatchEvent(new KeyboardEvent("keyup", { bubbles: true }));
+    }
+});
+</script>
+</body>
+</html>

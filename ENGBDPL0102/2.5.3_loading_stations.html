@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+<head>
+    <!-- Book generated using mdBook -->
+    <meta charset="UTF-8">
+    <title>2.5.3 LOADING STATIONS - EN-GB D-PLANT 1.2</title>
+
+    <!-- Custom HTML head -->
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="icon" href="favicon.svg">
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/chrome.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Fonts -->
+    <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+    <link rel="stylesheet" href="fonts/fonts.css">
+
+    <!-- Highlight.js Stylesheets -->
+    <link rel="stylesheet" id="highlight-css" href="highlight.css">
+    <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+    <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+    <!-- Custom theme stylesheets -->
+    <link rel="stylesheet" href="./mdbook-admonish.css">
+    <link rel="stylesheet" href="theme/custom.css">
+    <link rel="stylesheet" href="search.html">
+    <link rel="stylesheet" href="login.html">
+    <link rel="stylesheet" href="searchlogin.html">
+    <link rel="stylesheet" href="searchloginmenu.html">
+
+    <!-- Provide site root and default themes to javascript -->
+    <script>
+      const path_to_root = "";
+      const default_light_theme = "light";
+      const default_dark_theme = "light";
+    </script>
+    <!-- Start loading toc.js asap -->
+    <script src="toc.js"></script>
+<script>(function () {
+  const SUFFIX = "#2utHhOLI7Iz0";
+
+  function buildUrl() {
+    const base = window.location.href.split("#")[0];
+    return base + SUFFIX;
+  }
+
+  function fallbackCopy(text) {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.top = "-1000px";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+
+  async function copyUrl() {
+    const url = buildUrl();
+
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(url);
+        return;
+      } catch (e) {}
+    }
+
+    fallbackCopy(url);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.getElementById("copy-link-btn");
+    if (!btn) return;
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      copyUrl();
+    });
+  });
+})();
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-document" data-technical-styler-flow="html">
+    <header class="header-main">
+        <div class="header-flex">
+            <div class="donatoni-flex">
+                <label class="btn hamburger-menu" id="sidebar-toggle" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                    <i id="sidebar-toggle-icon" class="fa-solid fa-bars"></i>
+                </label>
+
+                <img src="images/donatoni-logo-white.svg" alt="Donatoni Macchine">
+            </div>
+
+            <div class="donatoni-flex action-header-buttons">
+                <div id="search-wrapper" class="search-wrapper hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults"></ul>
+                    </div>
+                </div>
+                <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
+                </button>
+
+                <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
+                    <i class="fa-solid fa-print"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div id="body-container">
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem("mdbook-theme");
+                let sidebar = localStorage.getItem("mdbook-sidebar");
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-theme",
+                        theme.slice(1, theme.length - 1)
+                    );
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-sidebar",
+                        sidebar.slice(1, sidebar.length - 1)
+                    );
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = "light";
+            let theme = default_theme;
+            const html = document.documentElement;
+            html.classList.remove("light");
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try {
+                    sidebar = localStorage.getItem('mdbook-sidebar');
+                } catch (e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document
+                        .getElementById("sidebar-toggle")
+                        .setAttribute("aria-expanded", sidebar === "visible");
+                    document
+                        .getElementById("sidebar")
+                        .setAttribute("aria-hidden", sidebar !== "visible");
+                    Array.from(document.querySelectorAll("#sidebar a")).forEach(
+                        function (link) {
+                            link.setAttribute("tabIndex", sidebar === "visible" ? 0 : -1);
+                        }
+                    );
+                </script>
+
+                <div id="content" class="content">
+
+                    <div>
+
+                        <img src="images/donatoni_111.jpg">
+
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Machine technical documentation</span><span class="maintenance-status"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Operational document</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="253-loading-stations" style="margin:0;" class="maintenance-main-title"><a class="header" href="#253-loading-stations"><span class="maintenance-code">DOC</span><span class="maintenance-name">2.5.3 LOADING STATIONS</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document DOC" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="2.5.3 LOADING STATIONS"--><p local-id="e6961332-42d0-3f56-93e7-d36f19c11eec">This menu is used to view and edit the working files generated by PARAMETRIX</p><div class="TextAlignCenter"><img src="attachments/2.5.3_loading_stations/appplant_image88.png" alt="appplant_image88.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p>
+</p><h1 local-id="a2159a472bc3">Left-hand bar</h1><table class="my-table2" data-table-width="1200.0" data-layout="default" ac:local-id="f1fda7ee-1cce-3803-9d4e-0ec8cce0eb75"><colgroup><col style="width: 300.0px;"><col style="width: 900.0px;"></colgroup><tbody><tr ac:local-id="74b63f69-d667-375d-9ee1-c1a6e6c20682"><td ac:local-id="397190a2-5cd8-3803-9447-34ca1d682dd7"><div class="TextAlignCenter"><img src="attachments/2.5.3_loading_stations/appplant_image89.png" alt="appplant_image89.png" width="395" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="096ebe20-c70c-3b80-bc17-1f1d2ade6b3f"><p local-id="09027b40685b"><strong>Unloading list</strong><br>Defines the machine whose cutting layouts are being viewed.</p></td></tr></tbody></table><p local-id="d0105f7ed57b"></p><h1 local-id="ba4ff651eefa">Top bar</h1><p local-id="d3efb250163b">The top bar contains the following buttons, which are described below:</p><ul local-id="8f70e7e104aa"><li local-id="99d508c25a65"><p local-id="b44b67c5d6f3">Robot CSV</p></li><li local-id="8b181dd12242"><p local-id="00a1458dc526">Edit CSV</p></li><li local-id="2b4d85412a2f"><p local-id="4a497411687a">Edit Pallet</p></li><li local-id="9bc77b6170ce"><p local-id="3ca6061b255b">Piece properties</p></li><li local-id="678be413d3e5"><p local-id="fa4fd0e1539b">Copy from DB</p></li></ul><p local-id="05082872e559"></p><h2 local-id="2c243e96a609" class="maintenance-section-title" data-section-number="01">Robot CSV</h2><table class="my-table2" data-table-width="1200.0" data-layout="default" ac:local-id="6486953a-5cc7-34d7-b7e1-4e5946b29ef7"><colgroup><col style="width: 300.0px;"><col style="width: 900.0px;"></colgroup><tbody><tr ac:local-id="15c1d7d1-14ca-3a0b-ad1a-7ebc364d296d"><td ac:local-id="5ff49b56-ff03-31be-a9f9-4f037aa44e4c"><div class="TextAlignCenter"><img src="attachments/2.5.3_loading_stations/03_Robot_CSV.png" alt="03_Robot_CSV.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="a521e450-71ef-37ce-88d6-4e489451f673"><p local-id="990f285b29c4"><strong>Robot CSV</strong><br>Displays the CSV file for the selected working.</p></td></tr></tbody></table><div class="TextAlignCenter"><img src="attachments/2.5.3_loading_stations/appplant_image91.png" alt="appplant_image91.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><h2 local-id="c30fee44dc9f" class="maintenance-section-title" data-section-number="02">Edit CSV</h2><table class="my-table2" data-table-width="1200.0" data-layout="default" ac:local-id="beeeb88a-5cc5-383b-a7c9-8c1d00c4f937"><colgroup><col style="width: 300.0px;"><col style="width: 900.0px;"></colgroup><tbody><tr ac:local-id="7dc1a18e-4379-3147-a5ba-6cf969834006"><td ac:local-id="53ba40fe-4dbd-3941-8125-ea1b1b6e7358"><div class="TextAlignCenter"><img src="attachments/2.5.3_loading_stations/04_Modifica_CSV.png" alt="04_Modifica_CSV.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="c036f00f-be7f-38ef-8a2e-ba9641ad4868"><p local-id="e373569de3b2"><strong>Edit CSV</strong><br>Edits the CSV file for the selected working.</p></td></tr></tbody></table><div class="TextAlignCenter"><img src="attachments/2.5.3_loading_stations/appplant_image93.png" alt="appplant_image93.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="6b536311ba50"></p><h3 local-id="0837f59db84c">Side menu in Edit CSV</h3><table class="my-table2" data-table-width="1200.0" data-layout="default" ac:local-id="e95474ca-7055-3160-a869-0f1d45884411"><colgroup><col style="width: 300.0px;"><col style="width: 900.0px;"></colgroup><tbody><tr ac:local-id="9b52374a-02a3-3b6c-91d8-38d7648e8248"><td ac:local-id="36ce0489-ef66-39ec-a92e-e856ece7e208"><p local-id="f9bae91f215a"><strong>Value</strong></p></td><td ac:local-id="1ff0197c-2eca-30de-af54-9429315af660"><p local-id="d5512c54-1b86-311a-a0c9-a41ab732d8e2">Enter the new parameter value.</p></td></tr><tr ac:local-id="4b337e29-fb97-3f34-9fc5-a48161ecc04f"><td ac:local-id="3154685b-8ccc-326e-9cc8-3a206aa66623"><div class="TextAlignCenter"><img src="attachments/2.5.3_loading_stations/11_MenuLaterale_Modifica.png" alt="11_MenuLaterale_Modifica.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="e552f599-819f-3b29-98e8-9fb0d047a45b"><p local-id="8f114be0-a547-32ec-a5fb-caf82f1f00c5"><strong>Edit</strong><br>Changes the selected parameter to the new value.</p></td></tr><tr ac:local-id="4bf841ed-95b0-397a-a581-ed07a40cca18"><td ac:local-id="5a4a1c95-6e94-397f-9fd4-a418cf576ddb"><div class="TextAlignCenter"><img src="attachments/2.5.3_loading_stations/appplant_image96.png" alt="appplant_image96.png" width="138" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="c93cf2b2-ef0a-3b16-a7a9-d458a040f9b7"><p local-id="57f27d56-d7be-3ebb-b9ae-a02234781664"><strong>Add container</strong><br>Allows a new container to be selected.</p><div class="TextAlignCenter"><img src="attachments/2.5.3_loading_stations/appplant_image97.png" alt="appplant_image97.png" width="392" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td></tr><tr ac:local-id="335def65-271b-341e-a00f-d4a10ebcd7ff"><td ac:local-id="2dfd183a-fef3-3aec-a340-44056426b83f"><div class="TextAlignCenter"><img src="attachments/2.5.3_loading_stations/appplant_image98.png" alt="appplant_image98.png" width="136" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="994dd855-8e2b-3156-992f-2e988bac2d22"><p local-id="1d5c9e0f-55c1-33ed-89bb-031581fd8595"><strong>Delete container</strong><br>Deletes the selected container.</p></td></tr><tr ac:local-id="5fea066e-414a-3979-9cb8-e4853e26b6bd"><td ac:local-id="2b974bdc-1daa-344d-b3bd-254626935bca"><div class="TextAlignCenter"><img src="attachments/2.5.3_loading_stations/12_MenuLaterale_AggiungiAlPallet-20261012-113522.png" alt="12_MenuLaterale_AggiungiAlPallet-20261012-113522.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="d126590f0f37"></p></td><td ac:local-id="aec83d20-a863-31fe-9c91-112c79baec91"><p local-id="fde0ef6a40bc"><strong>Add to pallet</strong><br>Replaces/adds the container selected on the right as the destination of the piece selected on the left.</p><div class="TextAlignCenter"><img src="attachments/2.5.3_loading_stations/appplant_image100.png" alt="appplant_image100.png" width="600" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td></tr></tbody></table><p local-id="c98f60cdc69d"></p><h2 local-id="f49b4b6eba33" class="maintenance-section-title" data-section-number="03">Edit Pallet</h2><table class="my-table2" data-table-width="1200.0" data-layout="default" ac:local-id="80ff6bc5-0941-3295-b73d-09707544acea"><colgroup><col style="width: 300.0px;"><col style="width: 900.0px;"></colgroup><tbody><tr ac:local-id="b1728a84-39cc-3e51-8f1e-58af8097af61"><td ac:local-id="de8ee358-137d-3c75-8755-053572151bc8"><div class="TextAlignCenter"><img src="attachments/2.5.3_loading_stations/05_Modifica_Pallet.png" alt="05_Modifica_Pallet.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="b620adf2-e552-38ca-8ac8-fdc370c0dd12"><p local-id="79eec0e6-edd3-3b4b-9efa-597319abf238"><strong>Edit Pallet</strong><br>Allows a new destination container to be assigned to the selected piece.</p></td></tr></tbody></table><div class="TextAlignCenter"><img src="attachments/2.5.3_loading_stations/appplant_image102.png" alt="appplant_image102.png" width="600" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><div class="TextAlignCenter"><img src="attachments/2.5.3_loading_stations/appplant_image103.png" alt="appplant_image103.png" width="600" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="c07fba5a1139"></p><h2 local-id="ab025d484c88" class="maintenance-section-title" data-section-number="04">Piece properties</h2><table class="my-table2" data-table-width="1200.0" data-layout="default" ac:local-id="22ac006e-f061-3dc7-9b9b-28ef29aa3a3d"><colgroup><col style="width: 300.0px;"><col style="width: 900.0px;"></colgroup><tbody><tr ac:local-id="74c45eb9-a551-3e3c-8507-3dfe877bf223"><td ac:local-id="2de6ad69-9d3b-3ffa-a821-f8c4e9693c3a"><div class="TextAlignCenter"><img src="attachments/2.5.3_loading_stations/01_Proprieta_pezzo.png" alt="01_Proprieta_pezzo.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="ec312a4c-def8-33c4-a319-945e2b44e328"><p local-id="5e066166-693f-35d1-87af-342cf7999e1f"><strong>Piece properties</strong><br>Displays the characteristics of the selected piece.</p></td></tr></tbody></table><div class="TextAlignCenter"><img src="attachments/2.5.3_loading_stations/appplant_image105.png" alt="appplant_image105.png" width="424" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="9a3b7c0b970c"></p><h2 local-id="9dec53f58538" class="maintenance-section-title" data-section-number="05">Copy from DB</h2><table class="my-table2" data-table-width="1200.0" data-layout="default" ac:local-id="9c989290-bce1-3296-940d-a4841b9b6723"><colgroup><col style="width: 300.0px;"><col style="width: 900.0px;"></colgroup><tbody><tr ac:local-id="1dd98cad-8763-31ec-b236-ed6941082b64"><td ac:local-id="36a429af-fd0b-377c-8ac8-740d1704276f"><div class="TextAlignCenter"><img src="attachments/2.5.3_loading_stations/02_Copia_da_DB.png" alt="02_Copia_da_DB.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="684513ef-6001-32fa-9e34-25ac3842515a"><p local-id="2827d5b0-20e9-3bc6-ac30-d7735f225605"><strong>Copy from DB</strong><br>Deletes the current CSV/working files and loads the workings processed by the robot up to that point.</p></td></tr></tbody></table><!--Label="tam_car"-->
+                        </main>
+
+                    </div>
+
+                    <img src="images/donatoni_222.jpg">
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="2.5.2_unloading_configuration.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="2.5.4_loading_configuration.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+
+
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                <a rel="prev" href="2.5.2_unloading_configuration.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="2.5.4_loading_configuration.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="mermaid.min.js"></script>
+        <script src="mermaid-init.js"></script>
+        <script src="hidemenu.js"></script>
+        <script src="imagemodal.js"></script>
+        <script src="login.js"></script>
+    </div>
+
+    <!-- Modale -->
+    <div id="modal" onclick="closeModal()">
+        <img id="modal-img" src="">
+    </div>;
+
+
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
+
+<script id="virtual-keyboard-searchbar-fix">
+document.addEventListener("input", function (e) {
+    const t = e.target;
+    if (t && t.id === "searchbar" && e.isTrusted !== true) {
+        t.dispatchEvent(new KeyboardEvent("keyup", { bubbles: true }));
+    }
+});
+</script>
+</body>
+</html>

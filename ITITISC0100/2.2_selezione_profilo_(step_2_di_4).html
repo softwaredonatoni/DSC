@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+<head>
+    <!-- Book generated using mdBook -->
+    <meta charset="UTF-8">
+    <title>2.2 SELEZIONE PROFILO (STEP 2 DI 4) - IT-IT ISOCAM 1.0</title>
+
+    <!-- Custom HTML head -->
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="icon" href="favicon.svg">
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/chrome.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Fonts -->
+    <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+    <link rel="stylesheet" href="fonts/fonts.css">
+
+    <!-- Highlight.js Stylesheets -->
+    <link rel="stylesheet" id="highlight-css" href="highlight.css">
+    <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+    <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+    <!-- Custom theme stylesheets -->
+    <link rel="stylesheet" href="./mdbook-admonish.css">
+    <link rel="stylesheet" href="theme/custom.css">
+    <link rel="stylesheet" href="search.html">
+    <link rel="stylesheet" href="login.html">
+    <link rel="stylesheet" href="searchlogin.html">
+    <link rel="stylesheet" href="searchloginmenu.html">
+
+    <!-- Provide site root and default themes to javascript -->
+    <script>
+      const path_to_root = "";
+      const default_light_theme = "light";
+      const default_dark_theme = "light";
+    </script>
+    <!-- Start loading toc.js asap -->
+    <script src="toc.js"></script>
+<script>(function () {
+  const SUFFIX = "#2utHhOLI7Iz0";
+
+  function buildUrl() {
+    const base = window.location.href.split("#")[0];
+    return base + SUFFIX;
+  }
+
+  function fallbackCopy(text) {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.top = "-1000px";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+
+  async function copyUrl() {
+    const url = buildUrl();
+
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(url);
+        return;
+      } catch (e) {}
+    }
+
+    fallbackCopy(url);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.getElementById("copy-link-btn");
+    if (!btn) return;
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      copyUrl();
+    });
+  });
+})();
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-document" data-technical-styler-flow="html">
+    <header class="header-main">
+        <div class="header-flex">
+            <div class="donatoni-flex">
+                <label class="btn hamburger-menu" id="sidebar-toggle" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                    <i id="sidebar-toggle-icon" class="fa-solid fa-bars"></i>
+                </label>
+
+                <img src="images/donatoni-logo-white.svg" alt="Donatoni Macchine">
+            </div>
+
+            <div class="donatoni-flex action-header-buttons">
+                <div id="search-wrapper" class="search-wrapper hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults"></ul>
+                    </div>
+                </div>
+                <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
+                </button>
+
+                <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
+                    <i class="fa-solid fa-print"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div id="body-container">
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem("mdbook-theme");
+                let sidebar = localStorage.getItem("mdbook-sidebar");
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-theme",
+                        theme.slice(1, theme.length - 1)
+                    );
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-sidebar",
+                        sidebar.slice(1, sidebar.length - 1)
+                    );
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = "light";
+            let theme = default_theme;
+            const html = document.documentElement;
+            html.classList.remove("light");
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try {
+                    sidebar = localStorage.getItem('mdbook-sidebar');
+                } catch (e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document
+                        .getElementById("sidebar-toggle")
+                        .setAttribute("aria-expanded", sidebar === "visible");
+                    document
+                        .getElementById("sidebar")
+                        .setAttribute("aria-hidden", sidebar !== "visible");
+                    Array.from(document.querySelectorAll("#sidebar a")).forEach(
+                        function (link) {
+                            link.setAttribute("tabIndex", sidebar === "visible" ? 0 : -1);
+                        }
+                    );
+                </script>
+
+                <div id="content" class="content">
+
+                    <div>
+
+                        <img src="images/donatoni_111.jpg">
+
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Machine technical documentation</span><span class="maintenance-status"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Operational document</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="22-selezione-profilo-step-2-di-4" style="margin:0;" class="maintenance-main-title"><a class="header" href="#22-selezione-profilo-step-2-di-4"><span class="maintenance-code">DOC</span><span class="maintenance-name">2.2 SELEZIONE PROFILO (STEP 2 DI 4)</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document DOC" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="2.2 SELEZIONE PROFILO (STEP 2 DI 4)"--><p local-id="0f6ca5c8-1189-3899-a813-65160d4c0e12">La sezione precedentemente disegnata deve essere applicata su un opportuno profilo.</p><p local-id="09f3c74c-2af7-301f-8e33-9f749ca98d55">Il profilo può essere lineare o ad arco, nel piano X/Y o anche verticale; in base alla selezione verranno poi abilitate o disabilitate alcune modalità di lavoro. Così, ad esempio, un profilo ad arco nel piano XY può essere lavorato solo con disco verticale e viceversa per un profilo ad arco nel piano XZ o YZ.</p><p local-id="4803f234-014e-3b5b-8805-3a1ce1cb026f">La tipologia di profilo viene scelta con i pulsanti sulla sinistra; al centro in alto vengono mostrati i parametri per descrivere geometricamente il profilo e nella parte centrale in basso viene mostrata l’anteprima del risultato.</p><div class="TextAlignCenter"><img src="attachments/2.2_selezione_profilo_(step_2_di_4)/p15_01.png" alt="Selezione profilo" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p>
+</p>
+<div id="admonition-nota-editoriale" class="admonition admonish-info" role="note" aria-labelledby="admonition-nota-editoriale-title">
+<div class="admonition-title">
+<div id="admonition-nota-editoriale-title">
+<p>Nota editoriale</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-nota-editoriale"></a>
+</div>
+<div>
+<p>Il documento sorgente contiene indicazioni discordanti sull’orientamento del disco. Consultare la
+<br>
+segnalazione in Orientamento lavorazione</p>
+</div>
+</div>
+<p local-id="102089940f2f"></p><h1 local-id="3d695c38-aef7-34f8-8fb3-06070964cf1d">Profilo lineare</h1><p local-id="60f29b5d-6b8e-3546-80fb-a8ae15fe1d2f">Si imposta la direzione e la lunghezza. Il valore <strong>Delta Z</strong> segue come segno l’asse Z: positivo verso l’alto, negativo verso il basso.</p><h2 local-id="25bc026a-0eb7-3da6-ab3d-b6a3179a600c" class="maintenance-section-title" data-section-number="01">Parametri</h2><table class="my-table2" data-table-width="1800.0" data-layout="default" ac:local-id="b29e7a2e-86e5-3663-a940-1176b5aebed2"><tbody><tr ac:local-id="a4f34776-dafd-3c4e-a72c-bbc14959b462"><td ac:local-id="1229be30-245d-3381-8363-d27d04ae4860"><p local-id="df2aa813-acaf-32f3-abc4-82e702cf760e"><strong>Esecuzione Profilo</strong></p></td><td ac:local-id="e056a524-7c1b-3ef0-8f55-2f11c72de939"><p local-id="c268413e-9932-3fd0-8e4f-30b1df0956bc">Scelta tra <strong>Lungo X</strong> e <strong>Lungo Y</strong>.</p></td></tr><tr ac:local-id="0e13424a-a1b8-3d87-b3c3-f85bd86047d9"><td ac:local-id="eac2529c-5878-36cb-82e7-93effff07abf"><p local-id="228e5baa-27a9-3cce-b5b2-6d381333235e"><strong>Lunghezza linea (L)</strong></p></td><td ac:local-id="a939a299-d274-349f-802c-4fb7c016ad5e"><p local-id="9f66105c-7ae3-359d-b6eb-96fd5820ddb5">Lunghezza orizzontale della base del tratto inclinato, misurata tra il punto di partenza e il punto finale proiettato orizzontalmente.</p></td></tr><tr ac:local-id="0021e477-2f94-34a0-a750-36ee85444762"><td ac:local-id="a9ed3e33-4c1d-333e-b819-92fb72be2ac0"><p local-id="76a5f2c3-4b68-3c38-b57e-c244590b8457"><strong>Delta Z punto finale (H)</strong></p></td><td ac:local-id="f0e01a81-447c-3ffb-adc9-1887e0ca8907"><p local-id="45f3b555-37ad-3e53-a9c4-c24d73af6132">Differenza di quota tra l’inizio e la fine del segmento.</p></td></tr></tbody></table><p local-id="41f57564020c"></p><h1 local-id="f7d80682-3312-37d2-8a8c-b672a4e27845">Profilo ad arco</h1><div class="TextAlignCenter"><img src="attachments/2.2_selezione_profilo_(step_2_di_4)/p15_02.png" alt="Parametri del profilo ad arco" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="6a3a4b88-1e29-3587-ad0c-ad99e00c390a">Si definiscono direzione, piano di lavoro, concavità e caratteristiche geometriche. Ogni variazione delle caratteristiche geometriche ha ripercussione su altre variabili.</p>
+<div id="admonition-nota" class="admonition admonish-info" role="note" aria-labelledby="admonition-nota-title">
+<div class="admonition-title">
+<div id="admonition-nota-title">
+<p>NOTA</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-nota"></a>
+</div>
+<div>
+<p>Il raggio massimo impostabile è 9999 mm.</p>
+</div>
+</div>
+<h2 local-id="f07bb9fb-f09a-39c7-8925-3d4fcf18b54b" class="maintenance-section-title" data-section-number="02">Parametri</h2><table class="my-table2" data-table-width="1800.0" data-layout="default" ac:local-id="89368f5e-3bd0-33bd-9959-ae8ebdf4d211"><tbody><tr ac:local-id="03ce8921-9aea-37d6-aa45-990ddb36d85a"><td ac:local-id="92008e86-0508-33b4-8fc4-e8f1047f8249"><p local-id="6461b042-035e-349e-87c2-5132147504b8"><strong>Esecuzione Profilo</strong></p></td><td ac:local-id="008c29b5-338d-3b6f-93c2-c7fdeb5ff37c"><p local-id="566920e5-0caf-332a-ac43-e7e68dc78681">Scelta tra <strong>Lungo X</strong> e <strong>Lungo Y</strong>.</p></td></tr><tr ac:local-id="3cbc37b7-6ae9-3dfa-92a7-f66ceecd5738"><td ac:local-id="b7244316-ff94-38db-8b3c-dc5a70c2d6f4"><p local-id="8672b053-7bd8-36e7-a6ad-f03df2722d72"><strong>Orientamento lavorazione</strong></p></td><td ac:local-id="bb3908dc-251d-3ba9-9284-826d54fd4e75"><p local-id="f7c853a2-a562-30e1-8ed5-c7b094e4ff69">Scelta del piano di lavoro previsto per il profilo.</p></td></tr><tr ac:local-id="4b7dd8fb-7bb1-38ee-adcb-5a4d0206a226"><td ac:local-id="6dbaa30d-5fcd-3831-bbf9-75b37b7be9e3"><p local-id="da08ee15-df40-3df2-ac89-dbb782d5fb2f"><strong>Tipo di lavorazione</strong></p></td><td ac:local-id="3509ac15-c6c3-3b26-947e-1de796ed6724"><p local-id="975dd29c-b154-3c0b-beb7-9c5cec62fd60">Scelta tra profilo <strong>Concavo</strong> e <strong>Convesso</strong>.</p></td></tr><tr ac:local-id="6400b3ca-3783-30f1-bbdd-c952d881c641"><td ac:local-id="81fd6b80-d3bd-38f6-b8ca-86e85c9fc1ee"><p local-id="2efca2bc-967a-3d59-90c6-8d32f5a89c69"><strong>Lunghezza (L)</strong></p></td><td ac:local-id="b541ee6b-5fb0-3832-8b6d-97e04cdbd7de"><p local-id="6eed5730-56e2-3b4c-9b40-8a1ba9a47acd">Distanza orizzontale tra i due estremi dell’arco, cioè la corda che collega inizio e fine.</p></td></tr><tr ac:local-id="63c62775-a8e9-364f-b4d8-fc132efad401"><td ac:local-id="00a3dc1a-d268-3249-9bdd-4d79a072c648"><p local-id="cdc85c0f-e87d-3300-ad25-06fc12cb9c2e"><strong>Raggio di partenza (R)</strong></p></td><td ac:local-id="58485673-79f3-3ac5-b90b-ddc544f6e990"><p local-id="e6ef589b-5ff8-3f01-931b-b92e9096318a">Distanza dal centro dell’arco al punto dell’arco stesso; determina la curvatura complessiva.</p></td></tr><tr ac:local-id="fe5a6b3b-0019-3bed-8472-33a0120982f2"><td ac:local-id="02eb4e23-1493-3c36-9973-e6e6704327c0"><p local-id="214fa9fa-7d65-3020-a2c4-67f553a0c3b7"><strong>Sviluppo in verticale (H)</strong></p></td><td ac:local-id="92625fc0-1b27-33df-b825-c77aa63db397"><p local-id="e4b40bab-1b19-3e85-aa21-6766b89db5b8">Altezza massima dell’arco rispetto alla corda L.</p></td></tr><tr ac:local-id="cf7d5bb0-a598-3d11-ac8f-047a61661fd5"><td ac:local-id="2fd346bf-4800-3df6-94fb-659de991659f"><p local-id="69fa861e-3659-308a-bf60-022e3acf9a26"><strong>Ampiezza angolo (A)</strong></p></td><td ac:local-id="360b7caa-6ef9-3ab4-b97e-768cbf7454cd"><p local-id="c74b0f93-9ab4-3b60-87a7-c3613812edda">Angolo al centro sotteso dall’arco, espresso in gradi.</p></td></tr></tbody></table>
+<div id="admonition-nota-1" class="admonition admonish-info" role="note" aria-labelledby="admonition-nota-1-title">
+<div class="admonition-title">
+<div id="admonition-nota-1-title">
+<p>NOTA</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-nota-1"></a>
+</div>
+<div>
+<p>La modifica di Lunghezza, Raggio di partenza, Sviluppo in verticale o Ampiezza dell’angolo comporta il ricalcolo automatico dei parametri rimanenti.</p>
+</div>
+</div>
+<p local-id="83a9a588c3f9"></p><h1 local-id="0d4f8832-df99-363d-8aad-0905438404a2">Profilo a cerchio</h1><p local-id="80a2d976-0797-3fef-b396-7ffe2c951193">Verrà lavorato solo esternamente con disco orizzontale. Il flag <strong>Carter</strong> indica se nella fase di lavoro l’asse C ruota (custodia attiva) o rimane fermo con C = 0_ (custodia non presente).</p><h2 local-id="5ec15a53-d20c-37ae-af90-7acfdac3bfcd" class="maintenance-section-title" data-section-number="03">Parametri profilo a cerchio</h2><table class="my-table2" data-table-width="1800.0" data-layout="default" ac:local-id="42b739e6-eabe-3eda-8f99-753650243325"><tbody><tr ac:local-id="603ec5f4-e8e8-39d3-a7c6-9512860d8f0f"><td ac:local-id="24ac65ad-7d5d-3331-a184-85dc38ab77b4"><p local-id="820a451b-1878-3f84-889f-0e438baa93ec"><strong>Raggio di partenza (R)</strong></p></td><td ac:local-id="4974748c-b200-316f-aedf-ff675f9c9fa0"><p local-id="7bc01694-13af-3ffe-859e-ac977734787c">Determina il raggio dal punto di partenza.</p></td></tr><tr ac:local-id="28b8065b-690a-39ee-b315-adf3d27167f5"><td ac:local-id="a51d19db-2112-378f-8c95-24934e47fc34"><p local-id="27377dbe-dcd2-3eee-95b7-7d2139626cfb"><strong>Carter</strong></p></td><td ac:local-id="7556dd10-aceb-3384-8d26-5f4a36544ab6"><p local-id="33c058a7-9e85-362a-bca8-32569df0db48">Indica se durante la lavorazione l’asse C ruota oppure rimane fermo con C = 0_.</p></td></tr></tbody></table><!--Label="tit_paa"-->
+                        </main>
+
+                    </div>
+
+                    <img src="images/donatoni_222.jpg">
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="2.1.5_raccorda.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="2.3_parametri_di_lavoro_(step_3_di_4).html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+
+
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                <a rel="prev" href="2.1.5_raccorda.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="2.3_parametri_di_lavoro_(step_3_di_4).html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="mermaid.min.js"></script>
+        <script src="mermaid-init.js"></script>
+        <script src="hidemenu.js"></script>
+        <script src="imagemodal.js"></script>
+        <script src="login.js"></script>
+    </div>
+
+    <!-- Modale -->
+    <div id="modal" onclick="closeModal()">
+        <img id="modal-img" src="">
+    </div>;
+
+
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
+
+<script id="virtual-keyboard-searchbar-fix">
+document.addEventListener("input", function (e) {
+    const t = e.target;
+    if (t && t.id === "searchbar" && e.isTrusted !== true) {
+        t.dispatchEvent(new KeyboardEvent("keyup", { bubbles: true }));
+    }
+});
+</script>
+</body>
+</html>

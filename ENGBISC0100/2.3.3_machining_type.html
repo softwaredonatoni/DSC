@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+<head>
+    <!-- Book generated using mdBook -->
+    <meta charset="UTF-8">
+    <title>2.3.3 MACHINING TYPE - EN-GB ISOCAM 1.0</title>
+
+    <!-- Custom HTML head -->
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="icon" href="favicon.svg">
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/chrome.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Fonts -->
+    <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+    <link rel="stylesheet" href="fonts/fonts.css">
+
+    <!-- Highlight.js Stylesheets -->
+    <link rel="stylesheet" id="highlight-css" href="highlight.css">
+    <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+    <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+    <!-- Custom theme stylesheets -->
+    <link rel="stylesheet" href="./mdbook-admonish.css">
+    <link rel="stylesheet" href="theme/custom.css">
+    <link rel="stylesheet" href="search.html">
+    <link rel="stylesheet" href="login.html">
+    <link rel="stylesheet" href="searchlogin.html">
+    <link rel="stylesheet" href="searchloginmenu.html">
+
+    <!-- Provide site root and default themes to javascript -->
+    <script>
+      const path_to_root = "";
+      const default_light_theme = "light";
+      const default_dark_theme = "light";
+    </script>
+    <!-- Start loading toc.js asap -->
+    <script src="toc.js"></script>
+<script>(function () {
+  const SUFFIX = "#2utHhOLI7Iz0";
+
+  function buildUrl() {
+    const base = window.location.href.split("#")[0];
+    return base + SUFFIX;
+  }
+
+  function fallbackCopy(text) {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.top = "-1000px";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+
+  async function copyUrl() {
+    const url = buildUrl();
+
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(url);
+        return;
+      } catch (e) {}
+    }
+
+    fallbackCopy(url);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.getElementById("copy-link-btn");
+    if (!btn) return;
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      copyUrl();
+    });
+  });
+})();
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-document" data-technical-styler-flow="html">
+    <header class="header-main">
+        <div class="header-flex">
+            <div class="donatoni-flex">
+                <label class="btn hamburger-menu" id="sidebar-toggle" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                    <i id="sidebar-toggle-icon" class="fa-solid fa-bars"></i>
+                </label>
+
+                <img src="images/donatoni-logo-white.svg" alt="Donatoni Macchine">
+            </div>
+
+            <div class="donatoni-flex action-header-buttons">
+                <div id="search-wrapper" class="search-wrapper hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults"></ul>
+                    </div>
+                </div>
+                <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
+                </button>
+
+                <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
+                    <i class="fa-solid fa-print"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div id="body-container">
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem("mdbook-theme");
+                let sidebar = localStorage.getItem("mdbook-sidebar");
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-theme",
+                        theme.slice(1, theme.length - 1)
+                    );
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-sidebar",
+                        sidebar.slice(1, sidebar.length - 1)
+                    );
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = "light";
+            let theme = default_theme;
+            const html = document.documentElement;
+            html.classList.remove("light");
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try {
+                    sidebar = localStorage.getItem('mdbook-sidebar');
+                } catch (e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document
+                        .getElementById("sidebar-toggle")
+                        .setAttribute("aria-expanded", sidebar === "visible");
+                    document
+                        .getElementById("sidebar")
+                        .setAttribute("aria-hidden", sidebar !== "visible");
+                    Array.from(document.querySelectorAll("#sidebar a")).forEach(
+                        function (link) {
+                            link.setAttribute("tabIndex", sidebar === "visible" ? 0 : -1);
+                        }
+                    );
+                </script>
+
+                <div id="content" class="content">
+
+                    <div>
+
+                        <img src="images/donatoni_111.jpg">
+
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Machine technical documentation</span><span class="maintenance-status"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Operational document</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="233-machining-type" style="margin:0;" class="maintenance-main-title"><a class="header" href="#233-machining-type"><span class="maintenance-code">DOC</span><span class="maintenance-name">2.3.3 MACHINING TYPE</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document DOC" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="2.3.3 MACHINING TYPE"--><p local-id="97ea25c7-0bdf-38fa-bb93-cc186a2a3025">Machining can be performed in two modes:</p><ul local-id="a72ef66cf3f0"><li local-id="236afba6dd77"><p local-id="8dc64ee9e896">Cutting</p></li><li local-id="dbd3e9401fa8"><p local-id="d1defe98fb64">Sweeping</p></li></ul><p>
+</p><h1 local-id="8af07a423c1c">Cutting</h1><p local-id="250b89182d03">In <strong>Cutting</strong> mode, parallel cuts following the selected profile are performed. The following parameters define their step, extension and direction.</p><div class="TextAlignLeft"><img src="attachments/2.3.3_machining_type/Per_Tagli_uniforme.png" alt="Per_Tagli_uniforme.png" width="265" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><div class="TextAlignCenter"><img src="attachments/2.3.3_machining_type/p17_01.png" alt="Configurazione per tagli" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><h2 local-id="988e5edc7994" class="maintenance-section-title" data-section-number="01">Parameters</h2><table class="my-table2" data-table-width="1539.0" data-layout="default" ac:local-id="23e2ca71-1524-3238-9aba-9945ee66295d"><colgroup><col style="width: 385.0px;"><col style="width: 1154.0px;"></colgroup><tbody><tr ac:local-id="467fdc41-a03c-4bec-a2de-b9ef11f067c0"><td ac:local-id="039ec1fc-91cb-44f4-bb0a-4303cc9242df"><p local-id="92b95ab12017"><strong>Step</strong></p></td><td ac:local-id="170abeda-274e-4fca-890c-ec07730139df"><p local-id="5c4e267df63d">Indicates the distance between the position of one cut and the adjacent cut. If it is greater than the blade thickness, material remains between the passes.</p></td></tr><tr ac:local-id="9cc915fa-a569-48c1-a6d3-59d185ae0671"><td ac:local-id="55d7bfa9-2648-4870-a85d-6f97c4508d11"><p local-id="dccd97ae69e8"><strong>Stock allowance</strong></p></td><td ac:local-id="bd5c6e2c-2adc-4c9b-9551-944134d96fcb"><p local-id="8b02b915d9f8">Thickness of material to be left above the required final section.</p></td></tr><tr ac:local-id="fca6dd6b-2ed9-4c4d-8f63-32a9d77df058"><td ac:local-id="8b15bdb0-884e-4763-a41d-0a279b74c4ac"><p local-id="4957f3b31291"><strong>Start/end extension</strong></p></td><td ac:local-id="27b28cca-6594-406a-8a14-91abbb5825db"><p local-id="5655c41a40ab">Extends the start or end of the cut by the set value.</p></td></tr><tr ac:local-id="790147e6-9bcc-4eac-90a5-a9bcb38381d1"><td ac:local-id="ece705a9-75f1-45d8-9561-9776dc005b25"><p local-id="99acb25dbddd"><strong>Auto Increase</strong></p></td><td ac:local-id="8aba6e3f-f527-42bd-a119-c3d22bb0bd0e"><p local-id="716095b0aaaa">When enabled, automatically increases the extension value according to the calculation performed by the system.</p></td></tr><tr ac:local-id="d293c546-d458-4d9b-a9e0-c4d9e361b3d7"><td ac:local-id="7bd751d4-5033-4e8e-8a5b-bc8906b7c2c3"><p local-id="e2f0999a7592"><strong>Cut direction</strong></p></td><td ac:local-id="74a5c872-2c83-4b54-ab78-626ab32a3805"><p local-id="11440c840cc2">Defines the direction in which the cuts are performed, from right to left or from left to right, according to the selected configuration.</p></td></tr></tbody></table><p local-id="38d94ad73c6b"></p><h1 local-id="84136448a320">Sweeping</h1><p local-id="722235b62d14">In <strong>Sweeping</strong> mode, the movement is transverse to the profile direction and is used to finish the workpiece surface.</p><div class="TextAlignLeft"><img src="attachments/2.3.3_machining_type/Spatolato_uniforme.png" alt="Spatolato_uniforme.png" width="265" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><div class="TextAlignCenter"><img src="attachments/2.3.3_machining_type/p17_02.png" alt="Configurazione spatolato" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><h2 local-id="a8d08e016cdd" class="maintenance-section-title" data-section-number="02">Parameters</h2><table class="my-table2" data-table-width="1539.0" data-layout="default" ac:local-id="6fba1a8e-d08f-33ea-b9f2-7f673cef1452"><colgroup><col style="width: 385.0px;"><col style="width: 1154.0px;"></colgroup><tbody><tr ac:local-id="5ef174c9-f62b-4125-b08b-41cdeef50421"><td ac:local-id="f9fe2c82-f170-420e-964f-5b1a9804fcf8"><p local-id="be843b6337d0"><strong>Sweep step</strong></p></td><td ac:local-id="d26eb027-860e-4b47-b320-3a1547e1d179"><p local-id="0f3faec16443">Indicates the distance between one transverse movement and the next along the profile direction.</p></td></tr><tr ac:local-id="92b8c523-f9ca-4274-8194-ecd25c3aaa9a"><td ac:local-id="d8ac0215-a674-4e66-8653-bf94ed52bf88"><p local-id="123a36015ceb"><strong>Stock allowance</strong></p></td><td ac:local-id="3bdd815a-a395-4045-8d8d-8979ac493494"><p local-id="523bf39810cf">Thickness of material to be left above the required final section.</p></td></tr></tbody></table><!--Label="tit_daa"-->
+                        </main>
+
+                    </div>
+
+                    <img src="images/donatoni_222.jpg">
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="2.3.2_machining_orientation.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="2.3.4_cutting_speed_and_mode.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+
+
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                <a rel="prev" href="2.3.2_machining_orientation.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="2.3.4_cutting_speed_and_mode.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="mermaid.min.js"></script>
+        <script src="mermaid-init.js"></script>
+        <script src="hidemenu.js"></script>
+        <script src="imagemodal.js"></script>
+        <script src="login.js"></script>
+    </div>
+
+    <!-- Modale -->
+    <div id="modal" onclick="closeModal()">
+        <img id="modal-img" src="">
+    </div>;
+
+
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
+
+<script id="virtual-keyboard-searchbar-fix">
+document.addEventListener("input", function (e) {
+    const t = e.target;
+    if (t && t.id === "searchbar" && e.isTrusted !== true) {
+        t.dispatchEvent(new KeyboardEvent("keyup", { bubbles: true }));
+    }
+});
+</script>
+</body>
+</html>

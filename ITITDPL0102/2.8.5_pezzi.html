@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+<head>
+    <!-- Book generated using mdBook -->
+    <meta charset="UTF-8">
+    <title>2.8.5 PEZZI - IT-IT D-PLANT 1.2</title>
+
+    <!-- Custom HTML head -->
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="icon" href="favicon.svg">
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/chrome.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Fonts -->
+    <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+    <link rel="stylesheet" href="fonts/fonts.css">
+
+    <!-- Highlight.js Stylesheets -->
+    <link rel="stylesheet" id="highlight-css" href="highlight.css">
+    <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+    <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+    <!-- Custom theme stylesheets -->
+    <link rel="stylesheet" href="./mdbook-admonish.css">
+    <link rel="stylesheet" href="theme/custom.css">
+    <link rel="stylesheet" href="search.html">
+    <link rel="stylesheet" href="login.html">
+    <link rel="stylesheet" href="searchlogin.html">
+    <link rel="stylesheet" href="searchloginmenu.html">
+
+    <!-- Provide site root and default themes to javascript -->
+    <script>
+      const path_to_root = "";
+      const default_light_theme = "light";
+      const default_dark_theme = "light";
+    </script>
+    <!-- Start loading toc.js asap -->
+    <script src="toc.js"></script>
+<script>(function () {
+  const SUFFIX = "#2utHhOLI7Iz0";
+
+  function buildUrl() {
+    const base = window.location.href.split("#")[0];
+    return base + SUFFIX;
+  }
+
+  function fallbackCopy(text) {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.top = "-1000px";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+
+  async function copyUrl() {
+    const url = buildUrl();
+
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(url);
+        return;
+      } catch (e) {}
+    }
+
+    fallbackCopy(url);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.getElementById("copy-link-btn");
+    if (!btn) return;
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      copyUrl();
+    });
+  });
+})();
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-document" data-technical-styler-flow="html">
+    <header class="header-main">
+        <div class="header-flex">
+            <div class="donatoni-flex">
+                <label class="btn hamburger-menu" id="sidebar-toggle" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                    <i id="sidebar-toggle-icon" class="fa-solid fa-bars"></i>
+                </label>
+
+                <img src="images/donatoni-logo-white.svg" alt="Donatoni Macchine">
+            </div>
+
+            <div class="donatoni-flex action-header-buttons">
+                <div id="search-wrapper" class="search-wrapper hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults"></ul>
+                    </div>
+                </div>
+                <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
+                </button>
+
+                <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
+                    <i class="fa-solid fa-print"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div id="body-container">
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem("mdbook-theme");
+                let sidebar = localStorage.getItem("mdbook-sidebar");
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-theme",
+                        theme.slice(1, theme.length - 1)
+                    );
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-sidebar",
+                        sidebar.slice(1, sidebar.length - 1)
+                    );
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = "light";
+            let theme = default_theme;
+            const html = document.documentElement;
+            html.classList.remove("light");
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try {
+                    sidebar = localStorage.getItem('mdbook-sidebar');
+                } catch (e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document
+                        .getElementById("sidebar-toggle")
+                        .setAttribute("aria-expanded", sidebar === "visible");
+                    document
+                        .getElementById("sidebar")
+                        .setAttribute("aria-hidden", sidebar !== "visible");
+                    Array.from(document.querySelectorAll("#sidebar a")).forEach(
+                        function (link) {
+                            link.setAttribute("tabIndex", sidebar === "visible" ? 0 : -1);
+                        }
+                    );
+                </script>
+
+                <div id="content" class="content">
+
+                    <div>
+
+                        <img src="images/donatoni_111.jpg">
+
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Machine technical documentation</span><span class="maintenance-status"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Operational document</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="285-pezzi" style="margin:0;" class="maintenance-main-title"><a class="header" href="#285-pezzi"><span class="maintenance-code">DOC</span><span class="maintenance-name">2.8.5 PEZZI</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document DOC" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="2.8.5 PEZZI"--><p local-id="a04cbd37-fb6f-38c8-87a6-d9da559db3e6">Mostra le statistiche dei pezzi scaricati dal robot.</p><div class="TextAlignCenter"><img src="attachments/2.8.5_pezzi/appplant_image146_ritaglio.png" alt="appplant_image146_ritaglio.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="9e4b1220-2798-39a6-a6c2-3652ea6ff666"></p><p>
+</p><h1 local-id="e08fecff0f39">Parametri</h1><table class="my-table2" data-table-width="1200.0" data-layout="default" ac:local-id="3a22be96-8189-3013-95d6-414568d9c9fb"><colgroup><col style="width: 300.0px;"><col style="width: 900.0px;"></colgroup><tbody><tr ac:local-id="f141552f-1d4d-3a0a-a61d-3321cf3f574f"><td ac:local-id="f42c5592-0c7f-3836-b556-8339577c535f"><p local-id="49d1abce-c94d-31de-922f-eb1b36fabf0f"><strong>Nome</strong></p></td><td ac:local-id="16a0b6c0-c195-3b7f-8598-b47755ada016"><p local-id="198411c9-de97-34e6-9846-eadfd9784d1c">nome del pezzo scaricato.</p></td></tr><tr ac:local-id="1c6195da-1778-354a-b0cb-e97ae345024a"><td ac:local-id="d93bf698-0178-3514-bbea-6f9792eadf88"><p local-id="ad5931eb-c091-3384-8f91-77a97be720ef"><strong>Nome lavorazione</strong></p></td><td ac:local-id="1a395a87-06a6-356c-bc79-938598afc653"><p local-id="8f1b3dc1-2e13-3b9a-976e-6386ceb6ef11">nome della lavorazione nella quale era presente il pezzo.</p></td></tr><tr ac:local-id="65cf6287-7164-3e8b-bd20-0d944d54056f"><td ac:local-id="cfa530d0-eb51-3f3f-ae1a-40ef49b3416b"><p local-id="a59cdd56-4f83-308d-8cc1-b942c9063f19"><strong>Commessa</strong></p></td><td ac:local-id="422180e9-31c2-33ff-a6ae-5a3522007064"><p local-id="a603b7de-2052-3ff9-9840-02db8756f6e3">numero della commessa.</p></td></tr><tr ac:local-id="175b38e2-856a-37e5-861e-2a9ef17984e1"><td ac:local-id="892af3b0-9419-3d32-b718-3ca81f111486"><p local-id="fa293f8b-c05e-31eb-bc8d-b227742a5333"><strong>Dimensione</strong></p></td><td ac:local-id="18fd638d-a4a1-32a3-94be-b6d7db0f3ea4"><p local-id="6116c626-5b59-391d-a8e8-ed9c517515d8">dimensione del pezzo scaricato.</p></td></tr><tr ac:local-id="458d2d3d-f0c7-36d8-a6e8-d06d8ef235c7"><td ac:local-id="a9d7f2fc-278a-3244-96ea-ffbc656ce174"><p local-id="ad765268-4f45-3738-8910-b4ef40b6d578"><strong>Data inizio</strong></p></td><td ac:local-id="2cb3e5de-43df-3b5c-9b01-7df186ad0424"><p local-id="73626a79-8352-3f76-8c39-50515d269caa">data inizio scarico pezzo.</p></td></tr><tr ac:local-id="561d0db4-442e-3749-9eb7-ecdcb3de0136"><td ac:local-id="10d9cb01-a3e2-3519-a994-516da9171130"><p local-id="2cb5c7b2-2e8b-32f7-ab87-f15539927684"><strong>Data fine</strong></p></td><td ac:local-id="333dfebf-f4d3-3c4c-8d48-ff7aa9fb3b8b"><p local-id="c3261d61-2cb2-3e3f-926e-8800b9412606">data fine scarico pezzo.</p></td></tr><tr ac:local-id="c6549b41-79f5-3b44-ad10-5a6f7540e11b"><td ac:local-id="25b478fd-9112-3e7e-8182-1e53694ab34d"><p local-id="f9c14854-1e3b-3acc-b20c-19b965e7b038"><strong>Tempo</strong></p></td><td ac:local-id="125744b3-062f-3353-a206-415316b36fac"><p local-id="1caebabc-14f5-3ddb-9133-8c8e702251bf">tempo utilizzato per scaricare il pezzo.</p></td></tr><tr ac:local-id="150fce3b-6676-363b-ae3b-76e2d67e83fa"><td ac:local-id="fbcfa8d0-9d35-305c-aec2-3d6b01999f9a"><p local-id="32e7e911-a159-3feb-9c76-758cf4c69c91"><strong>Lavorazione</strong></p></td><td ac:local-id="1aa1bde4-75e2-38d9-bba6-7587c2b22f60"><p local-id="f557dd89-220e-38b6-9b97-818fb4b44bcd">rimanda alla lavorazione della quale faceva parte il pezzo.</p></td></tr><tr ac:local-id="3679ac3a-5f0c-3ba9-9cab-525a99a83a27"><td ac:local-id="18d4449f-9a5a-35d3-9442-f9102be04f48"><p local-id="0816e97b-bd8f-3ede-9531-5a0dfacbf737"><strong>Contenitori</strong></p></td><td ac:local-id="19099bc6-ad4e-3fff-8bc6-d3212478ddd1"><p local-id="95f8cee6-20ed-3890-8832-41c3fb4861f6">rimanda alla lista del contenitore nella quale è stato pallettizzato il pezzo.</p></td></tr></tbody></table><!--Label="tam_paa"-->
+                        </main>
+
+                    </div>
+
+                    <img src="images/donatoni_222.jpg">
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="2.8.4_cicli_di_scarico.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="2.8.6_vista_lavorazioni.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+
+
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                <a rel="prev" href="2.8.4_cicli_di_scarico.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="2.8.6_vista_lavorazioni.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="mermaid.min.js"></script>
+        <script src="mermaid-init.js"></script>
+        <script src="hidemenu.js"></script>
+        <script src="imagemodal.js"></script>
+        <script src="login.js"></script>
+    </div>
+
+    <!-- Modale -->
+    <div id="modal" onclick="closeModal()">
+        <img id="modal-img" src="">
+    </div>;
+
+
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
+
+<script id="virtual-keyboard-searchbar-fix">
+document.addEventListener("input", function (e) {
+    const t = e.target;
+    if (t && t.id === "searchbar" && e.isTrusted !== true) {
+        t.dispatchEvent(new KeyboardEvent("keyup", { bubbles: true }));
+    }
+});
+</script>
+</body>
+</html>

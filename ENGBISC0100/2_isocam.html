@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+<head>
+    <!-- Book generated using mdBook -->
+    <meta charset="UTF-8">
+    <title>2 ISOCAM - EN-GB ISOCAM 1.0</title>
+
+    <!-- Custom HTML head -->
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="icon" href="favicon.svg">
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/chrome.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Fonts -->
+    <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+    <link rel="stylesheet" href="fonts/fonts.css">
+
+    <!-- Highlight.js Stylesheets -->
+    <link rel="stylesheet" id="highlight-css" href="highlight.css">
+    <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+    <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+    <!-- Custom theme stylesheets -->
+    <link rel="stylesheet" href="./mdbook-admonish.css">
+    <link rel="stylesheet" href="theme/custom.css">
+    <link rel="stylesheet" href="search.html">
+    <link rel="stylesheet" href="login.html">
+    <link rel="stylesheet" href="searchlogin.html">
+    <link rel="stylesheet" href="searchloginmenu.html">
+
+    <!-- Provide site root and default themes to javascript -->
+    <script>
+      const path_to_root = "";
+      const default_light_theme = "light";
+      const default_dark_theme = "light";
+    </script>
+    <!-- Start loading toc.js asap -->
+    <script src="toc.js"></script>
+<script>(function () {
+  const SUFFIX = "#2utHhOLI7Iz0";
+
+  function buildUrl() {
+    const base = window.location.href.split("#")[0];
+    return base + SUFFIX;
+  }
+
+  function fallbackCopy(text) {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.top = "-1000px";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+
+  async function copyUrl() {
+    const url = buildUrl();
+
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(url);
+        return;
+      } catch (e) {}
+    }
+
+    fallbackCopy(url);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.getElementById("copy-link-btn");
+    if (!btn) return;
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      copyUrl();
+    });
+  });
+})();
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-document" data-technical-styler-flow="html">
+    <header class="header-main">
+        <div class="header-flex">
+            <div class="donatoni-flex">
+                <label class="btn hamburger-menu" id="sidebar-toggle" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                    <i id="sidebar-toggle-icon" class="fa-solid fa-bars"></i>
+                </label>
+
+                <img src="images/donatoni-logo-white.svg" alt="Donatoni Macchine">
+            </div>
+
+            <div class="donatoni-flex action-header-buttons">
+                <div id="search-wrapper" class="search-wrapper hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults"></ul>
+                    </div>
+                </div>
+                <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
+                </button>
+
+                <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
+                    <i class="fa-solid fa-print"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div id="body-container">
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem("mdbook-theme");
+                let sidebar = localStorage.getItem("mdbook-sidebar");
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-theme",
+                        theme.slice(1, theme.length - 1)
+                    );
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-sidebar",
+                        sidebar.slice(1, sidebar.length - 1)
+                    );
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = "light";
+            let theme = default_theme;
+            const html = document.documentElement;
+            html.classList.remove("light");
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try {
+                    sidebar = localStorage.getItem('mdbook-sidebar');
+                } catch (e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document
+                        .getElementById("sidebar-toggle")
+                        .setAttribute("aria-expanded", sidebar === "visible");
+                    document
+                        .getElementById("sidebar")
+                        .setAttribute("aria-hidden", sidebar !== "visible");
+                    Array.from(document.querySelectorAll("#sidebar a")).forEach(
+                        function (link) {
+                            link.setAttribute("tabIndex", sidebar === "visible" ? 0 : -1);
+                        }
+                    );
+                </script>
+
+                <div id="content" class="content">
+
+                    <div>
+
+                        <img src="images/donatoni_111.jpg">
+
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Machine technical documentation</span><span class="maintenance-status"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Operational document</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="2-isocam" style="margin:0;" class="maintenance-main-title"><a class="header" href="#2-isocam"><span class="maintenance-code">DOC</span><span class="maintenance-name">2 ISOCAM</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document DOC" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="2 ISOCAM"--><p local-id="f1947cd5-bfe5-370b-a142-f435fd89005f">IsoCam is the software used to machine profiles with the blade. It allows users to draw or import shapes, define the profile and apply different machining methods.<br>The machining programming workflow is divided into several stages, described on the subordinate pages.</p><div class="TextAlignCenter"><img src="attachments/2_isocam/0.0-20250806-060119.png" alt="0.0-20250806-060119.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p>
+</p><h1 local-id="e360e48b-2558-392d-a201-236e551aebe3">Elements common to the various steps</h1><p local-id="d9916b38-1654-3aa5-8a40-e4fa75851fa2">The user interface consists of several areas.</p><ul local-id="ec6ec37f-22c7-451f-824e-ebc9fe376e41"><li local-id="ff61b58a-2138-4516-b562-3866ca3257a6"><p local-id="3b309d01d528"><strong>Menu: </strong>quick utilities.</p></li><li local-id="b218ce74-bcc8-46dc-a79d-a883b36e6a06"><p local-id="6ddb02bd97d4"><strong>Top bar</strong>: functions specific to the active page.</p></li><li local-id="f67caac9-b878-464f-96ea-37656c481edf"><p local-id="3b6ab341ab55"><strong>Central area</strong>: contains the drawing or active area, depending on the page.</p></li><li local-id="edeeb5dd-db75-47ea-84cf-5c1a73c1c784"><p local-id="76f74362891e"><strong>Side bar</strong>: panel containing the parameters to be modified.</p></li><li local-id="c6abd009-4f49-4d31-b4f4-ffe1c87f4949"><p local-id="9fa045cf95b7"><strong>Bottom bar</strong>: buttons generally available in several areas of the software.</p></li></ul>
+<div id="admonition-note" class="admonition admonish-info" role="note" aria-labelledby="admonition-note-title">
+<div class="admonition-title">
+<div id="admonition-note-title">
+<p>NOTE</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-note"></a>
+</div>
+<div>
+<p>All these elements vary according to the operating context.</p>
+</div>
+</div>
+<p local-id="c1f0b9bea442">The following elements always remain visible, regardless of the current stage of the process.</p><p local-id="d51ab72506e7"></p><h2 local-id="a0a5e1ba-6eea-3524-abf1-88016a8cc0b4" class="maintenance-section-title" data-section-number="01">Menu</h2><p local-id="1adcc892890e">The menu bar is located at the top, above all other elements of the interface.</p><table class="my-table2" data-table-width="1800.0" data-layout="align-start" ac:local-id="6f224507-9283-43b4-9c55-ad455f9c443f"><colgroup><col style="width: 269.0px;"><col style="width: 1530.0px;"></colgroup><tbody><tr ac:local-id="9ed5effe-6e30-4b45-b4b7-1fb437741f30"><td ac:local-id="3b448819-a4bb-4bf4-9290-66e4b26c05b5"><p local-id="0f6d4b254562"><strong>View</strong></p></td><td ac:local-id="7ee57f27-11c1-4696-9ed4-e45e6cdb5d59"><p local-id="fb8fbe04f165">The operator can use several settings relating to the visibility of the workpieces in the work area.</p></td></tr><tr ac:local-id="66a81c42-83a3-4cd0-9611-ba4ebd27f9b9"><td ac:local-id="a2a18b77-d32b-4940-ad57-8c01534f5bcc"><p local-id="4fbe6efcb8a8"><strong>Options</strong></p></td><td ac:local-id="08f361d1-fe3b-4beb-b564-6ad48b39113b"><p local-id="14d3c0327890">Colour settings can be changed.</p></td></tr><tr ac:local-id="761f059f-c0e7-4f44-820b-862d4bbd6287"><td ac:local-id="3362f099-0eab-4c74-8b35-3071d1bbe04e"><p local-id="867b40b5587e"><strong>Language</strong></p></td><td ac:local-id="451f3379-10d7-4f29-a584-3906408e9c3e"><p local-id="761d14be844e">ISOCAM is currently available in the following languages:</p><ul local-id="7133ebb4-6a0a-4145-8aa0-80691ae069a5"><li local-id="2cab01c4-d1d0-414c-ab69-8b3d59170f21"><p local-id="fcffc7c2a994">German</p></li><li local-id="2780a5eb-2292-4927-b98b-3e05d311d23a"><p local-id="bd404c0ffdaa">English</p></li><li local-id="79fccfb7-dfe8-462d-a50c-b596f8671528"><p local-id="a9a6f4483c2b">Spanish</p></li><li local-id="5ef12eb8-c7a9-40f2-ae9c-4cacca9bbe63"><p local-id="55e9441efe54">French</p></li><li local-id="702b6440-c735-4efa-88db-6ad968b0b330"><p local-id="51bbc209b940">Italian</p></li><li local-id="68264731-bd28-4ccb-9c52-b20510810ea9"><p local-id="5498b472b927">Portuguese</p></li></ul></td></tr></tbody></table><p local-id="1e8ac22a9d84"></p><h2 local-id="91b7b749-e4ae-3081-b3e9-7dda4e769609" class="maintenance-section-title" data-section-number="02">Right side bar</h2><table class="my-table2" data-table-width="1800.0" data-layout="align-start" ac:local-id="15f40c20-d2ea-44bb-a67a-08553ab225b9"><colgroup><col style="width: 557.0px;"><col style="width: 1239.0px;"></colgroup><tbody><tr ac:local-id="f741bb08-e023-4cc2-bf23-071fe32b0c68"><td ac:local-id="9b77e14a-aa99-4c8b-a4ed-51749213b0d3"><div class="TextAlignCenter"><img src="attachments/2_isocam/1.2.1-20250730-093200.png" alt="1.2.1-20250730-093200.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="b856c1df-26ec-47af-a58c-c61b6595757c"><p local-id="66443a7764cd"><strong>Settings</strong><br>Opens the settings panel in the centre of the page.</p></td></tr><tr ac:local-id="f9a50a69-7cf8-4a64-bda4-195bbafb29f4"><td ac:local-id="45f29501-948a-442f-953d-0f4ead6ca21a"><div class="TextAlignCenter"><img src="attachments/2_isocam/1.2.2-20250730-093321.png" alt="1.2.2-20250730-093321.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="c2255d9e-450a-4b6d-9834-ae6416a54ad6"><p local-id="f85cb3cb6af6"><strong>Info</strong><br>Opens a small panel containing useful information and contact details.</p></td></tr><tr ac:local-id="29d7fdfb-8588-47db-9f26-208b111873bf"><td ac:local-id="e9ec054b-72ca-4f83-b4e6-b4f71285b4fb"><div class="TextAlignCenter"><img src="attachments/2_isocam/1.2.3-20250730-093452.png" alt="1.2.3-20250730-093452.png" width="337" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="0ec19ec9-87c6-4625-92fa-5c51443e83cd"><p local-id="895398946f38"><strong>Step Management</strong><br>This section allows users to move forwards and backwards through the different steps of the operating workflow.</p></td></tr><tr ac:local-id="6e0a6a39-1646-4431-8c15-2b6b655ea586"><td ac:local-id="e0ed4a2f-61ba-4a3d-a616-ff633267d90a"><div class="TextAlignCenter"><img src="attachments/2_isocam/1.2.4-20250730-093522.png" alt="1.2.4-20250730-093522.png" width="337" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="e035dc07-cafb-47c5-a707-f413b879ed83"><p local-id="92678a544289"><strong>Close</strong><br>Pressing the button closes the <strong>IsoCam</strong> program.</p></td></tr></tbody></table><p local-id="8bb5908aa92c"></p><h2 local-id="2aeb2fa1-ba52-3181-9823-309850726eec" class="maintenance-section-title" data-section-number="03">Settings</h2><p local-id="a555c463a8ea">This panel allows users to switch to <strong>IsoCam</strong>Advanced mode, return to the <strong>basic</strong>version and change the <strong>X and Y Grid Step</strong></p><div class="TextAlignCenter"><img src="attachments/2_isocam/1.2.1.0-20250801-124523.png" alt="1.2.1.0-20250801-124523.png" width="293" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="546dbf5eaec3"></p><h2 local-id="ee85ad4c-58ea-37fe-8669-d43a2470442d" class="maintenance-section-title" data-section-number="04">Bottom bar</h2><p local-id="8699f5b0-a4cf-3346-8978-0a78d4466ae1">Contains the common commands used to manage the current machining operation.</p><table class="my-table2" data-table-width="1800.0" data-layout="align-start" ac:local-id="20375b56-8f17-42f3-bf9d-853b728e762c"><colgroup><col style="width: 393.0px;"><col style="width: 1404.0px;"></colgroup><tbody><tr ac:local-id="18015403-e0f6-4444-9570-6c5820c096f7"><td ac:local-id="a14a4678-5c2f-4840-bd6d-a8ea55e58e1d"><div class="TextAlignCenter"><img src="attachments/2_isocam/PulsanteNuovaLavorazione-20250612-071704.png" alt="PulsanteNuovaLavorazione-20250612-071704.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="87cbc30e-a01a-4f29-9fb8-418fb2ec7733"><p local-id="d903a09cb116"><strong>New machining operation</strong><br>Opens a new blank IsoCam window and resets the operating workflow to Step 1 of 4.</p></td></tr><tr ac:local-id="45afb440-516d-4f67-8b63-e696524d18a3"><td ac:local-id="5febd2dd-8e35-4214-8469-8b1f979b10fa"><div class="TextAlignCenter"><img src="attachments/2_isocam/5_OffOn-20250714-111837.png" alt="5_OffOn-20250714-111837.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="c0470672-eb48-4139-bd71-960e0e316a9f"><p local-id="c0619dbbd393"><strong>Open machining operation</strong><br>Opens a previously saved machining operation.</p></td></tr><tr ac:local-id="77dba355-a513-42c3-bc31-182264d84dac"><td ac:local-id="7c3a7232-b24d-4d3b-b305-44f713142706"><div class="TextAlignCenter"><img src="attachments/2_isocam/4_OffOn-20250714-111851.png" alt="4_OffOn-20250714-111851.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="169e2ad7-9cfd-4463-bb41-43b30495faa1"><p local-id="b3e034153772"><strong>Save machining operation</strong><br>Saves the changes made to a machining operation.</p></td></tr><tr ac:local-id="ac681cc7-86f5-4662-b2fd-f146612a6c6e"><td ac:local-id="3e260b31-6166-4d5e-9c0f-7cf990e53fe1"><div class="TextAlignCenter"><img src="attachments/2_isocam/1.3.4-20250730-094226.png" alt="1.3.4-20250730-094226.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="b23c91f4-6a7c-4c8b-ab5a-f846304b2c1b"><p local-id="8d2f881d859e"><strong>Edit machining operation</strong><br>Returns the operating workflow to Step 1 of 4, allowing changes to be made to the machining operation currently in use.</p></td></tr></tbody></table><!--Label="tit_iso"-->
+                        </main>
+
+                    </div>
+
+                    <img src="images/donatoni_222.jpg">
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="1_introduction.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="2.1_section_drawing_(step_1_of_4).html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+
+
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                <a rel="prev" href="1_introduction.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="2.1_section_drawing_(step_1_of_4).html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="mermaid.min.js"></script>
+        <script src="mermaid-init.js"></script>
+        <script src="hidemenu.js"></script>
+        <script src="imagemodal.js"></script>
+        <script src="login.js"></script>
+    </div>
+
+    <!-- Modale -->
+    <div id="modal" onclick="closeModal()">
+        <img id="modal-img" src="">
+    </div>;
+
+
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
+
+<script id="virtual-keyboard-searchbar-fix">
+document.addEventListener("input", function (e) {
+    const t = e.target;
+    if (t && t.id === "searchbar" && e.isTrusted !== true) {
+        t.dispatchEvent(new KeyboardEvent("keyup", { bubbles: true }));
+    }
+});
+</script>
+</body>
+</html>

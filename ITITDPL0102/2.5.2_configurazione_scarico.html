@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+<head>
+    <!-- Book generated using mdBook -->
+    <meta charset="UTF-8">
+    <title>2.5.2 CONFIGURAZIONE SCARICO - IT-IT D-PLANT 1.2</title>
+
+    <!-- Custom HTML head -->
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="icon" href="favicon.svg">
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/chrome.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Fonts -->
+    <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+    <link rel="stylesheet" href="fonts/fonts.css">
+
+    <!-- Highlight.js Stylesheets -->
+    <link rel="stylesheet" id="highlight-css" href="highlight.css">
+    <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+    <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+    <!-- Custom theme stylesheets -->
+    <link rel="stylesheet" href="./mdbook-admonish.css">
+    <link rel="stylesheet" href="theme/custom.css">
+    <link rel="stylesheet" href="search.html">
+    <link rel="stylesheet" href="login.html">
+    <link rel="stylesheet" href="searchlogin.html">
+    <link rel="stylesheet" href="searchloginmenu.html">
+
+    <!-- Provide site root and default themes to javascript -->
+    <script>
+      const path_to_root = "";
+      const default_light_theme = "light";
+      const default_dark_theme = "light";
+    </script>
+    <!-- Start loading toc.js asap -->
+    <script src="toc.js"></script>
+<script>(function () {
+  const SUFFIX = "#2utHhOLI7Iz0";
+
+  function buildUrl() {
+    const base = window.location.href.split("#")[0];
+    return base + SUFFIX;
+  }
+
+  function fallbackCopy(text) {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.top = "-1000px";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+
+  async function copyUrl() {
+    const url = buildUrl();
+
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(url);
+        return;
+      } catch (e) {}
+    }
+
+    fallbackCopy(url);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.getElementById("copy-link-btn");
+    if (!btn) return;
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      copyUrl();
+    });
+  });
+})();
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-document" data-technical-styler-flow="html">
+    <header class="header-main">
+        <div class="header-flex">
+            <div class="donatoni-flex">
+                <label class="btn hamburger-menu" id="sidebar-toggle" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                    <i id="sidebar-toggle-icon" class="fa-solid fa-bars"></i>
+                </label>
+
+                <img src="images/donatoni-logo-white.svg" alt="Donatoni Macchine">
+            </div>
+
+            <div class="donatoni-flex action-header-buttons">
+                <div id="search-wrapper" class="search-wrapper hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults"></ul>
+                    </div>
+                </div>
+                <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
+                </button>
+
+                <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
+                    <i class="fa-solid fa-print"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div id="body-container">
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem("mdbook-theme");
+                let sidebar = localStorage.getItem("mdbook-sidebar");
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-theme",
+                        theme.slice(1, theme.length - 1)
+                    );
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-sidebar",
+                        sidebar.slice(1, sidebar.length - 1)
+                    );
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = "light";
+            let theme = default_theme;
+            const html = document.documentElement;
+            html.classList.remove("light");
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try {
+                    sidebar = localStorage.getItem('mdbook-sidebar');
+                } catch (e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document
+                        .getElementById("sidebar-toggle")
+                        .setAttribute("aria-expanded", sidebar === "visible");
+                    document
+                        .getElementById("sidebar")
+                        .setAttribute("aria-hidden", sidebar !== "visible");
+                    Array.from(document.querySelectorAll("#sidebar a")).forEach(
+                        function (link) {
+                            link.setAttribute("tabIndex", sidebar === "visible" ? 0 : -1);
+                        }
+                    );
+                </script>
+
+                <div id="content" class="content">
+
+                    <div>
+
+                        <img src="images/donatoni_111.jpg">
+
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Machine technical documentation</span><span class="maintenance-status"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Operational document</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="252-configurazione-scarico" style="margin:0;" class="maintenance-main-title"><a class="header" href="#252-configurazione-scarico"><span class="maintenance-code">DOC</span><span class="maintenance-name">2.5.2 CONFIGURAZIONE SCARICO</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document DOC" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="2.5.2 CONFIGURAZIONE SCARICO"--><p local-id="2005a9c8-481b-3c9c-b22f-74e0bf3cc982">In questo menu è possibile visualizzare i parametri riguardanti le stazioni di scarico.</p><div class="TextAlignCenter"><img src="attachments/2.5.2_configurazione_scarico/appplant_image84.png" alt="appplant_image84.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="b87abec8-021c-3607-ba8b-2f061cffd9e2"></p><p>
+</p><h1 local-id="ce254075d78d">Parametri</h1><table class="my-table2" data-table-width="1200.0" data-layout="default" ac:local-id="1b060ec2-4571-3484-9606-3c99bb31fee2"><colgroup><col style="width: 300.0px;"><col style="width: 900.0px;"></colgroup><tbody><tr ac:local-id="6734cb54-cf5e-3a64-8f9f-fd67eac56bda"><td ac:local-id="5608e3f6-cd1b-3f23-8011-8d5f1caf8566"><p local-id="c1a554e5-650d-3b6c-b904-d7e7d0c99eab"><strong>Numero</strong></p></td><td ac:local-id="45e8aea0-46c5-3711-9986-e07858c59ef6"><p local-id="e0a535ff-6e97-3622-b2ae-dfd6d19d611e">Numero della stazione.</p></td></tr><tr ac:local-id="d7146849-46a7-3fe2-809a-9709a708d172"><td ac:local-id="d269935b-0cf8-37c4-ad50-b3b55c49a7b3"><p local-id="6e1568e7-73e7-3724-9ac1-37df2d7fb7a7"><strong>Lunghezza</strong></p></td><td ac:local-id="055794c5-5443-34c5-a364-cfcea811022b"><p local-id="4c7a7f65-35d5-3eca-8d49-597eb5830721">Lunghezza della stazione di pallettizzazione.</p></td></tr><tr ac:local-id="2251ecaf-4cb8-3965-8921-f77fef8de330"><td ac:local-id="98178e18-c1ab-31b4-8537-310d7a078eaa"><p local-id="87bf5ec2-1d73-3b40-8ca4-f7980410c16a"><strong>Larghezza</strong></p></td><td ac:local-id="a24edb38-040a-3688-97aa-d2689298c764"><p local-id="d79bda19-20a8-35f0-b648-633342297095">Larghezza della stazione di pallettizzazione.</p></td></tr><tr ac:local-id="1ea24f67-df8d-3108-b498-01d7c3fcfbd4"><td ac:local-id="8b3ad5a1-568f-3924-8cc7-f424809b2fcb"><p local-id="a8d80a34-4e32-3c8b-aee9-dcafad86165b"><strong>Numero base</strong></p></td><td ac:local-id="527a0024-756e-36a7-8609-c6a1c229fa06"><p local-id="7495b385-f36a-315d-8ad6-c6c0478288f0">Numero della base utilizzata per quella stazione.</p></td></tr><tr ac:local-id="a01dad9c-c10d-3e2d-9bed-f5aab1197228"><td ac:local-id="ca4346c8-81de-3978-aeec-4d64d4582467"><p local-id="a0103446-0cda-3e65-a891-3cc34c9396ae"><strong>Contenitore</strong></p></td><td ac:local-id="755cba47-1439-34e7-84be-7e6949b2ad29"><p local-id="486b7155-186d-3d0b-bee2-96b935c17038">NPal contenuto nella stazione.</p></td></tr><tr ac:local-id="09f83d22-9b93-302f-bae3-da49bcc625d5"><td ac:local-id="69287174-dd3b-30dd-b3fc-39f4b2916cc7"><p local-id="d4a59080-cc0f-3ec3-90a0-d7509b7062c1"><strong>Tipo contenitore</strong></p></td><td ac:local-id="fd2353cd-c205-3cee-a356-205cd5f680a9"><p local-id="bc4f47cb-abb0-300c-92b5-f834c3d756e5">PalType contenuto nella stazione.</p><div class="TextAlignCenter"><img src="attachments/2.5.2_configurazione_scarico/appplant_image85.png" alt="appplant_image85.png" width="550" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td></tr><tr ac:local-id="b70083ba-c345-3623-ab5c-5baea42a0ebd"><td ac:local-id="18eb063f-ac5e-36db-8810-eaa8b52ea6be"><p local-id="924f82af-674f-37bb-93a1-6d9807dccb95"><strong>Quota minima profondità pallet</strong></p></td><td ac:local-id="541b2100-74a5-3a81-abaf-8eaaa9493ff9"><p local-id="169ccd5e-a74f-377a-b705-e79439bc6534">Profondità rispetto l’origine stazione oltre la quale il robot non può andare.</p></td></tr><tr ac:local-id="a75fbb25-6e06-3dcd-8924-079049a6ad84"><td ac:local-id="f9bf1046-eb01-330c-bdbe-4374a8aeb52b"><p local-id="845f07ed-84ab-3386-8bc5-124f493df4aa"><strong>Quota minima profondità cassa</strong></p></td><td ac:local-id="4e56db77-8dff-366b-ae77-0d414d697b04"><p local-id="538fbebd-c407-3f47-9c63-16ab68d649fb">Profondità rispetto l’origine stazione oltre la quale il robot non può andare.</p></td></tr><tr ac:local-id="1bc4483d-6cc3-3f4c-a293-312512443275"><td ac:local-id="368ff55b-4088-3989-afff-4dad9e92eb1b"><p local-id="9468a782-9bd6-30f8-acad-2b66ea1f654f"><strong>Quota minima profondità lettino</strong></p></td><td ac:local-id="84e0e7a2-883c-3b33-8691-fbc82f363705"><p local-id="5e4ee9e9-619c-3974-97fa-465906047177">Profondità rispetto l’origine stazione oltre la quale il robot non può andare.</p></td></tr><tr ac:local-id="4d858d98-2add-3141-a666-ef5f2fabbc81"><td ac:local-id="3cb12f46-1aae-37e8-9bc7-fbe69d4f1e0c"><p local-id="19e1b9bd-f09d-322f-a686-5da1bebd4174"><strong>Preview length</strong></p></td><td ac:local-id="de8d4dff-4dc5-3727-ac7e-437f04b59cfd"><p local-id="4e451024-b46d-3ec1-9277-8f0e2ed14645">Lunghezza della stazione nel menu “configura preview stazioni”.</p></td></tr><tr ac:local-id="11353de6-073e-3f63-9241-0338cf392ea6"><td ac:local-id="98073566-88e4-3d0d-8a30-ebb4b640a2d2"><p local-id="b2ee82db-5b16-3d24-809f-1ad106f6e375"><strong>Preview width</strong></p></td><td ac:local-id="eb8f8d89-0d33-3d52-a22b-55fec31862ca"><p local-id="838e2d85-8568-38a9-ae33-1add415035cb">Larghezza della stazione nel menu “configura preview stazioni”.</p></td></tr><tr ac:local-id="ace234b3-5ca7-3f6d-b3a9-5fbc948c1b56"><td ac:local-id="39f1c466-99f0-3cbd-86ed-86ce2041752f"><p local-id="11206cb0-c074-3cb3-8ab1-6b0edff04b8e"><strong>Preview posizione X</strong></p></td><td ac:local-id="0a55bfdd-ee2a-3a79-815c-d78f13c9efce"><p local-id="f80b32de-9828-3ecf-8352-92cac2bfcf50">Posizione X della stazione nel menu “configura preview stazioni”.</p></td></tr><tr ac:local-id="d12c16c6-3b75-31a2-9d37-afd2e628011c"><td ac:local-id="4a3db12c-3080-34fb-a9de-38eb7bda88be"><p local-id="93738137-e1f3-3a94-ae26-05617add0f06"><strong>Preview posizione Y</strong></p></td><td ac:local-id="d89befd7-df60-315a-adad-f46659d51086"><p local-id="e0a2f01d-f1c0-3cb0-b900-4cc370cfee8c">Posizione Y della stazione nel menu “configura preview stazioni”.</p></td></tr><tr ac:local-id="9eefc0a0-318b-3360-a156-3cd16b146e04"><td ac:local-id="ee6af4ed-2859-3f75-8896-f1e02e41cbdd"><p local-id="5beae0fa-4f8f-39e0-b6d4-242ca237f1f1"><strong>Preview rotazione</strong></p></td><td ac:local-id="7e4a2389-8c00-331b-b27c-c9b7a4260bed"><p local-id="5045c61f-1fc7-323c-8667-695ee94bdb4e">Rotazione della stazione nel menu “configura preview stazioni”.</p></td></tr></tbody></table><p local-id="e02a6dd4-86ef-3679-a662-a2a69531b061"></p><h1 local-id="10a3bb3958cb">Riscontri</h1><p local-id="9299b39b912e">Quota dei riscontri utilizzati rispetto alla base della stazione</p><div class="TextAlignCenter"><img src="attachments/2.5.2_configurazione_scarico/appplant_image86.png" alt="appplant_image86.png" width="605" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="d2005c3bd8ed"></p><h1 local-id="f83dde2d061b">Opzioni Preview</h1><p local-id="b98278224afa">Premendo il pulsante collocato in alto a destra sarà possibile visualizzare un menù specifico per la Preview attualmente selezionata.</p><div class="TextAlignCenter"><img src="attachments/2.5.2_configurazione_scarico/appplant_image87_ritaglio.png" alt="appplant_image87_ritaglio.png" width="324" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><table class="my-table2" data-table-width="1200.0" data-layout="default" ac:local-id="bb337405-ee18-32fd-97ee-bd5e8fb7a32f"><colgroup><col style="width: 300.0px;"><col style="width: 900.0px;"></colgroup><tbody><tr ac:local-id="8978c7df-83ca-3711-a9d1-1716124a948e"><td ac:local-id="87dc9c42-b6b4-30a0-9ac1-b43109c51020"><div class="TextAlignCenter"><img src="attachments/2.5.2_configurazione_scarico/1.png" alt="1.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="999efc70-01bb-3d5d-94d9-919b1e18c042"><p local-id="420184aa-3cd8-3047-ac08-f65ceae8b33c"><strong>Apri parametri preview</strong><br>Permette di aprire i parametri di preview stazione da file.</p></td></tr><tr ac:local-id="c420fb27-e1ba-32ca-bffe-32e4e73dde4f"><td ac:local-id="20b63cf2-9eaa-3a14-a737-1b9e6270d42a"><div class="TextAlignCenter"><img src="attachments/2.5.2_configurazione_scarico/2.png" alt="2.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="c616d887-cba8-3cc9-8821-a0f573f199bc"><p local-id="1ec7c1c5-72a5-3470-b167-f300079590dd"><strong>Salva parametri preview</strong><br>Permette di salvare i parametri di preview stazione su file.</p></td></tr><tr ac:local-id="72fa6230-a9e9-3c0b-8304-d1e623db8e7e"><td ac:local-id="49982549-4a4b-3fda-93a3-7169d0b37f87"><div class="TextAlignCenter"><img src="attachments/2.5.2_configurazione_scarico/3.png" alt="3.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="4b7a0ba4-3acb-3f6b-8c3f-90c216f34951"><p local-id="6d5ed3fa-6802-35d8-be09-a584ec1fd711"><strong>Configura preview</strong><br>Apre il menu “configura preview stazioni”.</p></td></tr></tbody></table><!--Label="tam_saa"-->
+                        </main>
+
+                    </div>
+
+                    <img src="images/donatoni_222.jpg">
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="2.5.1_stazioni_scarico.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="2.5.3_stazioni_carico.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+
+
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                <a rel="prev" href="2.5.1_stazioni_scarico.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="2.5.3_stazioni_carico.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="mermaid.min.js"></script>
+        <script src="mermaid-init.js"></script>
+        <script src="hidemenu.js"></script>
+        <script src="imagemodal.js"></script>
+        <script src="login.js"></script>
+    </div>
+
+    <!-- Modale -->
+    <div id="modal" onclick="closeModal()">
+        <img id="modal-img" src="">
+    </div>;
+
+
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
+
+<script id="virtual-keyboard-searchbar-fix">
+document.addEventListener("input", function (e) {
+    const t = e.target;
+    if (t && t.id === "searchbar" && e.isTrusted !== true) {
+        t.dispatchEvent(new KeyboardEvent("keyup", { bubbles: true }));
+    }
+});
+</script>
+</body>
+</html>

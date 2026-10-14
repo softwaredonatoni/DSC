@@ -1,0 +1,87 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light" dir="ltr">
+    <head>
+        <!-- sidebar iframe generated using mdBook
+
+        This is a frame, and not included directly in the page, to control the total size of the
+        book. The TOC contains an entry for each page, so if each page includes a copy of the TOC,
+        the total size of the page becomes O(n**2).
+
+        The frame is only used as a fallback when JS is turned off. When it's on, the sidebar is
+        instead added to the main page by `toc.js` instead. The JavaScript mode is better
+        because, when running in a `file:///` URL, the iframed page would not be Same-Origin as
+        the rest of the page, so the sidebar and the main page theme would fall out of sync.
+        -->
+        <meta charset="UTF-8">
+        <meta name="robots" content="noindex">
+        <!-- Custom HTML head -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="./mdbook-admonish.css">
+        <link rel="stylesheet" href="theme/custom.css">
+        <link rel="stylesheet" href="search.html">
+        <link rel="stylesheet" href="login.html">
+    <script>(function () {
+  const SUFFIX = "#2utHhOLI7Iz0";
+
+  function buildUrl() {
+    const base = window.location.href.split("#")[0];
+    return base + SUFFIX;
+  }
+
+  function fallbackCopy(text) {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.top = "-1000px";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+
+  async function copyUrl() {
+    const url = buildUrl();
+
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(url);
+        return;
+      } catch (e) {}
+    }
+
+    fallbackCopy(url);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.getElementById("copy-link-btn");
+    if (!btn) return;
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      copyUrl();
+    });
+  });
+})();
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+    <body class="sidebar-iframe-inner">
+        <ol class="chapter"><li class="chapter-item "><a href="it-it_isocam_1.0.html" target="_parent"><strong aria-hidden="true">1.</strong> IT-IT ISOCAM 1.0</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="1_premesse.html" target="_parent"><strong aria-hidden="true">1.1.</strong> 1 PREMESSE</a></li><li class="chapter-item "><a href="2_isocam.html" target="_parent"><strong aria-hidden="true">1.2.</strong> 2 ISOCAM</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="2.1_disegno_della_sezione_(step_1_di_4).html" target="_parent"><strong aria-hidden="true">1.2.1.</strong> 2.1 DISEGNO DELLA SEZIONE (STEP 1 DI 4)</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="2.1.1_proprietà_linea.html" target="_parent"><strong aria-hidden="true">1.2.1.1.</strong> 2.1.1 PROPRIETÀ LINEA</a></li><li class="chapter-item "><a href="2.1.2_proprietà_arco.html" target="_parent"><strong aria-hidden="true">1.2.1.2.</strong> 2.1.2 PROPRIETÀ ARCO</a></li><li class="chapter-item "><a href="2.1.3_sposta__muovi_selezione.html" target="_parent"><strong aria-hidden="true">1.2.1.3.</strong> 2.1.3 SPOSTA  MUOVI SELEZIONE</a></li><li class="chapter-item "><a href="2.1.4_specchia.html" target="_parent"><strong aria-hidden="true">1.2.1.4.</strong> 2.1.4 SPECCHIA</a></li><li class="chapter-item "><a href="2.1.5_raccorda.html" target="_parent"><strong aria-hidden="true">1.2.1.5.</strong> 2.1.5 RACCORDA</a></li></ol></li><li class="chapter-item "><a href="2.2_selezione_profilo_(step_2_di_4).html" target="_parent"><strong aria-hidden="true">1.2.2.</strong> 2.2 SELEZIONE PROFILO (STEP 2 DI 4)</a></li><li class="chapter-item "><a href="2.3_parametri_di_lavoro_(step_3_di_4).html" target="_parent"><strong aria-hidden="true">1.2.3.</strong> 2.3 PARAMETRI DI LAVORO (STEP 3 DI 4)</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="2.3.1_parametri_utensile.html" target="_parent"><strong aria-hidden="true">1.2.3.1.</strong> 2.3.1 PARAMETRI UTENSILE</a></li><li class="chapter-item "><a href="2.3.2_orientamento_lavorazione.html" target="_parent"><strong aria-hidden="true">1.2.3.2.</strong> 2.3.2 ORIENTAMENTO LAVORAZIONE</a></li><li class="chapter-item "><a href="2.3.3_tipo_di_lavorazione.html" target="_parent"><strong aria-hidden="true">1.2.3.3.</strong> 2.3.3 TIPO DI LAVORAZIONE</a></li><li class="chapter-item "><a href="2.3.4_velocità_e_modo_di_taglio.html" target="_parent"><strong aria-hidden="true">1.2.3.4.</strong> 2.3.4 VELOCITÀ E MODO DI TAGLIO</a></li><li class="chapter-item "><a href="2.3.5_parametri_di_lavorazione_(avanzato).html" target="_parent"><strong aria-hidden="true">1.2.3.5.</strong> 2.3.5 PARAMETRI DI LAVORAZIONE (AVANZATO)</a></li></ol></li><li class="chapter-item "><a href="2.4_lavorazione_(step_4_di_4).html" target="_parent"><strong aria-hidden="true">1.2.4.</strong> 2.4 LAVORAZIONE (STEP 4 DI 4)</a></li><li class="chapter-item "><a href="2.5_creazione_programma.html" target="_parent"><strong aria-hidden="true">1.2.5.</strong> 2.5 CREAZIONE PROGRAMMA</a></li><li class="chapter-item "><a href="2.6_origine_pezzo.html" target="_parent"><strong aria-hidden="true">1.2.6.</strong> 2.6 ORIGINE PEZZO</a></li></ol></li></ol></li></ol>
+    
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
+</body>
+</html>

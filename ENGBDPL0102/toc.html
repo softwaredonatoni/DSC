@@ -1,0 +1,87 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light" dir="ltr">
+    <head>
+        <!-- sidebar iframe generated using mdBook
+
+        This is a frame, and not included directly in the page, to control the total size of the
+        book. The TOC contains an entry for each page, so if each page includes a copy of the TOC,
+        the total size of the page becomes O(n**2).
+
+        The frame is only used as a fallback when JS is turned off. When it's on, the sidebar is
+        instead added to the main page by `toc.js` instead. The JavaScript mode is better
+        because, when running in a `file:///` URL, the iframed page would not be Same-Origin as
+        the rest of the page, so the sidebar and the main page theme would fall out of sync.
+        -->
+        <meta charset="UTF-8">
+        <meta name="robots" content="noindex">
+        <!-- Custom HTML head -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="./mdbook-admonish.css">
+        <link rel="stylesheet" href="theme/custom.css">
+        <link rel="stylesheet" href="search.html">
+        <link rel="stylesheet" href="login.html">
+    <script>(function () {
+  const SUFFIX = "#2utHhOLI7Iz0";
+
+  function buildUrl() {
+    const base = window.location.href.split("#")[0];
+    return base + SUFFIX;
+  }
+
+  function fallbackCopy(text) {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.top = "-1000px";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+
+  async function copyUrl() {
+    const url = buildUrl();
+
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(url);
+        return;
+      } catch (e) {}
+    }
+
+    fallbackCopy(url);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.getElementById("copy-link-btn");
+    if (!btn) return;
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      copyUrl();
+    });
+  });
+})();
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+    <body class="sidebar-iframe-inner">
+        <ol class="chapter"><li class="chapter-item "><a href="en-gb_d-plant_1.2.html" target="_parent"><strong aria-hidden="true">1.</strong> EN-GB D-PLANT 1.2</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="1_introduction.html" target="_parent"><strong aria-hidden="true">1.1.</strong> 1 INTRODUCTION</a></li><li class="chapter-item "><a href="2_the_software.html" target="_parent"><strong aria-hidden="true">1.2.</strong> 2 THE SOFTWARE</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="2.1_home.html" target="_parent"><strong aria-hidden="true">1.2.1.</strong> 2.1 HOME</a></li><li class="chapter-item "><a href="2.2_services.html" target="_parent"><strong aria-hidden="true">1.2.2.</strong> 2.2 SERVICES</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="2.2.1_alarms.html" target="_parent"><strong aria-hidden="true">1.2.2.1.</strong> 2.2.1 ALARMS</a></li><li class="chapter-item "><a href="2.2.2_strategies.html" target="_parent"><strong aria-hidden="true">1.2.2.2.</strong> 2.2.2 STRATEGIES</a></li><li class="chapter-item "><a href="2.2.3_commands.html" target="_parent"><strong aria-hidden="true">1.2.2.3.</strong> 2.2.3 COMMANDS</a></li><li class="chapter-item "><a href="2.2.4_parameters.html" target="_parent"><strong aria-hidden="true">1.2.2.4.</strong> 2.2.4 PARAMETERS</a></li><li class="chapter-item "><a href="2.2.5_formats.html" target="_parent"><strong aria-hidden="true">1.2.2.5.</strong> 2.2.5 FORMATS</a></li></ol></li><li class="chapter-item "><a href="2.3_containers.html" target="_parent"><strong aria-hidden="true">1.2.3.</strong> 2.3 CONTAINERS</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="2.3.1_container_types.html" target="_parent"><strong aria-hidden="true">1.2.3.1.</strong> 2.3.1 CONTAINER TYPES</a></li><li class="chapter-item "><a href="2.3.2_new_or_edit_container.html" target="_parent"><strong aria-hidden="true">1.2.3.2.</strong> 2.3.2 NEW OR EDIT CONTAINER</a></li><li class="chapter-item "><a href="2.3.3_container_details.html" target="_parent"><strong aria-hidden="true">1.2.3.3.</strong> 2.3.3 CONTAINER DETAILS</a></li></ol></li><li class="chapter-item "><a href="2.4_grippers.html" target="_parent"><strong aria-hidden="true">1.2.4.</strong> 2.4 GRIPPERS</a></li><li class="chapter-item "><a href="2.5_stations.html" target="_parent"><strong aria-hidden="true">1.2.5.</strong> 2.5 STATIONS</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="2.5.1_unloading_stations.html" target="_parent"><strong aria-hidden="true">1.2.5.1.</strong> 2.5.1 UNLOADING STATIONS</a></li><li class="chapter-item "><a href="2.5.2_unloading_configuration.html" target="_parent"><strong aria-hidden="true">1.2.5.2.</strong> 2.5.2 UNLOADING CONFIGURATION</a></li><li class="chapter-item "><a href="2.5.3_loading_stations.html" target="_parent"><strong aria-hidden="true">1.2.5.3.</strong> 2.5.3 LOADING STATIONS</a></li><li class="chapter-item "><a href="2.5.4_loading_configuration.html" target="_parent"><strong aria-hidden="true">1.2.5.4.</strong> 2.5.4 LOADING CONFIGURATION</a></li><li class="chapter-item "><a href="2.5.5_layout_configuration.html" target="_parent"><strong aria-hidden="true">1.2.5.5.</strong> 2.5.5 LAYOUT CONFIGURATION</a></li><li class="chapter-item "><a href="2.5.6_piece_workings.html" target="_parent"><strong aria-hidden="true">1.2.5.6.</strong> 2.5.6 PIECE WORKINGS</a></li></ol></li><li class="chapter-item "><a href="2.6_materials.html" target="_parent"><strong aria-hidden="true">1.2.6.</strong> 2.6 MATERIALS</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="2.6.1_material_category.html" target="_parent"><strong aria-hidden="true">1.2.6.1.</strong> 2.6.1 MATERIAL CATEGORY</a></li><li class="chapter-item "><a href="2.6.2_materials.html" target="_parent"><strong aria-hidden="true">1.2.6.2.</strong> 2.6.2 MATERIALS</a></li><li class="chapter-item "><a href="2.6.3_slabs.html" target="_parent"><strong aria-hidden="true">1.2.6.3.</strong> 2.6.3 SLABS</a></li></ol></li><li class="chapter-item "><a href="2.7_tools.html" target="_parent"><strong aria-hidden="true">1.2.7.</strong> 2.7 TOOLS</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="2.7.1_robot_variables.html" target="_parent"><strong aria-hidden="true">1.2.7.1.</strong> 2.7.1 ROBOT VARIABLES</a></li><li class="chapter-item "><a href="2.7.2_io.html" target="_parent"><strong aria-hidden="true">1.2.7.2.</strong> 2.7.2 IO</a></li><li class="chapter-item "><a href="2.7.3_working_positions.html" target="_parent"><strong aria-hidden="true">1.2.7.3.</strong> 2.7.3 WORKING POSITIONS</a></li><li class="chapter-item "><a href="2.7.4_log_files.html" target="_parent"><strong aria-hidden="true">1.2.7.4.</strong> 2.7.4 LOG FILES</a></li></ol></li><li class="chapter-item "><a href="2.8_statistics.html" target="_parent"><strong aria-hidden="true">1.2.8.</strong> 2.8 STATISTICS</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="2.8.1_robot.html" target="_parent"><strong aria-hidden="true">1.2.8.1.</strong> 2.8.1 ROBOT</a></li><li class="chapter-item "><a href="2.8.2_workings.html" target="_parent"><strong aria-hidden="true">1.2.8.2.</strong> 2.8.2 WORKINGS</a></li><li class="chapter-item "><a href="2.8.3_containers.html" target="_parent"><strong aria-hidden="true">1.2.8.3.</strong> 2.8.3 CONTAINERS</a></li><li class="chapter-item "><a href="2.8.4_unloading_cycles.html" target="_parent"><strong aria-hidden="true">1.2.8.4.</strong> 2.8.4 UNLOADING CYCLES</a></li><li class="chapter-item "><a href="2.8.5_pieces.html" target="_parent"><strong aria-hidden="true">1.2.8.5.</strong> 2.8.5 PIECES</a></li><li class="chapter-item "><a href="2.8.6_workings_view.html" target="_parent"><strong aria-hidden="true">1.2.8.6.</strong> 2.8.6 WORKINGS VIEW</a></li></ol></li></ol></li></ol></li></ol>
+    
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
+</body>
+</html>

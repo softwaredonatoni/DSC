@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+<head>
+    <!-- Book generated using mdBook -->
+    <meta charset="UTF-8">
+    <title>2.1 HOME - EN-GB D-PLANT 1.2</title>
+
+    <!-- Custom HTML head -->
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="icon" href="favicon.svg">
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/chrome.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Fonts -->
+    <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+    <link rel="stylesheet" href="fonts/fonts.css">
+
+    <!-- Highlight.js Stylesheets -->
+    <link rel="stylesheet" id="highlight-css" href="highlight.css">
+    <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+    <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+    <!-- Custom theme stylesheets -->
+    <link rel="stylesheet" href="./mdbook-admonish.css">
+    <link rel="stylesheet" href="theme/custom.css">
+    <link rel="stylesheet" href="search.html">
+    <link rel="stylesheet" href="login.html">
+    <link rel="stylesheet" href="searchlogin.html">
+    <link rel="stylesheet" href="searchloginmenu.html">
+
+    <!-- Provide site root and default themes to javascript -->
+    <script>
+      const path_to_root = "";
+      const default_light_theme = "light";
+      const default_dark_theme = "light";
+    </script>
+    <!-- Start loading toc.js asap -->
+    <script src="toc.js"></script>
+<script>(function () {
+  const SUFFIX = "#2utHhOLI7Iz0";
+
+  function buildUrl() {
+    const base = window.location.href.split("#")[0];
+    return base + SUFFIX;
+  }
+
+  function fallbackCopy(text) {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.top = "-1000px";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+
+  async function copyUrl() {
+    const url = buildUrl();
+
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(url);
+        return;
+      } catch (e) {}
+    }
+
+    fallbackCopy(url);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.getElementById("copy-link-btn");
+    if (!btn) return;
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      copyUrl();
+    });
+  });
+})();
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-index" data-technical-styler-flow="html">
+    <header class="header-main">
+        <div class="header-flex">
+            <div class="donatoni-flex">
+                <label class="btn hamburger-menu" id="sidebar-toggle" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                    <i id="sidebar-toggle-icon" class="fa-solid fa-bars"></i>
+                </label>
+
+                <img src="images/donatoni-logo-white.svg" alt="Donatoni Macchine">
+            </div>
+
+            <div class="donatoni-flex action-header-buttons">
+                <div id="search-wrapper" class="search-wrapper hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults"></ul>
+                    </div>
+                </div>
+                <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
+                </button>
+
+                <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
+                    <i class="fa-solid fa-print"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div id="body-container">
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem("mdbook-theme");
+                let sidebar = localStorage.getItem("mdbook-sidebar");
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-theme",
+                        theme.slice(1, theme.length - 1)
+                    );
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-sidebar",
+                        sidebar.slice(1, sidebar.length - 1)
+                    );
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = "light";
+            let theme = default_theme;
+            const html = document.documentElement;
+            html.classList.remove("light");
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try {
+                    sidebar = localStorage.getItem('mdbook-sidebar');
+                } catch (e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document
+                        .getElementById("sidebar-toggle")
+                        .setAttribute("aria-expanded", sidebar === "visible");
+                    document
+                        .getElementById("sidebar")
+                        .setAttribute("aria-hidden", sidebar !== "visible");
+                    Array.from(document.querySelectorAll("#sidebar a")).forEach(
+                        function (link) {
+                            link.setAttribute("tabIndex", sidebar === "visible" ? 0 : -1);
+                        }
+                    );
+                </script>
+
+                <div id="content" class="content">
+
+                    <div>
+
+                        <img src="images/donatoni_111.jpg">
+
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Technical maintenance index</span><span class="maintenance-status"><i class="fa-solid fa-layer-group" aria-hidden="true"></i> Operational archive</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="21-home" style="margin:0;" class="maintenance-main-title"><a class="header" href="#21-home"><span class="maintenance-code">INDEX</span><span class="maintenance-name">2.1 HOME</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document INDEX" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="2.1 HOME"--><p local-id="77a151e1-238e-370a-9849-45974b632c0f">The appearance of the Home page may vary considerably depending on the selected configuration.</p><p>
+</p><h1 local-id="898dc605-55fa-38df-8cb3-216920966c15">Plant configurations</h1><p local-id="31fc76b54006">Some examples of D-Plant configurations are shown below</p><table class="my-table2" data-table-width="1800.0" data-layout="align-start" ac:local-id="7f5f6589-8c91-4814-896f-6fe3653c2dc2"><colgroup><col style="width: 1173.0px;"><col style="width: 624.0px;"></colgroup><tbody><tr ac:local-id="4f8af990cba7"><td ac:local-id="3d3af13cb921"><div class="TextAlignCenter"><img src="attachments/2.1_home/appplant_image2.png" alt="appplant_image2.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="1fc271e01a4e"><p local-id="b5dad5eafb75"><strong>A) Single-pick unloading with separate cutting and unloading belts</strong></p></td></tr><tr ac:local-id="7d5028ee1496"><td ac:local-id="a3b49c630b7d"><div class="TextAlignCenter"><img src="attachments/2.1_home/appplant_image3.png" alt="appplant_image3.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="d59a6642e015"><p local-id="7cd8049005a2"><strong>B) Multiple-pick unloading</strong></p></td></tr><tr ac:local-id="925696663a15"><td ac:local-id="fcf94c97ccd4"><div class="TextAlignCenter"><img src="attachments/2.1_home/appplant_image4.png" alt="appplant_image4.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="e25e33a829ff"><p local-id="445e1a17d997"><strong>C) Single-pick unloading from two machines with one belt</strong></p></td></tr><tr ac:local-id="00dee8285c89"><td ac:local-id="1e76c7d25c7c"><div class="TextAlignCenter"><img src="attachments/2.1_home/appplant_image5.png" alt="appplant_image5.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="b02b49b57c4b"><p local-id="2cc6a1f0b09b"><strong>D) Single-pick loading and unloading</strong></p></td></tr></tbody></table><p local-id="14a2f149ffdc"></p><h1 local-id="e8ba1a82-ba24-320f-891f-ba2356bd18b6">Status information</h1><p local-id="15b4d8feb850">The “Home” page is the software start page, where the following information can be viewed:</p><div class="TextAlignCenter"><img src="attachments/2.1_home/appplant_image8.png" alt="appplant_image8.png" width="235" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><div class="TextAlignCenter"><img src="attachments/2.1_home/appplant_image9.png" alt="appplant_image9.png" width="235" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="9f8ea066-7fef-3c07-854f-758be4f753ff">The robot operating status:</p><table class="my-table2" data-table-width="1800.0" data-layout="align-start" ac:local-id="189a0a30-5565-43e3-af2c-af6ebe4b0603"><colgroup><col style="width: 568.0px;"><col style="width: 1232.0px;"></colgroup><tbody><tr ac:local-id="6d4bd5d397e8"><td ac:local-id="a79eee6fe10c"><p local-id="bbf9ccd51dd8"></p></td><td ac:local-id="2aee808d3aa6"><p local-id="95d0f9c23b62"><strong>FREE</strong></p></td></tr><tr ac:local-id="3aaedb95d0b5"><td ac:local-id="9896135e60fb"><div class="TextAlignCenter"><img src="attachments/2.1_home/appplant_image6.png" alt="appplant_image6.png" width="198" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="ae66629e3707"><p local-id="e9d61b94bc3d"><strong>RESET</strong></p></td></tr><tr ac:local-id="0d406a0bd356"><td ac:local-id="697e792b5645"><div class="TextAlignCenter"><img src="attachments/2.1_home/appplant_image7.png" alt="appplant_image7.png" width="273" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="0f03a00c79dc"><p local-id="71775a9d77bb"><strong>ACTIVE EXT</strong></p></td></tr><tr ac:local-id="74722d4037f7"><td ac:local-id="3f9c4a2e6a33"><p local-id="01c98e2d4cff"></p></td><td ac:local-id="501fa26a1ee2"><p local-id="d7ca238236c5"><strong>STOP</strong></p></td></tr><tr ac:local-id="27f7ad9efc7d"><td ac:local-id="10d08f9de665"><div class="TextAlignCenter"><img src="attachments/2.1_home/appplant_image10.png" alt="appplant_image10.png" width="211" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="819a6ca76162"><p local-id="60f86e12b0c2"><strong>Identifies the unloading status</strong></p></td></tr><tr ac:local-id="9c0b5da8c47c"><td ac:local-id="c9bb43d12a61"><div class="TextAlignCenter"><img src="attachments/2.1_home/appplant_image11.png" alt="appplant_image11.png" width="76" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="e5f906751435"><p local-id="bfff5b3d029c"><strong>Installed gripper</strong></p></td></tr><tr ac:local-id="f4e0c262db84"><td ac:local-id="f3d7d899762f"><div class="TextAlignCenter"><img src="attachments/2.1_home/appplant_image12.png" alt="appplant_image12.png" width="76" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="e34ac3aa8f7b"><p local-id="490740815107"><strong>No. of piece being unloaded</strong></p></td></tr></tbody></table><p local-id="99028917-aad3-3629-87f1-fdb8f129f21b"></p><p local-id="462b6c0d-1866-3450-9be1-51d2f4daccb8"></p><p local-id="1cde19a9-fdb3-340f-84bf-91d9883ae47e"></p><table class="my-table2" data-table-width="1800.0" data-layout="center" ac:local-id="609bed4b-2bac-3acb-8812-b68f58bacc76"><colgroup><col style="width: 623.0px;"><col style="width: 1177.0px;"></colgroup><tbody><tr ac:local-id="0831246c-1bac-354e-b22d-cdbce1e7dfb9"><td ac:local-id="f61568de-a1bd-3704-abbc-050caeea5fa5"><div class="TextAlignCenter"><img src="attachments/2.1_home/appplant_image13.png" alt="appplant_image13.png" width="75" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="a082e821-9557-383b-8caa-3cdaefc40ea7"><p local-id="ec2753be-557a-320b-a4ed-c0511cb0e930"><strong>View pieces being unloaded</strong><br>Opens the window showing the pieces being unloaded</p><div class="TextAlignCenter"><img src="attachments/2.1_home/appplant_image14.png" alt="appplant_image14.png" width="275" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td></tr><tr ac:local-id="53a3ee64-0a46-311e-a0ef-4c2933a08801"><td ac:local-id="00548733-c12b-3b7f-9927-43474beb2145"><div class="TextAlignCenter"><img src="attachments/2.1_home/appplant_image15.png" alt="appplant_image15.png" width="267" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="e60b0573-dded-3010-9d0b-699fd636818c"><p local-id="27b65c7e-1f26-3a36-b7b1-938c65856acf"><strong>Mastering</strong><br>Sends the mastering command.</p></td></tr><tr ac:local-id="f790e144-3636-3fcc-a4b8-3303832529a3"><td ac:local-id="ca5c51f4-3c92-3f92-8cc2-da50a4eab6c5"><div class="TextAlignCenter"><img src="attachments/2.1_home/appplant_image16.png" alt="appplant_image16.png" width="263" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="169ff055-38de-39f9-8fbb-f97db92bc7b5"><p local-id="f1d39ca0-114b-35b6-959e-f21b63aa7098"><strong>Homing</strong><br>Sends the homing command.</p></td></tr><tr ac:local-id="e79f9733-831e-3b18-b57c-4ff4951ae910"><td ac:local-id="058af094-9066-3c4d-a6c3-438988d27f6e"><div class="TextAlignCenter"><img src="attachments/2.1_home/appplant_image17.png" alt="appplant_image17.png" width="257" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="dbcd2f57-a87d-3baf-b538-278f8bffc604"><p local-id="a5bbc482-9576-3f51-aa75-312b76c6305c"><strong>Place piece</strong><br>Sends the command to place the piece in the designated area/station.</p></td></tr><tr ac:local-id="f67c0859-ae28-356e-a95b-99e0c6a00424"><td ac:local-id="11504e2d-ec57-3cd3-a707-fa8c9e532655"><div class="TextAlignCenter"><img src="attachments/2.1_home/appplant_image18.png" alt="appplant_image18.png" width="247" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="7bd537be-5897-3170-bb80-937799387d8b"><p local-id="5cd511e3-9a5c-3748-89aa-fe7d20a6fe1a"><strong>Start</strong><br>Sends the command to start the piece unloading cycle.</p></td></tr><tr ac:local-id="71cbaedc-e0d7-39a2-8d45-b476a3d82f08"><td ac:local-id="0555b476-1dbd-39c6-a3ae-b973f3af1921"><div class="TextAlignCenter"><img src="attachments/2.1_home/appplant_image19.png" alt="appplant_image19.png" width="138" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="f0b2b4d0-abc1-36fb-9db0-2ba576e86967"><p local-id="c11d99d3-8f4c-3b2d-a6e8-fcdee8351050"><strong>Reset</strong><br>Sends the reset command.</p></td></tr><tr ac:local-id="beade4f3-7340-3918-b597-b31322822e21"><td ac:local-id="25525842-fbdb-3fc8-ab94-21ac767bdea6"><div class="TextAlignCenter"><img src="attachments/2.1_home/appplant_image20_ritaglio.png" alt="appplant_image20_ritaglio.png" width="275" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="b09a21b4-c310-38bd-a0d0-c276a13ebd4e"><p local-id="cf6add2c-0512-31cc-9024-8a8bbd685dd9"><strong>Next pallet</strong><br>Manual: next pallet to be defined.<br>Continuous: next pallet same as the previous one.</p></td></tr><tr ac:local-id="1f6fea1e-6ab2-3958-9182-7c740cd7c144"><td ac:local-id="7d7859a5-5388-3587-9a7f-77355f264a84"><div class="TextAlignCenter"><img src="attachments/2.1_home/appplant_image21.png" alt="appplant_image21.png" width="46" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="0f483e5a-79bb-3822-abb1-716c10bcaf8e"><p local-id="ce06ae10-0d98-34f5-9c66-7f5dde6fb07d"><strong>Frame correction menu</strong><br>Displays the frame correction menu.</p></td></tr><tr ac:local-id="d857435b-1977-3f3d-838e-59531c5d950d"><td ac:local-id="46d0dcc6-100a-3a2a-8105-3fa8f0d3c1e0"><div class="TextAlignCenter"><img src="attachments/2.1_home/appplant_image22.png" alt="appplant_image22.png" width="360" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="a8a15ce2-2e66-3293-b691-e147f36a45d3"><p local-id="4c8fc114-ce38-3a1b-91a1-ac992ed1793e"><strong>Robot working speed</strong><br>Displays and changes the robot working speed.</p></td></tr><tr ac:local-id="e1fd740e-7fd4-3e54-a06e-cb4945326180"><td ac:local-id="78944a95-4a93-3fdd-85a7-87a3c61ebfee"><div class="TextAlignCenter"><img src="attachments/2.1_home/appplant_image23.png" alt="appplant_image23.png" width="300" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="c548d7a0-1bcc-3063-a9fe-85ddd72e5e88"><p local-id="6fa41c6a-bf33-3ddb-b776-f3eea54cc2a4"><strong>Cutting area</strong><br>Machine cutting area, with the layout of the pieces being cut.</p></td></tr><tr ac:local-id="32d3f861-79a5-3ef6-b8fa-f050193350bf"><td ac:local-id="bb1b19ec-7390-3eda-b928-1295683a1dbf"><div class="TextAlignCenter"><img src="attachments/2.1_home/appplant_image24.png" alt="appplant_image24.png" width="300" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="858d6989-aa86-3eca-9151-b2471352431a"><p local-id="72ae9a5a-2897-3d0c-abd9-fc4259190dda"><strong>Unloading area</strong><br>Robot unloading area, with the layout of the pieces being unloaded.</p></td></tr><tr ac:local-id="f77dd3a1-00e8-3a95-ad22-6d4a8e285744"><td ac:local-id="dd8c286d-bf2b-30bc-87b3-cd05d8f5b014"><div class="TextAlignCenter"><img src="attachments/2.1_home/appplant_image25.png" alt="appplant_image25.png" width="300" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="be709eaf-1fc9-3252-91c7-ce327c5eb1ee"><p local-id="5388d207-002c-3f2e-a7a9-cfa8ee9420fd"><strong>Placement station</strong><br>Placement station with the corresponding station number and the type of pallet it contains.</p></td></tr><tr ac:local-id="a6e9dd9c-c290-35aa-af83-57fc77e05e0c"><td ac:local-id="33e6bc2e-9a12-348e-a66f-dbaf1b25b034"><div class="TextAlignCenter"><img src="attachments/2.1_home/appplant_image26.png" alt="appplant_image26.png" width="300" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="6d8db332-0abc-38b2-a126-3c6270855f72"><p local-id="01065651-543b-3b22-8ea6-1d2bac90b17b"><strong>Conveyor offset</strong><br>If supported by the model (e.g. model C), the conveyor positioning offset relative to ZERO can be changed.</p><p local-id="172de66fc370">In addition, beneath both editable values, a light-green button allows the operator to force the conveyor into position.</p></td></tr><tr ac:local-id="20dffd98-f020-3fc5-a2d4-72620b9ce66f"><td ac:local-id="07b5648d-a9f0-3105-bb0c-947359fc760b"><div class="TextAlignCenter"><img src="attachments/2.1_home/appplant_image27.png" alt="appplant_image27.png" width="326" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="8ef3f325-6b32-3592-9902-1fc1ac47fbdc"><p local-id="0ff91dae-f294-33be-b834-24b754130ae6"><strong>Multiple-unloading piece format</strong><br>If supported by the model (e.g. model B), the operator can view and select different piece formats for the multiple-pick unloading area.</p></td></tr><tr ac:local-id="c811c7f7-c453-30ee-82dd-cdf89eeead76"><td ac:local-id="08438117-bfdd-3f06-9cd4-b2cc0227a696"><div class="TextAlignCenter"><img src="attachments/2.1_home/appplant_image28.png" alt="appplant_image28.png" width="73" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="123efe60-d8d3-3ae4-bdb8-3d2cd4a46739"></p></td><td ac:local-id="2d28a36e-ecd6-370c-ae38-e8721949068d"><p local-id="e470e225-8f24-3aba-b4eb-e63148b4c16f"><strong>Slabs to load menu</strong><br>If supported by the model (e.g. model D), the operator can view the menu of slabs to load.</p><div class="TextAlignCenter"><img src="attachments/2.1_home/appplant_image29.png" alt="appplant_image29.png" width="220" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td></tr><tr ac:local-id="bc83ca35-76e2-3fef-9cd5-3b84561db0ac"><td ac:local-id="a65aab49-155f-3c5c-9c42-215931ada30d"><p local-id="d09b7adcea04"><strong>Slabs to load</strong></p></td><td ac:local-id="20c3c451-4546-3b94-a128-0953ea90b275"><p local-id="3d1fde79-188f-3f74-8d36-a81a95d6553d">If supported by the model (e.g. model D), the operator can specify the number of slabs to load.</p></td></tr><tr ac:local-id="21a5dbf2-5541-3e00-885f-bdc89de63c37"><td ac:local-id="5b06e151-c96b-3e20-bfea-1f755d3fdd28"><div class="TextAlignCenter"><img src="attachments/2.1_home/appplant_image31.png" alt="appplant_image31.png" width="137" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="773e54dd-f3ac-3924-ab60-04e81fb7d017"><p local-id="67b7d131-f34d-3ddd-9c35-18bb9d4449ba"><strong>Delete slab to load</strong><br>If supported by the model (e.g. model D), the operator can delete a slab to be loaded.</p></td></tr><tr ac:local-id="f5df4a46-03c8-37f4-8b03-8ac1f24ebb1c"><td ac:local-id="be9a8c8b-5f8c-35b2-a43e-25f1098b72aa"><div class="TextAlignCenter"><img src="attachments/2.1_home/appplant_image32.png" alt="appplant_image32.png" width="134" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="ba2d9c27-3806-34c3-a280-53af5cf2f6a6"><p local-id="ad004b6a-86c2-3535-8cc4-06ae22cfd377"><strong>Delete all slabs to load</strong><br>If supported by the model (e.g. model D), the operator can clear the list of slabs to load.</p></td></tr><tr ac:local-id="a9facc56-cc96-343c-aa45-454017b6d032"><td ac:local-id="0f12ff73-5d3e-3fad-b6fa-7bfc0535ce31"><div class="TextAlignCenter"><img src="attachments/2.1_home/appplant_image33.png" alt="appplant_image33.png" width="137" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="2bf2fc31-8d53-39db-b411-cd127809eb7f"><p local-id="42c6ca19-5cb5-3d77-ab64-2360efd56e31"><strong>Edit data of slab to load</strong><br>If supported by the model (e.g. model D), the operator can edit the data of a slab to be loaded.</p></td></tr><tr ac:local-id="412f47b4-b694-3e74-92b6-1fe1eea23a82"><td ac:local-id="25813d3a-a04d-30eb-aca9-e37951f7b3c8"><div class="TextAlignCenter"><img src="attachments/2.1_home/0_genera.png" alt="0_genera.png" width="268" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="da007cb18537"></p><p local-id="a7325577ca80"></p><p local-id="f5032e1c9931"></p></td><td ac:local-id="4d4acd21-31ac-3cf8-85be-091b9f00c0e4"><p local-id="7d4dd2dd1154"><strong>Generate slab to load</strong><br>If supported by the model (e.g. model D), the operator can create a new slab to load.</p><div class="TextAlignCenter"><img src="attachments/2.1_home/appplant_image35.png" alt="appplant_image35.png" width="600" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td></tr><tr ac:local-id="17d13297-67b3-3b4f-90c0-435432fdcd79"><td ac:local-id="76004155-23e6-3cc0-b2f4-c24436fbf0f3"><div class="TextAlignCenter"><img src="attachments/2.1_home/appplant_image36.png" alt="appplant_image36.png" width="129" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="0eb1c633-9342-3425-8a30-a5955d9b10af"><p local-id="ad703c6b-13b1-3f23-94aa-1b0dbb78f63a"><strong>Load slab management file</strong><br>If supported by the model (e.g. model D), the operator can use File Explorer to locate and load a slab management file.</p></td></tr><tr ac:local-id="35ef8923-91c5-3260-8c10-ade92fbf06f5"><td ac:local-id="30a4a928-ac6d-3057-9263-5c4b0145c7c1"><div class="TextAlignCenter"><img src="attachments/2.1_home/appplant_image37.png" alt="appplant_image37.png" width="76" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="e5294019-fcd5-39a6-a5c6-cdc90037023a"><p local-id="9ea72c3c-56f7-3b76-a6b3-2b4b33e1a5c1"><strong>Initial scenario menu</strong><br>If supported by the model (e.g. model D), the operator can view and set the initial scenario using the dedicated menu.</p><div class="TextAlignCenter"><img src="attachments/2.1_home/appplant_image38.png" alt="appplant_image38.png" width="307" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td></tr><tr ac:local-id="6fbf3d04-07ac-32ee-b63e-b9eb1b18740c"><td ac:local-id="ffffbb76-1c69-373f-bc28-be88da1d1d60"><div class="TextAlignCenter"><img src="attachments/2.1_home/appplant_image39.png" alt="appplant_image39.png" width="73" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="3a0b7ada-75e9-3fd8-9d2c-0a68d0966eec"><p local-id="2290e484-0bdf-36ef-bb00-d32b54b2c6ad"><strong>Mastering and Homing</strong><br>If supported by the model (e.g. model D), the operator can access the Mastering and Homing functions.</p></td></tr><tr ac:local-id="bc73842e-3530-36ef-be1c-1b5ffd23b31c"><td ac:local-id="ec8e040f-9133-366d-ba2a-3981dc58b1d3"><div class="TextAlignCenter"><img src="attachments/2.1_home/appplant_image40.png" alt="appplant_image40.png" width="246" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="15a10b15-d5b9-3d5b-963c-48e3c02be06c"><p local-id="3856e4b8-1588-3f6b-8c6e-d146b36143bf"><strong>Send slab photo command</strong><br>If supported by the model (e.g. model D), the operator can request that a command be sent to take a photo of the slab.</p></td></tr></tbody></table><p local-id="6e5abdbe1e6b"></p><h1 local-id="62d29016-6dff-3605-a9b8-c08920e73c01">Menu in the unloading or cutting area</h1><p local-id="73da3b33-f5d0-3697-9389-c4ece62d1608">Right-click in the unloading or cutting area</p><div class="TextAlignCenter"><img src="attachments/2.1_home/appplant_image41.png" alt="appplant_image41.png" width="769" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><table class="my-table2" data-table-width="1800.0" data-layout="center" ac:local-id="e6bca190-a496-3679-b726-9d35f7046947"><colgroup><col style="width: 451.0px;"><col style="width: 1349.0px;"></colgroup><tbody><tr ac:local-id="f7fb12bb-66da-3556-b743-ff0948eb21b2"><td ac:local-id="2b7c2e31-2b84-3fd6-9481-08b9fc21e7ab"><div class="TextAlignCenter"><img src="attachments/2.1_home/MenuScarico_01-20261009-062130.png" alt="MenuScarico_01-20261009-062130.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="c6d99aed-7007-39b1-9ca0-c0536f4b0133"><p local-id="99b1813460d0"><strong>INSERT WORKING</strong><br>Allows any cutting layout to be inserted.</p><div class="TextAlignCenter"><img src="attachments/2.1_home/appplant_image42.png" alt="appplant_image42.png" width="500" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td></tr><tr ac:local-id="4bed974e-84e6-3ba9-b4c4-abd2ea5a24c6"><td ac:local-id="705cea3f-4082-3053-ba5a-f0bab7da86b2"><div class="TextAlignCenter"><img src="attachments/2.1_home/MenuScarico_02.png" alt="MenuScarico_02.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="29b2234c-bbc8-3ee4-8cd5-af9b081ce4a6"><p local-id="4ffaf182-0b04-395f-b71d-b3e16dddf0a4"><strong>DELETE UNLOADING</strong><br>Deletes the current cutting layout.</p></td></tr><tr ac:local-id="d085f2e8-449e-3a14-8ef2-6cae3c6120fb"><td ac:local-id="80698f6b-9e04-373f-9505-b1acb091c393"><div class="TextAlignCenter"><img src="attachments/2.1_home/MenuScarico_03.png" alt="MenuScarico_03.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="8daf0479-e727-31db-86b2-1fd52bdfd1d3"><p local-id="fd83553da887"><strong>SHOW/HIDE PALLETS</strong><br>Enables/disables the display of the PalTypes required for unloading.</p><div class="TextAlignCenter"><img src="attachments/2.1_home/appplant_image43.png" alt="appplant_image43.png" width="500" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td></tr><tr ac:local-id="fa5946b6-3146-331f-a339-1df180987924"><td ac:local-id="1a6e66d3-a023-3eeb-bc53-f50d58a0180e"><div class="TextAlignCenter"><img src="attachments/2.1_home/MenuScarico_04.png" alt="MenuScarico_04.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="89e9bd56-62bc-31c0-afbe-b9e0c2b5c1c5"><p local-id="5113f1b8-ba91-3581-9dab-465157fa7fdd"><strong>ENABLE/DISABLE PIECE UNLOADING</strong><br>Enables or disables robot unloading of the piece.</p></td></tr><tr ac:local-id="bc07be52-4c96-32a9-89ea-cb3a1a769a6c"><td ac:local-id="134702a5-e057-3405-8ca0-98c087e1c03f"><div class="TextAlignCenter"><img src="attachments/2.1_home/MenuScarico_05.png" alt="MenuScarico_05.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="dfafd7cb-d1e7-3628-b5ff-e4993fe2970e"><p local-id="2e5939264912"><strong>EDIT PALLET</strong><br>Allows the destination pallet of a piece being cut to be changed.</p><div class="TextAlignCenter"><img src="attachments/2.1_home/appplant_image44.png" alt="appplant_image44.png" width="500" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td></tr></tbody></table><p local-id="d357ddb9948d"></p><h1 local-id="17f8f03f-b38a-3000-8c55-fe4c9c959c93">Menu in the placement area</h1><p local-id="8c54fa7e-27d8-31da-a3b9-72f8a94ef557">Right-clicking in the placement area displays the following menu for pallet-related actions.</p><div class="TextAlignCenter"><img src="attachments/2.1_home/appplant_image45_ritaglio.png" alt="appplant_image45_ritaglio.png" width="520" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><table class="my-table2" data-table-width="1800.0" data-layout="center" ac:local-id="9b305fe3-f3a5-3930-8986-318859fab2f7"><colgroup><col style="width: 470.0px;"><col style="width: 1329.0px;"></colgroup><tbody><tr ac:local-id="1b96ecf2-2024-3f45-81d2-94ec5ca86ba7"><td ac:local-id="7fe1bb43-9e7f-339a-9d5a-aa667825cd67"><div class="TextAlignCenter"><img src="attachments/2.1_home/1.png" alt="1.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="90edd923-e6f2-39ca-b8e8-81efe75181a1"><p local-id="485beb7c90e3"><strong>INSERT PALLET</strong><br>Allows a pallet to be inserted into an empty station.</p><div class="TextAlignCenter"><img src="attachments/2.1_home/appplant_image46.png" alt="appplant_image46.png" width="500" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td></tr><tr ac:local-id="1862dfd2-8f84-3db2-9298-696bdd71e2aa"><td ac:local-id="d9a26c04-5deb-32b0-a9ae-10dff5efded1"><div class="TextAlignCenter"><img src="attachments/2.1_home/2.png" alt="2.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="1d9e22bf-3e0c-3d33-be6d-2f714fb9bb22"><p local-id="caa8a7b2ee37"><strong>INSERT NEXT PALLET</strong><br>Allows a pallet to be set as the next pallet in a station.</p><div class="TextAlignCenter"><img src="attachments/2.1_home/appplant_image46.png" alt="appplant_image46.png" width="500" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td></tr><tr ac:local-id="e54891b3-975b-38fc-b379-de75766be592"><td ac:local-id="a4aa5057-0945-3d60-b0de-2362a53f21e5"><div class="TextAlignCenter"><img src="attachments/2.1_home/3.png" alt="3.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="500c3fcc-5c77-3b2b-804b-e99be3457330"><p local-id="8ff61dfc-52bb-37c7-8968-e77c16a97da8"><strong>ENABLE/DISABLE STANDBY</strong><br>Puts the station in standby.</p></td></tr><tr ac:local-id="e0b2a52d-d39a-32ee-bd6e-2f9fecdc03db"><td ac:local-id="fa996000-0424-3ef0-8273-831c2cbf3073"><div class="TextAlignCenter"><img src="attachments/2.1_home/4.png" alt="4.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="59494d0d-89db-341b-a6cc-0f04121d3a88"><p local-id="f8d80925-15f2-39ed-a0a4-c684a1341818"><strong>EMPTY STATION</strong><br>Empties the pallet in the station.</p></td></tr><tr ac:local-id="c4b325e1-cb4c-3860-9ef9-2d8aa85f0d69"><td ac:local-id="34d298c3-c703-3791-9336-d6a616c99248"><div class="TextAlignCenter"><img src="attachments/2.1_home/5.png" alt="5.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="af312324-744c-3830-8616-017dd3ec4f80"><p local-id="390908ac-0931-3c27-ad36-e996497e1f1e"><strong>COMPLETE PALLET</strong><br>Sets the pallet in the station to FULL.</p></td></tr><tr ac:local-id="7672cb4f-4b93-340c-9bc5-03b7f1694e2e"><td ac:local-id="430f90a7-cb92-3c86-a596-5962fdf14b56"><div class="TextAlignCenter"><img src="attachments/2.1_home/6.png" alt="6.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="8d905096-541b-34cb-9c33-00f89504a74d"><p local-id="c78ccf24-c34b-3036-9ab0-2e15332d36a6"><strong>REMOVE PALLET</strong><br>Removes the pallet from the station.</p></td></tr><tr ac:local-id="394079bd-aee0-37b2-aa45-38732e8baad5"><td ac:local-id="535b8096-2960-3763-b5b4-3932221f0458"><div class="TextAlignCenter"><img src="attachments/2.1_home/7.png" alt="7.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="33ab65bf-096c-3570-b726-6989af227b24"><p local-id="9ee0b504-2a7c-30e2-b0e6-04f6613da5ed"><strong>REMOVE ALL PALLETS</strong><br>Removes all pallets from all stations.</p></td></tr><tr ac:local-id="f2c4fe0d-8436-3bea-a9c6-00aa0446cfe2"><td ac:local-id="50903c74-de0c-3a88-994b-8dfa701ae005"><div class="TextAlignCenter"><img src="attachments/2.1_home/8.png" alt="8.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="02b0cdff-d739-3909-ae72-7d42b84edcc2"><p local-id="19c23cf3-3c3f-336b-9a82-efab273d3de7"><strong>REMOVE NEXT PALLET</strong><br>Removes the next pallet from the station.</p></td></tr><tr ac:local-id="bda4d056-3ef9-321e-b1be-854eabc82c94"><td ac:local-id="5bf1725d-eb10-3f74-aeba-a78da2d40986"><div class="TextAlignCenter"><img src="attachments/2.1_home/9.png" alt="9.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="424a8e6f-9402-3e98-80ff-ab4588602b85"><p local-id="4ece271b-2c14-31bd-8238-3252504c5e2c"><strong>CHANGE PALLET</strong><br>Moves the pallet in the next-pallet area into the station.</p></td></tr></tbody></table><!--Label="tam_hom"-->
+                        </main>
+
+                    </div>
+
+                    <img src="images/donatoni_222.jpg">
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="2_the_software.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="2.2_services.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+
+
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                <a rel="prev" href="2_the_software.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="2.2_services.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="mermaid.min.js"></script>
+        <script src="mermaid-init.js"></script>
+        <script src="hidemenu.js"></script>
+        <script src="imagemodal.js"></script>
+        <script src="login.js"></script>
+    </div>
+
+    <!-- Modale -->
+    <div id="modal" onclick="closeModal()">
+        <img id="modal-img" src="">
+    </div>;
+
+
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
+
+<script id="virtual-keyboard-searchbar-fix">
+document.addEventListener("input", function (e) {
+    const t = e.target;
+    if (t && t.id === "searchbar" && e.isTrusted !== true) {
+        t.dispatchEvent(new KeyboardEvent("keyup", { bubbles: true }));
+    }
+});
+</script>
+</body>
+</html>

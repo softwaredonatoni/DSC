@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+<head>
+    <!-- Book generated using mdBook -->
+    <meta charset="UTF-8">
+    <title>2.4 LAVORAZIONE (STEP 4 DI 4) - IT-IT ISOCAM 1.0</title>
+
+    <!-- Custom HTML head -->
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="icon" href="favicon.svg">
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/chrome.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Fonts -->
+    <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+    <link rel="stylesheet" href="fonts/fonts.css">
+
+    <!-- Highlight.js Stylesheets -->
+    <link rel="stylesheet" id="highlight-css" href="highlight.css">
+    <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+    <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+    <!-- Custom theme stylesheets -->
+    <link rel="stylesheet" href="./mdbook-admonish.css">
+    <link rel="stylesheet" href="theme/custom.css">
+    <link rel="stylesheet" href="search.html">
+    <link rel="stylesheet" href="login.html">
+    <link rel="stylesheet" href="searchlogin.html">
+    <link rel="stylesheet" href="searchloginmenu.html">
+
+    <!-- Provide site root and default themes to javascript -->
+    <script>
+      const path_to_root = "";
+      const default_light_theme = "light";
+      const default_dark_theme = "light";
+    </script>
+    <!-- Start loading toc.js asap -->
+    <script src="toc.js"></script>
+<script>(function () {
+  const SUFFIX = "#2utHhOLI7Iz0";
+
+  function buildUrl() {
+    const base = window.location.href.split("#")[0];
+    return base + SUFFIX;
+  }
+
+  function fallbackCopy(text) {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.top = "-1000px";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+
+  async function copyUrl() {
+    const url = buildUrl();
+
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(url);
+        return;
+      } catch (e) {}
+    }
+
+    fallbackCopy(url);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.getElementById("copy-link-btn");
+    if (!btn) return;
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      copyUrl();
+    });
+  });
+})();
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-document" data-technical-styler-flow="html">
+    <header class="header-main">
+        <div class="header-flex">
+            <div class="donatoni-flex">
+                <label class="btn hamburger-menu" id="sidebar-toggle" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                    <i id="sidebar-toggle-icon" class="fa-solid fa-bars"></i>
+                </label>
+
+                <img src="images/donatoni-logo-white.svg" alt="Donatoni Macchine">
+            </div>
+
+            <div class="donatoni-flex action-header-buttons">
+                <div id="search-wrapper" class="search-wrapper hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults"></ul>
+                    </div>
+                </div>
+                <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
+                </button>
+
+                <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
+                    <i class="fa-solid fa-print"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div id="body-container">
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem("mdbook-theme");
+                let sidebar = localStorage.getItem("mdbook-sidebar");
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-theme",
+                        theme.slice(1, theme.length - 1)
+                    );
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-sidebar",
+                        sidebar.slice(1, sidebar.length - 1)
+                    );
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = "light";
+            let theme = default_theme;
+            const html = document.documentElement;
+            html.classList.remove("light");
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try {
+                    sidebar = localStorage.getItem('mdbook-sidebar');
+                } catch (e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document
+                        .getElementById("sidebar-toggle")
+                        .setAttribute("aria-expanded", sidebar === "visible");
+                    document
+                        .getElementById("sidebar")
+                        .setAttribute("aria-hidden", sidebar !== "visible");
+                    Array.from(document.querySelectorAll("#sidebar a")).forEach(
+                        function (link) {
+                            link.setAttribute("tabIndex", sidebar === "visible" ? 0 : -1);
+                        }
+                    );
+                </script>
+
+                <div id="content" class="content">
+
+                    <div>
+
+                        <img src="images/donatoni_111.jpg">
+
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Machine technical documentation</span><span class="maintenance-status"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Operational document</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="24-lavorazione-step-4-di-4" style="margin:0;" class="maintenance-main-title"><a class="header" href="#24-lavorazione-step-4-di-4"><span class="maintenance-code">DOC</span><span class="maintenance-name">2.4 LAVORAZIONE (STEP 4 DI 4)</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document DOC" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="2.4 LAVORAZIONE (STEP 4 DI 4)"--><p local-id="e655c9a0-22ac-3fe7-98a3-660c017e854b">In base alle selezioni precedenti viene visualizzata un’anteprima dei tagli calcolati. La pagina è divisa in diverse aree con i comandi per gestire le modifiche.<br>Una volta verificati i tagli o effettuate le modifiche desiderate, premere sul pulsante <strong>AVANTI</strong> per aprire la pagina per generare il programma di taglio.</p><div class="TextAlignCenter"><img src="attachments/2.4_lavorazione_(step_4_di_4)/p19_01.png" alt="Anteprima dei tagli calcolati" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p>
+</p><h1 local-id="4a99b0ac-c126-3064-b4ab-719bccaaf812">Barra superiore</h1>
+<div id="admonition-nota" class="admonition admonish-info" role="note" aria-labelledby="admonition-nota-title">
+<div class="admonition-title">
+<div id="admonition-nota-title">
+<p>NOTA</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-nota"></a>
+</div>
+<div>
+<p>Alcuni pulsanti rimangono disattivati fino alla selezione di un taglio.</p>
+</div>
+</div>
+<table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="60a0a742-1ebb-403a-9efe-2df311002d71"><colgroup><col style="width: 291.0px;"><col style="width: 1508.0px;"></colgroup><tbody><tr ac:local-id="383f96f3-f2eb-4990-8622-75166505c431"><td ac:local-id="0b0896a4-dc8d-4c68-9757-902b19593cff"><div class="TextAlignCenter"><img src="attachments/2.4_lavorazione_(step_4_di_4)/5.1.1-20250804-141449.png" alt="5.1.1-20250804-141449.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="97f308ee-2725-42c6-a271-083b83386226"><p local-id="ab5066141232"><strong>Generazione tagli</strong><br>Rigenera i tagli con le impostazioni di default.</p>
+<div id="admonition-nota-1" class="admonition admonish-info" role="note" aria-labelledby="admonition-nota-1-title">
+<div class="admonition-title">
+<div id="admonition-nota-1-title">
+<p>NOTA</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-nota-1"></a>
+</div>
+<div>
+<p>Questa operazione viene eseguita automaticamente al raggiungimento del passaggio 4 di 4.</p>
+</div>
+</div>
+</td></tr><tr ac:local-id="5fdc934c-db13-4436-93c3-85f440a85ece"><td ac:local-id="17bd38bf-b00c-427d-8bce-9230c4d4f028"><div class="TextAlignCenter"><img src="attachments/2.4_lavorazione_(step_4_di_4)/5.1.2_Off_On-20250804-142945.png" alt="5.1.2_Off_On-20250804-142945.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="99c844ad-03a6-4f23-a941-5166a1db5361"><p local-id="1b6a3ba52de3"><strong>Modifica la posizione del taglio</strong><br>Permette di modificare la posizione del taglio selezionato</p></td></tr><tr ac:local-id="36ab28f8-6892-41d1-804e-352702883ab9"><td ac:local-id="2f2cd956-bb00-48d1-b926-d60d55675a9f"><div class="TextAlignCenter"><img src="attachments/2.4_lavorazione_(step_4_di_4)/5.1.3-20250804-141717.png" alt="5.1.3-20250804-141717.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="ff4c7030-563d-4a8d-bb23-aa4789dc3ce7"><p local-id="9c4e28bb3d0e"><strong>Aggiunge un taglio di testa per separazione dei pezzi</strong><br>Inserisce un taglio nel punto iniziale della lavorazione.</p></td></tr><tr ac:local-id="908fa165-799a-4031-babf-ef1f494f1280"><td ac:local-id="53b658f4-bea6-4eb3-87f1-c790f5f420cb"><div class="TextAlignCenter"><img src="attachments/2.4_lavorazione_(step_4_di_4)/5.1.4-20250804-141752.png" alt="5.1.4-20250804-141752.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="25d945e0-66a4-470c-bce2-ef8f85983317"><p local-id="c2f91066422a"><strong>Aggiunge un taglio di coda per separazione dei pezzi</strong><br>Inserisce un taglio nel punto finale della lavorazione.</p></td></tr><tr ac:local-id="f930f265-9c0f-41d6-ad0b-0a720ea51dfd"><td ac:local-id="2eae4d7a-036f-4e21-96f9-3f9ec0efe506"><div class="TextAlignCenter"><img src="attachments/2.4_lavorazione_(step_4_di_4)/5.1.5-20250804-141826.png" alt="5.1.5-20250804-141826.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="ffc112d5-4958-4fbe-849b-dc76c5b29d8b"><p local-id="6ca4a8fcfebe"><strong>Aggiunge un taglio nella posizione del mouse (Ins)</strong><br>Aggiunge un nuovo taglio nella posizione indicata dal mouse.</p></td></tr><tr ac:local-id="0ea0e78f-f495-4bf9-982e-b21714aad366"><td ac:local-id="f144c7a4-62ce-4844-972a-006b4ab5c87d"><div class="TextAlignCenter"><img src="attachments/2.4_lavorazione_(step_4_di_4)/5.1.6_Off_On-20250804-142922.png" alt="5.1.6_Off_On-20250804-142922.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="16e63bd3-085e-44f5-bd49-4f1154e5f117"><p local-id="0b6355087e89"><strong>Elimina il taglio selezionato</strong><br>Rimuove il taglio selezionato dall’anteprima e ricalcola il numero progressivo di taglio a tutti i tagli rimanenti.</p></td></tr><tr ac:local-id="2a9e3129-1d11-40ed-89ab-d99fa2241f52"><td ac:local-id="cee284d0-c954-490e-aeca-59239eeabd91"><div class="TextAlignCenter"><img src="attachments/2.4_lavorazione_(step_4_di_4)/5.1.7_Off_On-20250804-142901.png" alt="5.1.7_Off_On-20250804-142901.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="0ea691cc-06b7-474f-910c-fe6d868a4a07"><p local-id="387dca6926c3"><strong>Elimina i tagli precedenti al taglio selezionato</strong><br>Prendendo come riferimento il taglio selezionato, verranno rimossi i tagli con progressivo minore.</p></td></tr><tr ac:local-id="c84f8aa4-05fb-45e8-b4f1-272a1bafdd32"><td ac:local-id="9fbd9a04-dfcd-454f-9482-cf5ed515a68c"><div class="TextAlignCenter"><img src="attachments/2.4_lavorazione_(step_4_di_4)/5.1.8_Off_On-20250804-142834.png" alt="5.1.8_Off_On-20250804-142834.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="6bc31dc0-5bd9-44d4-b0a6-8318b5e2e918"><p local-id="f65acbf1f66b"><strong>Elimina i tagli successivi al taglio selezionato</strong><br>Prendendo come riferimento il taglio selezionato, verranno rimossi i tagli con progressivo maggiore.</p></td></tr><tr ac:local-id="c54d009d-3098-4fb8-b231-ff6448d73982"><td ac:local-id="dfe70a47-cf35-48d9-891c-9e48aba65f60"><div class="TextAlignCenter"><img src="attachments/2.4_lavorazione_(step_4_di_4)/5.1.9-20250804-142145.png" alt="5.1.9-20250804-142145.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="b8332785-626c-448c-b874-84959120bba2"><p local-id="116d65796a5a"><strong>Simulazione tagli</strong><br>Verranno selezionati uno alla volta tutti i tagli in base al numero progressivo taglio.</p>
+<div id="admonition-nota-2" class="admonition admonish-info" role="note" aria-labelledby="admonition-nota-2-title">
+<div class="admonition-title">
+<div id="admonition-nota-2-title">
+<p>NOTA</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-nota-2"></a>
+</div>
+<div>
+<p>Per accelerare la rassegna dei tagli, premere il tasto
+<br>
+freccia sinistra
+<br>
+, mentre per rallentarla è sufficiente premere il tasto
+<br>
+freccia destra
+<br>
+.</p>
+</div>
+</div>
+</td></tr></tbody></table><p local-id="1f65879d92c4"></p><h1 local-id="e12e9b44-aeb4-38d0-9fba-a62b8fb33022">Barra laterale destra</h1><p local-id="09977658aab1">Nel quarto step questa barra contiene le seguenti informazioni:</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="27ea8784-afd9-45f2-9324-38de2934b0de"><colgroup><col style="width: 326.0px;"><col style="width: 1473.0px;"></colgroup><tbody><tr ac:local-id="e2df2526-fe0b-4bfd-91cc-9a1dac3f0516"><td ac:local-id="2586da80-155b-40ed-a30a-90c31715d738"><div class="TextAlignCenter"><img src="attachments/2.4_lavorazione_(step_4_di_4)/5.2.1_b-20250805-054658.png" alt="5.2.1_b-20250805-054658.png" width="200" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="8f5b8d91-db69-4f5f-b172-3f57df520f3b"><p local-id="5957006a06ff"><strong>Progressivo taglio</strong><br>Per ciascun taglio selezionato, vengono visualizzati il numero progressivo del taglio, le coordinate spaziali degli spigoli e lo stato di contatto degli spigoli con le entità, indicando se uno o entrambi risultano a contatto.</p></td></tr><tr ac:local-id="7fa4181c-f6c6-446b-989c-e902407dc700"><td ac:local-id="f7a439d3-ba09-403b-881d-ee1f30634ed5"><div class="TextAlignCenter"><img src="attachments/2.4_lavorazione_(step_4_di_4)/5.2.2-20250805-054501.png" alt="5.2.2-20250805-054501.png" width="200" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="9e1cc0bf-c693-4218-bdce-015d4f45ea4f"><p local-id="b9220ee9e132"><strong>Dati Generali</strong><br>Viene riportata una serie di dati relativi alla lavorazione, impostati nei passi precedenti.</p></td></tr><tr ac:local-id="918ab926-72b6-4805-94e0-53718980b71b"><td ac:local-id="03be3c50-31f2-49a1-935b-add67ba88dea"><div class="TextAlignCenter"><img src="attachments/2.4_lavorazione_(step_4_di_4)/5.2.3-20250805-054524.png" alt="5.2.3-20250805-054524.png" width="200" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="767427a7-9849-4194-bd28-4c8147c002af"><p local-id="fcf317ac65b1"><strong>Dati Tagli</strong><br>Al raggiungimento del passaggio 4, vengono riportati automaticamente alcuni dati calcolati, tra cui: la direzione e il numero dei tagli, nonché l'immersione del taglio con il valore massimo.</p></td></tr></tbody></table><p local-id="052945511b23"></p><h1 local-id="82a06757-2bad-30df-a5dc-eb79e7df3bb5">Barra inferiore</h1><table class="my-table2" data-table-width="1539" data-layout="default" ac:local-id="4119ce24-5368-39cf-a245-47a48c77f8f2"><colgroup><col style="width: 570.0px;"><col style="width: 968.0px;"></colgroup><tbody><tr ac:local-id="9c1b8c08-ca90-32d1-9d29-03871c420a59"><td ac:local-id="a209c4a2-c4ba-35d5-b689-f36e024d3acc"><div class="TextAlignCenter"><img src="attachments/2.4_lavorazione_(step_4_di_4)/p19_06.png" alt="p19_06.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="f38cab29-7c14-3675-8d61-fd5dfd41666c"><p local-id="01927c7d-2828-3771-84b8-38e28916f124"><strong>Opzioni del taglio</strong><br>Alternativa al tasto destro del mouse per la visualizzazione delle opzioni sul taglio.</p></td></tr><tr ac:local-id="911c9719-d7fd-3ab5-bd0f-e25e5e755ba9"><td ac:local-id="000a2d27-6920-3dc1-9bb2-655fa2014e5f"><div class="TextAlignCenter"><img src="attachments/2.4_lavorazione_(step_4_di_4)/p19_07.png" alt="p19_07.png" width="318" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="d50a8f19-86c9-397c-86cd-52633dbdd4b1"><p local-id="e0b76603-9b0a-345a-954f-f8d92c6e9b80"><strong>Sposta / allunga tagli</strong><br>Alternativa alle frecce da tastiera per spostare/allungare i tagli.</p></td></tr><tr ac:local-id="f37c3516-0fbf-3004-b356-f60567f83f4a"><td ac:local-id="ca81a17c-6a8b-37b8-9531-6659c98ce583"><div class="TextAlignCenter"><img src="attachments/2.4_lavorazione_(step_4_di_4)/p10_02.png" alt="p10_02.png" width="127" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="6ad9e22b-987b-367b-b059-b5257bbc6042"><p local-id="15712449-75aa-3575-a553-6cd0df1811ce"><strong>Zoom</strong><br>Gestione Zoom _ e Zoom -.</p></td></tr><tr ac:local-id="5d5281fd-eb9a-3ca3-a7da-19673a56db7f"><td ac:local-id="4a7c578d-fd54-3567-a9f0-9e49c911b649"><div class="TextAlignCenter"><img src="attachments/2.4_lavorazione_(step_4_di_4)/p19_09.png" alt="p19_09.png" width="127" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="aea92b6c-3218-3dcc-83bd-4a2add1829b5"><p local-id="7bf2512d-c8ce-353b-a747-5888f6216f0b"><strong>Zoom finestra / AUTO zoom</strong><br>Zoom finestra e AUTO zoom.</p></td></tr></tbody></table><p local-id="1aab2abca7da"></p><!--Label="tit_laa"-->
+                        </main>
+
+                    </div>
+
+                    <img src="images/donatoni_222.jpg">
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="2.3.5_parametri_di_lavorazione_(avanzato).html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="2.5_creazione_programma.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+
+
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                <a rel="prev" href="2.3.5_parametri_di_lavorazione_(avanzato).html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="2.5_creazione_programma.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="mermaid.min.js"></script>
+        <script src="mermaid-init.js"></script>
+        <script src="hidemenu.js"></script>
+        <script src="imagemodal.js"></script>
+        <script src="login.js"></script>
+    </div>
+
+    <!-- Modale -->
+    <div id="modal" onclick="closeModal()">
+        <img id="modal-img" src="">
+    </div>;
+
+
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
+
+<script id="virtual-keyboard-searchbar-fix">
+document.addEventListener("input", function (e) {
+    const t = e.target;
+    if (t && t.id === "searchbar" && e.isTrusted !== true) {
+        t.dispatchEvent(new KeyboardEvent("keyup", { bubbles: true }));
+    }
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ricerca Pagina</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const parametro = window.location.hash.substring(1); // Prende il valore dopo #
+            const output = document.getElementById("parametro");
+
+            if (!parametro) {
+                output.textContent = "Nessun parametro passato.";
+                return;
+            }
+
+            output.textContent = `Parametro passato: ${parametro}`;
+
+            // Cerca tutte le corrispondenze nel body
+            const mappings = document.querySelectorAll("p#mapping");
+            for (const mapping of mappings) {
+                const [key, value] = mapping.textContent.split("=");
+                if (key === parametro) {
+                    window.location.href = value.trim(); // Reindirizza l'utente alla pagina corrispondente
+                    return;
+                }
+            }
+
+            var msg = `Nessuna pagina trovata con questa etichetta: ${parametro}`;
+
+            alert(msg);
+        });
+    </script>
+        <style>
+            p#mapping { display: none; }
+        </style>
+<script>(function () {
+  const SUFFIX = "#2utHhOLI7Iz0";
+
+  function buildUrl() {
+    const base = window.location.href.split("#")[0];
+    return base + SUFFIX;
+  }
+
+  function fallbackCopy(text) {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.top = "-1000px";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+
+  async function copyUrl() {
+    const url = buildUrl();
+
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(url);
+        return;
+      } catch (e) {}
+    }
+
+    fallbackCopy(url);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.getElementById("copy-link-btn");
+    if (!btn) return;
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      copyUrl();
+    });
+  });
+})();
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body>
+    <h1>Ricerca della Pagina</h1>
+    <p id="parametro">Attendi mentre cerchiamo la pagina corrispondente...</p>
+    
+    <!-- Mappatura parametri-pagine -->
+<p id="mapping">tam_app=en-gb_d-plant_1.2.html</p>
+<p id="mapping">tit_pre=1_introduction.html</p>
+<p id="mapping">tam_sof=2_the_software.html</p>
+<p id="mapping">tam_hom=2.1_home.html</p>
+<p id="mapping">tam_ser=2.2_services.html</p>
+<p id="mapping">tam_all=2.2.1_alarms.html</p>
+<p id="mapping">tam_str=2.2.2_strategies.html</p>
+<p id="mapping">tam_com=2.2.3_commands.html</p>
+<p id="mapping">tam_par=2.2.4_parameters.html</p>
+<p id="mapping">tam_for=2.2.5_formats.html</p>
+<p id="mapping">tam_con=2.3_containers.html</p>
+<p id="mapping">tam_caa=2.3.1_container_types.html</p>
+<p id="mapping">tam_ooo=2.3.2_new_or_edit_container.html</p>
+<p id="mapping">tam_cab=2.3.3_container_details.html</p>
+<p id="mapping">tam_gri=2.4_grippers.html</p>
+<p id="mapping">tam_sta=2.5_stations.html</p>
+<p id="mapping">tam_sca=2.5.1_unloading_stations.html</p>
+<p id="mapping">tam_saa=2.5.2_unloading_configuration.html</p>
+<p id="mapping">tam_car=2.5.3_loading_stations.html</p>
+<p id="mapping">tam_cac=2.5.4_loading_configuration.html</p>
+<p id="mapping">tam_lay=2.5.5_layout_configuration.html</p>
+<p id="mapping">tam_pez=2.5.6_piece_workings.html</p>
+<p id="mapping">tam_mat=2.6_materials.html</p>
+<p id="mapping">tam_did=2.6.1_material_category.html</p>
+<p id="mapping">tam_maa=2.6.2_materials.html</p>
+<p id="mapping">tam_las=2.6.3_slabs.html</p>
+<p id="mapping">tam_sab=2.7_tools.html</p>
+<p id="mapping">tam_rob=2.7.1_robot_variables.html</p>
+<p id="mapping">tam_oaa=2.7.2_io.html</p>
+<p id="mapping">tam_daa=2.7.3_working_positions.html</p>
+<p id="mapping">tam_fil=2.7.4_log_files.html</p>
+<p id="mapping">tam_sac=2.8_statistics.html</p>
+<p id="mapping">tam_raa=2.8.1_robot.html</p>
+<p id="mapping">tam_lav=2.8.2_workings.html</p>
+<p id="mapping">tam_cad=2.8.3_containers.html</p>
+<p id="mapping">tam_dab=2.8.4_unloading_cycles.html</p>
+<p id="mapping">tam_paa=2.8.5_pieces.html</p>
+<p id="mapping">tam_laa=2.8.6_workings_view.html</p>
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
+</body>
+</html>
