@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+<head>
+    <!-- Book generated using mdBook -->
+    <meta charset="UTF-8">
+    <title>2.1.1 HOME TOOL PLUS (OPSIONAL) - SQ-AL D-WATERJET</title>
+
+    <!-- Custom HTML head -->
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="icon" href="favicon.svg">
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/chrome.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Fonts -->
+    <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+    <link rel="stylesheet" href="fonts/fonts.css">
+
+    <!-- Highlight.js Stylesheets -->
+    <link rel="stylesheet" id="highlight-css" href="highlight.css">
+    <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+    <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+    <!-- Custom theme stylesheets -->
+    <link rel="stylesheet" href="./mdbook-admonish.css">
+    <link rel="stylesheet" href="theme/custom.css">
+    <link rel="stylesheet" href="search.html">
+    <link rel="stylesheet" href="login.html">
+    <link rel="stylesheet" href="searchlogin.html">
+    <link rel="stylesheet" href="searchloginmenu.html">
+
+    <!-- Provide site root and default themes to javascript -->
+    <script>
+      const path_to_root = "";
+      const default_light_theme = "light";
+      const default_dark_theme = "light";
+    </script>
+    <!-- Start loading toc.js asap -->
+    <script src="toc.js"></script>
+<script>(function () {
+  const SUFFIX = "#2utHhOLI7Iz0";
+
+  function buildUrl() {
+    const base = window.location.href.split("#")[0];
+    return base + SUFFIX;
+  }
+
+  function fallbackCopy(text) {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.top = "-1000px";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+
+  async function copyUrl() {
+    const url = buildUrl();
+
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(url);
+        return;
+      } catch (e) {}
+    }
+
+    fallbackCopy(url);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.getElementById("copy-link-btn");
+    if (!btn) return;
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      copyUrl();
+    });
+  });
+})();
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-index" data-technical-styler-flow="html">
+    <header class="header-main">
+        <div class="header-flex">
+            <div class="donatoni-flex">
+                <label class="btn hamburger-menu" id="sidebar-toggle" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                    <i id="sidebar-toggle-icon" class="fa-solid fa-bars"></i>
+                </label>
+
+                <img src="images/donatoni-logo-white.svg" alt="Donatoni Macchine">
+            </div>
+
+            <div class="donatoni-flex action-header-buttons">
+                <div id="search-wrapper" class="search-wrapper hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults"></ul>
+                    </div>
+                </div>
+                <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
+                </button>
+
+                <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
+                    <i class="fa-solid fa-print"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div id="body-container">
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem("mdbook-theme");
+                let sidebar = localStorage.getItem("mdbook-sidebar");
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-theme",
+                        theme.slice(1, theme.length - 1)
+                    );
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-sidebar",
+                        sidebar.slice(1, sidebar.length - 1)
+                    );
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = "light";
+            let theme = default_theme;
+            const html = document.documentElement;
+            html.classList.remove("light");
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try {
+                    sidebar = localStorage.getItem('mdbook-sidebar');
+                } catch (e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document
+                        .getElementById("sidebar-toggle")
+                        .setAttribute("aria-expanded", sidebar === "visible");
+                    document
+                        .getElementById("sidebar")
+                        .setAttribute("aria-hidden", sidebar !== "visible");
+                    Array.from(document.querySelectorAll("#sidebar a")).forEach(
+                        function (link) {
+                            link.setAttribute("tabIndex", sidebar === "visible" ? 0 : -1);
+                        }
+                    );
+                </script>
+
+                <div id="content" class="content">
+
+                    <div>
+
+                        <img src="images/donatoni_111.jpg">
+
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Technical maintenance index</span><span class="maintenance-status"><i class="fa-solid fa-layer-group" aria-hidden="true"></i> Operational archive</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="211-home-tool-plus-opsional" style="margin:0;" class="maintenance-main-title"><a class="header" href="#211-home-tool-plus-opsional"><span class="maintenance-code">INDEX</span><span class="maintenance-name">2.1.1 HOME TOOL PLUS (OPSIONAL)</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document INDEX" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="2.1.1 HOME TOOL PLUS (OPSIONAL)"--><p local-id="87d19ff94301">Kur Tool Plus është aktivizuar, ndërfaqja e faqes qendrore ndryshon pamje.</p><div class="TextAlignCenter"><img src="attachments/2.1.1_home_tool_plus_(opsional)/0.png" alt="0.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><h1 local-id="4a6e685e6fbc">Tool Plus</h1><p local-id="0eb6b630bc18">Ky seksion ndodhet në pjesën e sipërme djathtas të ndërfaqes dhe mundëson menaxhimin e Tool Plus:</p><div class="TextAlignCenter"><img src="attachments/2.1.1_home_tool_plus_(opsional)/3.0.png" alt="3.0.png" width="308" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><h2 local-id="981b37b463af" class="maintenance-section-title" data-section-number="01">Parametrat e Tool Plus</h2><table class="my-table2" data-table-width="1800.0" data-layout="align-start" ac:local-id="a79a0b8c-b1d0-47da-bc2e-154fbd831fb3"><colgroup><col style="width: 578.0px;"><col style="width: 1221.0px;"></colgroup><tbody><tr ac:local-id="be84a662-81a9-494b-a81a-ef7de0d5c1ef"><td ac:local-id="61525d2c-e097-4003-bff6-4dc3bb4376b7"><div class="TextAlignCenter"><img src="attachments/2.1.1_home_tool_plus_(opsional)/3.3_b-20261023-053843.png" alt="3.3_b-20261023-053843.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="32093c70-203f-4c4e-96cf-70313fea3bdd"><p local-id="cda72c61e920"><strong>Gjatësia</strong><br>Tregon largësinë nga maja e veglës deri te një pikë e marrë si referencë.</p></td></tr><tr ac:local-id="f5596d39-d92e-4721-beae-aac6a724896c"><td ac:local-id="9f7763f6-1023-455f-b71b-1e2c6288f43c"><div class="TextAlignCenter"><img src="attachments/2.1.1_home_tool_plus_(opsional)/3.4_b-20261023-053756.png" alt="3.4_b-20261023-053756.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="8bd645b5-ad6b-400f-b4db-3202ff420625"><p local-id="054da3ad0a34"><strong>Diametri</strong><br>Madhësia e diametrit maksimal të veglës.</p></td></tr><tr ac:local-id="669beeec-cc42-4a3f-b8d2-3d8c5a75349b"><td ac:local-id="aa2e7b63-1ca2-49d5-9743-b544dd531031"><div class="TextAlignCenter"><img src="attachments/2.1.1_home_tool_plus_(opsional)/3.5_b-20261023-053926.png" alt="3.5_b-20261023-053926.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="a81ff0a2-160c-468a-a4d2-74068166985d"><p local-id="a9bafd6718bd"><strong>RPM</strong><br>Tregon shpejtësinë maksimale të rrotullimit të boshtit kryesor në rrotullime për minutë. <br>Kjo vlerë lidhet me 100% të potenciometrit të komandimit të diskut.</p></td></tr><tr ac:local-id="775a0461-8b22-451d-a5e0-83b6d456de99"><td ac:local-id="90ccd043-38d6-40c4-aee6-c3b1f98e877b"><div class="TextAlignCenter"><img src="attachments/2.1.1_home_tool_plus_(opsional)/3.6_b-20261023-054008.png" alt="3.6_b-20261023-054008.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="aeaeb0ff-a04e-4312-99ec-07126cff0a22"><p local-id="2455addbd70e"><strong>Pragu i alarmit</strong><br>Pragu i alarmit në Amper.</p></td></tr><tr ac:local-id="e4c5dfc6-f4c5-43b1-a998-f1706cffc871"><td ac:local-id="c441d3ab-9e24-45ae-9882-4566e3e3c4b9"><div class="TextAlignCenter"><img src="attachments/2.1.1_home_tool_plus_(opsional)/3.6_b-20261023-054008.png" alt="3.6_b-20261023-054008.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="1443dd7e-0bc6-4fe2-be2d-9ffcb4f198ba"><p local-id="82bfcf6f2997"><strong>Konsumi</strong><br>Konsumi aktual në Amper.</p></td></tr></tbody></table><p local-id="94436f54c803"></p><h2 local-id="9b92f0b7f349" class="maintenance-section-title" data-section-number="02">Butonat e Tool Plus</h2><table class="my-table2" data-table-width="1800.0" data-layout="align-start" ac:local-id="06ee05b1-c4b7-45b7-885d-c1d43bb35661"><colgroup><col style="width: 580.0px;"><col style="width: 1220.0px;"></colgroup><tbody><tr ac:local-id="37154c88-d609-4d56-ae9c-77974a4c2066"><td ac:local-id="b47584ea-e3a0-4bbf-8bbf-bbb22ebf3714"><div class="TextAlignCenter"><img src="attachments/2.1.1_home_tool_plus_(opsional)/PART_InnerGrid_System.Windows.Controls.Grid_28831760-20261023-140317.png" alt="PART_InnerGrid_System.Windows.Controls.Grid_28831760-20261023-140317.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="9441ad20-feb5-4ebe-a74e-f58cfe1e42a8"><p local-id="f10bdbc959d0"><strong>Ndrysho modalitetin</strong><br>Mundëson kalimin ndërmjet modalitetit Tool_ dhe Hydrofinishing (nëse është i pranishëm).</p></td></tr><tr ac:local-id="e5a8165e-ce4b-42c7-a5ba-ae4ea3b03f8b"><td ac:local-id="557432d6-1f7f-447e-81ec-84dcc645e414"><div class="TextAlignCenter"><img src="attachments/2.1.1_home_tool_plus_(opsional)/3.8.png" alt="3.8.png" width="106" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="c3d5193f-9147-4d62-a4af-19c366a390d3"><p local-id="00c6b52fd16b"><strong>Mat veglën me sondë</strong><br>Kryen procedurën për matjen automatike të gjatësisë së veglës Tool Plus.</p></td></tr><tr ac:local-id="6eb6556e-a067-499b-aa89-6e28d0391086"><td ac:local-id="36ca8a88-76ba-4492-9b5d-9ae81f4b8c8c"><div class="TextAlignCenter"><img src="attachments/2.1.1_home_tool_plus_(opsional)/3.9.png" alt="3.9.png" width="106" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="faffb1f3-6e7b-487c-aeeb-eb42fbe3780f"><p local-id="4a5df41f4c42"><strong>Ngritja</strong><br>Mundëson ngritjen e bllokut të makinës ku është montuar vegla.</p></td></tr><tr ac:local-id="d5ee64e8-2838-4d04-b189-0501ea7c39d1"><td ac:local-id="8dd80fab-d3de-48b6-8b45-51404f1747f1"><div class="TextAlignCenter"><img src="attachments/2.1.1_home_tool_plus_(opsional)/3.10.png" alt="3.10.png" width="106" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="51593926-1ee1-4f27-8512-e622686b217a"><p local-id="49c83df34fae"><strong>Ulja</strong><br>Mundëson uljen e bllokut të makinës ku është montuar vegla.</p></td></tr><tr ac:local-id="6fe138a5-7a27-4c44-9384-edcd939a8a22"><td ac:local-id="c5a575a7-e12d-484a-a913-565caefe0b1f"><div class="TextAlignCenter"><img src="attachments/2.1.1_home_tool_plus_(opsional)/3.11.png" alt="3.11.png" width="106" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="a5e90a4f-9635-4cd5-b351-9eafa7cb5a4e"><p local-id="04dff3787ee4"><strong>Ndezja/Fikja e ujit</strong><br>Mundëson rregullimin e daljes së ujit nga kanali i Tool Plus.</p></td></tr><tr ac:local-id="9cc5abae-bc90-4343-a652-799f5ce49f0e"><td ac:local-id="cb74ec56-dc32-48f3-9722-2b40c801033f"><div class="TextAlignCenter"><img src="attachments/2.1.1_home_tool_plus_(opsional)/3.12.png" alt="3.12.png" width="106" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="4bb4eeb0-ee52-4ed5-872f-684232b3c21e"><p local-id="02db65e54c8a"><strong>Aktivizo/Çaktivizo rrotullimin</strong><br>Mundëson nisjen ose ndalimin e rrotullimit të Tool Plus.</p></td></tr></tbody></table><p local-id="9422ab96e7d8"></p><!--Label="ddd"-->
+                        </main>
+
+                    </div>
+
+                    <img src="images/donatoni_222.jpg">
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="2.1_home.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="2.2_statistikat.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+
+
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                <a rel="prev" href="2.1_home.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="2.2_statistikat.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="mermaid.min.js"></script>
+        <script src="mermaid-init.js"></script>
+        <script src="hidemenu.js"></script>
+        <script src="imagemodal.js"></script>
+        <script src="login.js"></script>
+    </div>
+
+    <!-- Modale -->
+    <div id="modal" onclick="closeModal()">
+        <img id="modal-img" src="">
+    </div>;
+
+
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
+
+<script id="virtual-keyboard-searchbar-fix">
+document.addEventListener("input", function (e) {
+    const t = e.target;
+    if (t && t.id === "searchbar" && e.isTrusted !== true) {
+        t.dispatchEvent(new KeyboardEvent("keyup", { bubbles: true }));
+    }
+});
+</script>
+</body>
+</html>

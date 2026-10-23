@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+<head>
+    <!-- Book generated using mdBook -->
+    <meta charset="UTF-8">
+    <title>2.4 HYDROFINISH (OPTIONAL) - EN-GB D-WATERJET</title>
+
+    <!-- Custom HTML head -->
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="icon" href="favicon.svg">
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/chrome.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Fonts -->
+    <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+    <link rel="stylesheet" href="fonts/fonts.css">
+
+    <!-- Highlight.js Stylesheets -->
+    <link rel="stylesheet" id="highlight-css" href="highlight.css">
+    <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+    <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+    <!-- Custom theme stylesheets -->
+    <link rel="stylesheet" href="./mdbook-admonish.css">
+    <link rel="stylesheet" href="theme/custom.css">
+    <link rel="stylesheet" href="search.html">
+    <link rel="stylesheet" href="login.html">
+    <link rel="stylesheet" href="searchlogin.html">
+    <link rel="stylesheet" href="searchloginmenu.html">
+
+    <!-- Provide site root and default themes to javascript -->
+    <script>
+      const path_to_root = "";
+      const default_light_theme = "light";
+      const default_dark_theme = "light";
+    </script>
+    <!-- Start loading toc.js asap -->
+    <script src="toc.js"></script>
+<script>(function () {
+  const SUFFIX = "#2utHhOLI7Iz0";
+
+  function buildUrl() {
+    const base = window.location.href.split("#")[0];
+    return base + SUFFIX;
+  }
+
+  function fallbackCopy(text) {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.top = "-1000px";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+
+  async function copyUrl() {
+    const url = buildUrl();
+
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(url);
+        return;
+      } catch (e) {}
+    }
+
+    fallbackCopy(url);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.getElementById("copy-link-btn");
+    if (!btn) return;
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      copyUrl();
+    });
+  });
+})();
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-document" data-technical-styler-flow="html">
+    <header class="header-main">
+        <div class="header-flex">
+            <div class="donatoni-flex">
+                <label class="btn hamburger-menu" id="sidebar-toggle" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                    <i id="sidebar-toggle-icon" class="fa-solid fa-bars"></i>
+                </label>
+
+                <img src="images/donatoni-logo-white.svg" alt="Donatoni Macchine">
+            </div>
+
+            <div class="donatoni-flex action-header-buttons">
+                <div id="search-wrapper" class="search-wrapper hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults"></ul>
+                    </div>
+                </div>
+                <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
+                </button>
+
+                <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
+                    <i class="fa-solid fa-print"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div id="body-container">
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem("mdbook-theme");
+                let sidebar = localStorage.getItem("mdbook-sidebar");
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-theme",
+                        theme.slice(1, theme.length - 1)
+                    );
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-sidebar",
+                        sidebar.slice(1, sidebar.length - 1)
+                    );
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = "light";
+            let theme = default_theme;
+            const html = document.documentElement;
+            html.classList.remove("light");
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try {
+                    sidebar = localStorage.getItem('mdbook-sidebar');
+                } catch (e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document
+                        .getElementById("sidebar-toggle")
+                        .setAttribute("aria-expanded", sidebar === "visible");
+                    document
+                        .getElementById("sidebar")
+                        .setAttribute("aria-hidden", sidebar !== "visible");
+                    Array.from(document.querySelectorAll("#sidebar a")).forEach(
+                        function (link) {
+                            link.setAttribute("tabIndex", sidebar === "visible" ? 0 : -1);
+                        }
+                    );
+                </script>
+
+                <div id="content" class="content">
+
+                    <div>
+
+                        <img src="images/donatoni_111.jpg">
+
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Machine technical documentation</span><span class="maintenance-status"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Operational document</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="24-hydrofinish-optional" style="margin:0;" class="maintenance-main-title"><a class="header" href="#24-hydrofinish-optional"><span class="maintenance-code">DOC</span><span class="maintenance-name">2.4 HYDROFINISH (OPTIONAL)</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document DOC" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="2.4 HYDROFINISH (OPTIONAL)"--><p local-id="294f7881bd38">This interface can be accessed by pressing the following button in the right-hand side menu:</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="1c83d1bc-6be5-4090-b8a5-6f3d8321a8aa"><colgroup><col style="width: 614.0px;"><col style="width: 1185.0px;"></colgroup><tbody><tr ac:local-id="66c55283b2da"><td ac:local-id="ede0b88d422c"><div class="TextAlignCenter"><img src="attachments/2.4_hydrofinish_(optional)/3.4-20261023-073231.png" alt="3.4-20261023-073231.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="2cc62e0d0caf"><p local-id="bf43ffa0e3d9"><strong>Hydrofinish</strong><br>When available, this button is displayed after <strong>SERVICE</strong>.</p></td></tr></tbody></table><p local-id="d0a04108e11e">The following image shows an example of the Hydrofinish interface:</p><div class="TextAlignCenter"><img src="attachments/2.4_hydrofinish_(optional)/0.0.png" alt="0.0.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p>
+</p><h1 local-id="4eeb3550dcc0">Commands</h1><p local-id="68f284bbbd9d">This area is located at the top centre of the interface.<br>It allows the operator to perform the following actions:</p><div class="TextAlignCenter"><img src="attachments/2.4_hydrofinish_(optional)/1.0.png" alt="1.0.png" width="347" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="0e373f09-cc41-4939-b423-b7b132dbf179"><colgroup><col style="width: 507.0px;"><col style="width: 1292.0px;"></colgroup><tbody><tr ac:local-id="3ee48407-0971-4b54-a36c-bcb6cdd0ef88"><td ac:local-id="de8bf067-b762-4b42-8752-f6ce8526200d"><div class="TextAlignCenter"><img src="attachments/2.4_hydrofinish_(optional)/1.1.png" alt="1.1.png" width="118" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="7b84b8e1-777b-407f-ac7b-3ab4f32dfcb1"><p local-id="69445533eb78"><strong>Automatic parking</strong><br>When pressed, the machine automatically moves the “X”, “Y”, “Z” and “C” axes to their zero positions.<br>The machine performs the movements in the following order:<br>(A) - “Z” axis to the absolute zero position;<br>(B) - “C” axis to the absolute 0 position;<br>(C) - “X” and “Y” axes simultaneously to their absolute zero positions;</p></td></tr><tr ac:local-id="a5147e02-a985-4389-a4fe-84c250998765"><td ac:local-id="cdc7aa59-7bf7-425c-8499-1e35a4bf0588"><div class="TextAlignCenter"><img src="attachments/2.4_hydrofinish_(optional)/1.2.png" alt="1.2.png" width="118" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="a423cdc6-be56-4628-9bb3-218f1d2bdd05"><p local-id="815165d17ee6"><strong>Manual Tool Change</strong><br>Pressing the button starts the tool-change procedure.</p></td></tr><tr ac:local-id="ae0eebb8-f918-48b2-bfb4-569c2030ac3b"><td ac:local-id="796010de-f0cd-4480-b578-4dd5e4afb23d"><div class="TextAlignCenter"><img src="attachments/2.4_hydrofinish_(optional)/1.3.png" alt="1.3.png" width="118" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="c1fc2b99-c307-49a4-be3a-2f143d06d25d"><p local-id="79c2cd061c62"><strong>Remote Control</strong><br>Enables/disables the Remote Control.</p></td></tr></tbody></table><p local-id="ea44768a77de"></p><h1 local-id="89889acdee4c">Axes</h1><p local-id="468e588f7f92">This area is located in the upper-left section of the interface.</p><div class="TextAlignCenter"><img src="attachments/2.4_hydrofinish_(optional)/2.0-20261022-094915.png" alt="2.0-20261022-094915.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><h3 local-id="99de25a1f233">Axis buttons</h3><p local-id="de7ae35d7b07">The following buttons are available only in this operating mode:</p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="8c0febc4-3fde-46e7-babf-fb4d0193b790"><colgroup><col style="width: 625.0px;"><col style="width: 1174.0px;"></colgroup><tbody><tr ac:local-id="0a7b8a74-02dc-49e4-b629-6c36fc08f43a"><td ac:local-id="20054b0f-8abc-48af-92b3-56459d572b74"><div class="TextAlignCenter"><img src="attachments/2.4_hydrofinish_(optional)/3.6.png" alt="3.6.png" width="211" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="f0af96cb-ba7c-47bb-909f-c7902d9a5587"><p local-id="63905147575e"><strong>Reset Axis</strong><br>Pressing this button sets the active origin to zero at the current position of the corresponding axis (X, Y or Z).<br>The axis reset operation can only be performed on origins other than 0 (zero).<br>To use the tool coordinate origin (TCP), the correct dimensions of the installed tool must be set before pressing the Reset Axis button.</p></td></tr><tr ac:local-id="aa2bf052-850a-44fd-94d9-461836f08689"><td ac:local-id="21128d3c-a1c8-4875-8ad5-b1f98a1110ed"><div class="TextAlignCenter"><img src="attachments/2.4_hydrofinish_(optional)/3.7.png" alt="3.7.png" width="211" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="1dabffad-d9dd-4680-8ed8-c8441eb0d84c"><p local-id="279ee4b10662"><strong>Reset X and Y origins</strong><br>The X- and Y-axis origins can be reset using the cross laser.</p></td></tr><tr ac:local-id="76f7472c-86fd-4008-8b1c-b91954e0be81"><td ac:local-id="27e29ad4-28a0-4131-b481-5667c65d68b5"><div class="TextAlignCenter"><img src="attachments/2.4_hydrofinish_(optional)/3.8.png" alt="3.8.png" width="211" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="7c75ff6d-2593-49d7-96b1-9502cb529403"><p local-id="4283204099f2"><strong>Reset Z origin</strong><br>The Z-axis origin can be reset using the slab probe.</p></td></tr></tbody></table><p local-id="b40ba911009d"></p><h1 local-id="4a6e685e6fbc">Tool Plus</h1><p local-id="3f150486e440">This area is located in the upper-right section of the interface and is used to manage the Tool Plus:</p><div class="TextAlignCenter"><img src="attachments/2.4_hydrofinish_(optional)/3.0.png" alt="3.0.png" width="308" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><h2 local-id="981b37b463af" class="maintenance-section-title" data-section-number="01">Tool Plus parameters</h2><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="a79a0b8c-b1d0-47da-bc2e-154fbd831fb3"><colgroup><col style="width: 578.0px;"><col style="width: 1221.0px;"></colgroup><tbody><tr ac:local-id="4006836891ef"><td ac:local-id="6a27b8f69ab9"><div class="TextAlignCenter"><img src="attachments/2.4_hydrofinish_(optional)/3.3_b-20261023-053843.png" alt="3.3_b-20261023-053843.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="3fc5ef5a5f60"><p local-id="11318876edc5"><strong>Length</strong><br>Indicates the distance between the tool tip and a reference point.</p></td></tr><tr ac:local-id="c1e46d3ebfb2"><td ac:local-id="f3c73dda75bb"><div class="TextAlignCenter"><img src="attachments/2.4_hydrofinish_(optional)/3.4_b-20261023-053756.png" alt="3.4_b-20261023-053756.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="dd62ca2e56e0"><p local-id="14e24a7c3dd7"><strong>Diameter</strong><br>Measurement of the tool’s maximum diameter.</p></td></tr><tr ac:local-id="8a18b997e174"><td ac:local-id="9ffc38f38899"><div class="TextAlignCenter"><img src="attachments/2.4_hydrofinish_(optional)/3.5_b-20261023-053926.png" alt="3.5_b-20261023-053926.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="acad232de38a"><p local-id="c2320a689be8"><strong>RPM</strong><br>Indicates the maximum spindle rotation speed in revolutions per minute. <br>This value corresponds to 100% on the disc control potentiometer.</p></td></tr><tr ac:local-id="0fba48e300f6"><td ac:local-id="d05ce6f19e51"><div class="TextAlignCenter"><img src="attachments/2.4_hydrofinish_(optional)/3.6_b-20261023-054008.png" alt="3.6_b-20261023-054008.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="267a2c5f8099"><p local-id="9d1c6c208018"><strong>Ampere threshold</strong><br>Alarm threshold in Amps.</p></td></tr><tr ac:local-id="9e504f5521dc"><td ac:local-id="f2948b1413c7"><div class="TextAlignCenter"><img src="attachments/2.4_hydrofinish_(optional)/3.6_b-20261023-054008.png" alt="3.6_b-20261023-054008.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="05eef8102a09"><p local-id="481ce3931f4a"><strong>Intake</strong><br>Current consumption in Amps.</p></td></tr></tbody></table><p local-id="652951009c98"></p><h2 local-id="9b92f0b7f349" class="maintenance-section-title" data-section-number="02">Tool Plus buttons</h2><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="06ee05b1-c4b7-45b7-885d-c1d43bb35661"><colgroup><col style="width: 580.0px;"><col style="width: 1220.0px;"></colgroup><tbody><tr ac:local-id="5f77f0c5c7f6"><td ac:local-id="68ca79f87db7"><div class="TextAlignCenter"><img src="attachments/2.4_hydrofinish_(optional)/PART_InnerGrid_System.Windows.Controls.Grid_28831760-20261023-140317.png" alt="PART_InnerGrid_System.Windows.Controls.Grid_28831760-20261023-140317.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="94309823d0f4"><p local-id="64aee7e6f5be"><strong>Change mode</strong><br>Switches between Tool_ and Hydrofinishing modes.</p></td></tr><tr ac:local-id="900a031d2290"><td ac:local-id="8533e5244a08"><div class="TextAlignCenter"><img src="attachments/2.4_hydrofinish_(optional)/3.8.png" alt="3.8.png" width="106" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="bf1df6e1a82a"><p local-id="7b032b634a6e"><strong>Probe tool</strong><br>Performs the procedure for automatically measuring the length of the Tool Plus tool.</p></td></tr><tr ac:local-id="a115d67bd99c"><td ac:local-id="195f325775f1"><div class="TextAlignCenter"><img src="attachments/2.4_hydrofinish_(optional)/3.9.png" alt="3.9.png" width="106" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="8bf5f05a01d9"><p local-id="bc6400681a70"><strong>Raise</strong><br>Raises the machine unit on which the tool is installed.</p></td></tr><tr ac:local-id="b2c44a751a35"><td ac:local-id="2d06743833ca"><div class="TextAlignCenter"><img src="attachments/2.4_hydrofinish_(optional)/3.10.png" alt="3.10.png" width="106" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="98056748d12d"><p local-id="78aad9a04a5b"><strong>Lower</strong><br>Lowers the machine unit on which the tool is installed.</p></td></tr><tr ac:local-id="79e5328d518d"><td ac:local-id="f6c732ab24e5"><div class="TextAlignCenter"><img src="attachments/2.4_hydrofinish_(optional)/3.11.png" alt="3.11.png" width="106" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="f4bfa0006add"><p local-id="fe0ccc12fe08"><strong>Turn water on/off</strong><br>Controls the water flow from the Tool Plus pipe.</p></td></tr><tr ac:local-id="ea10bc4c4a27"><td ac:local-id="4731940e4187"><div class="TextAlignCenter"><img src="attachments/2.4_hydrofinish_(optional)/3.12.png" alt="3.12.png" width="106" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="fa15400d7dc0"><p local-id="50c48a8d0ca4"><strong>Enable/disable rotation</strong><br>Starts or stops Tool Plus rotation.</p></td></tr></tbody></table><p local-id="7749e04c8c0b"></p><h1 local-id="2f16db86a2a7">Origin</h1><p local-id="5454f86acb64">This area is located in the upper-right section of the interface, below the top bar:</p><div class="TextAlignCenter"><img src="attachments/2.4_hydrofinish_(optional)/4.0.png" alt="4.0.png" width="236" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="632627dd744b"></p><p local-id="35b08bd56605"></p><h1 local-id="d74dde09fcc5">Hydrofinish</h1><p local-id="30aa871275b0">This section is located in the lower-left section of the interface and is used to manage the Hydrofinish machining parameters:</p><div class="TextAlignCenter"><img src="attachments/2.4_hydrofinish_(optional)/5.0.png" alt="5.0.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="90fde5d71c76"></p><h2 local-id="ae448f599cdf" class="maintenance-section-title" data-section-number="03">Hydrofinish pass type</h2><div class="TextAlignCenter"><img src="attachments/2.4_hydrofinish_(optional)/5.2.0.png" alt="5.2.0.png" width="495" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="adebefcfcbd4"></p><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="ecd632d5-d4e6-446e-b689-eec400a4dc52"><colgroup><col style="width: 594.0px;"><col style="width: 1205.0px;"></colgroup><tbody><tr ac:local-id="20900d6e26fe"><td ac:local-id="cfd3227da299"><div class="TextAlignCenter"><img src="attachments/2.4_hydrofinish_(optional)/5.2.1.png" alt="5.2.1.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="66ff4d28e466"><p local-id="0b13fbe86a32"><strong>Perimeter</strong><br>The cutting operation will affect only the perimeter of the selected geometric shape.</p></td></tr><tr ac:local-id="f9d8cac65cb2"><td ac:local-id="c411a3b42c33"><div class="TextAlignCenter"><img src="attachments/2.4_hydrofinish_(optional)/5.2.2.png" alt="5.2.2.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="45e403324a26"><p local-id="d3086d0dc282"><strong>Horizontal passes</strong><br>Multiple horizontal passes will be performed.</p></td></tr><tr ac:local-id="efda58074d69"><td ac:local-id="fdc12633df9d"><div class="TextAlignCenter"><img src="attachments/2.4_hydrofinish_(optional)/5.2.3.png" alt="5.2.3.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="476349e65c85"><p local-id="74b8d37bb8eb"><strong>Vertical passes</strong><br>Multiple vertical passes will be performed.</p></td></tr><tr ac:local-id="bb3f35ec3bb6"><td ac:local-id="c80114f781d0"><div class="TextAlignCenter"><img src="attachments/2.4_hydrofinish_(optional)/5.2.4.png" alt="5.2.4.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="b0a0302cfe37"><p local-id="8cc93fd75a99"><strong>Zigzag passes</strong><br>Multiple zigzag passes will be performed.</p></td></tr><tr ac:local-id="e9eb5eea13c2"><td ac:local-id="0dba2a7650ac"><div class="TextAlignCenter"><img src="attachments/2.4_hydrofinish_(optional)/5.2.5.png" alt="5.2.5.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="2b26b89135c9"><p local-id="2ad5fc55064c"><strong>Left-to-right step</strong><br>Distance along the Y axis between two consecutive passes from left to right.</p></td></tr><tr ac:local-id="67f47f23d9e3"><td ac:local-id="3cf31fe8473b"><div class="TextAlignCenter"><img src="attachments/2.4_hydrofinish_(optional)/5.2.6.png" alt="5.2.6.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="7e1a6befd03c"><p local-id="f9f80159b27a"><strong>Top-to-bottom step</strong><br>Distance along the X axis between two consecutive passes from top to bottom.</p></td></tr><tr ac:local-id="70b9ee96fe79"><td ac:local-id="9babd443003c"><div class="TextAlignCenter"><img src="attachments/2.4_hydrofinish_(optional)/5.2.7.png" alt="5.2.7.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="d4f271368d44"><p local-id="ff4c72b3dc5e"><strong>Zigzag X step</strong><br>Distance along the X axis used to define the zigzag path step.</p></td></tr><tr ac:local-id="c140365f698f"><td ac:local-id="9db302a814bd"><div class="TextAlignCenter"><img src="attachments/2.4_hydrofinish_(optional)/5.2.8.png" alt="5.2.8.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="4dafed69f4b8"><p local-id="f252b72d7206"><strong>Zigzag Y step</strong><br>Distance along the Y axis used to define the zigzag path step.</p></td></tr></tbody></table><p local-id="e6c9a8c55b48"></p><h2 local-id="03ad2564fa13" class="maintenance-section-title" data-section-number="04">Hydrofinish parameters</h2><div class="TextAlignCenter"><img src="attachments/2.4_hydrofinish_(optional)/5.3.0.png" alt="5.3.0.png" width="540" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="ed1e0e2b-d76c-4634-a361-2f47fa1f8322"><colgroup><col style="width: 594.0px;"><col style="width: 1205.0px;"></colgroup><tbody><tr ac:local-id="d1da4eb96c4f"><td ac:local-id="6b6273b10f10"><div class="TextAlignCenter"><img src="attachments/2.4_hydrofinish_(optional)/5.3.1.1_b-20261023-055450.png" alt="5.3.1.1_b-20261023-055450.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="08f78f113b18"><p local-id="4d220c2d806d"><strong>Horizontal dimension</strong><br>Horizontal dimension of the rectangle in which machining is performed.<br></p></td></tr><tr ac:local-id="03e45160d8f0"><td ac:local-id="34e3cdd4e1a0"><div class="TextAlignCenter"><img src="attachments/2.4_hydrofinish_(optional)/5.3.1.2_b-20261023-055538.png" alt="5.3.1.2_b-20261023-055538.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="1d90acc53302"><p local-id="cad0319decd8"><strong>Vertical dimension</strong><br>Vertical dimension of the rectangle in which machining is performed.</p></td></tr><tr ac:local-id="dd5e8c2af6fa"><td ac:local-id="e0df1bf3f333"><div class="TextAlignCenter"><img src="attachments/2.4_hydrofinish_(optional)/5.3.1.3_b-20261023-055620.png" alt="5.3.1.3_b-20261023-055620.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="b899cc438d10"><p local-id="bf669fe70039"><strong>Internal offset</strong><br>Sets an inward offset from the rectangle for machining.</p></td></tr><tr ac:local-id="51e870817bfc"><td ac:local-id="0039393299ac"><div class="TextAlignCenter"><img src="attachments/2.4_hydrofinish_(optional)/5.3.2.1_b-20261023-055706.png" alt="5.3.2.1_b-20261023-055706.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="ea7e5bb0b88c"><p local-id="f5ab84530fd6"><strong>Machining Z</strong><br>Z coordinate relative to the slab at which the machine performs Hydrofinish machining.</p></td></tr><tr ac:local-id="80ec82ef7d5b"><td ac:local-id="8de0d25137ef"><div class="TextAlignCenter"><img src="attachments/2.4_hydrofinish_(optional)/5.3.2.1_b-20261023-055706.png" alt="5.3.2.1_b-20261023-055706.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="f560bea432d6"><p local-id="c5c3ff504025"><strong>Approach Z</strong><br>Z coordinate relative to the slab at which the machine performs the approach.</p></td></tr><tr ac:local-id="f8e768ecad35"><td ac:local-id="c6dc24d2ea1a"><div class="TextAlignCenter"><img src="attachments/2.4_hydrofinish_(optional)/5.3.2.3_b-20261023-055746.png" alt="5.3.2.3_b-20261023-055746.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="d53158f3a811"><p local-id="6c27ecd42cdc"><strong>Working speed</strong><br>Indicates the speed at which machining will be performed.</p></td></tr><tr ac:local-id="d06d84b35542"><td ac:local-id="0d1c8d788d14"><div class="TextAlignCenter"><img src="attachments/2.4_hydrofinish_(optional)/5.3.2.4_b.png" alt="5.3.2.4_b.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="e82d884c6520"><p local-id="da29f38c26f3"><strong>Approach speed</strong><br>Indicates the required positioning speed along the Z axis to the selected coordinate.</p></td></tr></tbody></table><p local-id="5e09ca0aa9ed"></p><h2 local-id="2356f7e51223" class="maintenance-section-title" data-section-number="05">Hydrofinish bottom bar</h2><div class="TextAlignCenter"><img src="attachments/2.4_hydrofinish_(optional)/5.4.0_disable.png" alt="5.4.0_disable.png" width="400" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="72457a9f-c332-4539-ad17-c9e650219d16"><colgroup><col style="width: 602.0px;"><col style="width: 1197.0px;"></colgroup><tbody><tr ac:local-id="297752d0f58a"><td ac:local-id="3a0a78cd3ce7"><div class="TextAlignCenter"><img src="attachments/2.4_hydrofinish_(optional)/5.4.1.1-20261023-140113.png" alt="5.4.1.1-20261023-140113.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="eb76f078f0b9"><p local-id="3c6a212642c4"><strong>Automatic</strong><br>Switches between Automatic and Manual.</p></td></tr><tr ac:local-id="401dc068f295"><td ac:local-id="999f30a481ef"><div class="TextAlignCenter"><img src="attachments/2.4_hydrofinish_(optional)/5.4.2.png" alt="5.4.2.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="8164a5ee8d8f"><p local-id="f7f94fa6c720"><strong>Load recipe</strong><br>Allows the operator to load a recipe.</p></td></tr><tr ac:local-id="93538d3bef57"><td ac:local-id="65dd0600c423"><div class="TextAlignCenter"><img src="attachments/2.4_hydrofinish_(optional)/5.4.3.png" alt="5.4.3.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="0d3960f8d4df"><p local-id="4e7035bd8f18"><strong>Save Recipe</strong><br>Allows new recipes to be saved.</p></td></tr></tbody></table><h3 local-id="b14ebdcf489f">Load recipe</h3><p local-id="72d5d1e331aa">The panel for loading a recipe initially appears as follows:</p><div class="TextAlignCenter"><img src="attachments/2.4_hydrofinish_(optional)/5.5.1.png" alt="5.5.1.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="881454db9270">After a recipe has been selected, a preview of its values is displayed:</p><div class="TextAlignCenter"><img src="attachments/2.4_hydrofinish_(optional)/5.5.2-20261023-134836.png" alt="5.5.2-20261023-134836.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="71fda655-063e-492d-b5df-58dc716403ce"><colgroup><col style="width: 572.0px;"><col style="width: 1227.0px;"></colgroup><tbody><tr ac:local-id="bbfde1472614"><td ac:local-id="39c29201fac1"><div class="TextAlignCenter"><img src="attachments/2.4_hydrofinish_(optional)/5.5.3.1-20261023-135238.png" alt="5.5.3.1-20261023-135238.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="b833cfe2ae6a"><p local-id="0a2ff6f9a4ca"><strong>Delete</strong><br>Closes the panel without loading a new recipe.</p></td></tr><tr ac:local-id="f2909311cf9f"><td ac:local-id="9872070f764f"><div class="TextAlignCenter"><img src="attachments/2.4_hydrofinish_(optional)/5.5.3.2-20261023-135146.png" alt="5.5.3.2-20261023-135146.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="14cb0686a427"><p local-id="d93d92b423dc"><strong>Confirm</strong><br>Loads the values of the selected recipe and closes the <strong>Load recipe</strong>.</p></td></tr></tbody></table><p local-id="bd0154ea6987"></p><h1 local-id="f51f5163a81f">Waterjet</h1><p local-id="8685f5439015">This area is located in the centre-right section of the application and provides the operator with the following options:</p><div class="TextAlignCenter"><img src="attachments/2.4_hydrofinish_(optional)/6.0.png" alt="6.0.png" width="549" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><h2 local-id="6bc33ea1d881" class="maintenance-section-title" data-section-number="06">Tool Plus buttons</h2><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="afdb743f-353e-4e4a-94c0-b93da6c171f0"><colgroup><col style="width: 597.0px;"><col style="width: 1201.0px;"></colgroup><tbody><tr ac:local-id="c3aebf02-5569-45fb-8bf3-4ab5e437ff8a"><td ac:local-id="bdf87331-6d72-40bf-bda0-c1061a216385"><div class="TextAlignCenter"><img src="attachments/2.4_hydrofinish_(optional)/7.3_on.png" alt="7.3_on.png" width="106" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="487053f8-38ba-4e52-9994-c1b9fbc0c7cd"><p local-id="30abc1daa01f"><strong>Measure tool</strong><br>Performs the procedure for automatically measuring the length of the Tool Plus tool.</p></td></tr><tr ac:local-id="bf00d00a-8602-4000-af83-3bb4827d206c"><td ac:local-id="e489ceb2-e4d1-4949-804b-91e58246ed7c"><div class="TextAlignCenter"><img src="attachments/2.4_hydrofinish_(optional)/7.1_off-20261022-115614.png" alt="7.1_off-20261022-115614.png" width="187" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="08074a71-bd6b-47c1-9540-a219a31e224a"><p local-id="f5648b9391a4"><strong>Jet active</strong><br>Turns on the jet and indicates whether it is active.</p></td></tr><tr ac:local-id="65c8e41b-ee8d-4cef-9e2a-8f4eed5a2b5e"><td ac:local-id="cb157615-fefd-4ace-bf25-7a448e014e74"><div class="TextAlignCenter"><img src="attachments/2.4_hydrofinish_(optional)/7.1_on-20261022-115711.png" alt="7.1_on-20261022-115711.png" width="187" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="c9f156f3-e81e-4fd0-805a-4a7b59959bf7"><p local-id="7c9b96da048a"><strong>Pump active</strong><br>Turns on the pump and indicates whether it is active.</p></td></tr><tr ac:local-id="b0ac47bb-0ed2-42bf-9be2-b823f8afd60f"><td ac:local-id="a197ed29-f1f2-4ed0-9712-658a5ee3d5fe"><div class="TextAlignCenter"><img src="attachments/2.4_hydrofinish_(optional)/7.2_off-20261022-115711.png" alt="7.2_off-20261022-115711.png" width="187" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="e7be0d71-2181-4733-b1a3-8dc4e09bc304"><p local-id="30093792110e"><strong>High pressure</strong><br>Allows high or low pressure to be selected.</p></td></tr><tr ac:local-id="93ace708-c4e5-4dcb-bffa-df3b23bee2e3"><td ac:local-id="90aeb9da-fa59-45ba-8971-a5e7ab236359"><div class="TextAlignCenter"><img src="attachments/2.4_hydrofinish_(optional)/7.8_off-20261022-120040.png" alt="7.8_off-20261022-120040.png" width="108" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="6b12ed49-8749-49bd-ab9b-0a831a3957c5"><p local-id="d691a72b1dfc"><strong>Abrasive active</strong><br>Activates the use of abrasive.</p></td></tr></tbody></table><h2 local-id="362d07e2a087" class="maintenance-section-title" data-section-number="07">Tool Plus parameters</h2><table class="my-table2" data-table-width="1800" data-layout="align-start" ac:local-id="efb05d05-c42a-4acf-a853-3d9819c8028e"><colgroup><col style="width: 595.0px;"><col style="width: 1204.0px;"></colgroup><tbody><tr ac:local-id="37ca3849-5c6e-4674-9cee-82b9984a6596"><td ac:local-id="208fccb1-130e-457c-b7a4-27acccecd0fd"><div class="TextAlignCenter"><img src="attachments/2.4_hydrofinish_(optional)/7.4_a-20261022-115933.png" alt="7.4_a-20261022-115933.png" width="269" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="9b69f8ef-ee3a-4564-a501-052dbfb1c492"><p local-id="658b70a83fef"><strong>Low pressure</strong><br>Water pressure when the water is delivered at low pressure.</p></td></tr><tr ac:local-id="3db0e420-86ac-4ffa-a7a3-d512f536ebca"><td ac:local-id="ed8f03be-abdc-4621-a82c-aab0c5abd72c"><div class="TextAlignCenter"><img src="attachments/2.4_hydrofinish_(optional)/7.5_a-20261022-115934.png" alt="7.5_a-20261022-115934.png" width="269" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="f9ac1226-7b76-4636-9555-6eddf794eebd"><p local-id="cec66fab05d2"><strong>High pressure</strong><br>Water pressure when the water is delivered at high pressure.</p></td></tr><tr ac:local-id="0a0d5e87-a689-458f-8c8c-31bc0c7c679d"><td ac:local-id="11a01b07-650c-4726-b70e-6909b7fc706a"><div class="TextAlignCenter"><img src="attachments/2.4_hydrofinish_(optional)/7.6_a-20261022-115934.png" alt="7.6_a-20261022-115934.png" width="269" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="9bfaf5c5-06da-4eb9-9bbf-5009cb12c4b3"><p local-id="87128feae2ce"><strong>Abrasive flow</strong><br>Quantity of abrasive conveyed in one minute.</p></td></tr><tr ac:local-id="4f1b2543-b519-4221-a841-e6297814090e"><td ac:local-id="2ec9f8f7-cfdc-4076-b889-a2f2d0b739fa"><div class="TextAlignCenter"><img src="attachments/2.4_hydrofinish_(optional)/7.9-20261023-145712.png" alt="7.9-20261023-145712.png" width="269" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="4461ad45-e77e-41cc-ab88-604a4e8260fe"><p local-id="efbc1254f0cc"><strong>Abrasive in LP</strong><br>Percentage of abrasive flow when the machine is in low-pressure mode.</p></td></tr></tbody></table><p local-id="a17e8283e399"></p><h1 local-id="ec0cf4fb08d1">Feed</h1><div class="TextAlignCenter"><img src="attachments/2.4_hydrofinish_(optional)/7.0.png" alt="7.0.png" width="549" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="7e52d5353e2d"></p><!--Label="iii"-->
+                        </main>
+
+                    </div>
+
+                    <img src="images/donatoni_222.jpg">
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="2.3.2_maintenance.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="2.5_cadcam.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+
+
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                <a rel="prev" href="2.3.2_maintenance.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="2.5_cadcam.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="mermaid.min.js"></script>
+        <script src="mermaid-init.js"></script>
+        <script src="hidemenu.js"></script>
+        <script src="imagemodal.js"></script>
+        <script src="login.js"></script>
+    </div>
+
+    <!-- Modale -->
+    <div id="modal" onclick="closeModal()">
+        <img id="modal-img" src="">
+    </div>;
+
+
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
+
+<script id="virtual-keyboard-searchbar-fix">
+document.addEventListener("input", function (e) {
+    const t = e.target;
+    if (t && t.id === "searchbar" && e.isTrusted !== true) {
+        t.dispatchEvent(new KeyboardEvent("keyup", { bubbles: true }));
+    }
+});
+</script>
+</body>
+</html>

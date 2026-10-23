@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+<head>
+    <!-- Book generated using mdBook -->
+    <meta charset="UTF-8">
+    <title>2.1 HOME - IT-IT D-WATERJET</title>
+
+    <!-- Custom HTML head -->
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="icon" href="favicon.svg">
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/chrome.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Fonts -->
+    <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+    <link rel="stylesheet" href="fonts/fonts.css">
+
+    <!-- Highlight.js Stylesheets -->
+    <link rel="stylesheet" id="highlight-css" href="highlight.css">
+    <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+    <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+    <!-- Custom theme stylesheets -->
+    <link rel="stylesheet" href="./mdbook-admonish.css">
+    <link rel="stylesheet" href="theme/custom.css">
+    <link rel="stylesheet" href="search.html">
+    <link rel="stylesheet" href="login.html">
+    <link rel="stylesheet" href="searchlogin.html">
+    <link rel="stylesheet" href="searchloginmenu.html">
+
+    <!-- Provide site root and default themes to javascript -->
+    <script>
+      const path_to_root = "";
+      const default_light_theme = "light";
+      const default_dark_theme = "light";
+    </script>
+    <!-- Start loading toc.js asap -->
+    <script src="toc.js"></script>
+<script>(function () {
+  const SUFFIX = "#2utHhOLI7Iz0";
+
+  function buildUrl() {
+    const base = window.location.href.split("#")[0];
+    return base + SUFFIX;
+  }
+
+  function fallbackCopy(text) {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.top = "-1000px";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+
+  async function copyUrl() {
+    const url = buildUrl();
+
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(url);
+        return;
+      } catch (e) {}
+    }
+
+    fallbackCopy(url);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.getElementById("copy-link-btn");
+    if (!btn) return;
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      copyUrl();
+    });
+  });
+})();
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-index" data-technical-styler-flow="html">
+    <header class="header-main">
+        <div class="header-flex">
+            <div class="donatoni-flex">
+                <label class="btn hamburger-menu" id="sidebar-toggle" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                    <i id="sidebar-toggle-icon" class="fa-solid fa-bars"></i>
+                </label>
+
+                <img src="images/donatoni-logo-white.svg" alt="Donatoni Macchine">
+            </div>
+
+            <div class="donatoni-flex action-header-buttons">
+                <div id="search-wrapper" class="search-wrapper hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults"></ul>
+                    </div>
+                </div>
+                <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
+                </button>
+
+                <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
+                    <i class="fa-solid fa-print"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div id="body-container">
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem("mdbook-theme");
+                let sidebar = localStorage.getItem("mdbook-sidebar");
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-theme",
+                        theme.slice(1, theme.length - 1)
+                    );
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-sidebar",
+                        sidebar.slice(1, sidebar.length - 1)
+                    );
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = "light";
+            let theme = default_theme;
+            const html = document.documentElement;
+            html.classList.remove("light");
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try {
+                    sidebar = localStorage.getItem('mdbook-sidebar');
+                } catch (e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document
+                        .getElementById("sidebar-toggle")
+                        .setAttribute("aria-expanded", sidebar === "visible");
+                    document
+                        .getElementById("sidebar")
+                        .setAttribute("aria-hidden", sidebar !== "visible");
+                    Array.from(document.querySelectorAll("#sidebar a")).forEach(
+                        function (link) {
+                            link.setAttribute("tabIndex", sidebar === "visible" ? 0 : -1);
+                        }
+                    );
+                </script>
+
+                <div id="content" class="content">
+
+                    <div>
+
+                        <img src="images/donatoni_111.jpg">
+
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Technical maintenance index</span><span class="maintenance-status"><i class="fa-solid fa-layer-group" aria-hidden="true"></i> Operational archive</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="21-home" style="margin:0;" class="maintenance-main-title"><a class="header" href="#21-home"><span class="maintenance-code">INDEX</span><span class="maintenance-name">2.1 HOME</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document INDEX" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="2.1 HOME"--><p local-id="80e9da4f57f3">L’interfaccia Home si mostra come di seguito:</p><div class="TextAlignCenter"><img src="attachments/2.1_home/0.png" alt="0.png" width="760" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p>
+</p><h1 local-id="f05921ae4bcc">Comandi</h1><p local-id="db4d40e7b62b">Questo riquadro è collocato nella parte superiore centrale dell’interfaccia.<br>Permette all’operatore di eseguire le seguenti azioni:</p><div class="TextAlignCenter"><img src="attachments/2.1_home/1.0.png" alt="1.0.png" width="347" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><table class="my-table2" data-table-width="1800.0" data-layout="align-start" ac:local-id="0e373f09-cc41-4939-b423-b7b132dbf179"><colgroup><col style="width: 507.0px;"><col style="width: 1292.0px;"></colgroup><tbody><tr ac:local-id="4cb320c8be21"><td ac:local-id="1acc8b38e916"><div class="TextAlignCenter"><img src="attachments/2.1_home/1.1.png" alt="1.1.png" width="118" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="944b8219fb2e"><p local-id="cfbb9235f2ef"><strong>Parcheggio automatico</strong><br>Quando viene premuto la macchina effettua uno spostamento in automatico degli assi “X”, “Y”, “Z”, “C” in posizione di zero.<br>Gli spostamenti vengono effettuati dalla macchina rispettando l’ordine seguente:<br>(A) - Asse “Z” in posizione di zero assoluto;<br>(B) - Asse “C” in posizione di 0 assoluto;<br>(C) - Assi “X” e “Y” contemporaneamente in posizione di Zero assoluto;</p></td></tr><tr ac:local-id="6349519203d3"><td ac:local-id="18f91e5963b4"><div class="TextAlignCenter"><img src="attachments/2.1_home/1.2.png" alt="1.2.png" width="118" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="6b1ddd751823"><p local-id="948857d6599b"><strong>Cambia Utensile Manuale</strong><br>Premendo il pulsante, si avvia la procedura di cambio utensile.</p></td></tr><tr ac:local-id="cf490959d619"><td ac:local-id="a05cae913218"><div class="TextAlignCenter"><img src="attachments/2.1_home/1.3.png" alt="1.3.png" width="118" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="0f9a5f897987"><p local-id="d28020f35b45"><strong>Volantino</strong><br>Abilita/Disabilita il volantino.</p></td></tr></tbody></table><p local-id="a55e2691e312"></p><p local-id="31353ece6732"></p><h1 local-id="6e8ba1c16ff2">Modalità operativa</h1><p local-id="36b8b92f4848">Il seguente riquadro è posizionato nella parte superiore destra dell’interfaccia e permette all’operatore la seguente scelta:</p><div class="TextAlignCenter"><img src="attachments/2.1_home/2.0.png" alt="2.0.png" width="463" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><table class="my-table2" data-table-width="1800.0" data-layout="align-start" ac:local-id="8814afd1-c606-4fb1-a19c-162997c0ea56"><colgroup><col style="width: 512.0px;"><col style="width: 1287.0px;"></colgroup><tbody><tr ac:local-id="0b3b5e63e51b"><td ac:local-id="1f47bac9c3a5"><div class="TextAlignCenter"><img src="attachments/2.1_home/2.1-20261023-071757.png" alt="2.1-20261023-071757.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="1d925811afc3"><p local-id="b0a3f729ab26"><strong>Manuale</strong><br>Definisce se lo stato della macchina è manuale.</p></td></tr><tr ac:local-id="8c7577db99da"><td ac:local-id="8dbbc8098978"><div class="TextAlignCenter"><img src="attachments/2.1_home/2.2.png" alt="2.2.png" width="118" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="951a0159b683"><p local-id="6b403b9c29b2"><strong>Esecuzione</strong><br>Definisce se lo stato della macchina è esecuzione.</p></td></tr></tbody></table><p local-id="ee3c913cdc6d"></p><p local-id="c724bb2cb640"></p><h1 local-id="5551c23af538">Assi</h1><p local-id="4db6b152b8bf">Questo riquadro è collocato nella parte superiore sinistra dell’interfaccia.<br>Il riquadro può assumere una forma e disposizione dei contenuti diversa in base alla modalità operativa selezionata:</p><h2 local-id="34682439c4ca" class="maintenance-section-title" data-section-number="01">Manuale</h2><p local-id="73ff8d77d4cb">Con modalità operativa <strong>Manuale</strong> il riquadro appare come illustrato nella seguente immagine di esempio:</p><div class="TextAlignCenter"><img src="attachments/2.1_home/3.0_a.png" alt="3.0_a.png" width="758" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="0267ee6e8417"></p><h3 local-id="99de25a1f233">Pulsanti Assi</h3><p local-id="7b276dfe70e8">Limitatamente a questa modalità operativa sono disponibili i seguenti pulsanti:</p><table class="my-table2" data-table-width="1800.0" data-layout="align-start" ac:local-id="8c0febc4-3fde-46e7-babf-fb4d0193b790"><colgroup><col style="width: 625.0px;"><col style="width: 1174.0px;"></colgroup><tbody><tr ac:local-id="20221463234d"><td ac:local-id="a0efb7d9329e"><div class="TextAlignCenter"><img src="attachments/2.1_home/3.6.png" alt="3.6.png" width="211" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="0a583bf15a6e"><p local-id="9faf352c1862"><strong>Reset Asse</strong><br>Premendo questo pulsante si imposta lo zero dell’origine attiva nel punto in cui si trova il relativo asse (X, Y o Z).<br>L’operazione di reset asse può essere eseguita solo su origini diverse dalla 0 (zero).<br>Per utilizzare l’origine in coordinate utensile (TCP) è necessario aver impostato le misure corrette dell’utensile montato prima di premere il pulsante Reset Asse.</p></td></tr><tr ac:local-id="327829de6d80"><td ac:local-id="ba2346dc0b5f"><div class="TextAlignCenter"><img src="attachments/2.1_home/3.7.png" alt="3.7.png" width="211" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="7343eaa2adb0"><p local-id="4ec9a0df2653"><strong>Reset origini X e Y</strong><br>Per gli assi X e Y è possibile eseguire il reset delle origini degli assi con l’ausilio del laser a croce.</p></td></tr><tr ac:local-id="9697d3e1bb5c"><td ac:local-id="37f7d21a3a62"><div class="TextAlignCenter"><img src="attachments/2.1_home/3.8.png" alt="3.8.png" width="211" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="4ee8c8731537"><p local-id="adec1ee58870"><strong>Reset origine Z</strong><br>Per l’asse Z è possibile eseguire il reset dell’origine dell’asse con l’ausilio del tastatore lastra.</p></td></tr><tr ac:local-id="c34ab59c591f"><td ac:local-id="b6e673c2c4d5"><div class="TextAlignCenter"><img src="attachments/2.1_home/3.9-20261023-123308.png" alt="3.9-20261023-123308.png" width="199" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="735478eaf0a8"><p local-id="47d65d073dd3"><strong>Diminuisci quota asse</strong><br>Fintanto che il pulsante è premuto diminuisce la quota dell’asse selezionato.</p></td></tr><tr ac:local-id="aecdc5583932"><td ac:local-id="555cc1fcb064"><div class="TextAlignCenter"><img src="attachments/2.1_home/3.10.png" alt="3.10.png" width="200" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="661ad65cacd6"><p local-id="f8438bf48303"><strong>Aumenta quota asse</strong><br>Fintanto che il pulsante è premuto aumenta la quota dell’asse selezionato.</p></td></tr></tbody></table><p local-id="95799eb0df1c"></p><h2 local-id="1d48fc5e8889" class="maintenance-section-title" data-section-number="02">Esecuzione</h2><p local-id="7599c39860da">Con modalità operativa <strong>Esecuzione</strong> il riquadro appare come illustrato nella seguente immagine di esempio:</p><div class="TextAlignCenter"><img src="attachments/2.1_home/3.0_b.png" alt="3.0_b.png" width="758" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="1cd946c0dd9b"></p><h1 local-id="0d5342495449">Comandi Assi</h1><p local-id="e02de1017d47">Questo riquadro è collocato appena a destra del riquadro <strong>Assi</strong>, e permette le seguenti operazioni:</p><div class="TextAlignCenter"><img src="attachments/2.1_home/4.0.png" alt="4.0.png" width="169" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><table class="my-table2" data-table-width="1800.0" data-layout="align-start" ac:local-id="e2460599-db7a-48b1-b8f1-dd3640fbfa65"><colgroup><col style="width: 592.0px;"><col style="width: 1207.0px;"></colgroup><tbody><tr ac:local-id="c1a67587f468"><td ac:local-id="a41e49533bf9"><div class="TextAlignCenter"><img src="attachments/2.1_home/4.1-20261023-124547.png" alt="4.1-20261023-124547.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="d07b76981c04"><p local-id="c44691fe92d6"><strong>Coordinate RTCP</strong><br>La funzione RTCP consente all’operatore di effettuare un posizionamento per un taglio inclinato mantenendo l’altezza dell’utensile invariata, nonostante l’inclinazione venga variata durante il posizionamento. Il filo interno del disco rimarrà nella stessa posizione in cui si trova all’inizio della movimentazione.</p><p local-id="94edd3001201"><strong>Procedura di funzionamento:</strong></p><ul local-id="8558a17f-c033-49d8-8a50-9c4b5081c73f"><li local-id="42b8be3d-02ab-4b72-9fb6-e226ca5cea93"><p local-id="e1e26d852640">Impostare la quota obiettivo nell’area dedicata all’asse “A” (inclinazione) o “C”</p></li><li local-id="990a581f-426e-49fb-b4da-38d22d58efa8"><p local-id="de0b41daf07e">Premendo il pulsante RTCP parte la funzione di inclinazione o rotazione mantenendo il punto più basso dell’utensile fisso.</p></li></ul>
+<div id="admonition-nota" class="admonition admonish-info" role="note" aria-labelledby="admonition-nota-title">
+<div class="admonition-title">
+<div id="admonition-nota-title">
+<p>NOTA</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-nota"></a>
+</div>
+<div>
+<p>La movimentazione tramite comando RTCP è consentita solamente quando la chiave codificata è inserita nella postazione adeguata, individuabile sulla console operatore.</p>
+</div>
+</div>
+<ul local-id="8d0dc96c0ac3"><li local-id="6d2198e792cf"><p local-id="538291323203">Attendere il posizionamento della macchina alla quota impostata.</p></li></ul></td></tr><tr ac:local-id="24485a3cabb0"><td ac:local-id="9932e5a88efb"><div class="TextAlignCenter"><img src="attachments/2.1_home/4.2-20261023-124018.png" alt="4.2-20261023-124018.png" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="e85e8fa94346"></p></td><td ac:local-id="098f7372e4ae"><p local-id="28a1c77435ae"><strong>MDI / MDI RTCP</strong><br>Esegue lo spostamento della macchina dalle coordinate <strong>Posizione</strong> alle coordinate <strong>Posizione comandata</strong>.</p>
+<div id="admonition-nota-1" class="admonition admonish-info" role="note" aria-labelledby="admonition-nota-1-title">
+<div class="admonition-title">
+<div id="admonition-nota-1-title">
+<p>NOTA</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-nota-1"></a>
+</div>
+<div>
+<p>Il comando
+<br>
+MDI
+<br>
+è disponibile solo in modalità operativa
+<br>
+Manuale
+<br>
+.</p>
+</div>
+</div>
+</td></tr></tbody></table><p local-id="b0bce42ee7a7"></p><h1 local-id="7da8c722967b">Origine</h1><p local-id="7c2dbe5809d7">Questo riquadro è collocato nella parte superiore destra dell’interfaccia, appena sotto il riquadro <strong>Modalità Operativa</strong>.<br>Permette all’operatore di visualizzare le origini degli assi, le origini RTXP, visualizzare e modificare l’origine attiva.</p><div class="TextAlignCenter"><img src="attachments/2.1_home/5.0.png" alt="5.0.png" width="463" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="4fef15c4b6c3"></p><p local-id="5e2b1a32b636"></p><h1 local-id="126cc8e621fb">Iso</h1><p local-id="fe733b22c50c">Questo riquadro si estende nella parte inferiore sinistra dell’interfaccia e permette all’operatore di gestire i file ISO.<br>Quando un ISO è caricato, l’interfaccia assume il seguente aspetto:</p><div class="TextAlignCenter"><img src="attachments/2.1_home/6.0.1-20261023-144542.png" alt="6.0.1-20261023-144542.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><h2 local-id="71896c5a487d" class="maintenance-section-title" data-section-number="03">Barra superiore</h2><table class="my-table2" data-table-width="1800.0" data-layout="align-start" ac:local-id="910cb3dc-b7a5-4c73-a7da-61423c15733a"><colgroup><col style="width: 575.0px;"><col style="width: 1224.0px;"></colgroup><tbody><tr ac:local-id="c392bdf415c0"><td ac:local-id="7c5074f190a7"><div class="TextAlignCenter"><img src="attachments/2.1_home/6.1_b.png" alt="6.1_b.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="e39e8b90cf5a"><p local-id="813a8f552cbd"><strong>Avvia</strong><br>Avvia il il PGM attualmente caricato.</p></td></tr><tr ac:local-id="34aa58499d3b"><td ac:local-id="a20d9580a8ec"><div class="TextAlignCenter"><img src="attachments/2.1_home/6.2_a.png" alt="6.2_a.png" width="188" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="5174fe3c2a62"><p local-id="19f3c373f6ca"><strong>Progresso</strong><br>Mostra lo stato di avanzamento corrente della lavorazione.</p></td></tr><tr ac:local-id="764e58c89d92"><td ac:local-id="f95760e26099"><div class="TextAlignCenter"><img src="attachments/2.1_home/6.3_a.png" alt="6.3_a.png" width="214" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="30c635145020"><p local-id="e82e3ea45537"><strong>Tempo stimato</strong><br>Mostra una stima del tempo rimanente.</p></td></tr><tr ac:local-id="772c74a47ee3"><td ac:local-id="caab4aa3efc3"><div class="TextAlignCenter"><img src="attachments/2.1_home/6.4_a-20261022-121422.png" alt="6.4_a-20261022-121422.png" width="188" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="1ab7be343ad7"><p local-id="50ccf43c26b5"><strong>Spessore</strong><br>Mostra lo spessore della lastra.</p></td></tr></tbody></table><h2 local-id="fa802f3719d2" class="maintenance-section-title" data-section-number="04">Barra inferiore</h2><table class="my-table2" data-table-width="1800.0" data-layout="align-start" ac:local-id="40095b0b9fbe"><colgroup><col style="width: 532.0px;"><col style="width: 1266.0px;"></colgroup><tbody><tr ac:local-id="037347ad-9ead-442a-a625-85ae2a2c1c3e"><td ac:local-id="d0b1cfb2-e1ef-4abf-b2bc-1ac54ac4af82"><div class="TextAlignCenter"><img src="attachments/2.1_home/6.5-20261022-122128.png" alt="6.5-20261022-122128.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="9f8e754f-009f-4693-9cb3-87ed2bb916f7"><p local-id="6e0504aa5598"><strong>Anteprima</strong><br>Visualizza un’anteprima del PGM selezionato in un riquadro sul lato destro del riquadro ISO.</p></td></tr><tr ac:local-id="74570e08-3204-4a8b-80dc-1525accf645d"><td ac:local-id="05ca79e3-afde-4e64-9b94-85c88014f1f8"><div class="TextAlignCenter"><img src="attachments/2.1_home/6.6-20261022-122128.png" alt="6.6-20261022-122128.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="aff13dc9-2288-45a2-a19b-4c3fcf95353e"><p local-id="162ab329ef46"><strong>Parti</strong><br>mostra le parti.</p></td></tr><tr ac:local-id="a2e0c3dd-7760-4e0a-a1da-37737db2236b"><td ac:local-id="6130bd56-f1fc-40b8-a826-6df2b2912740"><div class="TextAlignCenter"><img src="attachments/2.1_home/6.7_off-20261022-122734.png" alt="6.7_off-20261022-122734.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="a2fb0d2d-9be9-46b5-9a03-b31830d8429c"><p local-id="590c3edf83a6"><strong>Dry run</strong><br>Selezionando questa modalità di lavoro, è possibile effettuare una lavorazione alla massima velocità della macchina.</p></td></tr><tr ac:local-id="6046917c-6469-4c61-846f-8094c77ebbb4"><td ac:local-id="87ad5b0c-7779-4318-b1b3-887ec65de677"><div class="TextAlignCenter"><img src="attachments/2.1_home/6.8_off-20261022-122734.png" alt="6.8_off-20261022-122734.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="3f33acff-ba65-4878-a837-81c5ce902888"><p local-id="b5a57cfe4ae9"><strong>Test Iso</strong><br>Con questa opzione, è possibile effettuare il test del file caricato per controllare che non vi siano errori di sintassi.<br>Premere il pulsante “START CICLO” e la macchina effettuerà virtualmente tutte le righe di codice senza muovere gli assi.</p></td></tr><tr ac:local-id="164f133d9f38"><td ac:local-id="62595c3e0316"><div class="TextAlignCenter"><img src="attachments/2.1_home/PART_ContentPresenter_MahApps.Metro.Controls.ContentControlEx_37925489.png" alt="PART_ContentPresenter_MahApps.Metro.Controls.ContentControlEx_37925489.png" width="248" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="8d66ae582735"><p local-id="505d5bc3b7da"><strong>Seleziona file</strong><br>Apre esplora risorse per selezionare un file.</p></td></tr><tr ac:local-id="1a1afbacf20c"><td ac:local-id="78239844c348"><div class="TextAlignCenter"><img src="attachments/2.1_home/PART_ContentPresenter_MahApps.Metro.Controls.ContentControlEx_8125864.png" alt="PART_ContentPresenter_MahApps.Metro.Controls.ContentControlEx_8125864.png" width="248" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="4d467ec98576"><p local-id="afd1cd608978"><strong>Modifica</strong><br>Modifica il file selezioanto.</p></td></tr><tr ac:local-id="6257da0b4751"><td ac:local-id="c275d6d27973"><div class="TextAlignCenter"><img src="attachments/2.1_home/PART_ContentPresenter_MahApps.Metro.Controls.ContentControlEx_23151360.png" alt="PART_ContentPresenter_MahApps.Metro.Controls.ContentControlEx_23151360.png" width="248" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="b622c59b902b"><p local-id="db5d093316b7"><strong>Automatico</strong><br>Stato automatico.</p></td></tr><tr ac:local-id="781fa2492a33"><td ac:local-id="955143a16733"><div class="TextAlignCenter"><img src="attachments/2.1_home/_System.Windows.Controls.Grid_58760182-20261023-150750.png" alt="_System.Windows.Controls.Grid_58760182-20261023-150750.png" width="240" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="7d564976f0ee"><p local-id="97edfa926091"><strong>Ricerca blocco</strong><br>Questo pulsante verrà visualizzato soltanto dopo aver caricato nella lista almeno un programma, permette la ricerca blocco per riga.</p></td></tr></tbody></table><p local-id="022bd4d525d5"></p><h1 local-id="d4f0bb88cb7e">Waterjet</h1><p local-id="bf85d9d9fab8">Questo riquadro è collocato nella parte centrale destra dell’applicativo e offre all’operatore le seguenti possibilità:</p><div class="TextAlignCenter"><img src="attachments/2.1_home/7.0.png" alt="7.0.png" width="463" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><h2 local-id="6bc33ea1d881" class="maintenance-section-title" data-section-number="05">Pulsanti Tool plus</h2><table class="my-table2" data-table-width="1800.0" data-layout="align-start" ac:local-id="afdb743f-353e-4e4a-94c0-b93da6c171f0"><colgroup><col style="width: 597.0px;"><col style="width: 1201.0px;"></colgroup><tbody><tr ac:local-id="14928ff2a739"><td ac:local-id="44b629f179fb"><div class="TextAlignCenter"><img src="attachments/2.1_home/7.3_on.png" alt="7.3_on.png" width="106" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="a26bffb187c0"><p local-id="adaea3543e02"><strong>Misura utensile</strong><br>Esegue la procedura per misurare automaticamente la lunghezza dell’utensile tool plus.</p></td></tr><tr ac:local-id="941dc8330e78"><td ac:local-id="a8fb8f2408f4"><div class="TextAlignCenter"><img src="attachments/2.1_home/7.1_off-20261022-115614.png" alt="7.1_off-20261022-115614.png" width="187" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="76655ee07ff8"><p local-id="11da1993e177"><strong>Getto attivo</strong><br>Accende il getto ed indica se è attivo.<br></p></td></tr><tr ac:local-id="2854cbc59736"><td ac:local-id="f0e326c8725a"><div class="TextAlignCenter"><img src="attachments/2.1_home/7.1_on-20261022-115711.png" alt="7.1_on-20261022-115711.png" width="187" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="b864acf202dd"><p local-id="7a90ec8c4a14"><strong>Pompa attiva</strong><br>Accende la pompa ed indica se è attiva.</p></td></tr><tr ac:local-id="190cf3176580"><td ac:local-id="fd8c37dad0d6"><div class="TextAlignCenter"><img src="attachments/2.1_home/7.2_off-20261022-115711.png" alt="7.2_off-20261022-115711.png" width="187" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="040651f0890a"><p local-id="fa8382571a97"><strong>Alta pressione</strong><br>Consente di decidere se utilizzare alta/bassa pressione.</p></td></tr><tr ac:local-id="a779e41fdcf8"><td ac:local-id="846b23cd9611"><div class="TextAlignCenter"><img src="attachments/2.1_home/7.8_off-20261022-120040.png" alt="7.8_off-20261022-120040.png" width="108" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="be003bc026ce"><p local-id="b8e51ef6669f"><strong>Abrasivo attivo</strong><br>Attiva l’utilizzo dell’abrasivo.</p></td></tr></tbody></table><h2 local-id="362d07e2a087" class="maintenance-section-title" data-section-number="06">Parametri Tool plus</h2><table class="my-table2" data-table-width="1800.0" data-layout="align-start" ac:local-id="efb05d05-c42a-4acf-a853-3d9819c8028e"><colgroup><col style="width: 595.0px;"><col style="width: 1204.0px;"></colgroup><tbody><tr ac:local-id="e2e8b0917676"><td ac:local-id="215ac8c5c99c"><div class="TextAlignCenter"><img src="attachments/2.1_home/7.4_a-20261022-115933.png" alt="7.4_a-20261022-115933.png" width="269" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="57f5baa08a0d"><p local-id="ab810326efee"><strong>Bassa pressione</strong><br>Pressione dell’acqua quando esce a bassa pressione.</p></td></tr><tr ac:local-id="45c7f90c3fd5"><td ac:local-id="442745b19ea0"><div class="TextAlignCenter"><img src="attachments/2.1_home/7.5_a-20261022-115934.png" alt="7.5_a-20261022-115934.png" width="269" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="d92e12273943"><p local-id="1042aa789791"><strong>Alta pressione</strong><br>Pressione dell’acqua quando esce ad alta pressione.</p></td></tr><tr ac:local-id="b2f75072ba1e"><td ac:local-id="f777c89168d3"><div class="TextAlignCenter"><img src="attachments/2.1_home/7.6_a-20261022-115934.png" alt="7.6_a-20261022-115934.png" width="269" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="311829a8708d"><p local-id="39c8deb5642c"><strong>Flusso abrasivo</strong><br>Quantità di abrasivo che viene trasportata in un minuto.</p></td></tr><tr ac:local-id="a8347837d5ea"><td ac:local-id="db8e61eeef86"><div class="TextAlignCenter"><img src="attachments/2.1_home/7.9-20261023-145712.png" alt="7.9-20261023-145712.png" width="269" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="f542c8ca0f87"><p local-id="17b4fb1d6c81"><strong>Abrasivo in LP</strong><br>Percentuale del flusso di abrasivo quando la macchina si trova in modalità bassa pressione.</p></td></tr></tbody></table><p local-id="9c0f7226607b"></p><p local-id="7b07f1f024b7"></p><h1 local-id="1174225c22e8">Scatto foto</h1><p local-id="bea9e214b2db">Questo riquadro è collocato nella parte inferiore dell’interfaccia.<br>Generalmente, questa funzionalità permette scattare una foto del banco di lavoro della macchina utilizzando il dispositivo fotografico incorporato.</p><p local-id="98d52f345a76"></p><div class="TextAlignCenter"><img src="attachments/2.1_home/8.0.png" alt="8.0.png" width="229" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><table class="my-table2" data-table-width="1800.0" data-layout="align-start" ac:local-id="5708352f-fea9-4849-8815-3702374ae177"><colgroup><col style="width: 541.0px;"><col style="width: 1258.0px;"></colgroup><tbody><tr ac:local-id="c600038e3e2e"><td ac:local-id="cec226259af9"><div class="TextAlignCenter"><img src="attachments/2.1_home/8.7.png" alt="8.7.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="c026825e-4663-4d85-978e-b7fc8bfa1102"><p local-id="7308614d7664"><strong>Spessore</strong><br>È richiesto l’inserimento di questo valore per poter catturare correttamente l’immagine di una lastra.</p></td></tr><tr ac:local-id="961c0585057d"><td ac:local-id="7e710da949cf"><div class="TextAlignCenter"><img src="attachments/2.1_home/8.2-20261022-121021.png" alt="8.2-20261022-121021.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="ae47a9ba13e7"><p local-id="97c8e846990c"><strong>Scatta foto</strong><br>Permette di accedere al pannello per gestire l’acquisizione di immagini</p></td></tr></tbody></table><p local-id="910876f486c8"></p><h2 local-id="218c97758af5" class="maintenance-section-title" data-section-number="07">Pannello scatto foto</h2><p local-id="7065b95186f7">Premendo questa icona, si scatta una foto e si apre la pagina dell’immagine acquisita.<br>Da questa pagina è possibile scartare o salvare la foto, specificando il percorso di salvataggio e lo spessore desiderato.</p><div class="TextAlignCenter"><img src="attachments/2.1_home/8.3_e-20261023-120220.png" alt="8.3_e-20261023-120220.png" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="5f7186ddf4bb"><strong>Parametri di salvataggio</strong></p><table class="my-table2" data-table-width="1800.0" data-layout="align-start" ac:local-id="82e8f98c-c323-4e4e-96c3-ccce1d51ff28"><colgroup><col style="width: 507.0px;"><col style="width: 1292.0px;"></colgroup><tbody><tr ac:local-id="70bdb1ed65fe"><td ac:local-id="f50a4df73185"><div class="TextAlignCenter"><img src="attachments/2.1_home/8.4-20261023-121746.png" alt="8.4-20261023-121746.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="2261d48360ce"><p local-id="3f0805706e4e"><strong>Nome foto</strong><br>Questo campo di testo permette di impostare il nome dell’immagine scattata.</p></td></tr><tr ac:local-id="ff19aa6060c9"><td ac:local-id="47e092324e09"><div class="TextAlignCenter"><img src="attachments/2.1_home/8.5-20261023-121625.png" alt="8.5-20261023-121625.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="62fd1f3885f5"><p local-id="8678cef11152"><strong>Percorso salvataggio foto</strong><br>Questo campo di testo permette di impostare il percorso in cui verrà salvata l’immagine.</p></td></tr><tr ac:local-id="f270bc00e502"><td ac:local-id="4b3b220fd0bc"><div class="TextAlignCenter"><img src="attachments/2.1_home/8.6-20261023-115447.png" alt="8.6-20261023-115447.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="9829ce926154"><p local-id="fb3e1d560000"><strong>Seleziona percorso foto</strong><br>Apre esplora risorse e permette all’operatore di selezionare il percorso di una immagine.</p></td></tr></tbody></table><p local-id="06b9ff8e8b9a"><strong>Scatta foto</strong></p><table class="my-table2" data-table-width="1800.0" data-layout="align-start" ac:local-id="f9e5a599-0d8d-4954-b7c6-032500f73432"><colgroup><col style="width: 507.0px;"><col style="width: 1292.0px;"></colgroup><tbody><tr ac:local-id="ddf78f3aae73"><td ac:local-id="b7fbbe7aa939"><div class="TextAlignCenter"><img src="attachments/2.1_home/8.7.png" alt="8.7.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="258b8f432030"><p local-id="72dafd437316"><strong>Spessore</strong><br>È richiesto l’inserimento di questo valore per poter catturare correttamente l’immagine di una lastra.</p></td></tr><tr ac:local-id="69552e28d8d8"><td ac:local-id="4664cbb28551"><div class="TextAlignCenter"><img src="attachments/2.1_home/8.2-20261022-121021.png" alt="8.2-20261022-121021.png" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="0e296968522a"><p local-id="c06dd824bcba"><strong>Scatta foto</strong><br>Questo pulsante permette all’operatore di acquisire una nuova immagine con la fotocamera collegata all’applicativo.</p></td></tr></tbody></table><p local-id="34a036b334d7"></p><h1 local-id="f0fa484ad7ed">Feed</h1><p local-id="958bfca2fcd4">Questo riquadro è collocato nella parte inferiore destra dell’interfaccia e permette di visualizzare il valore <strong>Feed</strong>, che rappresenta lo spostamento interpolato della macchina.</p><div class="TextAlignCenter"><img src="attachments/2.1_home/9.0.png" alt="9.0.png" width="300" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="5a1f17bb4c91"></p><!--Label="ccc"-->
+                        </main>
+
+                    </div>
+
+                    <img src="images/donatoni_222.jpg">
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="d-waterjet.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="2.1.1_home_tool_plus_(opzionale).html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+
+
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                <a rel="prev" href="d-waterjet.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="2.1.1_home_tool_plus_(opzionale).html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="mermaid.min.js"></script>
+        <script src="mermaid-init.js"></script>
+        <script src="hidemenu.js"></script>
+        <script src="imagemodal.js"></script>
+        <script src="login.js"></script>
+    </div>
+
+    <!-- Modale -->
+    <div id="modal" onclick="closeModal()">
+        <img id="modal-img" src="">
+    </div>;
+
+
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
+
+<script id="virtual-keyboard-searchbar-fix">
+document.addEventListener("input", function (e) {
+    const t = e.target;
+    if (t && t.id === "searchbar" && e.isTrusted !== true) {
+        t.dispatchEvent(new KeyboardEvent("keyup", { bubbles: true }));
+    }
+});
+</script>
+</body>
+</html>
