@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+<head>
+    <!-- Book generated using mdBook -->
+    <meta charset="UTF-8">
+    <title>sq-AL - Maintenance Orchestrator</title>
+
+    <!-- Custom HTML head -->
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="icon" href="favicon.svg">
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/chrome.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Fonts -->
+    <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+    <link rel="stylesheet" href="fonts/fonts.css">
+
+    <!-- Highlight.js Stylesheets -->
+    <link rel="stylesheet" id="highlight-css" href="highlight.css">
+    <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+    <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+    <!-- Custom theme stylesheets -->
+    <link rel="stylesheet" href="./mdbook-admonish.css">
+    <link rel="stylesheet" href="theme/custom.css">
+    <link rel="stylesheet" href="search.html">
+    <link rel="stylesheet" href="login.html">
+    <link rel="stylesheet" href="searchlogin.html">
+    <link rel="stylesheet" href="searchloginmenu.html">
+
+    <!-- Provide site root and default themes to javascript -->
+    <script>
+      const path_to_root = "";
+      const default_light_theme = "light";
+      const default_dark_theme = "light";
+    </script>
+    <!-- Start loading toc.js asap -->
+    <script src="toc.js"></script>
+<script>(function () {
+  const SUFFIX = "#2utHhOLI7Iz0";
+
+  function buildUrl() {
+    const base = window.location.href.split("#")[0];
+    return base + SUFFIX;
+  }
+
+  function fallbackCopy(text) {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.top = "-1000px";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+
+  async function copyUrl() {
+    const url = buildUrl();
+
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(url);
+        return;
+      } catch (e) {}
+    }
+
+    fallbackCopy(url);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.getElementById("copy-link-btn");
+    if (!btn) return;
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      copyUrl();
+    });
+  });
+})();
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body>
+    <header class="header-main">
+        <div class="header-flex">
+            <div class="donatoni-flex">
+                <label class="btn hamburger-menu" id="sidebar-toggle" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                    <i id="sidebar-toggle-icon" class="fa-solid fa-bars"></i>
+                </label>
+
+                <img src="images/donatoni-logo-white.svg" alt="Donatoni Macchine">
+            </div>
+
+            <div class="donatoni-flex action-header-buttons">
+                <div id="search-wrapper" class="search-wrapper hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults"></ul>
+                    </div>
+                </div>
+                <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
+                </button>
+
+                <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
+                    <i class="fa-solid fa-print"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div id="body-container">
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem("mdbook-theme");
+                let sidebar = localStorage.getItem("mdbook-sidebar");
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-theme",
+                        theme.slice(1, theme.length - 1)
+                    );
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-sidebar",
+                        sidebar.slice(1, sidebar.length - 1)
+                    );
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = "light";
+            let theme = default_theme;
+            const html = document.documentElement;
+            html.classList.remove("light");
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try {
+                    sidebar = localStorage.getItem('mdbook-sidebar');
+                } catch (e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document
+                        .getElementById("sidebar-toggle")
+                        .setAttribute("aria-expanded", sidebar === "visible");
+                    document
+                        .getElementById("sidebar")
+                        .setAttribute("aria-hidden", sidebar !== "visible");
+                    Array.from(document.querySelectorAll("#sidebar a")).forEach(
+                        function (link) {
+                            link.setAttribute("tabIndex", sidebar === "visible" ? 0 : -1);
+                        }
+                    );
+                </script>
+
+                <div id="content" class="content">
+
+                    <div>
+
+                        <img src="images/donatoni_111.jpg">
+
+                        <main style="margin-left: 20px;">
+                            <div style="display:flex; align-items:center; gap:10px;"><h1 id="sq-al" style="margin:0;"><a class="header" href="#sq-al">sq-AL</a></h1><button id="copy-link-btn" title="Copia link" aria-label="Copia link" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="sq-AL"--><table class="my-table2" data-table-width="1800" data-layout="default" ac:local-id="b12f86e39a4a"><tbody><tr ac:local-id="ca6cef51-6838-4f82-9998-eb1671d2c77b"><th ac:local-id="ae4f4b77-0bed-460a-83b3-54dad617d83d"><p local-id="6140f404cb15"><strong>CODE</strong></p></th><th ac:local-id="e39e6a5b-f518-4899-8a72-268ae9a1dea1"><p local-id="dee6a50d3174"><strong>VALUE</strong></p></th></tr><tr ac:local-id="b453630a-027c-4f80-8698-f1d1f9ed3278"><td ac:local-id="67e5a637-27ad-4594-86e4-3c8ae2637768"><p local-id="da3077968243">0_name</p></td><td ac:local-id="a9f5a3a4-f629-4b11-a6ce-846c11d848ce"><p local-id="e688f150cdaa">Mirëmbajtje e paplanifikuar</p></td></tr><tr ac:local-id="896eaae6-8235-4580-a6a7-fa46a47bbb1c"><td ac:local-id="cd023bbb-6dc8-47cd-a0a1-b39faa8fb56e"><p local-id="aabd67345ce2">1_name</p></td><td ac:local-id="3a6a5856-83e7-4c6f-b8d4-b1766a071f61"><p local-id="4fa7bdfc3232">Testimi i qarkut të ndalimit emergjent</p></td></tr><tr ac:local-id="9347d1f9-2a09-4425-ae21-1460be099ce7"><td ac:local-id="4ed7063e-0b99-48c5-a0a8-95a359aa5e2a"><p local-id="30b060dab13d">1_description</p></td><td ac:local-id="7f2f98db-c4f5-4ef7-aaa6-2de6bb590266"><p local-id="d216947eb50a">Para se të filloni punën në makinë, kontrolloni që zona e rrezikut të jetë e lirë nga njerëz, materiale ose pajisje</p></td></tr><tr ac:local-id="59db9988-1b60-442e-aa9c-a8562e8efbb7"><td ac:local-id="b69fceaf-a0d3-405c-9c99-720e6c8c3fdc"><p local-id="ab1c1cadb798">1_featuredescription</p></td><td ac:local-id="4d657dd1-144a-419a-af5d-7c3b52dd7eb6"><p local-id="a0019eeaf9d5"></p></td></tr><tr ac:local-id="d067b919-cdc0-4bf8-af9f-4b4a751c34f0"><td ac:local-id="ea218d03-0ab7-4eca-859d-68c98060b510"><p local-id="1add55dc51bd">2_name</p></td><td ac:local-id="aceec8cd-9d32-4a9a-8909-d82907565285"><p local-id="2e65903c1ca6">Testimi i sinjalizimit ndriçues</p></td></tr><tr ac:local-id="f7e00734-10fb-43fb-a430-d22142f5dae1"><td ac:local-id="370115e4-fbb9-4f79-a1b5-95f27223177d"><p local-id="249a14b1c70e">2_description</p></td><td ac:local-id="0f9ce57c-681a-4db6-8ea0-c08e07d3af08"><p local-id="145041cd2923">Pastroni plotësisht rezervuarin, domethënë hiqni të gjitha sedimentet që janë grumbulluar në fund</p></td></tr><tr ac:local-id="04adda28-7c15-4eda-b5fd-39eeae3da644"><td ac:local-id="4973e147-9fbb-485c-a466-b3d99a904361"><p local-id="7a9d69f459ee">2_featuredescription</p></td><td ac:local-id="5ae25d22-2f7d-4e88-b0bb-e2aec3d62090"><p local-id="c9df34f0cf2d"></p></td></tr><tr ac:local-id="01b3e20b-f749-4a7a-ba01-45aa0acadf9d"><td ac:local-id="17276b94-5a7b-4392-ac2a-c2a7689692e5"><p local-id="f57d23de21a2">3_name</p></td><td ac:local-id="7be5f60b-2c78-435b-b7b4-d9190b1919a4"><p local-id="7549dcd8d797">Testimi i sinjalizimit ndriçues</p></td></tr><tr ac:local-id="58a693bc-4643-4ac7-a30a-25b5b38f06d2"><td ac:local-id="1e1770b3-1675-42bf-a4be-0eddd7e36f74"><p local-id="5ced114f35d9">3_description</p></td><td ac:local-id="73cb0310-2961-42af-922d-6466c3830472"><p local-id="1fa0d7b08f05">Testimi i dritës portokalli në kolonën sinjalizuese. Testimi i dritës së gjelbër në kolonën sinjalizuese. Testimi i dritës së kuqe në kolonën sinjalizuese</p></td></tr><tr ac:local-id="843ed580-1c6b-46d6-a1eb-e700e3acab3a"><td ac:local-id="acee088e-1c35-4eb4-8c57-14468cfa8a3f"><p local-id="46364b4efb89">3_featuredescription</p></td><td ac:local-id="73516725-e134-4a76-a0e1-6e5445535dc3"><p local-id="0584734bb375"></p></td></tr><tr ac:local-id="2c74f35c-6b77-4ba0-843b-11f1f7689f4c"><td ac:local-id="5afa262c-6d79-4818-8299-613d90003330"><p local-id="fb41fb03cbb7">4_name</p></td><td ac:local-id="261cb74a-8e5f-42a6-b95e-bd4d6c182526"><p local-id="31177644bf9c">Lubrifikimi me graso i udhëzuesve linearë të sistemit MOVE</p></td></tr><tr ac:local-id="7097aa3a-afde-453e-8cdb-5d3d0e5ff4a0"><td ac:local-id="d6122864-fef1-4eef-a9f9-89bf99d9daed"><p local-id="d9cc28019dc5">4_description</p></td><td ac:local-id="7192d98c-7ee7-411d-b682-370abe6a1302"><p local-id="8657bd910443">Duke përdorur një pistoletë të posaçme, lubrifikoni me graso udhëzuesit linearë të sistemit MOVE me një pompim grasoje nëpërmjet grykave të posaçme</p></td></tr><tr ac:local-id="8924d629-ab6c-4aff-8ffc-fb643fa6b974"><td ac:local-id="207f9d7a-e3be-410a-8a44-15003c39e5c9"><p local-id="b3592e76f3e4">4_featuredescription</p></td><td ac:local-id="7475a80d-29c2-4ecb-9a4c-c1f294c07567"><p local-id="404196146502"></p></td></tr><tr ac:local-id="1a34db4b-3602-47ca-819e-3e0c59ef563f"><td ac:local-id="f8cbea70-8f1e-45bb-a406-e1bdffc0401c"><p local-id="53085e3cba69">5_name</p></td><td ac:local-id="a78811df-b2a8-4fc0-b8cc-817d20fcc101"><p local-id="0aa66ab91578">Lubrifikimi me graso i kushinetës së vidës udhëzuese në aksin Z</p></td></tr><tr ac:local-id="add67a32-132c-4296-b944-90c46be3f83e"><td ac:local-id="c94af961-dacc-4839-8014-7fe54d280f20"><p local-id="3e396b2504e3">5_description</p></td><td ac:local-id="7638f2ff-bee5-4b45-bb7a-71fd22838fb9"><p local-id="4c28945ed4e6">Duke përdorur një pistoletë të posaçme, lubrifikoni me graso kushinetën e vidës udhëzuese në aksin Z me një pompim grasoje nëpërmjet grykave të posaçme</p></td></tr><tr ac:local-id="27762a57-093a-437e-9e64-faaae1826798"><td ac:local-id="837abe65-c329-484f-a981-e19792d0ab4e"><p local-id="4553af5adf10">5_featuredescription</p></td><td ac:local-id="d777ed48-debe-4e03-9441-7ba12d150c66"><p local-id="fc0434e1091d"></p></td></tr><tr ac:local-id="3d1bc178-b0b5-4325-8b07-4bccda99b5f1"><td ac:local-id="ac1024fa-e1a8-4de2-8748-8a8d66c4fd4d"><p local-id="e20f3cb352bf">6_name</p></td><td ac:local-id="39b0d264-6476-448c-886b-d4c666875947"><p local-id="4e37ca4a22cd">Lubrifikimi me graso i kushinetave të boshtit lëvizës të urës në aksin Y</p></td></tr><tr ac:local-id="f2425409-acb9-42b9-b889-5ac5b6f6ff93"><td ac:local-id="04002fd0-d89d-4a2b-9231-2aba00ec1bc7"><p local-id="8d417076617c">6_description</p></td><td ac:local-id="9f527bad-4e1c-4290-844a-4ebba95ec1e2"><p local-id="75055abd45c7">Duke përdorur një pistoletë të posaçme, lubrifikoni me graso kushinetat e boshtit lëvizës të urës së aksit Y me një pompim grasoje nëpërmjet grykave të posaçme</p></td></tr><tr ac:local-id="e2e3330e-dd47-4498-9520-462cfb7df200"><td ac:local-id="028fa0a8-f0cc-49cb-a473-a5dd9a7cc4d8"><p local-id="e0c61a3c349f">6_featuredescription</p></td><td ac:local-id="da29047c-a16b-487b-b0b7-88fe7f46290b"><p local-id="959f3e80b8fd"></p></td></tr><tr ac:local-id="36eb4652-558e-4cd5-82d8-3bc28fece2fc"><td ac:local-id="86afed68-a4c3-4548-8068-74d01724b5a0"><p local-id="adc7219a11a7">7_name</p></td><td ac:local-id="74d0923a-3b6e-4f7c-b6e5-11df11a95f58"><p local-id="1fb3dd707d66">Kontrolli i lubrifikantit në sistemin automatik të lubrifikimit me graso</p></td></tr><tr ac:local-id="1991ef38-e8fc-4b0f-9114-a164599779ca"><td ac:local-id="d4b48c8a-4aa3-4500-993d-28920e43e24d"><p local-id="7f364e42acdc">7_description</p></td><td ac:local-id="f8febd8f-3fa6-48e8-af1f-9029f86ea824"><p local-id="c05c71dd8bfa">Rezervuari duhet të plotësohet me sasinë e nevojshme të grasos, pa tejkaluar nivelin maksimal të treguar</p></td></tr><tr ac:local-id="28fd2d60-4fd7-4126-b8bd-bc5e40c32855"><td ac:local-id="31f64226-03b5-4dbc-a54d-2b7b89f40c36"><p local-id="2616a2553f62">7_featuredescription</p></td><td ac:local-id="f2806195-c21e-4d72-a436-ca6983942beb"><p local-id="f83d014de65f"></p></td></tr><tr ac:local-id="6fae0889-dc66-41b7-98e4-7aa2ef24e807"><td ac:local-id="9a500de7-8ae6-42b6-90f0-311737d0fe17"><p local-id="cb4d461383e1">8_name</p></td><td ac:local-id="0d30ca95-4a36-4446-aef3-a0a70954d297"><p local-id="23f4d51b378c">Lubrifikimi me graso i nyjeve të tavolinës anuese</p></td></tr><tr ac:local-id="cd6f4093-4fd4-4bdb-b984-839451006f0e"><td ac:local-id="768921a4-2804-40d8-98ab-3fbdf51eb655"><p local-id="0fe285003b7e">8_description</p></td><td ac:local-id="189db5a3-ba9b-4e0f-bf3d-61a6ee3989ed"><p local-id="51ef9572bd52">Lubrifikimi me graso i nyjeve të tavolinës anuese</p></td></tr><tr ac:local-id="532764fe-34dd-4381-a3a1-25fbba368c52"><td ac:local-id="db1e051b-7064-41d0-8fa2-24d20a10c6c7"><p local-id="0357357e9ad2">8_featuredescription</p></td><td ac:local-id="2f01c54c-242d-447b-b658-0c6337d29cea"><p local-id="3f585a398486"></p></td></tr><tr ac:local-id="6058af1b-f163-4b2b-b9d7-e8b4beadaaf5"><td ac:local-id="5ce9167c-ee00-4147-a607-e514beef6f27"><p local-id="85c380b5aa51">9_name</p></td><td ac:local-id="659d38ed-7e80-45b5-803d-12d0fe2715c5"><p local-id="815b7e7f9566">Lubrifikimi me graso i nyjës së krahut të panelit të komandimit</p></td></tr><tr ac:local-id="56848cda-d8d7-4129-829d-689e07865e2a"><td ac:local-id="4b811e8a-3876-49aa-a192-f68bbecde0ab"><p local-id="b19e5c9d19f4">9_description</p></td><td ac:local-id="257af2f5-917c-418a-93f5-5ba2b89ff410"><p local-id="1ece53b7c189">Duke përdorur një pistoletë të posaçme, lubrifikoni me graso nyjën e krahut të panelit të komandimit me një pompim grasoje nëpërmjet grykave të posaçme</p></td></tr><tr ac:local-id="8794ac62-daa4-4ca0-ac44-4b9ba20d3dac"><td ac:local-id="c73234e6-9ad6-41ff-a03e-027bbf954dc5"><p local-id="f20a1a9df613">9_featuredescription</p></td><td ac:local-id="422a284f-24a5-422c-ae97-939ce83c653f"><p local-id="b2cbcda97802"></p></td></tr><tr ac:local-id="a43b41c0-d02e-453d-86a1-9745f7b5a6b6"><td ac:local-id="9a79a6fc-796a-4117-9681-47ec5bd53d31"><p local-id="207feb258228">10_name</p></td><td ac:local-id="3ffaa656-b894-451a-8014-ef5c34545640"><p local-id="023d641229c7">Kontrolli i tubave dhe lidhjeve të sistemit të vajit hidraulik</p></td></tr><tr ac:local-id="5741973c-35fb-418e-b2dd-4f272adc07ed"><td ac:local-id="aa935b4f-5437-44fc-81a9-ca96ad37d76c"><p local-id="b90213621f3f">10_description</p></td><td ac:local-id="e2365767-334e-4039-b5c7-d5120d637018"><p local-id="8745ba16cbf5">Kontrolloni tubat e sistemit të vajit hidraulik për konsumim, duke identifikuar dhe përcaktuar me kujdes çdo pikë të përkeqësuar ose të dëmtuar në tuba ose rakorde, si dhe çdo rrjedhje vaji nga sistemi</p></td></tr><tr ac:local-id="bcc8864a-d2d6-4731-9419-bcdbca033ad3"><td ac:local-id="db0e26c0-dc56-416c-8730-62eceaec360d"><p local-id="f764e8f3cf43">10_featuredescription</p></td><td ac:local-id="54d270ce-4afc-43e9-9321-c0809f547362"><p local-id="a37bf43f6dfa"></p></td></tr><tr ac:local-id="376f066b-a77f-4c1f-a6d4-a30d3d035b27"><td ac:local-id="37e01311-1291-4d74-9e2d-d34f767fcd02"><p local-id="c1f19c798702">11_name</p></td><td ac:local-id="70f3e208-517d-46c0-9fd0-5ecbcde030b6"><p local-id="72194ce0bcfb">Ndërrimi i vajit në njësinë e komandimit hidraulik</p></td></tr><tr ac:local-id="248a44f6-5046-4860-badf-8a38551c738c"><td ac:local-id="d6468a9b-0b54-44b9-b0bc-edf3bdb67f60"><p local-id="eaccecb15cf9">11_description</p></td><td ac:local-id="73b477d8-b178-4ada-bb10-b933d049a217"><p local-id="c863c3050926">Ndërrimi duhet të shoqërohet me një pastrim të plotë të rezervuarit. Lëngu duhet të mbushet në rezervuar nëpërmjet një filtri rrjetë prej 10 mikronësh, përmes tapës së mbushjes së vajit</p></td></tr><tr ac:local-id="587fe8ec-a9c7-4a4a-babf-27ddc74d6a69"><td ac:local-id="08c2e7c9-37e6-49fd-9661-a2c92ad0e4e3"><p local-id="5d801415553d">11_featuredescription</p></td><td ac:local-id="05acd5b6-8a9d-4777-b9bd-6d8fb400ea04"><p local-id="bef06873fe2b"></p></td></tr><tr ac:local-id="ddbe0a4a-7a49-4aae-b2c1-3811459ebff7"><td ac:local-id="b2f311ed-8224-4e9d-95cd-b5574d21ce02"><p local-id="03a35bc3a8fc">12_name</p></td><td ac:local-id="3d4041df-fac0-4839-82f4-cee7a5afaa11"><p local-id="4233e8f5ff73">Pastrimi i filtrave të ventilimit në panelin elektrik</p></td></tr><tr ac:local-id="37ec4730-7c2b-4f88-8ebe-6c4ae9675b0f"><td ac:local-id="d3e0fb38-1b79-4c26-9c20-cdf948e159d8"><p local-id="4b3a0d5ce446">12_description</p></td><td ac:local-id="96b5f99f-35b7-43ff-a59f-cb743dcc3f5c"><p local-id="71f3ea5529d9"></p></td></tr><tr ac:local-id="930d3210-435f-4174-be84-1dce4173c4f1"><td ac:local-id="6c6995ac-59c9-40bb-bb40-0bc7a6bd2a22"><p local-id="baa3e094a683">12_featuredescription</p></td><td ac:local-id="363ea375-4a8d-457a-94b7-2b2533cf28bc"><p local-id="c6c1374195f5"></p></td></tr><tr ac:local-id="4dea43f8-1b6f-49f4-8cc1-a60f8ea6f59d"><td ac:local-id="74459dae-ef6a-4172-916c-c58072030835"><p local-id="4cf3dba513ce">13_name</p></td><td ac:local-id="b8eec382-6276-414c-873e-332b2ca5451b"><p local-id="4bd3e4485563">Mirëmbajtja e njësisë së hyrjes së ajrit të kompresuar</p></td></tr><tr ac:local-id="cc972b17-67d6-4dbc-9ace-aa3c43bd1fc1"><td ac:local-id="abe8ae33-f0b1-460a-ba85-fbc23153f217"><p local-id="22664578ea3a">13_description</p></td><td ac:local-id="6350c1d6-5b5b-490a-b83b-640d58c1db7a"><p local-id="16d37b6b4028">Para se të kryeni veprimet e mirëmbajtjes, mbyllni valvulën mbyllëse dhe kyçeni me dry</p></td></tr><tr ac:local-id="d03f8b65-78cf-4c67-94aa-37523df61a6f"><td ac:local-id="2ff4b957-910c-4e38-9334-a5619fc7956a"><p local-id="aba6328c224b">13_featuredescription</p></td><td ac:local-id="e9a3fb2d-9bb9-41e2-907d-bcd141308a3c"><p local-id="574e1fdcf57a"></p></td></tr><tr ac:local-id="c8f8a52e-b493-412f-a3a6-1d879e44fb7f"><td ac:local-id="9e81f438-04aa-4e39-8981-0614fdecedad"><p local-id="e8dadb608845">14_name</p></td><td ac:local-id="ff3839d3-0f2b-4bb9-a57a-7a93493d6ff1"><p local-id="33213abd80a8">Kushinetat e elektrospindelit</p></td></tr><tr ac:local-id="4de838e6-ccf0-40a1-bbea-a07a05aa94e1"><td ac:local-id="852010b2-3e36-4a70-b077-bcb0fcde79cb"><p local-id="3a7365e76480">14_description</p></td><td ac:local-id="4d9c6cad-ae4c-4670-813e-317d00bdb897"><p local-id="3dbc828816fd">Monitoroni nivelin e zhurmës dhe dridhjet e prodhuara gjatë funksionimit pa ngarkesë.</p></td></tr><tr ac:local-id="fd10764f-7ec2-4a25-9f0c-ccc775a0304d"><td ac:local-id="b19401a9-e5c5-44d7-b1a9-0ba31c093a7c"><p local-id="e0844a5d1311">14_featuredescription</p></td><td ac:local-id="c42b7c05-3d1d-4bcd-8509-fb3a4f639688"><p local-id="654390d2588e"></p></td></tr><tr ac:local-id="46c85a4f-403e-48e8-a464-1f7289e29f0d"><td ac:local-id="cee02248-30c2-490f-ac54-e0f8a3211737"><p local-id="69e4d9d464a8">15_name</p></td><td ac:local-id="95a0c12f-3726-46ba-9bed-b528340c0ec1"><p local-id="f1ce20d2bc12">Kontrolli i tubave dhe lidhjeve të sistemit të presionit të lartë</p></td></tr><tr ac:local-id="477d9ec7-e396-43e7-bdd6-08213d6d2a7c"><td ac:local-id="d902868f-3605-4495-b8b2-172ef854f4d6"><p local-id="ab13456cc34a">15_description</p></td><td ac:local-id="69b906f7-1b3b-4516-8c06-4385189f1f37"><p local-id="a6611a65d518">Kontrolloni për rrjedhje ose shenja konsumimi</p></td></tr><tr ac:local-id="4c6363c2-e166-4fa6-9f7c-472d74cc15a2"><td ac:local-id="7cfabaaf-c890-4ed9-8122-8debf8b020cf"><p local-id="470832e7d8ce">15_featuredescription</p></td><td ac:local-id="eb439213-12df-460a-9ebe-cb9774fbcf41"><p local-id="c72a46084a29">Kontrolli i tubave dhe lidhjeve të sistemit të presionit të lartë</p></td></tr><tr ac:local-id="d3f9f9a9-dfb0-459f-b0b0-dc2b2fdff4f2"><td ac:local-id="4629f251-469c-4398-ac95-334214bd3755"><p local-id="b2ec64a7dc37">16_name</p></td><td ac:local-id="57c5c87a-2b3d-4d9d-82e6-589cae85bc81"><p local-id="35114c7b5389">Kontrolli i gjendjes së pastërtisë së rezervuarit</p></td></tr><tr ac:local-id="fe08d407-ba3a-4689-a759-155aad1f40e6"><td ac:local-id="a7b31e23-4438-4087-be1a-683de690961e"><p local-id="894226a3bf4f">16_description</p></td><td ac:local-id="6f54a61d-b7cb-4062-86bf-f307b46370f9"><p local-id="597f13cadf97">Nëse rezervuarët e rikuperimit të abrazivit përmbajnë 20 cm rërë, rekomandohet heqja dhe zbrazja e saj</p></td></tr><tr ac:local-id="86b80b51-ccde-473c-b023-1281daaeb8fd"><td ac:local-id="2c1587bb-40fb-42b2-91b8-181b9321abdc"><p local-id="e69b73cbeeb1">16_featuredescription</p></td><td ac:local-id="17868abe-baa0-499f-8bce-caadfe0bc119"><p local-id="a33921218e44"></p></td></tr><tr ac:local-id="2a47d851-2262-424e-8319-26a2e5ff82f6"><td ac:local-id="08ac6528-b662-4846-b82e-dc0bbcc48f5d"><p local-id="f016e52f49a7">17_name</p></td><td ac:local-id="3ef6802f-2860-4cc4-a108-056a397bab3f"><p local-id="52138e8434b5">Riparoni valvulat njëkahëshe dhe obturatorët e presionit të ulët</p></td></tr><tr ac:local-id="2e834a48-5a5e-41cc-a08f-695ebebc2f60"><td ac:local-id="b5dc4464-88d7-4f10-a99f-8f4e4e76a761"><p local-id="606b2f486773">17_description</p></td><td ac:local-id="758acf90-5140-4729-a0fb-771a98ff14e9"><p local-id="6cb654ed5b6a"></p></td></tr><tr ac:local-id="6fa2b582-e2d5-4a0b-bf51-f173f73e800e"><td ac:local-id="b2360f49-d41f-4292-9b5f-f42b64b34f17"><p local-id="23c3355468dd">17_featuredescription</p></td><td ac:local-id="41eb6a26-25c1-4119-ac23-9a6b27815b28"><p local-id="25b14c52b4e9"></p></td></tr><tr ac:local-id="f3bfb811-2f12-43f9-93c4-fb37672c6823"><td ac:local-id="cc5991a1-729f-4102-9941-ff482906d984"><p local-id="f3f423ee90d8">18_name</p></td><td ac:local-id="dad56f66-5f8c-43fb-845c-934137903d79"><p local-id="85fd88958a4f">Riparoni cilindrin e presionit të lartë</p></td></tr><tr ac:local-id="43cd92ee-2576-4b4b-9bea-6788335add55"><td ac:local-id="89e5cb24-8669-445c-bd63-3a80990a5634"><p local-id="6a3c3d788f52">18_description</p></td><td ac:local-id="a4d05f01-2b92-498f-ad2d-a753607e0228"><p local-id="d3c305d06df2"></p></td></tr><tr ac:local-id="11d684d7-9f6a-491c-bad1-3493543fdf73"><td ac:local-id="6a0ed3d9-0bc3-404b-ae92-8a372c9b007c"><p local-id="c2ac3791d04e">18_featuredescription</p></td><td ac:local-id="77f7adb1-9c53-4df7-a77c-4c336f03bae5"><p local-id="190006772eb2"></p></td></tr><tr ac:local-id="14787ffb-ea78-4b10-9eea-b88298b14989"><td ac:local-id="1f2d27c2-9b9c-490e-bdb1-7df57257a4ee"><p local-id="33cf4dbf19f5">19_name</p></td><td ac:local-id="83ab94e9-71dd-4e9d-ba86-5ca7f43681bc"><p local-id="b72c88eadff6">Zëvendësoni fishekun e elementit vulosës të presionit të lartë</p></td></tr><tr ac:local-id="2ab85e85-370a-4b0e-ae3c-11730d85f77c"><td ac:local-id="8759968a-4099-4ccc-9081-215e7c5db41c"><p local-id="2bbb4ac3e737">19_description</p></td><td ac:local-id="24f60a92-6797-4c27-9afb-d5709245cb3d"><p local-id="81cd7cdeceaa"></p></td></tr><tr ac:local-id="34fad260-c6ed-42e2-98ba-b37e0ecd7bfa"><td ac:local-id="30b46779-289a-48c3-8e5f-15fddd4f61ad"><p local-id="846c73b5f587">19_featuredescription</p></td><td ac:local-id="667841e7-e92c-4a4e-9d58-aceb0488e7c1"><p local-id="98dcebf902f3"></p></td></tr><tr ac:local-id="e19b66e2-ede5-4a81-abac-b86998fa10d1"><td ac:local-id="4ba1c1a0-0e7d-49cf-bc87-bd164f08b5fb"><p local-id="08853c6ca2e9">20_name</p></td><td ac:local-id="b19bb2d6-9e78-48db-854e-140b1f1f6fd8"><p local-id="8921491c57d2">Zëvendësoni obturatorin e presionit të lartë</p></td></tr><tr ac:local-id="6c5b998f-cd25-40cc-8abf-f241b37a364d"><td ac:local-id="e0ed15fd-e890-459c-a6e3-48058ff85efd"><p local-id="2482ac0b4ac5">20_description</p></td><td ac:local-id="1d4af481-1608-4580-8f68-3b86ceca153e"><p local-id="225ea59d12e4"></p></td></tr><tr ac:local-id="8f4b138a-75a7-4875-b92b-90a70533cad2"><td ac:local-id="5da6c12f-d2c9-47f0-b96f-cd43ac737f23"><p local-id="e92998c6759e">20_featuredescription</p></td><td ac:local-id="62909eac-f4fc-49f5-849b-0c46616fa726"><p local-id="15c7c9ed6406"></p></td></tr><tr ac:local-id="ffb07407-7a8e-40a9-9834-ca48c1c7d114"><td ac:local-id="bffcd5de-694a-4453-a733-059ca302ac8f"><p local-id="78bc4196718f">21_name</p></td><td ac:local-id="9c1f15a5-6b81-442c-aafc-40ef01088be7"><p local-id="70b4e73c6dfa">Zëvendësoni obturatorin e presionit të ulët</p></td></tr><tr ac:local-id="8ca6995f-22a8-42c5-acd6-58bcfe0d113f"><td ac:local-id="1b0d3474-bc78-4126-93c1-4b7e480cdcf1"><p local-id="9d41d3db2fa9">21_description</p></td><td ac:local-id="207a9324-8215-464f-aa78-2594922aceff"><p local-id="a8a11fa0fd1d"></p></td></tr><tr ac:local-id="dbc2120a-a851-4a62-9298-ccbeac46df07"><td ac:local-id="13b87422-3158-4fd6-b7c1-3f2610ddf7cc"><p local-id="1d417de7fdb2">21_featuredescription</p></td><td ac:local-id="e3427d1f-51f0-447f-a4c1-86a0503f3174"><p local-id="c9bfef920208"></p></td></tr><tr ac:local-id="6c51b35a-eab0-4443-a51b-5e1b4dcd5b6c"><td ac:local-id="2d5bbf22-e87d-402f-a9bc-456b3f492e27"><p local-id="56a9538fe0d1">22_name</p></td><td ac:local-id="fa53d3c0-a94b-4606-9a36-3cf8e904c93a"><p local-id="7bcd0ad97db1">Ktheni përmbys cilindrin e presionit të lartë</p></td></tr><tr ac:local-id="fe3706ed-46b2-4d1e-bd1e-f00a56aa1c8a"><td ac:local-id="f1ab9d8c-bf56-4c30-b4ad-8cb513bee7ed"><p local-id="28b9e6eeb91c">22_description</p></td><td ac:local-id="8d2f080f-9992-4d52-b4a3-e3db13ecf965"><p local-id="6b9d8e09b0ab"></p></td></tr><tr ac:local-id="a29f389a-d357-447d-ba5d-15c508c1737f"><td ac:local-id="c70815c8-4a33-4af6-9828-401b243d108f"><p local-id="d973672a195f">22_featuredescription</p></td><td ac:local-id="8d7e2aae-ae85-4c15-b008-02fed927336e"><p local-id="0af6885eb0e8"></p></td></tr><tr ac:local-id="9f1e99bf-cdf7-421d-8fce-3234ab6103f2"><td ac:local-id="2ca61536-bef0-464c-9b6b-1d2c2d0dd6f3"><p local-id="4b1a9491aa93">23_name</p></td><td ac:local-id="f233704e-d0b6-45a5-afad-1897989b14d1"><p local-id="a9f58d5ecb93">Zëvendësoni cilindrin e presionit të lartë</p></td></tr><tr ac:local-id="be02cb45-8860-4b7e-bb3d-cd6c19ac57a3"><td ac:local-id="c8dbc203-82df-4bab-ba80-e74aae550b66"><p local-id="4f408f264b1f">23_description</p></td><td ac:local-id="3ce1fca0-b9fa-4665-98b5-613f01ee5768"><p local-id="164991231317"></p></td></tr><tr ac:local-id="14f78470-0013-4784-a585-459e6a47eb69"><td ac:local-id="71f1c7dd-fe72-4962-9729-6819e05deeca"><p local-id="908be2ecf99e">23_featuredescription</p></td><td ac:local-id="cab17f7f-c7be-47ab-a6a5-716e254a8e34"><p local-id="064aa5434a9d"></p></td></tr><tr ac:local-id="9b04f8f6-88a9-4fbf-a092-cbc2912960c0"><td ac:local-id="8998aca9-1b47-4441-90bb-90c1f3eca676"><p local-id="6c04cacc3b9d">24_name</p></td><td ac:local-id="88df6f76-d408-4236-b102-53abba6efcb5"><p local-id="557898a3d5a5">Zëvendësoni njësinë e valvulës njëkahëshe</p></td></tr><tr ac:local-id="a9f9cff9-567f-4dfe-90fb-d54d0c1f749c"><td ac:local-id="209a8733-d64e-4f45-9af5-cce07416c2a4"><p local-id="de42cb4f8aea">24_description</p></td><td ac:local-id="dc338ee0-5f13-4471-8824-9d80ac88a8cd"><p local-id="745aafeab014"></p></td></tr><tr ac:local-id="078e8631-e7b0-4e17-9f3a-e1193fd0a94f"><td ac:local-id="dd6f4e07-2320-4b74-be2c-ba144e436760"><p local-id="db310cc5309e">24_featuredescription</p></td><td ac:local-id="229124bd-265f-439a-9836-e95e1640ea24"><p local-id="a37ae504703b"></p></td></tr><tr ac:local-id="8dfdfca7-b711-49e5-8374-65ddc3754aac"><td ac:local-id="c5bba281-d849-4faf-bab7-81b5c83a2921"><p local-id="65f6a0141f95">25_name</p></td><td ac:local-id="c608b374-419b-4981-a401-37bd6abf5090"><p local-id="4f9275a7e75e">Zëvendësoni njësinë e strehës së elementit vulosës</p></td></tr><tr ac:local-id="bfc33c82-58db-4f67-8f38-e1bcedcb1cab"><td ac:local-id="75de11fe-9c74-48e2-a38d-7db8e0a95041"><p local-id="f604f06701bc">25_description</p></td><td ac:local-id="76d5f09f-2cfd-435e-946d-339782839cda"><p local-id="020973423137"></p></td></tr><tr ac:local-id="4a5a1cf1-fb34-4c30-a8ea-80d28a3dec7f"><td ac:local-id="dc1dbf87-b8ec-414c-890a-fd3628a42449"><p local-id="a4faf0b29b6f">25_featuredescription</p></td><td ac:local-id="4f7e69e8-381d-48a6-b0e9-b316c526f1f4"><p local-id="1de441138d9f"></p></td></tr><tr ac:local-id="03efbdfc-0539-444d-94d6-2553fe4b49fe"><td ac:local-id="ba155d3a-99b3-490c-9a9e-0b468835ed8d"><p local-id="876635bd4cc2">26_name</p></td><td ac:local-id="b28ee7b3-1a64-4931-b9f8-8ddb8d3bebd8"><p local-id="85dcdbc57ef7">Zëvendësoni përshtatësin e daljes</p></td></tr><tr ac:local-id="b285b63d-4568-42e2-ad8f-e6449e1c6aa9"><td ac:local-id="0d6c2e48-5fd5-4d5e-a028-aad381dfb629"><p local-id="0ede63b3ec09">26_description</p></td><td ac:local-id="f40885e0-fd1d-41e3-973c-6b4b9851f492"><p local-id="225f460149c2"></p></td></tr><tr ac:local-id="df54513d-43bb-4ec6-81ad-f5261fe0c7e8"><td ac:local-id="d0be09f3-6a83-4e80-a49d-c94a7eb5e42f"><p local-id="b132866231a0">26_featuredescription</p></td><td ac:local-id="3e64bf21-4565-437d-b54e-66c78a50b8ea"><p local-id="a704248ddf6a"></p></td></tr><tr ac:local-id="dd2caa26-8faf-49ba-ad1b-d858c775ed3e"><td ac:local-id="9414fa97-7071-457e-9950-7e4100f23603"><p local-id="854918054424">27_name</p></td><td ac:local-id="025f7401-06c3-4761-b641-c90ef48bf100"><p local-id="d1d712cd16c1">Zëvendësoni tubat distancues</p></td></tr><tr ac:local-id="d0b9c2eb-2fcb-4e9f-b781-37bdc350610f"><td ac:local-id="231a846c-d6c6-4f57-89aa-3381f49072ba"><p local-id="cbffc3746628">27_description</p></td><td ac:local-id="d2e76e65-6a55-42b3-9e77-72f0218baeeb"><p local-id="b3f4d0f6f440"></p></td></tr><tr ac:local-id="dde197fa-92c9-4c01-9c16-ed77c7f1cbe6"><td ac:local-id="9a7f585c-4a16-4c17-8e89-30ca0b25f04e"><p local-id="0e8d27fba29f">27_featuredescription</p></td><td ac:local-id="ea62bd87-19cf-4ffc-a200-e00a19ab126f"><p local-id="666e700463e2"></p></td></tr><tr ac:local-id="b85e107b-50e4-492c-a216-4b7bd88373ad"><td ac:local-id="e2774d0c-be36-490a-9235-3f6d1afbfee8"><p local-id="33214ae780e4">28_name</p></td><td ac:local-id="404f44eb-3835-44ae-be27-f97945449102"><p local-id="4b669f403303">Riparimi i seksionit hidraulik qendror</p></td></tr><tr ac:local-id="0636589f-417c-47dc-93a9-1996d939c186"><td ac:local-id="431cfd69-814c-4cd3-9ee5-b91e321da8bf"><p local-id="80a7f8b2e91f">28_description</p></td><td ac:local-id="a12128ae-daae-4225-8b04-bf9ce15da262"><p local-id="3ffc601d4102">Kontaktoni Donatoni Service</p></td></tr><tr ac:local-id="d6fbbbb9-9820-4141-a1a8-6f223f32a701"><td ac:local-id="a39ce76a-985d-4872-a3f7-b1708256847e"><p local-id="cdb9a2126933">28_featuredescription</p></td><td ac:local-id="ac9e27e6-26cf-4bfc-b121-467e59a6b2f5"><p local-id="b164a6221f39"></p></td></tr><tr ac:local-id="f2b6bd82-d225-4d12-bebb-017c932e39e9"><td ac:local-id="06d225c5-7ce2-4a18-acfb-f9dc68fa8881"><p local-id="d030c48c0f6e">29_name</p></td><td ac:local-id="4962d3cb-f6b8-4aee-bf3b-e533fea51fe6"><p local-id="f21c377e32a0">Riparoni valvulën e shkarkimit</p></td></tr><tr ac:local-id="a5e065ec-2ad4-43fe-a8aa-c74eecc20c4f"><td ac:local-id="7416ed7c-607d-4bc5-87ab-efa81b5e5b42"><p local-id="c8f01bb2c869">29_description</p></td><td ac:local-id="9c75dda6-4fae-4d84-91c2-5ccc497337a7"><p local-id="4ef58b49d60c"></p></td></tr><tr ac:local-id="0e30f557-29d8-460c-b910-84fd52f1cf64"><td ac:local-id="84f8e6c9-e4d6-4e9a-9bea-1dafbc19984c"><p local-id="002f2dd1fdb9">29_featuredescription</p></td><td ac:local-id="10ea406c-0f74-41ac-8489-8c380488001a"><p local-id="78d21de4542e"></p></td></tr><tr ac:local-id="153c293e-044c-4974-b5a7-2cc896f54f32"><td ac:local-id="da7ca75c-9d69-4262-b38c-65dbd7329f19"><p local-id="32801b60dce1">30_name</p></td><td ac:local-id="e4e28399-4e69-4b2d-8fb0-9ce41783e37e"><p local-id="6f7772315388">Kontrolli i lubrifikantit në sistemin automatik të lubrifikimit me graso</p></td></tr><tr ac:local-id="b9378233-f56a-43b2-899a-0c3b19a179d0"><td ac:local-id="67fbffa6-dea4-46ed-b257-4bc05b868173"><p local-id="0ad987f9df66">30_description</p></td><td ac:local-id="58711985-c3d9-464e-add1-fcf00b61b2d0"><p local-id="2377fe6e9324">Rezervuari duhet të plotësohet me sasinë e nevojshme të grasos, pa tejkaluar nivelin maksimal të treguar</p></td></tr><tr ac:local-id="070b3323-f33d-4905-bc63-136a6f3570bd"><td ac:local-id="ea3fdee6-5f63-4f35-9600-b8c5d0a7febb"><p local-id="791b4032dd00">30_featuredescription</p></td><td ac:local-id="941dc3e2-ad61-404d-b614-2233d3f621c3"><p local-id="a6e86cfee81a"></p></td></tr><tr ac:local-id="7b023c95-162f-455b-bd94-a9f76a9b12e9"><td ac:local-id="e74373d7-1136-469a-8589-fd049ebe5422"><p local-id="fc8a88ae411c">31_name</p></td><td ac:local-id="fb8ac0a4-557c-408e-bc0d-fe782e55e569"><p local-id="5981f7fb94d0">Zëvendësoni trupin e valvulës së shkarkimit</p></td></tr><tr ac:local-id="6d4a3261-2543-4f1d-aaba-b26aa4c16c65"><td ac:local-id="e57c9d25-c0fd-4b72-a777-54a5fbdb592c"><p local-id="8a85d318d690">31_description</p></td><td ac:local-id="3c8659f2-63e7-4dfb-93da-3c37f2fded60"><p local-id="d5976383eb88"></p></td></tr><tr ac:local-id="b8b80722-e949-4d95-a9ca-be4cba92aa0d"><td ac:local-id="eb1e910a-34e9-4b18-a086-37b7b9c56414"><p local-id="8b54ddf896a7">31_featuredescription</p></td><td ac:local-id="e0d31e53-5d0e-48f0-a924-f2244a7ae9e1"><p local-id="b0e1ed226933"></p></td></tr><tr ac:local-id="2bb0b3c7-2f16-4387-83a8-1c191d9e59b0"><td ac:local-id="234f7267-2fd9-461c-b9ae-255309e72854"><p local-id="a2ce60c7a7a3">32_name</p></td><td ac:local-id="b2d9ab52-9827-4cfd-a529-aa2248cd0aee"><p local-id="6e1e61238c9e">Pastroni ftohësin e ajrit</p></td></tr><tr ac:local-id="6cc8e892-6e1b-4e9c-b438-45a200d0ff9a"><td ac:local-id="f71a64a7-43c3-48c7-b922-143508067f8b"><p local-id="bdb096b433c1">32_description</p></td><td ac:local-id="5a969b91-cd11-407f-b705-cf8e6b0d61a4"><p local-id="2754b2341766"></p></td></tr><tr ac:local-id="944f587f-d3f8-4cc2-895c-0905968c2445"><td ac:local-id="7351a73f-ee27-42bc-8975-62999052e286"><p local-id="2f4c262b3d26">32_featuredescription</p></td><td ac:local-id="2c1cbab9-bf2e-4117-8a32-1791aac2e3e3"><p local-id="588c91e1d254"></p></td></tr><tr ac:local-id="9e8ce545-d777-480a-9657-629cb23c40d5"><td ac:local-id="8634fe5f-52d1-4bed-a7ec-398e9573a13c"><p local-id="7b1a119106a0">34_name</p></td><td ac:local-id="7e7608c3-54f4-4fa1-b76a-e6e9166462fe"><p local-id="a18d2cd86d5d">Zëvendësoni filtrin e ujit</p></td></tr><tr ac:local-id="8fdb7b6f-3806-46c5-b144-91f2266e4dd4"><td ac:local-id="21c8f988-41b3-402c-91cb-e999b8f1f8ca"><p local-id="8648dd2a5f69">34_description</p></td><td ac:local-id="657b69ea-bba6-4326-a900-9e82b02ce2f0"><p local-id="9e2552196dc0"></p></td></tr><tr ac:local-id="7051bb65-1781-472e-aaa5-4664cf402730"><td ac:local-id="e5c3d405-761d-4942-98fb-4e5a37f107b3"><p local-id="fc754576db8f">34_featuredescription</p></td><td ac:local-id="30f9a721-9fa3-4a4d-ab24-35a784b2d37b"><p local-id="e685de494223"></p></td></tr><tr ac:local-id="d52ee01d-01b2-4ee3-a953-c1c5aa427fa9"><td ac:local-id="50faf3a7-c176-4d37-afcf-aefd52d70476"><p local-id="aaea1520395d">35_name</p></td><td ac:local-id="e8fc2091-08c9-4d0b-8959-ce2888aaa248"><p local-id="2835803b0c94">Kontrolloni cilësinë e ujit</p></td></tr><tr ac:local-id="f3777ef1-e401-45a7-a937-74d988399f57"><td ac:local-id="324b16d0-d5b4-4f1f-a540-34e46fcb1d82"><p local-id="99251545ecc4">35_description</p></td><td ac:local-id="3b9dd888-2dda-462f-bebc-0eea097a3f8a"><p local-id="fc040819faaa"></p></td></tr><tr ac:local-id="058a9bae-c545-474c-ba84-73936711fbc8"><td ac:local-id="1b3ebe68-0a2f-49ca-95e5-b085f964fc5b"><p local-id="da549bec86fa">35_featuredescription</p></td><td ac:local-id="49c78fe7-4869-4144-a9db-0a1a9ac8a5b5"><p local-id="7c040db4b2e6"></p></td></tr><tr ac:local-id="4a6c9b21-5837-48e3-a6f8-28e9d03fa295"><td ac:local-id="27784535-69a9-45ff-83ad-7de28b9d1137"><p local-id="b652615dba15">36_name</p></td><td ac:local-id="1b44cecd-2bc0-4db2-ad02-1c2d65d6daf1"><p local-id="3ca9c422d466">Zëvendësoni elementin e filtrit hidraulik</p></td></tr><tr ac:local-id="3ea622cc-1e5b-45cd-8822-c145a8787f76"><td ac:local-id="a1065984-928d-4f77-9d74-30dfe97012dc"><p local-id="f4af629c2f67">36_description</p></td><td ac:local-id="6dd4c04f-fd6d-4ff3-94b2-f2624b95973a"><p local-id="52c01bba806a"></p></td></tr><tr ac:local-id="1b28ec61-ff97-49a7-bb2b-a90402e2c931"><td ac:local-id="8871e643-c0f8-48fb-91dd-eecbfcf52804"><p local-id="a1a67422f170">36_featuredescription</p></td><td ac:local-id="f90f1515-27fe-419b-a321-5167d14c5a55"><p local-id="a16b4c5bb723"></p></td></tr><tr ac:local-id="ef9e8c47-75fd-4752-9984-1a0cc517f8b1"><td ac:local-id="0c426189-2e37-4ae0-bdab-6a176fb4dce8"><p local-id="5de277333665">37_name</p></td><td ac:local-id="7f3c4bc6-d267-44ba-814d-4164690352c0"><p local-id="9ca7f3d8a0f0">Zëvendësoni lëngun hidraulik</p></td></tr><tr ac:local-id="17db8baa-8883-4176-b3a0-15219efdeb35"><td ac:local-id="4ea57a29-de6b-45c2-a6df-6a08e4529cc9"><p local-id="5817d631ccaa">37_description</p></td><td ac:local-id="39160544-41ef-4912-84a2-278cf442030b"><p local-id="13993512b7a7"></p></td></tr><tr ac:local-id="413960c3-24a1-4a43-aa32-2b562ad15d2b"><td ac:local-id="64283bad-46a3-4f59-85b3-47060a442db0"><p local-id="9983cc217a95">37_featuredescription</p></td><td ac:local-id="b1b67576-0cdd-4ff0-a0a6-c25cdfcca785"><p local-id="c976e0c4dd16"></p></td></tr><tr ac:local-id="12b0668e-f672-4d0f-a4c6-ed664d2fc2e8"><td ac:local-id="28210850-a4b8-4478-b9bb-66a0ada2a5b5"><p local-id="5cd35ac767a2">38_name</p></td><td ac:local-id="edda5cf8-4231-4bce-917a-1cce6aaaca50"><p local-id="0f8cc5a74c83">Lubrifikoni kushinetat e motorit kryesor</p></td></tr><tr ac:local-id="7310880c-5130-4d43-89e6-425656393145"><td ac:local-id="c289c645-be7d-49bf-8ecd-c17da95efe73"><p local-id="76141955d2f0">38_description</p></td><td ac:local-id="283530d0-4ada-4cee-9c20-f81755a08bb5"><p local-id="4acada7bfd86"></p></td></tr><tr ac:local-id="fe952336-7528-4669-8e54-3a045c680351"><td ac:local-id="79d76d8f-f511-4cf6-a777-fdd8b34c7796"><p local-id="752cfec190dd">38_featuredescription</p></td><td ac:local-id="937e6484-3c7e-42ac-a126-e2e4ba7d9db6"><p local-id="1fb66c9e2947"></p></td></tr><tr ac:local-id="96fb119d-ce35-401d-ac13-583f1d670a88"><td ac:local-id="bffa756e-7ca2-4411-bf7c-2d55d734277e"><p local-id="4f710f78020e">39_name</p></td><td ac:local-id="deba8ac7-75c2-45a7-9f1f-f3fee878d960"><p local-id="1acb9b542a87">Pastrimi i filtrave të ventilimit në panelin elektrik</p></td></tr><tr ac:local-id="073e3193-822a-4b82-bada-659c62101e0d"><td ac:local-id="790b2edd-c163-4409-b139-fc6fd132615d"><p local-id="d208662e0420">39_description</p></td><td ac:local-id="8978f731-f6c6-4eed-8469-7795ed867f9a"><p local-id="bf81988b4697"></p></td></tr><tr ac:local-id="560cfda3-757c-41d4-9586-f42d33f3b1f4"><td ac:local-id="29e795ce-8c69-4809-8b0e-61441b8b1fea"><p local-id="0bcb21849b5c">39_featuredescription</p></td><td ac:local-id="722b914e-a98c-4fd0-8ffb-e670d9fea102"><p local-id="37e5f2c2e926"></p></td></tr><tr ac:local-id="9db15ece-6d8d-48ce-bf53-b3ac74310c0a"><td ac:local-id="791167f8-14d6-413c-914f-f80fa06844f6"><p local-id="80adb3d55a03">40_name</p></td><td ac:local-id="179f6c18-af1b-4cca-b9ff-154195a9f7c2"><p local-id="6425b3b26eb9">Mirëmbajtja e njësisë së hyrjes së ajrit të kompresuar</p></td></tr><tr ac:local-id="7c0b1b72-9408-4ac2-8493-5c3e65a48aa1"><td ac:local-id="4e4b0367-b3c6-4002-914f-de2aa682915e"><p local-id="c610a3f5b53f">40_description</p></td><td ac:local-id="dc79a3ac-a76e-48cf-9711-c0553a93916f"><p local-id="a1ea4d6d8004">Para se të kryeni veprimet e mirëmbajtjes, mbyllni valvulën mbyllëse dhe kyçeni me dry</p></td></tr><tr ac:local-id="fdbfa820-4c14-4986-9340-2763afdf066c"><td ac:local-id="a0c3895c-e3fa-419a-961a-345940b0938b"><p local-id="774282c24272">40_featuredescription</p></td><td ac:local-id="47b89e44-ef99-4039-a013-ba03e16e5c87"><p local-id="69fd93d75452"></p></td></tr><tr ac:local-id="52d96831-50f8-4bae-92b0-e147ebd913f1"><td ac:local-id="10aa4bfd-a9bb-457d-833b-7e2f32d5db88"><p local-id="242d44586fe2">41_name</p></td><td ac:local-id="590f4d74-54e5-4c28-882c-45c860fa9656"><p local-id="4b05022f9664">Lubrifikimi me graso i udhëzuesve linearë në anën e spindelit</p></td></tr><tr ac:local-id="cf4e902e-303e-4431-b74c-eb587afc4ac4"><td ac:local-id="ace0db3d-ba7c-4c90-bdb9-5166949ec242"><p local-id="fe93ca003653">41_description</p></td><td ac:local-id="27409c8f-9c6e-4da5-bae3-292967dfa155"><p local-id="65f16afb0b89"></p></td></tr><tr ac:local-id="f470c116-f1ee-4395-86ce-a79a2a480aa9"><td ac:local-id="e859fee1-aa62-4e48-98e9-9ff80973cce9"><p local-id="9e0f8a4c2f89">41_featuredescription</p></td><td ac:local-id="85d3a834-f867-4312-80f0-3596f7de27c0"><p local-id="45fba668fe32"></p></td></tr><tr ac:local-id="1da28bb9-1f5f-4a46-aaf8-73554178a6fc"><td ac:local-id="d7a78b95-4c3e-410d-8876-7b6039fb7b21"><p local-id="292e0eb4b8bd">42_name</p></td><td ac:local-id="3d8cf7b9-4c65-408d-9377-3af96b07fda8"><p local-id="b7e18d3ea0db">Pastrimi i filtrit të sistemit pneumatik</p></td></tr><tr ac:local-id="0c172211-2826-48fe-a611-8b12e4ffed3d"><td ac:local-id="5109ee48-2350-47c6-960f-7a5fdd2b26bf"><p local-id="07e68406773d">42_description</p></td><td ac:local-id="2581a01e-4d35-4aee-bfa7-7b690729c9a7"><p local-id="aee5d936e438"></p></td></tr><tr ac:local-id="adb7817e-143a-49ac-8984-ba8011412e6b"><td ac:local-id="c26097e3-0ccc-4e3f-913e-3b43b2bcdbfe"><p local-id="fa513e8fd048">42_featuredescription</p></td><td ac:local-id="0aab4a93-832f-4e81-a422-6138087004f5"><p local-id="4d41b82991dc"></p></td></tr><tr ac:local-id="638f90be-ed3a-48cf-afbc-34acd199f1f4"><td ac:local-id="6a8fa9fb-59f0-4194-a6fe-7987c9e235a3"><p local-id="6a22c8b8d462">43_name</p></td><td ac:local-id="fc319db7-02dd-4e8c-a62d-7ac1db7e35e7"><p local-id="6c0545106433">Kontrolli i guarnicionit të bashkimit rrotullues</p></td></tr><tr ac:local-id="e2622a55-66e5-4262-8d25-945325d700db"><td ac:local-id="a681a19a-7b75-490f-8ec0-fdfb2d7d09a6"><p local-id="d2d85c937571">43_description</p></td><td ac:local-id="698845b9-1497-49bd-bf65-c2256b18dc88"><p local-id="46a96ed7c1bb"></p></td></tr><tr ac:local-id="f5ab5dc0-0f94-4ffb-9c93-108991ee6889"><td ac:local-id="fd1077a3-9ce0-484e-a636-6b2b9633a980"><p local-id="782cf7c58a2e">43_featuredescription</p></td><td ac:local-id="fe7c63ea-d210-42d3-a0f6-f660f96d2e19"><p local-id="67a613545de1"></p></td></tr><tr ac:local-id="59297ad8-9746-4586-b79a-e0eb0e09c923"><td ac:local-id="298f470a-bde2-4d6a-b0fb-65b4cb497787"><p local-id="2aa685d33936">44_name</p></td><td ac:local-id="1ae3a91a-c57b-4937-bc68-dfcb4f995a96"><p local-id="56ed135616e9">Zëvendësimi i grykës</p></td></tr><tr ac:local-id="00a687ef-f5bc-4716-9dd4-819ca24f8a1c"><td ac:local-id="865dc4dc-2ad0-4a8a-afa5-cbc65fe8142b"><p local-id="ec9e7f3c5f9f">44_description</p></td><td ac:local-id="5f4bc7c0-683f-4c8f-9130-7dd58636723e"><p local-id="a0148f7323f8">Zëvendësoni grykën për të përftuar një rrymë uniforme dhe për të mbrojtur përbërësit e kokës prerëse</p></td></tr><tr ac:local-id="2246ac1d-257c-4d3f-83e5-831476e5dae0"><td ac:local-id="20aa1b38-e69c-4af1-9c0c-45d5e9916071"><p local-id="3167951013b4">44_featuredescription</p></td><td ac:local-id="f751f4e9-5ea0-4831-800e-ecec11bc4006"><p local-id="46c3365d2f07"></p></td></tr><tr ac:local-id="ab387146-a7c3-4417-95ce-15216cdb099b"><td ac:local-id="8a4956dc-ec9b-4100-8b12-b5d95785e161"><p local-id="2bfad4296293">45_name</p></td><td ac:local-id="90599df8-39a2-409d-894f-2633ba2249a7"><p local-id="512f15c1fd14">Lubrifikimi manual me graso i disa pjesëve</p></td></tr><tr ac:local-id="84e21359-70ae-45ca-8ab3-7ca262528568"><td ac:local-id="d6e740bb-641f-450f-b068-0cc723213390"><p local-id="1469891783a3">45_description</p></td><td ac:local-id="e73f9c02-7071-46e7-a4f8-0597c6ce3fd1"><p local-id="937015bfe7a9">Kryeni lubrifikimin manual me graso (një pompim grasoje) për: sondën me prekje, aksin A, Tool_ dhe tavolinën, nëse janë të pranishme</p></td></tr><tr ac:local-id="f950eb07-0921-434c-a479-784d03070f03"><td ac:local-id="c8e3afde-8489-43e1-ab76-62af19868b18"><p local-id="3283c18d3007">45_featuredescription</p></td><td ac:local-id="2d4ae6b2-dc8d-43f1-bdc7-95e386eed956"><p local-id="d7d60d774cfb"></p></td></tr><tr ac:local-id="4b922280-e319-44ba-8df3-9de40bfdd113"><td ac:local-id="3d1d59a0-dea2-4025-a3e6-55e0396921b6"><p local-id="2b9c202f9991">46_name</p></td><td ac:local-id="17df9d30-a4ac-4316-8972-f8785c28309e"><p local-id="de65bba3188b">Kontrolli ose zëvendësimi i filtrit të pompës Hydrox</p></td></tr><tr ac:local-id="3481913b-8998-4c50-afaf-89a6e3983cda"><td ac:local-id="21b3e177-c88e-43cb-a0b2-4e1fbe5c58d1"><p local-id="a29bba831780">46_description</p></td><td ac:local-id="10761166-02d9-4867-906b-bbc32ba2e414"><p local-id="7df2d12b4772">Kontrolloni dhe, nëse është e nevojshme, zëvendësoni filtrat e ujit në hyrjen e pompës</p></td></tr><tr ac:local-id="2323b163-ba61-4a9b-a6df-91285caf8f64"><td ac:local-id="edda86e2-a6f1-4b28-a718-68ddad8d8d5d"><p local-id="5bb3a383d5e1">46_featuredescription</p></td><td ac:local-id="7802b4a8-60a2-4f27-824d-adcbe2b7504d"><p local-id="92c9b5ead545"></p></td></tr><tr ac:local-id="22bcccc4-054d-494a-bea1-4ebe83824358"><td ac:local-id="1608e38a-e668-4b3f-849a-5651a3773532"><p local-id="6c64ab236a83">47_name</p></td><td ac:local-id="acce0304-ea1c-404f-912d-8546d21afba9"><p local-id="5df65522e02d">Zëvendësimi i tubit fokusues</p></td></tr><tr ac:local-id="8af4a7cf-2706-4173-b968-300e3cd676be"><td ac:local-id="f3759add-e4f4-4cbd-a326-16b13910ec4a"><p local-id="cb7e8dae8390">47_description</p></td><td ac:local-id="bb261a65-2c93-41a9-a68e-b6c61b30db8d"><p local-id="aea3dda4e524">Zëvendësoni tubin fokusues me një të ri</p></td></tr><tr ac:local-id="e6bd0307-5e20-4100-902f-f3c4159dbd5a"><td ac:local-id="476bef94-1680-49df-a4f8-8cdbfcb4431d"><p local-id="ce8ae5f355a7">47_featuredescription</p></td><td ac:local-id="49104a99-01d0-4d6d-92ec-555ad772514d"><p local-id="b5b6c12fe143"></p></td></tr><tr ac:local-id="95ad352b-7dd7-403f-9f9e-8b7e0f65ad39"><td ac:local-id="16a0131f-d05b-479f-bdf7-9bd3d7ee775f"><p local-id="4d395006fd85">48_name</p></td><td ac:local-id="2cf16106-aa8d-417d-93c5-a1a505259e9b"><p local-id="161fc025854c">Kontrollet e përgjithshme të pompës Hydrox</p></td></tr><tr ac:local-id="e151033b-abf0-49db-8125-a7dbcdc40e3b"><td ac:local-id="0e20dd45-6010-457e-9784-dbf7d676d471"><p local-id="b030686de37c">48_description</p></td><td ac:local-id="1cd90d2f-c40e-439f-bb91-0a9572037ce8"><p local-id="c3322360c4a7">Kontrolloni nivelin e vajit dhe inspektoni për rrjedhje të mundshme</p></td></tr><tr ac:local-id="db0f1b20-add7-485c-8bb9-3becdf94736e"><td ac:local-id="0a11ad71-9bcc-4586-843a-a5ea3dfabe46"><p local-id="53dfcb518c51">48_featuredescription</p></td><td ac:local-id="4fbb4977-c563-401b-ac11-f64e260d937e"><p local-id="e8e2c8685eb0"></p></td></tr><tr ac:local-id="6e54dd06-9df9-49f8-be2d-b81200695930"><td ac:local-id="58cf5212-e672-4ab4-9065-2c81603cef49"><p local-id="44feb1adb0bc">49_name</p></td><td ac:local-id="dd6e0861-f98d-455d-8532-061c5154ff8b"><p local-id="9e6cf50fb98f">Ndërrimi i parë i vajit të pompës Hydrox</p></td></tr><tr ac:local-id="2125873e-a8a0-493a-a3b1-b70111b1baf3"><td ac:local-id="dbd910fe-a191-4430-a2ef-380334f12aca"><p local-id="5f0156e1544d">49_description</p></td><td ac:local-id="7f30f337-5e4b-4bc8-96ac-c6796ff2ddd8"><p local-id="d41f2a662975">Zëvendësoni vajin e pompës me vajin specifik të treguar në manual</p></td></tr><tr ac:local-id="f9a5f08d-3d2e-4bd4-bc46-7707cfca1f2c"><td ac:local-id="563e8263-a3fd-4868-8007-0d5203bbfb0d"><p local-id="f22366fc34cc">49_featuredescription</p></td><td ac:local-id="ebe44823-7e7a-4ecf-9294-193c6529177b"><p local-id="dbff4c20e8d0"></p></td></tr><tr ac:local-id="c288b885-f8a1-40e4-bc4c-b8a3f396ee5e"><td ac:local-id="5cdf5eec-d57c-44b1-ba1d-7820cf335d52"><p local-id="14299ac2c060">50_name</p></td><td ac:local-id="0ebf860f-c2b0-4770-b02d-f3a5c7ec9f43"><p local-id="c30b3571e4a8">Ndërrimi i vajit të pompës Hydrox</p></td></tr><tr ac:local-id="9f9807f0-8054-4219-b022-dfd9ae748012"><td ac:local-id="6a99ff47-d03c-4096-a12d-ca09e48239ca"><p local-id="6b32ee8cb8a9">50_description</p></td><td ac:local-id="aa468611-875a-410b-9cfe-3dbfe04e2002"><p local-id="054bf67a6f8e">Zëvendësoni vajin e pompës me vajin specifik të treguar në manual</p></td></tr><tr ac:local-id="a773b6e0-69f3-4260-83d1-c48737b26a4a"><td ac:local-id="91d87e5f-4cdd-4e49-8ca9-93d1f5670d97"><p local-id="9c353ca83a5e">50_featuredescription</p></td><td ac:local-id="00c71be3-b479-4234-9d47-8326113a67ca"><p local-id="7fa34826b464"></p></td></tr><tr ac:local-id="fb471d41-fd9f-4a59-b974-98b36b2a9c0d"><td ac:local-id="8ff19e77-2430-4231-899d-4f0a565ea91b"><p local-id="e4f2ad161113">51_name</p></td><td ac:local-id="36bc386e-6e38-4a05-b986-012e4fd3ae53"><p local-id="3844b0b5014d">Mirëmbajtja e trupit të pompës së presionit të lartë</p></td></tr><tr ac:local-id="acc8b7f9-0411-4292-9fd2-a94d08b6d3d3"><td ac:local-id="c6f5dfb1-8de6-45b7-840d-820e8c7795b5"><p local-id="133687512b9f">51_description</p></td><td ac:local-id="4b71924e-9ca4-421c-b7e8-db0ad8efc43d"><p local-id="1308e31ac9c8">Kontaktoni asistencën teknike</p></td></tr><tr ac:local-id="39242f60-dd98-4dbd-955e-206146406e1d"><td ac:local-id="b3259acd-d490-4542-954a-eb8f58bccc53"><p local-id="5805be370c48">51_featuredescription</p></td><td ac:local-id="950d3de4-a94d-40fa-af18-3efd4212c952"><p local-id="d23521bd1f50"></p></td></tr><tr ac:local-id="9c05652c-3190-49e8-802e-2ea6fa4c8c04"><td ac:local-id="ba369c13-d926-475e-8a23-958e098b7d1d"><p local-id="725cfb1cf1e4">52_name</p></td><td ac:local-id="eed6f917-3cfe-4fee-9b43-ea113b26123d"><p local-id="712d55b03481">Zëvendësimi i rripit të pompës</p></td></tr><tr ac:local-id="3adf9e10-ac4a-43af-be50-d66f53279ff4"><td ac:local-id="3137f9b1-c1a8-48fe-86ce-13e067cf9837"><p local-id="09bb1d1bc55a">52_description</p></td><td ac:local-id="338737e6-76a3-48b7-a007-0f101b3a95b7"><p local-id="47c0481573c2">Kontaktoni asistencën teknike</p></td></tr><tr ac:local-id="405230cc-b05f-44e5-b30e-9d10a86a36b6"><td ac:local-id="5926c5c4-5ef8-4431-8a35-990e86b43f3f"><p local-id="bcff7c1c6198">52_featuredescription</p></td><td ac:local-id="621f4ce9-fe73-4c95-8bb1-3530634840f8"><p local-id="421f7741a580"></p></td></tr><tr ac:local-id="9e70c19a-ef5d-4c66-909c-90dc342c7970"><td ac:local-id="65afbd93-1c5d-41ce-9eaf-b0b9ea2bcfc7"><p local-id="960607a10573">53_name</p></td><td ac:local-id="0623f693-a36a-4d01-9b24-f74c64f6f2cd"><p local-id="900c859fb8d1">Zëvendësimi i zorrës së abrazivit brenda grupit të kokës</p></td></tr><tr ac:local-id="49ed126e-cc5d-4c28-80c2-8c206a05ad0c"><td ac:local-id="9e5fde38-f75e-4965-af5d-b37ca3a5fd22"><p local-id="6a1e29922f90">53_description</p></td><td ac:local-id="51ce4201-61cf-4386-9749-a65347611733"><p local-id="901e63e06113">Zëvendësoni zorrën e abrazivit që kalon nga bashkimi rrotullues te koka prerëse</p></td></tr><tr ac:local-id="63c542d0-9978-49c1-b1a4-8f359f94f589"><td ac:local-id="8b1ea104-fa69-4fe7-9fc9-cf89a9464210"><p local-id="fb7b352f88c6">53_featuredescription</p></td><td ac:local-id="ddf7c731-2eae-4ae7-b23a-0e5e0fc26477"><p local-id="b001bcb80428"></p></td></tr></tbody></table><!--Label="mo-sq-al"-->
+                        </main>
+
+                    </div>
+
+                    <img src="images/donatoni_222.jpg">
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="sl-si.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="sv-se.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+
+
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                <a rel="prev" href="sl-si.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="sv-se.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="mermaid.min.js"></script>
+        <script src="mermaid-init.js"></script>
+        <script src="hidemenu.js"></script>
+        <script src="imagemodal.js"></script>
+        <script src="login.js"></script>
+    </div>
+
+    <!-- Modale -->
+    <div id="modal" onclick="closeModal()">
+        <img id="modal-img" src="">
+    </div>;
+
+
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
+
+<script id="virtual-keyboard-searchbar-fix">
+document.addEventListener("input", function (e) {
+    const t = e.target;
+    if (t && t.id === "searchbar" && e.isTrusted !== true) {
+        t.dispatchEvent(new KeyboardEvent("keyup", { bubbles: true }));
+    }
+});
+</script>
+</body>
+</html>
