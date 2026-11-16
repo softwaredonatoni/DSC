@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+<head>
+    <!-- Book generated using mdBook -->
+    <meta charset="UTF-8">
+    <title>2.1 IO - EN-GB D-EDGE UTILITY</title>
+
+    <!-- Custom HTML head -->
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="icon" href="favicon.svg">
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/chrome.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Fonts -->
+    <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+    <link rel="stylesheet" href="fonts/fonts.css">
+
+    <!-- Highlight.js Stylesheets -->
+    <link rel="stylesheet" id="highlight-css" href="highlight.css">
+    <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+    <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+    <!-- Custom theme stylesheets -->
+    <link rel="stylesheet" href="./mdbook-admonish.css">
+    <link rel="stylesheet" href="theme/custom.css">
+    <link rel="stylesheet" href="search.html">
+    <link rel="stylesheet" href="login.html">
+    <link rel="stylesheet" href="searchlogin.html">
+    <link rel="stylesheet" href="searchloginmenu.html">
+
+    <!-- Provide site root and default themes to javascript -->
+    <script>
+      const path_to_root = "";
+      const default_light_theme = "light";
+      const default_dark_theme = "light";
+    </script>
+    <!-- Start loading toc.js asap -->
+    <script src="toc.js"></script>
+<script>(function () {
+  const SUFFIX = "#2utHhOLI7Iz0";
+
+  function buildUrl() {
+    const base = window.location.href.split("#")[0];
+    return base + SUFFIX;
+  }
+
+  function fallbackCopy(text) {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.top = "-1000px";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+
+  async function copyUrl() {
+    const url = buildUrl();
+
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(url);
+        return;
+      } catch (e) {}
+    }
+
+    fallbackCopy(url);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.getElementById("copy-link-btn");
+    if (!btn) return;
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      copyUrl();
+    });
+  });
+})();
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-document" data-technical-styler-flow="html">
+    <header class="header-main">
+        <div class="header-flex">
+            <div class="donatoni-flex">
+                <label class="btn hamburger-menu" id="sidebar-toggle" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                    <i id="sidebar-toggle-icon" class="fa-solid fa-bars"></i>
+                </label>
+
+                <img src="images/donatoni-logo-white.svg" alt="Donatoni Macchine">
+            </div>
+
+            <div class="donatoni-flex action-header-buttons">
+                <div id="search-wrapper" class="search-wrapper hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults"></ul>
+                    </div>
+                </div>
+                <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
+                </button>
+
+                <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
+                    <i class="fa-solid fa-print"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div id="body-container">
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem("mdbook-theme");
+                let sidebar = localStorage.getItem("mdbook-sidebar");
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-theme",
+                        theme.slice(1, theme.length - 1)
+                    );
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-sidebar",
+                        sidebar.slice(1, sidebar.length - 1)
+                    );
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = "light";
+            let theme = default_theme;
+            const html = document.documentElement;
+            html.classList.remove("light");
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try {
+                    sidebar = localStorage.getItem('mdbook-sidebar');
+                } catch (e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document
+                        .getElementById("sidebar-toggle")
+                        .setAttribute("aria-expanded", sidebar === "visible");
+                    document
+                        .getElementById("sidebar")
+                        .setAttribute("aria-hidden", sidebar !== "visible");
+                    Array.from(document.querySelectorAll("#sidebar a")).forEach(
+                        function (link) {
+                            link.setAttribute("tabIndex", sidebar === "visible" ? 0 : -1);
+                        }
+                    );
+                </script>
+
+                <div id="content" class="content">
+
+                    <div>
+
+                        <img src="images/donatoni_111.jpg">
+
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Machine technical documentation</span><span class="maintenance-status"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Operational document</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="21-io" style="margin:0;" class="maintenance-main-title"><a class="header" href="#21-io"><span class="maintenance-code">DOC</span><span class="maintenance-name">2.1 IO</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document DOC" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="2.1 IO"--><p local-id="be6b425c5418">This page allows the technician to test the machine's electrical scheme by sending inputs and reading outputs directly from its electronic boards, bypassing the PLC’s control.</p><div class="TextAlignCenter"><img src="attachments/2.1_io/image-20261113-104704.png" alt="image-20261113-104704.png" width="760" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p>
+</p><h1 local-id="8f52528c9073">PLC management</h1><p local-id="80bee675c91c">The user can see the PLC status from the top right part of the window.</p><div class="TextAlignCenter"><img src="attachments/2.1_io/_UIFramework.Controls.ViewBorderCard_18792716-20260320-155914.png" alt="_UIFramework.Controls.ViewBorderCard_18792716-20260320-155914.png" width="450" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><table class="my-table2" data-table-width="760" data-layout="center" ac:local-id="b64a5ebc-dd58-4fd1-9704-5bf17680c45a"><colgroup><col style="width: 221.0px;"><col style="width: 539.0px;"></colgroup><tbody><tr ac:local-id="341b6f06-6721-416c-b891-7fc8aba8777c"><td ac:local-id="14ea9e81-28ce-4887-ac52-12cb97a93a12"><div class="TextAlignCenter"><img src="attachments/2.1_io/IO-PlcVersion.png" alt="PLC version icon" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="dc6e8e3f-f40b-4914-acd5-d6bc186189a2"><p local-id="ac6e470c607d"><strong>PLC version</strong><br>Version of the software running on the PLC.</p></td></tr><tr ac:local-id="66c92a65-f8ac-4945-a370-25ff43cd5c58"><td ac:local-id="0acc622d-212b-4a0b-85ef-aa5ab0e2ad45"><div class="TextAlignCenter"><img src="attachments/2.1_io/IO-PlcStatus.png" alt="PLC status icon" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="47edbfb9-d791-4627-ace1-5f22286f02ee"><p local-id="480f2e227662"><strong>PLC status</strong><br>Shows if the PLC is running or in setup mode.</p></td></tr><tr ac:local-id="9ef24c2d-a893-4cf0-9b65-54654a015937"><td ac:local-id="1626307b-68c4-431a-a485-9bde7872d096"><div class="TextAlignCenter"><img src="attachments/2.1_io/IO-PlcStart.png" alt="Start PLC icon" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="3a8ce474-bbb5-4e8c-837d-8bd81dde18a7"><p local-id="ed58711877c9"><strong>Start/Stop PLC</strong><br>Allows to start or stop the PLC of the machine, in order to safaely change the variables value.</p></td></tr></tbody></table>
+<div id="admonition-note" class="admonition admonish-info" role="note" aria-labelledby="admonition-note-title">
+<div class="admonition-title">
+<div id="admonition-note-title">
+<p>NOTE</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-note"></a>
+</div>
+<div>
+<p>In order to effectively test the I/O, the PLC needs to be in setup mode.</p>
+</div>
+</div>
+<p local-id="914b6705a157"></p><h1 local-id="b18644d7aa82">Browse data layer</h1><p local-id="acd86c0d0b9b">On the left side of the screen there is a tree that shows the input/output directories of the machine.</p><div class="TextAlignCenter"><img src="attachments/2.1_io/image-20261113-104732.png" alt="image-20261113-104732.png" width="400" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="721ce6586bb0">In order to find a variable, the user can follow the correct path or search it through the filter above. </p><table class="my-table2" data-table-width="760" data-layout="center" ac:local-id="ab5827f4-761d-4905-9084-f9e4c9bdb874"><colgroup><col style="width: 188.0px;"><col style="width: 572.0px;"></colgroup><tbody><tr ac:local-id="5a920d64173e"><td ac:local-id="6a708bb82ae5"><div class="TextAlignCenter"><img src="attachments/2.1_io/IO-Find.png" alt="Find icon" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="0370df1a4527"><p local-id="4784abc8a6db"><strong>Find</strong><br>The user can search for a variable or a folder by using a filter.<br>The filter works both for the name of the variable and also for its note.</p></td></tr><tr ac:local-id="977975553a8d"><td ac:local-id="80121f22e0d4"><div class="TextAlignCenter"><img src="attachments/2.1_io/IO-ClearFilter.png" alt="Remove filter icon" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="3b6d73371b77"><p local-id="651e38bfd9a2"><strong>Remove filter</strong><br>Removes the filter from the search bar.</p></td></tr></tbody></table><p local-id="c7979149fd53">The user can browse the data layer tree elements:</p><table class="my-table2" data-table-width="760" data-layout="center" ac:local-id="9bbbb1e4-a3ff-44de-b0da-0aee1bacb247"><colgroup><col style="width: 186.0px;"><col style="width: 573.0px;"></colgroup><tbody><tr ac:local-id="5155c5dc-2873-433a-8492-30ea140c7945"><td ac:local-id="92359f2f-9c58-4a3e-a575-483631ab1b55"><div class="TextAlignCenter"><img src="attachments/2.1_io/IO-FolderClosed.png" alt="Closed folder icon" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="acabab6d-d349-4583-94fc-23655ff6ff27"><p local-id="0b2c9a7d77ea"><strong>Folder</strong><br>It is possible to expand to see its elements.</p></td></tr><tr ac:local-id="b4a8cb423fa0"><td ac:local-id="cde9e1a5-47ed-41bc-b457-fe6137c4bb38"><div class="TextAlignCenter"><img src="attachments/2.1_io/IO-TreeVariable.png" alt="Variable in the data-layer tree icon" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="681024cb-1a6f-4aa3-9635-866f359f34e8"><p local-id="a369c1394870"><strong>Variable</strong><br>Identify a variable node.</p></td></tr></tbody></table><p local-id="eddfd3857362">For each variable, the user can perform two actions:</p><table class="my-table2" data-table-width="760" data-layout="center" ac:local-id="3ed42c2d-f6cb-4d1f-afd4-fb332dc90372"><colgroup><col style="width: 187.0px;"><col style="width: 573.0px;"></colgroup><tbody><tr ac:local-id="cd74cac2bb01"><td ac:local-id="94bd1bcc8677"><div class="TextAlignCenter"><img src="attachments/2.1_io/IO-TreeNote.png" alt="Note in the tree icon" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="b244ad4fc656"><p local-id="fcc0f46250fe"><strong>Note</strong><br>Add a note that can help to identify the variable.</p></td></tr><tr ac:local-id="8b8b21254315"><td ac:local-id="b81c195410db"><div class="TextAlignCenter"><img src="attachments/2.1_io/IO-Monitor.png" alt="Monitor variable icon" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="77d1b0164b7e"><p local-id="7d43ea337394"><strong>Monitor variable</strong><br>Add the variable to the list of monitored variables.</p></td></tr></tbody></table><p local-id="b930cc7b2e70">Using the button located on the top-left side, the user can hide the browsing panel and leave more space for the observed-variable list.</p><table class="my-table2" data-table-width="760" data-layout="center" ac:local-id="1d5b88ce-9921-4864-9b49-f3c57fc4896c"><colgroup><col style="width: 193.0px;"><col style="width: 566.0px;"></colgroup><tbody><tr ac:local-id="cc531d15-bbb0-4c98-8553-f1c7a0cb4735"><td ac:local-id="15515056-66ac-46df-bace-a4c094f866b7"><div class="TextAlignCenter"><img src="attachments/2.1_io/IO-HideTree.png" alt="Hide the data-layer tree icon" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="8456d476-19cd-4443-b0a0-6937e2b24a03"><p local-id="9b08097aa658"><strong>Show/Hide data-layer tree</strong><br>Hide the browsing panel or display it again.</p></td></tr></tbody></table><h1 local-id="4f704f46070f">Monitored Variables</h1><p local-id="2b6684947a99">On the right side of the window there is a list that shows the list of monitored variables, where the user can read and/or modify for the real time value of each variable.</p><div class="TextAlignCenter"><img src="attachments/2.1_io/image-20261113-105855.png" alt="image-20261113-105855.png" width="632" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><h2 local-id="37bf59614d58" class="maintenance-section-title" data-section-number="01">Configuration file</h2><p local-id="f23229157020">It is possible to load or save presets of monitored variables using the section above the list.</p><div class="TextAlignCenter"><img src="attachments/2.1_io/image-20261113-110359.png" alt="image-20261113-110359.png" width="760" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><table class="my-table2" data-table-width="760" data-layout="center" ac:local-id="8e361472-6012-4546-8558-a6aafad7746c"><colgroup><col style="width: 144.0px;"><col style="width: 615.0px;"></colgroup><tbody><tr ac:local-id="927878cf-dd84-4c85-a104-9507872a3916"><td ac:local-id="cbb62512-6e13-4a17-a427-fd62e14da525"><div class="TextAlignCenter"><img src="attachments/2.1_io/IO-ConfigurationFile.png" alt="Monitoring configuration file icon" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="64fe28ea-cd91-449e-8430-ea8dec8c3b5b"><p local-id="3a07151e2667"><strong>Monitoring configuration file</strong><br>Show the name of the loaded monitoring configuration. An asterisk (*) beside the name indicates changes.</p></td></tr><tr ac:local-id="e1a36311-8d73-4aeb-96f5-33963aea0d67"><td ac:local-id="690e901b-d372-4083-8241-986adefe92b5"><div class="TextAlignCenter"><img src="attachments/2.1_io/IO-FolderOpen.png" alt="Load monitoring configuration icon" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="57ede124-d1ea-47c3-bac4-211687b9bd35"><p local-id="0b8a1306509b"><strong>Load monitoring configuration</strong><br>Open a savedmonitoring configuration and replace the current observed-variable list with the variables in that file.</p></td></tr><tr ac:local-id="e4cdae0f-f43b-46d5-8d7e-44e16954a28e"><td ac:local-id="885b7d13-00d3-4cc2-bab7-c18a09facbe9"><div class="TextAlignCenter"><img src="attachments/2.1_io/IO-SaveConfiguration.png" alt="Save monitoring configuration as icon" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="7468fe2f-3983-4c9c-bcc5-6e36e4b72daa"><p local-id="41c015ce1c99"><strong>Save monitoring configuration as</strong><br>Save the observed-variable list, display choices and read intervals.</p></td></tr></tbody></table><h2 local-id="1a7969308c2a" class="maintenance-section-title" data-section-number="02">Variable</h2><p local-id="db037f644091">Every row of the list represents a variable, that is monitored in real time.</p><div class="TextAlignCenter"><img src="attachments/2.1_io/image-20261113-110855.png" alt="image-20261113-110855.png" width="760" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="639ad8a3849b">The variables are divided in two categories:</p><table class="my-table2" data-table-width="760" data-layout="center" ac:local-id="d5730235-285b-41f1-bba1-c01071384935"><colgroup><col style="width: 162.0px;"><col style="width: 597.0px;"></colgroup><tbody><tr ac:local-id="4f91570c-6f34-4ee1-87e0-4746623134cb"><td ac:local-id="cf2d74e0-a5b4-4648-a6b6-ac58844b7441"><div class="TextAlignCenter"><img src="attachments/2.1_io/IO-Input.png" alt="Input variable icon" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="50db1a17-9985-4b46-9835-4e2f1a1a2dfb"><p local-id="93362922af74"><strong>Input variable</strong><br>Identify a variable from the input data-layer path.<br>It is only possible to read the value of these variables.</p></td></tr><tr ac:local-id="071db866-f66d-49d5-ac52-ecd382ef6fb3"><td ac:local-id="f9d09354-b95e-4ad2-9bcb-f638539d3349"><div class="TextAlignCenter"><img src="attachments/2.1_io/IO-Output.png" alt="Output variable icon" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="245c2be6-050b-4809-9bad-99cbd85a5617"><p local-id="e8843f410890"><strong>Output variable</strong><br>The user can both read and/or change the value of it.</p>
+<div id="admonition-attention" class="admonition admonish-warning" role="note" aria-labelledby="admonition-attention-title">
+<div class="admonition-title">
+<div id="admonition-attention-title">
+<p>ATTENTION!</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-attention"></a>
+</div>
+<div>
+<p>In order to change the value of a variable the PLC of the machine must be stopped.</p>
+</div>
+</div>
+</td></tr></tbody></table><p local-id="0bbb91077805">It is possible to change the reading speed and the view of each variable:</p><table class="my-table2" data-table-width="760" data-layout="center" ac:local-id="73418fa5-4e4c-42c5-a7e1-0f8cccb3ba18"><colgroup><col style="width: 230.0px;"><col style="width: 528.0px;"></colgroup><tbody><tr ac:local-id="d7087ebe5b2b"><td ac:local-id="0a51a2f29771"><div class="TextAlignCenter"><img src="attachments/2.1_io/_System.Windows.Controls.ComboBox_60907448-20261113-104146.png" alt="_System.Windows.Controls.ComboBox_60907448-20261113-104146.png" width="180" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="ef0a068bd151"></p></td><td ac:local-id="ba7b5362d72d"><p local-id="af5f8dee689f"><strong>View type</strong><br>The user can decide to see the variable as an analogic value or else as a digital value.</p>
+<div id="admonition-note-1" class="admonition admonish-info" role="note" aria-labelledby="admonition-note-1-title">
+<div class="admonition-title">
+<div id="admonition-note-1-title">
+<p>NOTE</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-note-1"></a>
+</div>
+<div>
+<p>If the view of the variable is set to digital, its value is changed every time the user presses a bit.
+<br>
+Else, in the analogic scenario, the user must write correctly the new value inside the field.</p>
+</div>
+</div>
+</td></tr><tr ac:local-id="e0a5f779f765"><td ac:local-id="eb43c16b802b"><div class="TextAlignCenter"><img src="attachments/2.1_io/_System.Windows.Controls.ComboBox_14439528-20261113-104146.png" alt="_System.Windows.Controls.ComboBox_14439528-20261113-104146.png" width="180" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="377a9aa19ae4"><p local-id="fc712a006c91"><strong>Read speed</strong><br>It is is possible to change the speed at which the variable is read.</p></td></tr></tbody></table><p local-id="9436c370af48">Moreover, the user can perform the following actions:</p><table class="my-table2" data-table-width="760" data-layout="center" ac:local-id="47fae8de-a99b-4128-9f21-399fbac736f1"><colgroup><col style="width: 234.0px;"><col style="width: 526.0px;"></colgroup><tbody><tr ac:local-id="c0b509c8-9173-44ad-aab5-5d434250a090"><td ac:local-id="b3f84aa4-1560-4b8c-9ad7-6bb9f8edf985"><div class="TextAlignCenter"><img src="attachments/2.1_io/IO-TreeNote.png" alt="Note in the observed list icon" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="90ecf3e7-4cba-4452-a5c4-a7774b296a51"><p local-id="08bc715d61c0"><strong>Note</strong><br>Add a note that can help to identify the variable. The note is changed also in the tree.</p></td></tr><tr ac:local-id="e7ed9703e701"><td ac:local-id="3d5966f4-9608-4602-834a-e06bac27963a"><div class="TextAlignCenter"><img src="attachments/2.1_io/IO-MoveDown.png" alt="Move variable down icon" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="035f665f-79f4-4abd-80d8-54ddb2d670a6"><p local-id="a00aff1eba0f"><strong>Move variable down</strong><br>Move the observed variable one position down in the list.</p></td></tr><tr ac:local-id="116fa3fa1dda"><td ac:local-id="69d6d435-afa9-4628-adcb-cbdd8d9111f2"><div class="TextAlignCenter"><img src="attachments/2.1_io/IO-MoveUp.png" alt="Move variable up icon" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="74b095ae-3ea2-4927-93f4-a846b9fb01a2"><p local-id="2347fd8e07bd"><strong>Move variable up</strong><br>Move the observed variable one position up in the list.</p></td></tr><tr ac:local-id="7161921e-1a18-4ad2-99a8-64cc7ed232e9"><td ac:local-id="420ed1ab-037d-4fd7-8907-1f999eb3dcf7"><div class="TextAlignCenter"><img src="attachments/2.1_io/IO-Remove.png" alt="Remove variable icon" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="8aed10b7-7dbd-4b95-b47b-63c042869211"><p local-id="263423b4de81"><strong>Remove</strong><br>Remove the variable from the list.</p></td></tr></tbody></table><!--Label="io"--><!--Label="plc"-->
+                        </main>
+
+                    </div>
+
+                    <img src="images/donatoni_222.jpg">
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="2_utilities.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="2.2_configurations_system.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+
+
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                <a rel="prev" href="2_utilities.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="2.2_configurations_system.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="mermaid.min.js"></script>
+        <script src="mermaid-init.js"></script>
+        <script src="hidemenu.js"></script>
+        <script src="imagemodal.js"></script>
+        <script src="login.js"></script>
+    </div>
+
+    <!-- Modale -->
+    <div id="modal" onclick="closeModal()">
+        <img id="modal-img" src="">
+    </div>;
+
+
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
+
+<script id="virtual-keyboard-searchbar-fix">
+document.addEventListener("input", function (e) {
+    const t = e.target;
+    if (t && t.id === "searchbar" && e.isTrusted !== true) {
+        t.dispatchEvent(new KeyboardEvent("keyup", { bubbles: true }));
+    }
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+<head>
+    <!-- Book generated using mdBook -->
+    <meta charset="UTF-8">
+    <title>2.3.2 LUBRICATION - EN-GB D-EDGE UTILITY</title>
+
+    <!-- Custom HTML head -->
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="icon" href="favicon.svg">
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/chrome.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Fonts -->
+    <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+    <link rel="stylesheet" href="fonts/fonts.css">
+
+    <!-- Highlight.js Stylesheets -->
+    <link rel="stylesheet" id="highlight-css" href="highlight.css">
+    <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+    <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+    <!-- Custom theme stylesheets -->
+    <link rel="stylesheet" href="./mdbook-admonish.css">
+    <link rel="stylesheet" href="theme/custom.css">
+    <link rel="stylesheet" href="search.html">
+    <link rel="stylesheet" href="login.html">
+    <link rel="stylesheet" href="searchlogin.html">
+    <link rel="stylesheet" href="searchloginmenu.html">
+
+    <!-- Provide site root and default themes to javascript -->
+    <script>
+      const path_to_root = "";
+      const default_light_theme = "light";
+      const default_dark_theme = "light";
+    </script>
+    <!-- Start loading toc.js asap -->
+    <script src="toc.js"></script>
+<script>(function () {
+  const SUFFIX = "#2utHhOLI7Iz0";
+
+  function buildUrl() {
+    const base = window.location.href.split("#")[0];
+    return base + SUFFIX;
+  }
+
+  function fallbackCopy(text) {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.top = "-1000px";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+
+  async function copyUrl() {
+    const url = buildUrl();
+
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(url);
+        return;
+      } catch (e) {}
+    }
+
+    fallbackCopy(url);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.getElementById("copy-link-btn");
+    if (!btn) return;
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      copyUrl();
+    });
+  });
+})();
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-document" data-technical-styler-flow="html">
+    <header class="header-main">
+        <div class="header-flex">
+            <div class="donatoni-flex">
+                <label class="btn hamburger-menu" id="sidebar-toggle" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                    <i id="sidebar-toggle-icon" class="fa-solid fa-bars"></i>
+                </label>
+
+                <img src="images/donatoni-logo-white.svg" alt="Donatoni Macchine">
+            </div>
+
+            <div class="donatoni-flex action-header-buttons">
+                <div id="search-wrapper" class="search-wrapper hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults"></ul>
+                    </div>
+                </div>
+                <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
+                </button>
+
+                <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
+                    <i class="fa-solid fa-print"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div id="body-container">
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem("mdbook-theme");
+                let sidebar = localStorage.getItem("mdbook-sidebar");
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-theme",
+                        theme.slice(1, theme.length - 1)
+                    );
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-sidebar",
+                        sidebar.slice(1, sidebar.length - 1)
+                    );
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = "light";
+            let theme = default_theme;
+            const html = document.documentElement;
+            html.classList.remove("light");
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try {
+                    sidebar = localStorage.getItem('mdbook-sidebar');
+                } catch (e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document
+                        .getElementById("sidebar-toggle")
+                        .setAttribute("aria-expanded", sidebar === "visible");
+                    document
+                        .getElementById("sidebar")
+                        .setAttribute("aria-hidden", sidebar !== "visible");
+                    Array.from(document.querySelectorAll("#sidebar a")).forEach(
+                        function (link) {
+                            link.setAttribute("tabIndex", sidebar === "visible" ? 0 : -1);
+                        }
+                    );
+                </script>
+
+                <div id="content" class="content">
+
+                    <div>
+
+                        <img src="images/donatoni_111.jpg">
+
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Machine technical documentation</span><span class="maintenance-status"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Operational document</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="232-lubrication" style="margin:0;" class="maintenance-main-title"><a class="header" href="#232-lubrication"><span class="maintenance-code">DOC</span><span class="maintenance-name">2.3.2 LUBRICATION</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document DOC" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="2.3.2 LUBRICATION"--><p local-id="9458c590bf6e">This section allows to modify lubrication parameters, request a greasing cycle and read lubrication statistics.</p><div class="TextAlignCenter"><img src="attachments/2.3.2_lubrication/image-20261113-081953.png" alt="image-20261113-081953.png" width="760" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p>
+</p><h1 local-id="8a8ad6ccaa1a">Commands</h1><p local-id="6cbbdf9cac96">This section collects commands to force the machine to do operations described below.</p><div class="TextAlignCenter"><img src="attachments/2.3.2_lubrication/_UIFramework.Controls.ViewBorderCard_51724722.png" alt="_UIFramework.Controls.ViewBorderCard_51724722.png" width="300" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><table class="my-table2" data-table-width="760" data-layout="default" ac:local-id="2e457e94-8990-32ec-b20a-02a3aa899658" data-table-display-mode="fixed"><colgroup><col style="width: 120.0px;"><col style="width: 640.0px;"></colgroup><tbody><tr ac:local-id="498d80a8-d50a-42ef-acaf-05a43fa00c9d"><td ac:local-id="72d5bd04-6f29-4b72-a44a-a5a69eff3d40"><div class="TextAlignCenter"><img src="attachments/2.3.2_lubrication/ViewLubrication-LubricationForceCycle-8.png" alt="Force cycle" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="651cbd69-5e3f-47af-8ed1-b60fc74852b7"><p local-id="03aeb433e13d"><strong>Force cycle</strong><br>Starts the lubrication cycle.</p></td></tr></tbody></table><p local-id="909cad3b6ca0"></p><h1 local-id="0b6a6138e907">User parameters</h1><p local-id="a777ad007056">In the top-left corner are collected basic parameters that affect the lubrication operations.</p><div class="TextAlignCenter"><img src="attachments/2.3.2_lubrication/_UIFramework.Controls.ViewBorderCard_21185110-20261113-082118.png" alt="_UIFramework.Controls.ViewBorderCard_21185110-20261113-082118.png" width="550" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><table class="my-table2" data-table-width="760" data-layout="default" ac:local-id="1a6249b4-b1ad-3d2b-acdd-19e3a04004b0" data-table-display-mode="fixed"><colgroup><col style="width: 120.0px;"><col style="width: 640.0px;"></colgroup><tbody><tr ac:local-id="b3110e4e-3d2b-3a27-9c75-b571c7007c79"><td ac:local-id="291ababe-f365-32c4-8074-4e18dcccce9e"><div class="TextAlignCenter"><img src="attachments/2.3.2_lubrication/ViewLubrication-LubricationPumpDuration-1.png" alt="Pump stroke duration" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="7ff106e9-1ce3-3ad3-bd5d-66d562733355"><p local-id="2613441c-d64d-3858-9f19-44a0f922c6f7"><strong>Pump stroke duration</strong><br>Duration of one lubrication pump stroke.</p></td></tr><tr ac:local-id="06aa9434-826c-35d2-afe5-2a06bac36b15"><td ac:local-id="cccc6478-5dfa-3929-b992-119306b04a74"><div class="TextAlignCenter"><img src="attachments/2.3.2_lubrication/ViewLubrication-LubricationPumpCountPerCycle-2.png" alt="Pump strokes per cycle" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="3cdaa96c-4366-3646-a96a-c2bf423a3669"><p local-id="5c267999-2d53-3e40-9fd8-d769d2c676ac"><strong>Pump strokes per cycle</strong><br>Number of pump strokes performed in a lubrication cycle.</p></td></tr><tr ac:local-id="ea98b479-b5ae-360c-a0b5-2951d4863844"><td ac:local-id="93a78e96-484d-3018-a443-44989b7a4f8b"><div class="TextAlignCenter"><img src="attachments/2.3.2_lubrication/ViewLubrication-LubricationCycleInterval-3.png" alt="Interval between cycles" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="c2a989f1-228c-33b6-9091-30938efbb978"><p local-id="cb16e111-e067-30e0-bd5b-c43dd77abd54"><strong>Interval between cycles</strong><br>Time between automatic lubrication cycles.</p></td></tr></tbody></table><h1 local-id="77e0bf0411fe">Technician parameters</h1><p local-id="80754d235be3">In the bottom-left corner are collected advanced parameters that affect how the cycle operates.</p><div class="TextAlignCenter"><img src="attachments/2.3.2_lubrication/_UIFramework.Controls.ViewBorderCard_12272073-20261113-082119.png" alt="_UIFramework.Controls.ViewBorderCard_12272073-20261113-082119.png" width="550" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><table class="my-table2" data-table-width="760" data-layout="default" ac:local-id="d8369926-9a5b-3c40-b2ac-b96f8a0263c0" data-table-display-mode="fixed"><colgroup><col style="width: 120.0px;"><col style="width: 640.0px;"></colgroup><tbody><tr ac:local-id="f8c47e99-bae4-3bcd-9eaf-a100c0fc4800"><td ac:local-id="3e520651-d33a-3b27-8413-1a97b2b0b268"><div class="TextAlignCenter"><img src="attachments/2.3.2_lubrication/ViewLubrication-LubricationForcedCycleTime-4.png" alt="Forced cycle time" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="0d6ec24b-6736-33c9-962e-2cba87953f92"><p local-id="8eb3c896-10e8-3c33-b08a-3868657f4798"><strong>Forced cycle time</strong><br>Duration used for a forced lubrication cycle.</p></td></tr><tr ac:local-id="c7d3993f-86c5-317a-99e4-430deed40429"><td ac:local-id="424fde5b-0a2b-3f2c-af9d-a0aff2e00bfa"><div class="TextAlignCenter"><img src="attachments/2.3.2_lubrication/ViewLubrication-LubricationPumpCountPerCycle-2.png" alt="Changes to validate the cycle" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="c95f39ef-dad4-37be-9a1e-0234ed28b8a5"><p local-id="cc32721c-909c-3088-b39b-8e43238ba7a0"><strong>Changes to validate the cycle</strong><br>Required number of grease sensor changes for the cycle to be considered valid.</p></td></tr><tr ac:local-id="b440ceec-595e-3973-895b-ee9350d72cbf"><td ac:local-id="c4138b76-d0ad-3d30-8c11-a90bf6a2bbbd"><div class="TextAlignCenter"><img src="attachments/2.3.2_lubrication/ViewLubrication-LubricationJamVerificationWaitTime-6.png" alt="Grease blockage check delay" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="7e95b8e4-f98f-3237-abf8-c5b21ac845e8"><p local-id="6abee03f-22c0-3a4f-80fc-484f6e14c3f1"><strong>Grease blockage check delay</strong><br>Delay before checking for a grease blockage.</p></td></tr><tr ac:local-id="4974e463-eb86-322e-a2ec-d6b3c9930866"><td ac:local-id="26e3e8ce-72be-344a-b87d-d4ef8d87b793"><div class="TextAlignCenter"><img src="attachments/2.3.2_lubrication/ViewLubrication-LubricationContinuousAlarmLockTime-7.png" alt="Continuous alarm lock time" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="c8fa0a95-9d34-3203-92f1-3cf35b8ae847"><p local-id="f214b50c-cab8-375e-9ef3-679af52ae61b"><strong>Continuous alarm lock time</strong><br>Duration of the continuous alarm lock.</p></td></tr></tbody></table><h1 local-id="e092297d6574">Command and statistics</h1><p local-id="8049fa317e55">In this section are displayed statistics of the lubrication. In order to update the, refresh the page.</p><div class="TextAlignCenter"><img src="attachments/2.3.2_lubrication/_UIFramework.Controls.ViewBorderCard_4696429-20261113-082428.png" alt="_UIFramework.Controls.ViewBorderCard_4696429-20261113-082428.png" width="550" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><table class="my-table2" data-table-width="760" data-layout="default" ac:local-id="b7fd2f48-b234-3232-9bb3-690ec64ae44a" data-table-display-mode="fixed"><colgroup><col style="width: 120.0px;"><col style="width: 640.0px;"></colgroup><tbody><tr ac:local-id="341b5b9b-db70-32af-adfb-6405d155554a"><td ac:local-id="f8bcff95-4c5e-3c6e-9665-5fc9719367d6"><div class="TextAlignCenter"><img src="attachments/2.3.2_lubrication/ViewLubrication-LubricationPumpCountPerCycle-2.png" alt="Grease sensor changes" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="3498fade-ea42-347f-9296-5e256eb1956f"><p local-id="3c64f0a4-60a0-369a-9310-a646eabe886f"><strong>Grease sensor changes</strong><br>Count of changes detected by the grease sensor.</p></td></tr><tr ac:local-id="a476496a-fd6f-3739-a533-a275acd83e4c"><td ac:local-id="a84c8800-06c1-38d9-8886-e7a01d830ef9"><div class="TextAlignCenter"><img src="attachments/2.3.2_lubrication/ViewLubrication-LubricationConsecutiveErrorCycles-11.png" alt="Consecutive failed cycles" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="a9af74c3-a26f-3bbf-bd79-5cdbe678387d"><p local-id="a75e9409-b48a-3ea6-ae3c-f1e7f8464ddd"><strong>Consecutive failed cycles</strong><br>Number of lubrication cycles that failed consecutively.</p></td></tr><tr ac:local-id="09113369-9b09-3ff7-8630-2f90f323705d"><td ac:local-id="904803f5-8924-3d9a-bdd9-33181e9a68ec"><div class="TextAlignCenter"><img src="attachments/2.3.2_lubrication/ViewLubrication-LubricationSecondsSinceLastLubrication-12.png" alt="Time since last lubrication" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="58805922-126d-3a31-8e09-d84d2b0c9063"><p local-id="7f8db6fa-2199-309d-a5a1-40f06114d555"><strong>Time since last lubrication</strong><br>Elapsed time since the most recent lubrication cycle.</p></td></tr><tr ac:local-id="39650ad3-ed33-3ae5-8ec5-f653b6f56ec2"><td ac:local-id="857f4827-8836-369c-8201-e4d09ffe9415"><div class="TextAlignCenter"><img src="attachments/2.3.2_lubrication/ViewLubrication-LubricationPumpCountSinceStartup-13.png" alt="Pump strokes since startup" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="5058deb6-1be9-30d7-bcbf-03efac72f47d"><p local-id="b2cd3288-6f9f-329f-8784-b0e9cf809aad"><strong>Pump strokes since startup</strong><br>Pump stroke count accumulated since machine startup.</p></td></tr><tr ac:local-id="6c67c96a-8b83-388e-96a9-078e013992d5"><td ac:local-id="e1622818-64fe-3c1c-bf86-4c029a6d3d57"><div class="TextAlignCenter"><img src="attachments/2.3.2_lubrication/ViewLubrication-LubricationTotalPumpCount-14.png" alt="Total pump strokes" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="22c7fb85-55cd-3c44-8e6d-990164c244f5"><p local-id="030723f9-1f22-3fe1-bcc1-358d3038c879"><strong>Total pump strokes</strong><br>Total pump stroke count.</p></td></tr><tr ac:local-id="4bc3e901-0f1a-38fa-8b73-52db199203f1"><td ac:local-id="2bd8a37f-748f-3302-a873-8d9b874602ac"><div class="TextAlignCenter"><img src="attachments/2.3.2_lubrication/ViewLubrication-LubricationPumpCountSinceReset-15.png" alt="Pump strokes since reset" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="7389d9bd-92d8-3e78-a8ea-877ca098cc0f"><p local-id="d80ad726-ac57-328c-b3ca-03a2356cd1b8"><strong>Pump strokes since reset</strong><br>Pump stroke count accumulated since the counter was reset.</p></td></tr></tbody></table><!--Label="edg_lbr"-->
+                        </main>
+
+                    </div>
+
+                    <img src="images/donatoni_222.jpg">
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="2.3.1_pneumatics.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="2.3.3_warmup.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+
+
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                <a rel="prev" href="2.3.1_pneumatics.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="2.3.3_warmup.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="mermaid.min.js"></script>
+        <script src="mermaid-init.js"></script>
+        <script src="hidemenu.js"></script>
+        <script src="imagemodal.js"></script>
+        <script src="login.js"></script>
+    </div>
+
+    <!-- Modale -->
+    <div id="modal" onclick="closeModal()">
+        <img id="modal-img" src="">
+    </div>;
+
+
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
+
+<script id="virtual-keyboard-searchbar-fix">
+document.addEventListener("input", function (e) {
+    const t = e.target;
+    if (t && t.id === "searchbar" && e.isTrusted !== true) {
+        t.dispatchEvent(new KeyboardEvent("keyup", { bubbles: true }));
+    }
+});
+</script>
+</body>
+</html>
