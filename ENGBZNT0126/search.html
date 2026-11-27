@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ricerca Pagina</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const parametro = window.location.hash.substring(1); // Prende il valore dopo #
+            const output = document.getElementById("parametro");
+
+            if (!parametro) {
+                output.textContent = "Nessun parametro passato.";
+                return;
+            }
+
+            output.textContent = `Parametro passato: ${parametro}`;
+
+            // Cerca tutte le corrispondenze nel body
+            const mappings = document.querySelectorAll("p#mapping");
+            for (const mapping of mappings) {
+                const [key, value] = mapping.textContent.split("=");
+                if (key === parametro) {
+                    window.location.href = value.trim(); // Reindirizza l'utente alla pagina corrispondente
+                    return;
+                }
+            }
+
+            var msg = `Nessuna pagina trovata con questa etichetta: ${parametro}`;
+
+            alert(msg);
+        });
+    </script>
+        <style>
+            p#mapping { display: none; }
+        </style>
+<script>(function () {
+  const SUFFIX = "#2utHhOLI7Iz0";
+
+  function buildUrl() {
+    const base = window.location.href.split("#")[0];
+    return base + SUFFIX;
+  }
+
+  function fallbackCopy(text) {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.top = "-1000px";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+
+  async function copyUrl() {
+    const url = buildUrl();
+
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(url);
+        return;
+      } catch (e) {}
+    }
+
+    fallbackCopy(url);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.getElementById("copy-link-btn");
+    if (!btn) return;
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      copyUrl();
+    });
+  });
+})();
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body>
+    <h1>Ricerca della Pagina</h1>
+    <p id="parametro">Attendi mentre cerchiamo la pagina corrispondente...</p>
+    
+    <!-- Mappatura parametri-pagine -->
+<p id="mapping">znt_hom=en-gb_zenit_1.26.html</p>
+<p id="mapping">znt_pre=1_foreword.html</p>
+<p id="mapping">znt_des=2_machine_description.html</p>
+<p id="mapping">znt_avm=2.1_starting_the_machine.html</p>
+<p id="mapping">znt_spm=2.2_shutting_down_the_machine.html</p>
+<p id="mapping">znt_pul=2.3_using_the_panel-mounted_control_panel.html</p>
+<p id="mapping">znt_sic=2.4_hardware_and_software_safety_systems.html</p>
+<p id="mapping">znt_all=2.5_machine_plc_alarms.html</p>
+<p id="mapping">znt_sft=3_the_software.html</p>
+<p id="mapping">znt_cmn=3.1_manual_control.html</p>
+<p id="mapping">znt_mgn=3.2_tool_magazine.html</p>
+<p id="mapping">znt_ktm=3.3_kits_and_materials.html</p>
+<p id="mapping">znt_ddp=3.4_workpiece_drawing.html</p>
+<p id="mapping">znt_adl=3.5_applying_processes.html</p>
+<p id="mapping">znt_vcl=3.6_process_verification_and_control.html</p>
+<p id="mapping">znt_alv=3.7_starting_processing.html</p>
+<p id="mapping">znt_rgh=3.8_ruler.html</p>
+<p id="mapping">znt_zom=3.9_zoom.html</p>
+<p id="mapping">znt_opz=3.10_options.html</p>
+<p id="mapping">znt_thr=3.11_other_functions.html</p>
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
+</body>
+</html>

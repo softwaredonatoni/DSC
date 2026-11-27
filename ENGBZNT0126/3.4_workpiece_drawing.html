@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+<head>
+    <!-- Book generated using mdBook -->
+    <meta charset="UTF-8">
+    <title>3.4 WORKPIECE DRAWING - EN-GB ZENIT 1.26</title>
+
+    <!-- Custom HTML head -->
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="icon" href="favicon.svg">
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/chrome.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Fonts -->
+    <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+    <link rel="stylesheet" href="fonts/fonts.css">
+
+    <!-- Highlight.js Stylesheets -->
+    <link rel="stylesheet" id="highlight-css" href="highlight.css">
+    <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+    <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+    <!-- Custom theme stylesheets -->
+    <link rel="stylesheet" href="./mdbook-admonish.css">
+    <link rel="stylesheet" href="theme/custom.css">
+    <link rel="stylesheet" href="search.html">
+    <link rel="stylesheet" href="login.html">
+    <link rel="stylesheet" href="searchlogin.html">
+    <link rel="stylesheet" href="searchloginmenu.html">
+
+    <!-- Provide site root and default themes to javascript -->
+    <script>
+      const path_to_root = "";
+      const default_light_theme = "light";
+      const default_dark_theme = "light";
+    </script>
+    <!-- Start loading toc.js asap -->
+    <script src="toc.js"></script>
+<script>(function () {
+  const SUFFIX = "#2utHhOLI7Iz0";
+
+  function buildUrl() {
+    const base = window.location.href.split("#")[0];
+    return base + SUFFIX;
+  }
+
+  function fallbackCopy(text) {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.top = "-1000px";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+
+  async function copyUrl() {
+    const url = buildUrl();
+
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(url);
+        return;
+      } catch (e) {}
+    }
+
+    fallbackCopy(url);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.getElementById("copy-link-btn");
+    if (!btn) return;
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      copyUrl();
+    });
+  });
+})();
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-document" data-technical-styler-flow="html">
+    <header class="header-main">
+        <div class="header-flex">
+            <div class="donatoni-flex">
+                <label class="btn hamburger-menu" id="sidebar-toggle" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                    <i id="sidebar-toggle-icon" class="fa-solid fa-bars"></i>
+                </label>
+
+                <img src="images/donatoni-logo-white.svg" alt="Donatoni Macchine">
+            </div>
+
+            <div class="donatoni-flex action-header-buttons">
+                <div id="search-wrapper" class="search-wrapper hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults"></ul>
+                    </div>
+                </div>
+                <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
+                </button>
+
+                <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
+                    <i class="fa-solid fa-print"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div id="body-container">
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem("mdbook-theme");
+                let sidebar = localStorage.getItem("mdbook-sidebar");
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-theme",
+                        theme.slice(1, theme.length - 1)
+                    );
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-sidebar",
+                        sidebar.slice(1, sidebar.length - 1)
+                    );
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = "light";
+            let theme = default_theme;
+            const html = document.documentElement;
+            html.classList.remove("light");
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try {
+                    sidebar = localStorage.getItem('mdbook-sidebar');
+                } catch (e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document
+                        .getElementById("sidebar-toggle")
+                        .setAttribute("aria-expanded", sidebar === "visible");
+                    document
+                        .getElementById("sidebar")
+                        .setAttribute("aria-hidden", sidebar !== "visible");
+                    Array.from(document.querySelectorAll("#sidebar a")).forEach(
+                        function (link) {
+                            link.setAttribute("tabIndex", sidebar === "visible" ? 0 : -1);
+                        }
+                    );
+                </script>
+
+                <div id="content" class="content">
+
+                    <div>
+
+                        <img src="images/donatoni_111.jpg">
+
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Machine technical documentation</span><span class="maintenance-status"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Operational document</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="34-workpiece-drawing" style="margin:0;" class="maintenance-main-title"><a class="header" href="#34-workpiece-drawing"><span class="maintenance-code">DOC</span><span class="maintenance-name">3.4 WORKPIECE DRAWING</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document DOC" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="3.4 WORKPIECE DRAWING"--><p local-id="5add9212-72cb-3038-b0d8-37c90331181c">The processes performed by the machine are carried out on workpieces arranged on the worktable. After loading and securing the workpieces, their shapes must be defined so that the software can correctly calculate the paths required to complete processing.</p><div class="TextAlignCenter"><img src="attachments/3.4_workpiece_drawing/disegno-del-pezzo-figura-01.png" alt="Figura dal manuale Zenit" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p>
+</p><table class="my-table2" data-table-width="1800.0" data-layout="center" ac:local-id="2cb3c773-292b-3d7a-927f-f0c46054d7a3"><colgroup><col style="width: 100.0px;"><col style="width: 660.0px;"></colgroup><tbody><tr ac:local-id="2d9f1dfd-c202-39ad-9170-e3b9d4b7beed"><td ac:local-id="2d03e120-395d-3580-9864-5aee3a7ca29f" valign="top"><div class="TextAlignCenter"><img src="attachments/3.4_workpiece_drawing/disegno-del-pezzo_04.png" alt="Figura dal manuale Zenit" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="89c05f62-aed9-3b59-98b3-60565110ad0c"><p local-id="8bc97e49-6d56-3983-ba62-3d2f2aaca835"><strong>Create non-rectangular workpiece</strong><br>Enables the mode for creating a non-rectangular workpiece.</p></td></tr><tr ac:local-id="06a03b24-265f-3088-851a-854367c2693a"><td ac:local-id="7ab8dfab-32e9-3245-8913-93f846eb3c00" valign="top"><div class="TextAlignCenter"><img src="attachments/3.4_workpiece_drawing/disegno-del-pezzo_05.png" alt="Figura dal manuale Zenit" width="63" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="58f03dcc-f96c-398f-ad30-14df8922ded3"><p local-id="d9cb72d0-3667-3204-9f71-a3ae3b34a988"><strong>Create rectangular workpiece</strong><br>Enables the mode for creating a rectangular workpiece.</p></td></tr><tr ac:local-id="eac395cf-15ff-3ea8-b5e7-6b9007f12eb3"><td ac:local-id="8828244e-93c9-305e-951c-03da9d3b7c91" valign="top"><div class="TextAlignCenter"><img src="attachments/3.4_workpiece_drawing/disegno-del-pezzo-importa-dxf.png" alt="Figura dal manuale Zenit" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="a2925639-f9fd-3047-8a5c-d260b496aa56"><p local-id="a7575c7b-5a48-3a6c-9df1-82b723855773"><strong>Import DXF</strong><br>Imports a workpiece from a “.dxf” file. Only the first closed polyline found is considered and, if the import is confirmed, it is positioned at the dxf coordinates.</p></td></tr><tr ac:local-id="35db867d-5776-3b79-9372-0a897a4b241d"><td ac:local-id="52fdaf82-2760-33db-9239-44de3ea72660" valign="top"><div class="TextAlignCenter"><img src="attachments/3.4_workpiece_drawing/disegno-del-pezzo-cancella-pezzo.png" alt="Figura dal manuale Zenit" width="61" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="d39e59bb-070a-3ac6-92ec-d4020648a354"><p local-id="fea104be-8a15-3101-a06d-3f7da7ce9120"><strong>Delete workpiece</strong><br>Deletes the selected workpiece.</p></td></tr><tr ac:local-id="c0abae70-5c7f-3196-ae2c-6d8c4d81de47"><td ac:local-id="85ffa723-a75c-3aa5-b4b7-1b08fd83abdd" valign="top"><div class="TextAlignCenter"><img src="attachments/3.4_workpiece_drawing/disegno-del-pezzo_01.png" alt="Figura dal manuale Zenit" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="987045a0-1af6-3e23-bcc1-8599c261a772"><p local-id="9bb7123d-5286-362e-9be2-2bc4db3f8950"><strong>Delete all workpieces</strong><br>Deletes all workpieces in the work area.</p></td></tr><tr ac:local-id="4a0a3534-2c64-3eb4-85c8-272329ff81d4"><td ac:local-id="c7b9a1cf-7767-3d53-bd64-5ea66b91d2df" valign="top"><div class="TextAlignCenter"><img src="attachments/3.4_workpiece_drawing/disegno-del-pezzo-modifica-pezzo.png" alt="Figura dal manuale Zenit" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="753a26c6-01ef-3257-8356-2ebab27fb0b7"><p local-id="fb7042d5-ac9f-3018-84c4-ddd57a0b091c"><strong>Edit workpiece</strong><br>Opens the editing mode for the selected workpiece.</p></td></tr><tr ac:local-id="11a7cfe2-4750-3c7d-95a3-6752f7f33775"><td ac:local-id="ef5276a2-2e95-3f1a-8f18-79acba20a9d3" valign="top"><div class="TextAlignCenter"><img src="attachments/3.4_workpiece_drawing/disegno-del-pezzo-scatta-foto.png" alt="Figura dal manuale Zenit" width="59" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="2dfc0073-dc58-3a7b-a6b4-9971f78d38f1"><p local-id="6200d777-60df-313e-a983-313bebe47a46"><strong>Take photo</strong><br>(OPTIONAL) After requesting the thickness, takes a photo of the work area on which the workpiece can then be created.</p></td></tr><tr ac:local-id="c75909d4-f2e4-32f1-8855-295250dc94aa"><td ac:local-id="3c3663bc-cdcf-3bcb-8405-345739409f98" valign="top"><div class="TextAlignCenter"><img src="attachments/3.4_workpiece_drawing/disegno-del-pezzo-rimuove-foto.png" alt="Figura dal manuale Zenit" width="61" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="175732da-8b57-37ea-8a49-4935d886f08b"><p local-id="4d5f5c1e-2ab9-3346-9c90-1e42b3d86408"><strong>Remove photo</strong><br>(OPTIONAL) Removes the photo from the background of the work area.</p></td></tr></tbody></table><p local-id="15d771cd9532"></p><h1 local-id="19c324b3eb1d">Creating a new workpiece</h1><p local-id="a5bd7047-bc6c-36c5-9768-0cdb91447925">The workpiece is described by combining lines and arcs created in sequence.<br>The point is selected directly on the monitor, using either the touch point or the machine laser as a reference.<br>When the laser is on, a button appears at the top of the monitor and is described below.</p><table class="my-table2" data-table-width="1800.0" data-layout="center" ac:local-id="d93e704a-b3ec-3069-9494-b54ff0ff98da"><colgroup><col style="width: 100.0px;"><col style="width: 660.0px;"></colgroup><tbody><tr ac:local-id="d362f5af-3792-3c17-a356-13b270dd12a5"><td ac:local-id="8c62282d-dd65-3926-8a57-240143de24b2" valign="top"><div class="TextAlignCenter"><img src="attachments/3.4_workpiece_drawing/disegno-del-pezzo-una-croce.png" alt="Figura dal manuale Zenit" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="d06d75bc-9e7e-3876-a8fe-68b53ba4129e"><p local-id="a765dfd6-8988-351d-be25-8b9217cf0298"><strong>A cross</strong><br>Linked to the position of the machine laser, it appears on the monitor. Each touch on the monitor corresponds to the position of the cross. Pressing the button changes mode and the reference becomes the tool centre.</p></td></tr><tr ac:local-id="b3ef8173-e195-3159-a860-a2ca5f07e26c"><td ac:local-id="e0f030da-3cab-3f02-a0e8-14671c09f0d3" valign="top"><div class="TextAlignCenter"><img src="attachments/3.4_workpiece_drawing/disegno-del-pezzo_07.png" alt="Figura dal manuale Zenit" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="2e8d0ca3-1948-3e52-a776-b0537925f44b"><p local-id="d26d269c-fff7-3275-a399-be559f390e56"><strong>A green circle</strong><br>Linked to the position and diameter of the tool fitted on the machine, it appears on the monitor. Each touch on the monitor corresponds to the centre of the circle. Pressing the button changes mode and the reference becomes the cross laser.</p></td></tr></tbody></table><p local-id="86ffb11f-212c-3f06-ab86-251896717b56">A workpiece is characterised by its Name, job and thickness, which can be edited on the right-hand side of the page.<br>The name and job will then be displayed inside the workpiece shape.</p><div class="TextAlignCenter"><img src="attachments/3.4_workpiece_drawing/disegno-del-pezzo-figura-12.png" alt="Figura dal manuale Zenit" width="642" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><table class="my-table2" data-table-width="1800.0" data-layout="center" ac:local-id="1f0827e0-40ab-3aa6-9701-ad008955780e"><colgroup><col style="width: 100.0px;"><col style="width: 660.0px;"></colgroup><tbody><tr ac:local-id="802aa054-1fba-3dd6-8939-b20f041d35f8"><td ac:local-id="9f3401be-0c3e-38e2-8dc1-228a8e5790f8" valign="top"><div class="TextAlignCenter"><img src="attachments/3.4_workpiece_drawing/disegno-del-pezzo_03.png" alt="Figura dal manuale Zenit" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="6d68dbef-c7b0-3768-ad3b-70533cfbf46b"><p local-id="97f446f3-c034-3b27-b3e0-96c3aea187cb"><strong>Line command active</strong><br>Active by default at initial start-up. Touching the monitor creates a line from the end point of the previous entity to the point touched.</p></td></tr><tr ac:local-id="c5f50b7d-8da2-3f9a-a6ce-fa3d5613a3a1"><td ac:local-id="4984b155-4b48-320b-91af-304b4df493b1" valign="top"><div class="TextAlignCenter"><img src="attachments/3.4_workpiece_drawing/disegno-del-pezzo_02.png" alt="Figura dal manuale Zenit" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="52e5bf70-7b13-31a5-b87c-4b1768a36efb"><p local-id="13baedb2-a855-3f91-a3c6-706559c03fc1"><strong>Arc command active</strong><br>The monitor must be touched twice to define the arc passing through three points: the first is the end point of the previous entity, while the second and third are the points touched during drawing, in that order.</p></td></tr><tr ac:local-id="d345fe50-f736-3011-b068-a16d5b302330"><td ac:local-id="a79b4a80-a170-3340-951d-80a6a85c9d3c" valign="top"><div class="TextAlignCenter"><img src="attachments/3.4_workpiece_drawing/disegno-del-pezzo-annulla.png" alt="Figura dal manuale Zenit" width="57" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="daa9e1f8-b0c8-3e35-8005-b310c9036265"><p local-id="c29ce530-d706-39da-8451-7f6d1848728a"><strong>Undo</strong><br>Deletes the last element drawn.</p></td></tr><tr ac:local-id="0f9c0c76-ab50-3aa8-8394-cd994591d114"><td ac:local-id="d63f24ed-2d37-3df5-a3ac-c4b963a0ade5" valign="top"><div class="TextAlignCenter"><img src="attachments/3.4_workpiece_drawing/disegno-del-pezzo-chiudi-perimetro.png" alt="Figura dal manuale Zenit" width="64" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="92b0cae2-77eb-3151-b919-91f2ce306619"><p local-id="20eb1c18-f1c9-3847-9354-fbf4079f7c0c"><strong>Close perimeter</strong><br>Connects the last point of the shape to the first.</p></td></tr><tr ac:local-id="ad6b9b60-46d1-32fe-9d04-bcc601254dc3"><td ac:local-id="23418fcb-8a6e-3051-94db-b79734486c5b" valign="top"><div class="TextAlignCenter"><img src="attachments/3.4_workpiece_drawing/disegno-del-pezzo-rileva-spessore.png" alt="Figura dal manuale Zenit" width="59" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="a27c9d08-a321-326b-9790-ae6980c8c698"><p local-id="e4672e88-1112-32f9-acca-2ca7bab635f6"><strong>Measure thickness</strong><br>Sets the workpiece thickness by calculating it as the difference between the tip of the fitted tool and the worktable position.</p></td></tr><tr ac:local-id="03253c15-a7e0-3285-bb2b-8da14dab107c"><td ac:local-id="4b0ae81d-b51c-375f-815c-e683ae44477d" valign="top"><div class="TextAlignCenter"><img src="attachments/3.4_workpiece_drawing/disegno-del-pezzo-chiudi-forma.png" alt="Figura dal manuale Zenit" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="656502b6-b800-3b86-a4cc-297649be2d09"><p local-id="940c3617-b16e-33b8-a88b-de5b7b7ab0c7"><strong>Close shape</strong><br>Closes the shape if it is still open.<br>Confirms all workpiece data and returns to the previous screen.</p></td></tr></tbody></table><p local-id="80d85ee31758"></p><h1 local-id="b852e7c310fc">New rectangular workpiece</h1><p local-id="e4e7de2e-da28-3e65-98ae-fb98ba6d15c5">The workpiece data and rectangle dimensions can be set on the right.<br>Touching the monitor moves the rectangle to the selected point, using the bottom-left vertex (identified by a red circle) as the reference.</p><div class="TextAlignCenter"><img src="attachments/3.4_workpiece_drawing/disegno-del-pezzo-figura-19.png" alt="Figura dal manuale Zenit" width="642" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="47530ddba114"></p><h1 local-id="ec444c59ea3d">Edit workpiece</h1><p local-id="f16f73c8-8912-36dc-9158-a2062fdaebc4">The shape, position, name and thickness of the workpiece can be edited at any time.<br>Data changes are applied when the window is closed.</p><div class="TextAlignCenter"><img src="attachments/3.4_workpiece_drawing/disegno-del-pezzo-figura-20.png" alt="Figura dal manuale Zenit" width="642" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="b2bbca49-f158-392b-9580-a896af71286f">When editing a workpiece, the vertices defining its perimeter can be selected and moved directly on the monitor by holding the point while moving it.</p><p local-id="41cc07cf-7fab-3c95-93bd-5b5aa2d5612c">Pressing inside the workpiece moves the entire shape, while pressing outside the workpiece rotates it.<br>The controls below modify the entire shape</p><table class="my-table2" data-table-width="1800.0" data-layout="center" ac:local-id="3ab1c5af-29cd-3503-afe8-19c91ec57014"><colgroup><col style="width: 260.0px;"><col style="width: 500.0px;"></colgroup><tbody><tr ac:local-id="c703c242-f568-3fd7-924c-ddd59b4b88cf"><td ac:local-id="a7a039bb-a048-3b14-a2b5-f38f8f590b47" valign="top"><div class="TextAlignCenter"><img src="attachments/3.4_workpiece_drawing/disegno-del-pezzo-rotazione-adagiata.png" alt="Figura dal manuale Zenit" width="58" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="0f55ab85-0b76-3e17-b992-0fe1dca3ad18"><p local-id="a98466aa-8223-32f3-8515-b57f872b5180"><strong>Align by rotation</strong><br>First move a vertex to the correct position and then perform the following procedure:</p><ul local-id="629e91d4-e945-3648-9dd1-c33a7857c1e6"><li local-id="e5dc3c56-1c6f-38f5-beb1-415e6c3e470e"><p local-id="cdae419e-32b9-3e04-bbb5-e71a1b5232ee">Select the vertex about which to rotate</p></li><li local-id="d622f151-97a6-3693-90e8-7d4f12e5efe6"><p local-id="c4a2fba8-610f-3bf4-806d-198a93e49a5b">Select the reference side</p></li><li local-id="60c9f186-79c0-392c-a5c7-7d0dc5ea4deb"><p local-id="17d6b3f3-b81c-3a49-ba88-ee6da04fbbbf">Select a point to which the side is to be moved</p></li><li local-id="d61c7e6d-4cf9-3782-97cd-2286df7a3b33"><p local-id="14015c6e-7a94-3a6a-a687-86b6a89fc929">Wait for the rotation</p></li></ul></td></tr><tr ac:local-id="9e5a2b64-c256-30e5-a412-62aa3ef2a635"><td ac:local-id="4130fda3-e04b-39b6-bc3e-d75b382c605c" valign="top"><div class="TextAlignCenter"><img src="attachments/3.4_workpiece_drawing/disegno-del-pezzo_06.png" alt="Figura dal manuale Zenit" width="120" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="9a338be4-0d4e-3e6b-9b58-afc24c30af6a"><p local-id="12660309-8d99-3d0f-a759-953596ce5244"><strong>Rotate workpiece clockwise or anticlockwise</strong><br>The centre of rotation is the centre of the workpiece. The rotation increment is 0.5_.</p></td></tr><tr ac:local-id="f8cecd24-7446-3ff3-8052-9d582012e422"><td ac:local-id="2df6c76b-4548-368b-a340-3968543b4ded" valign="top"><div class="TextAlignCenter"><img src="attachments/3.4_workpiece_drawing/disegno-del-pezzo-muovi-pezzo.png" alt="Figura dal manuale Zenit" width="240" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="faefcf2d-d645-33b9-aaa6-127d000c8340"><p local-id="13aa019d-3950-35c9-af84-cc1d160fd452"><strong>Move workpiece</strong><br>Moves the workpiece by 2 mm each time the button is pressed, in the direction indicated by the arrow.</p></td></tr><tr ac:local-id="c7d2a627-6071-352b-98e1-d74e63e35975"><td ac:local-id="5f1c889c-2bad-34f0-ad05-b8b2856eb4e9" valign="top"><div class="TextAlignCenter"><img src="attachments/3.4_workpiece_drawing/disegno-del-pezzo-rileva-spessore-2.png" alt="Figura dal manuale Zenit" width="59" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="ce836cab-a647-3fa3-9d15-678f3c2241f9"><p local-id="186fcb30-0d63-3066-91f9-1c8e35b1d63f"><strong>Measure thickness</strong><br>Sets the workpiece thickness by calculating it as the difference between the tip of the fitted tool and the worktable position.</p></td></tr></tbody></table><!--Label="znt_ddp"-->
+                        </main>
+
+                    </div>
+
+                    <img src="images/donatoni_222.jpg">
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="3.3_kits_and_materials.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="3.5_applying_processes.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+
+
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                <a rel="prev" href="3.3_kits_and_materials.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="3.5_applying_processes.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="mermaid.min.js"></script>
+        <script src="mermaid-init.js"></script>
+        <script src="hidemenu.js"></script>
+        <script src="imagemodal.js"></script>
+        <script src="login.js"></script>
+    </div>
+
+    <!-- Modale -->
+    <div id="modal" onclick="closeModal()">
+        <img id="modal-img" src="">
+    </div>;
+
+
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
+
+<script id="virtual-keyboard-searchbar-fix">
+document.addEventListener("input", function (e) {
+    const t = e.target;
+    if (t && t.id === "searchbar" && e.isTrusted !== true) {
+        t.dispatchEvent(new KeyboardEvent("keyup", { bubbles: true }));
+    }
+});
+</script>
+</body>
+</html>
