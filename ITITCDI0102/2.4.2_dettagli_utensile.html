@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+<head>
+    <!-- Book generated using mdBook -->
+    <meta charset="UTF-8">
+    <title>2.4.2 DETTAGLI UTENSILE - IT-IT CDI 1.2</title>
+
+    <!-- Custom HTML head -->
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="icon" href="favicon.svg">
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/chrome.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Fonts -->
+    <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+    <link rel="stylesheet" href="fonts/fonts.css">
+
+    <!-- Highlight.js Stylesheets -->
+    <link rel="stylesheet" id="highlight-css" href="highlight.css">
+    <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+    <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+    <!-- Custom theme stylesheets -->
+    <link rel="stylesheet" href="./mdbook-admonish.css">
+    <link rel="stylesheet" href="theme/custom.css">
+    <link rel="stylesheet" href="search.html">
+    <link rel="stylesheet" href="login.html">
+    <link rel="stylesheet" href="searchlogin.html">
+    <link rel="stylesheet" href="searchloginmenu.html">
+
+    <!-- Provide site root and default themes to javascript -->
+    <script>
+      const path_to_root = "";
+      const default_light_theme = "light";
+      const default_dark_theme = "light";
+    </script>
+    <!-- Start loading toc.js asap -->
+    <script src="toc.js"></script>
+<script>(function () {
+  const SUFFIX = "#2utHhOLI7Iz0";
+
+  function buildUrl() {
+    const base = window.location.href.split("#")[0];
+    return base + SUFFIX;
+  }
+
+  function fallbackCopy(text) {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.top = "-1000px";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+
+  async function copyUrl() {
+    const url = buildUrl();
+
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(url);
+        return;
+      } catch (e) {}
+    }
+
+    fallbackCopy(url);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.getElementById("copy-link-btn");
+    if (!btn) return;
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      copyUrl();
+    });
+  });
+})();
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-document" data-technical-styler-flow="html">
+    <header class="header-main">
+        <div class="header-flex">
+            <div class="donatoni-flex">
+                <label class="btn hamburger-menu" id="sidebar-toggle" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                    <i id="sidebar-toggle-icon" class="fa-solid fa-bars"></i>
+                </label>
+
+                <img src="images/donatoni-logo-white.svg" alt="Donatoni Macchine">
+            </div>
+
+            <div class="donatoni-flex action-header-buttons">
+                <div id="search-wrapper" class="search-wrapper hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults"></ul>
+                    </div>
+                </div>
+                <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
+                </button>
+
+                <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
+                    <i class="fa-solid fa-print"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div id="body-container">
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem("mdbook-theme");
+                let sidebar = localStorage.getItem("mdbook-sidebar");
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-theme",
+                        theme.slice(1, theme.length - 1)
+                    );
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-sidebar",
+                        sidebar.slice(1, sidebar.length - 1)
+                    );
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = "light";
+            let theme = default_theme;
+            const html = document.documentElement;
+            html.classList.remove("light");
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try {
+                    sidebar = localStorage.getItem('mdbook-sidebar');
+                } catch (e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document
+                        .getElementById("sidebar-toggle")
+                        .setAttribute("aria-expanded", sidebar === "visible");
+                    document
+                        .getElementById("sidebar")
+                        .setAttribute("aria-hidden", sidebar !== "visible");
+                    Array.from(document.querySelectorAll("#sidebar a")).forEach(
+                        function (link) {
+                            link.setAttribute("tabIndex", sidebar === "visible" ? 0 : -1);
+                        }
+                    );
+                </script>
+
+                <div id="content" class="content">
+
+                    <div>
+
+                        <img src="images/donatoni_111.jpg">
+
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Machine technical documentation</span><span class="maintenance-status"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Operational document</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="242-dettagli-utensile" style="margin:0;" class="maintenance-main-title"><a class="header" href="#242-dettagli-utensile"><span class="maintenance-code">DOC</span><span class="maintenance-name">2.4.2 DETTAGLI UTENSILE</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document DOC" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="2.4.2 DETTAGLI UTENSILE"--><p>
+</p><h2 local-id="8edd00c4ec2f" class="maintenance-section-title" data-section-number="01">Proprietà dell’utensile</h2><p local-id="6d5b4b2d-327a-38ab-b741-81dbc9388d36">Per ogni utensile sono definite alcune proprietà</p><table class="my-table2" data-table-width="1800.0" data-layout="center" ac:local-id="45a0f722-46c9-33b3-a2cb-9374cbfed971"><colgroup><col style="width: 588.0px;"><col style="width: 1211.0px;"></colgroup><tbody><tr ac:local-id="0fab91d3-8949-3ad6-ae0e-546175cb0194"><td ac:local-id="2ec321e4-8bbd-3564-848e-a58eca255fbf"><p local-id="c4275871-820e-3d07-adb3-654dbbd9bc54"><strong>Numero</strong></p></td><td ac:local-id="8a013e63-e4cc-3036-bf45-0d7c77d88dae"><p local-id="a71b1793-8a1a-3d4b-a749-6bedc6c61b1b">Rappresenta il correttore è possibile modificarlo con i tasti</p><div class="TextAlignCenter"><img src="attachments/2.4.2_dettagli_utensile/dettagli-utensile_08.png" alt="Immagine originale - 5.2 DETTAGLI UTENSILE" width="116" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td></tr><tr ac:local-id="6a167965-6744-3bc9-b3eb-a3da0a4f0e92"><td ac:local-id="4a069dba-e0cb-3f08-a907-8ac0888f9cd8"><p local-id="a6531229-4e14-3372-83b2-63b34199b560"><strong>Nome</strong></p></td><td ac:local-id="058d6637-1aa5-3fa0-a441-51458a018185"><p local-id="18aa5088-8e67-3917-887c-17fe89c23d4b">Nome assegnato all’utensile</p></td></tr><tr ac:local-id="efc4b9a7-87b6-3924-8f80-ae20793fd676"><td ac:local-id="ab9cabc4-e59e-3eb9-b782-0eb571ca234d"><p local-id="4da8b16e-1c37-33b9-87a5-ae14587198f7"><strong>Tipo utensile</strong></p></td><td ac:local-id="57826b3f-4768-39e1-a5d9-ca783e2e5471"><div class="TextAlignCenter"><img src="attachments/2.4.2_dettagli_utensile/dettagli-utensile_01.png" alt="Immagine originale - 5.2 DETTAGLI UTENSILE" width="200" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td></tr><tr ac:local-id="86780a06-b469-39c1-9ef7-e9ba92420a62"><td ac:local-id="7bfb1850-6962-3d86-b419-efdcfda1a324"><p local-id="478ad9d3-839f-34a7-ab99-f733fa905a8d"><strong>Tipo prolunga</strong></p></td><td ac:local-id="bce875df-5c70-3b0d-99da-32b7cbd73df0"><p local-id="834c0dc7-ea2a-3b0b-9eb8-804693e8961c">Tipologia di prolunga dell’utensile, si associa anche un file xml che rappresenta la prolunga, utilizzato da Eureka</p></td></tr><tr ac:local-id="080a269b-77eb-39ce-9643-62411736c972"><td ac:local-id="01761ef4-9cf8-37c8-96c8-ae86e1b97714"><p local-id="702f68bb-dec9-3522-8e6e-1f37d4239c50"><strong>Posizione</strong></p></td><td ac:local-id="7b86e279-a187-3dd3-a132-d682f5a472c5"><p local-id="fdfbd392-ba74-3e01-bbd4-e32c8168cad7">Posizione all’interno del magazzino utensile</p></td></tr><tr ac:local-id="c50dee91-2ea8-387b-ba62-a13c23cc8e92"><td ac:local-id="1a946b1c-0ccd-3bb4-87f0-56c5bf908788"><p local-id="51618b67-4ddd-3c93-a8a5-e3e09c29b0e1"><strong>Lunghezza</strong></p></td><td ac:local-id="3aae6a3f-09a9-376e-b28c-96c5c0c91a90"><p local-id="d2aa9299-da84-3ba8-adcd-80715b1ce252">Lunghezza dell’utensile</p></td></tr><tr ac:local-id="a396169b-f02e-3fcf-8b18-b56ff35ededc"><td ac:local-id="876c4ca6-10b5-35c1-8acc-1aeb9eb4cbfd"><p local-id="9f15f551-acea-3fe6-9be6-5cd0e39fd6ea"><strong>Diametro</strong></p></td><td ac:local-id="00ee6205-c2a8-39c6-82c8-a15818616886"><p local-id="2ea737c2-21c3-3be9-be73-fdf4efef3e7f">Diametro dell’utensile</p></td></tr><tr ac:local-id="ba25af94-1dd6-3b94-ab78-0bc3a2d76898"><td ac:local-id="5cd6c37c-6a32-3d1e-af75-12c4d6f54db2"><p local-id="c261a352-9246-344f-851a-106dd5f338c8"><strong>Numero di giri</strong></p></td><td ac:local-id="8e4af511-f5c4-3f65-96e8-f7c483c0ecf8"><p local-id="6aabbdf0-cba5-3760-8d50-bff726cb9424">Giri motore impostati per l’utensile in rpm</p></td></tr><tr ac:local-id="bea2fa06-f4ba-3fb0-bd6a-e2002a285b26"><td ac:local-id="9fb1629a-cdb7-304b-84b6-98ad0a1688ff"><p local-id="292741fa-abd1-3080-acc0-49b38336a32f"><strong>Correzione lunghezza</strong></p></td><td ac:local-id="e65cd368-17ce-3bde-bde7-26d449957cf6"><p local-id="9380bb00-2478-34d4-b3d7-016aae5e3507">Valore di correzione per la lunghezza utensile</p></td></tr><tr ac:local-id="4b925490-b05c-3752-be0c-16383b1cc98f"><td ac:local-id="d7b3ebac-0903-34a5-b73e-b8ac2ebc1f85"><p local-id="7222d0a2-8f5b-3de5-9fca-97fb38b52650"><strong>Massa</strong></p></td><td ac:local-id="3d812810-e84d-38fa-aeac-58d37e1676a9"><p local-id="d0b2040e-2155-33b4-8fc0-c65b17feb194">Massa dell’utensile</p></td></tr><tr ac:local-id="209f9515-fb92-3b9c-9281-173cf9d6a87a"><td ac:local-id="45838f85-1b85-30fd-b75a-bc0b30ce6f54"><p local-id="b70c26ee-7584-35c6-b77e-1b8dd2d31710"><strong>Acqua interna</strong></p></td><td ac:local-id="ac9b1c07-a653-3e8f-b7b1-ba58dda0defe"><p local-id="c5528269-892a-3890-b73b-0225a1e49a9e">Attiva il flusso di acqua interna dell’utensile</p></td></tr><tr ac:local-id="6a370cdb-c191-3410-b883-86e79db67bba"><td ac:local-id="cd929072-8f5e-3199-8d53-5b7be2cd57ea"><p local-id="b7f81d6b-431d-3f75-9cec-fd7e43edaf99"><strong>Acqua esterna disco</strong></p></td><td ac:local-id="9f5ccf76-0f92-36d6-9c95-39e83978fc2a"><p local-id="a26bc47d-e826-3ec0-8ea4-45fc9e80ede0">Attiva il flusso di acqua esterna per il disco</p></td></tr><tr ac:local-id="114a00d9-fcc3-3d2e-b2be-d5be494f1e64"><td ac:local-id="f508596a-95f3-3e19-adfe-1b6798712f30"><p local-id="e774ce48-cb6a-33b4-8c98-74c11996e5b3"><strong>Acqua Esterna Fresa</strong></p></td><td ac:local-id="66063b57-f05c-3f3a-bc84-f5b687a7f79a"><p local-id="02e30ae8-383b-37cb-8754-f7a93cfc0470">Attiva il flusso di acqua esterna per la fresa</p></td></tr><tr ac:local-id="ab051b30-4934-3a2c-b137-0c9b0b652e90"><td ac:local-id="2b4eb0e0-18da-3675-ace0-308fc35059c3"><p local-id="a7fbb891-f958-3471-a832-64dc1b60f358"><strong>Acqua Esterna Fresa 2</strong></p></td><td ac:local-id="ac6a0575-9e82-3abe-bd89-9bc7d357abe2"><p local-id="6a114d47-0a82-3e87-bc62-53890c49adc3">Attiva il flusso di acqua esterna per la fresa aggiuntiva</p></td></tr><tr ac:local-id="78411368-2b98-3850-83a7-250524e17681"><td ac:local-id="83c26984-6d20-3f36-8a66-39a9fa7234b2"><p local-id="e554f648-f3cf-3d8a-9974-74143b7a04f2"><strong>Flag preset</strong></p></td><td ac:local-id="694b1cff-8546-3ee8-b37a-9f2fe9e26d58"><p local-id="0ca037c5-73d9-3346-8741-ed98bb8f5b91">Indica se tastare l’utensile</p></td></tr><tr ac:local-id="00b72ae1-efe7-37ef-9760-153d9322ec35"><td ac:local-id="37bf6eac-2d24-3575-9cab-b9c411da48e5"><p local-id="76fb224f-e6bd-3e1b-a1ec-3fde21725887"><strong>Tipo Misura</strong></p></td><td ac:local-id="c544fc93-72a9-3f3a-b65d-5fa1df5fa606"><p local-id="4e0888e6-79e1-3ddb-8b7a-2d0dc5ef6b78">Indica il tipo di misurazione</p><div class="TextAlignCenter"><img src="attachments/2.4.2_dettagli_utensile/dettagli-utensile_02.png" alt="Immagine originale - 5.2 DETTAGLI UTENSILE" width="200" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td></tr><tr ac:local-id="9ffb8206-03fe-3175-9af5-aa5f3c3b7d13"><td ac:local-id="bb2a9108-1246-3cc8-9418-9906bb45fda7"><p local-id="b649186e-cead-3e8b-a2c4-63e3fd08fb80"><strong>Assorbimento massimo</strong></p></td><td ac:local-id="26a7a1b5-2fa6-3898-9d2a-e1e200cb191f"><p local-id="cc79eba2-ca64-347e-a02f-1e04296312a3">Indica la percentuale di assorbimento massimo</p></td></tr><tr ac:local-id="5c3cf904-98b9-3a83-90d4-3a721094183e"><td ac:local-id="512e9490-4261-31a3-b540-77bdaa8dd935"><p local-id="c49d153e-8dc6-30ec-bfc8-882ff7108f2d"><strong>Ore lavorazione</strong></p></td><td ac:local-id="e06daa29-52a1-3aef-9437-4a0c5ffd24b2"><p local-id="7d369d4a-7c26-3525-9f5e-ae0ef6f6f080">Indica le ore di lavorazione dell’utensile, è possibile azzerare il contatore con il tasto</p><div class="TextAlignCenter"><img src="attachments/2.4.2_dettagli_utensile/dettagli-utensile_03.png" alt="Immagine originale - 5.2 DETTAGLI UTENSILE" width="58" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td></tr><tr ac:local-id="71296323-3ce5-3d9d-9cb6-500f5d84f869"><td ac:local-id="96292f56-08fd-30c1-83a8-0e687eb4ccc0"><p local-id="4f76ee16-dd37-3845-885a-ee01f8d76e76"><strong>Syn CADCAM</strong></p></td><td ac:local-id="ab0cd89d-f593-374b-b000-930e72190352"><p local-id="d16e2915-2e25-3dc0-a3b6-8abf722e807b">Indica se sincronizzare l’utensile verso il cadcam,</p><div class="TextAlignCenter"><img src="attachments/2.4.2_dettagli_utensile/dettagli-utensile_04.png" alt="Immagine originale - 5.2 DETTAGLI UTENSILE" width="136" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="292fef31-f5cd-3044-8d4f-5545ee4dddf5">sincronizzazione manuale,</p><div class="TextAlignCenter"><img src="attachments/2.4.2_dettagli_utensile/dettagli-utensile_05.png" alt="Immagine originale - 5.2 DETTAGLI UTENSILE" width="57" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="8b078db7-6abb-389c-91c2-ae8b49e8ec34">sincronizzazione automatica.</p></td></tr><tr ac:local-id="1744f0bd-7659-348b-8cd0-b0292644eaaf"><td ac:local-id="15478d91-f61d-320f-8a07-ebd98aa2b0fa"><p local-id="037d518e-c9b3-32ca-86ba-14cf5754eda0"><strong>Syn Eureka</strong></p></td><td ac:local-id="2ed94224-889e-3815-a3be-b7d575ddbca8"><p local-id="050023ee-633f-30e7-bb12-bf89d29a4271">Indica se sincronizzare l’utensile verso eureka,</p><div class="TextAlignCenter"><img src="attachments/2.4.2_dettagli_utensile/dettagli-utensile_06.png" alt="Immagine originale - 5.2 DETTAGLI UTENSILE" width="136" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="9e8b7a92-ada8-3ef7-9b09-4676118b845d">sincronizzazione manuale,</p><div class="TextAlignCenter"><img src="attachments/2.4.2_dettagli_utensile/dettagli-utensile_07.png" alt="Immagine originale - 5.2 DETTAGLI UTENSILE" width="57" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="757a0991-c02c-3534-a180-ab2501a83fc7">sincronizzazione automatica.</p></td></tr></tbody></table><!--Label="cdi_mgz_dtt"-->
+                        </main>
+
+                    </div>
+
+                    <img src="images/donatoni_222.jpg">
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="2.4.1_nuovo_utensile.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="2.5_programmi.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+
+
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                <a rel="prev" href="2.4.1_nuovo_utensile.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="2.5_programmi.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="mermaid.min.js"></script>
+        <script src="mermaid-init.js"></script>
+        <script src="hidemenu.js"></script>
+        <script src="imagemodal.js"></script>
+        <script src="login.js"></script>
+    </div>
+
+    <!-- Modale -->
+    <div id="modal" onclick="closeModal()">
+        <img id="modal-img" src="">
+    </div>;
+
+
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
+
+<script id="virtual-keyboard-searchbar-fix">
+document.addEventListener("input", function (e) {
+    const t = e.target;
+    if (t && t.id === "searchbar" && e.isTrusted !== true) {
+        t.dispatchEvent(new KeyboardEvent("keyup", { bubbles: true }));
+    }
+});
+</script>
+</body>
+</html>
