@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+<head>
+    <!-- Book generated using mdBook -->
+    <meta charset="UTF-8">
+    <title>1 PREMESSE - IT-IT ZENIT 1.26</title>
+
+    <!-- Custom HTML head -->
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="icon" href="favicon.svg">
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/chrome.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Fonts -->
+    <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+    <link rel="stylesheet" href="fonts/fonts.css">
+
+    <!-- Highlight.js Stylesheets -->
+    <link rel="stylesheet" id="highlight-css" href="highlight.css">
+    <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+    <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+    <!-- Custom theme stylesheets -->
+    <link rel="stylesheet" href="./mdbook-admonish.css">
+    <link rel="stylesheet" href="theme/custom.css">
+    <link rel="stylesheet" href="search.html">
+    <link rel="stylesheet" href="login.html">
+    <link rel="stylesheet" href="searchlogin.html">
+    <link rel="stylesheet" href="searchloginmenu.html">
+
+    <!-- Provide site root and default themes to javascript -->
+    <script>
+      const path_to_root = "";
+      const default_light_theme = "light";
+      const default_dark_theme = "light";
+    </script>
+    <!-- Start loading toc.js asap -->
+    <script src="toc.js"></script>
+<script>(function () {
+  const SUFFIX = "#2utHhOLI7Iz0";
+
+  function buildUrl() {
+    const base = window.location.href.split("#")[0];
+    return base + SUFFIX;
+  }
+
+  function fallbackCopy(text) {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.top = "-1000px";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+
+  async function copyUrl() {
+    const url = buildUrl();
+
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(url);
+        return;
+      } catch (e) {}
+    }
+
+    fallbackCopy(url);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.getElementById("copy-link-btn");
+    if (!btn) return;
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      copyUrl();
+    });
+  });
+})();
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-document" data-technical-styler-flow="html">
+    <header class="header-main">
+        <div class="header-flex">
+            <div class="donatoni-flex">
+                <label class="btn hamburger-menu" id="sidebar-toggle" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                    <i id="sidebar-toggle-icon" class="fa-solid fa-bars"></i>
+                </label>
+
+                <img src="images/donatoni-logo-white.svg" alt="Donatoni Macchine">
+            </div>
+
+            <div class="donatoni-flex action-header-buttons">
+                <div id="search-wrapper" class="search-wrapper hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults"></ul>
+                    </div>
+                </div>
+                <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
+                </button>
+
+                <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
+                    <i class="fa-solid fa-print"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div id="body-container">
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem("mdbook-theme");
+                let sidebar = localStorage.getItem("mdbook-sidebar");
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-theme",
+                        theme.slice(1, theme.length - 1)
+                    );
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-sidebar",
+                        sidebar.slice(1, sidebar.length - 1)
+                    );
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = "light";
+            let theme = default_theme;
+            const html = document.documentElement;
+            html.classList.remove("light");
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try {
+                    sidebar = localStorage.getItem('mdbook-sidebar');
+                } catch (e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document
+                        .getElementById("sidebar-toggle")
+                        .setAttribute("aria-expanded", sidebar === "visible");
+                    document
+                        .getElementById("sidebar")
+                        .setAttribute("aria-hidden", sidebar !== "visible");
+                    Array.from(document.querySelectorAll("#sidebar a")).forEach(
+                        function (link) {
+                            link.setAttribute("tabIndex", sidebar === "visible" ? 0 : -1);
+                        }
+                    );
+                </script>
+
+                <div id="content" class="content">
+
+                    <div>
+
+                        <img src="images/donatoni_111.jpg">
+
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Machine technical documentation</span><span class="maintenance-status"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Operational document</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="1-premesse" style="margin:0;" class="maintenance-main-title"><a class="header" href="#1-premesse"><span class="maintenance-code">DOC</span><span class="maintenance-name">1 PREMESSE</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document DOC" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="1 PREMESSE"--><p>
+</p><h2 local-id="e4e3c3c7-3f47-31c6-961b-16d902b02c7e" class="maintenance-section-title" data-section-number="01">1.1 Generalità</h2><p local-id="7e084d20-64ab-3046-afd7-412528fd2973">Le informazioni contenute in questo documento sono applicabili solamente alle versioni software riportate nel frontespizio.</p><p local-id="b7acf9e5-ed04-3fe4-8b11-db16a26f5c5f">È possibile che non tutte le funzioni esplicabili dal prodotto siano descritte nella presente documentazione; in questi casi Donatoni macchine non è, comunque, obbligata a garantire queste funzioni né a preservarle nelle future versioni.</p><p local-id="4dc5c5b5-e21f-3046-b33f-74a5264162dd"><strong>Il presente documento è fornito come allegato “Sezione B”, parte software, del manuale di uso e manutenzione della macchina.</strong></p><p local-id="3faa0d823e0a"></p><h2 local-id="690f9c7f-981d-36db-a268-41dcdf349a32" class="maintenance-section-title" data-section-number="02">1.2 Scopo del manuale</h2><p local-id="795d1ecb-8d6e-387e-91b5-a48ca4879e3a">Questo manuale riporta le istruzioni d’utilizzo necessarie per la buona conoscenza del programma Zenit e informazioni utili per trovare soluzioni a malfunzionamenti.</p><p local-id="122508f6-17fb-34b1-ae21-82b0f432d6b4">Dall'osservanza di quanto descritto in questo manuale dipende il regolare funzionamento, la durata e l'economia di esercizio della macchina stessa.</p><p local-id="9d01c9a9-c8c9-306a-96b8-0bd9f27e814c">Il manuale d’uso e manutenzione della macchina e il presente manuale software devono essere sempre reperibili nel luogo d’installazione dell’impianto, in posto sicuro e facilmente accessibile. Se uno di essi viene smarrito contattare il responsabile del servizio prevenzione e protezione.</p><p local-id="da8d4878-12f7-318f-899c-1d6292948aa4">La mancata osservanza di quanto descritto in questo manuale, la negligenza, un cattivo e inadeguato uso della macchina, possono essere causa di annullamento, da parte della Ditta Costruttrice, della garanzia che essa dà alla macchina stessa, ed inoltre si possono non ottenere i vantaggi per cui questa macchina è stata costruita.</p><p local-id="10761806-8849-3a69-af86-6bb86919d3d5">La DONATONI MACCHINE SRL, è comunque a disposizione per assicurare una pronta ed accurata assistenza tecnica e tutto quanto può essere utile per il miglior funzionamento ed ottenere il massimo della resa dalla macchina.</p><p local-id="643215db-bce3-32cf-a133-add114f7d737">La Ditta Costruttrice, si riserva il diritto di modificare, a propria discrezione, la presente pubblicazione ed i dati in essa contenuti qualora lo ritenesse necessario per un miglioramento tecnico o commerciale del prodotto.</p><p local-id="c6a852e5ca19"></p><h2 local-id="fa45b21f-db5f-3bed-980e-d5c45cbdf868" class="maintenance-section-title" data-section-number="03">1.3 Conservazione del manuale</h2><p local-id="5bafc4d8-a2e6-36e6-b8c5-4fc66796076a">Il presente Manuale Software deve essere custodito per tutta la vita operativa della macchina, anche in caso di cessione a terzi.</p><p local-id="2caaccf8-5828-353a-80ee-7c7f12990bd7">Al fine di conservare correttamente il Manuale Software si raccomanda:</p><ul local-id="04c65245-6cfd-3f6e-9e01-8216a5292752"><li local-id="262cc52c-342b-343c-bc2d-c6c2f8ebf9c4"><p local-id="0e3ae676-fc4d-3995-9fc4-4daa4d40eff3">impiegare il Manuale in modo tale da non danneggiare tutto, od in parte, il contenuto; in particolare si raccomanda di non abbandonare il Manuale durante l'utilizzo e di riporlo nel luogo assegnato immediatamente dopo il termine della consultazione;</p></li><li local-id="dbdb3c1c-9785-3e16-b867-e863dc7917c6"><p local-id="9464adec-88c9-332b-8522-073597426edf">non asportare, strappare o riscrivere per alcun motivo le parti del Manuale;</p></li><li local-id="114662c9-e0a7-323a-ac82-164d4839c478"><p local-id="39726a81-3eb9-3072-a806-2c9f5d038bc0">conservare il Manuale in zone protette da umidità, calore ed altri agenti ambientali che potrebbero pregiudicarne l'integrità o la durata;</p></li><li local-id="091bb97f-b2e3-3f46-b5fe-f17c85583129"><p local-id="681f8ec5-437b-36a1-8532-905dfbcb60ea">in caso di smarrimento o danneggiamento di tutto o parte del contenuto del presente Manuale, richiedere copia di tale documentazione al Costruttore.</p></li></ul><p local-id="911a08ed5abe"></p><h2 local-id="0eb5c7ea-86dc-3042-8233-7aa27acf31eb" class="maintenance-section-title" data-section-number="04">1.4 Responsabilità</h2><p local-id="f757f22d-9b2a-3198-bffa-87a33804b5d9">La responsabilità di questo documento è affidata a Donatoni Macchine S.r.l.</p><p local-id="aa2f87d58203"></p><h2 local-id="766db8af-450a-3e15-8400-91a111694060" class="maintenance-section-title" data-section-number="05">1.5 Convenzioni grafiche per la sicurezza</h2><p local-id="4cffb9d3-3158-3b67-b53f-f51696889a4c">I testi e le descrizioni di particolare importanza per la sicurezza del personale e per il corretto uso del prodotto, ivi compresi i comportamenti errati da non adottare ed i relativi obblighi e divieti, sono evidenziati in carattere <strong>MAIUSCOLO GRASSETTO</strong>.</p><p local-id="9eb985f7-4de9-31d2-aac1-e10a48bffe46">Nel manuale di istruzioni sono utilizzati i seguenti simboli:</p><table class="my-table2" data-table-width="1800.0" data-layout="center" ac:local-id="66ac9dc5-498b-3c41-af9b-0c5f39925ae5"><colgroup><col style="width: 100.0px;"><col style="width: 660.0px;"></colgroup><tbody><tr ac:local-id="db93cab1-c20c-36a9-8dca-69ff37752e43"><td ac:local-id="25b3442f-386e-3313-b67a-ed655b0a5540" valign="top"><div class="TextAlignCenter"><img src="attachments/1_premesse/premesse-pericolo-r.jpg" alt="Pericolo R" width="69" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="ce3f282b-95e6-3fdd-8fa5-6054cbf2ca5c"><p local-id="7cf9da84-10ac-3f01-953a-8d5b0a7db43d"><strong>PERICOLO</strong><br>Indica una situazione che può provocare infortuni, anche letali, o danni gravi alla salute delle persone.</p></td></tr><tr ac:local-id="8be62764-7e7d-3e69-aa01-409fbdbc6cfe"><td ac:local-id="3e0b42f2-12a0-3319-a91f-45ae6fd04dec" valign="top"><div class="TextAlignCenter"><img src="attachments/1_premesse/premesse-pericolo-g.jpg" alt="Pericolo G" width="69" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="e1162663-4698-3a84-a365-47019e8d8678"><p local-id="406999f4-ba60-3a0d-a72a-420d564e399f"><strong>ATTENZIONE</strong><br>Indica una situazione che potrebbe causare, anche indirettamente, danni alle persone, alle cose e all’ambiente con conseguenze anche di carattere economico.</p></td></tr><tr ac:local-id="420bae1f-d1f9-3a04-a072-0b1b1b61cd2c"><td ac:local-id="cafc8d75-f2cc-3ad8-944b-be7ee1a8c6af" valign="top"><div class="TextAlignCenter"><img src="attachments/1_premesse/premesse-obbligo.jpg" alt="Obbligo" width="69" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="a4d5b5e1-e5d2-3730-90e5-c0317f8fe052"><p local-id="e15af0ea-8d58-3d80-9eb1-1c65f5ebe188"><strong>AVVERTENZA</strong><br>Indica una situazione che potrebbe causare, anche indirettamente, danni alle persone, alle cose e all’ambiente o alla macchina per manovre non eseguite correttamente.</p></td></tr></tbody></table><p local-id="37b9f4a7c897"></p><h2 local-id="511fb350-00b1-3ae3-9a1a-a673a6d5b165" class="maintenance-section-title" data-section-number="06">1.6 Glossario</h2><table class="my-table2" data-table-width="1800.0" data-layout="center" ac:local-id="a62f85fb-9e16-3bd0-aae5-48dc730b2c31"><colgroup><col style="width: 122.0px;"><col style="width: 631.0px;"></colgroup><tbody><tr ac:local-id="a88ab8b5-be0c-3b82-bdad-5de64a72a58d"><td ac:local-id="b5d7f3a0-d09c-3557-ada0-4b934cad3818"><p local-id="6be36301-f983-373f-acac-7935372a825b"><strong>CSV</strong></p></td><td ac:local-id="e983f278-d7de-3b48-bff4-e968bc825caa"><p local-id="24deb9e9-d6f6-346d-9234-2c587ed9f758">Comma Separated Values</p></td></tr><tr ac:local-id="68eb4b41-2be1-37b6-b58f-51b70e8f96db"><td ac:local-id="adda3568-ec6e-3271-b248-1f1c00284731"><p local-id="000eb3eb-fc0c-3bd6-80e7-6ed69013baf9"><strong>DXF</strong></p></td><td ac:local-id="ceec6df7-5401-3ebd-b440-1f94bebff149"><p local-id="9b259467-0076-356a-bd4e-154beb2b64de">Drawing Exchange Format</p></td></tr></tbody></table><p local-id="a239aea6c9bc"></p><h2 local-id="a1b19cd7-28b0-3bf6-bb70-b686f2568feb" class="maintenance-section-title" data-section-number="07">1.7 Utenti del manuale</h2><p local-id="c57f3a21-7fa3-36e9-8dfc-a2d6344129ae">Questo documento contiene informazioni rivolte a:</p><ul local-id="43d4715f-d139-3366-bbf1-db8a035211cc"><li local-id="7bac0346-497a-3d47-a433-6a6df8192785"><p local-id="3f06f21f-6548-3502-8888-64114275c9ea">Operatore macchina</p></li><li local-id="b7dfa78e-15dc-3881-bd0b-1c10cac8fe02"><p local-id="0220061c-9f11-360d-8f61-70b0040387c5">Tecnico autorizzato ad effettuare assistenza</p></li></ul><p local-id="7f551ed790f5"></p><h2 local-id="5f4d83df-b0f2-3e3a-9771-1e5bc0b02152" class="maintenance-section-title" data-section-number="08">1.8 Struttura dei contenuti del manuale</h2><p local-id="f2f78220-7304-370f-9794-1516c59dd991">Il documento è suddiviso in capitoli che descrivono:</p><ul local-id="e1d091fc-dffa-3a0f-ba60-ff59c2931a16"><li local-id="6eea2a47-ccbe-3675-8b42-c279935e574b"><p local-id="09c1cc86-fe30-39fa-9c49-69ab0c51332f">Operazioni base e descrizione della macchina</p></li><li local-id="ca75d9de-6367-3493-ba18-a48348551a72"><p local-id="7cb67672-e3b6-3670-a510-3688e06554f5">Logiche di programmazione</p></li><li local-id="415f92df-07ff-3e15-99d5-24b4cffc6d60"><p local-id="4e2074ef-2749-3877-a1a9-c79ebededfd6">Pagine del software</p></li><li local-id="51a974e4-e94f-3aad-a441-4f84f58eb433"><p local-id="86d81257-85a4-3efc-ad48-0ebe385b8083">Interblocchi e regole per l’uso corretto del dispositivo</p></li></ul><p local-id="50b79f301e72"></p><h2 local-id="5f60ae4a256e" class="maintenance-section-title" data-section-number="09">Frontespizio e dati del documento</h2><h3 local-id="19284b0c-08dc-3494-b920-060c92c9d5f7">Dati originali del frontespizio</h3><p local-id="202cd113-76b9-303d-862a-fa38433683a0"><strong>SEZIONE B</strong></p><p local-id="7ede2775-db9b-310c-b039-fef357395764">Manuale software</p><p local-id="20d7a86e-dfcb-3592-84ad-c3954b8710c4">Rev. 0.0</p><p local-id="e33c4e13-1821-3cbb-9656-e8f85a8849be"><strong>ZENIT</strong></p><p local-id="64554eac-7399-36c9-93c8-8713c52a05c0"><strong>Lucidatrice monotesta</strong></p><p local-id="dc2ec733-4f00-3588-a2ff-cf83a866680c">Vers. SW 1.26</p><p local-id="0418763f-4785-3e88-bea9-385394f3583b">ISTRUZIONI ORIGINALI</p><table class="my-table2" data-table-width="1800.0" data-layout="center" ac:local-id="b186093f-232d-3705-9bf5-05d2af3ff2ba"><colgroup><col style="width: 372.0px;"><col style="width: 380.0px;"></colgroup><tbody><tr ac:local-id="5b509f04-ffcb-3ccd-85f8-e1dcb870dcf1"><th ac:local-id="9e23222c-e198-37dc-aa72-cb19e75d6b09"><p local-id="6ab79a77-e7a4-383e-9324-9197a14af9a3">DATI IDENTIFICATIVI CLIENTE</p></th><th ac:local-id="34610c9e-64e8-352e-8c99-9b872ec90067" valign="top"><p local-id="b631b3b2-01e2-37ab-b3cb-feb79f72c3ea"></p></th></tr><tr ac:local-id="1a9461fe-d7ca-33d7-9a45-dd2f0a003155"><td ac:local-id="43cd444b-7ba5-3a2f-ad44-c61c346bc2ec"><p local-id="a139e1ed-7041-3fd7-bfa3-286203eea5e5">MODELLO</p></td><td ac:local-id="01ec74cf-bb04-372a-afc3-8a6a19011e5a" valign="top"><p local-id="11eeca36-7535-3061-a899-fa6589eff043"></p></td></tr><tr ac:local-id="a58fcd1c-3258-391f-a41a-79bc49f57a60"><td ac:local-id="09401002-7f01-3c36-8ab5-88c44aa442c6"><p local-id="415679aa-fa9e-322b-9842-8b552a9fe19d">MATRICOLA</p></td><td ac:local-id="edb95c74-fcee-3c44-a3da-d16fa0e40e55" valign="top"><p local-id="4be6ac76-2cea-3eee-bfda-29e9df98de58"></p></td></tr><tr ac:local-id="4c90792d-d04e-3f26-a9b0-8b7a38bbe6dd"><td ac:local-id="89d4cc2d-8812-3b21-9c99-9ecd827c6570"><p local-id="3dc8d504-dc65-300a-becc-19c00eada4f3">ANNO DI COSTRUZIONE</p></td><td ac:local-id="5646da83-c375-3db2-a185-29af8669b742" valign="top"><p local-id="81a34a06-ea63-35a3-9908-9b98f9874af4"></p></td></tr></tbody></table><p local-id="85d9f4bd-4463-3d37-9951-1a652ecf53d3">MANUALE SOFTWARE</p><p local-id="886493d3-2d77-310b-af28-a2c1f69a642e">Una pubblicazione di Donatoni Macchine S.r.l.</p><p local-id="49962aad-3024-3338-8fdb-c51604c4b937">Documento: MN_SW_Zenit_sw1.26_rd0.0_it</p><p local-id="ac60f0fd-6dd6-3793-9aa3-6ebf6d080ab1">Data: 30/04/2020</p><p local-id="c12fe925-a836-3000-8829-cb90a5dfa78f">È stata prestata molta attenzione al fine di assicurare che le informazioni contenute nel presente manuale siano accurate e complete. Eventuali errori, omissioni e/o miglioramenti, possono essere comunicati al seguente indirizzo:</p><p local-id="4003b803-4afa-3fbe-93ef-2150aa874a16"><strong>DONATONI MACCHINE S.r.l</strong></p><p local-id="fb04c22c-8e4a-3cf3-9ecb-957d3c1477fe"><em>Via Napoleone, 14</em></p><p local-id="522e7dc2-8e54-349d-97d6-fd17fdf9cbeb"><em>37015 PONTON – DOMEGLIARA</em></p><p local-id="ff42e26a-e98b-3fe1-a797-779fc54b96b2"><em>VERONA (ITALIA)</em></p><table class="my-table2" data-table-width="1800.0" data-layout="center" ac:local-id="287e0546-bed7-3f12-807c-de4cd413d5f1"><colgroup><col style="width: 251.0px;"><col style="width: 251.0px;"><col style="width: 251.0px;"></colgroup><tbody><tr ac:local-id="adda2411-d300-3693-916a-245b5d80b6ad"><th ac:local-id="91377bab-7519-3694-bcef-155569c146d0"><p local-id="e768dba9-8cf3-3e36-80ba-234b5f04364f"><u><em>Uff. commerciale</em></u></p><p local-id="750e8f2e-babf-3712-b7a3-48f2f5dd10af"><em>Tel. 045 68 62 548</em></p><p local-id="eec9d828-8d47-315c-bef9-1ce1a721fb1a"><em>Fax 045 68 84 347</em></p></th><th ac:local-id="9496214c-e4d8-3eac-b0b5-e68309e006e0"><p local-id="8edb94e6-55f5-3218-a0bd-813889241f84"><u><em>Uff. tecnico</em></u></p><p local-id="9e3492f0-b1c6-36de-8d7c-03c24e729ad5"><em>Tel. 045 68 88 604</em></p></th><th ac:local-id="72d750a6-4eb6-3e05-a1d2-8780a208f764"><p local-id="fe67e108-e7e3-3af3-ab55-7d2d299b3ccd"><u><em>Assistenza</em></u></p><p local-id="f6fd7635-c9f0-30d3-98a2-499c13b15624"><em>Tel. 045 68 62 899</em></p></th></tr></tbody></table><p local-id="09ae58f2-d120-34b4-9280-24df5fe9f210"><em>Indirizzo di posta elettronica: <a href="mailto:info@donatonimacchine.eu">info@donatonimacchine.eu</a></em></p><p local-id="3ed37e3a-b279-3b19-8d54-14925d7507c2">© Donatoni Macchine S.r.l. – Aprile 2020</p><p local-id="fd4e298a-d649-3291-ae1c-d825366b15d0">Tutti i diritti riservati.</p><p local-id="29dc1fa7-77ae-3015-9b2f-0959263847c3">La riproduzione in toto o in parte è vietata senza il consenso scritto del proprietario del copyright.</p><p local-id="e5b57cadc851"></p><h3 local-id="affb8828-dceb-3d6c-a276-4df411c934e8">Lista degli aggiornamenti</h3><table class="my-table2" data-table-width="1800.0" data-layout="center" ac:local-id="99ff6240-fa98-3dbf-9653-b664433f6c49"><colgroup><col style="width: 46.0px;"><col style="width: 61.0px;"><col style="width: 334.0px;"><col style="width: 114.0px;"><col style="width: 106.0px;"><col style="width: 76.0px;"></colgroup><tbody><tr ac:local-id="f31c7310-0607-31ca-baaf-1f568a6d2f01"><th ac:local-id="94d631e6-5635-3adf-8a54-1d4bf2fa4f64"><p local-id="539a2c81-6abe-3fcf-b4b8-10a36b1f085a"><strong>Rev.</strong></p><p local-id="28519037-9afb-37d4-ab67-167a4bf6aa3c"><strong>Doc.</strong></p></th><th ac:local-id="1e25d869-e556-3f98-8cd1-1db6b30ef321"><p local-id="d4f221f2-54bc-3f8e-8188-a111aa42600e"><strong>Vers.</strong></p><p local-id="d66d682d-5aa5-3515-b7d6-6bf60704097d"><strong>SW</strong></p></th><th ac:local-id="b2b541a7-d9b8-38ef-893b-8d0f7a3bdd8c"><p local-id="d2c705c7-93c8-34a0-a91d-34143873014a"><strong>Descrizione</strong></p></th><th ac:local-id="a5a46218-f698-3be8-a349-9e56ca917820"><p local-id="619f9458-f24c-3830-a271-babb61ee2dde"><strong>Approvato</strong></p></th><th ac:local-id="d06c2046-48aa-365b-8c1a-b7e257a612e5"><p local-id="2d6b1612-8777-3da8-93ac-6257c17e0c25"><strong>Data</strong></p></th><th ac:local-id="8268138e-bedc-359b-a908-de98ff30c963"><p local-id="b97f99cf-5ef8-316c-a7bf-e787dba2d2a8"><strong>Pagina</strong></p></th></tr><tr ac:local-id="636511f5-2f46-3817-bb31-27afbeeebb57"><td ac:local-id="3cf05522-3671-38cd-b5af-638e1621ebba"><p local-id="c885f9a3-0733-3cca-bdb4-d47e9799c60f">--</p></td><td ac:local-id="a2879b32-83d2-31c2-8527-94f9c62e68d7"><p local-id="17225c42-9c3f-302d-8a36-adcab0b5685a">1.26</p></td><td ac:local-id="8cf8c472-8571-3840-ae36-aac170e23eb6"><p local-id="a54f94b6-ef8e-3f5f-8f3b-e7e2ad4bbb99">Prima emissione</p></td><td ac:local-id="599a3a66-5de7-3e7a-a15c-73a28f1e2296"><p local-id="1fa9be04-dd49-3670-af4b-457134463481">N. Chesini</p></td><td ac:local-id="c0bf5471-8b3f-3f84-99db-b357cb6b6a63"><p local-id="53859e2b-c52d-3f34-908e-c0ead64fc405">--</p></td><td ac:local-id="3de42e40-3b81-31c8-8da8-7e52996df614"><p local-id="2c71806f-a685-3774-8c94-ab4a2e3af5a2">Tutte</p></td></tr></tbody></table><table class="my-table2" data-table-width="1800.0" data-layout="center" ac:local-id="aafc25d8-6bfb-3bf5-9be7-13f6142c1eca"><colgroup><col style="width: 456.0px;"><col style="width: 106.0px;"><col style="width: 106.0px;"><col style="width: 76.0px;"></colgroup><tbody><tr ac:local-id="6a90f005-a5d0-3a7d-8878-fc5c807c42a0"><td ac:local-id="d7666628-5b13-323f-a8d8-54cf940ee658"><p local-id="0ed17652-580f-3aa5-a396-af28f58a14f5"><strong>Cod. Ente Emittente</strong>: Ufficio Software</p></td><td ac:local-id="617108ac-3d9b-3be3-bd60-de9f77634394"><p local-id="f858117f-ce37-3891-ba3f-2866d3ca96f8"><strong>Redatto</strong></p></td><td ac:local-id="55b5dab3-fe53-3bb3-aa8a-8bb6dea7b3be"><p local-id="7760df28-88e4-30f6-8c05-f58d73265a52"><strong>Verificato</strong></p></td><td ac:local-id="dfd194ef-1194-338b-b628-51794d0d62da"><p local-id="4d47a476-b5c7-33e1-9204-780400af5e6b"><strong>Pagine</strong></p></td></tr><tr ac:local-id="ebe04cee-e379-37e5-815e-eacf7ac99efa"><td ac:local-id="5f188566-9036-3600-b2cb-7e29cb4269d8"><p local-id="57ba898c-7c55-31a1-8698-845c15c63aa9"><strong>File</strong>: MN_SW_Zenit_sw1.26_rd0.0_it</p></td><td ac:local-id="69df56a2-96aa-371f-85d1-29fb5dede011"><p local-id="48b9f517-5954-35c8-94b8-3c3c43fd9da8">N. Chesini</p></td><td ac:local-id="5d593e66-c6c9-399e-a8d7-bc1e0ee4e902"><p local-id="5c460b29-7a73-3889-a57a-e692856b2b29">N. Chesini</p></td><td ac:local-id="67c9b48f-5c28-3ee4-918b-5c27fbcd16be"><p local-id="a2c05f03-da7c-317d-a1d0-284086c6bedb">48</p></td></tr></tbody></table><h2 local-id="cafe7748-efa5-3b45-be13-974e5ba678d8" class="maintenance-section-title" data-section-number="10">1.9 Informazioni sull’assistenza tecnica</h2><p local-id="0e388672-eb46-3b08-b88f-a411cd57c8db">Nel caso di necessità o per eventuali chiarimenti, il cliente può rivolgersi al supporto tecnico commerciale degli agenti di zona o degli importatori, che sono sempre in diretto contatto con il costruttore.</p><p local-id="502b5474-60a4-3bda-954b-b99884d64fee">Nella maggior parte dei casi, molti degli inconvenienti tecnici sono risolvibili con piccoli interventi, consigliamo quindi di leggere attentamente il presente manuale, prima di chiamare il servizio di Assistenza.</p><p local-id="b842fc0c-4dcb-3c23-82b8-92202e712a3e"><strong>DONATONI MACCHINE S.r.l</strong></p><p local-id="f121230a-ff67-33bb-af0f-a4445cd3fa9f"><em>Via Napoleone, 14</em></p><p local-id="abdfc5d5-22c0-388c-ad89-9a639ddaafe0"><em>37015 – DOMEGLIARA</em></p><p local-id="5d8d40e8-8cba-3aa3-a761-bb2e1c331812"><em>VERONA (ITALIA)</em></p><table class="my-table2" data-table-width="1800.0" data-layout="center" ac:local-id="27303de0-5b2c-3600-8983-f1cfedd016c5"><tbody><tr ac:local-id="8728c8db-9868-3ea9-a468-cf13581dc076"><th ac:local-id="91cedb52-7676-38f3-a792-dde4ce7c17f6"><p local-id="771fdb81-bb4d-3421-b4cb-33442b6c1b1f"><u><em>Uff. commerciale</em></u></p><p local-id="c408232c-689b-365c-9f77-d716afc11dc3"><em>Tel. 045 68 62 548</em></p><p local-id="a9677e17-205b-35aa-b2f8-091f85558f96"><em>Fax 045 68 84 347</em></p></th><th ac:local-id="0f64f8ab-cb0c-3baf-8954-2cdaf8f34936"><p local-id="fcd0005a-4619-31c3-8896-5ccc42e820b5"><u><em>Uff. tecnico</em></u></p><p local-id="892841e2-3f89-325a-b82d-cca46c5d8c75"><em>Tel. 045 68 88 604</em></p></th><th ac:local-id="d358eeaa-4a72-3d0b-9890-8595fabcfd8e"><p local-id="a4db08ea-3541-31f7-b9d9-e5c11490e949"><u><em>Assistenza</em></u></p><p local-id="ecb4a5c4-c5fe-36fe-b610-e6f9769d32db"><em>Tel. 045 68 62 899</em></p></th></tr></tbody></table><p local-id="6675c086-82cc-3c0d-a3cd-09bd100423f7"><em>Indirizzi di posta elettronica: <a href="mailto:service@donatonimacchine.eu">service@donatonimacchine.eu</a></em></p><p local-id="7e1d26b5-90b9-3506-8399-a424decd9599">Nel caso di anomalie o malfunzionamenti non risolvibili l’utente può rivolgersi direttamente al costruttore.</p><!--Label="znt_pre"-->
+                        </main>
+
+                    </div>
+
+                    <img src="images/donatoni_222.jpg">
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="it-it_zenit_1.26.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="2_descrizione_della_macchina.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+
+
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                <a rel="prev" href="it-it_zenit_1.26.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="2_descrizione_della_macchina.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="mermaid.min.js"></script>
+        <script src="mermaid-init.js"></script>
+        <script src="hidemenu.js"></script>
+        <script src="imagemodal.js"></script>
+        <script src="login.js"></script>
+    </div>
+
+    <!-- Modale -->
+    <div id="modal" onclick="closeModal()">
+        <img id="modal-img" src="">
+    </div>;
+
+
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
+
+<script id="virtual-keyboard-searchbar-fix">
+document.addEventListener("input", function (e) {
+    const t = e.target;
+    if (t && t.id === "searchbar" && e.isTrusted !== true) {
+        t.dispatchEvent(new KeyboardEvent("keyup", { bubbles: true }));
+    }
+});
+</script>
+</body>
+</html>

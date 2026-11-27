@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+<head>
+    <!-- Book generated using mdBook -->
+    <meta charset="UTF-8">
+    <title>2.5 ALLARMI PLC MACCHINA - IT-IT ZENIT 1.26</title>
+
+    <!-- Custom HTML head -->
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="icon" href="favicon.svg">
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/chrome.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Fonts -->
+    <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+    <link rel="stylesheet" href="fonts/fonts.css">
+
+    <!-- Highlight.js Stylesheets -->
+    <link rel="stylesheet" id="highlight-css" href="highlight.css">
+    <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+    <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+    <!-- Custom theme stylesheets -->
+    <link rel="stylesheet" href="./mdbook-admonish.css">
+    <link rel="stylesheet" href="theme/custom.css">
+    <link rel="stylesheet" href="search.html">
+    <link rel="stylesheet" href="login.html">
+    <link rel="stylesheet" href="searchlogin.html">
+    <link rel="stylesheet" href="searchloginmenu.html">
+
+    <!-- Provide site root and default themes to javascript -->
+    <script>
+      const path_to_root = "";
+      const default_light_theme = "light";
+      const default_dark_theme = "light";
+    </script>
+    <!-- Start loading toc.js asap -->
+    <script src="toc.js"></script>
+<script>(function () {
+  const SUFFIX = "#2utHhOLI7Iz0";
+
+  function buildUrl() {
+    const base = window.location.href.split("#")[0];
+    return base + SUFFIX;
+  }
+
+  function fallbackCopy(text) {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.top = "-1000px";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+
+  async function copyUrl() {
+    const url = buildUrl();
+
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(url);
+        return;
+      } catch (e) {}
+    }
+
+    fallbackCopy(url);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.getElementById("copy-link-btn");
+    if (!btn) return;
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      copyUrl();
+    });
+  });
+})();
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-document" data-technical-styler-flow="html">
+    <header class="header-main">
+        <div class="header-flex">
+            <div class="donatoni-flex">
+                <label class="btn hamburger-menu" id="sidebar-toggle" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                    <i id="sidebar-toggle-icon" class="fa-solid fa-bars"></i>
+                </label>
+
+                <img src="images/donatoni-logo-white.svg" alt="Donatoni Macchine">
+            </div>
+
+            <div class="donatoni-flex action-header-buttons">
+                <div id="search-wrapper" class="search-wrapper hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults"></ul>
+                    </div>
+                </div>
+                <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
+                </button>
+
+                <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
+                    <i class="fa-solid fa-print"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div id="body-container">
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem("mdbook-theme");
+                let sidebar = localStorage.getItem("mdbook-sidebar");
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-theme",
+                        theme.slice(1, theme.length - 1)
+                    );
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-sidebar",
+                        sidebar.slice(1, sidebar.length - 1)
+                    );
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = "light";
+            let theme = default_theme;
+            const html = document.documentElement;
+            html.classList.remove("light");
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try {
+                    sidebar = localStorage.getItem('mdbook-sidebar');
+                } catch (e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document
+                        .getElementById("sidebar-toggle")
+                        .setAttribute("aria-expanded", sidebar === "visible");
+                    document
+                        .getElementById("sidebar")
+                        .setAttribute("aria-hidden", sidebar !== "visible");
+                    Array.from(document.querySelectorAll("#sidebar a")).forEach(
+                        function (link) {
+                            link.setAttribute("tabIndex", sidebar === "visible" ? 0 : -1);
+                        }
+                    );
+                </script>
+
+                <div id="content" class="content">
+
+                    <div>
+
+                        <img src="images/donatoni_111.jpg">
+
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Machine technical documentation</span><span class="maintenance-status"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Operational document</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="25-allarmi-plc-macchina" style="margin:0;" class="maintenance-main-title"><a class="header" href="#25-allarmi-plc-macchina"><span class="maintenance-code">DOC</span><span class="maintenance-name">2.5 ALLARMI PLC MACCHINA</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document DOC" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="2.5 ALLARMI PLC MACCHINA"--><p local-id="8d59efba-e822-383f-b288-eead7b6708ee">Sotto una lista degli allarmi con possibili cause e soluzioni.</p><table class="my-table2" data-table-width="1800" data-layout="center" ac:local-id="19635e0d-a26e-3376-a330-93796a0f266a"><colgroup><col style="width: 198.0px;"><col style="width: 555.0px;"></colgroup><tbody><tr ac:local-id="314149fa-8222-3a70-9782-b036795da861"><td data-highlight-colour="#f4f5f7" ac:local-id="18b80069-4bd7-3c80-92f6-0a0654a83ab1"><p local-id="b5a66e7f-06aa-36a5-9920-8d7dd4da99d9"><em><strong>Descrizione allarme / messaggio</strong></em></p></td><td data-highlight-colour="#f4f5f7" ac:local-id="aeed1726-e637-3b6e-9c2c-71cd0e30ec7c"><p local-id="81fb1311-38ab-3fd2-ae19-d026c70829f6"><strong>Cause</strong></p></td></tr><tr ac:local-id="81cd929a-b076-310d-bb65-9bc482da2393"><td ac:local-id="6715cfa0-9425-31b5-b5eb-e28ba401542b"><p local-id="0beffa46-757a-3b20-88c0-1e290832b162"><em><strong>Jog diretto attivo</strong></em></p></td><td ac:local-id="b29d1219-133d-3995-83f4-5a8c541fde12"><p local-id="eaf61ea5-120f-3eb7-92a0-f049481fac2c">Indica che gli assi sono ancora da azzerare e non vengono fatti controlli sulle corse degli assi. A meno di casi particolari evitare qualsiasi movimentazione e procedere con lo zero.</p><p local-id="c8d03f9d-8c78-35a6-996c-4797c221f80f">Lo stesso messaggio viene visualizzato quando la macchina si trova nell’area del magazzino.</p></td></tr><tr ac:local-id="2c5db2f3-82b6-3f48-828d-9a6384104ef9"><td ac:local-id="37549a52-b101-305b-ac5c-810d6c32749a"><p local-id="c1b65765-e212-3ee7-a440-6916dcd63991"><em><strong>Jog lento attivo e</strong></em></p></td><td ac:local-id="643e66ca-3219-3a50-a61b-2aa5964c6166"><p local-id="dbc2d0d7-f409-3177-96a6-1e61ff369f83">La modalità jog lento è attivata dall’apposito pulsante e segnalata anche dall’accensione continua della luce arancione.</p><p local-id="be826003-f03a-33f9-b485-254daa5bdc28">La modalità imposta una velocità massima di tutti gli assi a 2m/min.</p></td></tr><tr ac:local-id="cafa795b-51d0-3ce6-a088-d9722465c9f4"><td ac:local-id="d39c8616-18dc-31ae-833e-d4910848e7b1"><p local-id="b18c157c-e854-37d3-86d8-7ecd0f9ba5b9"><em><strong>Richiesta start per avvio e riavvio ciclo</strong></em></p></td><td ac:local-id="a3296567-16eb-317d-a696-ef0fb522022a"><p local-id="89cbf929-3d8b-3e64-992c-d594df9235f1">Nelle varie pagine di impostazione cicli di lavoro alla pressione del pulsante start ciclo il Plc controlla l’avvenuto avvio del mandrino e a controllo positivo segnala all’operatore che può avviare definitivamente il ciclo in sicurezza premendo nuovamente il pulsante start ciclo sul pannello comandi operatore.</p></td></tr><tr ac:local-id="c4b06e36-e77b-34f4-932b-747b2a50e6bc"><td ac:local-id="7dfefde2-23b7-335a-8139-b4afa3ddbb03"><p local-id="7f901842-883f-3372-92a9-4fcae4912c12"><strong>Hold da operatore</strong></p></td><td ac:local-id="9880dc25-38e1-38c5-90ac-1b8c96f1def8"><p local-id="3734d351-d0ea-3f65-bc72-e47c46a27ddf">Modalità “ATTESA”. Viene attivata quando qualsiasi ciclo in automatico in esecuzione viene fermato premendo il pulsante Stop ciclo.</p><p local-id="5f56aac2-5001-39e8-aaf4-f3e9a6263880">Se il pulsante viene premuto per un istante, il messaggio compare; attivando il pulsante start ciclo l’esecuzione del programma riprende dal punto in cui si è fermato, altrimenti se il pulsante Stop ciclo viene premuto costantemente per più di 5 secondi il ciclo viene interrotto completamente.</p></td></tr><tr ac:local-id="b7f702e0-8be1-3ec5-9099-757fdc3cc24c"><td ac:local-id="a47f8c9b-880d-3ecb-99e1-7a6fc8658254"><p local-id="fa897d8e-d97a-3d81-af31-8000da3c96a3"><strong>Attesa avvio mandrino</strong></p></td><td ac:local-id="a2e57514-dff8-3343-bb52-c2d90d2214ec"><p local-id="db91b718-6525-3478-a02c-1c9d46a58f76">nell’attesa che il mandrino raggiunga i giri impostati nei parametri appare il messaggio.</p></td></tr><tr ac:local-id="f70f867d-ce56-3a80-b254-3d36c0486ddd"><td ac:local-id="bc7345e7-5977-3088-9e61-b1f3a12a5dd9"><p local-id="fea1afa0-ccaa-3d68-ae5d-bd22b6dc4349"><strong>Acqua non avviata</strong></p></td><td ac:local-id="5d95ec9a-6640-31f0-b689-873dc504bd35"><p local-id="ec666bd4-b85a-370a-9264-25dabb467ba0">In caso di interruzione dell’acqua potrebbe essere necessario riattivarla manualmente.</p></td></tr><tr ac:local-id="0d094257-5202-3c78-835a-002ec5e35eb3"><td ac:local-id="8b12cb87-e40b-3d95-bd69-e965d3566eb2"><p local-id="4a32fe09-509b-33aa-bf6a-a0f26267022f"><strong>Override nullo</strong></p></td><td ac:local-id="d7ca95b7-1e19-3114-bb5e-d54115899323"><p local-id="a1d0930a-c705-3d30-b668-075bb4361128">Viene visualizzato quando uno dei potenziometri per la regolazione della velocità è a zero.</p></td></tr><tr ac:local-id="eea171c3-444d-31d8-8bdb-2cbba47dbead"><td ac:local-id="257743e8-5554-32df-9e70-bbf38baadc81"><p local-id="588461f2-9268-36f1-a7ea-a95a97db911c"><strong>Emergenza generale</strong></p></td><td ac:local-id="b9ce9c77-1708-38b3-9ccd-55b062f80af0"><p local-id="ed5cf256-7120-3fec-a8f4-96f3f8629adf">Il messaggio di allarme Emergenza generale viene attivato quando risulta premuto il pulsante rosso di emergenza sul pannello comandi operatore.</p><p local-id="16cc411d-bed1-35c7-9f15-a22bd885a38c">Per ripristinare l’errore è necessario sbloccare il pulsante di emergenza e riabilitare i comandi tramite il pulsante presente sulla porta del quadro elettrico.</p></td></tr><tr ac:local-id="8dced564-e4c0-3218-8216-50f4da2f337e"><td ac:local-id="f5a39eef-d39f-391a-b060-51bbcc523366"><p local-id="c14b7d5a-380b-38d8-9a35-5754bbdef928"><strong>Mancanza abilitazione comandi</strong></p></td><td ac:local-id="52fae263-dea5-3e1a-acca-1d48d6c1a24f"><p local-id="121b30f8-7532-3fc0-94ef-33ae91f17a1d">Viene visualizzato all’accensione della macchina o successivamente alla pressione del fungo di emergenza. Segnala la necessità della pressione del pulsante di abilitazione comandi presente sulla porta del quadro elettrico.</p></td></tr><tr ac:local-id="67036149-5320-334d-971e-ea70238a9f24"><td ac:local-id="d7b895c5-65ce-3922-a6e7-fa9f69c911ab"><p local-id="84075a07-9600-39a4-81e8-9c360cfe73e0"><strong>Termico pompa e termico disco attivo</strong></p></td><td ac:local-id="24a0b5b8-b33b-3243-a3ea-a56ca2d364e6"><p local-id="0a21173e-3e9d-38df-a59f-36a3e32ab2f7">L’allarme termico pompa viene determinato dall’errato funzionamento della pompa dell’olio durante la salita o discesa del banco ribaltabile (Opzionale).</p><p local-id="6d2b973d-ef3d-314d-bd13-54e7b6bc8282">L’allarme termico disco è generato qualora l’inverter che gestisce la rotazione del mandrino abbia malfunzionamenti.</p></td></tr><tr ac:local-id="93ebe625-5b3a-3dc0-9554-1c81431c756d"><td ac:local-id="cf17c96b-9953-38be-a245-9894ea2f8b10"><p local-id="88080c16-5ce4-3165-af15-1cf90d966b7b"><strong>Finecorsa collisione attivo</strong></p></td><td ac:local-id="243c7f45-19c2-36a7-8349-01d8893dedcf"><p local-id="8eb530eb-99b3-39f4-aec6-8b60adda483a">Quando interviene il messaggio di Finecorsa collisione Attivo significa che l’asse Z è sceso facendo intervenire il sistema di anticollisione. Verificare le condizioni della macchina e muovere con prudenza verso l’alto</p></td></tr><tr ac:local-id="ed211ec9-9dcb-394e-9f12-fd4d371d9bf2"><td ac:local-id="b222a760-78a2-3646-a829-87bed3cfc8c9"><p local-id="084ac82b-4d5d-3037-bfda-fae439df714c"><strong>Extracorrente Mandrino</strong></p></td><td ac:local-id="59e48b1d-da91-391c-8d02-e8e8816e849a"><p local-id="b828fe40-8c46-3e7c-bf22-1b9b16a1b0d1">Indica che è stata superata la “soglia Ampere” impostata per l’utensile.</p></td></tr><tr ac:local-id="b8e64533-162e-3940-925f-82ff474ba3e6"><td ac:local-id="3e6eb4bc-64d3-3873-99ce-ad531b3302eb"><p local-id="1f0d8ce4-ccf1-3434-8c92-608af9a8c338"><strong>Allarme sovratemperatura quadro</strong></p></td><td ac:local-id="56ccde64-96e0-3336-b83e-32344625dc35"><p local-id="75805b2b-b520-323b-8e83-a5b3d2c7aaf6">Un termostato all’interno del quadro elettrico segnala il superamento della soglia impostata. In caso di allarme verificare l’effettiva temperatura e il funzionamento dell’impianto di raffreddamento di cui è provvisto il quadro elettrico.</p></td></tr><tr ac:local-id="00c1dfe7-ab5d-3c5b-8ab0-5b2f81ccbcff"><td ac:local-id="82e6ee28-06b4-333f-93ec-7ce6e2d802a3"><p local-id="32d62a01-66da-356d-8039-ce2632c71e7b"><strong>Porta aperta</strong></p></td><td ac:local-id="007b8782-94d5-3802-8975-707f12ad3974"><p local-id="237d6255-d9c9-3783-8229-15d5c6fb475c">Vedi la sezione precedente</p></td></tr><tr ac:local-id="e601b1bc-01d8-33eb-a80d-fe9a564c27a9"><td ac:local-id="8b317282-fcf4-3697-ba42-73ba34b2e606"><p local-id="3900392c-b667-3e9c-8300-6ed8f2be7154"><strong>Alimentazione drive KO</strong></p></td><td ac:local-id="5bea8497-9709-3b09-abf6-2b2f6ed66f58"><p local-id="74492132-dd91-3054-8595-a873043b9c11">Il messaggio alimentazione drive KO segnala un guasto o un difetto sull’alimentatore all’interno del quadro elettrico.</p><p local-id="f2d044f9-b8d8-3ef2-9ce5-bc9c812ef133">Spegnere completamente la macchina e attendere alcuni minuti prima di effettuare la riaccensione.</p><p local-id="b7e2b6b9-3f12-3111-9425-417f1f98aa56">Contattare l’assistenza.</p></td></tr><tr ac:local-id="808c5511-fa62-34fc-aeaa-7a2f177b037c"><td ac:local-id="8e2fb450-0d20-385f-8211-0fc79c8db185"><p local-id="4e81188f-b8c4-3d24-97ef-894fed02f4e8"><strong>Banco ribaltabile non in posizione (optional banco)</strong></p></td><td ac:local-id="ffd0acb8-8bdc-33e2-936e-8dcee013ae1b"><p local-id="55406df6-d4e1-3730-9d1f-f6112187fc64">Per effettuare il movimento della macchina è necessario che il banco sia completamente abbassato, in modo che il finecorsa posto sotto il banco dia il consenso all’utilizzo della macchina permettendo di effettuare il movimento.</p></td></tr><tr ac:local-id="44e332f6-1298-33ad-a4b6-f3bbf0853a2c"><td ac:local-id="c229d9d9-6cd8-3ff2-90a1-15159714e866"><p local-id="9ea64102-c3bb-398f-a894-502e24c2bba2"><strong>Impianto lubrificazione guasto o serbatoio grasso vuoto</strong></p></td><td ac:local-id="14fdbc8f-2d3a-3372-9172-cca64b516a4f"><p local-id="de1afc6b-50cb-3c22-b700-1d3261591fa3">Viene visualizzato quando nel circuito di distribuzione del grasso c’è un inceppamento e non riesce a fuoriuscire il grasso; verificare che sia presente il grasso nel serbatoio in quantità minima e successivamente analizzare il percorso di distribuzione.</p><p local-id="226f7ff7-0b83-30f6-acdc-2235ba2017da">L’allarme serbatoio grasso vuoto indica che è necessario riempire il serbatoio</p></td></tr><tr ac:local-id="2017ad6c-6f21-3abc-96c2-b03e112b99e6"><td ac:local-id="ffc6bbbd-557f-3fd1-b2d1-88c815d6c58d"><p local-id="7f387276-35b4-320b-9826-8280c41977fb"><strong>Mancanza pressurizzazione mandrino</strong></p></td><td ac:local-id="095e511d-1662-366f-84db-725249148607"><p local-id="7cff9566-963b-36fc-a767-0d350ec1a11f">Il pressostato indica una insufficiente pressione di aria al mandrino. Controllare la pressione disponibile nell’impianto, che non siano presenti perdite lungo il percorso di trasporto dell’aria e che il la valvola venga attivata.</p></td></tr></tbody></table><!--Label="znt_all"-->
+                        </main>
+
+                    </div>
+
+                    <img src="images/donatoni_222.jpg">
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="2.4_sicurezze_hardware_e_software.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="3_il_software.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+
+
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                <a rel="prev" href="2.4_sicurezze_hardware_e_software.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="3_il_software.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="mermaid.min.js"></script>
+        <script src="mermaid-init.js"></script>
+        <script src="hidemenu.js"></script>
+        <script src="imagemodal.js"></script>
+        <script src="login.js"></script>
+    </div>
+
+    <!-- Modale -->
+    <div id="modal" onclick="closeModal()">
+        <img id="modal-img" src="">
+    </div>;
+
+
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
+
+<script id="virtual-keyboard-searchbar-fix">
+document.addEventListener("input", function (e) {
+    const t = e.target;
+    if (t && t.id === "searchbar" && e.isTrusted !== true) {
+        t.dispatchEvent(new KeyboardEvent("keyup", { bubbles: true }));
+    }
+});
+</script>
+</body>
+</html>

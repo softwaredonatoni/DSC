@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+<head>
+    <!-- Book generated using mdBook -->
+    <meta charset="UTF-8">
+    <title>3.3 KIT E MATERIALI - IT-IT ZENIT 1.26</title>
+
+    <!-- Custom HTML head -->
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="icon" href="favicon.svg">
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/chrome.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Fonts -->
+    <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+    <link rel="stylesheet" href="fonts/fonts.css">
+
+    <!-- Highlight.js Stylesheets -->
+    <link rel="stylesheet" id="highlight-css" href="highlight.css">
+    <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+    <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+    <!-- Custom theme stylesheets -->
+    <link rel="stylesheet" href="./mdbook-admonish.css">
+    <link rel="stylesheet" href="theme/custom.css">
+    <link rel="stylesheet" href="search.html">
+    <link rel="stylesheet" href="login.html">
+    <link rel="stylesheet" href="searchlogin.html">
+    <link rel="stylesheet" href="searchloginmenu.html">
+
+    <!-- Provide site root and default themes to javascript -->
+    <script>
+      const path_to_root = "";
+      const default_light_theme = "light";
+      const default_dark_theme = "light";
+    </script>
+    <!-- Start loading toc.js asap -->
+    <script src="toc.js"></script>
+<script>(function () {
+  const SUFFIX = "#2utHhOLI7Iz0";
+
+  function buildUrl() {
+    const base = window.location.href.split("#")[0];
+    return base + SUFFIX;
+  }
+
+  function fallbackCopy(text) {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.top = "-1000px";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+
+  async function copyUrl() {
+    const url = buildUrl();
+
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(url);
+        return;
+      } catch (e) {}
+    }
+
+    fallbackCopy(url);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.getElementById("copy-link-btn");
+    if (!btn) return;
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      copyUrl();
+    });
+  });
+})();
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-document" data-technical-styler-flow="html">
+    <header class="header-main">
+        <div class="header-flex">
+            <div class="donatoni-flex">
+                <label class="btn hamburger-menu" id="sidebar-toggle" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                    <i id="sidebar-toggle-icon" class="fa-solid fa-bars"></i>
+                </label>
+
+                <img src="images/donatoni-logo-white.svg" alt="Donatoni Macchine">
+            </div>
+
+            <div class="donatoni-flex action-header-buttons">
+                <div id="search-wrapper" class="search-wrapper hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults"></ul>
+                    </div>
+                </div>
+                <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
+                </button>
+
+                <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
+                    <i class="fa-solid fa-print"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div id="body-container">
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem("mdbook-theme");
+                let sidebar = localStorage.getItem("mdbook-sidebar");
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-theme",
+                        theme.slice(1, theme.length - 1)
+                    );
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-sidebar",
+                        sidebar.slice(1, sidebar.length - 1)
+                    );
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = "light";
+            let theme = default_theme;
+            const html = document.documentElement;
+            html.classList.remove("light");
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try {
+                    sidebar = localStorage.getItem('mdbook-sidebar');
+                } catch (e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document
+                        .getElementById("sidebar-toggle")
+                        .setAttribute("aria-expanded", sidebar === "visible");
+                    document
+                        .getElementById("sidebar")
+                        .setAttribute("aria-hidden", sidebar !== "visible");
+                    Array.from(document.querySelectorAll("#sidebar a")).forEach(
+                        function (link) {
+                            link.setAttribute("tabIndex", sidebar === "visible" ? 0 : -1);
+                        }
+                    );
+                </script>
+
+                <div id="content" class="content">
+
+                    <div>
+
+                        <img src="images/donatoni_111.jpg">
+
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Machine technical documentation</span><span class="maintenance-status"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Operational document</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="33-kit-e-materiali" style="margin:0;" class="maintenance-main-title"><a class="header" href="#33-kit-e-materiali"><span class="maintenance-code">DOC</span><span class="maintenance-name">3.3 KIT E MATERIALI</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document DOC" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="3.3 KIT E MATERIALI"--><p local-id="1840519c-90f9-38b3-a00a-1b1a08b573ee">La pagina dei kit permette di gestire la creazione, la modifica, la cancellazione di kit e materiali.<br>La pagina dei kit è divisa in tre colonne:</p><ul local-id="e8904517-6a3a-3586-b6b6-848cae94ef03"><li local-id="14dcdaa4-d6dd-39a8-b5a2-8ab82a1d6c5f"><p local-id="fd405121-ef3d-3cc4-ba0d-3a065dfb79b4">A sinistra la lista completa di kit disponibili</p></li><li local-id="34b4de97-cf8d-348a-9711-87ffb36d073b"><p local-id="b5a25edc-fc2c-31d0-a100-00857419e343">Al centro i dati generali del kit selezionato</p></li><li local-id="81d2cc06-be6d-3d19-9a49-2e8f1932abbb"><p local-id="b44f487c-8c09-380a-8c6b-4f5617fe77c1">A destra la lista ordinata di passate da eseguire con il kit selezionato</p></li></ul><div class="TextAlignCenter"><img src="attachments/3.3_kit_e_materiali/kit-e-materiali-figura-01.png" alt="Figura dal manuale Zenit" width="800" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p>
+</p><h1 local-id="99c65f70dc4f">Categorie</h1><p local-id="fa2cc61c51f9">I kit sono divisi in due categorie:</p><table class="my-table2" data-table-width="1800.0" data-layout="center" ac:local-id="472e2044-0ffb-3e19-a6e0-5d56272170f8"><colgroup><col style="width: 100.0px;"><col style="width: 660.0px;"></colgroup><tbody><tr ac:local-id="0dee2c38-8f8c-36ef-8a12-6a3cc7b2957a"><td ac:local-id="4b29a17b-ae30-3dcd-bdba-ab3d16d1a4ab" valign="top"><div class="TextAlignCenter"><img src="attachments/3.3_kit_e_materiali/kit-e-materiali-lucidatura.png" alt="Figura dal manuale Zenit" width="64" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="45837c3a-e628-3ffe-b480-66ec54b2102e"><p local-id="c7670787-0b37-3ba6-afc0-c2213d9f0a61"><strong>Lucidatura</strong><br>Categoria lucidatura.</p></td></tr><tr ac:local-id="4acd8943-2b27-34b5-9b50-ee20ecdf58a7"><td ac:local-id="6ba355ff-8631-3fa8-95b6-46abdb37fb56" valign="top"><div class="TextAlignCenter"><img src="attachments/3.3_kit_e_materiali/kit-e-materiali-calibratura.png" alt="Figura dal manuale Zenit" width="63" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="ced0baef-5f2e-385d-9a23-52ee5a100cf1"><p local-id="1f961428-28fa-3bf7-8342-f9376ac096b5"><strong>Calibratura</strong><br>Categoria calibratura.</p></td></tr></tbody></table><p local-id="45657208-69b4-307a-8887-bca2dba279c8"></p><h1 local-id="7c76ab7e7589">Pulsanti</h1><p local-id="6a564fa98e78">Le due tipologie hanno proprietà e comportamenti diversi che verranno descritti successivamente. Cliccando sull’icona, si cambierà tipologia di kit.</p><table class="my-table2" data-table-width="1800.0" data-layout="center" ac:local-id="21539c74-2232-38ee-8c64-07f8c9b23423"><colgroup><col style="width: 100.0px;"><col style="width: 660.0px;"></colgroup><tbody><tr ac:local-id="526f6c94-add8-3be7-a407-d8ed1ca315ea"><td ac:local-id="72371b8e-e98a-3d28-a639-1c723d6288c2" valign="top"><div class="TextAlignCenter"><img src="attachments/3.3_kit_e_materiali/kit-e-materiali-aggiungi-kit.png" alt="Figura dal manuale Zenit" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="93987173-34af-3b5a-8522-007d184ac5ca"><p local-id="aa8c7d40-6b02-3c25-930c-753db0d0954d"><strong>Aggiungi kit</strong><br>Aggiunge un nuovo kit in fondo alla lista</p></td></tr><tr ac:local-id="3f553fe3-7802-30a0-a626-045c13773350"><td ac:local-id="3a1f1bd6-7a3b-3f66-ad0a-4ec581986c48" valign="top"><div class="TextAlignCenter"><img src="attachments/3.3_kit_e_materiali/kit-e-materiali-rimuovi-kit.png" alt="Figura dal manuale Zenit" width="61" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="6a57534b-94ce-3cd2-835f-60534d7e0e5e"><p local-id="d8589111-751c-32c7-98e1-3929bb247d16"><strong>Rimuovi kit</strong><br>Cancella il kit selezionato</p></td></tr><tr ac:local-id="b6ef7db6-f4bc-3e32-99f9-ff856560797a"><td ac:local-id="e3c378d4-7dfb-3fec-a4b1-247d83c19186" valign="top"><div class="TextAlignCenter"><img src="attachments/3.3_kit_e_materiali/kit-e-materiali-duplica-kit.png" alt="Figura dal manuale Zenit" width="62" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="7aac8f7e-308c-3a99-8457-7b664c3ef765"><p local-id="01932cbd-1fcc-381c-992d-b22245b25491"><strong>Duplica kit</strong><br>Aggiunge in fondo alla lista un kit come copia di quello selezionato</p></td></tr><tr ac:local-id="f92dff27-efdb-36f9-b409-b153c23bb425"><td ac:local-id="e583cec7-7ac4-34f7-9a30-627988a3fba8" valign="top"><div class="TextAlignCenter"><img src="attachments/3.3_kit_e_materiali/kit-e-materiali-gestione-materiali.png" alt="Figura dal manuale Zenit" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="185f4a9f-bd3a-3b56-b988-9fe5543ff131"><p local-id="ea518690-f8ff-364d-b85e-cb254c9ee2b1"><strong>Gestione materiali</strong><br>Apre la finestra di gestione dei Materiali</p></td></tr></tbody></table><p local-id="194babc5857e"></p><h2 local-id="8d35fcb8dc66" class="maintenance-section-title" data-section-number="01">Lista di Kit</h2><p local-id="b2cf3252-4626-3f47-9031-9bebdc4b31c9">È presente sul lato sinistro della pagina, la stessa lista è presente anche in altre pagine del software come quella di gestione dei materiali o applicazione dei kit.</p><p local-id="6dd70de2-4bad-39f0-9ef5-d95a03fa31c8">È possibile scorrere la lista sia con la barra di scorrimento che facendo scorrere il cursore all’interno della lista. In alto è posto il filtro che permette di visualizzare solo i kit che corrispondono al criterio del filtro.</p><table class="my-table2" data-table-width="1800.0" data-layout="center" ac:local-id="d5797089-e8f7-3549-9588-18af1bbebe63"><colgroup><col style="width: 133.0px;"><col style="width: 627.0px;"></colgroup><tbody><tr ac:local-id="1ba9af01-01ab-3514-b9e9-0e6da5eafce6"><td ac:local-id="1cf3f4be-78ee-39e6-9a3d-c4bfe494860f" valign="top"><div class="TextAlignCenter"><img src="attachments/3.3_kit_e_materiali/kit-e-materiali-filtro-non-attivo.png" alt="Figura dal manuale Zenit" width="62" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="3ec167bf-f7c5-3d38-9542-a109a8562946"><p local-id="30426a6f-0bd7-3601-bb27-2a74f9ee27ef"><strong>Filtro non attivo</strong><br>Viene visualizzata la lista completa secondo l’ordine impostato.</p></td></tr><tr ac:local-id="913a22dc-c374-34a9-918f-62ebf939908d"><td ac:local-id="16eb009b-7e74-3df4-9ed3-6c22bc214a07" valign="top"><div class="TextAlignCenter"><img src="attachments/3.3_kit_e_materiali/kit-e-materiali-filtro-attivo.png" alt="Figura dal manuale Zenit" width="62" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="17e7e592-66ca-3b7d-afae-bdadaa600de8"><p local-id="2efb817d-0b2f-31d5-9296-22ea062ce4d5"><strong>Filtro attivo</strong><br>Se nel campo di testo c’è scritto qualcosa visualizza nella lista solo i kit che contengono ciò che è scritto, indipendente da maiuscolo/minuscolo.</p></td></tr><tr ac:local-id="828b48cb-82c2-3992-abc4-c480226981a0"><td ac:local-id="842b996a-89b3-3fb3-a218-5635ce200ec5" valign="top"><div class="TextAlignCenter"><img src="attachments/3.3_kit_e_materiali/kit-e-materiali-sposta-posizione-kit.png" alt="Figura dal manuale Zenit" width="113" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="24e0f3e1-10d9-3f5f-9052-3c8974edbfe2"><p local-id="e6342cd4-857d-343d-8df5-ce93694d8c6e"><strong>Sposta posizione kit</strong><br>Permettono di spostare la posizione del kit nella lista.</p></td></tr></tbody></table><p local-id="f85f72582474"></p><h2 local-id="f3441cdb2ba0" class="maintenance-section-title" data-section-number="02">Parametri del kit</h2><p local-id="0852546b-3004-3353-9b8e-275c6df2b24a">I kit sono divisi in due tipologie, le quali hanno un comportamento e dei parametri diversi.</p><p local-id="26fa6a0d-06b8-3d72-b9d5-e9c2a495798e">Alcuni parametri sono comuni:</p><table class="my-table2" data-table-width="1800.0" data-layout="center" ac:local-id="62e68d8f-2434-3ef1-a70f-4297e4704604"><colgroup><col style="width: 180.0px;"><col style="width: 580.0px;"></colgroup><tbody><tr ac:local-id="79da8e11-3eac-347f-8ba6-03c53ade824b"><td ac:local-id="84e109fa-a7f7-3ea3-a3a3-e1524c7d9b0c"><p local-id="2b1ada95-49d1-35f1-9a60-e759d568a722"><strong><em>Tipologia</em></strong></p></td><td ac:local-id="0a78ed4c-eee9-3b0b-b96c-cd61f2e6cd7a"><p local-id="ca2e3207-ca93-3fc2-8341-842fedfb303a">Calibratura o lucidatura</p></td></tr><tr ac:local-id="b9fa2886-7236-334d-823d-671b9ec54fdc"><td ac:local-id="203354ab-4829-3596-85a5-06209e72b98b"><p local-id="3fade966-1970-3a4b-972b-9fc1ac48dfbb"><strong><em>Nome</em></strong></p></td><td ac:local-id="85b6085c-90cc-3eb5-83d3-617b3e359878"><p local-id="5e4e7b10-6b19-3e25-8d11-fe30710ce5ab">nome univoco che identifica il kit</p></td></tr><tr ac:local-id="4856f07b-8296-3852-97a2-ce8be2e6aeb3"><td ac:local-id="e43e5bfb-e3b3-30ff-a250-e0d5bc51da20"><p local-id="14684dd1-5d88-3a11-aa4a-70e98d4fc107"><strong><em>Utensile</em></strong></p></td><td ac:local-id="abb4136b-477f-39d2-b098-f94642ef86a1"><p local-id="ce9cfa9f-11b3-33c9-99aa-59da2a53875c">scelto fra la lista degli utensili disponibili è quello utilizzato per eseguire la lavorazione</p></td></tr><tr ac:local-id="67f250d7-e292-30c7-a694-7311facfba6d"><td ac:local-id="0aca69c2-dc14-3df9-b46e-e555fc6f35e3"><p local-id="ad0250a9-ea1b-3d44-beed-58b5ef782284"><strong><em>Tastatura</em></strong></p></td><td ac:local-id="f5f71488-32ef-37f9-9bc7-c7704f53e06b"><p local-id="93786f2e-1bec-3d55-8c85-f803a0ec0bc5">indica se deve eseguire la misura della lunghezza utensile ad inizio lavorazione.</p></td></tr><tr ac:local-id="ed47519f-82bf-399b-b77e-fe9af4589512"><td ac:local-id="568b62b1-d706-3079-b283-6c6a25570f83"><p local-id="24a78ba8-6143-3d87-9a14-cb6af9b8036c"><strong><em>Velocità di lavoro</em></strong></p></td><td ac:local-id="aca3ff0c-0ce4-379a-b112-a77ceed8a2ac"><p local-id="716b040e-f31c-31c9-964c-f2afc7cdaf5d">utilizzata per i movimenti scelti con le passate</p></td></tr></tbody></table><p local-id="d6fba29bff80"></p><h3 local-id="8c99b7116a91">Calibratura</h3><p local-id="52646022-4205-3703-9335-b9a707e3e8b2">La calibratura, da eseguire con utensile diamantato, è l’operazione di asportazione materiale necessaria per livellare il materiale. Se lo spessore da asportare è superiore alla capacità dell’utensile utilizzato, è necessario effettuare più passaggi a diversi step per ottenere il risultato desiderato.</p><div class="TextAlignCenter"><img src="attachments/3.3_kit_e_materiali/kit-e-materiali-figura-11.png" alt="Figura dal manuale Zenit" width="361" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="9cc5a00e-3d31-3cfc-9d5c-5182f849e983">I parametri caratteristici della calibratura sono:</p><ul local-id="ba1d7bae-251e-3ac8-b983-df1a439fcb00"><li local-id="ede23116-5ca4-3f7e-b929-a18e87f1c7b0"><p local-id="fec40fe1-bd6c-31ad-8d56-01e10a811289"><strong>Ingresso:</strong> permette di scegliere tipologia e velocità</p></li></ul><table class="my-table2" data-table-width="1800.0" data-layout="center" ac:local-id="13398075-425d-3195-b0c6-241b3c0d00ff"><colgroup><col style="width: 100.0px;"><col style="width: 660.0px;"></colgroup><tbody><tr ac:local-id="a2778215-ce50-3908-a6b5-aaa5acce4b75"><td ac:local-id="10a10848-cdf8-3053-82a1-e2e8a3a4bbea" valign="top"><div class="TextAlignCenter"><img src="attachments/3.3_kit_e_materiali/kit-e-materiali-ingresso-diretto.png" alt="Figura dal manuale Zenit" width="63" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="db02bcc9-76c4-36ac-834c-6a6be230ba22"><p local-id="492f8935-f11a-3528-bb44-baa6d2d187a3"><strong>Ingresso diretto</strong><br>Scende verticalmente sul materiale fino alla quota obiettivo.</p></td></tr><tr ac:local-id="09a1b285-1aca-30f3-89ad-fc66a963ceac"><td ac:local-id="9d499398-e5c2-3f7c-aa57-d0f7767680f4" valign="top"><div class="TextAlignCenter"><img src="attachments/3.3_kit_e_materiali/kit-e-materiali-ingresso-a-spirale.png" alt="Figura dal manuale Zenit" width="63" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="8bff262e-cae2-396f-936f-f7d298183fed"><p local-id="e55d9f96-7bd3-3e1d-b435-1cad0e36cbfc"><strong>Ingresso a spirale</strong><br>Scende con un movimento a spirale con raggio pari al raggio dell’utensile e passo descritto dal parametro “Passo ingresso”.</p></td></tr></tbody></table><ul local-id="be8f223f-f386-3b4f-b52b-749de1946477"><li local-id="80930f23-fac5-33ca-ac63-c522bd206af6"><p local-id="4e4d15a0-60f2-3b8a-bd45-af248fa52288"><strong>Obiettivo calibratura:</strong></p></li></ul><table class="my-table2" data-table-width="1800.0" data-layout="center" ac:local-id="db3826d9-b6e5-3266-8428-e3899af3ff00"><colgroup><col style="width: 100.0px;"><col style="width: 660.0px;"></colgroup><tbody><tr ac:local-id="4dc16a04-0572-3feb-b496-074575e9d6a5"><td ac:local-id="ca4ce814-0eee-3520-bc5e-55dfc1f2878a" valign="top"><div class="TextAlignCenter"><img src="attachments/3.3_kit_e_materiali/kit-e-materiali-livella-pezzo.png" alt="Figura dal manuale Zenit" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="f9ef81f4-6cc6-35fb-b9d1-6e7a1ac115cd"><p local-id="903bc762-a3ad-34b8-a21c-c763cc46c1f6"><strong>Livella pezzo</strong><br>Dallo spessore impostato sul pezzo o da quello minimo rilevato dalla tastatura, scende del valore impostato nel parametro “Affondamento”.</p></td></tr><tr ac:local-id="c9e21fba-ff87-3c77-81d6-f88491685b98"><td ac:local-id="9cc0d906-702f-3693-849f-026d7934cb48" valign="top"><div class="TextAlignCenter"><img src="attachments/3.3_kit_e_materiali/kit-e-materiali-spessore-obiettivo.png" alt="Figura dal manuale Zenit" width="62" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="7d8a2902-33ac-3178-a8b9-6b51f18aeee9"><p local-id="7a2345fa-a7a8-379d-b931-89033dd41ae6"><strong>Spessore obiettivo</strong><br>Dallo spessore impostato sul pezzo o da quello minimo rilevato dalla tastatura, scende fino ad ottenere lo spessore impostato nel parametro “spessore obiettivo”. Lo spessore materiale è relativo alla quota banco.</p></td></tr></tbody></table><p local-id="239f1fe4117f"></p><p local-id="25ea13144346"><strong>Parametri</strong></p><table class="my-table2" data-table-width="1800.0" data-layout="center" ac:local-id="6f27407f-908d-3d01-9e40-6961925ad670"><colgroup><col style="width: 180.0px;"><col style="width: 580.0px;"></colgroup><tbody><tr ac:local-id="3f049528-6343-3a72-92ee-c870d6cc5405"><td ac:local-id="66e496e7-29b6-3dbd-b4bb-8beb3616e0e4"><p local-id="a211c0ff-2347-3d16-9e4f-7301a1b8f0b8"><strong>Z avvicinamento</strong></p></td><td ac:local-id="837757fc-ed52-318e-ae09-cd1d3261edda"><p local-id="eaac6b09-f606-382d-9d5f-4822f8c22468">quota a cui si porta l’utensile prima di partire con l’ingresso.</p></td></tr><tr ac:local-id="8b32e7f6-8d27-3ff0-b937-f4cda9fa5109"><td ac:local-id="565fd0b7-4609-3d5c-af3b-0c7f29b8bf84"><p local-id="e3a86ee9-1194-3c3d-9825-b5c937f08358"><strong>Passo in Z</strong></p></td><td ac:local-id="c85349eb-b43a-39c4-b7ae-25ac4a6b50e3"><p local-id="bc731388-51f4-34c1-be23-fdaa9245d723">asportazione dell’utensile durante la lavorazione. Se l’obiettivo della calibratura è più grande del “Passo in Z” verranno eseguite più passate fino ad arrivare allo spessore desiderato.</p></td></tr><tr ac:local-id="b702cbf7-8bbd-3240-842d-9ce86d0007ba"><td ac:local-id="9745ae79-5ad1-3c2a-815b-1e5037a341ab"><p local-id="d7b07ffd-6f40-3624-8871-33127305241c"><strong>Ultima passata</strong></p></td><td ac:local-id="261cdec5-fcce-3375-8d46-49b65e97e427"><p local-id="4c2c522b-a7b4-37c3-bc8b-f7b96612843f">se i parametri di step e velocità sono diversi da zero utilizza questi per eseguire una finitura sul pezzo.</p></td></tr></tbody></table><p local-id="f9e2900cb254"></p><h3 local-id="097880a83049">Lucidatura</h3><p local-id="c43d417e-9781-3f68-85ce-a0d984e1f208">La lucidatura, da eseguire con utensile lucidante, è l’operazione di trattamento superficiale che solitamente coincide con la finitura del pezzo. Per eseguire questa operazione vengono utilizzati utensili particolari con diversi gradi di finitura. Il risultato finale sarà la somma di tutte le passate effettuate da ogni utensile.</p><p local-id="bfd7e8fb-1e85-3a7c-97db-d6e92ae2ffbe">Caratteristica fondamentale della lucidatura è il fatto di poter decidere la forza da applicare sull’utensile espressa come percentuale, dove 0% corrisponde a circa 20Kg e 100% corrisponde a circa 220Kg.</p><div class="TextAlignCenter"><img src="attachments/3.3_kit_e_materiali/kit-e-materiali-figura-16.png" alt="Figura dal manuale Zenit" width="454" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="4a7d62b0-7cc0-36c7-b85a-71d7fb57bd7f">I parametri caratteristici della lucidatura sono:</p><ul local-id="b50ffb4c-231a-38a9-915b-261ca638835a"><li local-id="d2d94dcf-ef64-33f6-8882-627db4766d3e"><p local-id="6cf4daa9-4a39-36ba-b20d-2583f4fa9bac"><strong>Ingresso:</strong> permette di scegliere tipologia e velocità</p></li></ul><table class="my-table2" data-table-width="1800.0" data-layout="center" ac:local-id="e0cc23b3-1895-335d-8dde-c09ad473fa22"><colgroup><col style="width: 100.0px;"><col style="width: 660.0px;"></colgroup><tbody><tr ac:local-id="499e8511-a736-3599-9312-f4e24b8189d6"><td ac:local-id="1c5825a9-460e-3ec2-9a56-49d411779ca5" valign="top"><div class="TextAlignCenter"><img src="attachments/3.3_kit_e_materiali/kit-e-materiali-ingresso-diretto-2.png" alt="Figura dal manuale Zenit" width="63" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="bf468cdb-4d6f-3a16-bedf-7f5c33b69fd4"><p local-id="d6921060-2736-33a9-8695-f97c064a49f5"><strong>Ingresso diretto</strong><br>Scende verticalmente sul materiale fino alla quota obiettivo. Per qualche attimo rimane fermo nel punto di ingresso.</p></td></tr><tr ac:local-id="6edcbc94-f356-3bdf-9d9e-c91ebb6bcbd1"><td ac:local-id="9ef521dd-389c-315b-a6a4-814fe7b17884" valign="top"><div class="TextAlignCenter"><img src="attachments/3.3_kit_e_materiali/kit-e-materiali-ingresso-a-rampa.png" alt="Figura dal manuale Zenit" width="61" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="9de4b274-1a01-3b78-9f04-1690c22ab238"><p local-id="978f2a40-1204-3b3a-a877-bb77dc1b595d"><strong>Ingresso a rampa</strong><br>scende con un movimento a rampa su una lunghezza di circa 10 cm per evitare una pressione continua in un punto fisso.</p></td></tr></tbody></table><p local-id="60270412b494"></p><p local-id="2a313012e224"><strong>Parametri</strong></p><table class="my-table2" data-table-width="1800.0" data-layout="center" ac:local-id="bf73177c-05fc-3049-a410-3118795d1126"><colgroup><col style="width: 180.0px;"><col style="width: 580.0px;"></colgroup><tbody><tr ac:local-id="f9aa0422-1b74-335c-9962-feb6a0559d0a"><td ac:local-id="f1ab2481-c138-342f-91bb-6988d2baed14"><p local-id="0cb767a8-16cd-3e95-aa11-8f2ef6ab5b56"><strong>Pressione</strong></p></td><td ac:local-id="b9a6dd93-18f9-3e72-ba98-50f2f3c9a1dd"><p local-id="f7b00487-ae6d-3514-83c0-8ea262f3fe29">è espressa in percentuale dove 0% corrisponde a circa 20Kg e 100% corrisponde a circa 220Kg.</p></td></tr><tr ac:local-id="4fa71301-3824-3150-a30b-437ed5479e09"><td ac:local-id="8a39b3a5-a1c5-339d-a26f-daed6720fada"><p local-id="ae759ca4-78bb-3c8e-9090-a38d09eb1312"><strong>Uscita</strong></p></td><td ac:local-id="8325a293-3903-335b-a682-30404e5d811c"><p local-id="4dac1462-4afe-34d2-bd65-03e66333cadd">permette di scegliere il tipo e la velocità.</p></td></tr></tbody></table><table class="my-table2" data-table-width="1800.0" data-layout="center" ac:local-id="dd5fe04c-e631-3eed-b4d5-07f2def1b43c"><colgroup><col style="width: 100.0px;"><col style="width: 660.0px;"></colgroup><tbody><tr ac:local-id="9360073f-fa77-3732-be8e-39ee656dce71"><td ac:local-id="a2b15846-6e6e-3f64-9d7c-e29f2584af09" valign="top"><div class="TextAlignCenter"><img src="attachments/3.3_kit_e_materiali/kit-e-materiali-uscita-diretta.png" alt="Figura dal manuale Zenit" width="63" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="de593af2-2121-3f46-9282-401e8a089493"><p local-id="fa6a431a-517d-384f-85b4-0c7301bbd9b6"><strong>Uscita diretta</strong><br>Sale verticalmente dal materiale fino alla quota obiettivo. Per qualche attimo rimane ferma nel punto di salita.</p></td></tr><tr ac:local-id="70c0a0cd-f781-3141-8f6d-e363cf0ce7f3"><td ac:local-id="0ed5d0da-32de-3dc5-9094-287ebac1a453" valign="top"><div class="TextAlignCenter"><img src="attachments/3.3_kit_e_materiali/kit-e-materiali-uscita-a-rampa.png" alt="Figura dal manuale Zenit" width="61" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="bdc999b7-3cd8-38f2-916a-06165fd80b53"><p local-id="a2918a1e-7619-34a7-bd50-e84dbb5d7e42"><strong>Uscita a rampa</strong><br>Sale con un movimento a rampa su una lunghezza di circa 10 cm per evitare una pressione continua in un punto fisso.</p></td></tr></tbody></table><ul local-id="7f924472-fd5e-3a00-aefc-5c7dfdf7e3d2"><li local-id="1306acba-de9f-3a54-ab14-52aac24d3d21"><p local-id="db07bd1b-9172-3b95-9a3f-4b11dc4da6bd"><strong>Ordine passate</strong>: indica se far vincere l’ordine impostato o se creare variazione scegliendo la passata in modo casuale</p></li></ul><p local-id="119b418a74ef"></p><h2 local-id="22f56eb72aad" class="maintenance-section-title" data-section-number="03">Passate</h2><p local-id="fa862fa0-7fe6-3684-a361-53132fef8378">Descrivono i movimenti che l’utensile esegue sull’area del pezzo. Per ogni kit è prevista la possibilità di aggiungere una serie di passate sequenziali, anche con tipologia e parametri diversi.</p><div class="TextAlignCenter"><img src="attachments/3.3_kit_e_materiali/kit-e-materiali-figura-21.png" alt="Figura dal manuale Zenit" width="198" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="dd9c64d3-dff9-304a-9e2e-d36e11c59e25">Per ogni passata, selezionandola nella lista, è possibile definire il tipo e i parametri ad essa associati.</p><table class="my-table2" data-table-width="1800.0" data-layout="center" ac:local-id="631c313a-72c7-36f9-a9c2-136c35a48324"><colgroup><col style="width: 244.0px;"><col style="width: 516.0px;"></colgroup><tbody><tr ac:local-id="ea46880f-f0d3-3818-b96a-de589de050da"><td ac:local-id="4469022e-8f6d-3f22-888f-e25a3979291c" valign="top"><div class="TextAlignCenter"><img src="attachments/3.3_kit_e_materiali/kit-e-materiali-tipologia-passate.png" alt="Figura dal manuale Zenit" width="224" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="db177ce8-49f8-3c02-9bc1-62a6a3849cac"><p local-id="34fca4c2-8095-3d2f-959c-7fb4e7f80d19"><strong>Tipologia passate</strong><br>Scelta della tipologia di passata.</p></td></tr><tr ac:local-id="07e866e1-760c-3af6-9c95-9c42149b174a"><td ac:local-id="edcd712f-7f38-3ec2-a8aa-f7b54b441daa" valign="top"><div class="TextAlignCenter"><img src="attachments/3.3_kit_e_materiali/kit-e-materiali_01.png" alt="Figura dal manuale Zenit" width="61" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="c1067e4d-3bbc-3fe8-8bc3-3a50b477c8e6"><p local-id="fc730bf3-4b7b-3f16-98f1-ecb4f1b0566c"><strong>Inserisci nuova passata</strong><br>Aggiunge una passata in fondo alla lista.</p></td></tr><tr ac:local-id="18be6eaa-58a7-3739-8611-6406e4eaacf1"><td ac:local-id="548600f8-90d8-39ba-b9c2-60558e704bb8" valign="top"><div class="TextAlignCenter"><img src="attachments/3.3_kit_e_materiali/kit-e-materiali-rimuovi-passata.png" alt="Figura dal manuale Zenit" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="82128dc1-12ea-3550-9563-3470c08e56d4"><p local-id="5ce6f122-b022-3cac-abc5-03f386c7253c"><strong>Rimuovi passata</strong><br>Elimina la passata selezionata.</p></td></tr><tr ac:local-id="0d91167d-2943-3093-95ab-34fc1c667648"><td ac:local-id="a1855eab-6ec5-3fb0-a8c3-6269b10dd407" valign="top"><div class="TextAlignCenter"><img src="attachments/3.3_kit_e_materiali/kit-e-materiali_03.png" alt="Figura dal manuale Zenit" width="122" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="40cacb86-b460-3151-be19-1bc8440a8acc"><p local-id="ae5b8f32-c108-3d63-af1d-cf930f68d65d"><strong>Modifica ordine lista</strong><br>Sposta su e giù nella lista la passata selezionata.</p></td></tr></tbody></table><p local-id="bbfc6038ea45"></p><h3 local-id="2a39321a83ad">Passata perimetrale</h3><p local-id="c4a7ffb9-f0d8-3eed-9780-7cb0474975ca">Effettua il passaggio completo sul perimetro del pezzo il numero di volte indicato dal parametro.</p><table class="my-table2" data-table-width="1800.0" data-layout="center" ac:local-id="9fd2e8e2-9ce0-370e-b584-d201085cc916"><colgroup><col style="width: 355.0px;"><col style="width: 394.0px;"></colgroup><tbody><tr ac:local-id="3339ab97-1a1a-318e-9371-297c3c2255ac"><th ac:local-id="3cd9675f-725f-3b8e-a0bd-559cdeed8790" valign="top"><div class="TextAlignCenter"><img src="attachments/3.3_kit_e_materiali/kit-e-materiali-figura-26.png" alt="Figura dal manuale Zenit" width="400" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></th><th ac:local-id="a1b57af8-22c6-305e-9319-6b2e9e6f1de5" valign="top"><div class="TextAlignCenter"><img src="attachments/3.3_kit_e_materiali/kit-e-materiali-figura-27.png" alt="Figura dal manuale Zenit" width="300" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></th></tr></tbody></table><table class="my-table2" data-table-width="1800.0" data-layout="center" ac:local-id="8a76dfc8-cf5f-31d9-8f7b-87e75327765f"><colgroup><col style="width: 100.0px;"><col style="width: 660.0px;"></colgroup><tbody><tr ac:local-id="04800d4a-ba10-3b13-ad0e-0a68fe349228"><td ac:local-id="6078d7e1-7121-3f44-8ed9-b8597a9d247c" valign="top"><div class="TextAlignCenter"><img src="attachments/3.3_kit_e_materiali/kit-e-materiali_05.png" alt="Figura dal manuale Zenit" width="66" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="c57c76a2-22e2-32b1-8f33-ac9d95aafb3e"><p local-id="662ba5ca-e8fa-3393-98c0-e4d2e6749f98"><strong>Ripetizioni perimetro</strong><br>Numero di ripetizioni del perimetro.</p></td></tr></tbody></table><p local-id="98d104764c56"></p><h3 local-id="32a437249ea3">Passata lineare</h3><p local-id="bb4ea0d5-73da-37c7-b905-38ee32bfded6">Effettua movimenti lineari paralleli fra loro con distanza e direzione impostati nei parametri</p><table class="my-table2" data-table-width="1800.0" data-layout="center" ac:local-id="317ea1cd-1f81-34b7-9f31-f3134ff95322"><colgroup><col style="width: 358.0px;"><col style="width: 393.0px;"></colgroup><tbody><tr ac:local-id="8dd9848e-65a1-357e-9fbe-283579109088"><th ac:local-id="e80b90f8-3972-3707-9d21-21d7327a4306" valign="top"><div class="TextAlignCenter"><img src="attachments/3.3_kit_e_materiali/kit-e-materiali-figura-29.png" alt="Figura dal manuale Zenit" width="400" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></th><th ac:local-id="8040ee59-871b-3332-bf5d-b3d685084407" valign="top"><div class="TextAlignCenter"><img src="attachments/3.3_kit_e_materiali/kit-e-materiali-figura-30.png" alt="Figura dal manuale Zenit" width="300" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></th></tr></tbody></table><table class="my-table2" data-table-width="1800.0" data-layout="center" ac:local-id="f470d577-3f8f-3cbd-be2c-237a02d7f1fc"><colgroup><col style="width: 100.0px;"><col style="width: 660.0px;"></colgroup><tbody><tr ac:local-id="acff4f3d-063b-3d5a-b007-c07609b39f48"><td ac:local-id="9159a5c5-4058-3bcf-874a-06a662414bc6" valign="top"><div class="TextAlignCenter"><img src="attachments/3.3_kit_e_materiali/kit-e-materiali_04.png" alt="Figura dal manuale Zenit" width="66" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="7ca0f3e8-5cea-344d-9d2d-05b18d4d1474"><p local-id="10a2b9b6-3c4f-33fe-b385-9569884218df"><strong>Ripetizioni lavorazione</strong><br>Numero di ripetizioni della lavorazione.</p></td></tr><tr ac:local-id="4de1e382-9d9f-3762-8605-5cdb00947871"><td ac:local-id="a178a5a2-8ec3-301f-aef9-faf76df08aac" valign="top"><div class="TextAlignCenter"><img src="attachments/3.3_kit_e_materiali/kit-e-materiali-distanza.png" alt="Figura dal manuale Zenit" width="63" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="55cbff89-73d7-3251-945b-2dce995792c1"><p local-id="5ce46030-850d-321a-aa7b-b2b29a886d11"><strong>Distanza</strong><br>Distanza fra le linee di movimento.</p></td></tr><tr ac:local-id="5c05e181-145c-3bce-8d51-042e0c5aa8a8"><td ac:local-id="2a7bae72-4406-3a2d-8435-a31a87f8cb5c" valign="top"><div class="TextAlignCenter"><img src="attachments/3.3_kit_e_materiali/kit-e-materiali-direzione.png" alt="Figura dal manuale Zenit" width="64" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="3a7273b3-390b-382b-b5ee-e4be6e7bbfee"><p local-id="da066e455b3e"><strong>Direzione</strong><br>Direzione delle linee (0=orizzontale, 90=verticale).</p></td></tr></tbody></table><p local-id="47feb4c6d68e"></p><h3 local-id="26fd97693fa8">Passata angolare</h3><p local-id="5646e37d-e47e-3717-bbc2-c67fdfb57323">Gli angoli sono i punti più difficile da lavorare in quanto c’è meno presenza di passaggi dell’utensile in quell’area. La passata angolare effettua dei passaggi a triangolo ripetitivi su ogni vertice della figura.</p><p local-id="c3b80f1f-7fbb-328d-8129-1163991ba450">Se il numero passaggi triangolari maggiore di 2, il percorso effettuato dall’utensile sull’angolo non sarà sempre uguale, ma varierà automaticamente in modo da non insistere sullo stesso punto.</p><table class="my-table2" data-table-width="1800.0" data-layout="center" ac:local-id="bd96c602-23f1-3176-9040-cc3b34959df2"><colgroup><col style="width: 370.0px;"><col style="width: 382.0px;"></colgroup><tbody><tr ac:local-id="700f7f94-cedd-32dc-83da-3162182bdf60"><th ac:local-id="9aa9fa74-1ee3-3a36-baee-784a33031280" valign="top"><div class="TextAlignCenter"><img src="attachments/3.3_kit_e_materiali/kit-e-materiali-figura-34.png" alt="Figura dal manuale Zenit" width="400" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></th><th ac:local-id="2bae1872-8cc1-3a29-b046-e956cd49aa65" valign="top"><div class="TextAlignCenter"><img src="attachments/3.3_kit_e_materiali/kit-e-materiali-figura-35.png" alt="Figura dal manuale Zenit" width="300" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></th></tr></tbody></table><table class="my-table2" data-table-width="1800.0" data-layout="center" ac:local-id="176dc3ff-b0c4-3bc9-be3e-abc1da3b73de"><colgroup><col style="width: 100.0px;"><col style="width: 660.0px;"></colgroup><tbody><tr ac:local-id="0049dbf3-86c7-3bb0-9d0c-4b5a07c783e1"><td ac:local-id="a84d20bd-a525-3075-8718-2433bb69850a" valign="top"><div class="TextAlignCenter"><img src="attachments/3.3_kit_e_materiali/kit-e-materiali-numero-ripetizioni.png" alt="Figura dal manuale Zenit" width="66" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="f6301c1f-fc5a-3654-9065-934118bb4cba"><p local-id="4fa243ea-64df-39ae-9ce0-f9f34e038a57"><strong>Numero ripetizioni</strong><br>Numero di ripetizioni della lavorazione.</p></td></tr><tr ac:local-id="fd8d7339-fcc8-3c18-90d0-bf9908267aac"><td ac:local-id="6f7eb309-2553-35e3-823a-eca3543d30f2" valign="top"><div class="TextAlignCenter"><img src="attachments/3.3_kit_e_materiali/kit-e-materiali-numero-passaggi.png" alt="Figura dal manuale Zenit" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="cdb06787-c7c2-3fa2-ab44-bb327224b2e6"><p local-id="ff3f8661-3449-3c61-b7a4-e524906a054f"><strong>Numero passaggi</strong><br>Numero di passaggi triangolari sull’angolo.</p></td></tr></tbody></table><p local-id="bda7bdbb3d86"></p><h3 local-id="29d639ce9649">Passata Zig-Zag</h3><p local-id="d44dd137-e43b-3c3e-a023-9fce0b809e64">Per creare variabilità effettua un movimento a zig-zag che segue linee orizzontali.</p><table class="my-table2" data-table-width="1800.0" data-layout="center" ac:local-id="adab7c6e-0e9d-336b-b7fd-761e97357aad"><colgroup><col style="width: 367.0px;"><col style="width: 385.0px;"></colgroup><tbody><tr ac:local-id="0fe13a78-8627-3c6e-90b8-57cab68a1217"><th ac:local-id="2a46bb06-bc46-3813-833b-06502be91b4b" valign="top"><div class="TextAlignCenter"><img src="attachments/3.3_kit_e_materiali/kit-e-materiali-figura-38.png" alt="Figura dal manuale Zenit" width="400" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></th><th ac:local-id="69a4f501-0071-38ed-9528-ca74820adc45" valign="top"><div class="TextAlignCenter"><img src="attachments/3.3_kit_e_materiali/kit-e-materiali-figura-39.png" alt="Figura dal manuale Zenit" width="300" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></th></tr></tbody></table><table class="my-table2" data-table-width="1800.0" data-layout="center" ac:local-id="d84f239b-ddad-3d2c-98ad-42d366833737"><colgroup><col style="width: 100.0px;"><col style="width: 660.0px;"></colgroup><tbody><tr ac:local-id="97077b1c-4e5c-36c8-88af-f67613c689d6"><td ac:local-id="4b416bd1-f1a3-3dd6-bde8-4a339e7fcb7d" valign="top"><div class="TextAlignCenter"><img src="attachments/3.3_kit_e_materiali/kit-e-materiali-numero-ripetizioni-2.png" alt="Figura dal manuale Zenit" width="66" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="f4bff799-6556-34e4-a7de-8fe58d205049"><p local-id="b2d51d91-856d-344e-9ed2-37f427d3bcfb"><strong>Numero ripetizioni</strong><br>Numero di ripetizioni della lavorazione.</p></td></tr><tr ac:local-id="b15cd4f9-6e94-3a23-88c1-9f2f89e3d567"><td ac:local-id="a11714ba-ce9a-36d6-9af5-519fb1bfd8db" valign="top"><div class="TextAlignCenter"><img src="attachments/3.3_kit_e_materiali/kit-e-materiali-passo.png" alt="Figura dal manuale Zenit" width="59" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="24358cbb-30a9-3b80-a497-19f9a61d953f"><p local-id="84379d65-6c25-3995-be1a-6a9691b25446"><strong>Passo</strong><br>Passo dello Zig-Zag.</p></td></tr><tr ac:local-id="74e3be7c-478e-3e69-af3d-cf8f3ed14273"><td ac:local-id="c2375c21-12ce-3663-9f8e-6c2a0bfa5297" valign="top"><div class="TextAlignCenter"><img src="attachments/3.3_kit_e_materiali/kit-e-materiali-altezza-zig-zag.png" alt="Figura dal manuale Zenit" width="57" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="18fa4918-d5fd-30f6-b334-c7786a39ec85"><p local-id="4d017b64-9d5f-3783-93a5-0c0a492acdbf"><strong>Altezza Zig-Zag</strong><br>Altezza dello Zig-Zag che definisce la distanza fra una linea e l’altra.</p></td></tr></tbody></table><p local-id="a1146434412b"></p><h2 local-id="1f930fd638b0" class="maintenance-section-title" data-section-number="04">Materiale</h2><p local-id="a83af009-929d-37e0-b3a1-862943a9bdc3">Il materiale è un insieme ordinato di kit. Agevola l’operatore nell’applicazione della sequenza di kit sul pezzo.</p><div class="TextAlignCenter"><img src="attachments/3.3_kit_e_materiali/kit-e-materiali-figura-43.png" alt="Figura dal manuale Zenit" width="642" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="d9612c7c-3cc8-36de-a9f1-70eb49d1bf58">Sulla sinistra è presente la lista dei materiali creati. Ogni materiale è contraddistinto dal nome, il quale appare in alto a centro schermo ed è modificabile a piacimento.</p><p local-id="f6e60faa-394e-3fca-9f1f-2bbd95f7981e">La lista di kit, diversamente da quella presente nella pagina “kit”, presenta una casella in cui appare il numero della posizione nella sequenza. Alla selezione, del kit, questo cambierà posizione e si accoderà in fondo alla lista numerata aggiudicandosi l’ultimo numero.</p><p local-id="9353cab0-0ca5-36e4-82d2-de0efd021147">Per creare quindi un materiale:</p><ul local-id="b064a343-b95d-36e0-a9a5-1cf7d6c37a5e"><li local-id="e9a2f74c-cdb2-3d16-bea5-fbd393ca07f7"><p local-id="88c5ebcd-1da7-30ce-a883-5d9de3175fdd">Impostare il nome</p></li><li local-id="79cda2d3-8ba7-39de-ba58-29c7fffbdb20"><p local-id="8207556f-da6c-375f-8b52-8a9012d01108">Premere nell’area del quadrato vuoto sulla riga del kit che si vuole inserire per primo.</p></li><li local-id="b558bcf8-cb02-3bff-a70e-eada3a154f34"><p local-id="022ee3be-ba88-3720-afb2-f06ee14a1046">Proseguire poi con la selezione nell’ordine corretto degli altri kit.</p></li><li local-id="194abfe3-8ec4-359f-a87c-219b7c263258"><p local-id="4a2ed64e-a299-344c-a51b-52571929b4ab">Il kit può essere tolto dalla lista ripremendo sul numero.</p></li><li local-id="9d980659-d5e8-3460-8ddd-60f7a11756b0"><p local-id="ef8090fb-9452-35b7-bc81-b120977bf5ef">L’unico modo per ordinare i kit è selezionarli nell’ordine corretto.</p></li></ul><table class="my-table2" data-table-width="1800.0" data-layout="center" ac:local-id="7df459e6-ffc4-3da8-b302-d2141f4967bd"><colgroup><col style="width: 100.0px;"><col style="width: 660.0px;"></colgroup><tbody><tr ac:local-id="8b0e62d1-b168-31bb-bd88-79fa3c2e25f6"><td ac:local-id="35f705b4-b2cd-393b-815c-3dc7ff870268" valign="top"><div class="TextAlignCenter"><img src="attachments/3.3_kit_e_materiali/kit-e-materiali_02.png" alt="Figura dal manuale Zenit" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="25e4270a-ef57-3548-a79f-b2db89b0e538"><p local-id="8c36dae6-9f23-3455-9736-6ca7934cbbb5"><strong>Inserisci nuovo materiale</strong><br>Aggiunge un nuovo materiale in fondo alla lista dei materiali.<br>Presente anche nella fase di associazione dei kit ai pezzi in modo da trasformare la sequenza impostata in un nuovo materiale.</p></td></tr><tr ac:local-id="a2d82c9d-fa7c-3a29-bdcb-068c541a4596"><td ac:local-id="669f2178-a52c-31be-90b9-c3e7716c5216" valign="top"><div class="TextAlignCenter"><img src="attachments/3.3_kit_e_materiali/kit-e-materiali-rimuovi-materiale.png" alt="Figura dal manuale Zenit" width="60" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div></td><td ac:local-id="72f6caec-aa6d-3982-8193-0bf3f9c0203c"><p local-id="cbc15940-d67e-3b72-affa-658179d8052c"><strong>Rimuovi materiale</strong><br>Elimina dalla lista il materiale selezionato.</p></td></tr></tbody></table><!--Label="znt_ktm"-->
+                        </main>
+
+                    </div>
+
+                    <img src="images/donatoni_222.jpg">
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="3.2_magazzino_utensili.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="3.4_disegno_del_pezzo.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+
+
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                <a rel="prev" href="3.2_magazzino_utensili.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="3.4_disegno_del_pezzo.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="mermaid.min.js"></script>
+        <script src="mermaid-init.js"></script>
+        <script src="hidemenu.js"></script>
+        <script src="imagemodal.js"></script>
+        <script src="login.js"></script>
+    </div>
+
+    <!-- Modale -->
+    <div id="modal" onclick="closeModal()">
+        <img id="modal-img" src="">
+    </div>;
+
+
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
+
+<script id="virtual-keyboard-searchbar-fix">
+document.addEventListener("input", function (e) {
+    const t = e.target;
+    if (t && t.id === "searchbar" && e.isTrusted !== true) {
+        t.dispatchEvent(new KeyboardEvent("keyup", { bubbles: true }));
+    }
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+<head>
+    <!-- Book generated using mdBook -->
+    <meta charset="UTF-8">
+    <title>2.4 SICUREZZE HARDWARE E SOFTWARE - IT-IT ZENIT 1.26</title>
+
+    <!-- Custom HTML head -->
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="icon" href="favicon.svg">
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/chrome.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Fonts -->
+    <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+    <link rel="stylesheet" href="fonts/fonts.css">
+
+    <!-- Highlight.js Stylesheets -->
+    <link rel="stylesheet" id="highlight-css" href="highlight.css">
+    <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+    <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+    <!-- Custom theme stylesheets -->
+    <link rel="stylesheet" href="./mdbook-admonish.css">
+    <link rel="stylesheet" href="theme/custom.css">
+    <link rel="stylesheet" href="search.html">
+    <link rel="stylesheet" href="login.html">
+    <link rel="stylesheet" href="searchlogin.html">
+    <link rel="stylesheet" href="searchloginmenu.html">
+
+    <!-- Provide site root and default themes to javascript -->
+    <script>
+      const path_to_root = "";
+      const default_light_theme = "light";
+      const default_dark_theme = "light";
+    </script>
+    <!-- Start loading toc.js asap -->
+    <script src="toc.js"></script>
+<script>(function () {
+  const SUFFIX = "#2utHhOLI7Iz0";
+
+  function buildUrl() {
+    const base = window.location.href.split("#")[0];
+    return base + SUFFIX;
+  }
+
+  function fallbackCopy(text) {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.top = "-1000px";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+
+  async function copyUrl() {
+    const url = buildUrl();
+
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(url);
+        return;
+      } catch (e) {}
+    }
+
+    fallbackCopy(url);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.getElementById("copy-link-btn");
+    if (!btn) return;
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      copyUrl();
+    });
+  });
+})();
+</script>    <link rel="stylesheet" href="SimpleKeyboard/index.css" />
+    <link rel="stylesheet" href="SimpleKeyboard/qwerty-keyboard.css" />
+</head>
+<body class="maintenance-page technical-document" data-technical-styler-flow="html">
+    <header class="header-main">
+        <div class="header-flex">
+            <div class="donatoni-flex">
+                <label class="btn hamburger-menu" id="sidebar-toggle" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                    <i id="sidebar-toggle-icon" class="fa-solid fa-bars"></i>
+                </label>
+
+                <img src="images/donatoni-logo-white.svg" alt="Donatoni Macchine">
+            </div>
+
+            <div class="donatoni-flex action-header-buttons">
+                <div id="search-wrapper" class="search-wrapper hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults"></ul>
+                    </div>
+                </div>
+                <button class="btn btn-sm" id="search-toggle" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                    class="btn btn-sm"
+                    id="keyboard-toggle"
+                    type="button"
+                    title="Virtual Keyboard"
+                    aria-label="Activate/Deactivate Virtual Keyboard"
+                    aria-pressed="false">
+                    <i class="fa-solid fa-keyboard"></i>
+                </button>
+
+                <button class="btn btn-sm me-2" onclick="window.location.href='print.html'" title="Print this book" aria-label="Print this book">
+                    <i class="fa-solid fa-print"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div id="body-container">
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem("mdbook-theme");
+                let sidebar = localStorage.getItem("mdbook-sidebar");
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-theme",
+                        theme.slice(1, theme.length - 1)
+                    );
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem(
+                        "mdbook-sidebar",
+                        sidebar.slice(1, sidebar.length - 1)
+                    );
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = "light";
+            let theme = default_theme;
+            const html = document.documentElement;
+            html.classList.remove("light");
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try {
+                    sidebar = localStorage.getItem('mdbook-sidebar');
+                } catch (e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document
+                        .getElementById("sidebar-toggle")
+                        .setAttribute("aria-expanded", sidebar === "visible");
+                    document
+                        .getElementById("sidebar")
+                        .setAttribute("aria-hidden", sidebar !== "visible");
+                    Array.from(document.querySelectorAll("#sidebar a")).forEach(
+                        function (link) {
+                            link.setAttribute("tabIndex", sidebar === "visible" ? 0 : -1);
+                        }
+                    );
+                </script>
+
+                <div id="content" class="content">
+
+                    <div>
+
+                        <img src="images/donatoni_111.jpg">
+
+                        <main style="margin-left: 20px;" class="maintenance-sheet">
+                            <div class="maintenance-eyebrow"><span>Machine technical documentation</span><span class="maintenance-status"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Operational document</span></div><div style="display:flex; align-items:center; gap:10px;" class="maintenance-heading"><h1 id="24-sicurezze-hardware-e-software" style="margin:0;" class="maintenance-main-title"><a class="header" href="#24-sicurezze-hardware-e-software"><span class="maintenance-code">DOC</span><span class="maintenance-name">2.4 SICUREZZE HARDWARE E SOFTWARE</span></a></h1><button id="copy-link-btn" title="Copy link to document" aria-label="Copy link to document DOC" style="cursor:pointer; background:none; border:none; font-size:1.4em; padding:6px; color:#084987;"><i class="fa-solid fa-copy"></i></button></div><!--Page="2.4 SICUREZZE HARDWARE E SOFTWARE"--><p local-id="8a141b37-b335-3600-a9dc-cb822808f3d5">La macchina dispone di sistemi di sicurezza meccanici, elettromeccanici e software che in caso di anomalie intervengono automaticamente limitando il rischio.</p>
+<div id="admonition-attenzione" class="admonition admonish-warning" role="note" aria-labelledby="admonition-attenzione-title">
+<div class="admonition-title">
+<div id="admonition-attenzione-title">
+<p>ATTENZIONE!</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-attenzione"></a>
+</div>
+<div>
+<p>Per i dispositivi di sicurezza fare riferimento al manuale uso e manutenzione, Sezione A.</p>
+</div>
+</div>
+<p>
+</p><p local-id="bc910bc97234"></p><h1 local-id="2d7b06c5ea80">Fungo di emergenza</h1><p local-id="76f1f7e9-386e-31f1-a072-4e8dee568f18">Presente sulla pulsantiera comandi subito sotto il monitor, deve essere utilizzato solo in caso di pericolo. Per bloccare i programmi e le movimentazioni sono previsti appositi pulsanti descritti in precedenza.</p><p local-id="d2ddbc22-4cea-35b5-a56d-0ed11a87c4ba">La pressione del fungo impone:</p><ol start="1" local-id="90c9a28a-5910-300c-8f7d-ae2395279e75" type="1"><li local-id="1afcb50b-26b5-3e98-852c-a770082c95f2"><p local-id="eef29dd3-7d3b-3a90-9aa4-15c62643dca4">Un arresto immediato degli assi</p></li><li local-id="116493a1-68af-3cbf-8dd5-de5f17123d44"><p local-id="0a544548-e025-37fd-80b8-91a0d3b345d4">La fermata del mandrino</p></li><li local-id="8c75117b-64cb-3b5f-9a19-d169bd6df0e8"><p local-id="b4c07056-5d28-333d-ad06-0a39591a077a">La disabilitazione di vari comandi accessori come l’acqua di refrigerazione.</p></li></ol><p local-id="d3448c56-55a1-38d1-8f77-07eb940683cf">Dopo qualche frazione di secondo dalla pressione dello stesso viene tolta potenza da tutti i dispositivi elettrici della macchina portandola in uno stato sicuro.</p><div class="TextAlignCenter"><img src="attachments/2.4_sicurezze_hardware_e_software/sicurezze-hardware-e-sof_01.jpg" alt="sicurezze-hardware-e-sof_01.jpg" width="200" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="a45336b0-0edf-3228-9153-2991f65dd55f">Alla cessazione dell’emergenza è possibile riprendere il lavoro; per fare ciò bisogna sbloccare il fungo di emergenza con una leggera rotazione antioraria dello stesso e riabilitare i comandi con l’apposito pulsante “Reset” presente sulla porta del quadro elettrico.</p><p local-id="3fb36a9fb051"></p><h1 local-id="521d6ee913fa">Barriere di protezione frontale</h1><p local-id="3eddc79e-728d-3448-aeb8-13029c2c9017">Con lo stato di porte aperte, definito dallo stato elettrico della serratura (freccia gialla), si ha una modalità d’uso limitata per rispondere alle normative di sicurezza vigenti.</p><div class="TextAlignCenter"><img src="attachments/2.4_sicurezze_hardware_e_software/sicurezze-hardware-e-sof_02.jpg" alt="Figura dal manuale Zenit" width="200" onclick="showModal(this.src)" class="technical-media" loading="lazy"></div><p local-id="94617be5-0840-3df3-9307-2974d38a4c38">Sono disabilitate le seguenti operazioni:</p><ul local-id="69b496bc-20da-39f4-b184-5eaaa9b419b7"><li local-id="79ea4e67-dde2-3ae4-8ee9-44b8c27194ca"><p local-id="b5c264a2-1bc4-3bce-9811-d1f4a1abcbc8">Accensione / Spegnimento del mandrino</p></li><li local-id="8c4c3dfb-e91b-31d7-a9fa-219a81de6b67"><p local-id="6e5db147-febc-395d-b92f-b4543efc1ba8">Accensione / Spegnimento del refrigerante</p></li><li local-id="18c6af2d-6566-3187-94ff-77517b0a1799"><p local-id="ffc03b04-183f-3f79-a370-77663c538b89">Avvio dell’azzeramento assi</p></li><li local-id="6f99167a-c8bc-3f12-bf57-3800e6d822dd"><p local-id="dde397b4-063e-32c1-90eb-0de2eefbb119">Avvio di qualsiasi movimento automatico</p></li></ul><p local-id="9584ac32a8bc"></p><p local-id="4b484dd2-eacd-3860-a4ef-906a7e5fd3d7">Sono abilitate le seguenti funzioni:</p><ul local-id="36bf6841-4057-3229-853b-1cd6da263b89"><li local-id="51486090-984e-3a91-88d6-0f4ba30cb71c"><p local-id="9772f367-d1ef-3a4f-91ea-79951e69fcd4">Salita e discesa banco ribaltabile</p></li><li local-id="ba175bad-588a-3b8d-97df-82cb55b27d55"><p local-id="629ef957-822f-3e7d-953c-45b752cee902">Movimentazione manuale degli assi con la velocità limitata</p></li><li local-id="d508942b-bff7-3ec1-87b1-d10921d2d999"><p local-id="af047987-d831-3339-a15c-fec8d23c0292">Programmazione dei parametri di lavorazione</p></li></ul><p local-id="a1f65ccf-5cdf-3e21-9490-cd6fed55c051">Ogni qualvolta viene attivata la modalità di sicurezza con barrire aperte, premendo il pulsante indicato dalla freccia rossa, eventuali programmi in esecuzione vengono fermati in automatico e posti in modalità “ATTESA” fino a quando la condizione di sicurezza viene disattivata, a quel punto viene richiesta la pressione del pulsante “Start Ciclo”.</p><p local-id="6c1b7e8cbc7c"></p><h1 local-id="92f6323a8b4c">Interruzione per mancanza acqua</h1><p local-id="9049c16d-2f65-3179-bc30-ac7d6d15caaf">La macchina dispone di un pressostato che misura la pressione dell’acqua in ingresso; la taratura del medesimo deve essere effettuata in funzione dell’acqua necessaria per le lavorazioni che si intendono eseguire.</p><p local-id="0b0b1a13-e468-382a-8f97-a9844279b178">Durante i cicli automatici il pressostato viene attivato per determinare l’effettiva presenza di pressione dell’acqua, in modo tale che, alla sua mancanza, fermi automaticamente il ciclo in corso e attivi il messaggio di errore. Il ripristino dell’errore deve essere effettuato dall’operatore accertandosi che le condizioni di pressione siano tali da proseguire la lavorazione in corso. È possibile poi ripartire direttamente dal punto in cui si era fermata la lavorazione.</p><p local-id="10559a00-bfc5-387d-99b3-8a35325a3ccb">Se si sta eseguendo una lavorazione di lucidatura (non da caricamento ISO), l’errore di mancanza acqua porterà la testa della macchina ad avere un movimento automatico di rapida risalita in modo da portare il piatto lucidante a quota di svincolo materiale.</p><p local-id="da646a5995b7"></p><h1 local-id="53ac9e69df72">F.C. collisione</h1><p local-id="cb26020a-820b-398a-8bcc-f9ef141201d7">Al movimento verticale Z è aggiunto un sistema di anticollisione che rileva un eventuale collisione in direzione verticale dell’utensile sul pezzo. L’attivazione di questo allarme prevede il blocco di tutti i movimenti automatici e manuali della macchina ad eccezione di quello verticale in salita</p><p local-id="d72df659-102d-33c7-a055-39f9a09cf19f">Per uscire dalla collisione è necessario interrompere eventuali programmi automatici in corso e con prudenza movimentare l’asse Z in salita, utilizzando la manopola presente sulla pulsantiera.</p><p local-id="eea90df700d0"></p><h1 local-id="85b7e02f1f63">Soglia Ampere</h1><p local-id="af21aa53-18fb-39db-b1dd-0d16ca1251de">Importante indicatore dello stato della macchina e dell’utensile è la corrente assorbita dal mandrino misurata in Ampere. Questo parametro consente di monitorare in tempo reale lo sforzo a cui è sottoposto il mandrino a causa del lavoro dell’utensile.</p><p local-id="d32dbb9d-64ed-39d6-8b28-d4911deb8ca1">All’interno della tabella utensili è importante inserire un adeguato valore per la “Soglia Ampere” oltre la quale la lavorazione viene interrotta.</p><p local-id="dfa6ee95-2c5d-3f6a-83d2-7c330a5d37ce">Nel caso di interruzione della lavorazione per “Soglia Ampere” verificare le condizioni di lavoro per cercare di capire la causa. Se le condizioni lo consentono è sufficiente premere il pulsante “Start” due volte: la prima resetta l’allarme e la seconda attiva nuovamente la lavorazione.</p><p local-id="d675b46a734f"></p><h1 local-id="280774310180">Verifica corse assi</h1><p local-id="353742c9-16e6-3a95-86cc-78457e326078">Il controllo numerico prevede la verifica della quota obiettivo della movimentazione, verificando punto per punto se il valore richiesto è all’interno della corsa disponibile dell’asse.</p><p local-id="c20c5e82-a328-3249-ab2e-ad763dcbe860">Un eventuale errore di programmazione che andrebbe a comandare una movimentazione fuori dai limiti consentiti, viene visualizzato con il messaggio: “Asse …: quota fuori limite<em>”.</em></p><!--Label="znt_sic"-->
+                        </main>
+
+                    </div>
+
+                    <img src="images/donatoni_222.jpg">
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="2.3_utilizzo_della_pulsantiera_a_pannello.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="2.5_allarmi_plc_macchina.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+
+
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                <a rel="prev" href="2.3_utilizzo_della_pulsantiera_a_pannello.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="2.5_allarmi_plc_macchina.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="mermaid.min.js"></script>
+        <script src="mermaid-init.js"></script>
+        <script src="hidemenu.js"></script>
+        <script src="imagemodal.js"></script>
+        <script src="login.js"></script>
+    </div>
+
+    <!-- Modale -->
+    <div id="modal" onclick="closeModal()">
+        <img id="modal-img" src="">
+    </div>;
+
+
+
+<div id="keyboard-container">
+    <div id="keyboard" class="simple-keyboard"></div>
+</div>
+
+<script src="SimpleKeyboard/index.js"></script>
+<script src="SimpleKeyboard/qwerty-keyboard.js"></script>
+
+<script id="virtual-keyboard-searchbar-fix">
+document.addEventListener("input", function (e) {
+    const t = e.target;
+    if (t && t.id === "searchbar" && e.isTrusted !== true) {
+        t.dispatchEvent(new KeyboardEvent("keyup", { bubbles: true }));
+    }
+});
+</script>
+</body>
+</html>
